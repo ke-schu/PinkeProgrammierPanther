@@ -4,12 +4,19 @@ Implementierung des Spiels DungeonTop als Gruppenarbeit
 Entwicklungsarbeit Programmieren II
 Hochschule Bremen, Fakultät 4
 
-# Aufgabenstellung
+## Aufgabenstellung
 Sie sollen die Mechanik des Spiels Dungeon Top in Java und JavaFX nach den unten
 genannten Anforderungen implementieren und visualisieren, dabei sollen Sie kreativ sein
 und Teile der Spielmechanik verbessern bzw. meinen Anforderungen anpassen. Beachten
 Sie, dass Sie nur die unten genannten Anforderungen umsetzen müssen und im 2D
 bleiben.
+
+Jede Gruppe bereitet zu jedem Labortag einen DIN A4 Zettel mit Namen, Matrikelnummer
+und erbrachter Wochenleistung der Gruppenmitglieder vor. Jedes Gruppenmitglied
+bestätigt seine Wochenleistung mit der eigenhändigen Unterschrift. Besprechen Sie jede
+Woche ihre Ergebnisse mit mir und stellen Sie Fragen, damit Ihnen meine Anforderungen
+klarer werden. Es besteht für jeden Anwesenheitspflicht.
+
 - Player spielt gegen Dungeon-Master am selben PC oder über Netzwerk. Player
 gewinnt das Spiel, wenn er sieben Bosse aus sieben Levels besiegt hat. DungeonMaster siegt, sobald die Lebenspunkte des Players kleiner oder gleich Null sind.
 Lassen Sie sich Mechaniken einfallen, die das Spiel ausgeglichen gestalten.
@@ -67,7 +74,7 @@ Möglichkeiten, die Balance zu verändern.
 - Setzen Sie Sound geeignet ein und visualisieren Sie die von der spielenden Person
 auszuführenden Aktionen (Selektion, Angriff, Bewegung, usw.) geeignet.
 
-## Teilaufgabe 1:
+## Teilaufgabe 1 (17.05.2022)
 Im ersten Teil des Labors entwerfen und implementieren Sie die Klassen mit ihren
 Attributen und Methoden. Denken Sie an Kapselung, Vererbung, Polymorphismus,
 Assoziationen, Aggregation, Komposition, abstrakte Klassen, Interfaces. Implementieren
@@ -75,7 +82,7 @@ Sie die notwendigen Collections für die Verwaltung der Objekte. Testen Sie Ihre
 mit einem Konsolenprogramm. In diesem Teil will ich keine Grafik, keine Threads und kein
 Netzwerk! Denken Sie schon jetzt daran, die zukünftige GUI von der Funktionalität sauber
 zu trennen. Nehmen Sie sich Zeit über Objektorientierung nachzudenken.
-## Teilaufgabe 2:
+## Teilaufgabe 2 (14.06.2022)
 Jetzt sollen Sie die GUI entwerfen und implementieren. Sie brauchen ein Menü, in dem
 man die einzelnen Funktionen auswählen oder Einstellungen vornehmen kann. Mit Menü
 meine ich ein Menü, wie es in diesem Tutorial vorgestellt wird. Wie Sie Ihre GUI gestalten,
@@ -84,7 +91,7 @@ GUI mit Menü, mindestens 2 Dialogen und mindestens 3 Steuerelementen davon 2
 verschiedene Grundtypen (Buttons, Slider usw.). Sie visualisieren das Spielprinzip
 geeignet, es muss noch nicht vollständig umgesetzt sein. Achten Sie darauf, dass Sie nur
 freie Grafiken und Sounds verwenden oder selbst welche anfertigen.
-## Teilaufgabe 3:
+## Teilaufgabe 3 (15.07.2022)
 Im letzten Teil machen Sie Ihr Spiel mit den oben genanten Anforderungen spielfähig. Es
 soll möglich sein über Netzwerk gegeneinander zu spielen. Die Spielmechanik soll nach
 den Anforderungen vollständig umgesetzt sein.
