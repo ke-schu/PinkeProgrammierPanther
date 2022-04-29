@@ -3,11 +3,11 @@ package model;
 public abstract class Charakterklasse
 {
     private int freischaltgebuehr = -1;
-    private Held anführer = null;
+    private Held anfuehrer = null;
 
     public Charakterklasse(int freischaltgebuehr, Held anführer) {
         this.freischaltgebuehr = freischaltgebuehr;
-        this.anführer = anführer;
+        this.anfuehrer = anfuehrer;
     }
 
     public int getFreischaltgebuehr ()
