@@ -1,23 +1,25 @@
 package utilities;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import model.Charakterklasse;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class MeinInput
 {
-    public <E>Object leseJSON(String pfad, E Element) throws IOException
+    public static Charakterklasse leseJson(String pfad) throws IOException
     {
-        File datei = new File(pfad);
-        String inhalt = Files.readString(Paths.get(datei.toURI()));
+        Path path = Paths.get(pfad);
+        String inhalt = Files.readString(path);
 
         Gson gson = new Gson();
-        JsonObject objekt = gson.fromJson(inhalt, (Type) Element);
+        Charakterklasse klasse = gson.fromJson(inhalt, Charakterklasse.class);
 
-        return objekt;
+        return klasse;
     }
 }
