@@ -1,0 +1,47 @@
+{
+  "Magier":
+  {
+    "preis": 150,
+    "held": "Dumbledore",
+    "kartenblaetter":
+    [
+      {
+        "name": "Gryffindor",
+        "karten": ["Harry", "Ron", "Hermine", "Neville"]
+      },
+      {
+        "name": "Hufflepuff",
+        "karten": ["Newton", "Cedric"]
+      },
+      {
+        "name": "Ravenclaw",
+        "karten": ["Luna", "Marcus", "Gilderoy"]
+      },
+      {
+        "name": "Slytherin",
+        "karten:": ["Draco", "Snape", "Bellatrix", "Lucius"]
+      }
+    ]
+  },
+
+  "Kämpfer":
+  {
+    "preis": 0,
+    "held": "Captain America",
+    "kartenblaetter":
+    [
+      {
+        "name": "Iron Man",
+        "karten": ["Tony Stark", "Phil Coulson", "Rhodey"]
+      },
+      {
+        "name": "Asgard",
+        "karten": ["Thor", "Loki", "Freya", "Odin"]
+      },
+      {
+        "name": "Spider-Man",
+        "karten": ["Peter Parker", "Tante May"]
+      }
+    ]
+  }
+}
