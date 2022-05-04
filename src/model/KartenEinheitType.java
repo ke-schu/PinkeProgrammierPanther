@@ -1,7 +1,5 @@
 package model;
 
-import model.Effekt;
-
 public enum KartenEinheitType
 {
 
@@ -20,7 +18,6 @@ public enum KartenEinheitType
     private int mana;
     private int beweglichkeit;
     private int reichweite;
-
     private Effekt effekt;
 
 

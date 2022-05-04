@@ -16,6 +16,7 @@ public class KartenDeckController
     public static void mischen (KartenDeck deck)
     {
         Collections.shuffle(deck, zufallsGenerator);
+
     }
 
     private static String serialisieren (KartenDeck deck)
