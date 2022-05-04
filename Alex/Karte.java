@@ -1,9 +1,7 @@
 package Alex;
 
-public class Karte
+public abstract class Karte
 {
-    public void ausspielen()
-    {
-
-    }
+    private  String name;
+    private int level;
 }

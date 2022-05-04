@@ -1,16 +1,16 @@
 package Alex;
 
-import static Alex.KartenEinheitType.EricKarte;
+import static Alex.KartenEinheitType.*;
 
 public class Test
 {
     public static void main(String[] args)
     {
         Karte karteeins = new KarteEinheit(EricKarte);
-        Karte kartezwei = new Karte();
-        Karte kartedrei = new Karte();
-        Karte kartevier = new Karte();
-        Karte kartefuenf = new Karte();
+        Karte kartezwei = new KarteEinheit(KennyKarte);
+        Karte kartedrei = new KarteEinheit(KyleKarte);
+        Karte kartevier = new KarteEinheit(KyleKarte);
+        Karte kartefuenf = new KarteEinheit(StanKarte);
 
         Deck meindeck = new Deck();
         Kartenhand meinehand = new Kartenhand();
@@ -32,13 +32,6 @@ public class Test
 
         meinehand.handablegen(meindeck);
         System.out.println("habe meine hand abgelegt jetzt ist mein deck wieder  "+meindeck.size()+" Elemente groß.");
-
-
-
-
-
-
-
 
     }
 }
