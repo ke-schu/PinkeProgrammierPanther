@@ -12,7 +12,7 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        Kartendeck meinDeck = new Kartendeck("Krieger");
+        KartenDeck meinDeck = new KartenDeck("Krieger");
 
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
@@ -20,13 +20,13 @@ public class Main
         meinDeck.add(new KarteEinheit(StanKarte));
 
         //System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
         System.out.println();
-        System.out.println(meinDeck.serialisieren());
+        System.out.println(KartenDeckController.serialisieren(meinDeck));
     }
 }

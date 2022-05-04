@@ -1,17 +1,12 @@
 package model;
 
-import utilities.MeinInput;
-
-import java.io.IOException;
-import java.util.Arrays;
-
 public class Charakterklasse
 {
     private String name;
     private int preis;
     private String held;
     private final int anzahlDecks = 3;
-    private Kartendeck deck[] = new Kartendeck[anzahlDecks];
+    private KartenDeck deck[] = new KartenDeck[anzahlDecks];
 
     public Charakterklasse() {
 
