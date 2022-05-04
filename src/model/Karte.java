@@ -2,6 +2,8 @@ package model;
 
 public abstract class Karte
 {
-    private  String name;
+    private int id = this.hashCode();
+    private String name;
     private int level;
+    private String klassse = this.getClass().getSimpleName();
 }
