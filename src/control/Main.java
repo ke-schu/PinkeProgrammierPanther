@@ -7,6 +7,11 @@ public class Main
 {
     public static void main (String[] args)
     {
+        erstelleDeck();
+    }
+
+    public static void erstelleDeck ()
+    {
         Kartendeck meinDeck = new Kartendeck("Krieger");
 
         meinDeck.add(new KarteEinheit(EricKarte));
