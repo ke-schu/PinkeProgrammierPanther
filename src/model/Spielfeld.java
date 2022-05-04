@@ -1,4 +1,4 @@
-package src.Adrian.model_levelstruktur;
+package model;
 
 import src.Adrian.exceptions.*;
 
