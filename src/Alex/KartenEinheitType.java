@@ -1,14 +1,14 @@
-package Alex;
+package src.Alex;
 
 public enum KartenEinheitType
 {
 
 
 
-    EricKarte("Nahkaempfer", 1, "Eric", 1, 1, 2, 1, 1, new Effekt(EffektTyp.SCHADEN, 3)),
-    KennyKarte("Nahkaempfer", 1, "Kenny", 1, 1, 2, 1, 1,new Effekt(EffektTyp.SCHADEN, 3)),
-    KyleKarte("Fernkaempfer", 1, "Kyle", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3)),
-    StanKarte("Fernkaempfer", 1, "Stan", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3));
+    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, new Effekt(EffektTyp.SCHADEN, 3)),
+    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,new Effekt(EffektTyp.SCHADEN, 3)),
+    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3)),
+    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3));
 
     private final String NAME;
     private int level;

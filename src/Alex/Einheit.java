@@ -1,4 +1,4 @@
-package Alex;
+package src.Alex;
 
 public class Einheit
 {
@@ -9,6 +9,7 @@ public class Einheit
     private int macht;
     private int lebenspunkte;
     private int mana;
+
     private int beweglichkeit;
     private int reichweite;
     private Effekt effekt;

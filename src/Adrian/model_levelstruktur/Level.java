@@ -1,4 +1,4 @@
-package Adrian.model_levelstruktur;
+package src.Adrian.model_levelstruktur;
 
 public class Level
 {

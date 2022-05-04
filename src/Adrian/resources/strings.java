@@ -1,4 +1,4 @@
-package Adrian.resources;
+package src.Adrian.resources;
 public interface strings
 {
 

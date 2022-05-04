@@ -1,6 +1,6 @@
-package Alex;
+package src.Alex;
 
-import static Alex.KartenEinheitType.*;
+import static src.Alex.KartenEinheitType.*;
 
 public class Test
 {

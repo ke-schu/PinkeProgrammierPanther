@@ -1,4 +1,4 @@
-package Alex;
+package src.Alex;
 
 public abstract class Karte
 {
