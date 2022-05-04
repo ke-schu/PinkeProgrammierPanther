@@ -15,7 +15,7 @@ public class KartenEinheitController
 
         switch (effekt.getTyp())
         {
-            case SCHADEN -> EffektController.schadenVerursachen(ziel, effekt.getSchaden());
+            //case SCHADEN -> EffektController.schadenVerursachen(ziel, effekt.getSchaden());
         }
 
     }

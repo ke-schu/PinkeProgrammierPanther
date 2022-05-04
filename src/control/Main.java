@@ -1,30 +1,31 @@
 package control;
 
-import model.Charakterklasse;
-import utilities.MeinInput;
-
-import java.io.IOException;
+import model.Karte;
+import model.Kartendeck;
 
 public class Main
 {
     public static void main (String[] args)
     {
-        erstelleKlasse();
-    }
+        Kartendeck meinDeck = new Kartendeck();
 
-    public static void erstelleKlasse() {
-        Charakterklasse klasse;
-        {
-            try
-            {
-                klasse = MeinInput.leseJson("src//resources//Charaktere.json");
-                System.out.println("Erfolg!");
-                System.out.println(klasse);
-            } catch (IOException e)
-            {
-                System.out.println("Fehler!");
-                System.out.println(e.getMessage());
-            }
-        }
+        meinDeck.add(new Karte("tommy"));
+        meinDeck.add(new Karte("paul"));
+        meinDeck.add(new Karte("lisa"));
+        meinDeck.add(new Karte("lena"));
+        meinDeck.add(new Karte("hermann"));
+        meinDeck.add(new Karte("michael"));
+        meinDeck.add(new Karte("jannes"));
+        meinDeck.add(new Karte("nils"));
+        meinDeck.add(new Karte("dennis"));
+        meinDeck.add(new Karte("pierre"));
+
+        //System.out.println(meinDeck);
+        meinDeck.mischen();
+        System.out.println(meinDeck);
+        meinDeck.mischen();
+        System.out.println(meinDeck);
+        meinDeck.mischen();
+        System.out.println(meinDeck);
     }
 }
