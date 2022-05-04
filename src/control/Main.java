@@ -7,7 +7,7 @@ public class Main
 {
     public static void main (String[] args)
     {
-        Kartendeck meinDeck = new Kartendeck();
+        Kartendeck meinDeck = new Kartendeck("Krieger");
 
         meinDeck.add(new Karte("tommy"));
         meinDeck.add(new Karte("paul"));
@@ -27,5 +27,7 @@ public class Main
         System.out.println(meinDeck);
         meinDeck.mischen();
         System.out.println(meinDeck);
+        System.out.println();
+        System.out.println(meinDeck.serialisieren());
     }
 }
