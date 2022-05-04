@@ -1,6 +1,6 @@
-package src.Adrian.exceptions;
+package exceptions;
 
-import src.Adrian.resources.strings;
+import resources.strings;
 
 public class SpielfeldDimensionGleichNullException extends Exception
 {
