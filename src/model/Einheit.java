@@ -29,6 +29,10 @@ public class Einheit
         this.effekt = karte.gettype().getEffekt();
     }
 
+    public Einheit ()
+    {
+    }
+
     public Einheit erschaffen(KarteEinheit karte, ManaTank reserve)
     {
         if(karte.getKartenMana()<= reserve.getMana())

@@ -71,4 +71,8 @@ public class Spielfeld extends Raeume
         this.spielfeld[x][y] = einheit;
     }
 
+    public Einheit getSpielfeldplatz(int x, int y)
+    {
+        return this.spielfeld[x][y];
+    }
 }
