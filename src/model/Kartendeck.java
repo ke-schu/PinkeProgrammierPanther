@@ -1,21 +1,21 @@
 package model;
 
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
+import src.Alex.Karte;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Stack;
 
-public class Kartendeck extends ArrayList<Karte>
+public class Kartendeck extends Stack<Karte>
 {
-    private String name;
+    private String DeckBezeichnung;
     private Random zufallsGenerator = new Random();
     private Gson meinGson = new Gson();
 
-    public Kartendeck (String name)
+    public Kartendeck (String DeckBezeichnung)
     {
         super();
-        this.name = name;
+        this.DeckBezeichnung = DeckBezeichnung;
     }
 
     public void mischen ()
@@ -39,13 +39,13 @@ public class Kartendeck extends ArrayList<Karte>
         return sb.toString();
     }
 
-    public String getName()
+    public String getDeckBezeichnung()
     {
-        return name;
+        return DeckBezeichnung;
     }
 
-    public void setName(String name)
+    public void setDeckBezeichnung(String deckBezeichnung)
     {
-        this.name = name;
+        this.DeckBezeichnung = deckBezeichnung;
     }
 }

@@ -7,10 +7,11 @@ import java.util.Arrays;
 
 public class Charakterklasse
 {
-    String name;
-    int preis;
-    String held;
-    Deck[] kartenblaetter;
+    private String name;
+    private int preis;
+    private String held;
+    private final int anzahlDecks = 3;
+    private Kartendeck deck[] = new Kartendeck[anzahlDecks];
 
     public Charakterklasse() {
 
@@ -23,7 +24,7 @@ public class Charakterklasse
                 "name='" + name + '\'' +
                 ", preis=" + preis +
                 ", held='" + held + '\'' +
-                ", kartenblaetter=" + Arrays.toString(kartenblaetter) +
+                ", kartenblaetter=" + deck +
                 '}';
     }
 }

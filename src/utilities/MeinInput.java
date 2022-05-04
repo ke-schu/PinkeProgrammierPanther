@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 
 public class MeinInput
 {
-    public static Charakterklasse leseJson(String pfad) throws IOException
+    /*public static Charakterklasse leseJson(String pfad) throws IOException
     {
         Path path = Paths.get(pfad);
         String inhalt = Files.readString(path);
@@ -21,5 +21,6 @@ public class MeinInput
         Charakterklasse klasse = gson.fromJson(inhalt, Charakterklasse.class);
 
         return klasse;
-    }
+    }*/
+
 }
