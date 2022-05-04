@@ -18,7 +18,7 @@ public class Einheit
    public Einheit (KarteEinheit karte)
     {
         this.type = karte.gettype();
-        this.name=karte.getName();
+        this.name=karte.getKartenName();
         this.level = karte.gettype().getLevel();
         this.klasse = karte.gettype().getKlasse();
         this.macht = karte.gettype().getMacht();
@@ -31,7 +31,7 @@ public class Einheit
 
     public Einheit erschaffen(KarteEinheit karte, ManaTank reserve)
     {
-        if(karte.getMana()<= reserve.getMana())
+        if(karte.getKartenMana()<= reserve.getMana())
         {
             return new Einheit(karte);
         }

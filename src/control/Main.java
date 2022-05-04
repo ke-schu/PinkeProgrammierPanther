@@ -1,7 +1,7 @@
 package control;
 
-import model.Karte;
-import model.Kartendeck;
+import model.*;
+import static model.KartenEinheitType.*;
 
 public class Main
 {
@@ -9,16 +9,10 @@ public class Main
     {
         Kartendeck meinDeck = new Kartendeck("Krieger");
 
-        meinDeck.add(new Karte("tommy"));
-        meinDeck.add(new Karte("paul"));
-        meinDeck.add(new Karte("lisa"));
-        meinDeck.add(new Karte("lena"));
-        meinDeck.add(new Karte("hermann"));
-        meinDeck.add(new Karte("michael"));
-        meinDeck.add(new Karte("jannes"));
-        meinDeck.add(new Karte("nils"));
-        meinDeck.add(new Karte("dennis"));
-        meinDeck.add(new Karte("pierre"));
+        meinDeck.add(new KarteEinheit(EricKarte));
+        meinDeck.add(new KarteEinheit(KennyKarte));
+        meinDeck.add(new KarteEinheit(KyleKarte));
+        meinDeck.add(new KarteEinheit(StanKarte));
 
         //System.out.println(meinDeck);
         meinDeck.mischen();

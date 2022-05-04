@@ -1,9 +1,9 @@
 package model;
 
-import static src.Alex.KartenEinheitType.*;
+//import static src.Alex.KartenEinheitType.*;
 
 public class Test
-{
+{/*
     public static void main(String[] args)
     {
         Karte karteeins = new KarteEinheit(EricKarte);
@@ -33,5 +33,5 @@ public class Test
         meinehand.handablegen(meindeck);
         System.out.println("habe meine hand abgelegt jetzt ist mein deck wieder  "+meindeck.size()+" Elemente groß.");
 
-    }
+    }*/
 }

@@ -1,5 +1,7 @@
 package control;
 
+import model.*;
+
 public class KartenEinheitController
 {
     public static void ausspielen(KarteEinheit karte)
@@ -9,7 +11,7 @@ public class KartenEinheitController
 
     public static void ausspielen(KarteEinheit karte, Einheit ziel)
     {
-        Effekt effekt = karte.getEffekt();
+        Effekt effekt = karte.getKartenEffekt();
 
         switch (effekt.getTyp())
         {

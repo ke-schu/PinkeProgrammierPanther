@@ -2,122 +2,122 @@ package model;
 
 public class KarteEinheit extends Karte
 {
-  private KartenEinheitType type;
-  private String name;
-  private int level;
-  private String klasse;
-  private int macht;
-  private int lebenspunkte;
-  private int mana;
-  private int beweglichkeit;
-  private int reichweite;
-  private Effekt effekt;
+  private KartenEinheitType kartenType;
+  private String kartenName;
+  private int kartenLevel;
+  private String kartenKlasse;
+  private int kartenMacht;
+  private int kartenLebenspunkte;
+  private int kartenMana;
+  private int kartenBeweglichkeit;
+  private int kartenReichweite;
+  private Effekt kartenEffekt;
 
-  public KarteEinheit(KartenEinheitType type)
+  public KarteEinheit(KartenEinheitType kartenType)
   {
-    this.type = type;
-    this.name= type.getName();
-    this.level = type.getLevel();
-    this.klasse = type.getKlasse();
-    this.macht = type.getMacht();
-    this.lebenspunkte = type.getLebensPunkte();
-    this.mana = type.getMana();
-    this.beweglichkeit = type.getBeweglichkeit();
-    this.reichweite = type.getReichweite();
-    this.effekt = type.getEffekt();
+    this.kartenType = kartenType;
+    this.kartenName = kartenType.getName();
+    this.kartenLevel = kartenType.getLevel();
+    this.kartenKlasse = kartenType.getKlasse();
+    this.kartenMacht = kartenType.getMacht();
+    this.kartenLebenspunkte = kartenType.getLebensPunkte();
+    this.kartenMana = kartenType.getMana();
+    this.kartenBeweglichkeit = kartenType.getBeweglichkeit();
+    this.kartenReichweite = kartenType.getReichweite();
+    this.kartenEffekt = kartenType.getEffekt();
   }
 
   public KartenEinheitType gettype()
   {
-    return this.type;
+    return this.kartenType;
   }
 
-  public void setType(KartenEinheitType type)
+  public void setKartenType(KartenEinheitType kartenType)
   {
-    this.type = type;
+    this.kartenType = kartenType;
   }
 
 
 
 
-  public KartenEinheitType getType()
+  public KartenEinheitType getKartenType()
   {
-    return type;
+    return kartenType;
   }
 
-  public String getName()
+  public String getKartenName()
   {
-    return name;
+    return kartenName;
   }
 
-  public int getLevel()
+  public int getKartenLevel()
   {
-    return level;
+    return kartenLevel;
   }
 
-  public void setLevel(int level)
+  public void setKartenLevel(int kartenLevel)
   {
-    this.level = level;
+    this.kartenLevel = kartenLevel;
   }
 
-  public String getKlasse()
+  public String getKartenKlasse()
   {
-    return klasse;
+    return kartenKlasse;
   }
 
-  public int getMacht()
+  public int getKartenMacht()
   {
-    return macht;
+    return kartenMacht;
   }
 
-  public void setMacht(int macht)
+  public void setKartenMacht(int kartenMacht)
   {
-    this.macht = macht;
+    this.kartenMacht = kartenMacht;
   }
 
-  public int getLebenspunkte()
+  public int getKartenLebenspunkte()
   {
-    return lebenspunkte;
+    return kartenLebenspunkte;
   }
 
-  public void setLebenspunkte(int lebenspunkte)
+  public void setKartenLebenspunkte(int kartenLebenspunkte)
   {
-    this.lebenspunkte = lebenspunkte;
+    this.kartenLebenspunkte = kartenLebenspunkte;
   }
 
-  public int getMana()
+  public int getKartenMana()
   {
-    return mana;
+    return kartenMana;
   }
 
-  public void setMana(int mana)
+  public void setKartenMana(int kartenMana)
   {
-    this.mana = mana;
+    this.kartenMana = kartenMana;
   }
 
-  public int getBeweglichkeit()
+  public int getKartenBeweglichkeit()
   {
-    return beweglichkeit;
+    return kartenBeweglichkeit;
   }
 
-  public void setBeweglichkeit(int beweglichkeit)
+  public void setKartenBeweglichkeit(int kartenBeweglichkeit)
   {
-    this.beweglichkeit = beweglichkeit;
+    this.kartenBeweglichkeit = kartenBeweglichkeit;
   }
 
-  public int getReichweite()
+  public int getKartenReichweite()
   {
-    return reichweite;
+    return kartenReichweite;
   }
 
-  public void setReichweite(int reichweite)
+  public void setKartenReichweite(int kartenReichweite)
   {
-    this.reichweite = reichweite;
+    this.kartenReichweite = kartenReichweite;
   }
 
-  public Effekt getEffekt()
+  public Effekt getKartenEffekt()
   {
-    return effekt;
+    return kartenEffekt;
   }
 }
 
