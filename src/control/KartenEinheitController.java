@@ -4,8 +4,13 @@ import model.*;
 
 public class KartenEinheitController
 {
-    public static void ausspielen(KarteEinheit karte)
+    public static void beschwören (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
     {
+        if(spielfeld.getSpielfeld()[x][y] == null)
+        {
+            Einheit meineeinheit = new Einheit(karte);
+            spielfeld.einheiteinsetzten(x,y,meineeinheit);
+        }
 
     }
 

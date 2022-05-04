@@ -5,7 +5,7 @@ import exceptions.*;
 public class Spielfeld extends Raeume
 {
 
-    private int[][] spielfeld = null;
+    private Einheit[][] spielfeld = null;
     private int feldZeile = 0;
     private int feldSpalte = 0;
 
@@ -24,7 +24,7 @@ public class Spielfeld extends Raeume
         }
         //Exception für ein nicht quadratisches Spielfeld
 
-        this.setSpielfeld(new int[feldZeile][feldSpalte]);
+        this.setSpielfeld(new Einheit[feldZeile][feldSpalte]);
         this.setFeldZeile(feldZeile);
         this.setFeldSpalte(feldSpalte);
 
@@ -32,12 +32,12 @@ public class Spielfeld extends Raeume
 
 
 
-    public int[][] getSpielfeld()
+    public Einheit[][] getSpielfeld()
     {
         return this.spielfeld;
     }
 
-    public final void setSpielfeld(int[][] spielfeld)
+    public final void setSpielfeld(Einheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
     }
@@ -65,5 +65,10 @@ public class Spielfeld extends Raeume
         this.feldZeile = feldZeile;
     }
     //get- und set-Methoden für die FeldZeile
+
+    public void einheiteinsetzten(int x, int y, Einheit einheit )
+    {
+        this.spielfeld[x][y] = einheit;
+    }
 
 }
