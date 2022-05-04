@@ -1,18 +1,22 @@
 package model;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.util.Stack;
 
 public class KartenDeck extends Stack<Karte>
 {
-    private URI dateiPfad;
+    private File datei;
     private String DeckBezeichnung;
 
-    public KartenDeck(String DeckBezeichnung)
+    public KartenDeck(String DeckBezeichnung, String dateiPfad)
     {
         super();
         this.DeckBezeichnung = DeckBezeichnung;
+        this.datei = new File(dateiPfad + "/" + DeckBezeichnung + ".json");
     }
+
     public String toString ()
     {
         StringBuilder sb = new StringBuilder();
@@ -24,14 +28,9 @@ public class KartenDeck extends Stack<Karte>
         return sb.toString();
     }
 
-    public URI getDateiPfad()
+    public File getDatei()
     {
-        return dateiPfad;
-    }
-
-    public void setDateiPfad(URI dateiPfad)
-    {
-        this.dateiPfad = dateiPfad;
+        return datei;
     }
 
     public String getDeckBezeichnung()

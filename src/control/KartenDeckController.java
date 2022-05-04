@@ -1,6 +1,6 @@
 package control;
 
-import java.io.File;
+import java.io.*;
 import java.util.Collections;
 import java.util.Random;
 
@@ -17,13 +17,26 @@ public class KartenDeckController
     {
         Collections.shuffle(deck, zufallsGenerator);
     }
-    public static String serialisieren (KartenDeck deck)
+
+    private static String serialisieren (KartenDeck deck)
     {
         return meinGson.toJson(deck);
     }
 
-    public static void schreibeInDatei (KartenDeck deck)
+    public static void schreibeInDatei (KartenDeck deck) throws IOException
     {
-        File datei = new File(deck.getDateiPfad());
+        if (deck.getDatei().createNewFile())
+        {
+            System.out.println("Datei erstellt");
+        }
+        else
+        {
+            System.out.println("Datei existiert bereits");
+        }
+        System.out.println(deck.getDatei());
+
+        FileWriter verfasser = new FileWriter(deck.getDatei());
+        verfasser.write(KartenDeckController.serialisieren(deck));
+        verfasser.close();
     }
 }
