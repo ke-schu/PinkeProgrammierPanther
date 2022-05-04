@@ -8,7 +8,8 @@ public class KartenEinheitController
     {
         if(spielfeld.getSpielfeld()[x][y] == null)
         {
-            spielfeld.setSpielfeld
+            Einheit meineeinheit = new Einheit(karte);
+            spielfeld.einheiteinsetzten(x,y,meineeinheit);
         }
 
     }
