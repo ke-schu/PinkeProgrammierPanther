@@ -1,7 +1,7 @@
 package model;
 
 import com.google.gson.Gson;
-import src.Alex.Karte;
+
 import java.util.Collections;
 import java.util.Random;
 import java.util.Stack;

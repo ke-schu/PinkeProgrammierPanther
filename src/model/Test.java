@@ -1,4 +1,4 @@
-package src.Alex;
+package model;
 
 import static src.Alex.KartenEinheitType.*;
 

@@ -1,4 +1,6 @@
+package model;
 
+import model.Effekt;
 
 public enum KartenEinheitType
 {
@@ -19,7 +21,7 @@ public enum KartenEinheitType
     private int beweglichkeit;
     private int reichweite;
 
-    private src.Alex.Effekt effekt;
+    private Effekt effekt;
 
 
     KartenEinheitType(String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, Effekt effekt)
