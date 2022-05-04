@@ -1,8 +1,6 @@
 package model;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URI;
 import java.util.Stack;
 
 public class KartenDeck extends Stack<Karte>

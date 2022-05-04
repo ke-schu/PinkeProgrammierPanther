@@ -3,7 +3,6 @@ package control;
 import java.io.*;
 import java.util.Collections;
 import java.util.Random;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import model.KartenDeck;
