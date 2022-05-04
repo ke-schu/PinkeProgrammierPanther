@@ -1,4 +1,4 @@
-package src.Alex;
+package control;
 
 public class KartenEinheitController
 {

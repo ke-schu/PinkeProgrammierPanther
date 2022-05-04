@@ -1,4 +1,4 @@
-package src.Alex;
+
 
 public enum KartenEinheitType
 {
@@ -19,7 +19,7 @@ public enum KartenEinheitType
     private int beweglichkeit;
     private int reichweite;
 
-    private Effekt effekt;
+    private src.Alex.Effekt effekt;
 
 
     KartenEinheitType(String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, Effekt effekt)
