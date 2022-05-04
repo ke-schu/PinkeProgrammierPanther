@@ -1,13 +1,11 @@
 package model;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.util.Random;
+import java.net.URI;
 import java.util.Stack;
 
 public class KartenDeck extends Stack<Karte>
 {
+    private URI dateiPfad;
     private String DeckBezeichnung;
 
     public KartenDeck(String DeckBezeichnung)
@@ -26,6 +24,16 @@ public class KartenDeck extends Stack<Karte>
         return sb.toString();
     }
 
+    public URI getDateiPfad()
+    {
+        return dateiPfad;
+    }
+
+    public void setDateiPfad(URI dateiPfad)
+    {
+        this.dateiPfad = dateiPfad;
+    }
+
     public String getDeckBezeichnung()
     {
         return DeckBezeichnung;
@@ -33,6 +41,6 @@ public class KartenDeck extends Stack<Karte>
 
     public void setDeckBezeichnung(String deckBezeichnung)
     {
-        this.DeckBezeichnung = deckBezeichnung;
+        DeckBezeichnung = deckBezeichnung;
     }
 }

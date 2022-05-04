@@ -1,5 +1,6 @@
 package control;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Random;
 
@@ -19,5 +20,10 @@ public class KartenDeckController
     public static String serialisieren (KartenDeck deck)
     {
         return meinGson.toJson(deck);
+    }
+
+    public static void schreibeInDatei (KartenDeck deck)
+    {
+        File datei = new File(deck.getDateiPfad());
     }
 }
