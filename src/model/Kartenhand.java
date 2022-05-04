@@ -21,7 +21,7 @@ public class Kartenhand
         this.hand [position] = karte;
     }
 
-    public void handziehen(Deck kartendeck)
+    public void handziehen(KartenDeck kartendeck)
     {
         for(int i = 0; i < hand.length; i++)
         {
@@ -29,7 +29,7 @@ public class Kartenhand
         }
     }
 
-    public void handablegen(Deck kartendeck)
+    public void handablegen(KartenDeck kartendeck)
     {
         for(int i = 0; i < hand.length; i++)
         {
@@ -40,7 +40,7 @@ public class Kartenhand
         }
     }
 
-    public void karteablegen(int positionkarte,Deck kartendeck)
+    public void karteablegen(int positionkarte, KartenDeck kartendeck)
     {
         kartendeck.push(this.hand[positionkarte]);
         this.hand[positionkarte] = null;

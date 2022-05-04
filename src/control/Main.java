@@ -7,7 +7,12 @@ public class Main
 {
     public static void main (String[] args)
     {
-        Kartendeck meinDeck = new Kartendeck("Krieger");
+        erstelleDeck();
+    }
+
+    public static void erstelleDeck ()
+    {
+        KartenDeck meinDeck = new KartenDeck("Krieger");
 
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
@@ -15,13 +20,13 @@ public class Main
         meinDeck.add(new KarteEinheit(StanKarte));
 
         //System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
-        meinDeck.mischen();
+        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
         System.out.println();
-        System.out.println(meinDeck.serialisieren());
+        System.out.println(KartenDeckController.serialisieren(meinDeck));
     }
 }
