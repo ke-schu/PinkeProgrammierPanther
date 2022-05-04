@@ -1,17 +1,29 @@
 package model;
 
-public abstract class Charakterklasse
-{
-    private int freischaltgebuehr = -1;
-    private Held anfuehrer = null;
+import utilities.MeinInput;
 
-    public Charakterklasse(int freischaltgebuehr, Held anführer) {
-        this.freischaltgebuehr = freischaltgebuehr;
-        this.anfuehrer = anfuehrer;
+import java.io.IOException;
+import java.util.Arrays;
+
+public class Charakterklasse
+{
+    String name;
+    int preis;
+    String held;
+    Deck[] kartenblaetter;
+
+    public Charakterklasse() {
+
     }
 
-    public int getFreischaltgebuehr ()
+    @Override
+    public String toString()
     {
-        return freischaltgebuehr;
+        return "Charakterklasse{" +
+                "name='" + name + '\'' +
+                ", preis=" + preis +
+                ", held='" + held + '\'' +
+                ", kartenblaetter=" + Arrays.toString(kartenblaetter) +
+                '}';
     }
 }
