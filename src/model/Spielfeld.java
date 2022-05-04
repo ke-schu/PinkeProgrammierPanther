@@ -1,6 +1,6 @@
 package model;
 
-import src.Adrian.exceptions.*;
+import exceptions.*;
 
 public class Spielfeld extends Raeume
 {

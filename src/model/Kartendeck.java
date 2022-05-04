@@ -1,7 +1,7 @@
 package model;
 
 import com.google.gson.Gson;
-
+import com.google.gson.GsonBuilder;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Stack;
@@ -10,7 +10,7 @@ public class Kartendeck extends Stack<Karte>
 {
     private String DeckBezeichnung;
     private Random zufallsGenerator = new Random();
-    private Gson meinGson = new Gson();
+    private Gson meinGson = new GsonBuilder().setPrettyPrinting().create();;
 
     public Kartendeck (String DeckBezeichnung)
     {
