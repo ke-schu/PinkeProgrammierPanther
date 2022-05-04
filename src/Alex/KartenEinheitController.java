@@ -1,6 +1,4 @@
-package Alex;
-
-import java.util.function.*;
+package src.Alex;
 
 public class KartenEinheitController
 {

@@ -1,6 +1,6 @@
-package Adrian.model_levelstruktur;
+package src.Adrian.model_levelstruktur;
 
-import Adrian.exceptions.*;
+import src.Adrian.exceptions.*;
 
 public class Spielfeld extends Raeume
 {

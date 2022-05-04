@@ -1,8 +1,8 @@
-package Alex;
+package src.Alex;
 
 import java.util.Stack;
 
-public class Deck extends Stack<Karte>
+public class Deck extends Stack<src.Alex.Karte>
 {
 
     public Deck()

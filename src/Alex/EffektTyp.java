@@ -1,4 +1,4 @@
-package Alex;
+package src.Alex;
 
 public enum EffektTyp
 {
