@@ -29,7 +29,8 @@ public class Main
         try
         {
             KartenDeckController.schreibeDatei(meinDeck);
-            System.out.println(KartenDeckController.leseDatei("src/carddecks/Krieger.json").toString());
+            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/carddecks/Krieger.json");
+            System.out.println(meinDeck2.toString());
         } catch (IOException e)
         {
             System.out.println(e.getMessage());

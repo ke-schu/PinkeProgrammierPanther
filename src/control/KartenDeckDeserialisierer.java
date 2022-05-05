@@ -16,16 +16,27 @@ public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
     public KartenDeck deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException
     {
         JsonObject meinJsonObject = jsonElement.getAsJsonObject();
+        JsonArray meinJsonArray = meinJsonObject.get("Karten").getAsJsonArray();
 
         KartenDeck meinKartenDeck = new KartenDeck(
                 meinJsonObject.get("Bezeichnung").getAsString(),
                 new Charakterklasse(meinJsonObject.get("Charakterklasse").getAsString(), 10)
         );
 
-        //meinKartenDeck.addAll(gson.fromJson(meinJsonObject.get("Karten"), KartenDeck.class));
-        //Karte x = new KarteEinheit();
-
-        // TODO: Karten auslesen und deserialisieren! -> JsonArray durchiterieren
+        for (int i = 0; i < meinJsonArray.size(); i++)
+        {
+            JsonObject JsonKarte = meinJsonArray.get(i).getAsJsonObject();
+            try
+            {
+                Type klasse = Class.forName(JsonKarte.get("klasse").getAsString());
+                Karte karte = gson.fromJson(JsonKarte, klasse);
+                meinKartenDeck.add(i, karte);
+            }
+            catch (ClassNotFoundException e)
+            {
+                throw new JsonParseException(e);
+            }
+        }
 
         return meinKartenDeck;
     }
