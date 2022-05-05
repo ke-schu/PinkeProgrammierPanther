@@ -4,6 +4,16 @@ import model.*;
 
 public class EffektController
 {
+    public void effektauslösen(Einheit ausloeser, Einheit ziel)
+    {
+        switch(ausloeser.getEffekt())
+        {
+            case LETZTEWORTE: letzteworte(ausloeser, ziel); break;
+        }
+
+
+
+    }
     public static void schadenVerursachen(Einheit ziel, int schaden)
     {
         ziel.schadenNehmen(schaden);

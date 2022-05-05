@@ -39,6 +39,10 @@ public class Main
 
         Spielfeld meinspielfeld = new Spielfeld(5,5);
         KartenEinheitController.beschwoeren(peter,meinspielfeld,2,2);
+        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
+        meinspielfeld.einheitloeschen(2,2);
+        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
+
 
 
     }

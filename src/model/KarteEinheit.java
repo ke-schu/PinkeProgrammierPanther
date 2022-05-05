@@ -11,7 +11,7 @@ public class KarteEinheit extends Karte
   private int kartenMana;
   private int kartenBeweglichkeit;
   private int kartenReichweite;
-  private Effekt kartenEffekt;
+  private EffektTyp kartenEffekt;
 
   public KarteEinheit(KartenEinheitType kartenType)
   {
@@ -113,7 +113,7 @@ public class KarteEinheit extends Karte
     this.kartenReichweite = kartenReichweite;
   }
 
-  public Effekt getKartenEffekt()
+  public EffektTyp getKartenEffekt()
   {
     return kartenEffekt;
   }
