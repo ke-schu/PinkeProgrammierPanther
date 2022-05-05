@@ -6,6 +6,7 @@ import model.Karte;
 import model.KarteEinheit;
 import model.KartenDeck;
 
+import java.io.File;
 import java.lang.reflect.Type;
 
 public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>

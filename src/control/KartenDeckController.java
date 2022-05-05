@@ -48,7 +48,7 @@ public class KartenDeckController
         verfasser.close();
     }
 
-    private static KartenDeck deserialisieren (String jsonKartenDeck)
+    private static KartenDeck deserialisieren (String jsonKartenDeck) throws JsonSyntaxException
     {
         KartenDeckDeserialisierer meinDeserialisierer = new KartenDeckDeserialisierer();
 
@@ -64,5 +64,21 @@ public class KartenDeckController
         String content = Files.readString(path);
 
         return deserialisieren(content);
+    }
+
+    public static boolean pruefeDatei (String pfad)
+    {
+        Path path = Paths.get(pfad);
+        String content = null;
+        try
+        {
+            content = Files.readString(path);
+            deserialisieren(content);
+        }
+        catch (IOException | JsonSyntaxException ex)
+        {
+            return false;
+        }
+        return true;
     }
 }
