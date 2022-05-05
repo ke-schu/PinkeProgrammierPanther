@@ -2,10 +2,8 @@ package control;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
 import model.*;
-
 import java.io.File;
 import java.io.IOException;
-
 import static model.KartenEinheitType.*;
 
 public class Main
@@ -24,7 +22,7 @@ public class Main
         {
             System.out.println(CharakterklasseController
                     .erstelleCharakterklasse("Magier", 125)
-                    .getDeck(2)
+                    .getDeck(3)
                     .toString());
         }
         catch (IOException e)
@@ -35,7 +33,7 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(new File("src/carddecks/Magier3.json"), "irgendeinName");;
+        KartenDeck meinDeck = new KartenDeck(new File("src/carddecks/Magier2.json"), "irgendeinName");;
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
         meinDeck.add(new KarteEinheit(KyleKarte));
