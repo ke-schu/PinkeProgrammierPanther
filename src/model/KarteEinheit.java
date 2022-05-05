@@ -117,5 +117,10 @@ public class KarteEinheit extends Karte
   {
     return kartenEffekt;
   }
+
+  public String getKlasse()
+  {
+    return this.kartenKlasse;
+  }
 }
 
