@@ -16,16 +16,6 @@ public class Effekt
         this.schaden = schaden;
     }
 
-    private EffektTyp typ;
-    private int schaden;
-
-
-    public Effekt (EffektTyp typ, int schaden)
-    {
-        this.typ = typ;
-        this.schaden = schaden;
-    }
-
     /**
      * Gibt den Inhalt des Attributes typ aus.
      * @return gibt den EffektTyp aus dem Attribut Typ der Instanz wieder.
