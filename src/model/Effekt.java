@@ -2,6 +2,7 @@ package model;
 
 public class Effekt
 {
+
     private EffektTyp typ;
     private int schaden;
 
@@ -11,6 +12,16 @@ public class Effekt
      * @param schaden Int der in das Attribut schaden gegeben wird.
      */
     public Effekt (EffektTyp typ, int schaden){
+        this.typ = typ;
+        this.schaden = schaden;
+    }
+
+    private EffektTyp typ;
+    private int schaden;
+
+
+    public Effekt (EffektTyp typ, int schaden)
+    {
         this.typ = typ;
         this.schaden = schaden;
     }

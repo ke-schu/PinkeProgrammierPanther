@@ -7,15 +7,9 @@ import model.*;
  */
 public class KartenEinheitController
 {
-    /**
-     * Methode um eine Instanz von Einheit an gezielten Koordinaten zu platzieren.
-     * @param karte Aus dieser Karteninstanz wird die Einheiteninstanz erstellt.
-     * @param spielfeld Spielfeld in das die Einheit beschworen werden soll.
-     * @param x Zielzeile der Beschwörung.
-     * @param y Zielspalte der Beschwörung.
-     */
-    public static void beschwören (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
+    public static void beschwoeren (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
     {
+        //benachbarte einheit abfragen nicht vergessen
         if(spielfeld.getSpielfeld()[x][y] == null)
         {
             Einheit meineeinheit = new Einheit(karte);

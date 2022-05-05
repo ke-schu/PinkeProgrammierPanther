@@ -1,23 +1,23 @@
 {
   "Bezeichnung": "Krieger",
-  "Charakterklasse": "Testklasse",
   "Karten": [
     {
-      "kartenType": "KennyKarte",
-      "kartenName": "Kenny",
+      "kartenType": "StanKarte",
+      "kartenName": "Stan",
       "kartenLevel": 1,
-      "kartenKlasse": "Nahkaempfer",
+      "kartenKlasse": "Fernkaempfer",
       "kartenMacht": 1,
       "kartenLebenspunkte": 1,
       "kartenMana": 2,
       "kartenBeweglichkeit": 1,
-      "kartenReichweite": 1,
+      "kartenReichweite": 2,
       "kartenEffekt": {
         "typ": "SCHADEN",
         "schaden": 3
       },
-      "id": 127618319,
-      "level": 0,
+      "id": 3,
+      "name": "Stan",
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -34,26 +34,9 @@
         "typ": "SCHADEN",
         "schaden": 3
       },
-      "id": 1798286609,
-      "level": 0,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "kartenType": "StanKarte",
-      "kartenName": "Stan",
-      "kartenLevel": 1,
-      "kartenKlasse": "Fernkaempfer",
-      "kartenMacht": 1,
-      "kartenLebenspunkte": 1,
-      "kartenMana": 2,
-      "kartenBeweglichkeit": 1,
-      "kartenReichweite": 2,
-      "kartenEffekt": {
-        "typ": "SCHADEN",
-        "schaden": 3
-      },
-      "id": 2036958521,
-      "level": 0,
+      "id": 2,
+      "name": "Kyle",
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -70,8 +53,28 @@
         "typ": "SCHADEN",
         "schaden": 3
       },
-      "id": 1068934215,
-      "level": 0,
+      "id": 0,
+      "name": "Eric",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "kartenType": "KennyKarte",
+      "kartenName": "Kenny",
+      "kartenLevel": 1,
+      "kartenKlasse": "Nahkaempfer",
+      "kartenMacht": 1,
+      "kartenLebenspunkte": 1,
+      "kartenMana": 2,
+      "kartenBeweglichkeit": 1,
+      "kartenReichweite": 1,
+      "kartenEffekt": {
+        "typ": "SCHADEN",
+        "schaden": 3
+      },
+      "id": 1,
+      "name": "Kenny",
+      "level": 1,
       "klasse": "model.KarteEinheit"
     }
   ]

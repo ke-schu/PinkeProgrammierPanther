@@ -39,9 +39,8 @@ public class EinheitenController
                  spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
                  spielfeld.einheiteinsetzten(start_x, start_y, null);
             }
-
         }
-
     }
+
 
 }
