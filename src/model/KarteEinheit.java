@@ -13,10 +13,7 @@ public class KarteEinheit extends Karte
   private int kartenReichweite;
   private Effekt kartenEffekt;
 
-  /**
-   * Konstruktor der aus den angegebenen Attributen eine Instanz der Klasse KarteEinheit erstellt.
-   * @param kartenType Instanz der Klasse KartenEinheitType der in das Attribut kartenType gesetzt wird.
-   */
+
   public KarteEinheit(KartenEinheitType kartenType)
   {
     super(kartenType.getName(), kartenType.getLevel());
