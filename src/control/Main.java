@@ -33,7 +33,7 @@ public class Main
         }
     }
 
-    private static void erstelleDeck ()
+    public static void erstelleDeck ()
     {
         KartenDeck meinDeck = new KartenDeck(new File("src/carddecks/Magier3.json"), "irgendeinName");;
         meinDeck.add(new KarteEinheit(EricKarte));
@@ -55,10 +55,14 @@ public class Main
         }
     }
 
+
     private static void erstelleSpielfeld () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
     {
         KarteEinheit peter = new KarteEinheit(EricKarte);
         Spielfeld meinspielfeld = new Spielfeld(5,5);
         KartenEinheitController.beschwoeren(peter,meinspielfeld,2,2);
+        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
+        meinspielfeld.einheitloeschen(2,2);
+        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
     }
 }
