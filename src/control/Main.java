@@ -2,10 +2,7 @@ package control;
 
 import model.*;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 import static model.KartenEinheitType.*;
 
@@ -18,7 +15,8 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck("Krieger", "src/resources");
+        KartenDeck meinDeck = new KartenDeck(
+                "Krieger", new Charakterklasse("Testklasse", 10));
 
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
@@ -30,7 +28,9 @@ public class Main
 
         try
         {
-            KartenDeckController.schreibeInDatei(meinDeck);
+            KartenDeckController.schreibeDatei(meinDeck);
+            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/carddecks/Krieger.json");
+            System.out.println(meinDeck2.toString());
         } catch (IOException e)
         {
             System.out.println(e.getMessage());

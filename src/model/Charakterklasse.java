@@ -8,8 +8,10 @@ public class Charakterklasse
     private final int anzahlDecks = 3;
     private KartenDeck deck[] = new KartenDeck[anzahlDecks];
 
-    public Charakterklasse() {
-
+    public Charakterklasse(String name, int preis)
+    {
+        this.name = name;
+        this.preis = preis;
     }
 
     @Override
@@ -21,5 +23,10 @@ public class Charakterklasse
                 ", held='" + held + '\'' +
                 ", kartenblaetter=" + deck +
                 '}';
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

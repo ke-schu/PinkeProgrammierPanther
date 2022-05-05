@@ -14,6 +14,10 @@ public class Einheit
     private int reichweite;
     private Effekt effekt;
 
+    private int position_x = 0;
+
+    private int position_y = 0;
+
 
    public Einheit (KarteEinheit karte)
     {
@@ -27,10 +31,6 @@ public class Einheit
         this.beweglichkeit = karte.gettype().getBeweglichkeit();
         this.reichweite = karte.gettype().getReichweite();
         this.effekt = karte.gettype().getEffekt();
-    }
-
-    public Einheit ()
-    {
     }
 
     public Einheit erschaffen(KarteEinheit karte, ManaTank reserve)
@@ -119,5 +119,25 @@ public void schadenNehmen(int schaden)
     public void setReichweite(int reichweite)
     {
         this.reichweite = reichweite;
+    }
+
+    public int getPosition_x()
+    {
+        return this.position_x;
+    }
+
+    public void setPosition_x(int getPosition_x)
+    {
+        this.position_x = getPosition_x;
+    }
+
+    public int getPosition_y()
+    {
+        return this.position_y;
+    }
+
+    public void setPosition_y(int getPosition_y)
+    {
+        this.position_x = getPosition_y;
     }
 }
