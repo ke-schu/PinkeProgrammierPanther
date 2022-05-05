@@ -2,5 +2,5 @@ package model;
 
 public enum EffektTyp
 {
-    LETZTEWORTE, ZURUECKWERFEN;
+    LETZTEWORTE, ZURUECKWERFEN,EffektTyp;
 }

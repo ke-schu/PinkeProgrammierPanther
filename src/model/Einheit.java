@@ -9,9 +9,12 @@ public class Einheit
     private int macht;
     private int lebenspunkte;
     private int mana;
+
     private int beweglichkeit;
     private int reichweite;
-    private Effekt effekt;
+
+    private  EffektTyp effekt;
+
     private int position_x = 0;
     private int position_y = 0;
 
@@ -227,5 +230,10 @@ public class Einheit
     public void setPosition_y(int getPosition_y)
     {
         this.position_x = getPosition_y;
+    }
+
+    public EffektTyp getEffekt()
+    {
+        return effekt;
     }
 }

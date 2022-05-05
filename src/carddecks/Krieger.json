@@ -12,10 +12,10 @@
       "kartenBeweglichkeit": 1,
       "kartenReichweite": 2,
       "kartenEffekt": {
-        "typ": "LETZTEWORTE",
+        "typ": "SCHADEN",
         "schaden": 3
       },
-      "id": 4,
+      "id": 3,
       "name": "Stan",
       "level": 1,
       "klasse": "model.KarteEinheit"
@@ -31,30 +31,11 @@
       "kartenBeweglichkeit": 1,
       "kartenReichweite": 2,
       "kartenEffekt": {
-        "typ": "LETZTEWORTE",
-        "schaden": 3
-      },
-      "id": 3,
-      "name": "Kyle",
-      "level": 1,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "kartenType": "KennyKarte",
-      "kartenName": "Kenny",
-      "kartenLevel": 1,
-      "kartenKlasse": "Nahkaempfer",
-      "kartenMacht": 1,
-      "kartenLebenspunkte": 1,
-      "kartenMana": 2,
-      "kartenBeweglichkeit": 1,
-      "kartenReichweite": 1,
-      "kartenEffekt": {
-        "typ": "LETZTEWORTE",
+        "typ": "SCHADEN",
         "schaden": 3
       },
       "id": 2,
-      "name": "Kenny",
+      "name": "Kyle",
       "level": 1,
       "klasse": "model.KarteEinheit"
     },
@@ -69,11 +50,30 @@
       "kartenBeweglichkeit": 1,
       "kartenReichweite": 1,
       "kartenEffekt": {
-        "typ": "LETZTEWORTE",
+        "typ": "SCHADEN",
+        "schaden": 3
+      },
+      "id": 0,
+      "name": "Eric",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "kartenType": "KennyKarte",
+      "kartenName": "Kenny",
+      "kartenLevel": 1,
+      "kartenKlasse": "Nahkaempfer",
+      "kartenMacht": 1,
+      "kartenLebenspunkte": 1,
+      "kartenMana": 2,
+      "kartenBeweglichkeit": 1,
+      "kartenReichweite": 1,
+      "kartenEffekt": {
+        "typ": "SCHADEN",
         "schaden": 3
       },
       "id": 1,
-      "name": "Eric",
+      "name": "Kenny",
       "level": 1,
       "klasse": "model.KarteEinheit"
     }
