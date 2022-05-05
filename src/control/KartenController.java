@@ -2,8 +2,15 @@ package control;
 
 import model.KarteEinheit;
 
+/**
+ * In dieser Klassen befinden sich Methoden um mit Instanzen von Karten zu interagieren.
+ */
 public class KartenController
 {
+    /**
+     * Mit dieser Methode werden die Karten verbessert, dabei wird zwischen den Klassen unterschieden.
+     * @param karte Die Karte die verbessert werden soll.
+     */
     public static void kartenVerbessern (KarteEinheit karte)
     {
         int lp = 0;
@@ -21,6 +28,7 @@ public class KartenController
                   atk = karte.getKartenMacht();
                   atk = atk + 2;
                   karte.setKartenMacht(atk);
+                  karte.setKartenLevel(4);
               }
               else if (karte.getKartenLevel() == 2)
               {
@@ -30,6 +38,7 @@ public class KartenController
                   atk = karte.getKartenMacht();
                   atk = atk + 1;
                   karte.setKartenMacht(atk);
+                  karte.setKartenLevel(3);
               }
               else if (karte.getKartenLevel() == 1)
               {
@@ -39,6 +48,7 @@ public class KartenController
                   atk = karte.getKartenMacht();
                   atk = atk + 1;
                   karte.setKartenMacht(atk);
+                  karte.setKartenLevel(2);
               }
               break;
 
@@ -59,6 +69,7 @@ public class KartenController
               {
                   lp = karte.getKartenLebenspunkte();
                   lp = lp + 2;
+                  karte.setKartenLebenspunkte(lp);
                   reichweite = karte.getKartenReichweite();
                   reichweite++;
                   karte.setKartenReichweite(reichweite);

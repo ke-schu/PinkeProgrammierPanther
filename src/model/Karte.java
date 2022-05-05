@@ -21,6 +21,10 @@ public abstract class Karte
         instanzZaehler++;
     }
 
+    /**
+     * Ueberlagerung der toString Methode um das Attribut id richtig als string wiederzugeben.
+     * @return gibt einen String aus dem Attribut id zurueck.
+     */
     @Override
     public String toString()
     {

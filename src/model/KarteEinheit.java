@@ -13,6 +13,7 @@ public class KarteEinheit extends Karte
   private int kartenReichweite;
   private EffektTyp kartenEffekt;
 
+
   public KarteEinheit(KartenEinheitType kartenType)
   {
     super(kartenType.getName(), kartenType.getLevel());
@@ -37,6 +38,7 @@ public class KarteEinheit extends Karte
   {
     this.kartenType = kartenType;
   }
+
 
   public KartenEinheitType getKartenType()
   {
