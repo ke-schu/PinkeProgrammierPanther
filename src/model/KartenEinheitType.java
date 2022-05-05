@@ -2,13 +2,10 @@ package model;
 
 public enum KartenEinheitType
 {
-
-
-
-    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, new Effekt(EffektTyp.SCHADEN, 3)),
-    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,new Effekt(EffektTyp.SCHADEN, 3)),
-    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3)),
-    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3));
+    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, new Effekt(EffektTyp.LETZTEWORTE, 3)),
+    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,new Effekt(EffektTyp.LETZTEWORTE, 3)),
+    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.LETZTEWORTE, 3)),
+    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.LETZTEWORTE, 3));
 
     private final String NAME;
     private int level;

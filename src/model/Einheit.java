@@ -23,14 +23,14 @@ public class Einheit
     {
         this.type = karte.gettype();
         this.name=karte.getKartenName();
-        this.level = karte.gettype().getLevel();
-        this.klasse = karte.gettype().getKlasse();
-        this.macht = karte.gettype().getMacht();
-        this.lebenspunkte = karte.gettype().getLebensPunkte();
-        this.mana = karte.gettype().getMana();
-        this.beweglichkeit = karte.gettype().getBeweglichkeit();
-        this.reichweite = karte.gettype().getReichweite();
-        this.effekt = karte.gettype().getEffekt();
+        this.level = karte.getKartenLevel();
+        this.klasse = karte.getKlasse();
+        this.macht = karte.getKartenMacht();
+        this.lebenspunkte = karte.getKartenLebenspunkte();
+        this.mana = karte.getKartenMana();
+        this.beweglichkeit = karte.getKartenBeweglichkeit();
+        this.reichweite = karte.getKartenReichweite();
+        this.effekt = karte.getKartenEffekt();
     }
 
     public Einheit erschaffen(KarteEinheit karte, ManaTank reserve)
@@ -45,6 +45,8 @@ public void schadenNehmen(int schaden)
     {
        this.lebenspunkte = lebenspunkte-schaden;
     }
+
+
 
 
     public KartenEinheitType getType()

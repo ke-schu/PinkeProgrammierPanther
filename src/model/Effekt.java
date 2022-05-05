@@ -2,12 +2,15 @@ package model;
 
 public class Effekt
 {
-    public Effekt (EffektTyp typ, int schaden){
+
+    private EffektTyp typ;
+    private int schaden;
+
+    public Effekt (EffektTyp typ, int schaden)
+    {
         this.typ = typ;
         this.schaden = schaden;
     }
-    private EffektTyp typ;
-    private int schaden;
 
     public EffektTyp getTyp()
     {
@@ -18,4 +21,5 @@ public class Effekt
     {
         return schaden;
     }
+
 }
