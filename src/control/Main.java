@@ -15,16 +15,15 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(
-                "Krieger", new Charakterklasse("Testklasse", 10));
+        KartenDeck meinDeck = new KartenDeck("Krieger");
 
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
         meinDeck.add(new KarteEinheit(KyleKarte));
         meinDeck.add(new KarteEinheit(StanKarte));
 
-        KartenDeckController.mischen(meinDeck);
         System.out.println(meinDeck);
+        KartenDeckController.mischen(meinDeck);
 
         try
         {

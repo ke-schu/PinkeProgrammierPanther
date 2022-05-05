@@ -15,6 +15,7 @@ public class KarteEinheit extends Karte
 
   public KarteEinheit(KartenEinheitType kartenType)
   {
+    super(kartenType.getName(), kartenType.getLevel());
     this.kartenType = kartenType;
     this.kartenName = kartenType.getName();
     this.kartenLevel = kartenType.getLevel();
@@ -27,20 +28,6 @@ public class KarteEinheit extends Karte
     this.kartenEffekt = kartenType.getEffekt();
   }
 
-  public KarteEinheit(KartenEinheitType kartenType, String kartenName, int kartenLevel, String kartenKlasse, int kartenMacht, int kartenLebenspunkte, int kartenMana, int kartenBeweglichkeit, int kartenReichweite, Effekt kartenEffekt)
-  {
-    this.kartenType = kartenType;
-    this.kartenName = kartenName;
-    this.kartenLevel = kartenLevel;
-    this.kartenKlasse = kartenKlasse;
-    this.kartenMacht = kartenMacht;
-    this.kartenLebenspunkte = kartenLebenspunkte;
-    this.kartenMana = kartenMana;
-    this.kartenBeweglichkeit = kartenBeweglichkeit;
-    this.kartenReichweite = kartenReichweite;
-    this.kartenEffekt = kartenEffekt;
-  }
-
   public KartenEinheitType gettype()
   {
     return this.kartenType;
@@ -50,9 +37,6 @@ public class KarteEinheit extends Karte
   {
     this.kartenType = kartenType;
   }
-
-
-
 
   public KartenEinheitType getKartenType()
   {

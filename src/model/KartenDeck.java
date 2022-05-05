@@ -7,14 +7,12 @@ public class KartenDeck extends Stack<Karte>
 {
     private File datei;
     private String deckBezeichnung;
-    private Charakterklasse besitzer;
     private final static String dateiPfad = "src/carddecks/";
 
-    public KartenDeck(String DeckBezeichnung, Charakterklasse besitzer)
+    public KartenDeck(String DeckBezeichnung)
     {
         super();
         this.deckBezeichnung = DeckBezeichnung;
-        this.besitzer = besitzer;
         this.datei = new File(dateiPfad + DeckBezeichnung + ".json");
     }
 
@@ -29,11 +27,6 @@ public class KartenDeck extends Stack<Karte>
         return this.getDeckBezeichnung() + "\t\t" + sb.toString();
     }
 
-    public Charakterklasse getBesitzer()
-    {
-        return besitzer;
-    }
-
     public File getDatei()
     {
         return datei;
@@ -42,10 +35,5 @@ public class KartenDeck extends Stack<Karte>
     public String getDeckBezeichnung()
     {
         return deckBezeichnung;
-    }
-
-    public void setDeckBezeichnung(String deckBezeichnung)
-    {
-        this.deckBezeichnung = deckBezeichnung;
     }
 }

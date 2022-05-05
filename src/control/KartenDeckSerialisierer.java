@@ -16,7 +16,6 @@ public class KartenDeckSerialisierer implements JsonSerializer<KartenDeck>
         JsonObject jsonKartenDeck = new JsonObject();
 
         jsonKartenDeck.addProperty("Bezeichnung", src.getDeckBezeichnung());
-        jsonKartenDeck.addProperty("Charakterklasse", src.getBesitzer().getName());
         jsonKartenDeck.add("Karten", gson.toJsonTree(src));
 
         return jsonKartenDeck;

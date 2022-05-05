@@ -18,10 +18,7 @@ public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
         JsonObject meinJsonObject = jsonElement.getAsJsonObject();
         JsonArray meinJsonArray = meinJsonObject.get("Karten").getAsJsonArray();
 
-        KartenDeck meinKartenDeck = new KartenDeck(
-                meinJsonObject.get("Bezeichnung").getAsString(),
-                new Charakterklasse(meinJsonObject.get("Charakterklasse").getAsString(), 10)
-        );
+        KartenDeck meinKartenDeck = new KartenDeck(meinJsonObject.get("Bezeichnung").getAsString());
 
         for (int i = 0; i < meinJsonArray.size(); i++)
         {
