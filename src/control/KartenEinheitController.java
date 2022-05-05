@@ -4,7 +4,7 @@ import model.*;
 
 public class KartenEinheitController
 {
-    public static void beschwören (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
+    public static void beschwoeren (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
     {
         //benachbarte einheit abfragen nicht vergessen
         if(spielfeld.getSpielfeld()[x][y] == null)
