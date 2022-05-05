@@ -3,22 +3,39 @@ import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
 import model.*;
 
+import java.io.File;
 import java.io.IOException;
 
 import static model.KartenEinheitType.*;
 
 public class Main
 {
-    public static void main (String[] args) throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
+    public static void main (String[] args)
     {
-        erstelleDeck();
+        //erstelleDeck();
+        //erstelleSpielfeld();
+        waehleKlasse();
     }
 
-    public static void erstelleDeck () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
+    private static void waehleKlasse()
     {
-        KartenDeck meinDeck = new KartenDeck("Krieger");
 
-        KarteEinheit peter = new KarteEinheit(EricKarte);
+        try
+        {
+            System.out.println(CharakterklasseController
+                    .erstelleCharakterklasse("Magier", 125)
+                    .getDeck(2)
+                    .toString());
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void erstelleDeck ()
+    {
+        KartenDeck meinDeck = new KartenDeck(new File("src/carddecks/Magier3.json"), "irgendeinName");;
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
         meinDeck.add(new KarteEinheit(KyleKarte));
@@ -36,10 +53,12 @@ public class Main
         {
             System.out.println(e.getMessage());
         }
+    }
 
+    private static void erstelleSpielfeld () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
+    {
+        KarteEinheit peter = new KarteEinheit(EricKarte);
         Spielfeld meinspielfeld = new Spielfeld(5,5);
         KartenEinheitController.beschwoeren(peter,meinspielfeld,2,2);
-
-
     }
 }

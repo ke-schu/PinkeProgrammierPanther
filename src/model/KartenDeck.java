@@ -9,11 +9,15 @@ public class KartenDeck extends Stack<Karte>
     private String deckBezeichnung;
     private final static String dateiPfad = "src/carddecks/";
 
-    public KartenDeck(String DeckBezeichnung)
+    public KartenDeck(File datei, String deckBezeichnung)
     {
-        super();
-        this.deckBezeichnung = DeckBezeichnung;
-        this.datei = new File(dateiPfad + DeckBezeichnung + ".json");
+        this.datei = datei;
+        this.deckBezeichnung = deckBezeichnung;
+    }
+
+    public KartenDeck(String deckBezeichnung)
+    {
+        this.deckBezeichnung = deckBezeichnung;
     }
 
     public String toString ()
