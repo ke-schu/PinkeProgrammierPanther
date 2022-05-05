@@ -8,10 +8,18 @@ public abstract class Karte
     private int level;
     private String klasse = this.getClass().getCanonicalName();
 
+    /**
+     * Defaultkonstruktor für die Klasse Karte
+     */
     public Karte ()
     {
-
     }
+
+    /**
+     * Konstruktor der Klasse Karte, welcher alle Attribute setzt.
+     * @param name String der in das Attribut name gesetzt wird.
+     * @param level Int der in das Attribut
+     */
     public Karte(String name, int level)
     {
         this.id = instanzZaehler;
@@ -31,6 +39,10 @@ public abstract class Karte
         return this.getClass().getSimpleName() + " " + this.getId();
     }
 
+    /**
+     * Methode die den Int des Attributes id liefert.
+     * @return gibt den Int-Wert des Attributes id.
+     */
     public int getId()
     {
         return id;
