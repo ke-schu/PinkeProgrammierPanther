@@ -11,7 +11,7 @@ public class KartenDeckSerialisierer implements JsonSerializer<KartenDeck>
     GsonBuilder gsonBuilder = new GsonBuilder();
 
     @Override
-    public JsonElement serialize(KartenDeck src, Type typeOfSrc, JsonSerializationContext context)
+    public JsonElement serialize (KartenDeck src, Type typeOfSrc, JsonSerializationContext context)
     {
         JsonObject jsonKartenDeck = new JsonObject();
 

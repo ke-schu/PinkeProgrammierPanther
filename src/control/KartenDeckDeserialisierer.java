@@ -14,7 +14,7 @@ public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
     Gson gson = new Gson();
 
     @Override
-    public KartenDeck deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException
+    public KartenDeck deserialize (JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException
     {
         JsonObject meinJsonObject = jsonElement.getAsJsonObject();
         JsonArray meinJsonArray = meinJsonObject.get("Karten").getAsJsonArray();
@@ -35,7 +35,6 @@ public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
                 throw new JsonParseException(e);
             }
         }
-
         return meinKartenDeck;
     }
 }

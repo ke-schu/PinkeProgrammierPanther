@@ -27,7 +27,6 @@ public class CharakterklasseController
                 KartenDeckController.schreibeDatei(defaultDeck);
             }
         }
-
         return klasse;
     }
 }
