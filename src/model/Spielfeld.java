@@ -10,7 +10,7 @@ public class Spielfeld extends Raeume
     private int feldSpalte = 0;
 
 
-    public Spielfeld(int feldZeile, int feldSpalte) throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+    public Spielfeld (int feldZeile, int feldSpalte) throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
     {
         if (feldSpalte <= 0 && feldZeile <= 0)
         {
@@ -55,28 +55,28 @@ public class Spielfeld extends Raeume
     }
     //get- und set-Methoden für die FeldSpalte
 
-    public int getFeldZeile()
+    public int getFeldZeile ()
     {
         return this.feldZeile;
     }
 
-    public final void setFeldZeile(int feldZeile)
+    public final void setFeldZeile (int feldZeile)
     {
         this.feldZeile = feldZeile;
     }
     //get- und set-Methoden für die FeldZeile
 
-    public void einheiteinsetzten(int x, int y, Einheit einheit )
+    public void einheiteinsetzten (int x, int y, Einheit einheit )
     {
         this.spielfeld[x][y] = einheit;
     }
 
-    public Einheit getSpielfeldplatz(int x, int y)
+    public Einheit getSpielfeldplatz (int x, int y)
     {
         return this.spielfeld[x][y];
     }
 
-    public void einheitloeschen(int x, int y)
+    public void einheitloeschen (int x, int y)
     {
         this.spielfeld[x][y] = null;
     }

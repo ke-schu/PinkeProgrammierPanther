@@ -10,18 +10,17 @@ public class Kartenhand
         this.hand = new Karte [HANDGROESSE];
     }
 
-
-    public Karte getelement(int position)
+    public Karte getelement (int position)
     {
         return this.hand [position];
     }
 
-    public void setElement(int position, Karte karte)
+    public void setElement (int position, Karte karte)
     {
         this.hand [position] = karte;
     }
 
-    public void handziehen(KartenDeck kartendeck)
+    public void handziehen (KartenDeck kartendeck)
     {
         for(int i = 0; i < hand.length; i++)
         {
@@ -29,7 +28,7 @@ public class Kartenhand
         }
     }
 
-    public void handablegen(KartenDeck kartendeck)
+    public void handablegen (KartenDeck kartendeck)
     {
         for(int i = 0; i < hand.length; i++)
         {
@@ -40,13 +39,9 @@ public class Kartenhand
         }
     }
 
-    public void karteablegen(int positionkarte, KartenDeck kartendeck)
+    public void karteablegen (int positionkarte, KartenDeck kartendeck)
     {
         kartendeck.push(this.hand[positionkarte]);
         this.hand[positionkarte] = null;
     }
-
-
-
-
 }

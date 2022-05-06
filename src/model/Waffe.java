@@ -4,15 +4,17 @@ public class Waffe
 {
     private int angriffsPunkte = -1;
 
-    public Waffe(int angriffsPunkte) {
+    public Waffe (int angriffsPunkte) {
         this.angriffsPunkte = angriffsPunkte;
     }
 
-    public int getAngriffsPunkte() {
+    public int getAngriffsPunkte ()
+    {
         return angriffsPunkte;
     }
 
-    public void setAngriffsPunkte(int angriffsPunkte) {
+    public void setAngriffsPunkte (int angriffsPunkte)
+    {
         this.angriffsPunkte = angriffsPunkte;
     }
 }

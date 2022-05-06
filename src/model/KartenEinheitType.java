@@ -18,7 +18,7 @@ public enum KartenEinheitType
     private  EffektTyp effekt;
 
 
-    KartenEinheitType(String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effekt)
+    KartenEinheitType (String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effekt)
     {
         this.NAME = name;
         this.level = level;
@@ -31,47 +31,47 @@ public enum KartenEinheitType
         this.effekt = effekt;
     }
 
-    public String getName()
+    public String getName ()
     {
         return this.NAME;
     }
 
-    public int getLevel()
+    public int getLevel ()
     {
         return this.level;
     }
 
-    public String getKlasse()
+    public String getKlasse ()
     {
         return this.KLASSE;
     }
 
-    public int getMacht()
+    public int getMacht ()
     {
         return this.macht;
     }
 
-    public int getLebensPunkte()
+    public int getLebensPunkte ()
     {
         return this.lebenspunkte;
     }
 
-    public int getMana()
+    public int getMana ()
     {
         return this.mana;
     }
 
-    public int getBeweglichkeit()
+    public int getBeweglichkeit ()
     {
         return this.beweglichkeit;
     }
 
-    public int getReichweite()
+    public int getReichweite ()
     {
         return this.reichweite;
     }
 
-    public EffektTyp getEffekt()
+    public EffektTyp getEffekt ()
     {
         return effekt;
     }

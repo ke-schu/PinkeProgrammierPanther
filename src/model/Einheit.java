@@ -9,12 +9,9 @@ public class Einheit
     private int macht;
     private int lebenspunkte;
     private int mana;
-
     private int beweglichkeit;
     private int reichweite;
-
     private  EffektTyp effekt;
-
     private int position_x = 0;
     private int position_y = 0;
 
@@ -43,7 +40,7 @@ public class Einheit
      * @param reserve Instanz von ManaTank um zu pruefen, ob das Attribut Mana groß genug ist.
      * @return gibt die neue Instanz aus Einheit zurueck mit den Werten der uebergebenen Instanz von KarteEinheit.
      */
-    public Einheit erschaffen(KarteEinheit karte, ManaTank reserve)
+    public Einheit erschaffen (KarteEinheit karte, ManaTank reserve)
     {
         if(karte.getKartenMana()<= reserve.getMana())
         {
@@ -56,7 +53,7 @@ public class Einheit
      * Methode um das Attribut lebenspunkte einer Instanz von Einheit um den Betrag von schaden zu reduzieren.
      * @param schaden betrag um den die lebenspunkte der Instanz reduziert werden soll.
      */
-    public void schadenNehmen(int schaden)
+    public void schadenNehmen (int schaden)
     {
        this.lebenspunkte = lebenspunkte-schaden;
     }
@@ -65,7 +62,7 @@ public class Einheit
      * Methode um den Wert des Attributes typ zu bekommen.
      * @return gibt den KartenEinheitType des Attributes typ zurueck.
      */
-    public KartenEinheitType getType()
+    public KartenEinheitType getType ()
     {
         return type;
     }
@@ -74,7 +71,7 @@ public class Einheit
      * Methode um den String des Attributes name zu bekommen.
      * @return gibt den String aus name zurueck.
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -83,7 +80,7 @@ public class Einheit
      * Methode um den Int des Attributes level zu bekommen.
      * @return gibt den Int aus level zurueck.
      */
-    public int getLevel()
+    public int getLevel ()
     {
         return level;
     }
@@ -92,7 +89,7 @@ public class Einheit
      * Methode um den Int des Attributes level zu setzen.
      * @param level Int der in das Attribut level gesetzt werden soll.
      */
-    public void setLevel(int level)
+    public void setLevel (int level)
     {
         this.level = level;
     }
@@ -101,7 +98,7 @@ public class Einheit
      * Methode um den String des Attributes klasse zu bekommen.
      * @return gibt den String aus klasse zurueck.
      */
-    public String getKlasse()
+    public String getKlasse ()
     {
         return klasse;
     }
@@ -110,7 +107,7 @@ public class Einheit
      * Methode um den Int des Attributes macht zu bekommen.
      * @return gibt den Int aus macht zurueck.
      */
-    public int getMacht()
+    public int getMacht ()
     {
         return macht;
     }
@@ -119,7 +116,7 @@ public class Einheit
      * Methode um den Int des Attributs macht zu setzen.
      * @param macht Int der in das Attribut macht gesetzt werden soll.
      */
-    public void setMacht(int macht)
+    public void setMacht (int macht)
     {
         this.macht = macht;
     }
@@ -128,7 +125,7 @@ public class Einheit
      * Methode um den Int des Attributes lebenspunkte zu bekommen.
      * @return gibt den Int aus lebenspunkte zurueck.
      */
-    public int getLebenspunkte()
+    public int getLebenspunkte ()
     {
         return lebenspunkte;
     }
@@ -137,7 +134,7 @@ public class Einheit
      * Methode um den Int des Attributes lebenspunkte zu setzen.
      * @param lebenspunkte Int der in das Attribut lebenspunkte gesetzt werden soll.
      */
-    public void setLebenspunkte(int lebenspunkte)
+    public void setLebenspunkte (int lebenspunkte)
     {
         this.lebenspunkte = lebenspunkte;
     }
@@ -146,7 +143,7 @@ public class Einheit
      * Methode um den Int des Attributes mana zu bekommen.
      * @return gibt den Int aus mana zurueck.
      */
-    public int getMana()
+    public int getMana ()
     {
         return mana;
     }
@@ -155,7 +152,7 @@ public class Einheit
      * Methode um den Int des Attributes mana zu setzen.
      * @param mana Int der in das Attribut mana gesetzt werden soll.
      */
-    public void setMana(int mana)
+    public void setMana (int mana)
     {
         this.mana = mana;
     }
@@ -164,7 +161,7 @@ public class Einheit
      * Methode um den Int des Attributes beweglichkeit zu bekommen.
      * @return gibt den int aus beweglichkeit zurueck.
      */
-    public int getBeweglichkeit()
+    public int getBeweglichkeit ()
     {
         return beweglichkeit;
     }
@@ -173,7 +170,7 @@ public class Einheit
      * Methode um den Int des Attributes beweglichkeit zu setzen.
      * @param beweglichkeit Int der in das Attribut beweglichkeit gesetzt werden soll.
      */
-    public void setBeweglichkeit(int beweglichkeit)
+    public void setBeweglichkeit (int beweglichkeit)
     {
         this.beweglichkeit = beweglichkeit;
     }
@@ -182,7 +179,7 @@ public class Einheit
      * Methode um den Int des Attributes reichweite zu bekommen.
      * @return gibt den Int aus reichweite zurueck.
      */
-    public int getReichweite()
+    public int getReichweite ()
     {
         return reichweite;
     }
@@ -191,7 +188,7 @@ public class Einheit
      * Methode um den Int des Attributes reichweite zu setzen.
      * @param reichweite Int der in das Attribut reichweite gesetzt werden soll.
      */
-    public void setReichweite(int reichweite)
+    public void setReichweite (int reichweite)
     {
         this.reichweite = reichweite;
     }
@@ -200,7 +197,7 @@ public class Einheit
      * Methode um den Int des Attributes position_x zu bekommen.
      * @return gibt den Int aus position_x zurueck.
      */
-    public int getPosition_x()
+    public int getPosition_x ()
     {
         return this.position_x;
     }
@@ -209,7 +206,7 @@ public class Einheit
      * Methode um den Int des Attributes position_x zu setzen.
      * @param getPosition_x Int der in das Attribut position_x gesetzt werden soll.
      */
-    public void setPosition_x(int getPosition_x)
+    public void setPosition_x (int getPosition_x)
     {
         this.position_x = getPosition_x;
     }
@@ -218,7 +215,7 @@ public class Einheit
      * Methode um den Int des Attributes position_y zu bekommen.
      * @return gibt den Int aus position_y zurueck.
      */
-    public int getPosition_y()
+    public int getPosition_y ()
     {
         return this.position_y;
     }
@@ -227,12 +224,12 @@ public class Einheit
      * Methode um den Int des Attributes position_y zu setzen.
      * @param getPosition_y Int der in das Attribut position_x gesetzt werden soll.
      */
-    public void setPosition_y(int getPosition_y)
+    public void setPosition_y (int getPosition_y)
     {
-        this.position_x = getPosition_y;
+        this.position_y = getPosition_y;
     }
 
-    public EffektTyp getEffekt()
+    public EffektTyp getEffekt ()
     {
         return effekt;
     }

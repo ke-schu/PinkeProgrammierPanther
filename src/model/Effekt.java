@@ -2,7 +2,6 @@ package model;
 
 public class Effekt
 {
-
     private EffektTyp typ;
     private int schaden;
 
@@ -11,7 +10,8 @@ public class Effekt
      * @param typ EffektTyp der in das Attribut typ gegeben wird.
      * @param schaden Int der in das Attribut schaden gegeben wird.
      */
-    public Effekt (EffektTyp typ, int schaden){
+    public Effekt (EffektTyp typ, int schaden)
+    {
         this.typ = typ;
         this.schaden = schaden;
     }
@@ -20,7 +20,7 @@ public class Effekt
      * Gibt den Inhalt des Attributes typ aus.
      * @return gibt den EffektTyp aus dem Attribut Typ der Instanz wieder.
      */
-    public EffektTyp getTyp()
+    public EffektTyp getTyp ()
     {
         return typ;
     }
@@ -29,7 +29,7 @@ public class Effekt
      * Gibt den Inhalt des Attributes schaden wieder.
      * @return gibt den Wert des Attributes schaden als Int wieder.
      */
-    public int getSchaden()
+    public int getSchaden ()
     {
         return schaden;
     }

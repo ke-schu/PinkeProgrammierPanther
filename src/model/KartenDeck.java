@@ -7,9 +7,10 @@ public class KartenDeck extends Stack<Karte>
 {
     private File datei;
     private String deckBezeichnung;
+
     private final static String dateiPfad = "src/carddecks/";
 
-    public KartenDeck(File datei, String deckBezeichnung)
+    public KartenDeck (File datei, String deckBezeichnung)
     {
         this.datei = datei;
         this.deckBezeichnung = deckBezeichnung;
@@ -19,7 +20,7 @@ public class KartenDeck extends Stack<Karte>
      * Konstruktor der Klasse KartenDeck, welcher alle Attribute setzt.
      * @param deckBezeichnung String der DeckBezeichnung
      */
-    public KartenDeck(String deckBezeichnung)
+    public KartenDeck (String deckBezeichnung)
     {
         this.deckBezeichnung = deckBezeichnung;
     }
@@ -43,7 +44,7 @@ public class KartenDeck extends Stack<Karte>
      * Methode die File des Attributes datei wiedergibt.
      * @return gibt den Inhalt des Attributes datei.
      */
-    public File getDatei()
+    public File getDatei ()
     {
         return datei;
     }
@@ -52,7 +53,7 @@ public class KartenDeck extends Stack<Karte>
      * Methode um den String des Attributes deckBezeichnung zu bekommen.
      * @return gibt den String des Attributes deckBezeichnung.
      */
-    public String getDeckBezeichnung()
+    public String getDeckBezeichnung ()
     {
         return deckBezeichnung;
     }

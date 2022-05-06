@@ -11,7 +11,7 @@ public class Held
      * @param lebensPunkte Int der in das Attribut lebensPunkte gesetzt wird.
      * @param startWaffe Waffe die in das Attribut startWaffe gelegt wird und per Methodenaufruf das Attribut angriffsPunkte setzt.
      */
-    public Held(int lebensPunkte, Waffe startWaffe)
+    public Held (int lebensPunkte, Waffe startWaffe)
     {
         this.lebensPunkte = lebensPunkte;
         this.startWaffe = startWaffe;
