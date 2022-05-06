@@ -10,7 +10,8 @@ public class Truhe extends ZufallsEreignis
      * @param position: Die Position auf der Oberkarte
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
      */
-    public Truhe (String name,String beschreibung, int position, boolean ausgefuehrt) {
+    public Truhe (String name,String beschreibung, int position, boolean ausgefuehrt)
+    {
         super();
         this.name = name;
         this.beschreibung = beschreibung;
@@ -24,7 +25,8 @@ public class Truhe extends ZufallsEreignis
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
     @Override
-    public void ausfuehren () {
+    public void ausfuehren ()
+    {
         if(wahrscheinlichkeit <= 50.0) {
             //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;

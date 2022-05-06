@@ -1,6 +1,7 @@
 package model.ereignisse;
 
-public class Schmied extends Mensch {
+public class Schmied extends Mensch
+{
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Schmied. Schmiede sind Ereignisse, die es dem
@@ -10,7 +11,8 @@ public class Schmied extends Mensch {
      * @param position: Die Position auf der Oberkarte
      * @param gratisInteraktion: Die Anzahl an kostenlosen Aufwertungen, die der Spieler zur Verfuegung hat
      */
-    public Schmied (String name, String beschreibung, int position, int gratisInteraktion) {
+    public Schmied (String name, String beschreibung, int position, int gratisInteraktion)
+    {
         this.name = name;
         this.beschreibung = beschreibung;
         this.position = position;
@@ -23,7 +25,8 @@ public class Schmied extends Mensch {
      * vorher die Zahlung durchgefuehrt.
      */
     @Override
-    public void ausfuehren () {
+    public void ausfuehren ()
+    {
         if(isAuswahl()) {
             if (pruefeGratisInteraktion()) {
 

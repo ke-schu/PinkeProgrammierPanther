@@ -16,7 +16,8 @@ public class ZufallsEreignis extends Ereignis
      * @param position: Die Position auf der Oberkarte
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
      */
-    public ZufallsEreignis (String name, String beschreibung, int position, boolean ausgefuehrt) {
+    public ZufallsEreignis (String name, String beschreibung, int position, boolean ausgefuehrt)
+    {
         this.name = name;
         this.beschreibung = beschreibung;
         this.position = position;
@@ -27,13 +28,16 @@ public class ZufallsEreignis extends Ereignis
     /**
      * Dieser Konstruktor ist ein leerer Konstruktor.
      */
-    public ZufallsEreignis () {}
+    public ZufallsEreignis ()
+    {
+    }
 
     /**
      * Diese Methode dient als Getter um zu ueberpruefen, ob ein Ereignis ausgefuehrt wurde.
      * @return Es wird zurückgegeben ob das Ereignis ausgefuehrt wurde.
      */
-    public boolean isAusgefuehrt () {
+    public boolean isAusgefuehrt ()
+    {
         return ausgefuehrt;
     }
 
@@ -41,7 +45,8 @@ public class ZufallsEreignis extends Ereignis
      * Diese Methode dient als Setter um darzustellen, ob ein Ereignis ausgefuehrt wurde oder nicht
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
      */
-    public void setAusgefuehrt (boolean ausgefuehrt) {
+    public void setAusgefuehrt (boolean ausgefuehrt)
+    {
         this.ausgefuehrt = ausgefuehrt;
     }
 
@@ -50,7 +55,8 @@ public class ZufallsEreignis extends Ereignis
      * Wert zwischen 0.0 und dem maximalen Wert der Skalierung gebildet wird.
      * @return das Attribut "wahrscheinlichkeit" wird mit dem generierten Wert zurückgegeben.
      */
-    public double generiereWahrscheinlichkeit () {
+    public double generiereWahrscheinlichkeit ()
+    {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
         return wahrscheinlichkeit;
     }
@@ -60,7 +66,8 @@ public class ZufallsEreignis extends Ereignis
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
     @Override
-    public void ausfuehren () {
+    public void ausfuehren ()
+    {
         if(wahrscheinlichkeit <= 50.0) {
             //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;
