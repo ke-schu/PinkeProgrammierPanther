@@ -2,13 +2,10 @@ package model;
 
 public enum KartenEinheitType
 {
-
-
-
-    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, new Effekt(EffektTyp.SCHADEN, 3)),
-    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,new Effekt(EffektTyp.SCHADEN, 3)),
-    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3)),
-    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,new Effekt(EffektTyp.SCHADEN, 3));
+    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, EffektTyp.LETZTEWORTE),
+    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,EffektTyp.LETZTEWORTE),
+    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE),
+    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE);
 
     private final String NAME;
     private int level;
@@ -18,10 +15,10 @@ public enum KartenEinheitType
     private int mana;
     private int beweglichkeit;
     private int reichweite;
-    private Effekt effekt;
+    private  EffektTyp effekt;
 
 
-    KartenEinheitType(String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, Effekt effekt)
+    KartenEinheitType(String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effekt)
     {
         this.NAME = name;
         this.level = level;
@@ -74,7 +71,7 @@ public enum KartenEinheitType
         return this.reichweite;
     }
 
-    public Effekt getEffekt()
+    public EffektTyp getEffekt()
     {
         return effekt;
     }

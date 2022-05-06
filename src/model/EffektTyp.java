@@ -2,5 +2,5 @@ package model;
 
 public enum EffektTyp
 {
-    SCHADEN;
+    LETZTEWORTE, ZURUECKWERFEN,EffektTyp;
 }

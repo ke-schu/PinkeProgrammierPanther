@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Waffe
+public class Waffe
 {
     private int angriffsPunkte = -1;
 

@@ -75,4 +75,9 @@ public class Spielfeld extends Raeume
     {
         return this.spielfeld[x][y];
     }
+
+    public void einheitloeschen(int x, int y)
+    {
+        this.spielfeld[x][y] = null;
+    }
 }

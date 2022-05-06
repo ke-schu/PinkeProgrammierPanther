@@ -7,17 +7,27 @@ public class KartenDeck extends Stack<Karte>
 {
     private File datei;
     private String deckBezeichnung;
-    private Charakterklasse besitzer;
     private final static String dateiPfad = "src/carddecks/";
 
-    public KartenDeck(String DeckBezeichnung, Charakterklasse besitzer)
+    public KartenDeck(File datei, String deckBezeichnung)
     {
-        super();
-        this.deckBezeichnung = DeckBezeichnung;
-        this.besitzer = besitzer;
-        this.datei = new File(dateiPfad + DeckBezeichnung + ".json");
+        this.datei = datei;
+        this.deckBezeichnung = deckBezeichnung;
     }
 
+    /**
+     * Konstruktor der Klasse KartenDeck, welcher alle Attribute setzt.
+     * @param deckBezeichnung String der DeckBezeichnung
+     */
+    public KartenDeck(String deckBezeichnung)
+    {
+        this.deckBezeichnung = deckBezeichnung;
+    }
+
+    /**
+     *
+     * @return
+     */
     public String toString ()
     {
         StringBuilder sb = new StringBuilder();
@@ -29,23 +39,21 @@ public class KartenDeck extends Stack<Karte>
         return this.getDeckBezeichnung() + "\t\t" + sb.toString();
     }
 
-    public Charakterklasse getBesitzer()
-    {
-        return besitzer;
-    }
-
+    /**
+     * Methode die File des Attributes datei wiedergibt.
+     * @return gibt den Inhalt des Attributes datei.
+     */
     public File getDatei()
     {
         return datei;
     }
 
+    /**
+     * Methode um den String des Attributes deckBezeichnung zu bekommen.
+     * @return gibt den String des Attributes deckBezeichnung.
+     */
     public String getDeckBezeichnung()
     {
         return deckBezeichnung;
-    }
-
-    public void setDeckBezeichnung(String deckBezeichnung)
-    {
-        this.deckBezeichnung = deckBezeichnung;
     }
 }

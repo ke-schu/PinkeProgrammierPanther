@@ -3,8 +3,18 @@ package control;
 import model.Einheit;
 import model.Spielfeld;
 
+/**
+ * Klasse in der sich Methoden befinden die mit Instanzen von Einheiten interagieren.
+ */
 public class EinheitenController
 {
+    /**
+     * Methode zum bewegen von Instanzen von Einheiten im Spielfeldarray.
+     * @param spielfeld Instanz des Spielfeldes auf der die Einheit bewegt werden soll.
+     * @param ziel_x Integer mit der Zielzeile der Bewegung.
+     * @param ziel_y Integer mit der Zielspalte der Bewegung.
+     * @param einheit Einheit die bewegt werden soll.
+     */
     public static void bewegen (Spielfeld spielfeld, int ziel_x, int ziel_y,Einheit einheit)
     {
         boolean zielErreichbarInX = false;
@@ -29,9 +39,8 @@ public class EinheitenController
                  spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
                  spielfeld.einheiteinsetzten(start_x, start_y, null);
             }
-
         }
-
     }
+
 
 }
