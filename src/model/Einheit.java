@@ -19,7 +19,7 @@ public class Einheit
     private int position_y = 0;
 
     /**
-     * Konstruktor der Alle Attribute aus der uebergebenen KarteEinheit übernimmt.
+     * Konstruktor der alle Attribute aus der uebergebenen KarteEinheit übernimmt.
      * @param karte dessen Attribute uebernommen werden.
      */
    public Einheit (KarteEinheit karte)

@@ -14,6 +14,10 @@ public class KarteEinheit extends Karte
   private EffektTyp kartenEffekt;
 
 
+  /**
+   * Konstruktor der alle Attribute aus der uebergebenen KarteEinheitTyp übernimmt.
+   * @param kartenType dessen Attribute uebernommen werden.
+   */
   public KarteEinheit(KartenEinheitType kartenType)
   {
     super(kartenType.getName(), kartenType.getLevel());
@@ -28,6 +32,7 @@ public class KarteEinheit extends Karte
     this.kartenReichweite = kartenType.getReichweite();
     this.kartenEffekt = kartenType.getEffekt();
   }
+
 
   public KartenEinheitType gettype()
   {
