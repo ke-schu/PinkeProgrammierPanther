@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Held
+public class Held
 {
     private int angriffsPunkte = -1;
     private int lebensPunkte = -1;
