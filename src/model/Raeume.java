@@ -8,7 +8,7 @@ public class Raeume extends Ebenen
 
     /**
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
-     * @param ereignis die Instanz die in das Attribut ergnis gesetzt werden soll.
+     * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
     public Raeume (Ereignis ereignis)
     {
