@@ -15,11 +15,17 @@ public class Main
         //waehleKlasse();
         try
         {
-            speichereSpielstand();
+            leseSpielstand();
         } catch (IOException e)
         {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void leseSpielstand() throws IOException
+    {
+        SpielStand meinSpielStand = SpielStandController.leseDatei();
+        System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung());
     }
 
     private static void speichereSpielstand() throws IOException
