@@ -51,7 +51,7 @@ public class Main
 
         try
         {
-            System.out.println(CharakterklasseController
+            System.out.println(CharakterKlasseController
                     .erstelleCharakterklasse("Magier", 125)
                     .getDeck(3)
                     .toString());

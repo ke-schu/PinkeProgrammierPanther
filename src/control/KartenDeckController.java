@@ -13,6 +13,7 @@ import model.KartenDeck;
 public class KartenDeckController
 {
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
+    private static KartenDeckSerialisierung meineSerialisierung = new KartenDeckSerialisierung();
     private static Random meinRandom = new Random();
     private static Gson meinGson;
 
@@ -23,9 +24,7 @@ public class KartenDeckController
 
     private static String serialisieren (KartenDeck deck)
     {
-        KartenDeckSerialisierer meinSerialisierer = new KartenDeckSerialisierer();
-
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meinSerialisierer);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
 
         return meinGson.toJson(deck);
@@ -48,9 +47,7 @@ public class KartenDeckController
 
     private static KartenDeck deserialisieren (String jsonKartenDeck) throws JsonSyntaxException
     {
-        KartenDeckDeserialisierer meinDeserialisierer = new KartenDeckDeserialisierer();
-
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meinDeserialisierer);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
         meinGson = meinGsonBuilder.create();
 
         return meinGson.fromJson(jsonKartenDeck, KartenDeck.class);
