@@ -8,18 +8,26 @@ import static model.KartenEinheitType.*;
 
 public class Main
 {
-    public static void main (String[] args)
+    public static void main (String[] args) throws SpielfeldNichtQuadratischException
     {
         //erstelleDeck();
-        //erstelleSpielfeld();
-        //waehleKlasse();
         try
+        {
+            erstelleSpielfeld();
+        }
+        catch (SpielfeldNichtQuadratischException | SpielfeldDimensionGleichNullException a)
+        {
+
+        }
+
+        //waehleKlasse();
+    /*    try
         {
             leseSpielstand();
         } catch (IOException e)
         {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     private static void leseSpielstand() throws IOException
@@ -80,10 +88,17 @@ public class Main
     private static void erstelleSpielfeld () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
     {
         KarteEinheit peter = new KarteEinheit(EricKarte);
-        Spielfeld meinspielfeld = new Spielfeld(5,5);
-        KartenEinheitController.beschwoeren(peter,meinspielfeld,2,2);
-        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
-        meinspielfeld.einheitloeschen(2,2);
-        System.out.println(meinspielfeld.getSpielfeld()[2][2]);
+        KarteEinheit karin = new KarteEinheit(StanKarte);
+        Spielfeld meinspielfeld = new Spielfeld(10,10);
+        KartenEinheitController.beschwoeren(peter,meinspielfeld,5,5);
+        KartenEinheitController.beschwoeren(karin,meinspielfeld,5,6);
+        System.out.println(meinspielfeld.getSpielfeld()[5][5]);
+        System.out.println(meinspielfeld.getSpielfeld()[5][6]);
+        System.out.println("nach dem zurueckewerfen");
+        EffektController.zurueckwerfen(meinspielfeld.getSpielfeldplatz(5,5), meinspielfeld);
+        System.out.println(meinspielfeld.getSpielfeld()[5][6]);
+        System.out.println(meinspielfeld.getSpielfeld()[5][7]);
+
+
     }
 }

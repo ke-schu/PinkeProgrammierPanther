@@ -38,35 +38,30 @@ public class EffektController
         Einheit zielrechts  = feld.getSpielfeldplatz(ausloeser.getPosition_x()+1, ausloeser.getPosition_y());
         Einheit platzrechts = feld.getSpielfeldplatz(ausloeser.getPosition_x()+2, ausloeser.getPosition_y());
 
-        try
-        {
             if (zieloben != null && platzoben == null)
             {
                 feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-2, zieloben);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-1);
             }
 
-            if (zielunten != null && platzoben == null)
+            if (zielunten != null && platzunten == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+2, zieloben);
+                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+2, zielunten);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+1);
             }
 
-            if (ziellinks != null && platzoben == null)
+            if (ziellinks != null && platzlinks == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x() - 2, ausloeser.getPosition_y(), zieloben);
+                feld.einheiteinsetzten(ausloeser.getPosition_x() - 2, ausloeser.getPosition_y(), ziellinks);
                 feld.einheitloeschen(ausloeser.getPosition_x() - 1, ausloeser.getPosition_y());
             }
 
-            if (zielrechts != null && platzoben == null)
+            if (zielrechts != null && platzrechts == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x() + 2, ausloeser.getPosition_y(), zieloben);
+                feld.einheiteinsetzten(ausloeser.getPosition_x() + 2, ausloeser.getPosition_y(), zielrechts);
                 feld.einheitloeschen(ausloeser.getPosition_x() + 1, ausloeser.getPosition_y());
             }
-        }
-            catch (ArrayIndexOutOfBoundsException e)
-            {
-                System.out.println("fick die henne");
-            }
+
+
     }
 }

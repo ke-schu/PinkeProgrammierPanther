@@ -11,6 +11,8 @@ public class KartenEinheitController
         {
             Einheit meineeinheit = new Einheit(karte);
             spielfeld.einheiteinsetzten(x,y,meineeinheit);
+            meineeinheit.setPosition_x(x);
+            meineeinheit.setPosition_y(y);
         }
     }
 
