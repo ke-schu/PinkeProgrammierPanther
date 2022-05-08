@@ -14,7 +14,7 @@ public class CharakterklasseController
 
         for (int i = 1; i < (klasse.getAnzahlDecks() + 1); i++)
         {
-            String pfad = "src/carddecks/" + klasse.getName() + i + ".json";
+            String pfad = "resources/carddecks/" + klasse.getName() + i + ".json";
             if (KartenDeckController.pruefeDatei(pfad))
             {
                 klasse.setDeck(KartenDeckController.leseDatei(pfad), i);

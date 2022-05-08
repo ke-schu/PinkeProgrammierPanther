@@ -42,7 +42,7 @@ public class KartenDeckController
             System.out.println("Datei existiert bereits: " + deck.getDatei());
         }
         FileWriter verfasser = new FileWriter(deck.getDatei());
-        verfasser.write(KartenDeckController.serialisieren(deck));
+        verfasser.write(serialisieren(deck));
         verfasser.close();
     }
 
