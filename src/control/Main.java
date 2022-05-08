@@ -12,7 +12,24 @@ public class Main
     {
         //erstelleDeck();
         //erstelleSpielfeld();
-        waehleKlasse();
+        //waehleKlasse();
+        try
+        {
+            speichereSpielstand();
+        } catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void speichereSpielstand() throws IOException
+    {
+        SpielStand meinSpielStand = new SpielStand(
+                10,
+                new KartenDeck("testdeck"),
+                new Level(),
+                47);
+        SpielStandController.schreibeDatei(meinSpielStand);
     }
 
     private static void waehleKlasse()
@@ -33,7 +50,7 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(new File("src/carddecks/Magier2.json"), "irgendeinName");;
+        KartenDeck meinDeck = new KartenDeck(new File("resources/carddecks/Magier2.json"), "irgendeinName");;
         meinDeck.add(new KarteEinheit(EricKarte));
         meinDeck.add(new KarteEinheit(KennyKarte));
         meinDeck.add(new KarteEinheit(KyleKarte));
@@ -45,7 +62,7 @@ public class Main
         try
         {
             KartenDeckController.schreibeDatei(meinDeck);
-            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/carddecks/Krieger.json");
+            KartenDeck meinDeck2 = KartenDeckController.leseDatei("resources/carddecks/Krieger.json");
             System.out.println(meinDeck2.toString());
         } catch (IOException e)
         {
