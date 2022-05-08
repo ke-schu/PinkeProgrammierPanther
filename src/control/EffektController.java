@@ -38,29 +38,35 @@ public class EffektController
         Einheit zielrechts  = feld.getSpielfeldplatz(ausloeser.getPosition_x()+1, ausloeser.getPosition_y());
         Einheit platzrechts = feld.getSpielfeldplatz(ausloeser.getPosition_x()+2, ausloeser.getPosition_y());
 
-        if (zieloben != null && platzoben == null)
+        try
         {
-            feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-2, zieloben);
-            feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-1);
-        }
+            if (zieloben != null && platzoben == null)
+            {
+                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-2, zieloben);
+                feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-1);
+            }
 
-        if (zielunten != null && platzoben == null)
-        {
-            feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+2, zieloben);
-            feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+1);
-        }
+            if (zielunten != null && platzoben == null)
+            {
+                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+2, zieloben);
+                feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+1);
+            }
 
-        if (ziellinks != null && platzoben == null)
-        {
-            feld.einheiteinsetzten(ausloeser.getPosition_x() - 2, ausloeser.getPosition_y(), zieloben);
-            feld.einheitloeschen(ausloeser.getPosition_x() - 1, ausloeser.getPosition_y());
-        }
+            if (ziellinks != null && platzoben == null)
+            {
+                feld.einheiteinsetzten(ausloeser.getPosition_x() - 2, ausloeser.getPosition_y(), zieloben);
+                feld.einheitloeschen(ausloeser.getPosition_x() - 1, ausloeser.getPosition_y());
+            }
 
-        if (zielrechts != null && platzoben == null)
-        {
-            feld.einheiteinsetzten(ausloeser.getPosition_x() + 2, ausloeser.getPosition_y(), zieloben);
-            feld.einheitloeschen(ausloeser.getPosition_x() + 1, ausloeser.getPosition_y());
+            if (zielrechts != null && platzoben == null)
+            {
+                feld.einheiteinsetzten(ausloeser.getPosition_x() + 2, ausloeser.getPosition_y(), zieloben);
+                feld.einheitloeschen(ausloeser.getPosition_x() + 1, ausloeser.getPosition_y());
+            }
         }
+            catch (ArrayIndexOutOfBoundsException e)
+            {
+                System.out.println("fick die henne");
+            }
     }
-
 }
