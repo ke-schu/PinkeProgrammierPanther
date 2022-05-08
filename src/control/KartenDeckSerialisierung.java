@@ -1,22 +1,30 @@
 package control;
 
 import com.google.gson.*;
-import model.Charakterklasse;
 import model.Karte;
-import model.KarteEinheit;
 import model.KartenDeck;
 
-import java.io.File;
 import java.lang.reflect.Type;
 
-public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
+public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, JsonDeserializer<KartenDeck>
 {
-    Gson gson = new Gson();
+    Gson meinGson = new Gson();
 
     @Override
-    public KartenDeck deserialize (JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException
+    public JsonElement serialize (KartenDeck src, Type type, JsonSerializationContext context)
     {
-        JsonObject meinJsonObject = jsonElement.getAsJsonObject();
+        JsonObject jsonKartenDeck = new JsonObject();
+
+        jsonKartenDeck.addProperty("Bezeichnung", src.getDeckBezeichnung());
+        jsonKartenDeck.add("Karten", meinGson.toJsonTree(src));
+
+        return jsonKartenDeck;
+    }
+
+    @Override
+    public KartenDeck deserialize (JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException
+    {
+        JsonObject meinJsonObject = json.getAsJsonObject();
         JsonArray meinJsonArray = meinJsonObject.get("Karten").getAsJsonArray();
 
         KartenDeck meinKartenDeck = new KartenDeck(meinJsonObject.get("Bezeichnung").getAsString());
@@ -27,7 +35,7 @@ public class KartenDeckDeserialisierer implements JsonDeserializer<KartenDeck>
             try
             {
                 Type klasse = Class.forName(JsonKarte.get("klasse").getAsString());
-                Karte karte = gson.fromJson(JsonKarte, klasse);
+                Karte karte = meinGson.fromJson(JsonKarte, klasse);
                 meinKartenDeck.add(i, karte);
             }
             catch (ClassNotFoundException e)

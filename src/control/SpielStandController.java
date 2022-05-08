@@ -18,11 +18,11 @@ public class SpielStandController
     private static Gson meinGson;
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
     private final static File datei = new File("src/resources/spielstand.json");
+    private static KartenDeckSerialisierung meineSerialisierung = new KartenDeckSerialisierung();
 
     private static String serialisieren (SpielStand stand)
     {
-        KartenDeckSerialisierer meinSerialisierer = new KartenDeckSerialisierer();
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meinSerialisierer);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
 
         return meinGson.toJson(stand);
@@ -45,9 +45,7 @@ public class SpielStandController
 
     private static SpielStand deserialisieren (String jsonStand) throws JsonSyntaxException
     {
-        KartenDeckDeserialisierer meinDeserialisierer = new KartenDeckDeserialisierer();
-
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meinDeserialisierer);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
         meinGson = meinGsonBuilder.create();
 
         return meinGson.fromJson(jsonStand, SpielStand.class);
