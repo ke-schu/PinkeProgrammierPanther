@@ -2,7 +2,7 @@ package model;
 
 import exceptions.*;
 
-public class Spielfeld extends Raeume
+public class Spielfeld extends Level
 {
 
     private Einheit[][] spielfeld = null;

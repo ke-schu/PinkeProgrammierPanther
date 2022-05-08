@@ -2,7 +2,7 @@ package model;
 
 import model.ereignisse.Ereignis;
 
-public class Raeume extends Ebenen
+public class Raeume extends Ebene
 {
     private Ereignis ereignis = null;
 
