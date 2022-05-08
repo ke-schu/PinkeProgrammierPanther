@@ -1,7 +1,7 @@
 package model;
 
 
-public class Charakterklasse
+public class CharakterKlasse
 {
     private String name;
     private int preis;
@@ -14,7 +14,7 @@ public class Charakterklasse
      * @param name String der in name der Instanz gesetzt wird.
      * @param preis Int der in preis der Instanz gesetzt wird.
      */
-    public Charakterklasse (String name, int preis)
+    public CharakterKlasse(String name, int preis)
     {
         this.name = name;
         this.preis = preis;

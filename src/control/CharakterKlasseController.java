@@ -1,16 +1,16 @@
 package control;
 
-import model.Charakterklasse;
+import model.CharakterKlasse;
 import model.KartenDeck;
 
 import java.io.File;
 import java.io.IOException;
 
-public class CharakterklasseController
+public class CharakterKlasseController
 {
-    public static Charakterklasse erstelleCharakterklasse (String name, int preis) throws IOException
+    public static CharakterKlasse erstelleCharakterklasse (String name, int preis) throws IOException
     {
-        Charakterklasse klasse = new Charakterklasse(name, preis);
+        CharakterKlasse klasse = new CharakterKlasse(name, preis);
 
         for (int i = 1; i < (klasse.getAnzahlDecks() + 1); i++)
         {
