@@ -20,7 +20,7 @@ public abstract class Karte
      * @param name String der in das Attribut name gesetzt wird.
      * @param level Int der in das Attribut
      */
-    public Karte(String name, int level)
+    public Karte (String name, int level)
     {
         this.id = instanzZaehler;
         this.name = name;
@@ -34,7 +34,7 @@ public abstract class Karte
      * @return gibt einen String aus dem Attribut id zurueck.
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return this.getClass().getSimpleName() + " " + this.getId();
     }
@@ -43,7 +43,7 @@ public abstract class Karte
      * Methode die den Int des Attributes id liefert.
      * @return gibt den Int-Wert des Attributes id.
      */
-    public int getId()
+    public int getId ()
     {
         return id;
     }

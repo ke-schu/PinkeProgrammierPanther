@@ -4,12 +4,12 @@ public class RundenController
 {
     private int zugzeahler = 1;
 
-    public void zugbeenden(Spielfeld feld )
+    public void zugBeenden (Spielfeld feld )
     {
         this.zugzeahler = zugzeahler + 1;
-        for(int i = 0; i < feld.getFeldZeile(); i++)
+        for (int i = 0; i < feld.getFeldZeile(); i++)
         {
-            for(int j = 0; j < feld.getFeldSpalte(); j++)
+            for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
                 if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
                 {

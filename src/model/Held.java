@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Held
+public class Held
 {
     private int angriffsPunkte = -1;
     private int lebensPunkte = -1;
@@ -11,7 +11,7 @@ public abstract class Held
      * @param lebensPunkte Int der in das Attribut lebensPunkte gesetzt wird.
      * @param startWaffe Waffe die in das Attribut startWaffe gelegt wird und per Methodenaufruf das Attribut angriffsPunkte setzt.
      */
-    public Held(int lebensPunkte, Waffe startWaffe)
+    public Held (int lebensPunkte, Waffe startWaffe)
     {
         this.lebensPunkte = lebensPunkte;
         this.startWaffe = startWaffe;

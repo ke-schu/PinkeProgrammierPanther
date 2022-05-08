@@ -4,29 +4,27 @@ import model.*;
 
 public class EffektController
 {
-    public void effektauslösen(Einheit ausloeser, Einheit ziel)
+    public void effektAusloesen(Einheit ausloeser, Einheit ziel)
     {
-        switch(ausloeser.getEffekt())
+        switch (ausloeser.getEffekt())
         {
             case LETZTEWORTE: letzteworte(ausloeser, ziel); break;
         }
 
-
-
     }
-    public static void schadenVerursachen(Einheit ziel, int schaden)
+    public static void schadenVerursachen (Einheit ziel, int schaden)
     {
         ziel.schadenNehmen(schaden);
     }
 
-    public static void letzteworte  (Einheit ausfuehrer, Einheit ziel)
+    public static void letzteworte (Einheit ausfuehrer, Einheit ziel)
     {
         if (ausfuehrer.getLebenspunkte() == 0);
         {
             zurueckwerfen(ziel);
         }
     }
-    public static void zurueckwerfen(Einheit ziel)
+    public static void zurueckwerfen (Einheit ziel)
     {
 
     }

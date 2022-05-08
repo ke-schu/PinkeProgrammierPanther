@@ -14,7 +14,11 @@ public class KarteEinheit extends Karte
   private EffektTyp kartenEffekt;
 
 
-  public KarteEinheit(KartenEinheitType kartenType)
+  /**
+   * Konstruktor der alle Attribute aus der uebergebenen KarteEinheitTyp übernimmt.
+   * @param kartenType dessen Attribute uebernommen werden.
+   */
+  public KarteEinheit (KartenEinheitType kartenType)
   {
     super(kartenType.getName(), kartenType.getLevel());
     this.kartenType = kartenType;
@@ -29,98 +33,99 @@ public class KarteEinheit extends Karte
     this.kartenEffekt = kartenType.getEffekt();
   }
 
-  public KartenEinheitType gettype()
+
+  public KartenEinheitType gettype ()
   {
     return this.kartenType;
   }
 
-  public void setKartenType(KartenEinheitType kartenType)
+  public void setKartenType (KartenEinheitType kartenType)
   {
     this.kartenType = kartenType;
   }
 
 
-  public KartenEinheitType getKartenType()
+  public KartenEinheitType getKartenType ()
   {
     return kartenType;
   }
 
-  public String getKartenName()
+  public String getKartenName ()
   {
     return kartenName;
   }
 
-  public int getKartenLevel()
+  public int getKartenLevel ()
   {
     return kartenLevel;
   }
 
-  public void setKartenLevel(int kartenLevel)
+  public void setKartenLevel (int kartenLevel)
   {
     this.kartenLevel = kartenLevel;
   }
 
-  public String getKartenKlasse()
+  public String getKartenKlasse ()
   {
     return kartenKlasse;
   }
 
-  public int getKartenMacht()
+  public int getKartenMacht ()
   {
     return kartenMacht;
   }
 
-  public void setKartenMacht(int kartenMacht)
+  public void setKartenMacht (int kartenMacht)
   {
     this.kartenMacht = kartenMacht;
   }
 
-  public int getKartenLebenspunkte()
+  public int getKartenLebenspunkte ()
   {
     return kartenLebenspunkte;
   }
 
-  public void setKartenLebenspunkte(int kartenLebenspunkte)
+  public void setKartenLebenspunkte (int kartenLebenspunkte)
   {
     this.kartenLebenspunkte = kartenLebenspunkte;
   }
 
-  public int getKartenMana()
+  public int getKartenMana ()
   {
     return kartenMana;
   }
 
-  public void setKartenMana(int kartenMana)
+  public void setKartenMana (int kartenMana)
   {
     this.kartenMana = kartenMana;
   }
 
-  public int getKartenBeweglichkeit()
+  public int getKartenBeweglichkeit ()
   {
     return kartenBeweglichkeit;
   }
 
-  public void setKartenBeweglichkeit(int kartenBeweglichkeit)
+  public void setKartenBeweglichkeit (int kartenBeweglichkeit)
   {
     this.kartenBeweglichkeit = kartenBeweglichkeit;
   }
 
-  public int getKartenReichweite()
+  public int getKartenReichweite ()
   {
     return kartenReichweite;
   }
 
-  public void setKartenReichweite(int kartenReichweite)
+  public void setKartenReichweite (int kartenReichweite)
   {
     this.kartenReichweite = kartenReichweite;
   }
 
-  public EffektTyp getKartenEffekt()
+  public EffektTyp getKartenEffekt ()
   {
     return kartenEffekt;
   }
 
-  public String getKlasse()
+  public String getKlasse ()
   {
     return this.kartenKlasse;
   }

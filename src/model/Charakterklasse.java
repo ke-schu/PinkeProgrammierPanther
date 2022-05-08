@@ -14,7 +14,7 @@ public class Charakterklasse
      * @param name String der in name der Instanz gesetzt wird.
      * @param preis Int der in preis der Instanz gesetzt wird.
      */
-    public Charakterklasse(String name, int preis)
+    public Charakterklasse (String name, int preis)
     {
         this.name = name;
         this.preis = preis;
@@ -25,7 +25,7 @@ public class Charakterklasse
      * @return Gibt die name, preis, held, und kartenblaetter wieder.
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return "Charakterklasse{" +
                 "name='" + name + '\'' +
@@ -39,17 +39,17 @@ public class Charakterklasse
      * Gibt den String des Attribut name wieder.
      * @return gibt das Attribut name wieder.
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
 
-    public KartenDeck getDeck(int nummer)
+    public KartenDeck getDeck (int nummer)
     {
         return beinhalteteDecks[nummer-1];
     }
 
-    public boolean setDeck(KartenDeck deck, int nummer)
+    public boolean setDeck (KartenDeck deck, int nummer)
     {
         if (anzahlDecks >= nummer)
         {
@@ -62,7 +62,7 @@ public class Charakterklasse
         }
     }
 
-    public int getAnzahlDecks()
+    public int getAnzahlDecks ()
     {
         return anzahlDecks;
     }
