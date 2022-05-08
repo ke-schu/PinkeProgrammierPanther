@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 
 public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, JsonDeserializer<KartenDeck>
 {
-    Gson meinGson = new Gson();
+    private Gson meinGson = new Gson();
 
     @Override
     public JsonElement serialize (KartenDeck src, Type type, JsonSerializationContext context)
