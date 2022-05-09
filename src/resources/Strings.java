@@ -7,7 +7,7 @@ public interface Strings
     String ZEILENUMBRUCH = "\n";
 
     //Pfade
-    String KARTENDECK_PFAD = "src/resources/carddecks/";
+    String KARTENDECK_PFAD = "src/resources/kartendecks/";
     String JSON_DATEIENDUNG = ".json";
     String REST_DECK_DATEI = "Rest" + JSON_DATEIENDUNG;
 

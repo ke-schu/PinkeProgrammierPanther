@@ -13,7 +13,7 @@ public class SpielStand
     public SpielStand(int guthaben, Level level, int position) throws KartenDeckFehlerhaftException
     {
         this.guthaben = guthaben;
-        this.spieldeck = KartenDeckController.leseDatei("src/resources/carddecks/Spieldeck.json");
+        this.spieldeck = KartenDeckController.leseDatei("src/resources/kartendecks/Spieldeck.json");
         this.level = level;
         this.position = position;
     }
