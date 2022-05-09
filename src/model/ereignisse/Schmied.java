@@ -1,5 +1,9 @@
 package model.ereignisse;
 
+import control.KartenController;
+import model.KarteEinheit;
+import model.KartenDeck;
+
 public class Schmied extends Mensch
 {
 
@@ -24,14 +28,19 @@ public class Schmied extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
      */
-    @Override
-    public void ausfuehren ()
+    public void ausfuehren (KarteEinheit karte, KartenDeck deck)
     {
-        if(isAuswahl()) {
-            if (pruefeGratisInteraktion()) {
-
+        if(isAuswahl())
+        {
+            if (pruefeGratisInteraktion())
+            {
+                KartenController.kartenVerbessern(karte);
             }
-        } else {
+        }
+        else
+        {
+            deck.pop();
+            KartenController.kartenVerbessern(karte);
         }
     }
 }

@@ -16,11 +16,13 @@ public class Einheit
     private int position_x = 0;
     private int position_y = 0;
 
+    private boolean freundlich;
+
     /**
      * Konstruktor der alle Attribute aus der uebergebenen KarteEinheit übernimmt.
      * @param karte dessen Attribute uebernommen werden.
      */
-   public Einheit (KarteEinheit karte)
+   public Einheit (KarteEinheit karte, boolean freundlich)
     {
         this.type = karte.gettype();
         this.name=karte.getKartenName();
@@ -33,6 +35,7 @@ public class Einheit
         this.reichweite = karte.getKartenReichweite();
         this.effekteins = karte.getKartenEffekteins();
         this.effektzwei = karte.getKartenEffektzwei();
+        this.freundlich = freundlich;
     }
 
     /**

@@ -1,10 +1,9 @@
 package model.ereignisse;
 
-public class ZufallsEreignis extends Ereignis
+public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;              //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;                //Wert zur Bestimmung, welches Ereignis eintritt
-    protected final int WAHRSCHEINLICHKEIT_MAX = 100;   //Obergrenze der Skalierung um Ereignissen eine Wahrscheinlichkeit zu geben.
 
     protected static int ereignismenge;                 //Menge an Ereignissen, welche eintreten können.
 
@@ -65,14 +64,15 @@ public class ZufallsEreignis extends Ereignis
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
-    @Override
     public void ausfuehren ()
     {
-        if(wahrscheinlichkeit <= 50.0) {
+        if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+        {
             //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;
         }
-        else {
+        else
+        {
             //Zweites zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;
         }

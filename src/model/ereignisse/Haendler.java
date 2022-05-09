@@ -2,7 +2,6 @@ package model.ereignisse;
 
 public class Haendler extends Mensch
 {
-
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler. Haendler sind Ereignisse, die es dem
      * Spieler ermoeglichen Karten zu dem bestehenden Deck hinzuzufuegen.
@@ -24,13 +23,17 @@ public class Haendler extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt oder
      * vorher die Zahlung durchgefuehrt.
      */
-    @Override
+
     public void ausfuehren ()
     {
-        if(isAuswahl()) {
-            if (pruefeGratisInteraktion()) {
+        if(isAuswahl())
+        {
+            if (pruefeGratisInteraktion())
+            {
                 //Deck.erweitern(Karte karte);
-            } else {
+            }
+            else
+            {
                 //Deck.entfernen(Schatz schatz);
                 //Deck.erweitern(Karte karte);
             }
