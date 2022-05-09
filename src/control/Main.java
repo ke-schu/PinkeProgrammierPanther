@@ -44,19 +44,14 @@ public class Main
 
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(new File("resources/carddecks/Magier2.json"), "irgendeinName");;
-        meinDeck.add(new KarteEinheit(EricKarte));
-        meinDeck.add(new KarteEinheit(KennyKarte));
-        meinDeck.add(new KarteEinheit(KyleKarte));
-        meinDeck.add(new KarteEinheit(StanKarte));
+        KartenDeck meinDeck = new KartenDeck(new File("src/resources/carddecks/MagierHaendler.json"), "irgendeinName");;
 
         System.out.println(meinDeck);
-        KartenDeckController.mischen(meinDeck);
 
         try
         {
             KartenDeckController.schreibeDatei(meinDeck);
-            KartenDeck meinDeck2 = KartenDeckController.leseDatei("resources/carddecks/Krieger.json");
+            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/resources/carddecks/MagierHaendler.json");
             System.out.println(meinDeck2.toString());
         } catch (IOException e)
         {

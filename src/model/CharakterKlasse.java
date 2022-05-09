@@ -12,16 +12,37 @@ public class CharakterKlasse
     private final Held held;
     private final int anzahlDecks = 3;
     private transient KartenDeck startDecks[] = new KartenDeck[anzahlDecks];
+    private KartenDeck restDeck;
 
     public CharakterKlasse (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
     {
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
         this.held = held;
-        sucheDecks();
+        sucheStartDecks();
+        sucheRestDeck();
     }
 
-    private void sucheDecks () throws KartenDeckFehlerhaftException
+    private void sucheRestDeck() throws KartenDeckFehlerhaftException
+    {
+        String pfad = KARTENDECK_PFAD + this.getName() + REST_DECK_DATEI;
+        if (KartenDeckController.pruefeDatei(pfad))
+        {
+            try
+            {
+                this.restDeck = KartenDeckController.leseDatei(pfad);
+            } catch (IOException e)
+            {
+                throw new KartenDeckFehlerhaftException();
+            }
+        }
+        else
+        {
+            throw new KartenDeckFehlerhaftException();
+        }
+    }
+
+    private void sucheStartDecks() throws KartenDeckFehlerhaftException
     {
         for (int i = 1; i < (this.getAnzahlDecks() + 1); i++)
         {
