@@ -8,10 +8,10 @@ public class KartenEinheitController
     {
         //benachbarte einheit abfragen nicht vergessen
         int zug = RundenController.getZugzeahler();
-        if (zug % 2 == 0))
+        if (zug % 2 == 0)
         if (spielfeld.getSpielfeld()[x][y] == null)
         {
-            Einheit meineeinheit = new Einheit(karte,);
+            Einheit meineeinheit = new Einheit(karte, true);
             spielfeld.einheiteinsetzten(x,y,meineeinheit);
             meineeinheit.setPosition_x(x);
             meineeinheit.setPosition_y(y);

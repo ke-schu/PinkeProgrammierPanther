@@ -1,6 +1,6 @@
 package model;
 
-import model.ereignisse.Ereignis;
+//import model.ereignisse.Ereignis;
 import model.ereignisse.*;
 
 public class Ebene extends Level
@@ -68,6 +68,7 @@ public class Ebene extends Level
     {
         switch (stufe)
         {
+            /*
             case 1 :
                 Gegner Babo = new Gegner();
                 Raeume Gegner1 = new Raeume(Babo);
@@ -75,7 +76,7 @@ public class Ebene extends Level
                 Raeume Boss = new Raeume();
                 this.ebene[0][1]= Gegner1 ;
                 this.ebene[1][2]= Gegner2 ;
-
+                */
 
             case 2 : ;
 

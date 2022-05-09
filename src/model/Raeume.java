@@ -6,11 +6,12 @@ public class Raeume
 {
     private EreignisKlasse ereignis = null;
 
+
     /**
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raeume (Ereignis ereignis)
+    public Raeume (EreignisKlasse ereignis)
     {
         this.ereignis = ereignis;
     }

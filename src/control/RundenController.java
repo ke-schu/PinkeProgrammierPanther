@@ -1,12 +1,12 @@
 package control;
 import model.*;
 
-import static resources.zahlen.*;
+import static resources.Zahlen.*;
 
 public class RundenController
 {
     private static int zugzeahler = ZAHL_1;
-    boolean
+    //boolean plaatzhalter = false;
 
     public static boolean isFreundlich()
     {

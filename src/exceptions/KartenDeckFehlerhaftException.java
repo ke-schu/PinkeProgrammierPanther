@@ -1,7 +1,7 @@
 package exceptions;
 
-import resources.strings;
-
+//import resources.strings;
+/*
 public class KartenDeckFehlerhaftException extends Exception
 {
     public KartenDeckFehlerhaftException (int kartenDeckNummer)
@@ -9,3 +9,4 @@ public class KartenDeckFehlerhaftException extends Exception
         super(String.format(strings.KARTEN_DECK_FEHLERHAFT_EXCEPTION_INFO, kartenDeckNummer));
     }
 }
+*/

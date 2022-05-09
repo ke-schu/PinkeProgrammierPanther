@@ -49,7 +49,8 @@ public class Einheit
     {
         if(karte.getKartenMana()<= reserve.getMana())
         {
-            return new Einheit(karte);
+            return null;
+           // return new Einheit(karte);
         }
         else return null;
     }
