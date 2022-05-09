@@ -7,14 +7,12 @@ public class Haendler extends Mensch
      * Spieler ermoeglichen Karten zu dem bestehenden Deck hinzuzufuegen.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param position: Die Position auf der Oberkarte
      * @param gratisInteraktion: Die Anzahl an kostenlosen Transaktionen, die der Spieler zur Verfuegung hat
      */
-    public Haendler (String name, String beschreibung, int position, int gratisInteraktion)
+    public Haendler (String name, String beschreibung, int gratisInteraktion)
     {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.position = position;
         this.gratisInteraktion = gratisInteraktion;
     }
 

@@ -12,14 +12,12 @@ public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkei
      * genaue Art für den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param position: Die Position auf der Oberkarte
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
      */
-    public ZufallsEreignis (String name, String beschreibung, int position, boolean ausgefuehrt)
+    public ZufallsEreignis (String name, String beschreibung, boolean ausgefuehrt)
     {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.position = position;
         this.ausgefuehrt = ausgefuehrt;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }

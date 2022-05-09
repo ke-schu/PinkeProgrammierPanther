@@ -68,15 +68,22 @@ public class Ebene extends Level
     {
         switch (stufe)
         {
-            /*
             case 1 :
-                Gegner Babo = new Gegner();
-                Raeume Gegner1 = new Raeume(Babo);
-                Raeume Gegner2 = new Raeume();
-                Raeume Boss = new Raeume();
+                Gegner Platzhalter1 = new Gegner("Babo", "Dies ist eine Beispielbeschreibung");
+                Raeume Gegner1 = new Raeume(Platzhalter1);
+                Gegner Platzhalter2 = new Gegner("Alex", "Dies ist Alex");
+                Raeume Gegner2 = new Raeume(Platzhalter2);
+                Gegner BossErstesLevel = new Gegner("Keno der Unschlagbare","Dies ist der Boss der ersten Ebene");
+                Raeume Boss = new Raeume(BossErstesLevel);
+                Treppe TreppeErsteEbene = new Treppe("Treppe der ersten Ebene","Dies ist die Treppe der Ersten Ebene");
+                Raeume Treppe1 = new Raeume (TreppeErsteEbene);
                 this.ebene[0][1]= Gegner1 ;
-                this.ebene[1][2]= Gegner2 ;
-                */
+                this.ebene[0][3]= Boss;
+                this.ebene[0][4]= Treppe1;
+                this.ebene[1][2]= Gegner2;
+
+
+
 
             case 2 : ;
 

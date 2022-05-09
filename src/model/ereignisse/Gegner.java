@@ -5,14 +5,13 @@ public class Gegner extends EreignisKlasse {
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Gegner. Gegner sind Ereignisse, die es dem
      * Spieler ermoeglichen, einen Kampf zu beginnen.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param position: Die Position auf der Oberkarte
+     *
+     * @param name         : Der Name des Ereignisses
+     * @param beschreibung : Die Beschreibung fuer den Spieler
      */
-    public Gegner (String name, String beschreibung, int position) {
+    public Gegner (String name, String beschreibung) {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.position = position;
     }
     /**
      *
