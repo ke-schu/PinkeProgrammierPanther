@@ -1,6 +1,11 @@
 package resources;
 public interface Strings
 {
+
+    //Satzzeichen
+    String LEERZEICHEN = " ";
+    String ZEILENUMBRUCH = "\n";
+
     //Pfade
     String KARTENDECK_PFAD = "src/resources/carddecks/";
     String JSON_DATEIENDUNG = ".json";

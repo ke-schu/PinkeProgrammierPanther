@@ -2,6 +2,7 @@ package model;
 
 //import model.ereignisse.Ereignis;
 import model.ereignisse.*;
+import resources.Strings;
 
 public class Ebene extends Level
 {
@@ -82,9 +83,6 @@ public class Ebene extends Level
                 this.ebene[0][4]= Treppe1;
                 this.ebene[1][2]= Gegner2;
 
-
-
-
             case 2 : //3443;
 
             case 3 : ;
@@ -97,6 +95,21 @@ public class Ebene extends Level
 
             case 7 : ;
         }
+    }
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < this.ebenenZeile; i++)
+        {
+            for (int j = 0; j < this.ebenenSpalte; j++)
+            {
+                sb.append(this.ebene[i][j]);
+                sb.append(Strings.LEERZEICHEN);
+            }
+        sb.append(Strings.ZEILENUMBRUCH);
+        }
+    return sb.toString();
     }
 }
 
