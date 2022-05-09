@@ -11,7 +11,8 @@ public class Einheit
     private int mana;
     private int beweglichkeit;
     private int reichweite;
-    private  EffektTyp effekt;
+    private  EffektTyp effekteins;
+    private  EffektTyp effektzwei;
     private int position_x = 0;
     private int position_y = 0;
 
@@ -30,7 +31,8 @@ public class Einheit
         this.mana = karte.getKartenMana();
         this.beweglichkeit = karte.getKartenBeweglichkeit();
         this.reichweite = karte.getKartenReichweite();
-        this.effekt = karte.getKartenEffekt();
+        this.effekteins = karte.getKartenEffekteins();
+        this.effektzwei = karte.getKartenEffektzwei();
     }
 
     /**
@@ -229,8 +231,12 @@ public class Einheit
         this.position_y = getPosition_y;
     }
 
-    public EffektTyp getEffekt ()
+    public EffektTyp getEffekteins ()
     {
-        return effekt;
+        return effekteins;
+    }
+    public EffektTyp getEffektzwei ()
+    {
+        return effektzwei;
     }
 }

@@ -74,8 +74,13 @@ public enum KartenEinheitType
         return this.reichweite;
     }
 
-    public EffektTyp getEffekt ()
+    public EffektTyp getEffekteins ()
     {
-        return effekt;
+        return effekteins;
+    }
+
+    public EffektTyp getEffektzwei ()
+    {
+        return effektzwei;
     }
 }

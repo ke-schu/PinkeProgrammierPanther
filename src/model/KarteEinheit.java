@@ -11,7 +11,8 @@ public class KarteEinheit extends Karte
   private int kartenMana;
   private int kartenBeweglichkeit;
   private int kartenReichweite;
-  private EffektTyp kartenEffekt;
+  private EffektTyp kartenEffekteins;
+  private EffektTyp kartenEffektzwei;
 
 
   /**
@@ -30,7 +31,8 @@ public class KarteEinheit extends Karte
     this.kartenMana = kartenType.getMana();
     this.kartenBeweglichkeit = kartenType.getBeweglichkeit();
     this.kartenReichweite = kartenType.getReichweite();
-    this.kartenEffekt = kartenType.getEffekt();
+    this.kartenEffekteins = kartenType.getEffekteins();
+    this.kartenEffektzwei = kartenType.getEffektzwei();
   }
 
 
@@ -120,9 +122,13 @@ public class KarteEinheit extends Karte
     this.kartenReichweite = kartenReichweite;
   }
 
-  public EffektTyp getKartenEffekt ()
+  public EffektTyp getKartenEffekteins ()
   {
-    return kartenEffekt;
+    return kartenEffekteins;
+  }
+  public EffektTyp getKartenEffektzwei ()
+  {
+    return kartenEffektzwei;
   }
 
   public String getKlasse ()
