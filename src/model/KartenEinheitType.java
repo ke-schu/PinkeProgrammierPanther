@@ -1,11 +1,12 @@
 package model;
+import static resources.zahlen.*;
 
 public enum KartenEinheitType
 {
-    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, EffektTyp.LETZTEWORTE),
-    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,EffektTyp.LETZTEWORTE),
-    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE),
-    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE);
+    EricKarte("Eric", ZAHL_1, "Nahkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_1, EffektTyp.LETZTEWORTE),
+    KennyKarte("Kenny", ZAHL_1, "Nahkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_1,EffektTyp.LETZTEWORTE),
+    KyleKarte("Kyle", ZAHL_1, "Fernkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_2,EffektTyp.LETZTEWORTE),
+    StanKarte("Stan", ZAHL_1, "Fernkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_2,EffektTyp.LETZTEWORTE);
 
     private final String NAME;
     private int level;
