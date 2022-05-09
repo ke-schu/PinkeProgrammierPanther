@@ -1,6 +1,6 @@
 package resources;
 
-public interface zahlen
+public interface Zahlen
 {
     int ZAHL_0 = 0;
     int ZAHL_1 = 1;

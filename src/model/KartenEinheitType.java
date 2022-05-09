@@ -1,5 +1,5 @@
 package model;
-import static resources.zahlen.*;
+import static resources.Zahlen.*;
 
 public enum KartenEinheitType
 {

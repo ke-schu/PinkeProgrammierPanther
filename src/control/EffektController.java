@@ -1,7 +1,7 @@
 package control;
 
 import model.*;
-import static resources.zahlen.*;
+import static resources.Zahlen.*;
 
 public class EffektController
 {
