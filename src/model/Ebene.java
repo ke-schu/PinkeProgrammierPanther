@@ -3,6 +3,7 @@ package model;
 //import model.ereignisse.Ereignis;
 import model.ereignisse.*;
 import resources.Strings;
+import resources.Zahlen;
 
 public class Ebene extends Level
 {
@@ -108,7 +109,7 @@ public class Ebene extends Level
         return this.ebene[zeile][spalte];
     }
 
-    private void erstelleEbene(int stufe)
+    public void erstelleEbene(int stufe)
     {
         switch (stufe)
         {
@@ -140,6 +141,10 @@ public class Ebene extends Level
         }
     }
 
+    /**
+     * Methode, die die Raeume der Ebene in der Konsole formatiert ausgibt.
+     * @return gibt einen String der die Matrix des Attributes ebene repraesentiert wieder.
+     */
     @Override
     public String toString()
     {
@@ -148,8 +153,17 @@ public class Ebene extends Level
         {
             for (int j = 0; j < this.ebenenSpalte; j++)
             {
-                sb.append(this.ebene[i][j]);
-                sb.append(Strings.LEERZEICHEN);
+                if (this.ebene[i][j] != null)
+                {
+                    sb.append(this.ebene[i][j].getEreignis().getName());
+                    sb.append(Strings.LEERZEICHEN);
+                }
+                else
+                {
+                    sb.append(Zahlen.ZAHL_0);
+                    sb.append(Strings.LEERZEICHEN);
+                }
+
             }
         sb.append(Strings.ZEILENUMBRUCH);
         }

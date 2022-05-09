@@ -1,5 +1,6 @@
 package control;
 import control.test.Alex;
+import control.test.Hendrik;
 import control.test.Keno;
 import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
@@ -18,10 +19,11 @@ public class Main
 
     private static void testen()
     {
-        switch(2)
+        switch(3)
         {
             case 1: Alex.ausfuehren();
             case 2: Keno.ausfuehren();
+            case 3: Hendrik.ausfuehren();
         }
     }
 }
