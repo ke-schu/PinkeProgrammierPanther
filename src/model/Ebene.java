@@ -97,6 +97,12 @@ public class Ebene extends Level
         this.ebene[zeile][spalte] = null;
     }
 
+    /**
+     * Methode um an einer bestimmten Position den Inhalt des Attributes ebene zu bekommen.
+     * @param spalte Position der Spalte von dem der Inhalt zurueck gegeben wird.
+     * @param zeile Position der Zeile von dem der Inhalt zurueck gegeben wird.
+     * @return gibt den Inhalt an der bestimmten Position des Attributes ebene.
+     */
     public Raeume getRaumAnPosition(int spalte, int zeile)
     {
         return this.ebene[zeile][spalte];
