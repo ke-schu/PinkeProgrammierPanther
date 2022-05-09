@@ -14,41 +14,26 @@ public class KartenController
      */
     public static void kartenVerbessern (KarteEinheit karte)
     {
-        int lp = 0;
-        int atk = 0;
-        int reichweite = 0;
-
       switch (karte.getKlasse())
       {
           case "Nahkaempfer":
               if (karte.getKartenLevel() == ZAHL_3)
               {
-                  lp = karte.getKartenLebenspunkte();
-                  lp = lp + ZAHL_2;
-                  karte.setKartenLebenspunkte(lp);
-                  atk = karte.getKartenMacht();
-                  atk = atk + ZAHL_2;
-                  karte.setKartenMacht(atk);
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_2);
+                  karte.setKartenMacht(karte.getKartenMacht() + ZAHL_2);
                   karte.setKartenLevel(ZAHL_4);
               }
               else if (karte.getKartenLevel() == ZAHL_2)
               {
-                  lp = karte.getKartenLebenspunkte();
-                  lp = lp + ZAHL_2;
-                  karte.setKartenLebenspunkte(lp);
-                  atk = karte.getKartenMacht();
-                  atk = atk + ZAHL_1;
-                  karte.setKartenMacht(atk);
+
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_2);
+                  karte.setKartenMacht(karte.getKartenMacht() + ZAHL_1);
                   karte.setKartenLevel(ZAHL_3);
               }
               else if (karte.getKartenLevel() == ZAHL_1)
               {
-                  lp = karte.getKartenLebenspunkte();
-                  lp = lp + ZAHL_1;
-                  karte.setKartenLebenspunkte(lp);
-                  atk = karte.getKartenMacht();
-                  atk = atk + ZAHL_1;
-                  karte.setKartenMacht(atk);
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_1);
+                  karte.setKartenMacht(karte.getKartenMacht() + ZAHL_1);
                   karte.setKartenLevel(ZAHL_2);
               }
               break;
@@ -56,34 +41,22 @@ public class KartenController
           case "Fernkaempfer":
               if (karte.getKartenLevel() == ZAHL_3)
               {
-                  lp = karte.getKartenLebenspunkte();
-                  lp = lp + ZAHL_1;
-                  karte.setKartenLebenspunkte(lp);
-                  atk = karte.getKartenMacht();
-                  atk = atk + ZAHL_1;
-                  karte.setKartenMacht(atk);
-                  reichweite = karte.getKartenReichweite();
-                  reichweite++;
-                  karte.setKartenReichweite(reichweite);
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_1);
+                  karte.setKartenMacht(karte.getKartenMacht() + ZAHL_1);
+                  karte.setKartenReichweite(karte.getKartenReichweite()+ ZAHL_1);
                   karte.setKartenLevel(ZAHL_4);
               }
               else if (karte.getKartenLevel() == ZAHL_2)
               {
-                  lp = karte.getKartenLebenspunkte();
-                  lp = lp + ZAHL_2;
-                  karte.setKartenLebenspunkte(lp);
-                  reichweite = karte.getKartenReichweite();
-                  reichweite++;
-                  karte.setKartenReichweite(reichweite);
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_2);
+                  karte.setKartenReichweite(karte.getKartenReichweite() + ZAHL_1);
                   karte.setKartenLevel(ZAHL_3);
 
               }
               else if (karte.getKartenLevel() == ZAHL_1)
               {
-                  karte.setKartenLebenspunkte(lp);
-                  atk = karte.getKartenMacht();
-                  atk = atk + ZAHL_2;
-                  karte.setKartenMacht(atk);
+                  karte.setKartenLebenspunkte(karte.getKartenLebenspunkte() + ZAHL_1);
+                  karte.setKartenMacht(karte.getKartenMacht() + ZAHL_2);
                   karte.setKartenLevel(ZAHL_2);
               }
             break;
