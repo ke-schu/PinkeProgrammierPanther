@@ -3,12 +3,13 @@ package model;
 import control.KartenDeckController;
 import exceptions.KartenDeckFehlerhaftException;
 import java.io.IOException;
+import static resources.Strings.*;
 
 public class CharakterKlasse
 {
-    private String name;
-    private int freischaltgebuehr;
-    private Held held;
+    private final String name;
+    private final int freischaltgebuehr;
+    private final Held held;
     private final int anzahlDecks = 3;
     private transient KartenDeck startDecks[] = new KartenDeck[anzahlDecks];
 
@@ -24,7 +25,7 @@ public class CharakterKlasse
     {
         for (int i = 1; i < (this.getAnzahlDecks() + 1); i++)
         {
-            String pfad = "src/resources/carddecks/" + this.getName() + i + ".json";
+            String pfad = KARTENDECK_PFAD + this.getName() + i + JSON_DATEIENDUNG;
             if (KartenDeckController.pruefeDatei(pfad))
             {
                 try

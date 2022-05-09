@@ -1,6 +1,9 @@
 package resources;
 public interface Strings
 {
+    //Pfade
+    String KARTENDECK_PFAD = "src/resources/carddecks/";
+    String JSON_DATEIENDUNG = ".json";
 
     //Exception Strings
     String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehung gleich 0";
