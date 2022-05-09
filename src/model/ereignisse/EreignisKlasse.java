@@ -1,16 +1,17 @@
 package model.ereignisse;
 
-public abstract class Ereignis
+public abstract class EreignisKlasse
 {
 
     protected String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
     protected String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
+
     protected int position;             //Position des Ereignisses auf der Oberkarte
     protected boolean auswahl = false;  //Abfrage ob der Spieler, dass Ereignis ausführt (Kampf ablehnen etc.)
 
     /**
      * Diese Methode dient als Getter um den Namen des Ereignisses zugänglich zu machen.
-     * @return
+     * @return Name des jeweiligen Ereignisses
      */
     public String getName ()
     {
@@ -19,7 +20,7 @@ public abstract class Ereignis
 
     /**
      * Diese Methode dient als Getter um die Position des Ereignisses zugänglich zu machen.
-     * @return
+     * @return Position des jeweiligen Ereignisses
      */
     public int getPosition ()
     {
@@ -28,7 +29,7 @@ public abstract class Ereignis
 
     /**
      * Diese Methode dient als Getter um die Beschreibung des Ereignisses zugänglich zu machen.
-     * @return
+     * @return Beschreibung des jeweiligen Ereignisses
      */
     public String getBeschreibung ()
     {
@@ -37,7 +38,7 @@ public abstract class Ereignis
 
     /**
      * Diese Methode dient als Getter um die Wahl des Spielers zugänglich zu machen.
-     * @return
+     * @return Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
      */
     public boolean isAuswahl ()
     {
@@ -52,10 +53,4 @@ public abstract class Ereignis
     {
         this.auswahl = auswahl;
     }
-
-    /**
-     * Diese Methode wird von den Subklassen von Ereignis ausformuliert. Sie ist die zentrale Methode des
-     * jeweiligen Ereignisses.
-     */
-    public abstract void ausfuehren ();
 }

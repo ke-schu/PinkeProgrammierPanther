@@ -1,10 +1,10 @@
 package model;
 
-import model.ereignisse.Ereignis;
+import model.ereignisse.EreignisKlasse;
 
 public class Raeume extends Ebene
 {
-    private Ereignis ereignis = null;
+    private EreignisKlasse ereignis = null;
 
     public Raeume(int ebenenZeile, int ebenenSpalte)
     {
@@ -24,7 +24,7 @@ public class Raeume extends Ebene
      * Methode um das Ereignis aus dem Attribut ereignis zu bekommen.
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis ()
+    public EreignisKlasse getEreignis ()
     {
         return ereignis;
     }

@@ -24,13 +24,16 @@ public class Tempel extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aus dem Deck entfernt oder
      * vorher die Zahlung durchgefuehrt.
      */
-    @Override
     public void ausfuehren ()
     {
-        if(isAuswahl()) {
-            if(pruefeGratisInteraktion()) {
+        if(isAuswahl())
+        {
+            if(pruefeGratisInteraktion())
+            {
                 //Deck.entfern(Karte karte);
-            } else {
+            }
+            else
+            {
                 //Deck.entfernen(Schatz schatz);
                 //Deck.entfernen(Karte karte);
             }

@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-public class Truhe extends ZufallsEreignis
+public class Truhe extends ZufallsEreignis implements Wahrscheinlichkeit
 {
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Truhe. Ein ZufallsEreignis ist ein Ereignis, dessen
@@ -24,14 +24,15 @@ public class Truhe extends ZufallsEreignis
      * Diese Methode überlagert die Methode aus der Superklasse "ZufallsEreignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
-    @Override
     public void ausfuehren ()
     {
-        if(wahrscheinlichkeit <= 50.0) {
+        if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+        {
             //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;
         }
-        else {
+        else
+        {
             //Zweites zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
             ausgefuehrt = true;
         }
