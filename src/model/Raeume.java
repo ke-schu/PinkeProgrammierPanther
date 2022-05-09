@@ -1,30 +1,25 @@
 package model;
 
-import model.ereignisse.Ereignis;
+import model.ereignisse.EreignisKlasse;
 
-public class Raeume extends Ebene
+public class Raeume
 {
-    private Ereignis ereignis = null;
-
-    public Raeume(int ebenenZeile, int ebenenSpalte)
-    {
-        super(ebenenZeile, ebenenSpalte);
-    }
+    private EreignisKlasse ereignis = null;
 
     /**
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    /*public Raeume (Ereignis ereignis)
+    public Raeume (Ereignis ereignis)
     {
         this.ereignis = ereignis;
-    }*/
+    }
 
     /**
      * Methode um das Ereignis aus dem Attribut ereignis zu bekommen.
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis ()
+    public EreignisKlasse getEreignis ()
     {
         return ereignis;
     }

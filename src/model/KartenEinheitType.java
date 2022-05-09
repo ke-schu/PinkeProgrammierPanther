@@ -1,11 +1,12 @@
 package model;
+import static resources.Zahlen.*;
 
 public enum KartenEinheitType
 {
-    EricKarte("Eric", 1, "Nahkaempfer", 1, 1, 2, 1, 1, EffektTyp.LETZTEWORTE),
-    KennyKarte("Kenny", 1, "Nahkaempfer", 1, 1, 2, 1, 1,EffektTyp.LETZTEWORTE),
-    KyleKarte("Kyle", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE),
-    StanKarte("Stan", 1, "Fernkaempfer", 1, 1, 2, 1, 2,EffektTyp.LETZTEWORTE);
+    EricKarte("Eric", ZAHL_1, "Nahkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_1, EffektTyp.LETZTEWORTE, EffektTyp.ZURUECKWERFEN),
+    KennyKarte("Kenny", ZAHL_1, "Nahkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_1,EffektTyp.LETZTEWORTE, EffektTyp.ZURUECKWERFEN),
+    KyleKarte("Kyle", ZAHL_1, "Fernkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_2,EffektTyp.LETZTEWORTE, EffektTyp.ZURUECKWERFEN),
+    StanKarte("Stan", ZAHL_1, "Fernkaempfer", ZAHL_1, ZAHL_1, ZAHL_2, ZAHL_1, ZAHL_2,EffektTyp.LETZTEWORTE, EffektTyp.ZURUECKWERFEN);
 
     private final String NAME;
     private int level;
@@ -15,10 +16,11 @@ public enum KartenEinheitType
     private int mana;
     private int beweglichkeit;
     private int reichweite;
-    private  EffektTyp effekt;
+    private  EffektTyp effekteins;
+    private  EffektTyp effektzwei;
 
 
-    KartenEinheitType (String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effekt)
+    KartenEinheitType (String name, int level, String klasse, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effekteins, EffektTyp effektzwei)
     {
         this.NAME = name;
         this.level = level;
@@ -28,7 +30,8 @@ public enum KartenEinheitType
         this.mana = mana;
         this.beweglichkeit = beweglichkeit;
         this.reichweite = reichweite;
-        this.effekt = effekt;
+        this.effekteins = effekteins;
+        this.effektzwei = effektzwei;
     }
 
     public String getName ()
@@ -71,8 +74,13 @@ public enum KartenEinheitType
         return this.reichweite;
     }
 
-    public EffektTyp getEffekt ()
+    public EffektTyp getEffekteins ()
     {
-        return effekt;
+        return effekteins;
+    }
+
+    public EffektTyp getEffektzwei ()
+    {
+        return effektzwei;
     }
 }

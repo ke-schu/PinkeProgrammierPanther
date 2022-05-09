@@ -78,7 +78,5 @@ public class Main
         EffektController.zurueckwerfen(meinspielfeld.getSpielfeldplatz(5,5), meinspielfeld);
         System.out.println(meinspielfeld.getSpielfeld()[5][6]);
         System.out.println(meinspielfeld.getSpielfeld()[5][7]);
-
-
     }
 }

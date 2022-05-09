@@ -1,5 +1,5 @@
 package resources;
-public interface strings
+public interface Strings
 {
 
     //Exception Strings
