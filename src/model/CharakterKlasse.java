@@ -2,6 +2,7 @@ package model;
 
 import control.KartenDeckController;
 import exceptions.KartenDeckFehlerhaftException;
+import utilities.JsonIO;
 import java.io.IOException;
 import static resources.Strings.*;
 
@@ -26,11 +27,11 @@ public class CharakterKlasse
     private void sucheRestDeck() throws KartenDeckFehlerhaftException
     {
         String pfad = KARTENDECK_PFAD + this.getName() + REST_DECK_DATEI;
-        if (KartenDeckController.pruefeDatei(pfad))
+        if (JsonIO.pruefeDatei(pfad))
         {
             try
             {
-                this.restDeck = KartenDeckController.leseDatei(pfad);
+                this.restDeck = JsonIO.leseDatei(pfad);
             } catch (IOException e)
             {
                 throw new KartenDeckFehlerhaftException();
@@ -47,11 +48,11 @@ public class CharakterKlasse
         for (int i = 1; i < (this.getAnzahlDecks() + 1); i++)
         {
             String pfad = KARTENDECK_PFAD + this.getName() + i + JSON_DATEIENDUNG;
-            if (KartenDeckController.pruefeDatei(pfad))
+            if (JsonIO.pruefeDatei(pfad))
             {
                 try
                 {
-                    this.setDeck(KartenDeckController.leseDatei(pfad), i);
+                    this.setDeck(JsonIO.leseDatei(pfad), i);
                 } catch (IOException e)
                 {
                     throw new KartenDeckFehlerhaftException(i);

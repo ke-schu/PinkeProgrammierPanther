@@ -1,9 +1,9 @@
 package control.test;
 
-import control.KartenDeckController;
 import control.SpielStandController;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
+import utilities.JsonIO;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,8 +51,8 @@ public class Keno
 
         try
         {
-            KartenDeckController.schreibeDatei(meinDeck);
-            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/resources/carddecks/MagierHaendler.json");
+            JsonIO.schreibeDatei(meinDeck);
+            KartenDeck meinDeck2 = JsonIO.leseDatei("src/resources/carddecks/MagierHaendler.json");
             System.out.println(meinDeck2.toString());
         } catch (IOException e)
         {

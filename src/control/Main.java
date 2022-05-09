@@ -18,7 +18,7 @@ public class Main
 
     private static void testen()
     {
-        switch(1)
+        switch(2)
         {
             case 1: Alex.ausfuehren();
             case 2: Keno.ausfuehren();
