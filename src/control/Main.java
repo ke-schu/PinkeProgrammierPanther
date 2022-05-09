@@ -1,5 +1,5 @@
 package control;
-//import exceptions.KartenDeckFehlerhaftException;
+import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
 import model.*;
@@ -33,12 +33,12 @@ public class Main
     private static void waehleKlasse()
     {
         Held meinHeld = new Held(10, new Waffe(10));
-        //try
+        try
         {
             CharakterKlasse meineKlasse = new CharakterKlasse("Magier",150, meinHeld);
-        } //catch (KartenDeckFehlerhaftException e)
+        } catch (KartenDeckFehlerhaftException e)
         {
-            //System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 

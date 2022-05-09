@@ -1,10 +1,7 @@
 package model;
 
-
 import control.KartenDeckController;
-//import exceptions.KartenDeckFehlerhaftException;
-
-import java.io.File;
+import exceptions.KartenDeckFehlerhaftException;
 import java.io.IOException;
 
 public class CharakterKlasse
@@ -15,7 +12,7 @@ public class CharakterKlasse
     private final int anzahlDecks = 3;
     private transient KartenDeck startDecks[] = new KartenDeck[anzahlDecks];
 
-    public CharakterKlasse (String name, int freischaltgebuehr, Held held) //throws KartenDeckFehlerhaftException
+    public CharakterKlasse (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
     {
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
@@ -23,7 +20,7 @@ public class CharakterKlasse
         sucheDecks();
     }
 
-    private void sucheDecks () //hrows KartenDeckFehlerhaftException
+    private void sucheDecks () throws KartenDeckFehlerhaftException
     {
         for (int i = 1; i < (this.getAnzahlDecks() + 1); i++)
         {
@@ -35,12 +32,12 @@ public class CharakterKlasse
                     this.setDeck(KartenDeckController.leseDatei(pfad), i);
                 } catch (IOException e)
                 {
-                    //throw new KartenDeckFehlerhaftException(i);
+                    throw new KartenDeckFehlerhaftException(i);
                 }
             }
             else
             {
-               // throw new KartenDeckFehlerhaftException(i);
+                throw new KartenDeckFehlerhaftException(i);
             }
         }
     }
