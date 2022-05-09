@@ -1,6 +1,7 @@
 package control;
 
 import model.KarteEinheit;
+import static resources.zahlen.*;
 
 /**
  * In dieser Klassen befinden sich Methoden um mit Instanzen von Karten zu interagieren.
@@ -20,67 +21,70 @@ public class KartenController
       switch (karte.getKlasse())
       {
           case "Nahkaempfer":
-              if (karte.getKartenLevel() == 3)
+              if (karte.getKartenLevel() == ZAHL_3)
               {
                   lp = karte.getKartenLebenspunkte();
-                  lp = lp + 2;
+                  lp = lp + ZAHL_2;
                   karte.setKartenLebenspunkte(lp);
                   atk = karte.getKartenMacht();
-                  atk = atk + 2;
+                  atk = atk + ZAHL_2;
                   karte.setKartenMacht(atk);
-                  karte.setKartenLevel(4);
+                  karte.setKartenLevel(ZAHL_4);
               }
-              else if (karte.getKartenLevel() == 2)
+              else if (karte.getKartenLevel() == ZAHL_2)
               {
                   lp = karte.getKartenLebenspunkte();
-                  lp = lp + 2;
+                  lp = lp + ZAHL_2;
                   karte.setKartenLebenspunkte(lp);
                   atk = karte.getKartenMacht();
-                  atk = atk + 1;
+                  atk = atk + ZAHL_1;
                   karte.setKartenMacht(atk);
-                  karte.setKartenLevel(3);
+                  karte.setKartenLevel(ZAHL_3);
               }
-              else if (karte.getKartenLevel() == 1)
+              else if (karte.getKartenLevel() == ZAHL_1)
               {
                   lp = karte.getKartenLebenspunkte();
-                  lp = lp + 1;
+                  lp = lp + ZAHL_1;
                   karte.setKartenLebenspunkte(lp);
                   atk = karte.getKartenMacht();
-                  atk = atk + 1;
+                  atk = atk + ZAHL_1;
                   karte.setKartenMacht(atk);
-                  karte.setKartenLevel(2);
+                  karte.setKartenLevel(ZAHL_2);
               }
               break;
 
           case "Fernkaempfer":
-              if (karte.getKartenLevel() == 3)
+              if (karte.getKartenLevel() == ZAHL_3)
               {
                   lp = karte.getKartenLebenspunkte();
-                  lp = lp + 1;
+                  lp = lp + ZAHL_1;
                   karte.setKartenLebenspunkte(lp);
                   atk = karte.getKartenMacht();
-                  atk = atk + 1;
+                  atk = atk + ZAHL_1;
                   karte.setKartenMacht(atk);
                   reichweite = karte.getKartenReichweite();
                   reichweite++;
                   karte.setKartenReichweite(reichweite);
+                  karte.setKartenLevel(ZAHL_4);
               }
-              else if (karte.getKartenLevel() == 2)
+              else if (karte.getKartenLevel() == ZAHL_2)
               {
                   lp = karte.getKartenLebenspunkte();
-                  lp = lp + 2;
+                  lp = lp + ZAHL_2;
                   karte.setKartenLebenspunkte(lp);
                   reichweite = karte.getKartenReichweite();
                   reichweite++;
                   karte.setKartenReichweite(reichweite);
+                  karte.setKartenLevel(ZAHL_3);
 
               }
-              else if (karte.getKartenLevel() == 1)
+              else if (karte.getKartenLevel() == ZAHL_1)
               {
                   karte.setKartenLebenspunkte(lp);
                   atk = karte.getKartenMacht();
-                  atk = atk + 2;
+                  atk = atk + ZAHL_2;
                   karte.setKartenMacht(atk);
+                  karte.setKartenLevel(ZAHL_2);
               }
             break;
       }
