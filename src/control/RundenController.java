@@ -6,9 +6,10 @@ import static resources.Zahlen.*;
 public class RundenController
 {
     private static int zugzeahler = ZAHL_1;
+   private static boolean freundlich =true;
     //boolean plaatzhalter = false;
 
-    public static boolean isFreundlich()
+    public static boolean getFreundlich()
     {
         return freundlich;
     }
@@ -18,7 +19,7 @@ public class RundenController
         RundenController.freundlich = freundlich;
     }
 
-    static boolean freundlich = false;
+
 
     public void zugBeenden (Spielfeld feld )
     {

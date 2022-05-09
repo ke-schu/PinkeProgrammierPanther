@@ -16,6 +16,16 @@ public class Einheit
     private int position_x = 0;
     private int position_y = 0;
 
+    public boolean getFreundlich()
+    {
+        return freundlich;
+    }
+
+    public void setFreundlich(boolean freundlich)
+    {
+        this.freundlich = freundlich;
+    }
+
     private boolean freundlich;
 
     /**
@@ -45,12 +55,11 @@ public class Einheit
      * @param reserve Instanz von ManaTank um zu pruefen, ob das Attribut Mana groß genug ist.
      * @return gibt die neue Instanz aus Einheit zurueck mit den Werten der uebergebenen Instanz von KarteEinheit.
      */
-    public Einheit erschaffen (KarteEinheit karte, ManaTank reserve)
+    public Einheit erschaffen (KarteEinheit karte, ManaTank reserve, boolean freundlich)
     {
         if(karte.getKartenMana()<= reserve.getMana())
         {
-            return null;
-           // return new Einheit(karte);
+            return new Einheit(karte, freundlich);
         }
         else return null;
     }
