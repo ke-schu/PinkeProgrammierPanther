@@ -1,23 +1,48 @@
 package model;
 
 
+import control.KartenDeckController;
+import exceptions.KartenDeckFehlerhaftException;
+
+import java.io.File;
+import java.io.IOException;
+
 public class CharakterKlasse
 {
     private String name;
-    private int preis;
-    private String held;
+    private int freischaltgebuehr;
+    private Held held;
     private final int anzahlDecks = 3;
-    private KartenDeck beinhalteteDecks[] = new KartenDeck[anzahlDecks];
+    private transient KartenDeck startDecks[] = new KartenDeck[anzahlDecks];
 
-    /**
-     * Konstruktor der gleichzeitig name und preis setzt.
-     * @param name String der in name der Instanz gesetzt wird.
-     * @param preis Int der in preis der Instanz gesetzt wird.
-     */
-    public CharakterKlasse(String name, int preis)
+    public CharakterKlasse (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
     {
         this.name = name;
-        this.preis = preis;
+        this.freischaltgebuehr = freischaltgebuehr;
+        this.held = held;
+        sucheDecks();
+    }
+
+    private void sucheDecks () throws KartenDeckFehlerhaftException
+    {
+        for (int i = 1; i < (this.getAnzahlDecks() + 1); i++)
+        {
+            String pfad = "src/resources/carddecks/" + this.getName() + i + ".json";
+            if (KartenDeckController.pruefeDatei(pfad))
+            {
+                try
+                {
+                    this.setDeck(KartenDeckController.leseDatei(pfad), i);
+                } catch (IOException e)
+                {
+                    throw new KartenDeckFehlerhaftException(i);
+                }
+            }
+            else
+            {
+                throw new KartenDeckFehlerhaftException(i);
+            }
+        }
     }
 
     /**
@@ -29,9 +54,9 @@ public class CharakterKlasse
     {
         return "Charakterklasse{" +
                 "name='" + name + '\'' +
-                ", preis=" + preis +
+                ", preis=" + freischaltgebuehr +
                 ", held='" + held + '\'' +
-                ", kartenblaetter=" + beinhalteteDecks +
+                ", kartenblaetter=" + startDecks +
                 '}';
     }
 
@@ -46,14 +71,14 @@ public class CharakterKlasse
 
     public KartenDeck getDeck (int nummer)
     {
-        return beinhalteteDecks[nummer-1];
+        return startDecks[nummer-1];
     }
 
     public boolean setDeck (KartenDeck deck, int nummer)
     {
         if (anzahlDecks >= nummer)
         {
-            beinhalteteDecks[nummer-1] = deck;
+            startDecks[nummer-1] = deck;
             return true;
         }
         else

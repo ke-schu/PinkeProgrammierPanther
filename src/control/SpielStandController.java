@@ -18,11 +18,11 @@ public class SpielStandController
     private static Gson meinGson;
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
     private final static File datei = new File("src/resources/spielstand.json");
-    private static KartenDeckSerialisierung meineSerialisierung = new KartenDeckSerialisierung();
+    private static KartenDeckSerialisierung kartenDeckSerialisierung = new KartenDeckSerialisierung();
 
     private static String serialisieren (SpielStand stand)
     {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, kartenDeckSerialisierung);
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
 
         return meinGson.toJson(stand);
@@ -45,7 +45,7 @@ public class SpielStandController
 
     private static SpielStand deserialisieren (String jsonStand) throws JsonSyntaxException
     {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, kartenDeckSerialisierung);
         meinGson = meinGsonBuilder.create();
 
         return meinGson.fromJson(jsonStand, SpielStand.class);
@@ -56,6 +56,13 @@ public class SpielStandController
         Path path = Paths.get(datei.toURI());
         String content = Files.readString(path);
 
-        return deserialisieren(content);
+        try
+        {
+            return deserialisieren(content);
+        }
+        catch (JsonSyntaxException e)
+        {
+            throw new IOException("Fehlerhafte Json Formatierung");
+        }
     }
 }

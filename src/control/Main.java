@@ -1,4 +1,5 @@
 package control;
+import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
 import model.*;
@@ -10,24 +11,7 @@ public class Main
 {
     public static void main (String[] args) throws SpielfeldNichtQuadratischException
     {
-        //erstelleDeck();
-        try
-        {
-            erstelleSpielfeld();
-        }
-        catch (SpielfeldNichtQuadratischException | SpielfeldDimensionGleichNullException a)
-        {
-
-        }
-
-        //waehleKlasse();
-    /*    try
-        {
-            leseSpielstand();
-        } catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }*/
+        waehleKlasse();
     }
 
     private static void leseSpielstand() throws IOException
@@ -48,15 +32,11 @@ public class Main
 
     private static void waehleKlasse()
     {
-
+        Held meinHeld = new Held(10, new Waffe(10));
         try
         {
-            System.out.println(CharakterKlasseController
-                    .erstelleCharakterklasse("Magier", 125)
-                    .getDeck(3)
-                    .toString());
-        }
-        catch (IOException e)
+            CharakterKlasse meineKlasse = new CharakterKlasse("Magier",150, meinHeld);
+        } catch (KartenDeckFehlerhaftException e)
         {
             System.out.println(e.getMessage());
         }
