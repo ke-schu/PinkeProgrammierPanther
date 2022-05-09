@@ -1,9 +1,9 @@
 package control.test;
 
+import control.KartenDeckController;
 import control.SpielStandController;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
-import utilities.JsonIO;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,13 +21,9 @@ public class Keno
         System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung());
     }
 
-    private static void speichereSpielstand() throws IOException
+    private static void speichereSpielstand() throws KartenDeckFehlerhaftException, IOException
     {
-        SpielStand meinSpielStand = new SpielStand(
-                10,
-                new KartenDeck("testdeck"),
-                new Level(),
-                47);
+        SpielStand meinSpielStand = new SpielStand(10, new Level(), 47);
         SpielStandController.schreibeDatei(meinSpielStand);
     }
 
@@ -51,10 +47,10 @@ public class Keno
 
         try
         {
-            JsonIO.schreibeDatei(meinDeck);
-            KartenDeck meinDeck2 = JsonIO.leseDatei("src/resources/carddecks/MagierHaendler.json");
+            KartenDeckController.schreibeDatei(meinDeck);
+            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/resources/carddecks/MagierHaendler.json");
             System.out.println(meinDeck2.toString());
-        } catch (IOException e)
+        } catch (KartenDeckFehlerhaftException e)
         {
             System.out.println(e.getMessage());
         }

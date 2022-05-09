@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Random;
 
 import com.google.gson.*;
+import exceptions.KartenDeckFehlerhaftException;
 import model.KartenDeck;
 
 public class KartenDeckController
@@ -36,5 +37,52 @@ public class KartenDeckController
         meinGson = meinGsonBuilder.create();
 
         return meinGson.fromJson(jsonKartenDeck, KartenDeck.class);
+    }
+
+    public static void schreibeDatei (KartenDeck deck) throws KartenDeckFehlerhaftException
+    {
+        try
+        {
+            deck.getDatei().createNewFile();
+            FileWriter verfasser = new FileWriter(deck.getDatei());
+            verfasser.write(KartenDeckController.serialisieren(deck));
+            verfasser.close();
+        }
+        catch (IOException e)
+        {
+            throw new KartenDeckFehlerhaftException();
+        }
+
+    }
+
+    public static KartenDeck leseDatei (String pfad) throws KartenDeckFehlerhaftException
+    {
+        Path path = Paths.get(pfad);
+        String content = null;
+        try
+        {
+            content = Files.readString(path);
+        } catch (IOException e)
+        {
+            throw new KartenDeckFehlerhaftException();
+        }
+
+        return KartenDeckController.deserialisieren(content);
+    }
+
+    public static boolean pruefeDatei (String pfad)
+    {
+        Path path = Paths.get(pfad);
+        String content = null;
+        try
+        {
+            content = Files.readString(path);
+            KartenDeckController.deserialisieren(content);
+        }
+        catch (IOException | JsonSyntaxException ex)
+        {
+            return false;
+        }
+        return true;
     }
 }

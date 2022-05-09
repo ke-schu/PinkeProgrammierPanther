@@ -3,7 +3,6 @@ package control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import model.KartenDeck;
 import model.SpielStand;
 
 import java.io.File;
@@ -22,9 +21,7 @@ public class SpielStandController
 
     private static String serialisieren (SpielStand stand)
     {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, kartenDeckSerialisierung);
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
-
         return meinGson.toJson(stand);
     }
 
@@ -45,9 +42,7 @@ public class SpielStandController
 
     private static SpielStand deserialisieren (String jsonStand) throws JsonSyntaxException
     {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, kartenDeckSerialisierung);
         meinGson = meinGsonBuilder.create();
-
         return meinGson.fromJson(jsonStand, SpielStand.class);
     }
 

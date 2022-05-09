@@ -1,16 +1,19 @@
 package model;
 
+import exceptions.KartenDeckFehlerhaftException;
+import control.KartenDeckController;
+
 public class SpielStand
 {
     private int guthaben;
-    private KartenDeck spieldeck;
+    private transient KartenDeck spieldeck;
     private Level level;
     private int position;
 
-    public SpielStand(int guthaben, KartenDeck spieldeck, Level level, int position)
+    public SpielStand(int guthaben, Level level, int position) throws KartenDeckFehlerhaftException
     {
         this.guthaben = guthaben;
-        this.spieldeck = spieldeck;
+        this.spieldeck = KartenDeckController.leseDatei("src/resources/carddecks/Spieldeck.json");
         this.level = level;
         this.position = position;
     }
