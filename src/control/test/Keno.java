@@ -1,24 +1,18 @@
 package control.test;
 
+import control.CharakterController;
 import control.KartenDeckController;
 import control.SpielStandController;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Keno
 {
     public static void ausfuehren()
     {
-        try
-        {
-            erstelleDeck();
-        } catch (KartenDeckFehlerhaftException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        waehleKlasse();
     }
 
     private static void leseSpielstand() throws IOException
@@ -38,8 +32,10 @@ public class Keno
         Held meinHeld = new Held(10, new Waffe(10));
         try
         {
-            CharakterKlasse meineKlasse = new CharakterKlasse("Magier",150, meinHeld);
-        } catch (KartenDeckFehlerhaftException e)
+            Charakter meineKlasse = CharakterController.leseCharakter(1);
+            System.out.println(meineKlasse.getName());
+        }
+        catch (IOException e)
         {
             System.out.println(e.getMessage());
         }

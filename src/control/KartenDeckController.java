@@ -2,6 +2,7 @@ package control;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -72,20 +73,18 @@ public class KartenDeckController
 
     public static KartenDeck leseDatei (String pfad) throws KartenDeckFehlerhaftException
     {
-        Path path = Paths.get(pfad);
-        String content = null;
         try
         {
-            content = Files.readString(path);
-        } catch (IOException e)
+            Path klassenPfad = Paths.get(pfad);
+            String content = Files.readString(klassenPfad);
+            KartenDeck deck = KartenDeckController.deserialisieren(content);
+            deck.setDatei(new File(pfad));
+            return deck;
+        }
+        catch (IOException | InvalidPathException e)
         {
             throw new KartenDeckFehlerhaftException();
         }
-
-        KartenDeck deck = KartenDeckController.deserialisieren(content);
-        deck.setDatei(new File(pfad));
-
-        return deck;
     }
 
     public static boolean pruefeDatei (String pfad)
