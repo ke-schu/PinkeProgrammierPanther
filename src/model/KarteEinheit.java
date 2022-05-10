@@ -11,7 +11,6 @@ public class KarteEinheit extends Karte
   private EffektTyp kartenEffekteins;
   private EffektTyp kartenEffektzwei;
 
-
   public String getKartenKlasse ()
   {
     return kartenKlasse;

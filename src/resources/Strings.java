@@ -15,10 +15,8 @@ public interface Strings
     String JSON_DATEIENDUNG = ".json";
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
     String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s_StartDeck" + JSON_DATEIENDUNG;
-    String HAENDLER_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s_HaendlerDeck" + JSON_DATEIENDUNG;
-    String TEMPEL_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s_TempelDeck" + JSON_DATEIENDUNG;
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
-    String CHARAKTER_PFAD = "src/resources/charakter" + JSON_DATEIENDUNG;
+    String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
 
     //Exception Strings
     String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehnung gleich 0!";

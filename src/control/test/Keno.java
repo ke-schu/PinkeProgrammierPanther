@@ -32,7 +32,7 @@ public class Keno
         try
         {
             Charakter meineKlasse = CharakterController.leseCharakter(0);
-            System.out.println(meineKlasse.getHaendlerDeck());
+            System.out.println(meineKlasse.getStartDeck());
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {

@@ -11,8 +11,6 @@ public class Charakter
     private final int freischaltgebuehr;
     private final Held held;
     private transient KartenDeck startDeck;
-    private transient KartenDeck haendlerDeck;
-    private transient KartenDeck tempelDeck;
 
     public Charakter (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
     {
@@ -20,8 +18,6 @@ public class Charakter
         this.freischaltgebuehr = freischaltgebuehr;
         this.held = held;
         this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
-        this.haendlerDeck = KartenDeckController.leseDatei(String.format(HAENDLER_DECK_PFAD, name));
-        this.tempelDeck = KartenDeckController.leseDatei(String.format(TEMPEL_DECK_PFAD, name));
     }
 
     public Charakter (Charakter charakter) throws KartenDeckFehlerhaftException
@@ -30,8 +26,6 @@ public class Charakter
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
         this.held = charakter.getHeld();
         this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
-        this.haendlerDeck = KartenDeckController.leseDatei(String.format(HAENDLER_DECK_PFAD, name));
-        this.tempelDeck = KartenDeckController.leseDatei(String.format(TEMPEL_DECK_PFAD, name));
     }
 
     /**
@@ -66,15 +60,5 @@ public class Charakter
     public KartenDeck getStartDeck ()
     {
         return startDeck;
-    }
-
-    public KartenDeck getHaendlerDeck ()
-    {
-        return haendlerDeck;
-    }
-
-    public KartenDeck getTempelDeck ()
-    {
-        return tempelDeck;
     }
 }
