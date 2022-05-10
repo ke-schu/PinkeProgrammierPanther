@@ -52,7 +52,7 @@ public class Alex
     {
         /*KarteEinheit peter = new KarteEinheit(EricKarte);
         KarteEinheit karin = new KarteEinheit(StanKarte);
-        Spielfeld meinspielfeld = new Spielfeld(10,10);
+        Spielfeld meinspielfeld = new Spielfeld();
         KartenEinheitController.beschwoeren(peter,meinspielfeld,5,5);
         KartenEinheitController.beschwoeren(karin,meinspielfeld,5,6);
         System.out.println(meinspielfeld.getSpielfeld()[5][5]);
