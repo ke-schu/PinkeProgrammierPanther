@@ -29,6 +29,11 @@ public abstract class Karte
         instanzZaehler++;
     }
 
+    public Karte ()
+    {
+
+    }
+
     /**
      * Ueberlagerung der toString Methode um das Attribut id richtig als string wiederzugeben.
      * @return gibt einen String aus dem Attribut id zurueck.
@@ -46,5 +51,20 @@ public abstract class Karte
     public int getId ()
     {
         return id;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public int getLevel()
+    {
+        return level;
+    }
+
+    public void setLevel(int level)
+    {
+        this.level = level;
     }
 }

@@ -53,6 +53,11 @@ public class KartenDeck extends Stack<Karte>
         return datei;
     }
 
+    public void setDatei(File datei)
+    {
+        this.datei = datei;
+    }
+
     /**
      * Methode um den String des Attributes deckBezeichnung zu bekommen.
      * @return gibt den String des Attributes deckBezeichnung.

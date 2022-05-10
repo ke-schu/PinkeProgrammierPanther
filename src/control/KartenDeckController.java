@@ -82,7 +82,10 @@ public class KartenDeckController
             throw new KartenDeckFehlerhaftException();
         }
 
-        return KartenDeckController.deserialisieren(content);
+        KartenDeck deck = KartenDeckController.deserialisieren(content);
+        deck.setDatei(new File(pfad));
+
+        return deck;
     }
 
     public static boolean pruefeDatei (String pfad)

@@ -34,9 +34,8 @@ public class Einheit
      */
    public Einheit (KarteEinheit karte, boolean freundlich)
     {
-        this.type = karte.gettype();
-        this.name=karte.getKartenName();
-        this.level = karte.getKartenLevel();
+        this.name=karte.getName();
+        this.level = karte.getLevel();
         this.klasse = karte.getKlasse();
         this.macht = karte.getKartenMacht();
         this.lebenspunkte = karte.getKartenLebenspunkte();
@@ -71,15 +70,6 @@ public class Einheit
     public void schadenNehmen (int schaden)
     {
        this.lebenspunkte = lebenspunkte-schaden;
-    }
-
-    /**
-     * Methode um den Wert des Attributes typ zu bekommen.
-     * @return gibt den KartenEinheitType des Attributes typ zurueck.
-     */
-    public KartenEinheitType getType ()
-    {
-        return type;
     }
 
     /**

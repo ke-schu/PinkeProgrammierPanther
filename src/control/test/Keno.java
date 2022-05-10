@@ -8,20 +8,17 @@ import model.*;
 import java.io.File;
 import java.io.IOException;
 
-import static model.KartenEinheitType.*;
-
 public class Keno
 {
     public static void ausfuehren()
     {
-        erstelleDeck();
-        /*try
+        try
         {
-            speichereSpielstand();
-        } catch (KartenDeckFehlerhaftException | IOException e)
+            erstelleDeck();
+        } catch (KartenDeckFehlerhaftException e)
         {
             System.out.println(e.getMessage());
-        }*/
+        }
     }
 
     private static void leseSpielstand() throws IOException
@@ -48,28 +45,10 @@ public class Keno
         }
     }
 
-    public static void erstelleDeck ()
+    public static void erstelleDeck () throws KartenDeckFehlerhaftException
     {
-        KartenDeck meinDeck = new KartenDeck(new File("src/resources/kartendecks/Spieldeck.json"), "IchBinDasStartDeck");;
-
-        meinDeck.add(new KarteEinheit(EricKarte));
-        meinDeck.add(new KarteEinheit(KennyKarte));
-        meinDeck.add(new KarteEinheit(KyleKarte));
-        meinDeck.add(new KarteEinheit(KyleKarte));
-        meinDeck.add(new KarteEinheit(StanKarte));
-
-        KartenDeckController.mischen(meinDeck);
-        System.out.println(meinDeck);
-
-        try
-        {
-            KartenDeckController.schreibeDatei(meinDeck);
-            KartenDeck meinDeck2 = KartenDeckController.leseDatei("src/resources/kartendecks/Spieldeck.json");
-            System.out.println(meinDeck2.toString());
-        }
-        catch (KartenDeckFehlerhaftException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        KartenDeck meinDeck = KartenDeckController.leseDatei("src/resources/kartendecks/Magier2.json");
+        meinDeck.get(0).setLevel(2);
+        KartenDeckController.schreibeDatei(meinDeck);
     }
 }

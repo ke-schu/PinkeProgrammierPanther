@@ -15,58 +15,6 @@ public class KarteEinheit extends Karte
   private EffektTyp kartenEffektzwei;
 
 
-  /**
-   * Konstruktor der alle Attribute aus der uebergebenen KarteEinheitTyp übernimmt.
-   * @param kartenType dessen Attribute uebernommen werden.
-   */
-  public KarteEinheit (KartenEinheitType kartenType)
-  {
-    super(kartenType.getName(), kartenType.getLevel());
-    this.kartenType = kartenType;
-    this.kartenName = kartenType.getName();
-    this.kartenLevel = kartenType.getLevel();
-    this.kartenKlasse = kartenType.getKlasse();
-    this.kartenMacht = kartenType.getMacht();
-    this.kartenLebenspunkte = kartenType.getLebensPunkte();
-    this.kartenMana = kartenType.getMana();
-    this.kartenBeweglichkeit = kartenType.getBeweglichkeit();
-    this.kartenReichweite = kartenType.getReichweite();
-    this.kartenEffekteins = kartenType.getEffekteins();
-    this.kartenEffektzwei = kartenType.getEffektzwei();
-  }
-
-
-  public KartenEinheitType gettype ()
-  {
-    return this.kartenType;
-  }
-
-  public void setKartenType (KartenEinheitType kartenType)
-  {
-    this.kartenType = kartenType;
-  }
-
-
-  public KartenEinheitType getKartenType ()
-  {
-    return kartenType;
-  }
-
-  public String getKartenName ()
-  {
-    return kartenName;
-  }
-
-  public int getKartenLevel ()
-  {
-    return kartenLevel;
-  }
-
-  public void setKartenLevel (int kartenLevel)
-  {
-    this.kartenLevel = kartenLevel;
-  }
-
   public String getKartenKlasse ()
   {
     return kartenKlasse;

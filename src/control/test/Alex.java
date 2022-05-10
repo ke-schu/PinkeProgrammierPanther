@@ -1,12 +1,7 @@
 package control.test;
 
-import control.EffektController;
-import control.KartenEinheitController;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
-import model.*;
-
-import static model.KartenEinheitType.*;
 
 public class Alex
 {
@@ -25,7 +20,7 @@ public class Alex
 
     private static void erstelleKartenHand()
     {
-        Karte karteeins = new KarteEinheit(EricKarte);
+        /*Karte karteeins = new KarteEinheit(EricKarte);
         Karte kartezwei = new KarteEinheit(KennyKarte);
         Karte kartedrei = new KarteEinheit(KyleKarte);
         Karte kartevier = new KarteEinheit(KyleKarte);
@@ -51,11 +46,11 @@ public class Alex
 
         meinehand.handablegen(meindeck);
         System.out.println("habe meine hand abgelegt jetzt ist mein deck wieder  "+meindeck.size()+" Elemente groß.");
-    }
+    */}
 
     private static void erstelleSpielfeld () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
     {
-        KarteEinheit peter = new KarteEinheit(EricKarte);
+        /*KarteEinheit peter = new KarteEinheit(EricKarte);
         KarteEinheit karin = new KarteEinheit(StanKarte);
         Spielfeld meinspielfeld = new Spielfeld(10,10);
         KartenEinheitController.beschwoeren(peter,meinspielfeld,5,5);
@@ -65,6 +60,6 @@ public class Alex
         System.out.println("nach dem zurueckewerfen");
         EffektController.zurueckwerfen(meinspielfeld.getSpielfeldplatz(5,5), meinspielfeld);
         System.out.println(meinspielfeld.getSpielfeld()[5][6]);
-        System.out.println(meinspielfeld.getSpielfeld()[5][7]);
+        System.out.println(meinspielfeld.getSpielfeld()[5][7]);*/
     }
 }
