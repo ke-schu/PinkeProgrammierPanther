@@ -1,9 +1,5 @@
 {
   "guthaben": 10,
-  "spieldeck": {
-    "Bezeichnung": "testdeck",
-    "Karten": []
-  },
   "level": {
     "schwierigkeit": 0
   },

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Magier",
+    "freischaltgebuehr": 150,
+    "held": {
+      "angriffsPunkte": 10,
+      "lebensPunkte": 10,
+      "startWaffe": {
+        "angriffsPunkte": 10
+      }
+    }
+  },
+  {
+    "name": "Kämpfer",
+    "freischaltgebuehr": 0,
+    "held": {
+      "angriffsPunkte": 10,
+      "lebensPunkte": 10,
+      "startWaffe": {
+        "angriffsPunkte": 10
+      }
+    }
+  },
+  {
+    "name": "Dieb",
+    "freischaltgebuehr": 200,
+    "held": {
+      "angriffsPunkte": 10,
+      "lebensPunkte": 10,
+      "startWaffe": {
+        "angriffsPunkte": 10
+      }
+    }
+  }
+]

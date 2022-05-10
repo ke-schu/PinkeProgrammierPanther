@@ -1,11 +1,16 @@
 package exceptions;
 
-import resources.Strings;
+import static resources.Strings.*;
 
 public class KartenDeckFehlerhaftException extends Exception
 {
-    public KartenDeckFehlerhaftException (int kartenDeckNummer)
+    public KartenDeckFehlerhaftException (String kartenDeck)
     {
-        super(String.format(Strings.KARTEN_DECK_FEHLERHAFT_EXCEPTION_INFO, kartenDeckNummer));
+        super(String.format(START_DECK_FEHLERHAFT_EXCEPTION_INFO, kartenDeck));
+    }
+
+    public KartenDeckFehlerhaftException ()
+    {
+        super(String.format(START_DECK_FEHLERHAFT_EXCEPTION_INFO, ""));
     }
 }

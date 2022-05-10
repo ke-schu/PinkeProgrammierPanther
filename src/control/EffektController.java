@@ -5,7 +5,7 @@ import static resources.Zahlen.*;
 
 public class EffektController
 {
-    public void effektAusloesen(Einheit ausloeser, Einheit ziel,Spielfeld feld)
+    public void effektAusloesen(Einheit ausloeser, Einheit ziel, SpielFeld feld)
     {
         switch (ausloeser.getEffekteins())
         {
@@ -18,14 +18,14 @@ public class EffektController
         ziel.schadenNehmen(schaden);
     }
 
-    public static void letzteworte (Einheit ausloeser, Einheit ziel, Spielfeld feld)
+    public static void letzteworte (Einheit ausloeser, Einheit ziel, SpielFeld feld)
     {
         if (ausloeser.getLebenspunkte() == 0);
         {
             zurueckwerfen(ausloeser, feld);
         }
     }
-    public static void zurueckwerfen (Einheit ausloeser, Spielfeld feld)
+    public static void zurueckwerfen (Einheit ausloeser, SpielFeld feld)
     {
         try
         {

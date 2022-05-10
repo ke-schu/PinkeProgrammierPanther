@@ -12,14 +12,12 @@ public class Schmied extends Mensch
      * Spieler ermoeglichen Karten aufzuwerten um sie zu verstaerken.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param position: Die Position auf der Oberkarte
      * @param gratisInteraktion: Die Anzahl an kostenlosen Aufwertungen, die der Spieler zur Verfuegung hat
      */
-    public Schmied (String name, String beschreibung, int position, int gratisInteraktion)
+    public Schmied (String name, String beschreibung, int gratisInteraktion)
     {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.position = position;
         this.gratisInteraktion = gratisInteraktion;
     }
 
@@ -28,19 +26,20 @@ public class Schmied extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
      */
-    public void ausfuehren (KarteEinheit karte, KartenDeck deck)
+    public KartenDeck ausfuehren (KarteEinheit karte, KartenDeck deck, int indexSchatz)
     {
-        if(isAuswahl())
+        if (isAuswahl())
         {
             if (pruefeGratisInteraktion())
             {
                 KartenController.kartenVerbessern(karte);
             }
+            else
+            {
+                deck.remove(indexSchatz);
+                KartenController.kartenVerbessern(karte);
+            }
         }
-        else
-        {
-            deck.pop();
-            KartenController.kartenVerbessern(karte);
-        }
+        return null;
     }
 }

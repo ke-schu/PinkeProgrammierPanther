@@ -1,7 +1,7 @@
 package control;
 
 import model.Einheit;
-import model.Spielfeld;
+import model.SpielFeld;
 
 /**
  * Klasse in der sich Methoden befinden die mit Instanzen von Einheiten interagieren.
@@ -15,7 +15,7 @@ public class EinheitenController
      * @param ziel_y Integer mit der Zielspalte der Bewegung.
      * @param einheit Einheit die bewegt werden soll.
      */
-    public static void bewegen (Spielfeld spielfeld, int ziel_x, int ziel_y,Einheit einheit)
+    public static void bewegen (SpielFeld spielfeld, int ziel_x, int ziel_y, Einheit einheit)
     {
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;

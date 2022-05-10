@@ -2,12 +2,14 @@ package control;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Random;
 
 import com.google.gson.*;
+import exceptions.KartenDeckFehlerhaftException;
 import model.KartenDeck;
 
 public class KartenDeckController
@@ -17,11 +19,20 @@ public class KartenDeckController
     private static Random meinRandom = new Random();
     private static Gson meinGson;
 
+    /**
+     * Methode um eine Instanz von der Klasse KartenDeck in zu mischen.
+     * @param deck Der Stack der gemischt werden soll.
+     */
     public static void mischen (KartenDeck deck)
     {
         Collections.shuffle(deck, meinRandom);
     }
 
+    /**
+     * Methode zum serialisieren einer Instanz der Klasse KartenDeck.
+     * @param deck Instanz der Klasse KartenDeck die als .json String zurückgeben werden soll.
+     * @return liefert den Inhalt der Instanz als String in .json formatierung.
+     */
     private static String serialisieren (KartenDeck deck)
     {
         meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
@@ -30,21 +41,12 @@ public class KartenDeckController
         return meinGson.toJson(deck);
     }
 
-    public static void schreibeDatei (KartenDeck deck) throws IOException
-    {
-        if (deck.getDatei().createNewFile())
-        {
-            System.out.println("Datei erstellt: " + deck.getDatei());
-        }
-        else
-        {
-            System.out.println("Datei existiert bereits: " + deck.getDatei());
-        }
-        FileWriter verfasser = new FileWriter(deck.getDatei());
-        verfasser.write(serialisieren(deck));
-        verfasser.close();
-    }
-
+    /**
+     * Methode zum deserialisieren eines Strings in .json Format um eine Instanz der Klasse KartenDeck zu bilden.
+     * @param jsonKartenDeck String in .json Format der zu der Instanzbildung genutzt wird.
+     * @return liefert die erstellte Instanz der Klasse KartenDeck
+     * @throws JsonSyntaxException wird zunächst weiter geworfen, um in der nächsten Ebene gegebenenfalls eine genauere Exception zu werfen.
+     */
     private static KartenDeck deserialisieren (String jsonKartenDeck) throws JsonSyntaxException
     {
         meinGsonBuilder.registerTypeAdapter(KartenDeck.class, meineSerialisierung);
@@ -53,12 +55,36 @@ public class KartenDeckController
         return meinGson.fromJson(jsonKartenDeck, KartenDeck.class);
     }
 
-    public static KartenDeck leseDatei (String pfad) throws IOException
+    public static void schreibeDatei (KartenDeck deck) throws KartenDeckFehlerhaftException
     {
-        Path path = Paths.get(pfad);
-        String content = Files.readString(path);
+        try
+        {
+            deck.getDatei().createNewFile();
+            FileWriter verfasser = new FileWriter(deck.getDatei());
+            verfasser.write(KartenDeckController.serialisieren(deck));
+            verfasser.close();
+        }
+        catch (IOException e)
+        {
+            throw new KartenDeckFehlerhaftException();
+        }
 
-        return deserialisieren(content);
+    }
+
+    public static KartenDeck leseDatei (String pfad) throws KartenDeckFehlerhaftException
+    {
+        try
+        {
+            Path klassenPfad = Paths.get(pfad);
+            String content = Files.readString(klassenPfad);
+            KartenDeck deck = KartenDeckController.deserialisieren(content);
+            deck.setDatei(new File(pfad));
+            return deck;
+        }
+        catch (IOException | InvalidPathException e)
+        {
+            throw new KartenDeckFehlerhaftException();
+        }
     }
 
     public static boolean pruefeDatei (String pfad)
@@ -68,7 +94,7 @@ public class KartenDeckController
         try
         {
             content = Files.readString(path);
-            deserialisieren(content);
+            KartenDeckController.deserialisieren(content);
         }
         catch (IOException | JsonSyntaxException ex)
         {

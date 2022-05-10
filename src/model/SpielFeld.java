@@ -1,8 +1,10 @@
 package model;
 
-import exceptions.*;
+import static resources.Zahlen.*;
 
-public class Spielfeld extends Level
+import java.util.Random;
+
+public class SpielFeld extends Level
 {
 
     private Einheit[][] spielfeld = null;
@@ -10,26 +12,49 @@ public class Spielfeld extends Level
     private int feldSpalte = 0;
 
 
-    public Spielfeld (int feldZeile, int feldSpalte) throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+    public SpielFeld() //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
     {
+        /*
         if (feldSpalte <= 0 && feldZeile <= 0)
         {
             throw new SpielfeldDimensionGleichNullException();
         }
         //Exception für ein Null Spielfeld
-
+        */
+        /* Spielfelder können jetzt Rechtecke sein! 4x5 4x6 6x5,
         if (feldSpalte != feldZeile)
         {
             throw new SpielfeldNichtQuadratischException();
         }
         //Exception für ein nicht quadratisches Spielfeld
-
-        this.setSpielfeld(new Einheit[feldZeile][feldSpalte]);
-        this.setFeldZeile(feldZeile);
-        this.setFeldSpalte(feldSpalte);
+        */
+        this.feldSpalte = generiereSpielfeldGroesse();
+        this.feldZeile = generiereSpielfeldGroesse();
+        Einheit[][] spielfeld = new Einheit[this.feldZeile][this.feldSpalte];
+        this.spielfeld = spielfeld;
 
     }
 
+    private static int generiereSpielfeldGroesse()
+    {
+        int spielfeldGroesse = ZAHL_0;
+        int i = ZAHL_0;
+        Random zufall = new Random();
+        i = zufall.nextInt(ZAHL_3);
+        if (i == ZAHL_0)
+        {
+            spielfeldGroesse = ZAHL_4;
+        }
+        else if ( i == ZAHL_1)
+        {
+            spielfeldGroesse = ZAHL_5;
+        }
+        else
+        {
+            spielfeldGroesse = ZAHL_6;
+        }
+        return spielfeldGroesse;
+    }
 
 
     public Einheit[][] getSpielfeld()
@@ -49,22 +74,12 @@ public class Spielfeld extends Level
         return this.feldSpalte;
     }
 
-    public final void setFeldSpalte(int feldSpalte)
-    {
-        this.feldSpalte = feldSpalte;
-    }
-    //get- und set-Methoden für die FeldSpalte
 
     public int getFeldZeile ()
     {
         return this.feldZeile;
     }
 
-    public final void setFeldZeile (int feldZeile)
-    {
-        this.feldZeile = feldZeile;
-    }
-    //get- und set-Methoden für die FeldZeile
 
     public void einheiteinsetzten (int x, int y, Einheit einheit )
     {

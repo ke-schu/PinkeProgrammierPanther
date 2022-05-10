@@ -7,13 +7,11 @@ public class Treppe extends EreignisKlasse {
      * Spieler ermoeglichen seine aktuelle Ebene zu verlassen und die nächsthöhere zu betreten.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param position: Die Position auf der Oberkarte
      */
-    public Treppe (String name, String beschreibung, int position)
+    public Treppe (String name, String beschreibung)
     {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.position = position;
     }
 
     /**

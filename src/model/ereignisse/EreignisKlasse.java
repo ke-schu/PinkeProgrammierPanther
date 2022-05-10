@@ -5,8 +5,6 @@ public abstract class EreignisKlasse
 
     protected String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
     protected String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
-
-    protected int position;             //Position des Ereignisses auf der Oberkarte
     protected boolean auswahl = false;  //Abfrage ob der Spieler, dass Ereignis ausführt (Kampf ablehnen etc.)
 
     /**
@@ -16,15 +14,6 @@ public abstract class EreignisKlasse
     public String getName ()
     {
         return name;
-    }
-
-    /**
-     * Diese Methode dient als Getter um die Position des Ereignisses zugänglich zu machen.
-     * @return Position des jeweiligen Ereignisses
-     */
-    public int getPosition ()
-    {
-        return position;
     }
 
     /**

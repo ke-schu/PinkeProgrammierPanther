@@ -7,9 +7,13 @@ public class KartenDeck extends Stack<Karte>
 {
     private File datei;
     private String deckBezeichnung;
+    private final static String dateiPfad = "resources/kartendecks/";
 
-    private final static String dateiPfad = "resources/carddecks/";
-
+    /**
+     * Konstruktor der alle Attribute setzt.
+     * @param datei .json Datei in der das KartenDeck hinterlegt ist.
+     * @param deckBezeichnung deckBezeichnung String der DeckBezeichnung.
+     */
     public KartenDeck (File datei, String deckBezeichnung)
     {
         this.datei = datei;
@@ -47,6 +51,11 @@ public class KartenDeck extends Stack<Karte>
     public File getDatei ()
     {
         return datei;
+    }
+
+    public void setDatei(File datei)
+    {
+        this.datei = datei;
     }
 
     /**

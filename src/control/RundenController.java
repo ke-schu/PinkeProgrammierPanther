@@ -21,7 +21,7 @@ public class RundenController
 
 
 
-    public void zugBeenden (Spielfeld feld )
+    public void zugBeenden (SpielFeld feld )
     {
         this.zugzeahler = zugzeahler + 1;
 
