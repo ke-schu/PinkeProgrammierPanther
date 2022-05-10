@@ -1,20 +1,23 @@
 package model.ereignisse;
 
-public class Truhe extends ZufallsEreignis implements Wahrscheinlichkeit
+public class Truhe extends EreignisKlasse implements Wahrscheinlichkeit
 {
+    protected boolean geoeffnet = false;
+    protected double wahrscheinlichkeit;
+
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Truhe. Ein ZufallsEreignis ist ein Ereignis, dessen
      * genaue Art für den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
+     * @param geoeffnet: Der Zustand der Truhe, ob sie geoeffnet ist.
      */
-    public Truhe (String name, String beschreibung, boolean ausgefuehrt)
+    public Truhe (String name, String beschreibung, boolean geoeffnet)
     {
         super();
         this.name = name;
         this.beschreibung = beschreibung;
-        this.ausgefuehrt = ausgefuehrt;
+        this.geoeffnet = geoeffnet;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
@@ -27,12 +30,23 @@ public class Truhe extends ZufallsEreignis implements Wahrscheinlichkeit
         if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
         {
             //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
-            ausgefuehrt = true;
+            geoeffnet = true;
         }
         else
         {
             //Zweites zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
-            ausgefuehrt = true;
+            geoeffnet = true;
         }
+    }
+
+    /**
+     * Dies ist eine Methode zum Generieren des Attributs "Wahrscheinlichkeit". Dieses Attribut wird
+     * benötigt um zu bestimmen, welcher Inhalt sich in der Truhe befindet.
+     * @return Attribut zur Bestimmung des Truheninhalts
+     */
+    @Override
+    public double generiereWahrscheinlichkeit() {
+        wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
+        return wahrscheinlichkeit;
     }
 }

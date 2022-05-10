@@ -5,7 +5,6 @@ public abstract class EreignisKlasse
 
     protected String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
     protected String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
-
     protected boolean auswahl = false;  //Abfrage ob der Spieler, dass Ereignis ausführt (Kampf ablehnen etc.)
 
     /**

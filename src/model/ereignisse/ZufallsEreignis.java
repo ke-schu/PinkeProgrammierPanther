@@ -2,10 +2,10 @@ package model.ereignisse;
 
 public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkeit
 {
-    protected boolean ausgefuehrt = false;              //Variable, ob das Ereignis ausgefuehrt wurde
-    protected double wahrscheinlichkeit;                //Wert zur Bestimmung, welches Ereignis eintritt
+    protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
+    protected double wahrscheinlichkeit;    //Wert zur Bestimmung, welches Ereignis eintritt
 
-    protected static int ereignismenge;                 //Menge an Ereignissen, welche eintreten können.
+    protected static int ereignismenge;     //Menge an Ereignissen, welche eintreten können.
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ ZufallsEreignis. Ein ZufallsEreignis ist ein Ereignis, dessen
@@ -52,6 +52,7 @@ public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkei
      * Wert zwischen 0.0 und dem maximalen Wert der Skalierung gebildet wird.
      * @return das Attribut "wahrscheinlichkeit" wird mit dem generierten Wert zurückgegeben.
      */
+    @Override
     public double generiereWahrscheinlichkeit ()
     {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;

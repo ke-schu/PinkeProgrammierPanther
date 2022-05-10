@@ -26,19 +26,20 @@ public class Schmied extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
      */
-    public void ausfuehren (KarteEinheit karte, KartenDeck deck)
+    public KartenDeck ausfuehren (KarteEinheit karte, KartenDeck deck, int indexSchatz)
     {
-        if(isAuswahl())
+        if (isAuswahl())
         {
             if (pruefeGratisInteraktion())
             {
                 KartenController.kartenVerbessern(karte);
             }
+            else
+            {
+                deck.remove(indexSchatz);
+                KartenController.kartenVerbessern(karte);
+            }
         }
-        else
-        {
-            deck.pop();
-            KartenController.kartenVerbessern(karte);
-        }
+        return null;
     }
 }

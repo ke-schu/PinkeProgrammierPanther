@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.KartenDeck;
+
 public class Haendler extends Mensch
 {
     /**
@@ -21,8 +23,7 @@ public class Haendler extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt oder
      * vorher die Zahlung durchgefuehrt.
      */
-
-    public void ausfuehren ()
+    public KartenDeck ausfuehren ()
     {
         if(isAuswahl())
         {
@@ -36,5 +37,6 @@ public class Haendler extends Mensch
                 //Deck.erweitern(Karte karte);
             }
         }
+        return null;
     }
 }

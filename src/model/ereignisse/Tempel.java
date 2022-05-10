@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.KartenDeck;
+
 public class Tempel extends Mensch
 {
 
@@ -22,19 +24,20 @@ public class Tempel extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aus dem Deck entfernt oder
      * vorher die Zahlung durchgefuehrt.
      */
-    public void ausfuehren ()
+    public KartenDeck ausfuehren (KartenDeck deck, int indexKarte, int indexSchatz)
     {
         if(isAuswahl())
         {
             if(pruefeGratisInteraktion())
             {
-                //Deck.entfern(Karte karte);
+                deck.remove(indexKarte);
             }
             else
             {
-                //Deck.entfernen(Schatz schatz);
-                //Deck.entfernen(Karte karte);
+                deck.remove(indexSchatz);
+                deck.remove(indexKarte);
             }
         }
+        return null;
     }
 }
