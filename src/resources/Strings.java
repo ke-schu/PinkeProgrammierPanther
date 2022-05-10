@@ -14,7 +14,7 @@ public interface Strings
     //Pfade
     String JSON_DATEIENDUNG = ".json";
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
-    String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s_StartDeck" + JSON_DATEIENDUNG;
+    String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
 

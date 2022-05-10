@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import model.Spielfeld;
+import model.SpielFeld;
 
 
 public class Gegner extends EreignisKlasse
@@ -22,7 +22,7 @@ public class Gegner extends EreignisKlasse
      */
     public void ausfuehren ()
     {
-        Spielfeld spielfeld = new Spielfeld();
+        SpielFeld spielfeld = new SpielFeld();
     }
 
 }

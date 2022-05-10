@@ -6,7 +6,7 @@ import static resources.Zahlen.*;
 
 public class KartenEinheitController
 {
-    public static void beschwoeren (KarteEinheit karte, Spielfeld spielfeld, int x, int y)
+    public static void beschwoeren (KarteEinheit karte, SpielFeld spielfeld, int x, int y)
     {
         if ((spielfeld.getSpielfeld()[x][y] == null) && (freundbenachbart(x,y,spielfeld)))
         {
@@ -17,7 +17,7 @@ public class KartenEinheitController
         }
     }
 
-    public static boolean freundbenachbart(int x, int y, Spielfeld spielfeld)
+    public static boolean freundbenachbart(int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;
 

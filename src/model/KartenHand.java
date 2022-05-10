@@ -1,11 +1,11 @@
 package model;
 
-public class Kartenhand
+public class KartenHand
 {
     private Karte[] hand = null;
     private final int HANDGROESSE = 5;
 
-    public Kartenhand ()
+    public KartenHand()
     {
         this.hand = new Karte [HANDGROESSE];
     }

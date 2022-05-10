@@ -4,7 +4,7 @@ import static resources.Zahlen.*;
 
 import java.util.Random;
 
-public class Spielfeld extends Level
+public class SpielFeld extends Level
 {
 
     private Einheit[][] spielfeld = null;
@@ -12,7 +12,7 @@ public class Spielfeld extends Level
     private int feldSpalte = 0;
 
 
-    public Spielfeld () //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+    public SpielFeld() //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
     {
         /*
         if (feldSpalte <= 0 && feldZeile <= 0)
