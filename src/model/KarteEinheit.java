@@ -2,82 +2,95 @@ package model;
 
 public class KarteEinheit extends Karte
 {
-  private String kartenKlasse;
-  private int kartenMacht;
-  private int kartenLebenspunkte;
-  private int kartenMana;
-  private int kartenBeweglichkeit;
-  private int kartenReichweite;
-  private EffektTyp kartenEffekteins;
-  private EffektTyp kartenEffektzwei;
-
-  public String getKartenKlasse ()
+  public enum Typ
   {
-    return kartenKlasse;
+    NAHKAEMPFER, FERNKAEMPFER;
+  }
+  private final Typ typ;
+  private int macht;
+  private int lebenspunkte;
+  private int mana;
+  private int beweglichkeit;
+  private int reichweite;
+  private EffektTyp effektEins;
+  private EffektTyp effektZwei;
+
+  public KarteEinheit(String name, int level, Typ typ, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effektEins, EffektTyp effektZwei)
+  {
+    super(name, level);
+    this.typ = typ;
+    this.macht = macht;
+    this.lebenspunkte = lebenspunkte;
+    this.mana = mana;
+    this.beweglichkeit = beweglichkeit;
+    this.reichweite = reichweite;
+    this.effektEins = effektEins;
+    this.effektZwei = effektZwei;
   }
 
-  public int getKartenMacht ()
+  public Typ getTyp()
   {
-    return kartenMacht;
+    return typ;
   }
 
-  public void setKartenMacht (int kartenMacht)
+  public int getMacht()
   {
-    this.kartenMacht = kartenMacht;
+    return macht;
   }
 
-  public int getKartenLebenspunkte ()
+  public void setMacht(int macht)
   {
-    return kartenLebenspunkte;
+    this.macht = macht;
   }
 
-  public void setKartenLebenspunkte (int kartenLebenspunkte)
+  public int getLebenspunkte()
   {
-    this.kartenLebenspunkte = kartenLebenspunkte;
+    return lebenspunkte;
   }
 
-  public int getKartenMana ()
+  public void setLebenspunkte(int lebenspunkte)
   {
-    return kartenMana;
+    this.lebenspunkte = lebenspunkte;
   }
 
-  public void setKartenMana (int kartenMana)
+  public int getMana()
   {
-    this.kartenMana = kartenMana;
+    return mana;
   }
 
-  public int getKartenBeweglichkeit ()
+  public void setMana(int mana)
   {
-    return kartenBeweglichkeit;
+    this.mana = mana;
   }
 
-  public void setKartenBeweglichkeit (int kartenBeweglichkeit)
+  public int getBeweglichkeit()
   {
-    this.kartenBeweglichkeit = kartenBeweglichkeit;
+    return beweglichkeit;
   }
 
-  public int getKartenReichweite ()
+  public void setBeweglichkeit(int beweglichkeit)
   {
-    return kartenReichweite;
+    this.beweglichkeit = beweglichkeit;
   }
 
-  public void setKartenReichweite (int kartenReichweite)
+  public int getReichweite()
   {
-    this.kartenReichweite = kartenReichweite;
+    return reichweite;
   }
 
-  public EffektTyp getKartenEffekteins ()
+  public void setReichweite(int reichweite)
   {
-    return kartenEffekteins;
-  }
-  public EffektTyp getKartenEffektzwei ()
-  {
-    return kartenEffektzwei;
+    this.reichweite = reichweite;
   }
 
-  public String getKlasse ()
+  public EffektTyp getEffektEins()
   {
-    return this.kartenKlasse;
+    return effektEins;
+  }
+
+  public EffektTyp getEffektZwei()
+  {
+    return effektZwei;
   }
 }
 

@@ -4,7 +4,7 @@ public class Einheit
 {
     private String name;
     private int level;
-    private String klasse;
+    private KarteEinheit.Typ typ;
     private int macht;
     private int lebenspunkte;
     private int mana;
@@ -35,14 +35,14 @@ public class Einheit
     {
         this.name=karte.getName();
         this.level = karte.getLevel();
-        this.klasse = karte.getKlasse();
-        this.macht = karte.getKartenMacht();
-        this.lebenspunkte = karte.getKartenLebenspunkte();
-        this.mana = karte.getKartenMana();
-        this.beweglichkeit = karte.getKartenBeweglichkeit();
-        this.reichweite = karte.getKartenReichweite();
-        this.effekteins = karte.getKartenEffekteins();
-        this.effektzwei = karte.getKartenEffektzwei();
+        this.typ = karte.getTyp();
+        this.macht = karte.getMacht();
+        this.lebenspunkte = karte.getLebenspunkte();
+        this.mana = karte.getMana();
+        this.beweglichkeit = karte.getBeweglichkeit();
+        this.reichweite = karte.getReichweite();
+        this.effekteins = karte.getEffektEins();
+        this.effektzwei = karte.getEffektZwei();
         this.freundlich = freundlich;
     }
 
@@ -55,7 +55,7 @@ public class Einheit
      */
     public Einheit erschaffen (KarteEinheit karte, ManaTank reserve, boolean freundlich)
     {
-        if(karte.getKartenMana()<= reserve.getMana())
+        if(karte.getMana()<= reserve.getMana())
         {
             return new Einheit(karte, freundlich);
         }
@@ -98,13 +98,9 @@ public class Einheit
         this.level = level;
     }
 
-    /**
-     * Methode um den String des Attributes klasse zu bekommen.
-     * @return gibt den String aus klasse zurueck.
-     */
-    public String getKlasse ()
+    public KarteEinheit.Typ getTyp()
     {
-        return klasse;
+        return typ;
     }
 
     /**

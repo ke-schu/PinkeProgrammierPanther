@@ -6,13 +6,20 @@ import control.SpielStandController;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Keno
 {
     public static void ausfuehren()
     {
-        waehleCharakter();
+        try
+        {
+            erstelleDeck();
+        } catch (KartenDeckFehlerhaftException e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void leseSpielstand() throws IOException
@@ -42,8 +49,31 @@ public class Keno
 
     private static void erstelleDeck () throws KartenDeckFehlerhaftException
     {
-        KartenDeck meinDeck = KartenDeckController.leseDatei("src/resources/kartendecks/Magier2.json");
-        meinDeck.get(0).setLevel(2);
+        KartenDeck meinDeck = new KartenDeck(new File(
+                "src/resources/kartendecks/Spieldeck.json"),
+                "IchBinDasSpieldeck");
+        meinDeck.push(new KarteEinheit(
+                "HarryPotter",
+                40,
+                KarteEinheit.Typ.NAHKAEMPFER,
+                3,
+                10,
+                1,
+                1,
+                1,
+                EffektTyp.LETZTEWORTE,
+                EffektTyp.ZURUECKWERFEN));
+        meinDeck.push(new KarteEinheit(
+                "RonWeasley",
+                30,
+                KarteEinheit.Typ.FERNKAEMPFER,
+                2,
+                9,
+                1,
+                1,
+                1,
+                EffektTyp.ZURUECKWERFEN,
+                EffektTyp.LETZTEWORTE));
         KartenDeckController.schreibeDatei(meinDeck);
     }
 }
