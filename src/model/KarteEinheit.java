@@ -2,9 +2,6 @@ package model;
 
 public class KarteEinheit extends Karte
 {
-  private KartenEinheitType kartenType;
-  private String kartenName;
-  private int kartenLevel;
   private String kartenKlasse;
   private int kartenMacht;
   private int kartenLebenspunkte;

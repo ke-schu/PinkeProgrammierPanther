@@ -9,13 +9,6 @@ public abstract class Karte
     private String klasse = this.getClass().getCanonicalName();
 
     /**
-     * Defaultkonstruktor für die Klasse Karte
-     */
-    public Karte ()
-    {
-    }
-
-    /**
      * Konstruktor der Klasse Karte, welcher alle Attribute setzt.
      * @param name String der in das Attribut name gesetzt wird.
      * @param level Int der in das Attribut

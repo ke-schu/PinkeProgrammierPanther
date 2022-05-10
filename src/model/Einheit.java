@@ -2,7 +2,6 @@ package model;
 
 public class Einheit
 {
-    private KartenEinheitType type;
     private String name;
     private int level;
     private String klasse;
