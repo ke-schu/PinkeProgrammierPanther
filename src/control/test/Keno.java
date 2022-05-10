@@ -12,7 +12,7 @@ public class Keno
 {
     public static void ausfuehren()
     {
-        waehleKlasse();
+        waehleCharakter();
     }
 
     private static void leseSpielstand() throws IOException
@@ -27,21 +27,20 @@ public class Keno
         SpielStandController.schreibeDatei(meinSpielStand);
     }
 
-    private static void waehleKlasse()
+    private static void waehleCharakter()
     {
-        Held meinHeld = new Held(10, new Waffe(10));
         try
         {
-            Charakter meineKlasse = CharakterController.leseCharakter(1);
-            System.out.println(meineKlasse.getName());
+            Charakter meineKlasse = CharakterController.leseCharakter(0);
+            System.out.println(meineKlasse.getHaendlerDeck());
         }
-        catch (IOException e)
+        catch (IOException | KartenDeckFehlerhaftException e)
         {
             System.out.println(e.getMessage());
         }
     }
 
-    public static void erstelleDeck () throws KartenDeckFehlerhaftException
+    private static void erstelleDeck () throws KartenDeckFehlerhaftException
     {
         KartenDeck meinDeck = KartenDeckController.leseDatei("src/resources/kartendecks/Magier2.json");
         meinDeck.get(0).setLevel(2);

@@ -14,11 +14,21 @@ public class Charakter
     private transient KartenDeck haendlerDeck;
     private transient KartenDeck tempelDeck;
 
-    public Charakter(String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
+    public Charakter (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
     {
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
         this.held = held;
+        this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
+        this.haendlerDeck = KartenDeckController.leseDatei(String.format(HAENDLER_DECK_PFAD, name));
+        this.tempelDeck = KartenDeckController.leseDatei(String.format(TEMPEL_DECK_PFAD, name));
+    }
+
+    public Charakter (Charakter charakter) throws KartenDeckFehlerhaftException
+    {
+        this.name = charakter.getName();
+        this.freischaltgebuehr = charakter.getFreischaltgebuehr();
+        this.held = charakter.getHeld();
         this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
         this.haendlerDeck = KartenDeckController.leseDatei(String.format(HAENDLER_DECK_PFAD, name));
         this.tempelDeck = KartenDeckController.leseDatei(String.format(TEMPEL_DECK_PFAD, name));
@@ -29,7 +39,7 @@ public class Charakter
      * @return Gibt Name und Freischaltgebühr der Klasse zurück.
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return "Charakterklasse " + name + ", Gebühr " + freischaltgebuehr;
     }
@@ -41,5 +51,30 @@ public class Charakter
     public String getName ()
     {
         return name;
+    }
+
+    public int getFreischaltgebuehr ()
+    {
+        return freischaltgebuehr;
+    }
+
+    public Held getHeld ()
+    {
+        return held;
+    }
+
+    public KartenDeck getStartDeck ()
+    {
+        return startDeck;
+    }
+
+    public KartenDeck getHaendlerDeck ()
+    {
+        return haendlerDeck;
+    }
+
+    public KartenDeck getTempelDeck ()
+    {
+        return tempelDeck;
     }
 }

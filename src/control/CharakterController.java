@@ -1,5 +1,6 @@
 package control;
 
+import exceptions.KartenDeckFehlerhaftException;
 import io.CharakterIO;
 import model.Charakter;
 
@@ -8,9 +9,10 @@ import java.util.Stack;
 
 public class CharakterController
 {
-    public static Charakter leseCharakter (int position) throws IOException
+    public static Charakter leseCharakter (int position) throws IOException, KartenDeckFehlerhaftException
     {
         Stack meineCharaktere = CharakterIO.leseDatei();
-        return (Charakter) meineCharaktere.get(position);
+        Charakter meinCharakter = new Charakter((Charakter) meineCharaktere.get(position));
+        return meinCharakter;
     }
 }
