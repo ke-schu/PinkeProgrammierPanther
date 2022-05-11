@@ -35,6 +35,7 @@ public class RundenController
                 }
             }
         }
+        aufwecken(feld);
         bestimmenwerdranist();
     }
     public static void bestimmenwerdranist()
@@ -48,6 +49,21 @@ public class RundenController
             freundlich = false;
         }
     }
+
+    public void aufwecken(SpielFeld feld)
+    {
+        for(int i = 0; i < feld.getFeldZeile(); i++)
+        {
+            for(int j = 0; j < feld.getFeldSpalte(); j++)
+            {
+                if (feld.getSpielfeldplatz(i,j) != null)
+                {
+                    feld.getSpielfeldplatz(i,j).setSchlafend(false);
+                }
+            }
+        }
+
+    }
     public static int getZugzeahler()
     {
         return zugzeahler;
@@ -57,4 +73,7 @@ public class RundenController
     {
         this.zugzeahler = zugzeahler;
     }
+
+
 }
+
