@@ -2,12 +2,11 @@ package model;
 
 public class ManaTank
 {
-    private int startwertmana = 5;
     private int mana;
 
-    public ManaTank ()
+    public ManaTank (Spieler spieler)
     {
-        this.mana = startwertmana;
+        this.mana = spieler.getMana();
     }
 
     public int getMana ()

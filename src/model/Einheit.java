@@ -35,7 +35,7 @@ public class Einheit
         this.einheiten = karte.getTyp();
         this.macht = karte.getMacht();
         this.lebenspunkte = karte.getLebenspunkte();
-        this.mana = karte.getMana();
+        this.mana = karte.getManaKosten();
         this.beweglichkeit = karte.getBeweglichkeit();
         this.reichweite = karte.getReichweite();
         this.effekteins = karte.getEffektEins();
@@ -54,7 +54,7 @@ public class Einheit
      */
     public Einheit erschaffen (KarteEinheit karte, ManaTank reserve, boolean freundlich)
     {
-        if(karte.getMana()<= reserve.getMana())
+        if(karte.getManaKosten()<= reserve.getMana())
         {
             return new Einheit(karte, freundlich);
         }

@@ -5,10 +5,10 @@ import resources.Einheiten;
 
 public class KarteEinheit extends Karte
 {
-  private final Einheiten einheiten;
+  private final Einheiten typ;
   private int macht;
   private int lebenspunkte;
-  private int mana;
+  private int manaKosten;
   private int beweglichkeit;
   private int reichweite;
   private int schild;
@@ -16,13 +16,13 @@ public class KarteEinheit extends Karte
   private Effekte effektEins;
   private Effekte effektZwei;
 
-  public KarteEinheit(String name, int level, Einheiten einheiten, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei)
+  public KarteEinheit(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei)
   {
     super(name, level);
-    this.einheiten = einheiten;
+    this.typ = typ;
     this.macht = macht;
     this.lebenspunkte = lebenspunkte;
-    this.mana = mana;
+    this.manaKosten = manaKosten;
     this.beweglichkeit = beweglichkeit;
     this.reichweite = reichweite;
     this.verteidigung = verteidigung;
@@ -32,7 +32,7 @@ public class KarteEinheit extends Karte
 
   public Einheiten getTyp()
   {
-    return einheiten;
+    return typ;
   }
 
   public int getMacht()
@@ -55,14 +55,14 @@ public class KarteEinheit extends Karte
     this.lebenspunkte = lebenspunkte;
   }
 
-  public int getMana()
+  public int getManaKosten()
   {
-    return mana;
+    return manaKosten;
   }
 
-  public void setMana(int mana)
+  public void setManaKosten(int manaKosten)
   {
-    this.mana = mana;
+    this.manaKosten = manaKosten;
   }
 
   public int getBeweglichkeit()

@@ -1,20 +1,33 @@
 {
-  "guthaben": 10,
-  "levelSpieler": 3,
-  "talenteSpieler": [
-    "ABKLINGEN",
-    "MANA_GOTT"
-  ],
-  "talenteGegner": [
-    "ABKLINGEN",
-    "MANA_GOTT"
-  ],
-  "artefakteSpieler": [
-    "DER_GRABSTEIN",
-    null
-  ],
-  "level": {
-    "schwierigkeit": 0
-  },
-  "position": 47
+  "gold": 100,
+  "erfahrungspunkte": 32,
+  "spieler": {
+    "waffe": {
+      "name": "meineWaffe",
+      "angriffsPunkte": 10
+    },
+    "talente": [
+      "ABKLINGEN",
+      "MANA_GOTT"
+    ],
+    "artefakte": [
+      "DER_GRABSTEIN",
+      null
+    ],
+    "mana": 10,
+    "typ": "HELD",
+    "macht": 20,
+    "lebenspunkte": 20,
+    "manaKosten": 0,
+    "beweglichkeit": 1,
+    "reichweite": 1,
+    "schild": 0,
+    "verteidigung": 0,
+    "effektEins": "LETZTEWORTE",
+    "effektZwei": "ZURUECKWERFEN",
+    "id": 0,
+    "name": "meinSpieler",
+    "level": 1,
+    "klasse": "model.Spieler"
+  }
 }

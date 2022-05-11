@@ -22,6 +22,30 @@ public class Keno
         leseSpielstand();
     }
 
+    private static Spieler erstelleSpieler ()
+    {
+        Stack<Talente> meinTalentStack = new Stack<>();
+        meinTalentStack.push(ABKLINGEN);
+        meinTalentStack.push(MANA_GOTT);
+
+        Artefakte[] meineArtefake = new Artefakte[2];
+        meineArtefake[0] = DER_GRABSTEIN;
+
+        return new Spieler("meinSpieler",
+                1,
+                10,
+                20,
+                1,
+                1,
+                0,
+                Effekte.LETZTEWORTE,
+                Effekte.ZURUECKWERFEN,
+                new Waffe("meineWaffe", 10),
+                meinTalentStack,
+                meineArtefake,
+                10);
+    }
+
     private static void leseSpielstand()
     {
         try
@@ -42,14 +66,7 @@ public class Keno
     {
         try
         {
-            Stack<Talente> meinTalentStack = new Stack<>();
-            meinTalentStack.push(ABKLINGEN);
-            meinTalentStack.push(MANA_GOTT);
-
-            Artefakte[] meineArtefake = new Artefakte[2];
-            meineArtefake[0] = DER_GRABSTEIN;
-
-            SpielStand meinSpielStand = new SpielStand(10, 3, meinTalentStack, meinTalentStack, meineArtefake,  new Level(), 47);
+            SpielStand meinSpielStand = new SpielStand(100, 32, erstelleSpieler());
             SpielStandIO.schreibeDatei(meinSpielStand);
         }
         catch (IOException | KartenDeckFehlerhaftException e)

@@ -9,14 +9,16 @@ public class Charakter
 {
     private final String name;
     private final int freischaltgebuehr;
-    private final Held held;
+    private final Spieler spieler;
+    private boolean freigeschaltet;
     private transient KartenDeck startDeck;
 
-    public Charakter (String name, int freischaltgebuehr, Held held) throws KartenDeckFehlerhaftException
+    public Charakter (String name, int freischaltgebuehr, Spieler spieler, boolean freigeschaltet) throws KartenDeckFehlerhaftException
     {
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
-        this.held = held;
+        this.spieler = spieler;
+        this.freigeschaltet = freigeschaltet;
         this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
     }
 
@@ -24,7 +26,8 @@ public class Charakter
     {
         this.name = charakter.getName();
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
-        this.held = charakter.getHeld();
+        this.spieler = charakter.getSpieler();
+        this.freigeschaltet = charakter.getFreigeschaltet();
         this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
     }
 
@@ -52,9 +55,19 @@ public class Charakter
         return freischaltgebuehr;
     }
 
-    public Held getHeld ()
+    public Spieler getSpieler ()
     {
-        return held;
+        return spieler;
+    }
+
+    public boolean getFreigeschaltet()
+    {
+        return freigeschaltet;
+    }
+
+    public void setFreigeschaltet(boolean freigeschaltet)
+    {
+        this.freigeschaltet = freigeschaltet;
     }
 
     public KartenDeck getStartDeck ()
