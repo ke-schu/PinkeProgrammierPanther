@@ -11,6 +11,6 @@ public class KartenDeckFehlerhaftException extends Exception
 
     public KartenDeckFehlerhaftException ()
     {
-        super(String.format(START_DECK_FEHLERHAFT_EXCEPTION_INFO, ""));
+        this(String.format(START_DECK_FEHLERHAFT_EXCEPTION_INFO, ""));
     }
 }

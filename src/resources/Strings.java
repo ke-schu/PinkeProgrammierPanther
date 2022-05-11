@@ -14,7 +14,7 @@ public interface Strings
     //Pfade
     String JSON_DATEIENDUNG = ".json";
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
-    String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;
+    String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;   // %s = Name des Charakters
     String SPIEL_DECK_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck" + JSON_DATEIENDUNG;
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
@@ -22,6 +22,7 @@ public interface Strings
     //Exception Strings
     String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehnung gleich 0!";
     String SPIELFELD_NICHT_QUADRATISCH_EXCEPTION_INFO = "Das Spielfeld wurde nicht quadratisch generiert!";
-    String START_DECK_FEHLERHAFT_EXCEPTION_INFO = "Das Kartendeck %s der Charakterklasse wurde nicht gefunden!";
+    String START_DECK_FEHLERHAFT_EXCEPTION_INFO =
+            "Das Kartendeck %s der Charakterklasse wurde nicht gefunden!";      // %s = Name des Kartendecks (optional)
     String JSON_FORMAT_FEHLERHAFT_INFO = "Fehlerhafte Json Formatierung";
 }
