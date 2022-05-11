@@ -1,5 +1,8 @@
 package model;
 
+import resources.EffektTyp;
+import resources.EinheitTyp;
+
 public class Einheit
 {
     private String name;
@@ -10,7 +13,7 @@ public class Einheit
     private int mana;
     private int beweglichkeit;
     private int reichweite;
-    private  EffektTyp effekteins;
+    private EffektTyp effekteins;
     private  EffektTyp effektzwei;
     private int position_y = 0;
     private int position_x = 0;

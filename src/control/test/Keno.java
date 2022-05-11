@@ -5,6 +5,8 @@ import io.KartenDeckIO;
 import io.SpielStandIO;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
+import resources.EffektTyp;
+import resources.EinheitTyp;
 import resources.Strings;
 
 import java.io.File;

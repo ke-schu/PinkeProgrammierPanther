@@ -1,5 +1,8 @@
 package model;
 
+import resources.EffektTyp;
+import resources.EinheitTyp;
+
 public class KarteEinheit extends Karte
 {
   private final EinheitTyp einheitTyp;
