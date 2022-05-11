@@ -5,6 +5,7 @@ import io.KartenDeckIO;
 import io.SpielStandIO;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
+import resources.Strings;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,19 +14,23 @@ public class Keno
 {
     public static void ausfuehren()
     {
-        try
-        {
-            erstelleDeck();
-        } catch (KartenDeckFehlerhaftException e)
-        {
-            throw new RuntimeException(e);
-        }
+        leseSpielstand();
     }
 
-    private static void leseSpielstand() throws IOException
+    private static void leseSpielstand()
     {
-        SpielStand meinSpielStand = SpielStandIO.leseDatei();
-        System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung());
+        try
+        {
+            SpielStand meinSpielStand = SpielStandIO.leseDatei();
+            System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung()
+                    + Strings.LEERZEICHEN
+                    + meinSpielStand.getSpieldeck().size());
+        }
+        catch (IOException | KartenDeckFehlerhaftException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     private static void speichereSpielstand() throws KartenDeckFehlerhaftException, IOException
