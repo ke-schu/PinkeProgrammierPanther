@@ -2,19 +2,21 @@ package model;
 
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
-import static resources.Strings.SPIEL_DECK_PFAD;
+import static resources.Strings.*;
 
 public class SpielStand
 {
     private int guthaben;
-    private transient KartenDeck spieldeck;
+    private transient KartenDeck spieldeck_spieler;
+    private transient KartenDeck spieldeck_gegner;
     private Level level;
     private int position;
 
     public SpielStand (int guthaben, Level level, int position) throws KartenDeckFehlerhaftException
     {
         this.guthaben = guthaben;
-        this.spieldeck = KartenDeckIO.leseDatei(SPIEL_DECK_PFAD);
+        this.spieldeck_spieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeck_gegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
         this.level = level;
         this.position = position;
     }
@@ -22,7 +24,8 @@ public class SpielStand
     public SpielStand (SpielStand stand) throws KartenDeckFehlerhaftException
     {
         this(stand.getGuthaben(), stand.getLevel(), stand.getPosition());
-        this.spieldeck = KartenDeckIO.leseDatei(SPIEL_DECK_PFAD);
+        this.spieldeck_spieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeck_gegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
     }
 
     public int getGuthaben ()
@@ -35,14 +38,24 @@ public class SpielStand
         this.guthaben = guthaben;
     }
 
-    public KartenDeck getSpieldeck ()
+    public KartenDeck getSpieldeck_spieler()
     {
-        return spieldeck;
+        return spieldeck_spieler;
     }
 
-    public void setSpieldeck (KartenDeck spieldeck)
+    public void setSpieldeck_spieler(KartenDeck spieldeck_spieler)
     {
-        this.spieldeck = spieldeck;
+        this.spieldeck_spieler = spieldeck_spieler;
+    }
+
+    public KartenDeck getSpieldeck_gegner()
+    {
+        return spieldeck_gegner;
+    }
+
+    public void setSpieldeck_gegner(KartenDeck spieldeck_gegner)
+    {
+        this.spieldeck_gegner = spieldeck_gegner;
     }
 
     public Level getLevel ()

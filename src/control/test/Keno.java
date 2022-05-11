@@ -22,9 +22,9 @@ public class Keno
         try
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
-            System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung()
+            System.out.println(meinSpielStand.getSpieldeck_spieler().getDeckBezeichnung()
                     + Strings.LEERZEICHEN
-                    + meinSpielStand.getSpieldeck().size());
+                    + meinSpielStand.getSpieldeck_spieler().size());
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {
@@ -60,7 +60,7 @@ public class Keno
         meinDeck.push(new KarteEinheit(
                 "HarryPotter",
                 40,
-                KarteEinheit.Typ.NAHKAEMPFER,
+                EinheitTyp.NAHKAEMPFER,
                 3,
                 10,
                 1,
@@ -71,7 +71,7 @@ public class Keno
         meinDeck.push(new KarteEinheit(
                 "RonWeasley",
                 30,
-                KarteEinheit.Typ.FERNKAEMPFER,
+                EinheitTyp.FERNKAEMPFER,
                 2,
                 9,
                 1,

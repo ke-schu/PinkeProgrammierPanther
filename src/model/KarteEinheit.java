@@ -2,11 +2,7 @@ package model;
 
 public class KarteEinheit extends Karte
 {
-  public enum Typ
-  {
-    NAHKAEMPFER, FERNKAEMPFER;
-  }
-  private final Typ typ;
+  private final EinheitTyp einheitTyp;
   private int macht;
   private int lebenspunkte;
   private int mana;
@@ -15,10 +11,10 @@ public class KarteEinheit extends Karte
   private EffektTyp effektEins;
   private EffektTyp effektZwei;
 
-  public KarteEinheit(String name, int level, Typ typ, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effektEins, EffektTyp effektZwei)
+  public KarteEinheit(String name, int level, EinheitTyp einheitTyp, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effektEins, EffektTyp effektZwei)
   {
     super(name, level);
-    this.typ = typ;
+    this.einheitTyp = einheitTyp;
     this.macht = macht;
     this.lebenspunkte = lebenspunkte;
     this.mana = mana;
@@ -28,9 +24,9 @@ public class KarteEinheit extends Karte
     this.effektZwei = effektZwei;
   }
 
-  public Typ getTyp()
+  public EinheitTyp getTyp()
   {
-    return typ;
+    return einheitTyp;
   }
 
   public int getMacht()

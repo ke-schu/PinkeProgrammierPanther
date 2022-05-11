@@ -15,7 +15,8 @@ public interface Strings
     String JSON_DATEIENDUNG = ".json";
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
     String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;   // %s = Name des Charakters
-    String SPIEL_DECK_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck" + JSON_DATEIENDUNG;
+    String SPIEL_DECK_SPIELER_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Spieler" + JSON_DATEIENDUNG;
+    String SPIEL_DECK_GEGNER_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner" + JSON_DATEIENDUNG;
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
 

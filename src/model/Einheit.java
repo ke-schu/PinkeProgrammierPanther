@@ -4,7 +4,7 @@ public class Einheit
 {
     private String name;
     private int level;
-    private KarteEinheit.Typ typ;
+    private EinheitTyp einheitTyp;
     private int macht;
     private int lebenspunkte;
     private int mana;
@@ -12,8 +12,8 @@ public class Einheit
     private int reichweite;
     private  EffektTyp effekteins;
     private  EffektTyp effektzwei;
-    private int position_x = 0;
     private int position_y = 0;
+    private int position_x = 0;
 
     public boolean getFreundlich()
     {
@@ -35,7 +35,7 @@ public class Einheit
     {
         this.name=karte.getName();
         this.level = karte.getLevel();
-        this.typ = karte.getTyp();
+        this.einheitTyp = karte.getTyp();
         this.macht = karte.getMacht();
         this.lebenspunkte = karte.getLebenspunkte();
         this.mana = karte.getMana();
@@ -98,9 +98,9 @@ public class Einheit
         this.level = level;
     }
 
-    public KarteEinheit.Typ getTyp()
+    public EinheitTyp getTyp()
     {
-        return typ;
+        return einheitTyp;
     }
 
     /**
