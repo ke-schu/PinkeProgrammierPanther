@@ -2,5 +2,5 @@ package resources;
 
 public enum Einheiten
 {
-    NAHKAEMPFER, FERNKAEMPFER, HELD
+    NAHKAEMPFER, FERNKAEMPFER
 }

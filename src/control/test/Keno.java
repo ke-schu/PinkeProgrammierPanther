@@ -33,6 +33,7 @@ public class Keno
 
         return new Spieler("meinSpieler",
                 1,
+                Einheiten.FERNKAEMPFER,
                 10,
                 20,
                 1,

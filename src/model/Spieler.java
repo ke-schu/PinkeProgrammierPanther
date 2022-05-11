@@ -14,21 +14,12 @@ public class Spieler extends KarteEinheit
     private Artefakte[] artefakte;
     private int mana;
 
-    public Spieler(String name,
-                   int level,
-                   int macht,
-                   int lebenspunkte,
-                   int beweglichkeit,
-                   int reichweite,
-                   int verteidigung,
-                   Effekte effektEins,
-                   Effekte effektZwei,
-                   Waffe waffe,
-                   Stack<Talente> talente,
-                   Artefakte[] artefakte,
-                   int mana)
+    public Spieler(String name, int level, Einheiten typ, int macht, int lebenspunkte,
+                   int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei,
+                   Waffe waffe, Stack<Talente> talente, Artefakte[] artefakte, int mana)
     {
-        super(name, level, Einheiten.HELD, waffe.getAngriffsPunkte() + macht, lebenspunkte, 0, beweglichkeit, reichweite, verteidigung, effektEins, effektZwei);
+        super(name, level, typ, waffe.getAngriffsPunkte() + macht, lebenspunkte,
+                0, beweglichkeit, reichweite, verteidigung, effektEins, effektZwei);
         this.waffe = waffe;
         this.talente = talente;
         this.artefakte = artefakte;
