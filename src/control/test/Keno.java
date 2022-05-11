@@ -5,17 +5,20 @@ import io.KartenDeckIO;
 import io.SpielStandIO;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
-import resources.EffektTyp;
-import resources.EinheitTyp;
-import resources.Strings;
+import resources.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Stack;
+
+import static resources.Artefakte.*;
+import static resources.Talente.*;
 
 public class Keno
 {
     public static void ausfuehren()
     {
+        speichereSpielstand();
         leseSpielstand();
     }
 
@@ -24,9 +27,9 @@ public class Keno
         try
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
-            System.out.println(meinSpielStand.getSpieldeck_spieler().getDeckBezeichnung()
+            System.out.println(meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
                     + Strings.LEERZEICHEN
-                    + meinSpielStand.getSpieldeck_spieler().size());
+                    + meinSpielStand.getSpieldeckSpieler().size());
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {
@@ -35,10 +38,24 @@ public class Keno
 
     }
 
-    private static void speichereSpielstand() throws KartenDeckFehlerhaftException, IOException
+    private static void speichereSpielstand()
     {
-        SpielStand meinSpielStand = new SpielStand(10, new Level(), 47);
-        SpielStandIO.schreibeDatei(meinSpielStand);
+        try
+        {
+            Stack<Talente> meinTalentStack = new Stack<>();
+            meinTalentStack.push(ABKLINGEN);
+            meinTalentStack.push(MANA_GOTT);
+
+            Artefakte[] meineArtefake = new Artefakte[2];
+            meineArtefake[0] = DER_GRABSTEIN;
+
+            SpielStand meinSpielStand = new SpielStand(10, 3, meinTalentStack, meinTalentStack, meineArtefake,  new Level(), 47);
+            SpielStandIO.schreibeDatei(meinSpielStand);
+        }
+        catch (IOException | KartenDeckFehlerhaftException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void waehleCharakter()
@@ -62,27 +79,27 @@ public class Keno
         meinDeck.push(new KarteEinheit(
                 "HarryPotter",
                 40,
-                EinheitTyp.NAHKAEMPFER,
+                Einheiten.NAHKAEMPFER,
                 3,
                 10,
                 1,
                 1,
                 1,
                 1,
-                EffektTyp.LETZTEWORTE,
-                EffektTyp.ZURUECKWERFEN));
+                Effekte.LETZTEWORTE,
+                Effekte.ZURUECKWERFEN));
         meinDeck.push(new KarteEinheit(
                 "RonWeasley",
                 30,
-                EinheitTyp.FERNKAEMPFER,
+                Einheiten.FERNKAEMPFER,
                 2,
                 9,
                 1,
                 1,
                 1,
                 1,
-                EffektTyp.ZURUECKWERFEN,
-                EffektTyp.LETZTEWORTE));
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE));
         KartenDeckIO.schreibeDatei(meinDeck);
     }
 }

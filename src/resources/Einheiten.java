@@ -1,6 +1,6 @@
 package resources;
 
-public enum EinheitTyp
+public enum Einheiten
 {
     NAHKAEMPFER, FERNKAEMPFER
 }

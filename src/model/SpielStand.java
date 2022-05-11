@@ -2,78 +2,143 @@ package model;
 
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
+import resources.Artefakte;
+import resources.Talente;
+
+import java.util.Stack;
+
 import static resources.Strings.*;
 
 public class SpielStand
 {
     private int guthaben;
-    private transient KartenDeck spieldeck_spieler;
-    private transient KartenDeck spieldeck_gegner;
+    private int levelSpieler;
+    private transient KartenDeck spieldeckSpieler;
+    private transient KartenDeck spieldeckGegner;
+    private Stack<Talente> talenteSpieler;
+    private Stack<Talente> talenteGegner;
+    private Artefakte[] artefakteSpieler;
     private Level level;
     private int position;
 
-    public SpielStand (int guthaben, Level level, int position) throws KartenDeckFehlerhaftException
+    public SpielStand(int guthaben,
+                      int levelSpieler,
+                      Stack<Talente> talenteSpieler,
+                      Stack<Talente> talenteGegner,
+                      Artefakte[] artefakteSpieler,
+                      Level level,
+                      int position) throws KartenDeckFehlerhaftException
     {
         this.guthaben = guthaben;
-        this.spieldeck_spieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeck_gegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
+        this.levelSpieler = levelSpieler;
+        this.talenteSpieler = talenteSpieler;
+        this.talenteGegner = talenteGegner;
+        this.artefakteSpieler = artefakteSpieler;
         this.level = level;
         this.position = position;
+        this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
     }
 
     public SpielStand (SpielStand stand) throws KartenDeckFehlerhaftException
     {
-        this(stand.getGuthaben(), stand.getLevel(), stand.getPosition());
-        this.spieldeck_spieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeck_gegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
+        this(stand.getGuthaben(),
+                stand.getLevelSpieler(),
+                stand.getTalenteSpieler(),
+                stand.getTalenteGegner(),
+                stand.getArtefakteSpieler(),
+                stand.getLevel(),
+                stand.getPosition());
+        this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
     }
 
-    public int getGuthaben ()
+    public int getGuthaben()
     {
         return guthaben;
     }
 
-    public void setGuthaben (int guthaben)
+    public void setGuthaben(int guthaben)
     {
         this.guthaben = guthaben;
     }
 
-    public KartenDeck getSpieldeck_spieler()
+    public int getLevelSpieler()
     {
-        return spieldeck_spieler;
+        return levelSpieler;
     }
 
-    public void setSpieldeck_spieler(KartenDeck spieldeck_spieler)
+    public void setLevelSpieler(int levelSpieler)
     {
-        this.spieldeck_spieler = spieldeck_spieler;
+        this.levelSpieler = levelSpieler;
     }
 
-    public KartenDeck getSpieldeck_gegner()
+    public KartenDeck getSpieldeckSpieler()
     {
-        return spieldeck_gegner;
+        return spieldeckSpieler;
     }
 
-    public void setSpieldeck_gegner(KartenDeck spieldeck_gegner)
+    public void setSpieldeckSpieler(KartenDeck spieldeckSpieler)
     {
-        this.spieldeck_gegner = spieldeck_gegner;
+        this.spieldeckSpieler = spieldeckSpieler;
     }
 
-    public Level getLevel ()
+    public KartenDeck getSpieldeckGegner()
+    {
+        return spieldeckGegner;
+    }
+
+    public void setSpieldeckGegner(KartenDeck spieldeckGegner)
+    {
+        this.spieldeckGegner = spieldeckGegner;
+    }
+
+    public Stack<Talente> getTalenteSpieler()
+    {
+        return talenteSpieler;
+    }
+
+    public void setTalenteSpieler(Stack<Talente> talenteSpieler)
+    {
+        this.talenteSpieler = talenteSpieler;
+    }
+
+    public Stack<Talente> getTalenteGegner()
+    {
+        return talenteGegner;
+    }
+
+    public void setTalenteGegner(Stack<Talente> talenteGegner)
+    {
+        this.talenteGegner = talenteGegner;
+    }
+
+    public Artefakte[] getArtefakteSpieler()
+    {
+        return artefakteSpieler;
+    }
+
+    public void setArtefakteSpieler(Artefakte[] artefakteSpieler)
+    {
+        this.artefakteSpieler = artefakteSpieler;
+    }
+
+    public Level getLevel()
     {
         return level;
     }
 
-    public void setLevel (Level level)
+    public void setLevel(Level level)
     {
         this.level = level;
     }
 
-    public int getPosition ()
+    public int getPosition()
     {
         return position;
     }
 
-    public void setPosition (int position)
+    public void setPosition(int position)
     {
         this.position = position;
     }

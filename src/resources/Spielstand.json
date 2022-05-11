@@ -1,5 +1,18 @@
 {
   "guthaben": 10,
+  "levelSpieler": 3,
+  "talenteSpieler": [
+    "ABKLINGEN",
+    "MANA_GOTT"
+  ],
+  "talenteGegner": [
+    "ABKLINGEN",
+    "MANA_GOTT"
+  ],
+  "artefakteSpieler": [
+    "DER_GRABSTEIN",
+    null
+  ],
   "level": {
     "schwierigkeit": 0
   },

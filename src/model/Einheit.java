@@ -1,13 +1,13 @@
 package model;
 
-import resources.EffektTyp;
-import resources.EinheitTyp;
+import resources.Effekte;
+import resources.Einheiten;
 
 public class Einheit
 {
     private String name;
     private int level;
-    private EinheitTyp einheitTyp;
+    private Einheiten einheiten;
     private int macht;
     private int lebenspunkte;
     private int mana;
@@ -18,8 +18,8 @@ public class Einheit
 
     private int verteidigung;
     private boolean schlafend = true;
-    private EffektTyp effekteins;
-    private  EffektTyp effektzwei;
+    private Effekte effekteins;
+    private Effekte effektzwei;
     private int position_y = 0;
     private int position_x = 0;
     private boolean freundlich;
@@ -32,7 +32,7 @@ public class Einheit
     {
         this.name=karte.getName();
         this.level = karte.getLevel();
-        this.einheitTyp = karte.getTyp();
+        this.einheiten = karte.getTyp();
         this.macht = karte.getMacht();
         this.lebenspunkte = karte.getLebenspunkte();
         this.mana = karte.getMana();
@@ -97,9 +97,9 @@ public class Einheit
         this.level = level;
     }
 
-    public EinheitTyp getTyp()
+    public Einheiten getTyp()
     {
-        return einheitTyp;
+        return einheiten;
     }
 
     /**
@@ -238,11 +238,11 @@ public class Einheit
         this.schlafend = schlafend;
     }
 
-    public EffektTyp getEffekteins ()
+    public Effekte getEffekteins ()
     {
         return effekteins;
     }
-    public EffektTyp getEffektzwei ()
+    public Effekte getEffektzwei ()
     {
         return effektzwei;
     }

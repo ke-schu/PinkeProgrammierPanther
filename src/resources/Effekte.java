@@ -1,6 +1,6 @@
 package resources;
 
-public enum EffektTyp
+public enum Effekte
 {
     LETZTEWORTE, ZURUECKWERFEN
 }

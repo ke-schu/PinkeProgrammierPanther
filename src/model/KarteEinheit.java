@@ -1,11 +1,11 @@
 package model;
 
-import resources.EffektTyp;
-import resources.EinheitTyp;
+import resources.Effekte;
+import resources.Einheiten;
 
 public class KarteEinheit extends Karte
 {
-  private final EinheitTyp einheitTyp;
+  private final Einheiten einheiten;
   private int macht;
   private int lebenspunkte;
   private int mana;
@@ -13,15 +13,13 @@ public class KarteEinheit extends Karte
   private int reichweite;
   private int schild;
   private int verteidigung;
+  private Effekte effektEins;
+  private Effekte effektZwei;
 
-
-  private EffektTyp effektEins;
-  private EffektTyp effektZwei;
-
-  public KarteEinheit(String name, int level, EinheitTyp einheitTyp, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite,int verteidigung,  EffektTyp effektEins, EffektTyp effektZwei)
+  public KarteEinheit(String name, int level, Einheiten einheiten, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei)
   {
     super(name, level);
-    this.einheitTyp = einheitTyp;
+    this.einheiten = einheiten;
     this.macht = macht;
     this.lebenspunkte = lebenspunkte;
     this.mana = mana;
@@ -32,9 +30,9 @@ public class KarteEinheit extends Karte
     this.effektZwei = effektZwei;
   }
 
-  public EinheitTyp getTyp()
+  public Einheiten getTyp()
   {
-    return einheitTyp;
+    return einheiten;
   }
 
   public int getMacht()
@@ -87,12 +85,12 @@ public class KarteEinheit extends Karte
     this.reichweite = reichweite;
   }
 
-  public EffektTyp getEffektEins()
+  public Effekte getEffektEins()
   {
     return effektEins;
   }
 
-  public EffektTyp getEffektZwei()
+  public Effekte getEffektZwei()
   {
     return effektZwei;
   }
