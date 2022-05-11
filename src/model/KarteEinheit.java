@@ -11,10 +11,14 @@ public class KarteEinheit extends Karte
   private int mana;
   private int beweglichkeit;
   private int reichweite;
+  private int schild;
+  private int verteidigung;
+
+
   private EffektTyp effektEins;
   private EffektTyp effektZwei;
 
-  public KarteEinheit(String name, int level, EinheitTyp einheitTyp, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite, EffektTyp effektEins, EffektTyp effektZwei)
+  public KarteEinheit(String name, int level, EinheitTyp einheitTyp, int macht, int lebenspunkte, int mana, int beweglichkeit, int reichweite,int verteidigung,  EffektTyp effektEins, EffektTyp effektZwei)
   {
     super(name, level);
     this.einheitTyp = einheitTyp;
@@ -23,6 +27,7 @@ public class KarteEinheit extends Karte
     this.mana = mana;
     this.beweglichkeit = beweglichkeit;
     this.reichweite = reichweite;
+    this.verteidigung = verteidigung;
     this.effektEins = effektEins;
     this.effektZwei = effektZwei;
   }
@@ -90,6 +95,24 @@ public class KarteEinheit extends Karte
   public EffektTyp getEffektZwei()
   {
     return effektZwei;
+  }
+  public int getVerteidigung()
+  {
+    return verteidigung;
+  }
+
+  public void setVerteidigung(int verteidigung)
+  {
+    this.verteidigung = verteidigung;
+  }
+  public int getSchild()
+  {
+    return schild;
+  }
+
+  public void setSchild(int schild)
+  {
+    this.schild = schild;
   }
 }
 

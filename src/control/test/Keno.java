@@ -68,6 +68,7 @@ public class Keno
                 1,
                 1,
                 1,
+                1,
                 EffektTyp.LETZTEWORTE,
                 EffektTyp.ZURUECKWERFEN));
         meinDeck.push(new KarteEinheit(
@@ -76,6 +77,7 @@ public class Keno
                 EinheitTyp.FERNKAEMPFER,
                 2,
                 9,
+                1,
                 1,
                 1,
                 1,

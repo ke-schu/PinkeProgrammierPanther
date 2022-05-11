@@ -13,21 +13,15 @@ public class Einheit
     private int mana;
     private int beweglichkeit;
     private int reichweite;
+
+    private int schild;
+
+    private int verteidigung;
+    private boolean schlafend = true;
     private EffektTyp effekteins;
     private  EffektTyp effektzwei;
     private int position_y = 0;
     private int position_x = 0;
-
-    public boolean getFreundlich()
-    {
-        return freundlich;
-    }
-
-    public void setFreundlich(boolean freundlich)
-    {
-        this.freundlich = freundlich;
-    }
-
     private boolean freundlich;
 
     /**
@@ -47,6 +41,8 @@ public class Einheit
         this.effekteins = karte.getEffektEins();
         this.effektzwei = karte.getEffektZwei();
         this.freundlich = freundlich;
+        this.schild = karte.getSchild();
+        this.verteidigung = karte.getVerteidigung();
     }
 
     /**
@@ -232,6 +228,16 @@ public class Einheit
         this.position_y = getPosition_y;
     }
 
+    public boolean getSchlafend()
+    {
+        return schlafend;
+    }
+
+    public void setSchlafend(boolean schlafend)
+    {
+        this.schlafend = schlafend;
+    }
+
     public EffektTyp getEffekteins ()
     {
         return effekteins;
@@ -240,4 +246,35 @@ public class Einheit
     {
         return effektzwei;
     }
+
+    public boolean getFreundlich()
+    {
+        return freundlich;
+    }
+
+    public void setFreundlich(boolean freundlich)
+    {
+        this.freundlich = freundlich;
+    }
+
+    public int getSchild()
+    {
+        return schild;
+    }
+
+    public void setSchild(int schild)
+    {
+        this.schild = schild;
+    }
+
+    public int getVerteidigung()
+    {
+        return verteidigung;
+    }
+
+    public void setVerteidigung(int verteidigung)
+    {
+        this.verteidigung = verteidigung;
+    }
+
 }
