@@ -1,8 +1,5 @@
 package control.test;
-import exceptions.KartenDeckFehlerhaftException;
 import model.*;
-
-import static control.KartenDeckController.leseDatei;
 
 /**
  * In dieser Klasse liegen Methoden, die Code testen sollen.

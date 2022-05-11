@@ -1,7 +1,7 @@
 package model;
 
 import exceptions.KartenDeckFehlerhaftException;
-import control.KartenDeckController;
+import io.KartenDeckIO;
 
 import static resources.Strings.*;
 
@@ -17,7 +17,7 @@ public class Charakter
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
         this.held = held;
-        this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
+        this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
     }
 
     public Charakter (Charakter charakter) throws KartenDeckFehlerhaftException
@@ -25,7 +25,7 @@ public class Charakter
         this.name = charakter.getName();
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
         this.held = charakter.getHeld();
-        this.startDeck = KartenDeckController.leseDatei(String.format(START_DECK_PFAD, name));
+        this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
     }
 
     /**

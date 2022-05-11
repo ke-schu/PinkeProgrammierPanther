@@ -1,8 +1,8 @@
 package control.test;
 
 import control.CharakterController;
-import control.KartenDeckController;
-import control.SpielStandController;
+import io.KartenDeckIO;
+import io.SpielStandIO;
 import exceptions.KartenDeckFehlerhaftException;
 import model.*;
 
@@ -24,14 +24,14 @@ public class Keno
 
     private static void leseSpielstand() throws IOException
     {
-        SpielStand meinSpielStand = SpielStandController.leseDatei();
+        SpielStand meinSpielStand = SpielStandIO.leseDatei();
         System.out.println(meinSpielStand.getSpieldeck().getDeckBezeichnung());
     }
 
     private static void speichereSpielstand() throws KartenDeckFehlerhaftException, IOException
     {
         SpielStand meinSpielStand = new SpielStand(10, new Level(), 47);
-        SpielStandController.schreibeDatei(meinSpielStand);
+        SpielStandIO.schreibeDatei(meinSpielStand);
     }
 
     private static void waehleCharakter()
@@ -74,6 +74,6 @@ public class Keno
                 1,
                 EffektTyp.ZURUECKWERFEN,
                 EffektTyp.LETZTEWORTE));
-        KartenDeckController.schreibeDatei(meinDeck);
+        KartenDeckIO.schreibeDatei(meinDeck);
     }
 }

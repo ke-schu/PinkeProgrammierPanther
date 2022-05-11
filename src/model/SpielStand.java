@@ -1,7 +1,7 @@
 package model;
 
 import exceptions.KartenDeckFehlerhaftException;
-import control.KartenDeckController;
+import io.KartenDeckIO;
 
 public class SpielStand
 {
@@ -13,7 +13,7 @@ public class SpielStand
     public SpielStand(int guthaben, Level level, int position) throws KartenDeckFehlerhaftException
     {
         this.guthaben = guthaben;
-        this.spieldeck = KartenDeckController.leseDatei("src/resources/kartendecks/Spieldeck.json");
+        this.spieldeck = KartenDeckIO.leseDatei("src/resources/kartendecks/Spieldeck.json");
         this.level = level;
         this.position = position;
     }
