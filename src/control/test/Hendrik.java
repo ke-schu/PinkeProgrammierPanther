@@ -20,8 +20,10 @@ public class Hendrik
     {
         try
         {
-            Ebene meineEbene = EbeneController.fuelleEbene(1);
+            Ebene meineEbene = EbeneController.fuelleEbene(2);
+            System.out.println(meineEbene.toString());
             EbeneIO.schreibeDatei(meineEbene, new File("src/resources/ebenen/Ebene1.json"));
+
         }
         catch (IOException e)
         {

@@ -1,7 +1,7 @@
 package model;
 //import model.ereignisse.Ereignis;
 import model.ereignisse.*;
-import resources.Strings;
+import static resources.Strings.*;
 import resources.Zahlen;
 
 public class Ebene
@@ -131,16 +131,20 @@ public class Ebene
                 if (this.ebene[i][j] != null)
                 {
                     sb.append(this.ebene[i][j].getEreignis().getName());
-                    sb.append(Strings.LEERZEICHEN);
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
                 }
                 else
                 {
                     sb.append(Zahlen.ZAHL_0);
-                    sb.append(Strings.LEERZEICHEN);
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
                 }
 
             }
-        sb.append(Strings.ZEILENUMBRUCH);
+        sb.append(ZEILENUMBRUCH);
         }
     return sb.toString();
     }
