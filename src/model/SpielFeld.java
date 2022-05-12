@@ -62,6 +62,8 @@ public class SpielFeld
         return this.spielfeld;
     }
 
+
+
     public final void setSpielfeld(KarteEinheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
@@ -88,6 +90,9 @@ public class SpielFeld
 
     public KarteEinheit getSpielfeldplatz (int x, int y)
     {
+        if(x<0 || x>=this.feldZeile || y<0 || y>=this.feldSpalte) {
+            return null;
+        }
         return this.spielfeld[x][y];
     }
 
