@@ -5,6 +5,7 @@ import model.ereignisse.EreignisKlasse;
 public class Raeume
 {
     private EreignisKlasse ereignis = null;
+    private Spieler spieler = null;
 
 
     /**

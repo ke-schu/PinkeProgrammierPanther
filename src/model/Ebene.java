@@ -1,8 +1,7 @@
 package model;
-
 //import model.ereignisse.Ereignis;
 import model.ereignisse.*;
-import resources.Strings;
+import static resources.Strings.*;
 import resources.Zahlen;
 
 public class Ebene
@@ -116,37 +115,6 @@ public class Ebene
         return this.ebene[zeile][spalte];
     }
 
-    public void erstelleEbene(int stufe)
-    {
-        switch (stufe)
-        {
-            case 1 :
-                Gegner Platzhalter1 = new Gegner("Babo", "Dies ist eine Beispielbeschreibung");
-                Raeume Gegner1 = new Raeume(Platzhalter1);
-                Gegner Platzhalter2 = new Gegner("Alex", "Dies ist Alex");
-                Raeume Gegner2 = new Raeume(Platzhalter2);
-                Gegner BossErstesLevel = new Gegner("Keno der Unschlagbare","Dies ist der Boss der ersten Ebene");
-                Raeume Boss = new Raeume(BossErstesLevel);
-                Treppe TreppeErsteEbene = new Treppe("Treppe der ersten Ebene","Dies ist die Treppe der Ersten Ebene");
-                Raeume Treppe1 = new Raeume (TreppeErsteEbene);
-                this.ebene[0][1]= Gegner1 ;
-                this.ebene[0][3]= Boss;
-                this.ebene[0][4]= Treppe1;
-                this.ebene[1][2]= Gegner2;
-
-            case 2 : //3443;
-
-            case 3 : ;
-
-            case 4 : ;
-
-            case 5 : ;
-
-            case 6 : ;
-
-            case 7 : ;
-        }
-    }
 
     /**
      * Methode, die die Raeume der Ebene in der Konsole formatiert ausgibt.
@@ -163,16 +131,20 @@ public class Ebene
                 if (this.ebene[i][j] != null)
                 {
                     sb.append(this.ebene[i][j].getEreignis().getName());
-                    sb.append(Strings.LEERZEICHEN);
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
                 }
                 else
                 {
                     sb.append(Zahlen.ZAHL_0);
-                    sb.append(Strings.LEERZEICHEN);
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
                 }
 
             }
-        sb.append(Strings.ZEILENUMBRUCH);
+        sb.append(ZEILENUMBRUCH);
         }
     return sb.toString();
     }

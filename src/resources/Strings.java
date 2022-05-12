@@ -4,6 +4,7 @@ public interface Strings
     //Satzzeichen
     String LEERZEICHEN = " ";
     String ZEILENUMBRUCH = "\n";
+    String SENKRECHTER_STRICH = "|";
 
     //Infos
     String SPIELSTAND_DATEI_ERSTELLT = "Der Spielstand wurde in eine neue Datei geschrieben.";
