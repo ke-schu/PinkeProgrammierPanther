@@ -175,5 +175,17 @@ public class KarteEinheit extends Karte
     position = null;
     schlafend = true;
   }
+
+  public void initialisieren()
+  {
+    this.macht = init.getMacht();
+    this.lebenspunkte = init.getLebenspunkte();
+    this.beweglichkeit = init.getBeweglichkeit();
+    this.reichweite = init.getReichweite();
+    this.schild = init.getSchild();
+    this.verteidigung = init.getVerteidigung();
+    this.position = init.getPosition();
+    this.schlafend = init.getSchlafend();
+  }
 }
 
