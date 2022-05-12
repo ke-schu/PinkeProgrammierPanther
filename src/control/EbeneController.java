@@ -10,6 +10,10 @@ import static resources.Zahlen.*;
 
 public class EbeneController
 {
+    /**
+     * Methode die die Ebene fuellt.
+     * @return liefert eine mit Räumen gefüllte Ebene als 2D Array.
+     */
     public static Ebene fuelleEbene(int EbenenStufe)
     {
         int spalten = ZAHL_9;
