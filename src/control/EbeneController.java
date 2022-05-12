@@ -12,8 +12,8 @@ public class EbeneController
 {
     public static Ebene fuelleEbene(int EbenenStufe)
     {
-        int spalten = 5;
-        int zeilen = 5;
+        int spalten = ZAHL_9;
+        int zeilen = ZAHL_9;
         Raeume[][] meineRaeume = new Raeume[spalten][zeilen];
         switch (EbenenStufe)
         {

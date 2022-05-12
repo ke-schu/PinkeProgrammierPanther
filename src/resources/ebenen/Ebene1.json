@@ -1,40 +1,49 @@
 {
   "ebene": [
     [
-      null,
       {
         "ereignis": {
-          "name": "Babo",
-          "beschreibung": "Dies ist eine Beispielbeschreibung",
-          "auswahl": false
-        }
-      },
-      null,
-      {
-        "ereignis": {
-          "name": "Keno der Unschlagbare",
-          "beschreibung": "Dies ist der Boss der ersten Ebene",
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
           "auswahl": false
         }
       },
       {
         "ereignis": {
-          "name": "Treppe der ersten Ebene",
-          "beschreibung": "Dies ist die Treppe der Ersten Ebene",
-          "auswahl": false
-        }
-      }
-    ],
-    [
-      null,
-      null,
-      {
-        "ereignis": {
-          "name": "Alex",
-          "beschreibung": "Dies ist Alex",
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
           "auswahl": false
         }
       },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Boss 1",
+          "beschreibung": "Das ist Boss 1",
+          "auswahl": false
+        }
+      },
+      null,
       null,
       null
     ],
@@ -43,9 +52,6 @@
       null,
       null,
       null,
-      null
-    ],
-    [
       null,
       null,
       null,
@@ -53,6 +59,76 @@
       null
     ],
     [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
@@ -60,6 +136,6 @@
       null
     ]
   ],
-  "ebenenSpalte": 5,
-  "ebenenZeile": 5
+  "ebenenSpalte": 9,
+  "ebenenZeile": 9
 }

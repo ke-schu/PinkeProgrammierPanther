@@ -4,7 +4,7 @@ import static resources.Zahlen.*;
 
 import java.util.Random;
 
-public class SpielFeld extends Level
+public class SpielFeld
 {
 
     private KarteEinheit[][] spielfeld = null;
