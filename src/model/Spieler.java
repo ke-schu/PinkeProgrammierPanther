@@ -65,4 +65,40 @@ public class Spieler extends KarteEinheit
     {
         this.mana = mana;
     }
+
+    /**
+     * Methode die den Int-Wert des Attributs positionInEbeneX liefert.
+     * @return gibt den Wert des Attributes positionInEbeneX.
+     */
+    public int getPositionInEbeneX()
+    {
+        return positionInEbeneX;
+    }
+
+    /**
+     * Methode die einen Int-Wert in das Attribut positionInEbeneX setzt.
+     * @param positionInEbeneX Int-Wert der in das Attribut positionInEbeneX setzt.
+     */
+    public void setPositionInEbeneX(int positionInEbeneX)
+    {
+        this.positionInEbeneX = positionInEbeneX;
+    }
+
+    /**
+     * Methode die den Int-Wert des Attributs positionInEbeneY liefert.
+     * @return gibt den Wert des Attributes positionInEbeneY.
+     */
+    public int getPositionInEbeneY()
+    {
+        return positionInEbeneY;
+    }
+
+    /**
+     * Methode die einen Int-Wert in das Attribut positionInEbeneY setzt.
+     * @param positionInEbeneY Int-Wert der in das Attribut positionInEbeneY setzt.
+     */
+    public void setPositionInEbeneY(int positionInEbeneY)
+    {
+        this.positionInEbeneY = positionInEbeneY;
+    }
 }
