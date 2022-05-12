@@ -4,10 +4,11 @@ import model.Ebene;
 import model.Raeume;
 import model.ereignisse.Gegner;
 import model.ereignisse.Treppe;
+import static resources.Zahlen.*;
 
 public class EbeneController
 {
-    public static Ebene fuelleEbene(int stufe)
+    public static Ebene fuelleEbene(int EbenenStufe)
     {
         int spalten = 5;
         int zeilen = 5;
@@ -62,9 +63,21 @@ public class EbeneController
                 Gegner Platzhalter54 = new Gegner("", "");
                 Gegner BossFuenftesLevel = new Gegner("", "");
 
-            case 6 : ;
+            case ZAHL_6:
+                Gegner Platzhalter60 = new Gegner("", "");
+                Gegner Platzhalter61 = new Gegner("", "");
+                Gegner Platzhalter62 = new Gegner("","");
+                Gegner Platzhalter63 = new Gegner("", "");
+                Gegner Platzhalter64 = new Gegner("", "");
+                Gegner BossSechstesLevel = new Gegner("", "");
 
-            case 7 : ;
+            case ZAHL_7:
+                Gegner Platzhalter70 = new Gegner("", "");
+                Gegner Platzhalter71 = new Gegner("", "");
+                Gegner Platzhalter72 = new Gegner("","");
+                Gegner Platzhalter73 = new Gegner("", "");
+                Gegner Platzhalter74 = new Gegner("", "");
+                Gegner BossSiebtesLevel = new Gegner("", "");
         }
         return new Ebene(zeilen, spalten, meineRaeume);
     }
