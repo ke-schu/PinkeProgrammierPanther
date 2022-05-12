@@ -18,6 +18,8 @@ public class KarteEinheit extends Karte
   private Position position;
   private boolean schlafend = true;
 
+  private InitialisierungKarteEinheit init;
+
   private boolean freundlich;
 
 
@@ -160,6 +162,18 @@ public class KarteEinheit extends Karte
   public void schadenNehmen (int schaden)
   {
     this.lebenspunkte = lebenspunkte-schaden;
+  }
+
+  public void startwertespeichern ()
+  {
+    this.init.setMacht(macht);
+    this.init.setLebenspunkte(lebenspunkte);
+    this.init.setBeweglichkeit(beweglichkeit);
+    this.init.setReichweite(reichweite);
+    this.init.setSchild(schild);
+    this.init.setVerteidigung(verteidigung);
+    position = null;
+    schlafend = true;
   }
 }
 
