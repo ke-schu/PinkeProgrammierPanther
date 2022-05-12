@@ -7,7 +7,7 @@ import java.util.Random;
 public class SpielFeld extends Level
 {
 
-    private Einheit[][] spielfeld = null;
+    private KarteEinheit[][] spielfeld = null;
     private int feldZeile = 0;
     private int feldSpalte = 0;
 
@@ -30,7 +30,7 @@ public class SpielFeld extends Level
         */
         this.feldSpalte = generiereSpielfeldGroesse();
         this.feldZeile = generiereSpielfeldGroesse();
-        Einheit[][] spielfeld = new Einheit[this.feldZeile][this.feldSpalte];
+        KarteEinheit[][] spielfeld = new KarteEinheit[this.feldZeile][this.feldSpalte];
         this.spielfeld = spielfeld;
 
     }
@@ -57,12 +57,12 @@ public class SpielFeld extends Level
     }
 
 
-    public Einheit[][] getSpielfeld()
+    public KarteEinheit[][] getSpielfeld()
     {
         return this.spielfeld;
     }
 
-    public final void setSpielfeld(Einheit[][] spielfeld)
+    public final void setSpielfeld(KarteEinheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
     }
@@ -81,12 +81,12 @@ public class SpielFeld extends Level
     }
 
 
-    public void einheiteinsetzten (int x, int y, Einheit einheit )
+    public void einheiteinsetzten (int x, int y, KarteEinheit einheit )
     {
         this.spielfeld[x][y] = einheit;
     }
 
-    public Einheit getSpielfeldplatz (int x, int y)
+    public KarteEinheit getSpielfeldplatz (int x, int y)
     {
         return this.spielfeld[x][y];
     }

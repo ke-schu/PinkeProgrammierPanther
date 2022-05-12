@@ -5,32 +5,32 @@ import static resources.Zahlen.*;
 
 public class EffektController
 {
-    public void effektAusloesen(Einheit ausloeser, Einheit ziel, SpielFeld feld)
+    public void effektAusloesen(KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
     {
-        switch (ausloeser.getEffekteins())
+        switch (ausloeser.getEffektEins())
         {
             case LETZTEWORTE: letzteworte(ausloeser, ziel, feld); break;
         }
 
     }
-    public static void schadenVerursachen (Einheit ziel, int schaden)
+    public static void schadenVerursachen (KarteEinheit ziel, int schaden)
     {
         ziel.schadenNehmen(schaden);
     }
 
-    public static void letzteworte (Einheit ausloeser, Einheit ziel, SpielFeld feld)
+    public static void letzteworte (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
     {
         if (ausloeser.getLebenspunkte() == 0);
         {
             zurueckwerfen(ausloeser, feld);
         }
     }
-    public static void zurueckwerfen (Einheit ausloeser, SpielFeld feld)
+    public static void zurueckwerfen (KarteEinheit ausloeser, SpielFeld feld)
     {
         try
         {
-            Einheit zieloben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()- ZAHL_1);
-            Einheit platzoben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2);
+            KarteEinheit zieloben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()- ZAHL_1);
+            KarteEinheit platzoben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2);
 
             if (zieloben != null && platzoben == null)
             {
@@ -45,8 +45,8 @@ public class EffektController
 
         try
         {
-            Einheit zielunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
-            Einheit platzunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2);
+            KarteEinheit zielunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
+            KarteEinheit platzunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2);
 
             if (zielunten != null && platzunten == null)
             {
@@ -61,8 +61,8 @@ public class EffektController
 
         try
         {
-            Einheit ziellinks  = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_1, ausloeser.getPosition_y());
-            Einheit platzlinks = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_2, ausloeser.getPosition_y());
+            KarteEinheit ziellinks  = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_1, ausloeser.getPosition_y());
+            KarteEinheit platzlinks = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_2, ausloeser.getPosition_y());
 
             if (ziellinks != null && platzlinks == null)
             {
@@ -77,8 +77,8 @@ public class EffektController
 
         try
         {
-            Einheit zielrechts  = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_1, ausloeser.getPosition_y());
-            Einheit platzrechts = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_2, ausloeser.getPosition_y());
+            KarteEinheit zielrechts  = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_1, ausloeser.getPosition_y());
+            KarteEinheit platzrechts = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_2, ausloeser.getPosition_y());
 
             if (zielrechts != null && platzrechts == null)
             {

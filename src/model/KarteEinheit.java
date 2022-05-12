@@ -15,6 +15,11 @@ public class KarteEinheit extends Karte
   private int verteidigung;
   private Effekte effektEins;
   private Effekte effektZwei;
+  private Position position;
+  private boolean schlafend = true;
+
+  private boolean freundlich;
+
 
   public KarteEinheit(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei)
   {
@@ -111,6 +116,50 @@ public class KarteEinheit extends Karte
   public void setSchild(int schild)
   {
     this.schild = schild;
+  }
+
+  public Position getPosition()
+  {
+    return position;
+  }
+  public int getPosition_x ()
+  {
+    return this.position.getx();
+  }
+  public int getPosition_y ()
+  {
+    return this.position.gety();
+  }
+
+
+  public void setPosition(int x, int y)
+  {
+    this.position.setx(x);
+    this.position.sety(y);
+  }
+
+  public boolean getSchlafend()
+  {
+    return schlafend;
+  }
+
+  public void setSchlafend(boolean schlafend)
+  {
+    this.schlafend = schlafend;
+  }
+
+  public boolean getFreundlich()
+  {
+    return freundlich;
+  }
+
+  public void setFreundlich(boolean freundlich)
+  {
+    this.freundlich = freundlich;
+  }
+  public void schadenNehmen (int schaden)
+  {
+    this.lebenspunkte = lebenspunkte-schaden;
   }
 }
 
