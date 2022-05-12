@@ -1,5 +1,7 @@
 package control;
+
 import model.*;
+import static resources.Zahlen.*;
 
 
 /**
@@ -8,13 +10,13 @@ import model.*;
 public class EinheitenController
 {
     /**
-     * Methode zum bewegen von Instanzen von Einheiten im Spielfeldarray.
+     * Methode zum Springen von Instanzen von Einheiten im Spielfeldarray.
      * @param spielfeld Instanz des Spielfeldes auf der die Einheit bewegt werden soll.
      * @param ziel_x Integer mit der Zielzeile der Bewegung.
      * @param ziel_y Integer mit der Zielspalte der Bewegung.
-     * @param einheit Einheit die bewegt werden soll.
+     * @param einheit Einheit die springen soll.
      */
-    public static void bewegen (SpielFeld spielfeld, int ziel_x, int ziel_y, KarteEinheit einheit)
+    public static void springen (SpielFeld spielfeld, int ziel_x, int ziel_y, KarteEinheit einheit)
     {
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;
@@ -30,13 +32,42 @@ public class EinheitenController
             selbeZeile = (einheit.getPosition_x() == ziel_x);
             selbeSpalte = (einheit.getPosition_y() == ziel_y);
 
-            zielErreichbarInX = (ziel_x <= einheit.getPosition_x() + beweglichkeit) && (ziel_x >= einheit.getPosition_x() - ziel_x);
-            zielErreichbarInY = (ziel_y <= einheit.getPosition_y() + beweglichkeit) && (ziel_y >= einheit.getPosition_y() - ziel_x);
+            zielErreichbarInX = (ziel_x <= einheit.getPosition_x() + beweglichkeit) && (ziel_x >= einheit.getPosition_x() - beweglichkeit);
+            zielErreichbarInY = (ziel_y <= einheit.getPosition_y() + beweglichkeit) && (ziel_y >= einheit.getPosition_y() - beweglichkeit);
 
             if ((zielErreichbarInX && zielErreichbarInY) && (selbeZeile || selbeSpalte))
             {
                  spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
                  spielfeld.einheiteinsetzten(start_x, start_y, null);
+            }
+        }
+    }
+
+     /**
+     * Methode zum bewegen von Instanzen von Einheiten im Spielfeldarray.
+     * @param spielfeld Instanz des Spielfeldes auf der die Einheit bewegt werden soll.
+     * @param ziel_x Integer mit der Zielzeile der Bewegung.
+     * @param ziel_y Integer mit der Zielspalte der Bewegung.
+     * @param einheit Einheit die bewegt werden soll.
+      */
+    public static void bewegen (SpielFeld spielfeld, int ziel_x, int ziel_y, KarteEinheit einheit)
+    {
+        boolean zielErreichbarInX = false;
+        boolean zielErreichbarInY = false;
+        int start_x = einheit.getPosition_x();
+        int start_y = einheit.getPosition_y();
+
+        if (spielfeld.getSpielfeldplatz(ziel_x, ziel_y)== null)
+        {
+
+
+            zielErreichbarInX = (ziel_x == einheit.getPosition_x() + ZAHL_1) || (ziel_x == einheit.getPosition_x() - ZAHL_1);
+            zielErreichbarInY = (ziel_y == einheit.getPosition_y() + ZAHL_1) || (ziel_y == einheit.getPosition_y() - ZAHL_1);
+
+            if ((zielErreichbarInX || zielErreichbarInY) && !(zielErreichbarInX && zielErreichbarInY))
+            {
+                spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
+                spielfeld.einheiteinsetzten(start_x, start_y, null);
             }
         }
     }
