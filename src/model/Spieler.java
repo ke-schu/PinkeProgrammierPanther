@@ -13,6 +13,8 @@ public class Spieler extends KarteEinheit
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
     private int mana;
+    private int positionInEbeneX;
+    private int positionInEbeneY;
 
     public Spieler(String name, int level, Einheiten typ, int macht, int lebenspunkte,
                    int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei,

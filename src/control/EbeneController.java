@@ -18,18 +18,25 @@ public class EbeneController
         switch (EbenenStufe)
         {
             case ZAHL_1:
-                Gegner Platzhalter10 = new Gegner("Gegner", "Dies ist eine Beispielbeschreibung");
-                Raeume Gegner10 = new Raeume(Platzhalter10);
-                Gegner Platzhalter11 = new Gegner("Gegner", "Dies ist Gegner");
-                Raeume Gegner11 = new Raeume(Platzhalter11);
-                Gegner BossErstesLevel = new Gegner("Gegner der Unschlagbare","Dies ist der Boss der ersten Ebene");
-                Raeume Boss = new Raeume(BossErstesLevel);
-                Treppe TreppeErsteEbene = new Treppe("Treppe der ersten Ebene","Dies ist die Treppe der Ersten Ebene");
-                Raeume Treppe1 = new Raeume (TreppeErsteEbene);
-                meineRaeume[0][1]= Gegner10;
-                meineRaeume[0][3]= Boss;
-                meineRaeume[0][4]= Treppe1;
-                meineRaeume[1][2]= Gegner11;
+                Gegner platzhalter10 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
+                Gegner platzhalter11 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
+                Gegner platzhalter12 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG);
+                Gegner platzhalter13 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
+                Gegner platzhalter14 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
+                Gegner bossErstesLevel = new Gegner(BOSS_ERSTES_LEVEL_NAME, BOSS_ERSTES_LEVEL_BESCHREIBUNG);
+                Raeume gegner10 = new Raeume(platzhalter10);
+                Raeume gegner11 = new Raeume(platzhalter11);
+                Raeume gegner12 = new Raeume(platzhalter12);
+                Raeume gegner13 = new Raeume(platzhalter13);
+                Raeume gegner14 = new Raeume(platzhalter14);
+                Raeume boss1 = new Raeume(bossErstesLevel);
+
+                meineRaeume[ZAHL_0][ZAHL_0] = gegner10;
+                meineRaeume[ZAHL_0][ZAHL_1] = gegner11;
+                meineRaeume[ZAHL_0][ZAHL_2] = gegner12;
+                meineRaeume[ZAHL_0][ZAHL_3] = gegner13;
+                meineRaeume[ZAHL_0][ZAHL_4] = gegner14;
+                meineRaeume[ZAHL_0][ZAHL_5] = boss1;
                 break;
 
             case ZAHL_2:
