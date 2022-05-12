@@ -5,7 +5,7 @@ import model.ereignisse.*;
 import resources.Strings;
 import resources.Zahlen;
 
-public class Ebene extends Level
+public class Ebene
 {
     private Raeume[][] ebene = null;
     private int ebenenSpalte = 0;
@@ -19,6 +19,13 @@ public class Ebene extends Level
     public Ebene (int ebenenZeile, int ebenenSpalte)
     {
         this.setEbene(new Raeume[ebenenZeile][ebenenSpalte]);
+        this.setEbenenZeile(ebenenZeile);
+        this.setEbenenSpalte(ebenenSpalte);
+    }
+
+    public Ebene (int ebenenZeile, int ebenenSpalte, Raeume[][] ebene)
+    {
+        this.setEbene(ebene);
         this.setEbenenZeile(ebenenZeile);
         this.setEbenenSpalte(ebenenSpalte);
     }

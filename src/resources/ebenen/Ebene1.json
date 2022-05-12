@@ -1,0 +1,65 @@
+{
+  "ebene": [
+    [
+      null,
+      {
+        "ereignis": {
+          "name": "Babo",
+          "beschreibung": "Dies ist eine Beispielbeschreibung",
+          "auswahl": false
+        }
+      },
+      null,
+      {
+        "ereignis": {
+          "name": "Keno der Unschlagbare",
+          "beschreibung": "Dies ist der Boss der ersten Ebene",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Treppe der ersten Ebene",
+          "beschreibung": "Dies ist die Treppe der Ersten Ebene",
+          "auswahl": false
+        }
+      }
+    ],
+    [
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Alex",
+          "beschreibung": "Dies ist Alex",
+          "auswahl": false
+        }
+      },
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "ebenenSpalte": 5,
+  "ebenenZeile": 5
+}

@@ -10,6 +10,8 @@ public interface Strings
     String SPIELSTAND_DATEI_UEBERSCHRIEBEN = "Der bestehende Spielstand wurde überschrieben.";
     String CHARAKTER_DATEI_ERSTELLT = "Die Charaktere wurden in eine neue Datei geschrieben.";
     String CHARAKTER_DATEI_UEBERSCHRIEBEN = "Der bestehenden Charaktere wurden überschrieben.";
+    String EBENE_DATEI_ERSTELLT = "Es wurde eine neue Ebene in die Datei geschrieben.";
+    String EBENE_DATEI_UEBERSCHRIEBEN = "Die bestehende Ebenendatei wurde überschrieben.";
 
     //Pfade
     String JSON_DATEIENDUNG = ".json";
