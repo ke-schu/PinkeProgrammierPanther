@@ -39,7 +39,7 @@ public class KartenDeckIO
      * Schreibt ein Kartendeck serialisiert ins Kartendeck-Paket.
      * Jedes Kartendeck hat seine eigene Datei, festgehalten in der entsprechenden Instanz.
      * @param deck das Kartendeck
-     * @throws IOException wenn ein Fehler im Schreiben auftritt.
+     * @throws KartenDeckFehlerhaftException wenn die Formatierung oder Attribute des Kartendecks falsch sind.
      */
     public static void schreibeDatei (KartenDeck deck) throws KartenDeckFehlerhaftException
     {
