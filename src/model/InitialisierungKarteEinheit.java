@@ -81,7 +81,7 @@ public class InitialisierungKarteEinheit
         this.position = position;
     }
 
-    public boolean isSchlafend()
+    public boolean getSchlafend()
     {
         return schlafend;
     }
