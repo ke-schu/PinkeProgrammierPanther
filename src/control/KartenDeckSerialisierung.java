@@ -6,10 +6,22 @@ import model.KartenDeck;
 
 import java.lang.reflect.Type;
 
+/**
+ * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer für ein KartenDeck.
+ * Es wird hier festgelegt, wie genau ein Kartendeck im Controller serialisiert bzw. deserialisiert wird, indem
+ * diese Klasse als Adapter im GsonBuilder eingebaut wird.
+ */
 public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, JsonDeserializer<KartenDeck>
 {
     private Gson meinGson = new Gson();
 
+    /**
+     * Serialisiert ein Kartendeck
+     * @param src das Kartendeck
+     * @param type Typ des zu serialisierenden Kartendecks
+     * @param context Kontext der Serialisierung
+     * @return ein Kartendeck als JsonElement
+     */
     @Override
     public JsonElement serialize (KartenDeck src, Type type, JsonSerializationContext context)
     {
@@ -21,6 +33,14 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
         return jsonKartenDeck;
     }
 
+    /**
+     * Deserialisiert ein Kartendeck
+     * @param json das Kartendeck als JsonElement
+     * @param type Typ des zu serialisierenden Kartendecks
+     * @param context Kontext der Deserialisierung
+     * @return das Kartendeck
+     * @throws JsonParseException wenn das Element nicht gelesen werden kann
+     */
     @Override
     public KartenDeck deserialize (JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException
     {
