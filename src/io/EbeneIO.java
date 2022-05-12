@@ -3,7 +3,6 @@ package io;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import exceptions.KartenDeckFehlerhaftException;
 import model.Ebene;
 
 import java.io.File;
