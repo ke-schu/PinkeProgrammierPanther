@@ -1,7 +1,6 @@
 package model;
 
 import static resources.Zahlen.*;
-
 import java.util.Random;
 
 public class SpielFeld
@@ -14,25 +13,10 @@ public class SpielFeld
 
     public SpielFeld() //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
     {
-        /*
-        if (feldSpalte <= 0 && feldZeile <= 0)
-        {
-            throw new SpielfeldDimensionGleichNullException();
-        }
-        //Exception für ein Null Spielfeld
-        */
-        /* Spielfelder können jetzt Rechtecke sein! 4x5 4x6 6x5,
-        if (feldSpalte != feldZeile)
-        {
-            throw new SpielfeldNichtQuadratischException();
-        }
-        //Exception für ein nicht quadratisches Spielfeld
-        */
         this.feldSpalte = generiereSpielfeldGroesse();
         this.feldZeile = generiereSpielfeldGroesse();
         KarteEinheit[][] spielfeld = new KarteEinheit[this.feldZeile][this.feldSpalte];
         this.spielfeld = spielfeld;
-
     }
 
     private static int generiereSpielfeldGroesse()
@@ -56,32 +40,25 @@ public class SpielFeld
         return spielfeldGroesse;
     }
 
-
     public KarteEinheit[][] getSpielfeld()
     {
         return this.spielfeld;
     }
 
-
-
     public final void setSpielfeld(KarteEinheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
     }
-    //get- und set-Methoden für das Spielfeld
-
 
     public int getFeldSpalte()
     {
         return this.feldSpalte;
     }
 
-
     public int getFeldZeile ()
     {
         return this.feldZeile;
     }
-
 
     public void einheiteinsetzten (int x, int y, KarteEinheit einheit )
     {

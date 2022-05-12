@@ -1,5 +1,7 @@
 package model;
 
+import resources.Strings;
+
 public abstract class Karte
 {
     private static int instanzZaehler = 0;
@@ -34,7 +36,7 @@ public abstract class Karte
     @Override
     public String toString ()
     {
-        return this.getClass().getSimpleName() + " " + this.getId();
+        return this.getClass().getSimpleName() + Strings.LEERZEICHEN + this.getId();
     }
 
     /**

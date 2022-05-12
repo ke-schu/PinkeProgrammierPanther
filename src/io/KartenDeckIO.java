@@ -54,7 +54,6 @@ public class KartenDeckIO
         {
             throw new KartenDeckFehlerhaftException(deck.getDeckBezeichnung());
         }
-
     }
 
     /**

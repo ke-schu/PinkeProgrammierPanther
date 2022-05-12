@@ -24,5 +24,4 @@ public class Gegner extends EreignisKlasse
     {
         SpielFeld spielfeld = new SpielFeld();
     }
-
 }

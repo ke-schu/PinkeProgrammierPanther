@@ -17,9 +17,7 @@ public class KarteEinheit extends Karte
   private Effekte effektZwei;
   private Position position;
   private boolean schlafend = true;
-
   private InitialisierungKarteEinheit init;
-
   private boolean freundlich;
 
 
@@ -101,6 +99,7 @@ public class KarteEinheit extends Karte
   {
     return effektZwei;
   }
+
   public int getVerteidigung()
   {
     return verteidigung;
@@ -110,6 +109,7 @@ public class KarteEinheit extends Karte
   {
     this.verteidigung = verteidigung;
   }
+
   public int getSchild()
   {
     return schild;
@@ -124,10 +124,12 @@ public class KarteEinheit extends Karte
   {
     return position;
   }
+
   public int getPosition_x ()
   {
     return this.position.getx();
   }
+
   public int getPosition_y ()
   {
     return this.position.gety();
@@ -159,6 +161,7 @@ public class KarteEinheit extends Karte
   {
     this.freundlich = freundlich;
   }
+
   public void schadenNehmen (int schaden)
   {
     this.lebenspunkte = lebenspunkte-schaden;

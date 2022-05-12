@@ -1,6 +1,5 @@
 package model;
-//import model.ereignisse.Ereignis;
-import model.ereignisse.*;
+
 import static resources.Strings.*;
 import resources.Zahlen;
 

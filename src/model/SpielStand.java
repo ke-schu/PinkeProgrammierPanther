@@ -2,7 +2,6 @@ package model;
 
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
-
 import static resources.Strings.*;
 
 public class SpielStand
