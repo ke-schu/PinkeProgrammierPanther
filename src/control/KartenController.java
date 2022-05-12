@@ -25,7 +25,6 @@ public class KartenController
               }
               else if (karte.getLevel() == ZAHL_2)
               {
-
                   karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_2);
                   karte.setMacht(karte.getMacht() + ZAHL_1);
                   karte.setLevel(ZAHL_3);

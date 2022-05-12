@@ -3,8 +3,6 @@ package control;
 import model.Ebene;
 import model.Raeume;
 import model.ereignisse.Gegner;
-import model.ereignisse.Treppe;
-
 import static resources.StingsGegner.*;
 import static resources.Zahlen.*;
 
@@ -49,7 +47,7 @@ public class EbeneController
                 Gegner platzhalter22 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG);
                 Gegner platzhalter23 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
                 Gegner platzhalter24 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG);
-                Gegner bossZweitesLevel = new Gegner(BOSS_ERSTES_LEVEL_NAME, BOSS_ERSTES_LEVEL_BESCHREIBUNG);
+                Gegner bossZweitesLevel = new Gegner(BOSS_ZWEITES_LEVEL_NAME, BOSS_ZWEITES_LEVEL_BESCHREIBUNG);
                 Raeume gegner20 = new Raeume(platzhalter20);
                 Raeume gegner21 = new Raeume(platzhalter21);
                 Raeume gegner22 = new Raeume(platzhalter22);
@@ -175,7 +173,6 @@ public class EbeneController
                 meineRaeume[ZAHL_0][ZAHL_5] = boss7;
                 break;
         }
-
         return new Ebene(zeilen, spalten, meineRaeume);
     }
 }

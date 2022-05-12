@@ -19,8 +19,6 @@ public class RundenController
         RundenController.freundlich = freundlich;
     }
 
-
-
     public void zugBeenden (SpielFeld feld )
     {
         this.zugzeahler = zugzeahler + 1;
@@ -73,7 +71,5 @@ public class RundenController
     {
         this.zugzeahler = zugzeahler;
     }
-
-
 }
 

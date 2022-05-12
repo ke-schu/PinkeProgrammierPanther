@@ -11,8 +11,8 @@ public class EffektController
         {
             case LETZTEWORTE: letzteworte(ausloeser, ziel, feld); break;
         }
-
     }
+
     public static void schadenVerursachen (KarteEinheit ziel, int schaden)
     {
         ziel.schadenNehmen(schaden);
@@ -25,6 +25,7 @@ public class EffektController
             zurueckwerfen(ausloeser, feld);
         }
     }
+
     public static void zurueckwerfen (KarteEinheit ausloeser, SpielFeld feld)
     {
         try
