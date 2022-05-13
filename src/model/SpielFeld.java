@@ -97,7 +97,16 @@ public class SpielFeld
 
     public void einheiteinsetzten (int x, int y, KarteEinheit einheit )
     {
-        this.spielfeld[x][y] = einheit;
+        if (einheit == null)
+        {
+            this.spielfeld[x][y] = einheit;
+        }
+        else
+        {
+            this.spielfeld[x][y] = einheit;
+            einheit.setPosition(x,y);
+        }
+
     }
 
     public KarteEinheit getSpielfeldplatz (int x, int y)
