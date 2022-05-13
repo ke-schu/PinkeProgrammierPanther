@@ -33,6 +33,7 @@ public class KarteEinheit extends Karte
     this.verteidigung = verteidigung;
     this.effektEins = effektEins;
     this.effektZwei = effektZwei;
+    this.position = new Position();
   }
 
   public Einheiten getTyp()

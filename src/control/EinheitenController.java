@@ -28,17 +28,19 @@ public class EinheitenController
         if (spielfeld.getSpielfeldplatz(ziel_x, ziel_y)== null)
         {
             int beweglichkeit = einheit.getBeweglichkeit();
+            int distanz = Math.abs((ziel_x - start_x) - (ziel_y - start_y));
 
             selbeZeile = (einheit.getPosition_x() == ziel_x);
             selbeSpalte = (einheit.getPosition_y() == ziel_y);
+            zielErreichbarInX = (ziel_x <= einheit.getPosition_x() + beweglichkeit) || (ziel_x >= einheit.getPosition_x() - beweglichkeit);
+            zielErreichbarInY = (ziel_y <= einheit.getPosition_y() + beweglichkeit) || (ziel_y >= einheit.getPosition_y() - beweglichkeit);
 
-            zielErreichbarInX = (ziel_x <= einheit.getPosition_x() + beweglichkeit) && (ziel_x >= einheit.getPosition_x() - beweglichkeit);
-            zielErreichbarInY = (ziel_y <= einheit.getPosition_y() + beweglichkeit) && (ziel_y >= einheit.getPosition_y() - beweglichkeit);
-
-            if ((zielErreichbarInX && zielErreichbarInY) && (selbeZeile || selbeSpalte))
+            if ((zielErreichbarInX || zielErreichbarInY) && (selbeZeile || selbeSpalte) && (beweglichkeit - distanz) >= ZAHL_0)
             {
-                 spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
-                 spielfeld.einheiteinsetzten(start_x, start_y, null);
+                spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
+                einheit.setPosition(ziel_x,ziel_y);
+                spielfeld.einheiteinsetzten(start_x, start_y, null);
+                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - distanz);
             }
         }
     }
@@ -57,17 +59,17 @@ public class EinheitenController
         int start_x = einheit.getPosition_x();
         int start_y = einheit.getPosition_y();
 
-        if (spielfeld.getSpielfeldplatz(ziel_x, ziel_y)== null)
+        if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) && (einheit.getBeweglichkeit() > ZAHL_0))
         {
-
-
             zielErreichbarInX = (ziel_x == einheit.getPosition_x() + ZAHL_1) || (ziel_x == einheit.getPosition_x() - ZAHL_1);
             zielErreichbarInY = (ziel_y == einheit.getPosition_y() + ZAHL_1) || (ziel_y == einheit.getPosition_y() - ZAHL_1);
 
             if ((zielErreichbarInX || zielErreichbarInY) && !(zielErreichbarInX && zielErreichbarInY))
             {
                 spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
+                einheit.setPosition(ziel_x,ziel_y);
                 spielfeld.einheiteinsetzten(start_x, start_y, null);
+                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - ZAHL_1);
             }
         }
     }

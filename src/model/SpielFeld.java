@@ -1,5 +1,6 @@
 package model;
 
+import static resources.Strings.*;
 import static resources.Zahlen.*;
 import java.util.Random;
 
@@ -38,6 +39,40 @@ public class SpielFeld
             spielfeldGroesse = ZAHL_6;
         }
         return spielfeldGroesse;
+    }
+
+    /**
+     * Methode, die die Namen Instanzen der Klasse KarteEinheit aus dem Attribut spielfeld
+     * in der Konsole formatiert ausgibt.
+     * @return gibt einen String der die Matrix des Attributes ebene spielfeld wieder.
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < this.feldZeile; i++)
+        {
+            for (int j = 0; j < this.feldSpalte; j++)
+            {
+                if (this.spielfeld[i][j] != null)
+                {
+                    sb.append(this.spielfeld[i][j].getName());
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
+                }
+                else
+                {
+                    sb.append(ZAHL_0);
+                    sb.append(LEERZEICHEN);
+                    sb.append(SENKRECHTER_STRICH);
+                    sb.append(LEERZEICHEN);
+                }
+
+            }
+            sb.append(ZEILENUMBRUCH);
+        }
+        return sb.toString();
     }
 
     public KarteEinheit[][] getSpielfeld()
