@@ -16,8 +16,9 @@
         "x": 0,
         "y": 0
       },
+
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 0,
       "name": "HarryPotter",
       "level": 40,
@@ -39,7 +40,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 1,
       "name": "RonWeasley",
       "level": 30,
@@ -61,7 +62,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 2,
       "name": "RonWeasley",
       "level": 30,
@@ -83,7 +84,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 3,
       "name": "RonWeasley",
       "level": 30,
@@ -105,7 +106,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 4,
       "name": "RonWeasley",
       "level": 30,
@@ -127,7 +128,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 5,
       "name": "RonWeasley",
       "level": 30,

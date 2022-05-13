@@ -13,7 +13,7 @@ public class Main
 
     private static void testen()
     {
-        switch(2)
+        switch(1)
         {
             case 1: Alex.ausfuehren();
             break;

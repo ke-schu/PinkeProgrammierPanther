@@ -33,7 +33,7 @@ public class KarteEinheit extends Karte
     this.verteidigung = verteidigung;
     this.effektEins = effektEins;
     this.effektZwei = effektZwei;
-    this.position = new Position();
+
   }
 
   public Einheiten getTyp()
@@ -143,6 +143,12 @@ public class KarteEinheit extends Karte
     this.position.sety(y);
   }
 
+  public void setPosition(Position posi)
+  {
+    this.position = posi;
+
+  }
+
   public boolean getSchlafend()
   {
     return schlafend;
@@ -170,6 +176,7 @@ public class KarteEinheit extends Karte
 
   public void startwertespeichern ()
   {
+    this.init = new InitialisierungKarteEinheit();
     this.init.setMacht(macht);
     this.init.setLebenspunkte(lebenspunkte);
     this.init.setBeweglichkeit(beweglichkeit);

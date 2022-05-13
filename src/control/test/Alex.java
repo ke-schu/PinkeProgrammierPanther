@@ -1,12 +1,15 @@
 package control.test;
 
+import control.KartenEinheitController;
 import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
 import io.KartenDeckIO;
+import io.SpielStandIO;
 import model.*;
 
 import java.io.File;
+import java.io.IOException;
 
 public class Alex
 {
@@ -17,12 +20,22 @@ public class Alex
 try
 {
     KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
-    meindeck.toString();
+    System.out.println(meindeck.toString());
     KartenHand meinehand = new KartenHand();
     meinehand.handziehen(meindeck);
+    System.out.println(meinehand);
+    Spieler spieler = SpielStandIO.leseDatei().getSpieler();
+    System.out.println(spieler);
+    ManaTank meintank = new ManaTank(spieler);
+    System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
+    meinfeld.einheiteinsetzten(3,2, (KarteEinheit) meinehand.getelement(2));
+    KartenEinheitController.beschwoeren(meinehand,2,meinfeld,3,3 ,meintank);
+    System.out.println("ich stehe an position 3,3 " + meinfeld.getSpielfeldplatz(3,3));
+    System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(3,3).getPosition_x());
+    System.out.println("und spalte " + meinfeld.getSpielfeldplatz(3,3).getPosition_y());
 
 }
-catch(KartenDeckFehlerhaftException e)
+catch(KartenDeckFehlerhaftException | IOException e)
 {
     ;
 }

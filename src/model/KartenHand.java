@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 import static resources.Zahlen.ZAHL_5;
 
 public class KartenHand
@@ -20,6 +22,12 @@ public class KartenHand
     public void setElement (int position, Karte karte)
     {
         this.hand [position] = karte;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "KartenHand{" + "hand=" + Arrays.toString(hand) + '}';
     }
 
     public void handziehen (KartenDeck kartendeck)

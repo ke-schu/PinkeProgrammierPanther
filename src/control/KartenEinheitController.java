@@ -23,20 +23,27 @@ public class KartenEinheitController
             {
                 ((KarteEinheit) meinekarte).startwertespeichern();
                 spielfeld.einheiteinsetzten(x,y, (KarteEinheit) meinekarte);
+                positiongeben((KarteEinheit) meinekarte,x,y);
                 kartenhand.setElement(positionhand, null);
                 tank.manabezahlen(((KarteEinheit) meinekarte).getManaKosten());
             }
         }
     }
 
+    public static void positiongeben(KarteEinheit einheit, int x, int y)
+    {
+        Position position = new Position(x,y);
+        einheit.setPosition(position);
+    }
+
     public static boolean freundbenachbart(int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;
 
-        KarteEinheit oben = spielfeld.getSpielfeld()[x][y - ZAHL_1];
-        KarteEinheit unten  = spielfeld.getSpielfeld()[x][y + ZAHL_1];
-        KarteEinheit links  = spielfeld.getSpielfeld()[x - ZAHL_1][y];
-        KarteEinheit rechts = spielfeld.getSpielfeld()[x+ ZAHL_1][y];
+        KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y- ZAHL_1);
+        KarteEinheit unten  = spielfeld.getSpielfeldplatz(x, y + ZAHL_1);
+        KarteEinheit links  = spielfeld.getSpielfeldplatz(x - ZAHL_1, y);
+        KarteEinheit rechts = spielfeld.getSpielfeldplatz(x + ZAHL_1, y);
 
         if(oben != null)
         {
