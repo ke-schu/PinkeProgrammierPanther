@@ -17,8 +17,10 @@ public class Alex
 try
 {
     KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
+    meindeck.toString();
     KartenHand meinehand = new KartenHand();
     meinehand.handziehen(meindeck);
+
 }
 catch(KartenDeckFehlerhaftException e)
 {
