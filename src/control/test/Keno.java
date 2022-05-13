@@ -123,6 +123,54 @@ public class Keno
                 1,
                 Effekte.ZURUECKWERFEN,
                 Effekte.LETZTEWORTE));
+        meinDeck.push(new KarteEinheit(
+                "RonWeasley",
+                30,
+                Einheiten.FERNKAEMPFER,
+                2,
+                9,
+                1,
+                1,
+                1,
+                1,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE));
+        meinDeck.push(new KarteEinheit(
+                "RonWeasley",
+                30,
+                Einheiten.FERNKAEMPFER,
+                2,
+                9,
+                1,
+                1,
+                1,
+                1,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE));
+        meinDeck.push(new KarteEinheit(
+                "RonWeasley",
+                30,
+                Einheiten.FERNKAEMPFER,
+                2,
+                9,
+                1,
+                1,
+                1,
+                1,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE));
+        meinDeck.push(new KarteEinheit(
+                "RonWeasley",
+                30,
+                Einheiten.FERNKAEMPFER,
+                2,
+                9,
+                1,
+                1,
+                1,
+                1,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE));
         KartenDeckIO.schreibeDatei(meinDeck);
     }
 }
