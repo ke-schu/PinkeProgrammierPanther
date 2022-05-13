@@ -2,48 +2,47 @@
   "Bezeichnung": "IchBinDasSpieldeck",
   "Karten": [
     {
-
       "typ": "NAHKAEMPFER",
       "macht": 3,
       "lebenspunkte": 10,
-      "manakosten": 1,
+      "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
       "id": 0,
       "name": "HarryPotter",
       "level": 40,
-      "verteidigung":1,
-
       "klasse": "model.KarteEinheit"
     },
     {
       "typ": "FERNKAEMPFER",
       "macht": 2,
       "lebenspunkte": 9,
-      "mana": 1,
+      "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
       "effektEins": "ZURUECKWERFEN",
       "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
       "id": 1,
       "name": "RonWeasley",
       "level": 30,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
-      "mana": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "id": 0,
-      "name": "HarryPotter",
-      "level": 40,
       "klasse": "model.KarteEinheit"
     }
   ]

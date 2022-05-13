@@ -14,12 +14,17 @@ import java.util.Stack;
 import static resources.Artefakte.*;
 import static resources.Talente.*;
 
-/*public class Keno
+public class Keno
 {
     public static void ausfuehren()
     {
-        speichereSpielstand();
-        leseSpielstand();
+        try
+        {
+            erstelleDeck();
+        } catch (KartenDeckFehlerhaftException e)
+        {
+            throw new RuntimeException(e);
+        }
     }
 
     private static Spieler erstelleSpieler ()
@@ -56,7 +61,7 @@ import static resources.Talente.*;
                     + Strings.LEERZEICHEN
                     + meinSpielStand.getSpieldeckSpieler().size());
         }
-        catch (IOException | KartenDeckFehlerhaftException e)
+        catch (IOException e)
         {
             System.out.println(e.getMessage());
         }
@@ -92,7 +97,7 @@ import static resources.Talente.*;
     private static void erstelleDeck () throws KartenDeckFehlerhaftException
     {
         KartenDeck meinDeck = new KartenDeck(new File(
-                "src/resources/kartendecks/Spieldeck.json"),
+                "src/resources/kartendecks/Spieldeck_Spieler.json"),
                 "IchBinDasSpieldeck");
         meinDeck.push(new KarteEinheit(
                 "HarryPotter",
@@ -120,4 +125,4 @@ import static resources.Talente.*;
                 Effekte.LETZTEWORTE));
         KartenDeckIO.schreibeDatei(meinDeck);
     }
-}*/
+}
