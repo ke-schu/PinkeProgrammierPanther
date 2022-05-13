@@ -1,9 +1,9 @@
 package resources;
 
 /**
- * Hier befinden sich Strings, welche bei der Erstellung von Gegnern genutzt.
+ * Hier befinden sich Strings, welche bei der Erstellung von Gegnern genutzt werden.
  */
-public interface StingsGegner
+public interface StringsGegner
 {
     //Namen und Beschreibungen für die Gegner der Ebenen
     String GENERISCHER_GEGNER_NAME ="Gegner";

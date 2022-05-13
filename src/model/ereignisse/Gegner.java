@@ -3,9 +3,8 @@ package model.ereignisse;
 import model.SpielFeld;
 
 
-public class Gegner extends EreignisKlasse
+public class Gegner extends Ereignis
 {
-
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Gegner. Gegner sind Ereignisse, die es dem
      * Spieler ermoeglichen, einen Kampf zu beginnen.

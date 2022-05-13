@@ -3,7 +3,7 @@ package control;
 import model.Ebene;
 import model.Raeume;
 import model.ereignisse.Gegner;
-import static resources.StingsGegner.*;
+import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 
 public class EbeneController

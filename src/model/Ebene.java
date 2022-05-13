@@ -28,6 +28,18 @@ public class Ebene
         this.setEbenenSpalte(ebenenSpalte);
     }
 
+    public Ebene ()
+    {
+
+    }
+
+    public Ebene(Ebene versuch)
+    {
+        this.ebene = versuch.getEbene();
+        this.ebenenSpalte = versuch.getEbenenSpalte();
+        this.ebenenZeile = versuch.getEbenenZeile();
+    }
+
     /**
      * Methode die das Attribut ebene wiedergibt.
      * @return liefert den 2D-Array gefüllt mit Raeumen.

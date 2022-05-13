@@ -1,8 +1,8 @@
 package model.ereignisse;
 
-public class Truhe extends EreignisKlasse implements Wahrscheinlichkeit
+public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
-    protected boolean geoeffnet = false;
+    protected boolean geleert = false;
     protected double wahrscheinlichkeit;
 
     /**
@@ -17,7 +17,7 @@ public class Truhe extends EreignisKlasse implements Wahrscheinlichkeit
         super();
         this.name = name;
         this.beschreibung = beschreibung;
-        this.geoeffnet = geoeffnet;
+        this.geleert = geoeffnet;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
@@ -29,13 +29,13 @@ public class Truhe extends EreignisKlasse implements Wahrscheinlichkeit
     {
         if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
         {
-            //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
-            geoeffnet = true;
+            System.out.println("Truhe 1");
+            geleert = true;
         }
         else
         {
-            //Zweites zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
-            geoeffnet = true;
+            System.out.println("Truhe 2");
+            geleert = true;
         }
     }
 
@@ -48,5 +48,13 @@ public class Truhe extends EreignisKlasse implements Wahrscheinlichkeit
     public double generiereWahrscheinlichkeit() {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
         return wahrscheinlichkeit;
+    }
+
+    public boolean isGeleert() {
+        return geleert;
+    }
+
+    public void setGeleert(boolean geleert) {
+        this.geleert = geleert;
     }
 }

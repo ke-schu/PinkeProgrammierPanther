@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkeit
+public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;    //Wert zur Bestimmung, welches Ereignis eintritt
@@ -20,13 +20,6 @@ public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkei
         this.beschreibung = beschreibung;
         this.ausgefuehrt = ausgefuehrt;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
-    }
-
-    /**
-     * Dieser Konstruktor ist ein leerer Konstruktor.
-     */
-    public ZufallsEreignis ()
-    {
     }
 
     /**
@@ -67,12 +60,12 @@ public class ZufallsEreignis extends EreignisKlasse implements Wahrscheinlichkei
     {
         if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
         {
-            //Erstes zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
+            System.out.println("Ereignis 1");
             ausgefuehrt = true;
         }
         else
         {
-            //Zweites zufälliges Ereignis mit einer Wahrscheinlichkeit von 50%
+            System.out.println("Ereignis 2");
             ausgefuehrt = true;
         }
     }

@@ -1,6 +1,7 @@
 package model.ereignisse;
 
 import model.KartenDeck;
+import model.SpielStand;
 
 public class Tempel extends Mensch
 {
@@ -10,13 +11,11 @@ public class Tempel extends Mensch
      * Spieler ermoeglichen Karten aus dem Deck zu entfernen.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param gratisInteraktion: Die Anzahl an kostenlosen Aufwertungen, die der Spieler zur Verfuegung hat
      */
-    public Tempel (String name, String beschreibung, int gratisInteraktion)
+    public Tempel (String name, String beschreibung)
     {
         this.name = name;
         this.beschreibung = beschreibung;
-        this.gratisInteraktion = gratisInteraktion;
     }
 
     /**
@@ -24,20 +23,22 @@ public class Tempel extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aus dem Deck entfernt oder
      * vorher die Zahlung durchgefuehrt.
      */
-    public KartenDeck ausfuehren (KartenDeck spielDeck, int indexKarte, int indexSchatz)
+    public void ausfuehren (SpielStand spielStand, int indexKarte)
     {
         if(isAuswahl())
         {
-            if(pruefeGratisInteraktion())
+            if (pruefeGratisInteraktion())
             {
-                spielDeck.remove(indexKarte);
+                spielStand.getSpieldeckSpieler().remove(indexKarte);
+                gratisInteraktion--;
             }
             else
             {
-                spielDeck.remove(indexSchatz);
-                spielDeck.remove(indexKarte);
+                spielStand.setGold(spielStand.getGold() - kosten);
+                spielStand.getSpieldeckSpieler().remove(indexKarte);
+                interaktionsZaehler++;
+                kostenErhoehen();
             }
         }
-        return spielDeck;
     }
 }

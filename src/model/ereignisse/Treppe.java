@@ -1,6 +1,12 @@
 package model.ereignisse;
 
-public class Treppe extends EreignisKlasse {
+import io.EbeneIO;
+import model.Ebene;
+
+import java.io.File;
+import java.io.IOException;
+
+public class Treppe extends Ereignis {
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Treppe. Treppen sind Ereignisse, die es dem
@@ -18,8 +24,17 @@ public class Treppe extends EreignisKlasse {
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Wird diese Methode ausgefuehrt,
      * dann wechselt der Spieler die Ebene, auf der er sich befindet, zur nächst höheren.
      */
-    public void ausfuehren ()
+    public Ebene ausfuehren ()
     {
-
+        Ebene ebene = new Ebene();
+        try
+        {
+            ebene = EbeneIO.leseDatei();
+        }
+        catch (IOException e)
+        {
+         e.getMessage();
+        }
+        return ebene;
     }
 }

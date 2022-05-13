@@ -22,6 +22,8 @@ public class EbeneIO
 {
     private static Gson meinGson;
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
+    private static String dateiPfad = "src/resources/ebenen/Ebene1.json";
+    private static File dateiEbene = new File(dateiPfad);
 
     /**
      * Serialisiert die Ebene ins Json-Format.
@@ -69,18 +71,17 @@ public class EbeneIO
 
     /**
      * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert zurück.
-     * @param datei die Datei
      * @return die Ebene
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static Ebene leseDatei (File datei) throws IOException
+    public static Ebene leseDatei () throws IOException
     {
-        Path path = Paths.get(datei.toURI());
+        Path path = Paths.get(dateiEbene.toURI());
         String content = Files.readString(path);
 
         try
         {
-            return deserialisieren(content);
+            return new Ebene(deserialisieren(content));
         }
         catch (JsonSyntaxException e)
         {

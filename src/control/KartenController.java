@@ -35,7 +35,7 @@ public class KartenController
                   karte.setMacht(karte.getMacht() + ZAHL_1);
                   karte.setLevel(ZAHL_2);
               }
-              break;
+          break;
 
           case FERNKAEMPFER:
               if (karte.getLevel() == ZAHL_3)
@@ -58,7 +58,7 @@ public class KartenController
                   karte.setMacht(karte.getMacht() + ZAHL_2);
                   karte.setLevel(ZAHL_2);
               }
-            break;
+          break;
       }
     }
 }

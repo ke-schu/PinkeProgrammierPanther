@@ -1,10 +1,10 @@
 package model;
 
-import model.ereignisse.EreignisKlasse;
+import model.ereignisse.Ereignis;
 
 public class Raeume
 {
-    private EreignisKlasse ereignis = null;
+    private Ereignis ereignis = null;
     private Spieler spieler = null;
 
 
@@ -12,7 +12,7 @@ public class Raeume
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raeume (EreignisKlasse ereignis)
+    public Raeume (Ereignis ereignis)
     {
         this.ereignis = ereignis;
     }
@@ -21,7 +21,7 @@ public class Raeume
      * Methode um das Ereignis aus dem Attribut ereignis zu bekommen.
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public EreignisKlasse getEreignis ()
+    public Ereignis getEreignis ()
     {
         return ereignis;
     }
