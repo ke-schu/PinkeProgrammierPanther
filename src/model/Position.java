@@ -5,6 +5,13 @@ public class Position
     private int x;
     private int y;
 
+    /**
+     * Leerer Konstruktor, der keine Attribute setzt.
+     */
+    public Position()
+    {
+    }
+
     public Position(int x, int y)
     {
         this.x = x;

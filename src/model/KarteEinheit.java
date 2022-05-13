@@ -15,7 +15,7 @@ public class KarteEinheit extends Karte
   private int verteidigung;
   private Effekte effektEins;
   private Effekte effektZwei;
-  private Position position;
+  private Position position = new Position();
   private boolean schlafend = true;
   private InitialisierungKarteEinheit init;
   private boolean freundlich;
@@ -33,7 +33,6 @@ public class KarteEinheit extends Karte
     this.verteidigung = verteidigung;
     this.effektEins = effektEins;
     this.effektZwei = effektZwei;
-
   }
 
   public Einheiten getTyp()

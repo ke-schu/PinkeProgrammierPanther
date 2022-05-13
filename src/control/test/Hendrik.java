@@ -23,19 +23,13 @@ public class Hendrik
         KarteEinheit einheit = new KarteEinheit("Peter",1,null,1,1,1,3,2,2,null,null);
         SpielFeld feld = new SpielFeld();
         System.out.println(feld.toString());
-        feld.einheiteinsetzten(0,0,einheit);
+        feld.einheiteinsetzten(0,1,einheit);
         System.out.println(feld.toString());
         System.out.println(einheit.getBeweglichkeit());
         System.out.println(einheit.getPosition_x());
         System.out.println(einheit.getPosition_y());
         System.out.println(Strings.ZEILENUMBRUCH);
-        EinheitenController.bewegen(feld,1,0,einheit);
-        System.out.println(feld.toString());
-        System.out.println(einheit.getBeweglichkeit());
-        System.out.println(einheit.getPosition_x());
-        System.out.println(einheit.getPosition_y());
-        System.out.println(Strings.ZEILENUMBRUCH);
-        EinheitenController.bewegen(feld,2,0,einheit);
+        EinheitenController.bewegen(feld,1,1,einheit);
         System.out.println(feld.toString());
         System.out.println(einheit.getBeweglichkeit());
         System.out.println(einheit.getPosition_x());
@@ -46,7 +40,13 @@ public class Hendrik
         System.out.println(einheit.getBeweglichkeit());
         System.out.println(einheit.getPosition_x());
         System.out.println(einheit.getPosition_y());
+        System.out.println(Strings.ZEILENUMBRUCH);
         EinheitenController.bewegen(feld,2,2,einheit);
+        System.out.println(feld.toString());
+        System.out.println(einheit.getBeweglichkeit());
+        System.out.println(einheit.getPosition_x());
+        System.out.println(einheit.getPosition_y());
+        EinheitenController.bewegen(feld,2,3,einheit);
         System.out.println(feld.toString());
         System.out.println(einheit.getBeweglichkeit());
         System.out.println(einheit.getPosition_x());
@@ -55,17 +55,14 @@ public class Hendrik
     }
     private static void testeEbenenErstellung()
     {
-        try
-        {
+
+
             Ebene meineEbene = EbeneController.fuelleEbene(2);
             System.out.println(meineEbene.toString());
-            EbeneIO.schreibeDatei(meineEbene, new File("src/resources/ebenen/Ebene1.json"));
 
-        }
-        catch (IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
+
+
+
     }
 
 
