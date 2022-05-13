@@ -1,6 +1,8 @@
 package control;
 import model.*;
 
+import java.util.Collections;
+
 import static resources.Zahlen.*;
 
 public class RundenController
@@ -19,22 +21,30 @@ public class RundenController
         RundenController.freundlich = freundlich;
     }
 
-    public void zugBeenden (SpielFeld feld )
+    public void zugBeenden (SpielFeld feld,KartenDeck deck )
     {
-        this.zugzeahler = zugzeahler + 1;
+        this.zugzeahler = zugzeahler + ZAHL_1;
 
+        feldaufraeumen(feld, deck);
+        aufwecken(feld);
+        bestimmenwerdranist();
+    }
+
+    public void feldaufraeumen(SpielFeld feld,KartenDeck deck)
+    {
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
                 if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
                 {
+                    feld.getSpielfeldplatz(i,j).initialisieren();
+                    deck.push( feld.getSpielfeldplatz(i,j));
+                    Collections.shuffle(deck);
                     feld.einheitloeschen(i,j);
                 }
             }
         }
-        aufwecken(feld);
-        bestimmenwerdranist();
     }
     public static void bestimmenwerdranist()
     {

@@ -6,13 +6,22 @@ import static resources.Zahlen.*;
 
 public class KartenEinheitController
 {
+    /**
+     * @param kartenhand Hand aus welcher die Karte auf das Spielfeld gelegt wird
+     * @param positionhand Stelle auf der hand an welcher sich die ausgewehlte karte befindet
+     * @param spielfeld spielfeld auf welches die karte gelegt wird
+     * @param x zeile im spielfeld
+     * @param y spalte im spielfeld
+     * @param tank zu verfügung stehende manareserve
+     */
     public static void beschwoeren (KartenHand kartenhand, int positionhand, SpielFeld spielfeld, int x, int y, ManaTank tank)
-    {//Karteeinheit aus Hand rausholen und auf spielfeld legten
+    {
         if ((spielfeld.getSpielfeld()[x][y] == null) && (freundbenachbart(x,y,spielfeld)))
         {
             Karte meinekarte = kartenhand.getelement(positionhand);
             if(meinekarte instanceof KarteEinheit && (tank.getMana()>=((KarteEinheit) meinekarte).getManaKosten()) )
             {
+                ((KarteEinheit) meinekarte).startwertespeichern();
                 spielfeld.einheiteinsetzten(x,y, (KarteEinheit) meinekarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manabezahlen(((KarteEinheit) meinekarte).getManaKosten());
