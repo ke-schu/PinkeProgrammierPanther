@@ -1,9 +1,11 @@
 package model;
 
+import static resources.Zahlen.ZAHL_5;
+
 public class KartenHand
 {
     private Karte[] hand = null;
-    private final int HANDGROESSE = 5;
+    private final int HANDGROESSE = ZAHL_5;
 
     public KartenHand()
     {

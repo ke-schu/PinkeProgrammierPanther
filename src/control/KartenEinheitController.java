@@ -6,11 +6,17 @@ import static resources.Zahlen.*;
 
 public class KartenEinheitController
 {
-    public static void beschwoeren (KarteEinheit karte, SpielFeld spielfeld, int x, int y)
+    public static void beschwoeren (KartenHand kartenhand, int positionhand, SpielFeld spielfeld, int x, int y, ManaTank tank)
     {//Karteeinheit aus Hand rausholen und auf spielfeld legten
         if ((spielfeld.getSpielfeld()[x][y] == null) && (freundbenachbart(x,y,spielfeld)))
         {
-
+            Karte meinekarte = kartenhand.getelement(positionhand);
+            if(meinekarte instanceof KarteEinheit && (tank.getMana()>=((KarteEinheit) meinekarte).getManaKosten()) )
+            {
+                spielfeld.einheiteinsetzten(x,y, (KarteEinheit) meinekarte);
+                kartenhand.setElement(positionhand, null);
+                tank.manabezahlen(((KarteEinheit) meinekarte).getManaKosten());
+            }
         }
     }
 

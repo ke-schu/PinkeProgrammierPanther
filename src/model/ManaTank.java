@@ -17,4 +17,9 @@ public class ManaTank
     {
         this.mana = mana;
     }
+
+    public void manabezahlen (int kosten)
+    {
+        this.mana = mana-kosten;
+    }
 }
