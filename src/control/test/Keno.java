@@ -14,7 +14,7 @@ import java.util.Stack;
 import static resources.Artefakte.*;
 import static resources.Talente.*;
 
-public class Keno
+/*public class Keno
 {
     public static void ausfuehren()
     {
@@ -120,4 +120,4 @@ public class Keno
                 Effekte.LETZTEWORTE));
         KartenDeckIO.schreibeDatei(meinDeck);
     }
-}
+}*/

@@ -1,21 +1,35 @@
 package control.test;
 
+import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
+import io.KartenDeckIO;
+import model.*;
+
+import java.io.File;
 
 public class Alex
 {
     public static void ausfuehren()
     {
-        try
-        {
-            erstelleSpielfeld();
-        }
-        catch (SpielfeldNichtQuadratischException | SpielfeldDimensionGleichNullException e)
-        {
-            System.out.println(e.getMessage());
-        }
-        erstelleKartenHand();
+        SpielFeld meinfeld = new SpielFeld();
+
+try
+{
+    KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
+    KartenHand meinehand = new KartenHand();
+    meinehand.handziehen(meindeck);
+}
+catch(KartenDeckFehlerhaftException e)
+{
+    ;
+}
+
+
+
+
+
+
     }
 
     private static void erstelleKartenHand()

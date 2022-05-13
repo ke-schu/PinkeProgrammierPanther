@@ -2,10 +2,11 @@
   "Bezeichnung": "IchBinDasSpieldeck",
   "Karten": [
     {
+
       "typ": "NAHKAEMPFER",
       "macht": 3,
       "lebenspunkte": 10,
-      "mana": 1,
+      "manakosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "effektEins": "LETZTEWORTE",
@@ -13,6 +14,8 @@
       "id": 0,
       "name": "HarryPotter",
       "level": 40,
+      "verteidigung":1,
+
       "klasse": "model.KarteEinheit"
     },
     {

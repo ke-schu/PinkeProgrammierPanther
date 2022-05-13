@@ -40,7 +40,7 @@ public class RundenController
                 {
                     feld.getSpielfeldplatz(i,j).initialisieren();
                     deck.push( feld.getSpielfeldplatz(i,j));
-                    Collections.shuffle(deck);
+                    KartenDeckController.mischen(deck);
                     feld.einheitloeschen(i,j);
                 }
             }
