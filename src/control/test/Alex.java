@@ -22,9 +22,12 @@ public class Alex
 try
 {
     KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
+    KartenDeck masterdeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Gegner.json");
     System.out.println(meindeck.toString());
     KartenHand meinehand = new KartenHand();
+    KartenHand masterhand = new KartenHand();
     meinehand.handziehen(meindeck);
+    masterhand.handziehen(meindeck);
     System.out.println(meinehand);
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
     System.out.println(spieler);

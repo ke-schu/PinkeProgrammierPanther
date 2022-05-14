@@ -26,6 +26,7 @@ public class RundenController
         this.zugzeahler = zugzeahler + ZAHL_1;
 
         feldaufraeumen(feld, deck);
+        beweglichkeitauffrischen(feld);
         aufwecken(feld);
         bestimmenwerdranist();
     }
@@ -42,6 +43,19 @@ public class RundenController
                     deck.push( feld.getSpielfeldplatz(i,j));
                     KartenDeckController.mischen(deck);
                     feld.einheitloeschen(i,j);
+                }
+            }
+        }
+    }
+    public void beweglichkeitauffrischen(SpielFeld feld)
+    {
+        for (int i = 0; i < feld.getFeldZeile(); i++)
+        {
+            for (int j = 0; j < feld.getFeldSpalte(); j++)
+            {
+                if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
+                {
+                    feld.getSpielfeldplatz(i,j).setBeweglichkeit(feld.getSpielfeldplatz(i,j).getInit().getBeweglichkeit());
                 }
             }
         }

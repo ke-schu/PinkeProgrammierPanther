@@ -197,5 +197,15 @@ public class KarteEinheit extends Karte
     this.position = init.getPosition();
     this.schlafend = init.getSchlafend();
   }
+
+  public InitialisierungKarteEinheit getInit()
+  {
+    return init;
+  }
+
+  public void setInit(InitialisierungKarteEinheit init)
+  {
+    this.init = init;
+  }
 }
 
