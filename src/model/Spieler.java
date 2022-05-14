@@ -12,7 +12,7 @@ public class Spieler extends KarteEinheit
     private Waffe waffe;
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
-    private int mana;
+    private final int mana;
     private int positionInEbeneX;
     private int positionInEbeneY;
 
@@ -61,11 +61,6 @@ public class Spieler extends KarteEinheit
     public int getMana()
     {
         return mana;
-    }
-
-    public void setMana(int mana)
-    {
-        this.mana = mana;
     }
 
     /**
