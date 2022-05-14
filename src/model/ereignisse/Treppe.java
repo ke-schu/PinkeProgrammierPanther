@@ -16,8 +16,7 @@ public class Treppe extends Ereignis {
      */
     public Treppe (String name, String beschreibung)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
     }
 
     /**

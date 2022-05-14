@@ -2,11 +2,16 @@ package model.ereignisse;
 
 public abstract class Ereignis
 {
-
-    protected String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
-    protected String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
+    private String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
+    private String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
     protected boolean auswahl = false;  //Abfrage ob der Spieler, dass Ereignis ausführt (Kampf ablehnen etc.)
     private String klasse = this.getClass().getCanonicalName();
+
+    public Ereignis(String name, String beschreibung)
+    {
+        this.name = name;
+        this.beschreibung = beschreibung;
+    }
 
     /**
      * Diese Methode dient als Getter um den Namen des Ereignisses zugänglich zu machen.

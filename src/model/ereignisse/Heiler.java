@@ -14,8 +14,7 @@ public class Heiler extends Mensch
      */
     public Heiler (String name, String beschreibung)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
     }
 
     /**

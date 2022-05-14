@@ -16,8 +16,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      */
     public ZufallsEreignis (String name, String beschreibung, boolean ausgefuehrt)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
         this.ausgefuehrt = ausgefuehrt;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }

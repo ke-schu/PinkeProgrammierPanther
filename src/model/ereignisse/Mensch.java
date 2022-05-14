@@ -9,6 +9,11 @@ public abstract class Mensch extends Ereignis
     protected int interaktionsZaehler = 0;  //Zählt die Menge an Interaktionen mit dem jeweiligen Objekt
     protected final int KEINE_GRATIS_INTERAKTION = 0;   //Konstante für keine weiteren gratis Interaktionen.
 
+    public Mensch(String name, String beschreibung)
+    {
+        super(name, beschreibung);
+    }
+
     /**
      * Diese Methode prueft ob der Spieler gratis sein Deck verändern kann, wenn er die Dienste der
      * Einrichtungen in Anspruch nimmt.
