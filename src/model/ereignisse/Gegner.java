@@ -1,10 +1,14 @@
 package model.ereignisse;
 
+import model.Gegenspieler;
 import model.SpielFeld;
 
 
 public class Gegner extends Ereignis
 {
+    private Gegenspieler gegenspieler;
+    private SpielFeld spielfeld;
+
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Gegner. Gegner sind Ereignisse, die es dem
      * Spieler ermoeglichen, einen Kampf zu beginnen.
@@ -16,11 +20,12 @@ public class Gegner extends Ereignis
         this.name = name;
         this.beschreibung = beschreibung;
     }
+
     /**
      *
      */
     public void ausfuehren ()
     {
-        SpielFeld spielfeld = new SpielFeld();
+        spielfeld = new SpielFeld();
     }
 }

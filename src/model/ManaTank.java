@@ -4,7 +4,7 @@ public class ManaTank
 {
     private int mana;
 
-    public ManaTank (Spieler spieler)
+    public ManaTank (Spielbar spieler)
     {
         this.mana = spieler.getMana();
     }

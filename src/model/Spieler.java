@@ -7,7 +7,7 @@ import resources.Talente;
 
 import java.util.Stack;
 
-public class Spieler extends KarteEinheit
+public class Spieler extends KarteEinheit implements Spielbar
 {
     private Waffe waffe;
     private Stack<Talente> talente;
