@@ -8,7 +8,7 @@ public class SpielStand
 {
     private int gold;
     private int erfahrungspunkte;
-    private  Spieler spieler;
+    private Spieler spieler;
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
 

@@ -71,14 +71,11 @@ public class Hendrik
 
         try {
             Ebene meineEbene = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
-            System.out.println(meineEbene.toString());
+            EbeneIO.schreibeDatei(meineEbene,(new File("src/resources/ebenen/Ebene5.json")));
         }
         catch(IOException e)
         {
             e.getMessage();
         }
-
     }
-
-
 }

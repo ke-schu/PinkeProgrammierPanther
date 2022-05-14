@@ -5,8 +5,6 @@ import model.ereignisse.Ereignis;
 public class Raeume
 {
     private Ereignis ereignis = null;
-    private Spieler spieler = null;
-
 
     /**
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.

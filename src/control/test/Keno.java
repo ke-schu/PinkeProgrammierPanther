@@ -18,13 +18,7 @@ public class Keno
 {
     public static void ausfuehren()
     {
-        try
-        {
-            erstelleDeck();
-        } catch (KartenDeckFehlerhaftException e)
-        {
-            throw new RuntimeException(e);
-        }
+        speichereSpielstand();
     }
 
     private static Spieler erstelleSpieler ()
