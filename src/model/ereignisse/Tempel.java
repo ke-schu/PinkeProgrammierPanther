@@ -14,8 +14,7 @@ public class Tempel extends Mensch
      */
     public Tempel (String name, String beschreibung)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
     }
 
     /**

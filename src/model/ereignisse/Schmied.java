@@ -14,8 +14,7 @@ public class Schmied extends Mensch
      */
     public Schmied (String name, String beschreibung)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
     }
 
     /**

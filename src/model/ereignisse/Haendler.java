@@ -16,8 +16,7 @@ public class Haendler extends Mensch
      */
     public Haendler (String name, String beschreibung, KartenDeck haendlerDeck)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
         this.haendlerDeck = haendlerDeck;
     }
 

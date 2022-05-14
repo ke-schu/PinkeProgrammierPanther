@@ -3,44 +3,416 @@
     [
       {
         "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 0,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 5,
+            "feldSpalte": 6
+          },
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 1,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 6,
+            "feldSpalte": 4
+          },
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 2,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 4,
+            "feldSpalte": 4
+          },
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 3,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 6,
+            "feldSpalte": 4
+          },
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 4,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 4,
+            "feldSpalte": 6
+          },
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
-          "name": "Boss 2",
-          "beschreibung": "Das ist Boss 2",
-          "auswahl": false
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 5,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 4,
+            "feldSpalte": 4
+          },
+          "name": "Boss 1",
+          "beschreibung": "Das ist Boss 1",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       null,

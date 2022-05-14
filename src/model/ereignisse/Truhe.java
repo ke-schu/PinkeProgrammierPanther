@@ -14,9 +14,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public Truhe (String name, String beschreibung, boolean geoeffnet)
     {
-        super();
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
         this.geleert = geoeffnet;
         this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }

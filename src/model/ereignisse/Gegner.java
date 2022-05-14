@@ -15,10 +15,11 @@ public class Gegner extends Ereignis
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      */
-    public Gegner (String name, String beschreibung)
+    public Gegner(String name, String beschreibung, Gegenspieler gegenspieler, SpielFeld spielfeld)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        super(name, beschreibung);
+        this.gegenspieler = gegenspieler;
+        this.spielfeld = spielfeld;
     }
 
     /**
