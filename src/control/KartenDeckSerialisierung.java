@@ -39,7 +39,7 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
      * @param type Typ des zu serialisierenden Kartendecks
      * @param context Kontext der Deserialisierung
      * @return das Kartendeck
-     * @throws JsonParseException wenn das Element nicht gelesen werden kann
+     * @throws JsonParseException wird geworfen, wenn das Element nicht gelesen werden kann
      */
     @Override
     public KartenDeck deserialize (JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException
