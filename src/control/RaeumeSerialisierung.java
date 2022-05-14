@@ -18,7 +18,6 @@ public class RaeumeSerialisierung implements JsonDeserializer<Raeume>
         if (meinJsonObject != null)
         {
             JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject("ereignis");
-            System.out.println("Hallo!" + meinJsonEreignis.toString());
 
             try
             {
