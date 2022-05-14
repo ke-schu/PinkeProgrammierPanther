@@ -22,8 +22,8 @@ public class KartenEinheitController
             if(meinekarte instanceof KarteEinheit && (tank.getMana()>=((KarteEinheit) meinekarte).getManaKosten()) )
             {
                 ((KarteEinheit) meinekarte).startwertespeichern();
-                spielfeld.einheiteinsetzten(x,y, (KarteEinheit) meinekarte);
                 positiongeben((KarteEinheit) meinekarte,x,y);
+                spielfeld.einheiteinsetzten(x,y, (KarteEinheit) meinekarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manabezahlen(((KarteEinheit) meinekarte).getManaKosten());
             }
