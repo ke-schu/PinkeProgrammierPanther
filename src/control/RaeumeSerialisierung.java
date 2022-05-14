@@ -17,14 +17,13 @@ public class RaeumeSerialisierung implements JsonDeserializer<Raeume>
 
         if (meinJsonObject != null)
         {
-            JsonElement meinJsonEreignisElement = meinJsonObject.get("ereignis");
-            System.out.println(meinJsonEreignisElement.getAsString());
-            JsonObject meinJsonEreignis = meinJsonEreignisElement.getAsJsonObject();
+            JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject("ereignis");
+            System.out.println("Hallo!" + meinJsonEreignis.toString());
 
             try
             {
                 Type klasse = Class.forName(meinJsonEreignis.get("klasse").getAsString());
-                Raeume meinRaum = meinGson.fromJson(meinJsonEreignisElement, klasse);
+                Raeume meinRaum = new Raeume(meinGson.fromJson(meinJsonEreignis, klasse));
                 return meinRaum;
             }
             catch (ClassNotFoundException e)
