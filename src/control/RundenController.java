@@ -21,29 +21,41 @@ public class RundenController
         RundenController.freundlich = freundlich;
     }
 
-    public void zugBeenden (SpielFeld feld,KartenDeck deck )
+    public void zugBeenden (SpielFeld feld,KartenDeck spielerdeck, KartenDeck masterdeck )
     {
         this.zugzeahler = zugzeahler + ZAHL_1;
 
-        feldaufraeumen(feld, deck);
+        feldaufraeumen(feld, spielerdeck,masterdeck);
         beweglichkeitauffrischen(feld);
         aufwecken(feld);
         bestimmenwerdranist();
     }
 
-    public void feldaufraeumen(SpielFeld feld,KartenDeck deck)
+    public void feldaufraeumen(SpielFeld feld,KartenDeck spielerdeck,KartenDeck masterdeck )
     {
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
+                if(feld.getSpielfeldplatz(i,j) != null)
                 {
-                    feld.getSpielfeldplatz(i,j).initialisieren();
-                    deck.push( feld.getSpielfeldplatz(i,j));
-                    KartenDeckController.mischen(deck);
-                    feld.einheitloeschen(i,j);
+                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= 0 )
+                    {
+                        feld.getSpielfeldplatz(i,j).initialisieren();
+                        if(feld.getSpielfeldplatz(i,j).getFreundlich()== true)
+                        {
+                            spielerdeck.push( feld.getSpielfeldplatz(i,j));
+                            KartenDeckController.mischen(spielerdeck);
+                        }
+                        if(feld.getSpielfeldplatz(i,j).getFreundlich()== false)
+                        {
+                            masterdeck.push( feld.getSpielfeldplatz(i,j));
+                            KartenDeckController.mischen(masterdeck);
+                        }
+                            feld.einheitloeschen(i,j);
+                    }
                 }
+
             }
         }
     }
