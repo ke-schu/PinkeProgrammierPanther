@@ -35,7 +35,7 @@ try
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
     System.out.println(spieler);
     ManaTank meintank = new ManaTank(spieler);
-    Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,5, 10,2,2,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
+    Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,5, 15,2,2,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
     ManaTank mastertank = new ManaTank(master);
     System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
     meinfeld.einheiteinsetzten(3,2,spieler);
@@ -44,7 +44,9 @@ try
     System.out.println("ich stehe an position 3,3 " + meinfeld.getSpielfeldplatz(3,3));
     System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(3,3).getPosition_x());
     System.out.println("und spalte " + meinfeld.getSpielfeldplatz(3,3).getPosition_y());
-    //einheitenAngreifenMitEinheiten();
+    System.out.println("Lebenspunkte Feind einheit: " + master.getLebenspunkte());
+    einheitenAngreifenMitEinheiten(meinfeld,spieler,master);
+    System.out.println("Lebenspunkte Feind einheit nach kampf: " + master.getLebenspunkte());
 
 }
 catch(KartenDeckFehlerhaftException | IOException e)

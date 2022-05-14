@@ -127,11 +127,10 @@ public class EinheitenController
         if (verteidiger.getSchild() > ZAHL_0)
         {
             verteidiger.setSchild(verteidiger.getSchild() - ZAHL_1);
-
         }
         if (differenzDefAtk < ZAHL_0)
         {
-            verteidiger.setLebenspunkte(verteidiger.getLebenspunkte() - differenzDefAtk);
+            verteidiger.setLebenspunkte(verteidiger.getLebenspunkte() + differenzDefAtk);
         }
     }
 }
