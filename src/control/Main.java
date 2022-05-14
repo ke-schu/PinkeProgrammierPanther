@@ -1,8 +1,5 @@
 package control;
-import control.test.Alex;
-import control.test.Hendrik;
-import control.test.Henrik;
-import control.test.Keno;
+import control.test.*;
 
 public class Main
 {
@@ -13,7 +10,7 @@ public class Main
 
     private static void testen()
     {
-        switch(3)
+        switch(5)
         {
             case 1: Alex.ausfuehren();
             break;
@@ -22,6 +19,8 @@ public class Main
             case 3: Hendrik.ausfuehren();
             break;
             case 4: Henrik.testen();
+            break;
+            case 5: SpielStandTest.speichereSpielstand();
         }
     }
 }
