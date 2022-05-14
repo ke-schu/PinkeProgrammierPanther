@@ -3,12 +3,9 @@ package io;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import control.KartenDeckSerialisierung;
-import control.RaeumeSerialisierung;
+import control.RaumSerialisierung;
 import model.Ebene;
-import model.KartenDeck;
-import model.Raeume;
-import model.ereignisse.Ereignis;
+import model.Raum;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -70,8 +67,8 @@ public class EbeneIO
      */
     private static Ebene deserialisieren (String jsonEbene) throws JsonSyntaxException
     {
-        RaeumeSerialisierung meineSerialisierung = new RaeumeSerialisierung();
-        meinGsonBuilder.registerTypeAdapter(Raeume.class, meineSerialisierung);
+        RaumSerialisierung meineSerialisierung = new RaumSerialisierung();
+        meinGsonBuilder.registerTypeAdapter(Raum.class, meineSerialisierung);
         meinGson = meinGsonBuilder.create();
 
         return meinGson.fromJson(jsonEbene, Ebene.class);

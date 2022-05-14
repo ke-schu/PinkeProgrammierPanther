@@ -2,7 +2,7 @@ package model;
 
 import model.ereignisse.Ereignis;
 
-public class Raeume
+public class Raum
 {
     private Ereignis ereignis = null;
 
@@ -10,9 +10,14 @@ public class Raeume
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raeume (Ereignis ereignis)
+    public Raum(Ereignis ereignis)
     {
         this.ereignis = ereignis;
+    }
+
+    public Raum()
+    {
+
     }
 
     /**
@@ -23,4 +28,5 @@ public class Raeume
     {
         return ereignis;
     }
+
 }

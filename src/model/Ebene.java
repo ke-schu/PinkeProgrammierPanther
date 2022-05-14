@@ -5,7 +5,7 @@ import resources.Zahlen;
 
 public class Ebene
 {
-    private Raeume[][] ebene = null;
+    private Raum[][] ebene = null;
     private int ebenenSpalte = 0;
     private int ebenenZeile = 0;
 
@@ -16,12 +16,12 @@ public class Ebene
      */
     public Ebene (int ebenenZeile, int ebenenSpalte)
     {
-        this.setEbene(new Raeume[ebenenZeile][ebenenSpalte]);
+        this.setEbene(new Raum[ebenenZeile][ebenenSpalte]);
         this.setEbenenZeile(ebenenZeile);
         this.setEbenenSpalte(ebenenSpalte);
     }
 
-    public Ebene (int ebenenZeile, int ebenenSpalte, Raeume[][] ebene)
+    public Ebene (int ebenenZeile, int ebenenSpalte, Raum[][] ebene)
     {
         this.setEbene(ebene);
         this.setEbenenZeile(ebenenZeile);
@@ -44,7 +44,7 @@ public class Ebene
      * Methode die das Attribut ebene wiedergibt.
      * @return liefert den 2D-Array gefüllt mit Raeumen.
      */
-    public Raeume[][] getEbene()
+    public Raum[][] getEbene()
     {
         return this.ebene;
     }
@@ -53,7 +53,7 @@ public class Ebene
      * Methode um das Attribut ebene zu setzen.
      * @param ebene 2D-Array bestehend aus Raeumen, welches in das Attribut ebene gesetzt werden soll.
      */
-    public final void setEbene(Raeume[][] ebene)
+    public final void setEbene(Raum[][] ebene)
     {
         this.ebene = ebene;
     }
@@ -100,7 +100,7 @@ public class Ebene
      * @param zeile Position in der Zeile, beginnend bei 0.
      * @param raum Instanz der Klasse Raeume, welche an die gezielte Stelle gesetzt werden soll.
      */
-    public void raumEinsetzen(int spalte, int zeile, Raeume raum)
+    public void raumEinsetzen(int spalte, int zeile, Raum raum)
     {
         this.ebene[zeile][spalte] = raum;
     }
@@ -121,7 +121,7 @@ public class Ebene
      * @param zeile Position der Zeile von dem der Inhalt zurueck gegeben wird.
      * @return gibt den Inhalt an der bestimmten Position des Attributes ebene.
      */
-    public Raeume getRaumAnPosition(int spalte, int zeile)
+    public Raum getRaumAnPosition(int spalte, int zeile)
     {
         return this.ebene[zeile][spalte];
     }
