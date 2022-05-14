@@ -12,6 +12,9 @@ import java.io.File;
 import java.io.IOException;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
+import static resources.Effekte.LETZTEWORTE;
+import static resources.Effekte.ZURUECKWERFEN;
+import static resources.Einheiten.FERNKAEMPFER;
 
 public class Alex
 {
@@ -27,13 +30,16 @@ try
     KartenHand meinehand = new KartenHand();
     KartenHand masterhand = new KartenHand();
     meinehand.handziehen(meindeck);
-    masterhand.handziehen(meindeck);
+    masterhand.handziehen(masterdeck);
     System.out.println(meinehand);
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
     System.out.println(spieler);
     ManaTank meintank = new ManaTank(spieler);
+    Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,5, 10,2,2,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
+    ManaTank mastertank = new ManaTank(master);
     System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
-    meinfeld.einheiteinsetzten(3,2, (KarteEinheit) meinehand.getelement(2));
+    meinfeld.einheiteinsetzten(3,2,spieler);
+    meinfeld.einheiteinsetzten(3,1,master);
     KartenEinheitController.beschwoeren(meinehand,2,meinfeld,3,3 ,meintank);
     System.out.println("ich stehe an position 3,3 " + meinfeld.getSpielfeldplatz(3,3));
     System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(3,3).getPosition_x());

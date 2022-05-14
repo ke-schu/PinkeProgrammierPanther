@@ -32,7 +32,7 @@
       "y": 0
     },
     "schlafend": true,
-    "freundlich": false,
+    "freundlich": true,
     "id": 0,
     "name": "meinSpieler",
     "level": 1,
