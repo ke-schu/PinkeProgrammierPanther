@@ -11,6 +11,8 @@ import model.*;
 import java.io.File;
 import java.io.IOException;
 
+import static control.EinheitenController.einheitenAngreifenMitEinheiten;
+
 public class Alex
 {
     public static void ausfuehren()
@@ -33,17 +35,13 @@ try
     System.out.println("ich stehe an position 3,3 " + meinfeld.getSpielfeldplatz(3,3));
     System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(3,3).getPosition_x());
     System.out.println("und spalte " + meinfeld.getSpielfeldplatz(3,3).getPosition_y());
+    //einheitenAngreifenMitEinheiten();
 
 }
 catch(KartenDeckFehlerhaftException | IOException e)
 {
     ;
 }
-
-
-
-
-
 
     }
 

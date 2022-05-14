@@ -45,5 +45,116 @@
       "level": 30,
       "klasse": "model.KarteEinheit"
     }
+  ,
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 9,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "ZURUECKWERFEN",
+      "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 1,
+      "name": "RonWeasley",
+      "level": 30,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 9,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "ZURUECKWERFEN",
+      "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 2,
+      "name": "RonWeasley",
+      "level": 30,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 9,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "ZURUECKWERFEN",
+      "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 3,
+      "name": "RonWeasley",
+      "level": 30,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 9,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "ZURUECKWERFEN",
+      "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 4,
+      "name": "RonWeasley",
+      "level": 30,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 9,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "ZURUECKWERFEN",
+      "effektZwei": "LETZTEWORTE",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 5,
+      "name": "RonWeasley",
+      "level": 30,
+      "klasse": "model.KarteEinheit"
+    }
   ]
 }
