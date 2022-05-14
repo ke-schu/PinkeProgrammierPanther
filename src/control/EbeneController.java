@@ -7,7 +7,6 @@ import model.SpielFeld;
 import model.ereignisse.Gegner;
 import resources.Effekte;
 import resources.Einheiten;
-
 import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 
@@ -24,7 +23,7 @@ public class EbeneController
     }
     
     /**
-     * Methode die die Ebene fuellt.
+     * Methode die die Ebene mit vorbestimmten Raeumen fuellt.
      * @return liefert eine mit Raeumen gefuellte Ebene als 2D Array.
      */
     public static Ebene fuelleEbene (int EbenenStufe)
