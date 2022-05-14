@@ -1,6 +1,8 @@
 package control.test;
 
+import control.EinheitenController;
 import control.KartenEinheitController;
+import control.RundenController;
 import exceptions.KartenDeckFehlerhaftException;
 import exceptions.SpielfeldDimensionGleichNullException;
 import exceptions.SpielfeldNichtQuadratischException;
@@ -12,18 +14,20 @@ import java.io.File;
 import java.io.IOException;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
+import static control.KartenEinheitController.beschwoerenHeld;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
+import static resources.Zahlen.ZAHL_1;
 
 public class Alex
 {
     public static void ausfuehren()
     {
-        SpielFeld meinfeld = new SpielFeld();
 
 try
 {
+    SpielFeld meinfeld = new SpielFeld(5,5);
     KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
     KartenDeck masterdeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Gegner.json");
     System.out.println(meindeck.toString());
@@ -35,18 +39,28 @@ try
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
     System.out.println(spieler);
     ManaTank meintank = new ManaTank(spieler);
-    Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,5, 15,2,2,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
+    Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,15, 15,2,7,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
     ManaTank mastertank = new ManaTank(master);
     System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
-    meinfeld.einheiteinsetzten(3,2,spieler);
-    meinfeld.einheiteinsetzten(3,1,master);
-    KartenEinheitController.beschwoeren(meinehand,2,meinfeld,3,3 ,meintank);
-    System.out.println("ich stehe an position 3,3 " + meinfeld.getSpielfeldplatz(3,3));
-    System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(3,3).getPosition_x());
-    System.out.println("und spalte " + meinfeld.getSpielfeldplatz(3,3).getPosition_y());
-    System.out.println("Lebenspunkte Feind einheit: " + master.getLebenspunkte());
-    einheitenAngreifenMitEinheiten(meinfeld,spieler,master);
-    System.out.println("Lebenspunkte Feind einheit nach kampf: " + master.getLebenspunkte());
+    beschwoerenHeld(spieler, meinfeld);
+    beschwoerenHeld(master, meinfeld);
+    KartenEinheitController.beschwoeren(meinehand,2,meinfeld,0,1 ,meintank);
+    System.out.println("ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(0,1));
+    System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(0,1).getPosition_x());
+    System.out.println("und spalte " + meinfeld.getSpielfeldplatz(0,1).getPosition_y());
+    System.out.println("vor dem bewegen stehe ich an position" + (meinfeld.getFeldZeile()-1)+ (meinfeld.getFeldSpalte()-1)  + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile()-ZAHL_1,meinfeld.getFeldSpalte()-ZAHL_1));
+    EinheitenController.bewegen(meinfeld,1,3,master);
+    EinheitenController.bewegen(meinfeld,1,2,master);
+    EinheitenController.bewegen(meinfeld,1,1,master);
+    System.out.println("ich stehe an position 2,3 " + meinfeld.getSpielfeldplatz(2,3));
+
+    System.out.println("Lebenspunkte freund einheit: " + meinfeld.getSpielfeldplatz(0,1).getLebenspunkte());
+    System.out.println("an stelle 0, 1 befindet sich vor dem kampf" + meinfeld.getSpielfeldplatz(0,1));
+    einheitenAngreifenMitEinheiten(meinfeld,master,meinfeld.getSpielfeldplatz(0,1));
+    System.out.println("Lebenspunkte freund einheit nach kampf: "+  meinfeld.getSpielfeldplatz(0,1).getLebenspunkte());
+
+    RundenController.zugBeenden(meinfeld,meindeck,masterdeck);
+    System.out.println("an stelle 0, 1 befindet sich nun " + meinfeld.getSpielfeldplatz(0,1));
 
 }
 catch(KartenDeckFehlerhaftException | IOException e)

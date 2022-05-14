@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 import static resources.Zahlen.ZAHL_5;
 
+/**
+ *
+ */
 public class KartenHand
 {
     private Karte[] hand = null;

@@ -30,6 +30,22 @@ public class KartenEinheitController
         }
     }
 
+    public static void beschwoerenHeld (KarteEinheit held, SpielFeld spielfeld)
+    {
+        if(held.getFreundlich() == true)
+        {
+            (held).startwertespeichern();
+            positiongeben((KarteEinheit) held,ZAHL_0,ZAHL_0);
+            spielfeld.einheiteinsetzten(ZAHL_0,ZAHL_0, held);
+        }
+        else
+        {
+            (held).startwertespeichern();
+            positiongeben(held,spielfeld.getFeldZeile()-ZAHL_1,spielfeld.getFeldSpalte()-ZAHL_1);
+            spielfeld.einheiteinsetzten(spielfeld.getFeldZeile()-ZAHL_1,spielfeld.getFeldSpalte()-ZAHL_1, held);
+        }
+    }
+
     public static void positiongeben(KarteEinheit einheit, int x, int y)
     {
         Position position = new Position(x,y);

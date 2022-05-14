@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * InitialisierungKarteEinheit ist verantwordlich für
+ * das Zwischenspeichern von Werten welche für das initialisieren vo kartenattributen gebraucht werden
+ *
+ */
 public class InitialisierungKarteEinheit
 {
     private int macht;

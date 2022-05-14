@@ -3,6 +3,10 @@ package model;
 import resources.Effekte;
 import resources.Einheiten;
 
+/**
+ * KarteEinheit repraesentiert eine Einheit welche als Karte auf das Spielfeld gelegt werden kann
+ * sie erbt von Karte
+ */
 public class KarteEinheit extends Karte
 {
   private final Einheiten typ;
@@ -173,6 +177,9 @@ public class KarteEinheit extends Karte
     this.lebenspunkte = lebenspunkte-schaden;
   }
 
+  /**
+   * speichert die im Kampfgeschehen veraenderbaren Startwerte einer Karte
+   */
   public void startwertespeichern ()
   {
     this.init = new InitialisierungKarteEinheit();
@@ -186,6 +193,9 @@ public class KarteEinheit extends Karte
     schlafend = true;
   }
 
+  /**
+   * gibt einer Karte ihre Initialwerte zurueck
+   */
   public void initialisieren()
   {
     this.macht = init.getMacht();

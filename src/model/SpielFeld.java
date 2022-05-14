@@ -19,6 +19,13 @@ public class SpielFeld
         KarteEinheit[][] spielfeld = new KarteEinheit[this.feldZeile][this.feldSpalte];
         this.spielfeld = spielfeld;
     }
+    public SpielFeld(int x, int y) //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+    {
+        this.feldSpalte = x;
+        this.feldZeile = y;
+        KarteEinheit[][] spielfeld = new KarteEinheit[this.feldZeile][this.feldSpalte];
+        this.spielfeld = spielfeld;
+    }
 
     private static int generiereSpielfeldGroesse()
     {

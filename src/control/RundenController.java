@@ -21,9 +21,9 @@ public class RundenController
         RundenController.freundlich = freundlich;
     }
 
-    public void zugBeenden (SpielFeld feld,KartenDeck spielerdeck, KartenDeck masterdeck )
+    public static void  zugBeenden (SpielFeld feld,KartenDeck spielerdeck, KartenDeck masterdeck )
     {
-        this.zugzeahler = zugzeahler + ZAHL_1;
+        zugzeahler = zugzeahler + ZAHL_1;
 
         feldaufraeumen(feld, spielerdeck,masterdeck);
         beweglichkeitauffrischen(feld);
@@ -31,7 +31,7 @@ public class RundenController
         bestimmenwerdranist();
     }
 
-    public void feldaufraeumen(SpielFeld feld,KartenDeck spielerdeck,KartenDeck masterdeck )
+    public static void feldaufraeumen(SpielFeld feld,KartenDeck spielerdeck,KartenDeck masterdeck )
     {
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
@@ -59,16 +59,21 @@ public class RundenController
             }
         }
     }
-    public void beweglichkeitauffrischen(SpielFeld feld)
+    public static void beweglichkeitauffrischen(SpielFeld feld)
     {
+
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
+                if(feld.getSpielfeldplatz(i,j) != null)
                 {
-                    feld.getSpielfeldplatz(i,j).setBeweglichkeit(feld.getSpielfeldplatz(i,j).getInit().getBeweglichkeit());
+                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
+                    {
+                        feld.getSpielfeldplatz(i,j).setBeweglichkeit(feld.getSpielfeldplatz(i,j).getInit().getBeweglichkeit());
+                    }
                 }
+
             }
         }
     }
@@ -84,7 +89,7 @@ public class RundenController
         }
     }
 
-    public void aufwecken(SpielFeld feld)
+    public static void aufwecken(SpielFeld feld)
     {
         for(int i = 0; i < feld.getFeldZeile(); i++)
         {

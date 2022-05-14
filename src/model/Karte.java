@@ -2,6 +2,9 @@ package model;
 
 import resources.Strings;
 
+/**
+ * Karte ist eine abstrakte superklasse für genauer definierte Karten
+ */
 public abstract class Karte
 {
     private static int instanzZaehler = 0;
