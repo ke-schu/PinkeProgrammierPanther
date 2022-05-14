@@ -20,7 +20,6 @@ public abstract class Karte
         this.id = instanzZaehler;
         this.name = name;
         this.level = level;
-        this.klasse = klasse;
         instanzZaehler++;
     }
 

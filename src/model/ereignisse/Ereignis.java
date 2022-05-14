@@ -6,6 +6,7 @@ public abstract class Ereignis
     protected String name;              //Name des Ereignisses (Schmied, Treppe, etc.)
     protected String beschreibung;      //Beschreibung des Ereignisses. Später in der GUI sichtbar für den Spieler.
     protected boolean auswahl = false;  //Abfrage ob der Spieler, dass Ereignis ausführt (Kampf ablehnen etc.)
+    private String klasse = this.getClass().getCanonicalName();
 
     /**
      * Diese Methode dient als Getter um den Namen des Ereignisses zugänglich zu machen.

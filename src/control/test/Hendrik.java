@@ -15,7 +15,7 @@ public class Hendrik
 {
     public static void ausfuehren ()
     {
-        testeBewegen();
+        testeEbenenErstellung();
     }
 
     private static void testeBewegen()
@@ -55,26 +55,30 @@ public class Hendrik
     }
     private static void testeEbenenErstellung()
     {
+        /*
+        try {
+            Ebene ebene1 = new Ebene();
+            ebene1 = EbeneController.fuelleEbene(1);
+            EbeneIO.schreibeDatei(ebene1,(new File("src/resources/ebenen/Ebene1.json")));
+            System.out.println(ebene1);
+        }
+        catch (IOException e)
+        {
+            e.getMessage();
+        }
+        */
 
 
-            Ebene meineEbene = EbeneController.fuelleEbene(2);
+        try {
+            Ebene meineEbene = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
             System.out.println(meineEbene.toString());
-
-
-
+        }
+        catch(IOException e)
+        {
+            e.getMessage();
+        }
 
     }
 
 
-
-    /*
-        KartenDeck haendler1 = new KartenDeck("Haendler1Deck");
-        KartenDeck haendler2 = new KartenDeck("Haendler2Deck");
-    haendler1 = leseDatei("src/resources/kartendecks/Haendler1.json");
-            System.out.println(haendler1);
-            haendler2.push(haendler1.get(2));
-            haendler1.remove(2);
-            System.out.println(haendler1);
-            System.out.println(haendler2);
-     */
 }

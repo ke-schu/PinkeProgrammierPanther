@@ -9,7 +9,7 @@ public class Henrik {
     {
         Ebene ebene = new Ebene();
         Treppe treppe = new Treppe("Treppe", "Beschreibung");
-        ebene = treppe.ausfuehren();
+        //ebene = treppe.ausfuehren();
         System.out.println(ebene.toString());
     }
 }

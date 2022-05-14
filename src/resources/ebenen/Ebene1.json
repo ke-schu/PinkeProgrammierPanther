@@ -5,42 +5,48 @@
         "ereignis": {
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
           "name": "Gegner",
           "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       {
         "ereignis": {
-          "name": "Boss 2",
-          "beschreibung": "Das ist Boss 2",
-          "auswahl": false
+          "name": "Boss 1",
+          "beschreibung": "Das ist Boss 1",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       null,

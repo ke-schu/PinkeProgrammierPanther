@@ -3,7 +3,9 @@ package io;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import control.RaeumeSerialisierung;
 import model.Ebene;
+import model.ereignisse.Ereignis;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -65,7 +67,7 @@ public class EbeneIO
      */
     private static Ebene deserialisieren (String jsonEbene) throws JsonSyntaxException
     {
-        meinGson = meinGsonBuilder.create();
+        meinGson = meinGsonBuilder.registerTypeAdapter(Ereignis.class, new RaeumeSerialisierung()).create();
         return meinGson.fromJson(jsonEbene, Ebene.class);
     }
 
@@ -74,9 +76,9 @@ public class EbeneIO
      * @return die Ebene
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static Ebene leseDatei () throws IOException
+    public static Ebene leseDatei (File datei) throws IOException
     {
-        Path path = Paths.get(dateiEbene.toURI());
+        Path path = Paths.get(datei.toURI());
         String content = Files.readString(path);
 
         try

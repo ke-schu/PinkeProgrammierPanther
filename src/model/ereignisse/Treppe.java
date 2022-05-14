@@ -24,17 +24,17 @@ public class Treppe extends Ereignis {
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Wird diese Methode ausgefuehrt,
      * dann wechselt der Spieler die Ebene, auf der er sich befindet, zur nächst höheren.
      */
-    public Ebene ausfuehren ()
+    public void ausfuehren ()
     {
-        Ebene ebene = new Ebene();
-        try
+        //Ebene ebene = new Ebene();
+        //try
         {
-            ebene = EbeneIO.leseDatei();
+          //  ebene = EbeneIO.leseDatei();
         }
-        catch (IOException e)
+        //catch (IOException e)
         {
-         e.getMessage();
+         //e.getMessage();
         }
-        return ebene;
+        //return ebene;
     }
 }

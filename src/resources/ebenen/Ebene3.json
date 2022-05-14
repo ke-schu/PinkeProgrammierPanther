@@ -1,0 +1,141 @@
+{
+  "ebene": [
+    [
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Gegner",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Boss 2",
+          "beschreibung": "Das ist Boss 2",
+          "auswahl": false
+        }
+      },
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "ebenenSpalte": 9,
+  "ebenenZeile": 9
+}
