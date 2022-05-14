@@ -141,10 +141,20 @@ public class Ebene
             {
                 if (this.ebene[i][j] != null)
                 {
-                    sb.append(this.ebene[i][j].getEreignis().getName());
-                    sb.append(LEERZEICHEN);
-                    sb.append(SENKRECHTER_STRICH);
-                    sb.append(LEERZEICHEN);
+                    if (this.ebene[i][j].getEreignis() != null)
+                    {
+                        sb.append(this.ebene[i][j].getEreignis().getName());
+                        sb.append(LEERZEICHEN);
+                        sb.append(SENKRECHTER_STRICH);
+                        sb.append(LEERZEICHEN);
+                    }
+                    else
+                    {
+                        sb.append(LEERER_RAUM);
+                        sb.append(LEERZEICHEN);
+                        sb.append(SENKRECHTER_STRICH);
+                        sb.append(LEERZEICHEN);
+                    }
                 }
                 else
                 {

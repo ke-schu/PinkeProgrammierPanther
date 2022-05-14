@@ -13,6 +13,7 @@ public interface Strings
     String CHARAKTER_DATEI_UEBERSCHRIEBEN = "Der bestehenden Charaktere wurden überschrieben.";
     String EBENE_DATEI_ERSTELLT = "Es wurde eine neue Ebene in die Datei geschrieben.";
     String EBENE_DATEI_UEBERSCHRIEBEN = "Die bestehende Ebenendatei wurde überschrieben.";
+    String LEERER_RAUM = "Leerer Raum";
 
     //Pfade
     String JSON_DATEIENDUNG = ".json";

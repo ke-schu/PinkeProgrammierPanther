@@ -1,12 +1,12 @@
 package control;
 
-import model.Ebene;
-import model.Gegenspieler;
-import model.Raum;
-import model.SpielFeld;
-import model.ereignisse.Gegner;
+import model.*;
+import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
+
+import java.io.File;
+
 import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 
@@ -30,29 +30,44 @@ public class EbeneController
     {
         int spalten = ZAHL_9;
         int zeilen = ZAHL_9;
-        Raum[][] meineRaum = new Raum[spalten][zeilen];
+        Raum[][] meinRaum = new Raum[spalten][zeilen];
         switch (EbenenStufe)
         {
             case ZAHL_1:
                 Gegner platzhalter10 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
                 Gegner platzhalter11 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter12 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter13 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter14 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
                 Gegner bossErstesLevel = new Gegner(BOSS_ERSTES_LEVEL_NAME, BOSS_ERSTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
                 Raum gegner10 = new Raum(platzhalter10);
                 Raum gegner11 = new Raum(platzhalter11);
-                Raum gegner12 = new Raum(platzhalter12);
-                Raum gegner13 = new Raum(platzhalter13);
-                Raum gegner14 = new Raum(platzhalter14);
                 Raum boss1 = new Raum(bossErstesLevel);
+                meinRaum[ZAHL_2][ZAHL_4] = gegner10;
+                meinRaum[ZAHL_3][ZAHL_5] = gegner11;
+                meinRaum[ZAHL_2][ZAHL_6] = boss1;
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner10;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner11;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner12;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner13;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner14;
-                meineRaum[ZAHL_0][ZAHL_5] = boss1;
+                ZufallsEreignis ze = new ZufallsEreignis("Zufaelliger Zufall", "Achtung, das ist ein Zufall!",false);
+                Raum RaumMitZufallsEreignis = new Raum(ze);
+                meinRaum[ZAHL_3][ZAHL_3] = RaumMitZufallsEreignis;
+
+                Schmied schmied1 = new Schmied("Bernhard","Hoere mal wer da haemmert!");
+                Raum raumSchmied = new Raum(schmied1);
+                meinRaum[ZAHL_6][ZAHL_4] = raumSchmied;
+
+                Haendler haendler1 = new Haendler("Josef", "Mehr als nur Staubsauger.", new KartenDeck("Deckbezeichnung einfuegen"));
+                Raum raumHaendler1 = new Raum(haendler1);
+                meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
+
+                Treppe treppe1 = new Treppe("Treppe 1", "Ne Menge Stufen");
+                Raum raumTreppe1 = new Raum(treppe1);
+                meinRaum[ZAHL_2][ZAHL_7] = raumTreppe1;
+
+                Raum leererRaum10 = new Raum();
+                Raum leererRaum11 = new Raum();
+                Raum leererRaum12 = new Raum();
+                Raum leererRaum13 = new Raum();
+                meinRaum[ZAHL_5][ZAHL_4] = leererRaum10;
+                meinRaum[ZAHL_3][ZAHL_4] = leererRaum11;
+                meinRaum[ZAHL_3][ZAHL_6] = leererRaum12;
+                meinRaum[ZAHL_4][ZAHL_4] = leererRaum13;
                 break;
 
             case ZAHL_2:
@@ -69,12 +84,12 @@ public class EbeneController
                 Raum gegner24 = new Raum(platzhalter24);
                 Raum boss2 = new Raum(bossZweitesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner20;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner21;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner22;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner23;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner24;
-                meineRaum[ZAHL_0][ZAHL_5] = boss2;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner20;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner21;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner22;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner23;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner24;
+                meinRaum[ZAHL_0][ZAHL_5] = boss2;
                 break;
 
             case ZAHL_3:
@@ -91,12 +106,12 @@ public class EbeneController
                 Raum gegner34 = new Raum(platzhalter34);
                 Raum boss3 = new Raum(bossDrittesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner30;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner31;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner32;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner33;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner34;
-                meineRaum[ZAHL_0][ZAHL_5] = boss3;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner30;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner31;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner32;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner33;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner34;
+                meinRaum[ZAHL_0][ZAHL_5] = boss3;
                 break;
 
             case ZAHL_4:
@@ -113,12 +128,12 @@ public class EbeneController
                 Raum gegner44 = new Raum(platzhalter44);
                 Raum boss4 = new Raum(bossViertesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner40;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner41;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner42;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner43;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner44;
-                meineRaum[ZAHL_0][ZAHL_5] = boss4;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner40;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner41;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner42;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner43;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner44;
+                meinRaum[ZAHL_0][ZAHL_5] = boss4;
                 break;
 
             case ZAHL_5:
@@ -135,12 +150,12 @@ public class EbeneController
                 Raum gegner54 = new Raum(platzhalter54);
                 Raum boss5 = new Raum(bossFuenftesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner50;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner51;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner52;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner53;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner54;
-                meineRaum[ZAHL_0][ZAHL_5] = boss5;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner50;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner51;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner52;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner53;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner54;
+                meinRaum[ZAHL_0][ZAHL_5] = boss5;
                 break;
 
             case ZAHL_6:
@@ -157,12 +172,12 @@ public class EbeneController
                 Raum gegner64 = new Raum(platzhalter64);
                 Raum boss6 = new Raum(bossSechstesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner60;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner61;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner62;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner63;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner64;
-                meineRaum[ZAHL_0][ZAHL_5] = boss6;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner60;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner61;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner62;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner63;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner64;
+                meinRaum[ZAHL_0][ZAHL_5] = boss6;
                 break;
 
             case ZAHL_7:
@@ -179,14 +194,14 @@ public class EbeneController
                 Raum gegner74 = new Raum(platzhalter74);
                 Raum boss7 = new Raum(bossSiebtesLevel);
 
-                meineRaum[ZAHL_0][ZAHL_0] = gegner70;
-                meineRaum[ZAHL_0][ZAHL_1] = gegner71;
-                meineRaum[ZAHL_0][ZAHL_2] = gegner72;
-                meineRaum[ZAHL_0][ZAHL_3] = gegner73;
-                meineRaum[ZAHL_0][ZAHL_4] = gegner74;
-                meineRaum[ZAHL_0][ZAHL_5] = boss7;
+                meinRaum[ZAHL_0][ZAHL_0] = gegner70;
+                meinRaum[ZAHL_0][ZAHL_1] = gegner71;
+                meinRaum[ZAHL_0][ZAHL_2] = gegner72;
+                meinRaum[ZAHL_0][ZAHL_3] = gegner73;
+                meinRaum[ZAHL_0][ZAHL_4] = gegner74;
+                meinRaum[ZAHL_0][ZAHL_5] = boss7;
                 break;
         }
-        return new Ebene(zeilen, spalten, meineRaum);
+        return new Ebene(zeilen, spalten, meinRaum);
     }
 }

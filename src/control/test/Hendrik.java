@@ -56,23 +56,21 @@ public class Hendrik
     private static void testeEbenenErstellung()
     {
 
+        Ebene ebene1 = EbeneController.fuelleEbene(1);
+        System.out.println(ebene1.toString());
+        /*
         try {
-            Ebene ebene1 = new Ebene();
-            ebene1 = EbeneController.fuelleEbene(1);
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene1.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene2.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene3.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene4.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene5.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene6.json"));
-            EbeneIO.schreibeDatei(ebene1, new File("src/resources/ebenen/Ebene7.json"));
+            Ebene ebene1 = EbeneController.fuelleEbene(1);
 
-            Ebene meineEbene = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
-            System.out.println(meineEbene.toString());
+                    //EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene3.json"));
+            System.out.println(ebene1.toString());
+            //System.out.println(ebene1.getRaumAnPosition(1,0).getEreignis().getBeschreibung());
         }
         catch (IOException e)
         {
             e.getMessage();
         }
+         */
+
     }
 }
