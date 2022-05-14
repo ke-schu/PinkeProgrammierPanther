@@ -1,7 +1,10 @@
 package control.test;
 
+import control.CharakterController;
 import exceptions.KartenDeckFehlerhaftException;
+import io.CharakterIO;
 import io.SpielStandIO;
+import model.Charakter;
 import model.SpielStand;
 import model.Spieler;
 import model.Waffe;
@@ -16,6 +19,21 @@ import static resources.Talente.MANA_GOTT;
 
 public class SpielStandTest
 {
+    public static void schreibeCharacter() throws KartenDeckFehlerhaftException, IOException
+    {
+        Charakter charakter = new Charakter("Magier", 321, erstelleSpieler(), true);
+        Stack<Charakter> meinCharakterStack = new Stack<>();
+        meinCharakterStack.push(charakter);
+        meinCharakterStack.push(charakter);
+        CharakterIO.schreibeDatei(meinCharakterStack);
+    }
+
+    private static Spieler leseCharakter() throws KartenDeckFehlerhaftException, IOException
+    {
+        Charakter meineKlasse = CharakterController.leseCharakter(0);
+        return meineKlasse.getSpieler();
+    }
+
     private static Spieler erstelleSpieler ()
     {
         Stack<Talente> meinTalentStack = new Stack<>();
@@ -61,7 +79,7 @@ public class SpielStandTest
     {
         try
         {
-            SpielStand meinSpielStand = new SpielStand(100, 32, erstelleSpieler());
+            SpielStand meinSpielStand = new SpielStand(100, 32, leseCharakter());
             SpielStandIO.schreibeDatei(meinSpielStand);
         }
         catch (IOException | KartenDeckFehlerhaftException e)

@@ -1,35 +1,86 @@
 [
   {
     "name": "Magier",
-    "freischaltgebuehr": 150,
-    "held": {
-      "angriffsPunkte": 10,
-      "lebensPunkte": 10,
-      "startWaffe": {
+    "freischaltgebuehr": 321,
+    "spieler": {
+      "waffe": {
+        "name": "meineWaffe",
         "angriffsPunkte": 10
-      }
-    }
+      },
+      "talente": [
+        "ABKLINGEN",
+        "MANA_GOTT"
+      ],
+      "artefakte": [
+        "DER_GRABSTEIN",
+        null
+      ],
+      "mana": 10,
+      "positionInEbeneX": 0,
+      "positionInEbeneY": 0,
+      "typ": "FERNKAEMPFER",
+      "macht": 20,
+      "lebenspunkte": 20,
+      "manaKosten": 0,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 0,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 0,
+      "name": "meinSpieler",
+      "level": 1,
+      "klasse": "model.Spieler"
+    },
+    "freigeschaltet": true
   },
   {
-    "name": "Kämpfer",
-    "freischaltgebuehr": 0,
-    "held": {
-      "angriffsPunkte": 10,
-      "lebensPunkte": 10,
-      "startWaffe": {
+    "name": "Magier",
+    "freischaltgebuehr": 321,
+    "spieler": {
+      "waffe": {
+        "name": "meineWaffe",
         "angriffsPunkte": 10
-      }
-    }
-  },
-  {
-    "name": "Dieb",
-    "freischaltgebuehr": 200,
-    "held": {
-      "angriffsPunkte": 10,
-      "lebensPunkte": 10,
-      "startWaffe": {
-        "angriffsPunkte": 10
-      }
-    }
+      },
+      "talente": [
+        "ABKLINGEN",
+        "MANA_GOTT"
+      ],
+      "artefakte": [
+        "DER_GRABSTEIN",
+        null
+      ],
+      "mana": 10,
+      "positionInEbeneX": 0,
+      "positionInEbeneY": 0,
+      "typ": "FERNKAEMPFER",
+      "macht": 20,
+      "lebenspunkte": 20,
+      "manaKosten": 0,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 0,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 0,
+      "name": "meinSpieler",
+      "level": 1,
+      "klasse": "model.Spieler"
+    },
+    "freigeschaltet": true
   }
 ]
