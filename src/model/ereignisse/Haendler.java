@@ -50,6 +50,7 @@ public class Haendler extends Mensch
         this.haendlerDeck = haendlerDeck;
     }
 
+
     /**
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt oder
