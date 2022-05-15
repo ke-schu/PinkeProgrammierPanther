@@ -14,6 +14,7 @@ public interface Strings
     String EBENE_DATEI_ERSTELLT = "Es wurde eine neue Ebene in die Datei geschrieben.";
     String EBENE_DATEI_UEBERSCHRIEBEN = "Die bestehende Ebenendatei wurde überschrieben.";
     String LEERER_RAUM = "Leerer Raum";
+    String LEERER_RAUM_BESCHREIBUNG = "Dieser Raum ist leer.";
 
     //Pfade
     String JSON_DATEIENDUNG = ".json";
@@ -23,6 +24,7 @@ public interface Strings
     String SPIEL_DECK_GEGNER_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner" + JSON_DATEIENDUNG;
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
+    String HAENDLERDECK1_PFAD = "src/resources/kartendecks/Haendler1" + JSON_DATEIENDUNG;
 
     String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
 

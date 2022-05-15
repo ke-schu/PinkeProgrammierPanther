@@ -21,7 +21,7 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
     {
         JsonObject meinJsonObject = json.getAsJsonObject();
 
-        if (meinJsonObject != null)
+        if ((meinJsonObject != null) && (meinJsonObject.getAsJsonObject("ereignis") != null))
         {
             JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject("ereignis");
 

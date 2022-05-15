@@ -16,7 +16,6 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
     {
         super(name, beschreibung);
         this.geleert = geoeffnet;
-        this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
     /**
@@ -28,6 +27,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
         auswaehlen();
         if(isAuswahl())
         {
+            wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 System.out.println("Truhe 1");

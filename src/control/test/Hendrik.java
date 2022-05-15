@@ -1,12 +1,17 @@
 package control.test;
 import control.EbeneController;
 import control.EinheitenController;
+import exceptions.KartenDeckFehlerhaftException;
 import io.EbeneIO;
+import io.SpielStandIO;
 import model.*;
+import model.ereignisse.Haendler;
 import resources.Strings;
 
 import java.io.File;
 import java.io.IOException;
+
+import static resources.Strings.SPIELSTAND_PFAD;
 
 /**
  * In dieser Klasse liegen Methoden, die Code testen sollen.
@@ -56,21 +61,46 @@ public class Hendrik
     private static void testeEbenenErstellung()
     {
 
-        Ebene ebene1 = EbeneController.fuelleEbene(1);
-        System.out.println(ebene1.toString());
-        /*
-        try {
-            Ebene ebene1 = EbeneController.fuelleEbene(1);
+        //Schreibe Ebene 1
 
-                    //EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene3.json"));
-            System.out.println(ebene1.toString());
-            //System.out.println(ebene1.getRaumAnPosition(1,0).getEreignis().getBeschreibung());
+        try
+        {
+            Ebene eben1 = EbeneController.fuelleEbene(1);
+            EbeneIO.schreibeDatei(eben1, new File("src/resources/ebenen/Ebene1.json"));
+            System.out.println(eben1.toString());
         }
         catch (IOException e)
         {
             e.getMessage();
         }
-         */
+
+
+
+
+        // Lese Ebene 1
+
+
+        try
+        {
+            Ebene ebene1 = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
+            System.out.println(ebene1.toString());
+            Haendler h = (Haendler)ebene1.getRaumAnPosition(6,4).getEreignis();
+            System.out.println(h.getName());
+            h.ausfuehren(new SpielStand(SpielStandIO.leseDatei()));
+            System.out.println(h.getHaendlerDeck().peek());
+
+
+
+        }
+        catch (IOException | KartenDeckFehlerhaftException e)
+        {
+            e.getMessage();
+        }
+
+
+
+
+
 
     }
 }

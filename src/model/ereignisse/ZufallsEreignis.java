@@ -18,7 +18,6 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     {
         super(name, beschreibung);
         this.ausgefuehrt = ausgefuehrt;
-        this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
     /**
@@ -60,6 +59,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
         auswaehlen();
         if(isAuswahl())
         {
+            wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 System.out.println("Ereignis 1");
