@@ -25,14 +25,17 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren ()
     {
-        if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+        auswaehlen();
+        if(isAuswahl())
         {
-            System.out.println("Truhe 1");
-            geleert = true;
-        }
-        else
-        {
-            System.out.println("Truhe 2");
+            if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
+            {
+                System.out.println("Truhe 1");
+            }
+            else
+            {
+                System.out.println("Truhe 2");
+            }
             geleert = true;
         }
     }

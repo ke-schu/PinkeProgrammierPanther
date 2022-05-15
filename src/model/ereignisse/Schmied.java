@@ -27,6 +27,7 @@ public class Schmied extends Mensch
      */
     public void ausfuehren (SpielStand spielStand, KarteEinheit karte)
     {
+        auswaehlen();
         if(isAuswahl())
         {
             if (pruefeGratisInteraktion())

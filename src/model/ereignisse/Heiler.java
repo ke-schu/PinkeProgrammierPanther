@@ -26,6 +26,7 @@ public class Heiler extends Mensch
      */
     public Spieler ausfuehren (SpielStand spielStand, Spieler spieler)
     {
+        auswaehlen();
         if(isAuswahl())
         {
             if (pruefeGratisInteraktion())

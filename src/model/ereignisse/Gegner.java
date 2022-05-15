@@ -12,8 +12,10 @@ public class Gegner extends Ereignis
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Gegner. Gegner sind Ereignisse, die es dem
      * Spieler ermoeglichen, einen Kampf zu beginnen.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
+     * @param name
+     * @param beschreibung
+     * @param gegenspieler
+     * @param spielfeld
      */
     public Gegner(String name, String beschreibung, Gegenspieler gegenspieler, SpielFeld spielfeld)
     {
@@ -27,6 +29,10 @@ public class Gegner extends Ereignis
      */
     public void ausfuehren ()
     {
-        spielfeld = new SpielFeld();
+        auswaehlen();
+        if (isAuswahl())
+        {
+            spielfeld = new SpielFeld();
+        }
     }
 }

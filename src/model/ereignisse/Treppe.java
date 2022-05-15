@@ -1,13 +1,7 @@
 package model.ereignisse;
 
-import io.EbeneIO;
-import model.Ebene;
-
-import java.io.File;
-import java.io.IOException;
-
-public class Treppe extends Ereignis {
-
+public class Treppe extends Ereignis
+{
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Treppe. Treppen sind Ereignisse, die es dem
      * Spieler ermoeglichen seine aktuelle Ebene zu verlassen und die nächsthöhere zu betreten.

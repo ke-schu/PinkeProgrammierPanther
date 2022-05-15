@@ -57,14 +57,17 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren ()
     {
-        if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+        auswaehlen();
+        if(isAuswahl())
         {
-            System.out.println("Ereignis 1");
-            ausgefuehrt = true;
-        }
-        else
-        {
-            System.out.println("Ereignis 2");
+            if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
+            {
+                System.out.println("Ereignis 1");
+            }
+            else
+            {
+                System.out.println("Ereignis 2");
+            }
             ausgefuehrt = true;
         }
     }

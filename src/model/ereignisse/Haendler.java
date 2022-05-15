@@ -3,9 +3,12 @@ package model.ereignisse;
 import model.KartenDeck;
 import model.SpielStand;
 
+/**
+ *
+ */
 public class Haendler extends Mensch
 {
-    protected KartenDeck haendlerDeck = null;
+    protected KartenDeck haendlerDeck = null;   //Das Deck des Haendlers, aus dem der Spieler Karten kaufen kann.
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler. Haendler sind Ereignisse, die es dem
@@ -26,10 +29,10 @@ public class Haendler extends Mensch
      * vorher die Zahlung durchgefuehrt.
      * @param spielStand
      * @param kartenPosition
-     * @return
      */
     public void ausfuehren (SpielStand spielStand, int kartenPosition)
     {
+        auswaehlen();
         if(isAuswahl())
         {
             if (pruefeGratisInteraktion())

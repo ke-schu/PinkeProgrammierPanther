@@ -24,6 +24,7 @@ public class Tempel extends Mensch
      */
     public void ausfuehren (SpielStand spielStand, int indexKarte)
     {
+        auswaehlen();
         if(isAuswahl())
         {
             if (pruefeGratisInteraktion())
