@@ -1,7 +1,5 @@
 package control;
 
-import exceptions.KartenDeckFehlerhaftException;
-import io.KartenDeckIO;
 import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
@@ -207,5 +205,11 @@ public class EbeneController
                 break;
         }
         return new Ebene(zeilen, spalten, meinRaum);
+    }
+
+    public static void initSpielerInEbene (SpielfigurEbene spielfigur, Ebene ebene)
+    {
+        ebene.getRaumAnPosition(ZAHL_4,ZAHL_4).setSpielfigur(spielfigur);
+        spielfigur.setPosition(ZAHL_4,ZAHL_4);
     }
 }

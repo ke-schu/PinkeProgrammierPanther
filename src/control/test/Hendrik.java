@@ -1,6 +1,7 @@
 package control.test;
 import control.EbeneController;
 import control.EinheitenController;
+import control.SpielerController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.EbeneIO;
 import io.SpielStandIO;
@@ -20,7 +21,7 @@ public class Hendrik
 {
     public static void ausfuehren ()
     {
-        testeEbenenErstellung();
+        testeBewegenInEbene();
     }
 
     private static void testeBewegen()
@@ -60,9 +61,7 @@ public class Hendrik
     }
     private static void testeEbenenErstellung()
     {
-
         //Schreibe Ebene 1
-
         try
         {
             Ebene eben1 = EbeneController.fuelleEbene(1);
@@ -74,12 +73,7 @@ public class Hendrik
             e.getMessage();
         }
 
-
-
-
         // Lese Ebene 1
-
-
         try
         {
             Ebene ebene1 = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
@@ -88,19 +82,35 @@ public class Hendrik
             System.out.println(h.getName());
             h.ausfuehren(new SpielStand(SpielStandIO.leseDatei()));
             System.out.println(h.getHaendlerDeck().peek());
-
-
-
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {
             e.getMessage();
         }
 
+    }
 
 
+    public static void testeBewegenInEbene ()
+    {
 
+        try
+        {
+            Ebene ebene1 = EbeneIO.leseDatei(new File("src/resources/ebenen/Ebene1.json"));
+            System.out.println(ebene1.toString());
+            EbeneController.initSpielerInEbene(new SpielfigurEbene(),ebene1);
+            System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
+            System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
+            SpielerController.bewegen(ebene1,4,3,ebene1.getRaumAnPosition(4,4).getSpielfigur());
+            System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
+            System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
 
-
+        }
+        catch (IOException e)
+        {
+            e.getMessage();
+        }
     }
 }
+
+
