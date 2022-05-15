@@ -41,8 +41,8 @@ public class KartenEinheitController
         else
         {
             (held).startwertespeichern();
-            positiongeben(held,spielfeld.getFeldZeile()-ZAHL_1,spielfeld.getFeldSpalte()-ZAHL_1);
-            spielfeld.einheiteinsetzten(spielfeld.getFeldZeile()-ZAHL_1,spielfeld.getFeldSpalte()-ZAHL_1, held);
+            positiongeben(held,spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1);
+            spielfeld.einheiteinsetzten(spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1, held);
         }
     }
 

@@ -27,9 +27,10 @@ public class Alex
 
 try
 {
-    SpielFeld meinfeld = new SpielFeld(5,5);
-    KartenDeck meindeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Spieler.json");
-    KartenDeck masterdeck = KartenDeckIO.leseDatei("C:\\Users\\7craz\\IdeaProjects\\PinkeProgrammierPanther\\src\\resources\\kartendecks\\Spieldeck_Gegner.json");
+
+    SpielFeld meinfeld = new SpielFeld(10,5);
+    KartenDeck meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
+    KartenDeck masterdeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Gegner.json");
     System.out.println(meindeck.toString());
     KartenHand meinehand = new KartenHand();
     KartenHand masterhand = new KartenHand();

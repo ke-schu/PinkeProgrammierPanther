@@ -109,11 +109,11 @@ public class SpielFeld
     {
         if (einheit == null)
         {
-            this.spielfeld[x][y] = einheit;
+            this.spielfeld[y][x] = einheit;
         }
         else
         {
-            this.spielfeld[x][y] = einheit;
+            this.spielfeld[y][x] = einheit;
             einheit.setPosition(x,y);
         }
 
@@ -121,10 +121,10 @@ public class SpielFeld
 
     public KarteEinheit getSpielfeldplatz (int x, int y)
     {
-        if(x<0 || x>=this.feldZeile || y<0 || y>=this.feldSpalte) {
+        if(x<0 || x>=this.feldSpalte || y<0 || y>=this.feldZeile) {
             return null;
         }
-        return this.spielfeld[x][y];
+        return this.spielfeld[y][x];
     }
 
     public void einheitloeschen (int x, int y)
