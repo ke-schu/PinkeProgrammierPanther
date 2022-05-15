@@ -49,26 +49,46 @@ public class Charakter
         return name;
     }
 
+    /**
+     * Gibt den Int-Wert des Attributes freischaltgebuehr wieder.
+     * @return gibt den Int-Wert des Attributes wieder.
+     */
     public int getFreischaltgebuehr ()
     {
         return freischaltgebuehr;
     }
 
+    /**
+     * Gibt das Attribut spieler mit der Klasse Spieler wieder.
+     * @return gibt die Instanz der Klasse Spieler die im Attribut spieler liegt.
+     */
     public Spieler getSpieler ()
     {
         return spieler;
     }
 
+    /**
+     * Gibt den booleschen Wert des Attributes freigeschaltet wieder.
+     * @return gibt den Zustand des Attributes freigeschaltet wieder.
+     */
     public boolean getFreigeschaltet()
     {
         return freigeschaltet;
     }
 
+    /**
+     * Methode um einen booleschen Wert in das Attribut freigeschaltet zu setzen.
+     * @param freigeschaltet boolescher Wert, welcher in das Attribut geschrieben werden soll.
+     */
     public void setFreigeschaltet(boolean freigeschaltet)
     {
         this.freigeschaltet = freigeschaltet;
     }
 
+    /**
+     * Gibt das Attribut startDeck mit der Klasse KartenDeck wieder.
+     * @return liefert eine Instanz der Klasse KartenDeck aus dem Attribut startDeck.
+     */
     public KartenDeck getStartDeck ()
     {
         return startDeck;

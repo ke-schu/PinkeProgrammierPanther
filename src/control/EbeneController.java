@@ -4,9 +4,6 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
-
-import java.io.File;
-
 import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 

@@ -13,6 +13,10 @@ public class Gegenspieler extends KarteEinheit implements Spielbar
         this.mana = mana;
     }
 
+    /**
+     * Gibt den Int-Wert des Attributes mana wieder.
+     * @return Int-Wert des Attributes mana.
+     */
     public int getMana()
     {
         return mana;
