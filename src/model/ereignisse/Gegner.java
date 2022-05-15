@@ -35,4 +35,9 @@ public class Gegner extends Ereignis
             spielfeld = new SpielFeld();
         }
     }
+
+    public Gegenspieler getGegenspieler()
+    {
+        return gegenspieler;
+    }
 }

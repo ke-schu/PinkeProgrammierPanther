@@ -27,7 +27,7 @@ public class Charakter
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
         this.spieler = charakter.getSpieler();
         this.freigeschaltet = charakter.getFreigeschaltet();
-        this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
+        this.startDeck = KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, charakter.getName()));
     }
 
     /**
