@@ -20,7 +20,7 @@ public interface Strings
     //  Pfade
     String JSON_DATEIENDUNG = ".json";
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
-    String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
+    String CHARAKTER_PFAD = "src/resources/Charaktere" + JSON_DATEIENDUNG;
     String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
 
     //  Kartendeck-Pfade
