@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.SpielStand;
+
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean geleert = false;
@@ -16,18 +18,19 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
     {
         super(name, beschreibung);
         this.geleert = geoeffnet;
-        this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
     /**
      * Diese Methode überlagert die Methode aus der Superklasse "ZufallsEreignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
-    public void ausfuehren ()
+    public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
+            wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 System.out.println("Truhe 1");

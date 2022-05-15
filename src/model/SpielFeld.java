@@ -15,14 +15,15 @@ public class SpielFeld
     private int feldSpalte = 0;
 
 
-    public SpielFeld() //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+    public SpielFeld()
     {
         this.feldSpalte = generiereSpielfeldGroesse();
         this.feldZeile = generiereSpielfeldGroesse();
         KarteEinheit[][] spielfeld = new KarteEinheit[this.feldZeile][this.feldSpalte];
         this.spielfeld = spielfeld;
     }
-    public SpielFeld(int x, int y) //throws SpielfeldDimensionGleichNullException, SpielfeldNichtQuadratischException
+
+    public SpielFeld(int x, int y)
     {
         this.feldSpalte = x;
         this.feldZeile = y;

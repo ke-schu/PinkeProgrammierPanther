@@ -126,7 +126,6 @@ public class Ebene
         return this.ebene[zeile][spalte];
     }
 
-
     /**
      * Methode, die die Raeume der Ebene in der Konsole formatiert ausgibt.
      * @return gibt einen String der die Matrix des Attributes ebene repraesentiert wieder.
@@ -163,7 +162,6 @@ public class Ebene
                     sb.append(SENKRECHTER_STRICH);
                     sb.append(LEERZEICHEN);
                 }
-
             }
         sb.append(ZEILENUMBRUCH);
         }

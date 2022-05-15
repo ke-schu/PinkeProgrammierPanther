@@ -17,8 +17,6 @@ public class Spieler extends KarteEinheit implements Spielbar
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
     private final int mana;
-    private int positionInEbeneX;
-    private int positionInEbeneY;
 
     public Spieler(String name, int level, Einheiten typ, int macht, int lebenspunkte,
                    int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei,
@@ -65,41 +63,5 @@ public class Spieler extends KarteEinheit implements Spielbar
     public int getMana()
     {
         return mana;
-    }
-
-    /**
-     * Methode die den Int-Wert des Attributs positionInEbeneX liefert.
-     * @return gibt den Wert des Attributes positionInEbeneX.
-     */
-    public int getPositionInEbeneX()
-    {
-        return positionInEbeneX;
-    }
-
-    /**
-     * Methode die einen Int-Wert in das Attribut positionInEbeneX setzt.
-     * @param positionInEbeneX Int-Wert der in das Attribut positionInEbeneX setzt.
-     */
-    public void setPositionInEbeneX(int positionInEbeneX)
-    {
-        this.positionInEbeneX = positionInEbeneX;
-    }
-
-    /**
-     * Methode die den Int-Wert des Attributs positionInEbeneY liefert.
-     * @return gibt den Wert des Attributes positionInEbeneY.
-     */
-    public int getPositionInEbeneY()
-    {
-        return positionInEbeneY;
-    }
-
-    /**
-     * Methode die einen Int-Wert in das Attribut positionInEbeneY setzt.
-     * @param positionInEbeneY Int-Wert der in das Attribut positionInEbeneY setzt.
-     */
-    public void setPositionInEbeneY(int positionInEbeneY)
-    {
-        this.positionInEbeneY = positionInEbeneY;
     }
 }

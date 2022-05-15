@@ -15,8 +15,6 @@
       null
     ],
     "mana": 10,
-    "positionInEbeneX": 0,
-    "positionInEbeneY": 0,
     "typ": "FERNKAEMPFER",
     "macht": 20,
     "lebenspunkte": 20,
@@ -32,7 +30,7 @@
       "y": 0
     },
     "schlafend": true,
-    "freundlich": true,
+    "freundlich": false,
     "id": 0,
     "name": "meinSpieler",
     "level": 1,

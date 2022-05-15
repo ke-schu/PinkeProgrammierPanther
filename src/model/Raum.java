@@ -2,31 +2,40 @@ package model;
 
 import model.ereignisse.Ereignis;
 
-public class Raum
-{
+public class Raum {
     private Ereignis ereignis = null;
+
+    private transient SpielfigurEbene spielfigur = null;
 
     /**
      * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
+     *
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raum(Ereignis ereignis)
-    {
+    public Raum(Ereignis ereignis) {
         this.ereignis = ereignis;
     }
 
-    public Raum()
-    {
+    public Raum() {
 
     }
 
     /**
      * Methode um das Ereignis aus dem Attribut ereignis zu bekommen.
+     *
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis ()
-    {
+    public Ereignis getEreignis() {
         return ereignis;
     }
 
+    public SpielfigurEbene getSpielfigur()
+    {
+        return spielfigur;
+    }
+
+    public void setSpielfigur(SpielfigurEbene spielfigur)
+    {
+        this.spielfigur = spielfigur;
+    }
 }

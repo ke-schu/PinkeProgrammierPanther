@@ -3,6 +3,8 @@ package model.ereignisse;
 import model.KartenDeck;
 import model.SpielStand;
 
+import java.util.Scanner;
+
 public class Tempel extends Mensch
 {
 
@@ -22,11 +24,14 @@ public class Tempel extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aus dem Deck entfernt oder
      * vorher die Zahlung durchgefuehrt.
      */
-    public void ausfuehren (SpielStand spielStand, int indexKarte)
+    public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
+            Scanner sc = new Scanner(System.in);
+            int indexKarte = sc.nextInt();
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieldeckSpieler().remove(indexKarte);

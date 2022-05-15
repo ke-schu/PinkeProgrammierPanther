@@ -4,6 +4,8 @@ import control.KartenController;
 import model.KarteEinheit;
 import model.SpielStand;
 
+import java.util.Scanner;
+
 public class Schmied extends Mensch
 {
     /**
@@ -22,23 +24,25 @@ public class Schmied extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
      * @param spielStand
-     * @param karte
      * @return
      */
-    public void ausfuehren (SpielStand spielStand, KarteEinheit karte)
+    public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
+            Scanner sc = new Scanner(System.in);
+            int kartenNummer = sc.nextInt();
             if (pruefeGratisInteraktion())
             {
-                KartenController.kartenVerbessern(karte);
+                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(kartenNummer)));
                 gratisInteraktion--;
             }
             else
             {
                 spielStand.setGold(spielStand.getGold() - kosten);
-                KartenController.kartenVerbessern(karte);
+                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(kartenNummer)));
                 interaktionsZaehler++;
                 kostenErhoehen();
             }

@@ -4,11 +4,20 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
+import static resources.Strings.LEERER_RAUM;
+import static resources.Strings.LEERER_RAUM_BESCHREIBUNG;
 import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 
+/**
+ * Diese Klasse enthält Methoden um mit Instanzen der Klasse Ebene zu interagieren.
+ */
 public class EbeneController
 {
+    /**
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benötigt wird um einen Gegner zu erstellen.
+     * @return gibt eine Instanz der Klasse Gegenspieler zurück.
+     */
     private static Gegenspieler erstelleGegenspieler ()
     {
         return new Gegenspieler("Test_Gegner",
@@ -20,8 +29,8 @@ public class EbeneController
     }
     
     /**
-     * Methode die die Ebene mit vorbestimmten Raeumen fuellt.
-     * @return liefert eine mit Raeumen gefuellte Ebene als 2D Array.
+     * Methode eine Ebene zu erstellen und mit vorbestimmten Raeumen zu fuellen.
+     * @return liefert eine mit Raeumen gefuellte Ebene.
      */
     public static Ebene fuelleEbene (int EbenenStufe)
     {
@@ -45,26 +54,26 @@ public class EbeneController
                 Raum RaumMitZufallsEreignis = new Raum(ze);
                 meinRaum[ZAHL_3][ZAHL_3] = RaumMitZufallsEreignis;
 
-                Schmied schmied1 = new Schmied("Bernhard","Hoere mal wer da haemmert!");
+                Schmied schmied1 = new Schmied("Schmied","Hoere mal wer da haemmert!");
                 Raum raumSchmied = new Raum(schmied1);
                 meinRaum[ZAHL_6][ZAHL_4] = raumSchmied;
-
-                Haendler haendler1 = new Haendler("Josef", "Mehr als nur Staubsauger.", new KartenDeck("Deckbezeichnung einfuegen"));
-                Raum raumHaendler1 = new Raum(haendler1);
-                meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
 
                 Treppe treppe1 = new Treppe("Treppe 1", "Ne Menge Stufen");
                 Raum raumTreppe1 = new Raum(treppe1);
                 meinRaum[ZAHL_2][ZAHL_7] = raumTreppe1;
 
-                Raum leererRaum10 = new Raum();
-                Raum leererRaum11 = new Raum();
-                Raum leererRaum12 = new Raum();
-                Raum leererRaum13 = new Raum();
+                Raum leererRaum10 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum11 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum12 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum13 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
                 meinRaum[ZAHL_5][ZAHL_4] = leererRaum10;
                 meinRaum[ZAHL_3][ZAHL_4] = leererRaum11;
                 meinRaum[ZAHL_3][ZAHL_6] = leererRaum12;
                 meinRaum[ZAHL_4][ZAHL_4] = leererRaum13;
+
+                Haendler haendler1 = new Haendler("Haendler", "Mehr als nur Staubsauger.");
+                Raum raumHaendler1 = new Raum(haendler1);
+                meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
                 break;
 
             case ZAHL_2:
@@ -200,5 +209,16 @@ public class EbeneController
                 break;
         }
         return new Ebene(zeilen, spalten, meinRaum);
+    }
+
+    /**
+     * Diese Methode initialisiert eine Instanz der Klasse SpielfigurEbene an den Indexen (4,4) in einer Ebene.
+     * @param spielfigur Instanz der Klasse Spielfigur, welche in der Ebene initialisiert werden soll.
+     * @param ebene Instanz der Klasse Ebene, in welcher die Instanz der Klasse SpielfigurEbene initialisiert werden soll.
+     */
+    public static void initSpielerInEbene (SpielfigurEbene spielfigur, Ebene ebene)
+    {
+        ebene.getRaumAnPosition(ZAHL_4,ZAHL_4).setSpielfigur(spielfigur);
+        spielfigur.setPosition(ZAHL_4,ZAHL_4);
     }
 }

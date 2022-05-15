@@ -24,8 +24,6 @@ public class EbeneIO
 {
     private static Gson meinGson;
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
-    private static String dateiPfad = "src/resources/ebenen/Ebene1.json";
-    private static File dateiEbene = new File(dateiPfad);
 
     /**
      * Serialisiert die Ebene ins Json-Format.

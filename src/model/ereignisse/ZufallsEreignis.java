@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.SpielStand;
+
 public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
@@ -18,7 +20,6 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     {
         super(name, beschreibung);
         this.ausgefuehrt = ausgefuehrt;
-        this.wahrscheinlichkeit = generiereWahrscheinlichkeit();
     }
 
     /**
@@ -55,11 +56,13 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
-    public void ausfuehren ()
+    public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
+            wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 System.out.println("Ereignis 1");

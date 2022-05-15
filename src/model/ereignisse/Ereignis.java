@@ -1,5 +1,9 @@
 package model.ereignisse;
 
+import model.KarteEinheit;
+import model.SpielStand;
+import model.Spieler;
+
 import java.util.Scanner;
 
 /**
@@ -70,4 +74,10 @@ public abstract class Ereignis
         Scanner playerWahl = new Scanner(System.in);
         auswahl = playerWahl.nextBoolean();
     }
+
+    public void ausfuehren (SpielStand spielStand)
+    {
+
+    }
+
 }

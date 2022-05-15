@@ -6,11 +6,14 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
-
+import static resources.Strings.*;
 import java.io.File;
 
 public class KartenDeckTest
 {
+    private final static String TESTPFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
+    private final static String TESTBEZEICHNUNG = "IchBinDasSpieldeck";
+
     private static KarteEinheit erstelleKarte ()
     {
         return new KarteEinheit(
@@ -27,17 +30,37 @@ public class KartenDeckTest
                 Effekte.ZURUECKWERFEN);
     }
 
-    public static void erstelleDeck () throws KartenDeckFehlerhaftException
+    public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(new File(
-                "src/resources/kartendecks/Spieldeck_Spieler.json"),
-                "IchBinDasSpieldeck");
+        KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD), TESTBEZEICHNUNG);
+
         meinDeck.push(erstelleKarte());
         meinDeck.push(erstelleKarte());
         meinDeck.push(erstelleKarte());
         meinDeck.push(erstelleKarte());
         meinDeck.push(erstelleKarte());
         meinDeck.push(erstelleKarte());
-        KartenDeckIO.schreibeDatei(meinDeck);
+
+        try
+        {
+            KartenDeckIO.schreibeDatei(meinDeck);
+        }
+        catch (KartenDeckFehlerhaftException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void leseDeck ()
+    {
+        try
+        {
+            KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD);
+            System.out.println(meinDeck);
+        }
+        catch (KartenDeckFehlerhaftException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 }
