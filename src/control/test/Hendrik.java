@@ -1,7 +1,7 @@
 package control.test;
 import control.EbeneController;
 import control.EinheitenController;
-import control.SpielerController;
+import control.SpielfigurEbeneController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.EbeneIO;
 import io.SpielStandIO;
@@ -11,8 +11,6 @@ import resources.Strings;
 
 import java.io.File;
 import java.io.IOException;
-
-import static resources.Strings.SPIELSTAND_PFAD;
 
 /**
  * In dieser Klasse liegen Methoden, die Code testen sollen.
@@ -101,7 +99,7 @@ public class Hendrik
             EbeneController.initSpielerInEbene(new SpielfigurEbene(),ebene1);
             System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
             System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
-            SpielerController.bewegen(ebene1,4,3,ebene1.getRaumAnPosition(4,4).getSpielfigur());
+            SpielfigurEbeneController.bewegen(ebene1,4,3,ebene1.getRaumAnPosition(4,4).getSpielfigur());
             System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
             System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
 

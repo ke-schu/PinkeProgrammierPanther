@@ -89,7 +89,5 @@ public class Haendler extends Mensch
                 kostenErhoehen();
             }
         }
-
-
     }
 }

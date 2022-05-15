@@ -1,12 +1,11 @@
 package control;
 
 import model.Ebene;
-import model.Spieler;
 import model.SpielfigurEbene;
 
 import static resources.Zahlen.ZAHL_1;
 
-public class SpielerController
+public class SpielfigurEbeneController
 {
 
     public static void bewegen (Ebene ebene, int ziel_x, int ziel_y, SpielfigurEbene spielfigur)

@@ -6,4 +6,9 @@ public class LeererRaum extends Ereignis
     {
         super(name, beschreibung);
     }
+
+    public void ausfuehren()
+    {
+        System.out.println("Dies ist ein leerer Raum");
+    }
 }
