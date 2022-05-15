@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Klasse Position welche informationen über die Position einer Karte auf dem Spielfeld in sich treagt
+ */
 public class Position
 {
     private int x;

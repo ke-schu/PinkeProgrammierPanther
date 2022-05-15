@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * ManaTank repraesentiert die Manareserve welche einem Spieler zur verfuegung steht,
+ * um Einheiten zu beschwoeren
+ */
 public class ManaTank
 {
     private int mana;
@@ -18,6 +22,10 @@ public class ManaTank
         this.mana = mana;
     }
 
+    /**
+     * Verringert den Manawert im Manatank um die höhe der gezahlten kosten
+     * @param kosten, Kosten welche gezahlt werden
+     */
     public void manabezahlen (int kosten)
     {
         this.mana = mana-kosten;

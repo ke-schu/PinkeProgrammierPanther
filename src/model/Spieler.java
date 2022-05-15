@@ -7,6 +7,10 @@ import resources.Talente;
 
 import java.util.Stack;
 
+/**
+ * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld darstellt
+ * Sie erbt von Klasse KarteEinheit
+ */
 public class Spieler extends KarteEinheit implements Spielbar
 {
     private Waffe waffe;

@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * KarteZauber repraesentiert eine Zauberkarte welche einen Effekt ausloesen kann
+ * Sie erbt von Karte
+ */
 public class KarteZauber extends Karte
 {
     private int macht;

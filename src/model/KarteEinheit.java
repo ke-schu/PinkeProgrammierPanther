@@ -5,7 +5,7 @@ import resources.Einheiten;
 
 /**
  * KarteEinheit repraesentiert eine Einheit welche als Karte auf das Spielfeld gelegt werden kann
- * sie erbt von Karte
+ * Sie erbt von Karte
  */
 public class KarteEinheit extends Karte
 {

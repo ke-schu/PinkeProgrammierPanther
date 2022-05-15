@@ -3,7 +3,7 @@ package model;
 import resources.Strings;
 
 /**
- * Karte ist eine abstrakte superklasse für genauer definierte Karten
+ * Karte ist eine abstrakte Superklasse für genauer definierte Karten
  */
 public abstract class Karte
 {
