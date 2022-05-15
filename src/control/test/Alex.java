@@ -27,11 +27,14 @@ public class Alex
 
 try
 {
-
+    //Erstellen eine Spielfeldes und 2er spieldecks
     SpielFeld meinfeld = new SpielFeld(10,5);
+    System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
     KartenDeck meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
     KartenDeck masterdeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Gegner.json");
     System.out.println(meindeck.toString());
+
+    //Erstellen 2er haende und befuellen dieser
     KartenHand meinehand = new KartenHand();
     KartenHand masterhand = new KartenHand();
     meinehand.handziehen(meindeck);
@@ -39,16 +42,22 @@ try
     System.out.println(meinehand);
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
     System.out.println(spieler);
+
+    //Erstellen von Manatank instanzen für Spieler und Gegenspieler
     ManaTank meintank = new ManaTank(spieler);
     Gegenspieler master = new Gegenspieler("bjoern",3,FERNKAEMPFER,15, 15,2,7,3,1,LETZTEWORTE, ZURUECKWERFEN,12);
     ManaTank mastertank = new ManaTank(master);
-    System.out.println(" spielfeldtiefe " + meinfeld.getFeldSpalte() + " spielfeldbreite " + meinfeld.getFeldZeile());
+
+
+    //Beschwoeren des Helden und des Gegners auf dem Spielfeld, diese haben feste positionen
     beschwoerenHeld(spieler, meinfeld);
     beschwoerenHeld(master, meinfeld);
+
+    //beschwoeren einer Einheit auf dem Feld
     KartenEinheitController.beschwoeren(meinehand,2,meinfeld,0,1 ,meintank);
-    System.out.println("ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(0,1));
-    System.out.println("und ich denke ich stehe in zeile " +meinfeld.getSpielfeldplatz(0,1).getPosition_x());
-    System.out.println("und spalte " + meinfeld.getSpielfeldplatz(0,1).getPosition_y());
+    System.out.println(" Hallo ich bin eine beschworene Einheit und heiße "+meinfeld.getSpielfeldplatz(0,1).getName()+" ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(0,1));
+    System.out.println("und ich denke ich stehe in Spalte " +meinfeld.getSpielfeldplatz(0,1).getPosition_x());
+    System.out.println("und Zeile " + meinfeld.getSpielfeldplatz(0,1).getPosition_y());
     System.out.println("vor dem bewegen stehe ich an position" + (meinfeld.getFeldZeile()-1)+ (meinfeld.getFeldSpalte()-1)  + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile()-ZAHL_1,meinfeld.getFeldSpalte()-ZAHL_1));
     EinheitenController.bewegen(meinfeld,1,3,master);
     EinheitenController.bewegen(meinfeld,1,2,master);
