@@ -99,7 +99,7 @@ public class Hendrik
             EbeneController.initSpielerInEbene(new SpielfigurEbene(),ebene1);
             System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
             System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
-            SpielfigurEbeneController.bewegen(ebene1,4,3,ebene1.getRaumAnPosition(4,4).getSpielfigur());
+            SpielfigurEbeneController.bewegen(ebene1,4,3,ebene1.getRaumAnPosition(4,4).getSpielfigur(), SpielStandIO.leseDatei());
             System.out.println(ebene1.getRaumAnPosition(4,3).getSpielfigur());
             System.out.println(ebene1.getRaumAnPosition(4,4).getSpielfigur());
 

@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.SpielStand;
+
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean geleert = false;
@@ -22,7 +24,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      * Diese Methode überlagert die Methode aus der Superklasse "ZufallsEreignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
-    public void ausfuehren ()
+    public void ausfuehren (SpielStand spielStand)
     {
         auswaehlen();
         if(isAuswahl())

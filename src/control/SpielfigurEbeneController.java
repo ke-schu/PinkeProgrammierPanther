@@ -1,6 +1,7 @@
 package control;
 
 import model.Ebene;
+import model.SpielStand;
 import model.SpielfigurEbene;
 
 import static resources.Zahlen.ZAHL_1;
@@ -8,7 +9,7 @@ import static resources.Zahlen.ZAHL_1;
 public class SpielfigurEbeneController
 {
 
-    public static void bewegen (Ebene ebene, int ziel_x, int ziel_y, SpielfigurEbene spielfigur)
+    public static void bewegen (Ebene ebene, int ziel_x, int ziel_y, SpielfigurEbene spielfigur, SpielStand spielStand)
     {
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;
@@ -25,6 +26,8 @@ public class SpielfigurEbeneController
                 ebene.getRaumAnPosition(ziel_x, ziel_y).setSpielfigur(spielfigur);
                 spielfigur.setPosition(ziel_x,ziel_y);
                 ebene.getRaumAnPosition(start_x, start_y).setSpielfigur(null);
+
+                ebene.getRaumAnPosition(ziel_x,ziel_y).getEreignis().ausfuehren(spielStand);
             }
         }
     }

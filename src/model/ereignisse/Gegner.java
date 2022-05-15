@@ -2,6 +2,7 @@ package model.ereignisse;
 
 import model.Gegenspieler;
 import model.SpielFeld;
+import model.SpielStand;
 
 
 public class Gegner extends Ereignis
@@ -27,7 +28,7 @@ public class Gegner extends Ereignis
     /**
      *
      */
-    public void ausfuehren ()
+    public void ausfuehren (SpielStand spielStand)
     {
         auswaehlen();
         if (isAuswahl())

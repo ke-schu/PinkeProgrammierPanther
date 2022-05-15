@@ -4,6 +4,8 @@ import model.KarteEinheit;
 import model.SpielStand;
 import model.Spieler;
 
+import static resources.Zahlen.ZAHL_2;
+
 public class Heiler extends Mensch
 {
     /**
@@ -22,26 +24,24 @@ public class Heiler extends Mensch
      * eine Bezahlung erfordert. Je nach Resultat werden die Lebenspunkte des Spielers kostenlos oder gegen
      * eine Bezahlung regeneriert.
      * @param spielStand:
-     * @param spieler:
      */
-    public Spieler ausfuehren (SpielStand spielStand, Spieler spieler)
+    public void ausfuehren (SpielStand spielStand)
     {
         auswaehlen();
         if(isAuswahl())
         {
             if (pruefeGratisInteraktion())
             {
-                //spieler.setLebenspunkte();
+                spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() + ZAHL_2);
                 gratisInteraktion--;
             }
             else
             {
                 spielStand.setGold(spielStand.getGold() - kosten);
-                //spieler.setLebenspunkte();
+                spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() + ZAHL_2);
             }
         }
         interaktionsZaehler++;
         kostenErhoehen();
-        return spieler;
     }
 }

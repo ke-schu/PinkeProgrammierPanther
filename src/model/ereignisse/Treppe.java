@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import model.SpielStand;
+
 public class Treppe extends Ereignis
 {
     /**
@@ -17,7 +19,7 @@ public class Treppe extends Ereignis
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Wird diese Methode ausgefuehrt,
      * dann wechselt der Spieler die Ebene, auf der er sich befindet, zur nächst höheren.
      */
-    public void ausfuehren ()
+    public void ausfuehren (SpielStand spielStand)
     {
         //Ebene ebene = new Ebene();
         //try

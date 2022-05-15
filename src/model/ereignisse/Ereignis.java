@@ -75,31 +75,9 @@ public abstract class Ereignis
         auswahl = playerWahl.nextBoolean();
     }
 
-    public void ausfuehren ()
-    {
-
-    }
-
     public void ausfuehren (SpielStand spielStand)
     {
 
     }
-
-    public void ausfuehren (SpielStand spielStand, Spieler spieler)
-    {
-
-    }
-
-
-    public void ausfuehren (SpielStand spielStand, KarteEinheit karten)
-    {
-
-    }
-
-    public void ausfuehren (SpielStand spielStand, int indexKarte)
-    {
-
-    }
-
 
 }
