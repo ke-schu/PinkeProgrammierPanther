@@ -24,6 +24,8 @@ public interface Strings
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
 
+    String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
+
     //Exception Strings
     String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehnung gleich 0!";
     String SPIELFELD_NICHT_QUADRATISCH_EXCEPTION_INFO = "Das Spielfeld wurde nicht quadratisch generiert!";

@@ -65,7 +65,7 @@ try
 }
 catch(KartenDeckFehlerhaftException | IOException e)
 {
-    ;
+    System.out.println("fuck");
 }
 
     }

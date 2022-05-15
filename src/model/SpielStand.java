@@ -25,7 +25,7 @@ public class SpielStand
         this.spieler = spieler;
         this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
-        this.aktuelleEbene = EbeneIO.leseDatei(new File("AKTUELLE_EBENE_PFAD"));
+        this.aktuelleEbene = EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
     }
 
     public SpielStand (SpielStand stand) throws KartenDeckFehlerhaftException, IOException
