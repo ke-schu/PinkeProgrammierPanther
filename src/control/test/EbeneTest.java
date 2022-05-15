@@ -8,25 +8,38 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
-
 import java.io.File;
 import java.io.IOException;
 
+import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.Zahlen.*;
 
-
+/**
+ * Diese Klasse beinhaltet die für das Testen der Ebene notwendigen Methoden.
+ */
 public class EbeneTest
 {
+    /**
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das erstellen von Gegnern notwendig ist.
+     * @return gibt eine Instanz von Gegenspieler zurück.
+     */
     private static Gegenspieler erstelleGegenspieler ()
     {
         return new Gegenspieler("Test_Gegner",
-                10,
+                ZAHL_10,
                 Einheiten.FERNKAEMPFER,
-                1,1,1,1,1,1,
+                ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,
                 Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                10);
+                ZAHL_10);
     }
 
+    /**
+     * Diese Methode testet alle grundlegenden Funktionen einer Ebene.
+     * Es wird eine Ebene und Raeume erstellt, welche mit Ereignissen gefüllt sind.
+     * Anschließend wird die Instanz in die EbeneTest.json geschrieben und anschließend aus dieser
+     * in eine neue Instanz von Ebene geschrieben.
+     * Hiernach durchläuft eine Instanz der Klasse SpielfigurEbene diese Ebene und durchquert alle Ereignisse einmal.
+     */
     public static void testeEbene()
     {
         Ebene testEbene1 = new Ebene(ZAHL_9, ZAHL_9);
@@ -43,7 +56,6 @@ public class EbeneTest
         Truhe truhe = new Truhe("Truhe", "Hier kann man truhen.", false);
         Gegner gegner = new Gegner("Gegner", "Hier kann man gegnern.", erstelleGegenspieler(), new SpielFeld());
         Treppe treppe = new Treppe("Treppe", "Hier kann treppen.");
-
 
         Raum startRaum = new Raum(leererRaum1);
         Raum leererRaum = new Raum(leererRaum2);
@@ -72,7 +84,7 @@ public class EbeneTest
 
         try
         {
-            EbeneIO.schreibeDatei(testEbene1, new File("src/resources/ebenen/EbeneTest.json"));
+            EbeneIO.schreibeDatei(testEbene1, new File(EBENE_TEST_PFAD));
         }
         catch (IOException e)
         {
@@ -81,7 +93,7 @@ public class EbeneTest
 
         try
         {
-            testEbene2 = EbeneIO.leseDatei(new File("src/resources/ebenen/EbeneTest.json"));
+            testEbene2 = EbeneIO.leseDatei(new File(EBENE_TEST_PFAD));
         }
         catch (IOException e)
         {
@@ -112,7 +124,5 @@ public class EbeneTest
         SpielfigurEbeneController.bewegen(testEbene2,ZAHL_7,ZAHL_0,spielfigur,spielStand);
         SpielfigurEbeneController.bewegen(testEbene2,ZAHL_8,ZAHL_0,spielfigur,spielStand);
         SpielfigurEbeneController.bewegen(testEbene2,ZAHL_8,ZAHL_1,spielfigur,spielStand);
-
-
     }
 }

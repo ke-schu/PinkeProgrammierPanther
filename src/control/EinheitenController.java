@@ -5,7 +5,7 @@ import static resources.Zahlen.*;
 
 
 /**
- * Klasse in der sich Methoden befinden die mit Instanzen von Einheiten interagieren.
+ * Klasse, in der sich Methoden befinden die, mit Instanzen der Klasse KarteEinheit interagieren.
  */
 public class EinheitenController
 {

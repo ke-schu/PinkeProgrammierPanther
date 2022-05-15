@@ -3,12 +3,23 @@ package control;
 import model.Ebene;
 import model.SpielStand;
 import model.SpielfigurEbene;
-
 import static resources.Zahlen.ZAHL_1;
 
+/**
+ * Klasse, in der sich Methoden befinden, die mit Instanzen der Klasse SpielfigurEbene interagieren.
+ */
 public class SpielfigurEbeneController
 {
 
+    /**
+     * Methode um eine Instanz von SpielfigurEbene um einen Raum der Ebene zu bewegen und das Ereignis des Raums
+     * nach betreten auszufuehren.
+     * @param ebene Instanz der Klasse Ebene in der sich die Instanz von SpielfigurEbene befindet.
+     * @param ziel_x Zielkoordinate des Raums auf der X-Achse.
+     * @param ziel_y Zielkoorinate des Raums auf der Y-Achse.
+     * @param spielfigur Instanz der Klasse SpielfigurEbene, welche in der Instanz von Ebene bewegt werden soll.
+     * @param spielStand Instanz der Klasse SpielStand, welcher den Ereignissen uebergeben wird.
+     */
     public static void bewegen (Ebene ebene, int ziel_x, int ziel_y, SpielfigurEbene spielfigur, SpielStand spielStand)
     {
         boolean zielErreichbarInX = false;
@@ -31,5 +42,4 @@ public class SpielfigurEbeneController
             }
         }
     }
-
 }

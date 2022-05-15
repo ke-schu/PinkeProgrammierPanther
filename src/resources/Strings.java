@@ -22,6 +22,7 @@ public interface Strings
     String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
     String CHARAKTER_PFAD = "src/resources/Charaktere" + JSON_DATEIENDUNG;
     String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
+    String EBENE_TEST_PFAD = "src/resources/ebenen/EbeneTest" + JSON_DATEIENDUNG;
 
     //  Kartendeck-Pfade
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";

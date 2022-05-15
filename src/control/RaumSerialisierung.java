@@ -4,6 +4,9 @@ import com.google.gson.*;
 import model.Raum;
 import java.lang.reflect.Type;
 
+/**
+ * Klasse in der sich Methoden befinden um Raeume aus .json Dateien korrekt zu deserialisieren.
+ */
 public class RaumSerialisierung implements JsonDeserializer<Raum>
 {
     private Gson meinGson = new Gson();

@@ -4,14 +4,20 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
-
 import static resources.Strings.LEERER_RAUM;
 import static resources.Strings.LEERER_RAUM_BESCHREIBUNG;
 import static resources.StringsGegner.*;
 import static resources.Zahlen.*;
 
+/**
+ * Diese Klasse enthält Methoden um mit Instanzen der Klasse Ebene zu interagieren.
+ */
 public class EbeneController
 {
+    /**
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benötigt wird um einen Gegner zu erstellen.
+     * @return gibt eine Instanz der Klasse Gegenspieler zurück.
+     */
     private static Gegenspieler erstelleGegenspieler ()
     {
         return new Gegenspieler("Test_Gegner",
@@ -23,8 +29,8 @@ public class EbeneController
     }
     
     /**
-     * Methode die die Ebene mit vorbestimmten Raeumen fuellt.
-     * @return liefert eine mit Raeumen gefuellte Ebene als 2D Array.
+     * Methode eine Ebene zu erstellen und mit vorbestimmten Raeumen zu fuellen.
+     * @return liefert eine mit Raeumen gefuellte Ebene.
      */
     public static Ebene fuelleEbene (int EbenenStufe)
     {
@@ -68,8 +74,6 @@ public class EbeneController
                 Haendler haendler1 = new Haendler("Haendler", "Mehr als nur Staubsauger.");
                 Raum raumHaendler1 = new Raum(haendler1);
                 meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
-
-
                 break;
 
             case ZAHL_2:
@@ -207,6 +211,11 @@ public class EbeneController
         return new Ebene(zeilen, spalten, meinRaum);
     }
 
+    /**
+     * Diese Methode initialisiert eine Instanz der Klasse SpielfigurEbene an den Indexen (4,4) in einer Ebene.
+     * @param spielfigur Instanz der Klasse Spielfigur, welche in der Ebene initialisiert werden soll.
+     * @param ebene Instanz der Klasse Ebene, in welcher die Instanz der Klasse SpielfigurEbene initialisiert werden soll.
+     */
     public static void initSpielerInEbene (SpielfigurEbene spielfigur, Ebene ebene)
     {
         ebene.getRaumAnPosition(ZAHL_4,ZAHL_4).setSpielfigur(spielfigur);
