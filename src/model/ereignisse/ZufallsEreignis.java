@@ -58,6 +58,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

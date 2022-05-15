@@ -28,6 +28,7 @@ public class Schmied extends Mensch
      */
     public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

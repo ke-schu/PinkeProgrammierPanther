@@ -1,0 +1,259 @@
+{
+  "ebene": [
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "gratisInteraktion": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "KEINE_GRATIS_INTERAKTION": 0,
+          "name": "Tempel",
+          "beschreibung": "Hier kann tempeln.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Tempel"
+        }
+      },
+      {
+        "ereignis": {
+          "gratisInteraktion": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "KEINE_GRATIS_INTERAKTION": 0,
+          "name": "Heiler",
+          "beschreibung": "Hier kann man heilern.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Heiler"
+        }
+      },
+      {
+        "ereignis": {
+          "ausgefuehrt": false,
+          "wahrscheinlichkeit": 0.0,
+          "name": "Zufallsereignis",
+          "beschreibung": "Hier kann man zufalls ereignissen.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.ZufallsEreignis"
+        }
+      },
+      {
+        "ereignis": {
+          "geleert": false,
+          "wahrscheinlichkeit": 0.0,
+          "name": "Truhe",
+          "beschreibung": "Hier kann man truhen.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Truhe"
+        }
+      },
+      {
+        "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 0,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 5,
+            "feldSpalte": 5
+          },
+          "name": "Gegner",
+          "beschreibung": "Hier kann man gegnern.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
+        }
+      }
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "gratisInteraktion": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "KEINE_GRATIS_INTERAKTION": 0,
+          "name": "Schmied",
+          "beschreibung": "Hier kann man schmieden.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Schmied"
+        }
+      },
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Treppe",
+          "beschreibung": "Hier kann treppen.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Treppe"
+        }
+      }
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "gratisInteraktion": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "KEINE_GRATIS_INTERAKTION": 0,
+          "name": "Haendler",
+          "beschreibung": "Hier kann man handeln.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Haendler"
+        }
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Leerer Raum",
+          "beschreibung": "Hier kann man leeren.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.LeererRaum"
+        }
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Startraum",
+          "beschreibung": "Hier kann man starten.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.LeererRaum"
+        }
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "ebenenSpalte": 9,
+  "ebenenZeile": 9
+}

@@ -21,6 +21,7 @@ public class Treppe extends Ereignis
      */
     public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         //Ebene ebene = new Ebene();
         //try
         {

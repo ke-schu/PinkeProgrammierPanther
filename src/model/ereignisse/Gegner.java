@@ -30,6 +30,7 @@ public class Gegner extends Ereignis
      */
     public void ausfuehren (SpielStand spielStand)
     {
+        System.out.println(this.getName());
         auswaehlen();
         if (isAuswahl())
         {

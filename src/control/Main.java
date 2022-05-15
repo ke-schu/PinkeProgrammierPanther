@@ -10,13 +10,13 @@ public class Main
 
     private static void testen()
     {
-        switch(2)
+        switch(3)
         {
             case 1: Alex.ausfuehren();
             break;
             case 2: Hendrik.ausfuehren();
             break;
-            case 3: Henrik.testen();
+            case 3: EbeneTest.testeEbene();
             break;
             case 4: SpielStandTest.speichereSpielstand();
             case 5: SpielStandTest.leseSpielstand();
