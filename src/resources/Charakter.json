@@ -16,8 +16,6 @@
         null
       ],
       "mana": 10,
-      "positionInEbeneX": 0,
-      "positionInEbeneY": 0,
       "typ": "FERNKAEMPFER",
       "macht": 20,
       "lebenspunkte": 20,
@@ -58,8 +56,6 @@
         null
       ],
       "mana": 10,
-      "positionInEbeneX": 0,
-      "positionInEbeneY": 0,
       "typ": "FERNKAEMPFER",
       "macht": 20,
       "lebenspunkte": 20,

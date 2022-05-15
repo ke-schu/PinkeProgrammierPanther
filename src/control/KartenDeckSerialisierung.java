@@ -3,8 +3,8 @@ package control;
 import com.google.gson.*;
 import model.Karte;
 import model.KartenDeck;
-
 import java.lang.reflect.Type;
+import static resources.Strings.*;
 
 /**
  * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer für ein KartenDeck.
@@ -27,8 +27,8 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
     {
         JsonObject jsonKartenDeck = new JsonObject();
 
-        jsonKartenDeck.addProperty("Bezeichnung", src.getDeckBezeichnung());
-        jsonKartenDeck.add("Karten", meinGson.toJsonTree(src));
+        jsonKartenDeck.addProperty(KARTEN_DECK_BEZEICHNUNG, src.getDeckBezeichnung());
+        jsonKartenDeck.add(KARTEN_DECK_STACK, meinGson.toJsonTree(src));
 
         return jsonKartenDeck;
     }
@@ -45,9 +45,9 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
     public KartenDeck deserialize (JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException
     {
         JsonObject meinJsonObject = json.getAsJsonObject();
-        JsonArray meinJsonArray = meinJsonObject.get("Karten").getAsJsonArray();
+        JsonArray meinJsonArray = meinJsonObject.get(KARTEN_DECK_STACK).getAsJsonArray();
 
-        KartenDeck meinKartenDeck = new KartenDeck(meinJsonObject.get("Bezeichnung").getAsString());
+        KartenDeck meinKartenDeck = new KartenDeck(meinJsonObject.get(KARTEN_DECK_BEZEICHNUNG).getAsString());
 
         for (int i = 0; i < meinJsonArray.size(); i++)
         {

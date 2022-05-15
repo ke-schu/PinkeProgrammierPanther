@@ -2,6 +2,7 @@ package model;
 
 import java.io.File;
 import java.util.Stack;
+import static resources.Strings.*;
 
 public class KartenDeck extends Stack<Karte>
 {
@@ -30,8 +31,8 @@ public class KartenDeck extends Stack<Karte>
     }
 
     /**
-     *
-     * @return
+     * Überlagert die toString-Methode hier für ein Kartendeck.
+     * @return die Deckbezeichnung und die einzelnen Karten.
      */
     public String toString ()
     {
@@ -39,20 +40,24 @@ public class KartenDeck extends Stack<Karte>
         for (int i = 0; i < this.size(); i++)
         {
             sb.append(this.get(i).toString());
-            sb.append("\t\t");
+            sb.append(TRENNUNG);
         }
-        return this.getDeckBezeichnung() + "\t\t" + sb.toString();
+        return this.getDeckBezeichnung() + TRENNUNG + sb;
     }
 
     /**
-     * Methode die File des Attributes datei wiedergibt.
-     * @return gibt den Inhalt des Attributes datei.
+     * Gibt die Datei wieder, in der das Kartendeck gespeichert ist.
+     * @return die Kartendeck-Datei.
      */
     public File getDatei ()
     {
         return datei;
     }
 
+    /**
+     * Setzt die Datei des Kartendecks
+     * @param datei Die Datei des Kartendecks
+     */
     public void setDatei(File datei)
     {
         this.datei = datei;

@@ -7,7 +7,7 @@ import model.SpielStand;
 
 import java.util.Scanner;
 
-import static resources.Strings.HAENDLERDECK1_PFAD;
+import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
 
 /**
  *
@@ -66,7 +66,7 @@ public class Haendler extends Mensch
             int kartenPosition;
             try
             {
-                this.setHaendlerDeck(KartenDeckIO.leseDatei(HAENDLERDECK1_PFAD));
+                this.setHaendlerDeck(KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
             }
             catch (KartenDeckFehlerhaftException e)
             {

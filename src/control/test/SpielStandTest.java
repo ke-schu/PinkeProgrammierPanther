@@ -19,18 +19,25 @@ import static resources.Talente.MANA_GOTT;
 
 public class SpielStandTest
 {
-    public static void schreibeCharacter() throws KartenDeckFehlerhaftException, IOException
+    public static void schreibeCharacter()
     {
-        Charakter charakter = new Charakter("Magier", 321, erstelleSpieler(), true);
-        Stack<Charakter> meinCharakterStack = new Stack<>();
-        meinCharakterStack.push(charakter);
-        meinCharakterStack.push(charakter);
-        CharakterIO.schreibeDatei(meinCharakterStack);
+        try
+        {
+            Charakter charakter = new Charakter("Magier", 321, erstelleSpieler(), true);
+            Stack<Charakter> meinCharakterStack = new Stack<>();
+            meinCharakterStack.push(charakter);
+            meinCharakterStack.push(charakter);
+            CharakterIO.schreibeDatei(meinCharakterStack);
+        }
+        catch (IOException | KartenDeckFehlerhaftException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static Spieler leseCharakter() throws KartenDeckFehlerhaftException, IOException
     {
-        Charakter meineKlasse = CharakterController.leseCharakter(0);
+        Charakter meineKlasse = CharakterController.leseCharakter(1);
         return meineKlasse.getSpieler();
     }
 

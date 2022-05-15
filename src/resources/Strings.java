@@ -1,12 +1,13 @@
 package resources;
 public interface Strings
 {
-    //Satzzeichen
+    //  Satzzeichen
     String LEERZEICHEN = " ";
     String ZEILENUMBRUCH = "\n";
     String SENKRECHTER_STRICH = "|";
+    String TRENNUNG = "\t" + SENKRECHTER_STRICH + "\t";
 
-    //Infos
+    //  Infos
     String SPIELSTAND_DATEI_ERSTELLT = "Der Spielstand wurde in eine neue Datei geschrieben.";
     String SPIELSTAND_DATEI_UEBERSCHRIEBEN = "Der bestehende Spielstand wurde überschrieben.";
     String CHARAKTER_DATEI_ERSTELLT = "Die Charaktere wurden in eine neue Datei geschrieben.";
@@ -16,18 +17,24 @@ public interface Strings
     String LEERER_RAUM = "Leerer Raum";
     String LEERER_RAUM_BESCHREIBUNG = "Dieser Raum ist leer.";
 
-    //Pfade
+    //  Pfade
     String JSON_DATEIENDUNG = ".json";
+    String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
+    String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
+    String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
+
+    //  Kartendeck-Pfade
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
     String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;   // %s = Name des Charakters
     String SPIEL_DECK_SPIELER_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Spieler" + JSON_DATEIENDUNG;
     String SPIEL_DECK_GEGNER_PFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner" + JSON_DATEIENDUNG;
-    String SPIELSTAND_PFAD = "src/resources/Spielstand" + JSON_DATEIENDUNG;
-    String CHARAKTER_PFAD = "src/resources/Charakter" + JSON_DATEIENDUNG;
-    String HAENDLERDECK1_PFAD = KARTENDECK_PAKET_PFAD +"Haendler1" + JSON_DATEIENDUNG;
-    String AKTUELLE_EBENE_PFAD = "src/resources/ebenen/EbeneAktuell" + JSON_DATEIENDUNG;
+    String HAENDLER_DECK_EINS_PFAD = KARTENDECK_PAKET_PFAD +"Haendler1" + JSON_DATEIENDUNG;
 
-    //Exception Strings
+    //  Json-Parameter
+    String KARTEN_DECK_BEZEICHNUNG = "bezeichnung";
+    String KARTEN_DECK_STACK = "karten";
+
+    //  Exception Strings
     String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehnung gleich 0!";
     String SPIELFELD_NICHT_QUADRATISCH_EXCEPTION_INFO = "Das Spielfeld wurde nicht quadratisch generiert!";
     String START_DECK_FEHLERHAFT_EXCEPTION_INFO =

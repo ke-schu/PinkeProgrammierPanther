@@ -9,7 +9,7 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
     private Gson meinGson = new Gson();
 
     /**
-     * Methode um aus einer .json Datei eine Instanz von Raum zu erhalten.
+     * Methode um aus einem Json-Element eine Instanz von Raum zu erhalten.
      * @param json der Raum als JsonElement.
      * @param type Typ des zu serialisierenden Raums.
      * @param context Kontext der Deserialisierung.

@@ -14,12 +14,14 @@ public class Main
         {
             case 1: Alex.ausfuehren();
             break;
-            case 2: Hendrik.ausfuehren();
+            case 2: EbeneTest.testeEbene();
             break;
-            case 3: EbeneTest.testeEbene();
-            break;
+            case 3: SpielStandTest.schreibeCharacter();
             case 4: SpielStandTest.speichereSpielstand();
             case 5: SpielStandTest.leseSpielstand();
+            break;
+            case 6: KartenDeckTest.erstelleDeck();
+            case 7: KartenDeckTest.leseDeck();
         }
     }
 }

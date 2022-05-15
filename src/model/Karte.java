@@ -1,6 +1,6 @@
 package model;
 
-import resources.Strings;
+import static resources.Strings.*;
 
 /**
  * Karte ist eine abstrakte Superklasse für genauer definierte Karten
@@ -38,7 +38,7 @@ public abstract class Karte
     @Override
     public String toString ()
     {
-        return this.getClass().getSimpleName() + Strings.LEERZEICHEN + this.getId();
+        return this.getName() + LEERZEICHEN + this.getId();
     }
 
     /**
