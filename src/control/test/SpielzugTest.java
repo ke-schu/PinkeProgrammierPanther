@@ -20,6 +20,9 @@ import static resources.Strings.*;
 import static resources.TestKonstanten.*;
 import static resources.Zahlen.*;
 
+/**
+ * SpielzugTest dient zum Testen der Klassen und Methoden welche die Kartenspielmechanik implementieren
+ */
 public class SpielzugTest
 {
     static SpielFeld meinfeld;
@@ -33,6 +36,9 @@ public class SpielzugTest
     static ManaTank mastertank;
 
 
+    /**
+     *  spielzugtesten simuliert einen Spielzug und beschreibt dessen Vorgaenge mit einer Ausgabe in der Konsole
+     */
     public static void spielzugtesten ()
     {
         auslesen();
@@ -44,6 +50,9 @@ public class SpielzugTest
         zugbeenden();
     }
 
+    /**
+     * erstellen erstellt die für einen Spielzug noetigen Objekte
+     */
     public static void erstellen ()
     {
         meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
@@ -56,6 +65,9 @@ public class SpielzugTest
         mastertank = new ManaTank(master);
     }
 
+    /**
+     * auslesen liest aus verschiedenen Jason-Dateien, um gespeicherte Objekte nutzbar zu machen
+     */
     public static void auslesen ()
     {
         try
@@ -71,6 +83,9 @@ public class SpielzugTest
         }
     }
 
+    /**
+     * haendeziehen zieht aus den beiden Kartendecks Karten und legt diese in die jeweiligen Haende
+     */
     public static void haendeziehen ()
     {
         meinehand.handziehen(meindeck);
@@ -79,6 +94,9 @@ public class SpielzugTest
         KonsolenIO.ausgeben(VORSTELLENSPIELER + spieler.getName());
     }
 
+    /**
+     * einheitenbeschwoeren beschwoert die jeweiligen einheiten auf dem Spielfeld
+     */
     public static void einheitenbeschwoeren ()
     {
         beschwoerenHeld(spieler, meinfeld);
@@ -90,6 +108,9 @@ public class SpielzugTest
         KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
     }
 
+    /**
+     * rumlaufen laesst die Karte Master bewegungen auf dem Spielfeld auffuehren
+     */
     public static void rumlaufen ()
     {
         KonsolenIO.ausgeben(meinfeld.toString());
@@ -108,6 +129,9 @@ public class SpielzugTest
         KonsolenIO.ausgeben(meinfeld.toString());
     }
 
+    /**
+     * kaempfen laesst den master gegen eine Einheit kaempfen
+     */
     public static void kaempfen ()
     {
         //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
@@ -120,6 +144,9 @@ public class SpielzugTest
                 LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() + ZEILENUMBRUCH);
     }
 
+    /**
+     * beendet den momentan laufenden Spielzug
+     */
     public static void zugbeenden ()
     {
         //daraufhin wird der zug beendet und
