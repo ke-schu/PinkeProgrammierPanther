@@ -22,9 +22,9 @@ public class Main
     /**
      * Ruft die verschiedenen Testmethoden auf.
      */
-    private static void teste()
+    private static void teste ()
     {
-        switch(1)
+        switch(2)
         {
             case 1: SpielzugTest.spielzugtesten(); ;
             break;

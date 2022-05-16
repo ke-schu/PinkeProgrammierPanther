@@ -133,19 +133,19 @@ public class KarteEinheit extends Karte
 
   public int getPosition_x ()
   {
-    return this.position.getx();
+    return this.position.getX();
   }
 
   public int getPosition_y ()
   {
-    return this.position.gety();
+    return this.position.getY();
   }
 
 
   public void setPosition(int x, int y)
   {
-    this.position.setx(x);
-    this.position.sety(y);
+    this.position.setX(x);
+    this.position.setY(y);
   }
 
   public void setPosition(Position posi)

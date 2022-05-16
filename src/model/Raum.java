@@ -2,8 +2,7 @@ package model;
 
 import model.ereignisse.Ereignis;
 
-public class Raum
-{
+public class Raum {
     private Ereignis ereignis = null;
 
     private transient SpielfigurEbene spielfigur = null;
@@ -13,13 +12,11 @@ public class Raum
      *
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raum (Ereignis ereignis)
-    {
+    public Raum (Ereignis ereignis) {
         this.ereignis = ereignis;
     }
 
-    public Raum ()
-    {
+    public Raum () {
 
     }
 
@@ -28,8 +25,7 @@ public class Raum
      *
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis ()
-    {
+    public Ereignis getEreignis () {
         return ereignis;
     }
 

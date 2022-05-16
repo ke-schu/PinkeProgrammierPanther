@@ -14,15 +14,15 @@ public class SpielfigurEbene
      */
     public SpielfigurEbene ()
     {
-        this.position.setx(ZAHL_4);
-        this.position.sety(ZAHL_4);
+        this.position.setX(ZAHL_4);
+        this.position.setY(ZAHL_4);
     }
 
     /**
      * Methode die das Attribut position wiedergibt.
      * @return gibt das die Instanz des Attributes position wieder.
      */
-    public Position getPosition()
+    public Position getPosition ()
     {
         return position;
     }
@@ -33,7 +33,7 @@ public class SpielfigurEbene
      */
     public int getPosition_x ()
     {
-        return this.position.getx();
+        return this.position.getX();
     }
 
     /**
@@ -42,7 +42,7 @@ public class SpielfigurEbene
      */
     public int getPosition_y ()
     {
-        return this.position.gety();
+        return this.position.getY();
     }
 
     /**
@@ -50,9 +50,9 @@ public class SpielfigurEbene
      * @param x Int-Wert der in das Attribut der Instanz von Position im Attribut position gesetzt wird.
      * @param y Int-Wert der in das Attribut der Instanz von Position im Attribut position gesetzt wird.
      */
-    public void setPosition(int x, int y)
+    public void setPosition (int x, int y)
     {
-        this.position.setx(x);
-        this.position.sety(y);
+        this.position.setX(x);
+        this.position.setY(y);
     }
 }
