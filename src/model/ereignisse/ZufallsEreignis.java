@@ -74,11 +74,11 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
-                KonsolenIO.ausgeben("Ereignis 1");
+                KonsolenIO.ausgeben(EREIGNIS_1);
             }
             else
             {
-                KonsolenIO.ausgeben("Ereignis 2");
+                KonsolenIO.ausgeben(EREIGNIS_2);
             }
             ausgefuehrt = true;
         }

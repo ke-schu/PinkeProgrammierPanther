@@ -49,7 +49,7 @@ public class Gegner extends Ereignis
      * Diese Methode dient als Getter um auf den Gegenspieler zuzugreifen
      * @return den aktuellen Gegenspieler
      */
-    public Gegenspieler getGegenspieler()
+    public Gegenspieler getGegenspieler ()
     {
         return gegenspieler;
     }

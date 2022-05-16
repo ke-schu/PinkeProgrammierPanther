@@ -17,5 +17,5 @@ public interface Wahrscheinlichkeit
      * selbst aus
      * @return generierte Wahrscheinlichkeit zur Bestimmung des jeweiligen Ereignisses.
      */
-    double generiereWahrscheinlichkeit();
+    double generiereWahrscheinlichkeit ();
 }

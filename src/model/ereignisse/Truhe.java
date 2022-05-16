@@ -53,7 +53,8 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      * @return Attribut zur Bestimmung des Truheninhalts
      */
     @Override
-    public double generiereWahrscheinlichkeit() {
+    public double generiereWahrscheinlichkeit ()
+    {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
         return wahrscheinlichkeit;
     }
@@ -67,7 +68,12 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
         return geleert;
     }
 
-    public void setGeleert(boolean geleert) {
+    /**
+     * Setze das Attribut geleert auf den uebergebenen boolean Wert
+     * @param geleert boolean, welches in das Attribut geleert gesetzt werden soll.
+     */
+    public void setGeleert (boolean geleert)
+    {
         this.geleert = geleert;
     }
 }

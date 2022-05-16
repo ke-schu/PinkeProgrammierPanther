@@ -25,7 +25,7 @@ public abstract class Mensch extends Ereignis
      * @param name Der Name des Ereignisses
      * @param beschreibung Die Beschreibung fuer den Spieler
      */
-    public Mensch(String name, String beschreibung)
+    public Mensch (String name, String beschreibung)
     {
         super(name, beschreibung);
     }
@@ -79,7 +79,7 @@ public abstract class Mensch extends Ereignis
      * Getter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt
      * @return Hoehe der Kosten
      */
-    public int getKosten()
+    public int getKosten ()
     {
         return kosten;
     }
@@ -88,7 +88,7 @@ public abstract class Mensch extends Ereignis
      * Setter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt
      * @param kosten Hoehe der Kosten
      */
-    public void setKosten(int kosten)
+    public void setKosten (int kosten)
     {
         this.kosten = kosten;
     }
