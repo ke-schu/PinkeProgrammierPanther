@@ -8,6 +8,14 @@ import java.util.Scanner;
 public class KonsolenIO
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private KonsolenIO ()
+    {
+    }
+
+    /**
      * Diese Methode gibt, das uebergebene Objekt in der Konsole aus.
      * @param o auszugebenes Objekt
      */

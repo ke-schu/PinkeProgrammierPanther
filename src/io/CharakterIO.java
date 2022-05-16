@@ -26,6 +26,14 @@ public class CharakterIO
     private final static File datei = new File(CHARAKTER_PFAD);
 
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private CharakterIO ()
+    {
+    }
+
+    /**
      * Serialisiert den Charakter-Stapel ins Json-Format.
      * @param charaktere der Charakter-Stapel
      * @return einen String im Json-Format

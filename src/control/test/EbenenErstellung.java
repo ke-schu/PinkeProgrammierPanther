@@ -8,11 +8,9 @@ import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
 
-import static resources.Strings.LEERER_RAUM;
-import static resources.Strings.LEERER_RAUM_BESCHREIBUNG;
 import static resources.StringsGegner.*;
-import static resources.StringsGegner.BOSS_SIEBTES_LEVEL_BESCHREIBUNG;
 import static resources.Zahlen.*;
+import static resources.StringsEreignisse.*;
 
 /**
  * Umfasst Methoden zum Erstellen einer neuen Ebene
@@ -20,17 +18,25 @@ import static resources.Zahlen.*;
 public class EbenenErstellung
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EbenenErstellung ()
+    {
+    }
+
+    /**
      * Methode um eine Instanz von Gegenspieler zu erstellen, welche benötigt wird um einen Gegner zu erstellen.
      * @return gibt eine Instanz der Klasse Gegenspieler zurück.
      */
     private static Gegenspieler erstelleGegenspieler ()
     {
-        return new Gegenspieler("Test_Gegner",
-                10,
+        return new Gegenspieler(GENERISCHER_GEGNER_NAME,
+                ZAHL_10,
                 Einheiten.FERNKAEMPFER,
-                1,1,1,1,1,1,
+                ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,
                 Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                10);
+                ZAHL_10);
     }
 
     /**
@@ -55,28 +61,28 @@ public class EbenenErstellung
                 meinRaum[ZAHL_3][ZAHL_5] = gegner11;
                 meinRaum[ZAHL_2][ZAHL_6] = boss1;
 
-                ZufallsEreignis ze = new ZufallsEreignis("Zufaelliger Zufall", "Achtung, das ist ein Zufall!",false);
+                ZufallsEreignis ze = new ZufallsEreignis(ZUFALLS_EREIGNIS_NAME, ZUFALLS_EREIGNIS_BESCHREIBUNG,false);
                 Raum RaumMitZufallsEreignis = new Raum(ze);
                 meinRaum[ZAHL_3][ZAHL_3] = RaumMitZufallsEreignis;
 
-                Schmied schmied1 = new Schmied("Schmied","Hoere mal wer da haemmert!");
+                Schmied schmied1 = new Schmied(SCHMIED_NAME,SCHMIED_BESCHREIBUNG);
                 Raum raumSchmied = new Raum(schmied1);
                 meinRaum[ZAHL_6][ZAHL_4] = raumSchmied;
 
-                Treppe treppe1 = new Treppe("Treppe 1", "Ne Menge Stufen");
+                Treppe treppe1 = new Treppe(TREPPE_NAME, TREPPE_BESCHREIBUNG);
                 Raum raumTreppe1 = new Raum(treppe1);
                 meinRaum[ZAHL_2][ZAHL_7] = raumTreppe1;
 
-                Raum leererRaum10 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum11 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum12 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum13 = new Raum(new LeererRaum(LEERER_RAUM, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum10 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum11 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum12 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum13 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
                 meinRaum[ZAHL_5][ZAHL_4] = leererRaum10;
                 meinRaum[ZAHL_3][ZAHL_4] = leererRaum11;
                 meinRaum[ZAHL_3][ZAHL_6] = leererRaum12;
                 meinRaum[ZAHL_4][ZAHL_4] = leererRaum13;
 
-                Haendler haendler1 = new Haendler("Haendler", "Mehr als nur Staubsauger.");
+                Haendler haendler1 = new Haendler(HAENDLER_NAME, HAENDLER_BESCHREIBUNG);
                 Raum raumHaendler1 = new Raum(haendler1);
                 meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
                 break;

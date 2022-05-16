@@ -35,6 +35,13 @@ public class SpielzugTest
     static Gegenspieler master;
     static ManaTank mastertank;
 
+    /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private SpielzugTest ()
+    {
+    }
 
     /**
      *  spielzugtesten simuliert einen Spielzug und beschreibt dessen Vorgaenge mit einer Ausgabe in der Konsole

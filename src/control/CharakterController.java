@@ -12,6 +12,14 @@ import java.util.Stack;
 public class CharakterController
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private CharakterController ()
+    {
+    }
+
+    /**
      * Liest einen Charakter aus der Auswahl an Charakteren ein.
      * @param position die Position in der Liste an Charakteren
      * @return den Charakter

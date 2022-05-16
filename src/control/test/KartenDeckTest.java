@@ -20,6 +20,14 @@ import static resources.Zahlen.ZAHL_1;
 public class KartenDeckTest
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private KartenDeckTest ()
+    {
+    }
+
+    /**
      * Erstellt eine neue KarteEinheit mit beispielhaften Werten
      * @return die KarteEinheit
      */

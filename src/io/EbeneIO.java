@@ -25,6 +25,14 @@ public class EbeneIO
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
 
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EbeneIO ()
+    {
+    }
+
+    /**
      * Serialisiert die Ebene ins Json-Format.
      * @param ebene die Ebene
      * @return einen String im Json-Format

@@ -26,6 +26,14 @@ import static resources.Zahlen.*;
 public class SpielStandTest
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private SpielStandTest ()
+    {
+    }
+
+    /**
      * Erstellt einen Beispielspieler mit beispielhaften Werten
      * @return den Spieler
      */

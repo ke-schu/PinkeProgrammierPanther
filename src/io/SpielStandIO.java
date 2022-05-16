@@ -25,6 +25,14 @@ public class SpielStandIO
     private final static File datei = new File(SPIELSTAND_PFAD);
 
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private SpielStandIO ()
+    {
+    }
+
+    /**
      * Serialisiert den Spielstand ins Json-Format.
      * @param stand der Spielstand
      * @return einen String im Json-Format

@@ -10,6 +10,14 @@ import static resources.Zahlen.*;
 public class KartenController
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private KartenController ()
+    {
+    }
+
+    /**
      * Mit dieser Methode werden die Karten verbessert, dabei wird zwischen den Klassen unterschieden.
      * @param karte Die Karte die verbessert werden soll.
      */

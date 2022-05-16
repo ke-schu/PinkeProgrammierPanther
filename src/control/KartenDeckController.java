@@ -13,6 +13,14 @@ public class KartenDeckController
     private static Random meinRandom = new Random();
 
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private KartenDeckController ()
+    {
+    }
+
+    /**
      * Methode um eine Instanz von der Klasse KartenDeck zu mischen.
      * @param deck Der Stack der gemischt werden soll.
      */

@@ -14,6 +14,14 @@ import static resources.Zahlen.ZAHL_1;
 public class EinheitenController
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EinheitenController ()
+    {
+    }
+
+    /**
      * Methode zum Springen von Instanzen von Einheiten im Spielfeldarray.
      * @param spielfeld Instanz des Spielfeldes, auf der die Einheit bewegt werden soll.
      * @param zielX Integer, mit der Zielzeile der Bewegung.

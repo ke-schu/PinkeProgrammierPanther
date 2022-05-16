@@ -25,6 +25,14 @@ public class KartenDeckIO
     private static Gson meinGson;
 
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private KartenDeckIO ()
+    {
+    }
+
+    /**
      * Serialisiert ein KartenDeck ins Json-Format.
      * @param deck Instanz der Klasse KartenDeck die als .json String zurückgeben werden soll.
      * @return liefert den Inhalt der Instanz als String in .json formatierung.

@@ -1,5 +1,6 @@
 package control;
 
+import control.test.EbeneTest;
 import model.*;
 import static resources.Zahlen.*;
 
@@ -8,6 +9,14 @@ import static resources.Zahlen.*;
  */
 public class EbeneController
 {
+    /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EbeneController ()
+    {
+    }
+
     /**
      * Diese Methode initialisiert eine Instanz der Klasse SpielfigurEbene an den Indexen (4,4) in einer Ebene.
      * @param spielfigur Die Spielfigur, welche in der Ebene initialisiert werden soll.

@@ -11,6 +11,14 @@ import static resources.Zahlen.*;
 public class EffektController
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EffektController ()
+    {
+    }
+
+    /**
      * Löst einen neuen Effekt aus.
      * @param ausloeser die Einheit, welche den Effekt auslöst.
      * @param feld das Spielfeld, auf dem gespielt wird.

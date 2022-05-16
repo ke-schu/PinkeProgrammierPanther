@@ -24,6 +24,15 @@ import static resources.Zahlen.*;
 public class EbeneTest
 {
     /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private EbeneTest ()
+    {
+    }
+
+
+    /**
      * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das Erstellen von Gegnern notwendig ist.
      * @return gibt eine Instanz von Gegenspieler zurück.
      */
