@@ -6,7 +6,6 @@ import com.google.gson.JsonSyntaxException;
 import control.RaumSerialisierung;
 import model.Ebene;
 import model.Raum;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

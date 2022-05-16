@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import exceptions.KartenDeckFehlerhaftException;
 import model.SpielStand;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

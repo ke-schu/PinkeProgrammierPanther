@@ -27,5 +27,4 @@ public interface Zahlen
     int ZAHL_18 = 18;
     int ZAHL_19 = 19;
     int ZAHL_20 = 20;
-
 }

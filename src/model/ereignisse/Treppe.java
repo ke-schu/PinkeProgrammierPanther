@@ -4,7 +4,7 @@ import io.KonsolenIO;
 import model.SpielStand;
 
 /**
- * Diese Klasse ist eine Subklasse von Ereignis. Ein Treppe ist nur als Uebergang in die naechste Ebene für den Spieler
+ * Diese Klasse ist eine Subklasse von Ereignis. Eine Treppe ist nur als Uebergang in die naechste Ebene für den Spieler
  * gedacht. Treppe enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
  */
 public class Treppe extends Ereignis

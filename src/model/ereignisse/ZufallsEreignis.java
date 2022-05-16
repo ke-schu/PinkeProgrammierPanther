@@ -3,6 +3,9 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
+import static resources.StringsEreignisse.EREIGNIS_1;
+import static resources.StringsEreignisse.EREIGNIS_2;
+
 /**
  * Diese Klasse ist eine Subklasse von Ereignis und implementiert das Interface Wahrscheinlichkeit.
  * Ein ZufallsEreignis ist fuer den Spieler erst erkennbar, wenn dieser es ausfuehrt.

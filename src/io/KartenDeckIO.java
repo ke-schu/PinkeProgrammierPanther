@@ -6,7 +6,6 @@ import com.google.gson.JsonSyntaxException;
 import control.KartenDeckSerialisierung;
 import exceptions.KartenDeckFehlerhaftException;
 import model.KartenDeck;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

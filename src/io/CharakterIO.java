@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import model.Charakter;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

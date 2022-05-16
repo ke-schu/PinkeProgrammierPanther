@@ -17,7 +17,7 @@ public class KonsolenIO
 
     /**
      * Diese Methode gibt, das uebergebene Objekt in der Konsole aus.
-     * @param o auszugebenes Objekt
+     * @param o auszugebendes Objekt
      */
     public static void ausgeben (Object o)
     {

@@ -46,7 +46,7 @@ public class Haendler extends Mensch
      * Diese Methode dient als Getter um auf das aktuelle Deck des Haendlers zuzugreifen.
      * @return das aktuelle Deck des Haendlers
      */
-    public KartenDeck getHaendlerDeck()
+    public KartenDeck getHaendlerDeck ()
     {
         return haendlerDeck;
     }
@@ -55,7 +55,7 @@ public class Haendler extends Mensch
      * Diese Methode dient als Setter um dem Haendler ein neues Deck zuzuweisen.
      * @param haendlerDeck das Deck, welches der Haendler erhalten soll.
      */
-    public void setHaendlerDeck(KartenDeck haendlerDeck)
+    public void setHaendlerDeck (KartenDeck haendlerDeck)
     {
         this.haendlerDeck = haendlerDeck;
     }

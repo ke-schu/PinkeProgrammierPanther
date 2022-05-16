@@ -28,4 +28,15 @@ public interface StringsEreignisse
     String ZUFALLS_EREIGNIS_BESCHREIBUNG = "Ich kann nicht erkennen was vor mir ist. Ich muss näher rangehen...";
     String LEERER_RAUM_BESCHREIBUNG = "Hier ist absolut gar nichts... wie öde.";
     String TREPPE_BESCHREIBUNG = "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.";
+
+    //Strings fuer die Eingabe
+    String EINGABE_BOOLEAN = "\"Auswahl: Entweder true oder false, um Ereignis auszufuehren.\"";
+
+    //Strings Truhe
+    String TRUHE_1 = "Truhe 1";
+    String TRUHE_2 = "Truhe 2";
+
+    //Strings ZufallsEreignis
+    String EREIGNIS_1 = "Ereignis 1";
+    String EREIGNIS_2 = "Ereignis 2";
 }

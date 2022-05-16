@@ -23,7 +23,7 @@ public class Gegner extends Ereignis
      * @param gegenspieler Die Eigenschaften des Gegenspielers
      * @param spielfeld Das Spielfeld des Gegners
      */
-    public Gegner(String name, String beschreibung, Gegenspieler gegenspieler, SpielFeld spielfeld)
+    public Gegner (String name, String beschreibung, Gegenspieler gegenspieler, SpielFeld spielfeld)
     {
         super(name, beschreibung);
         this.gegenspieler = gegenspieler;

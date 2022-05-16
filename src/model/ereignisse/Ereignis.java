@@ -3,7 +3,7 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
-import java.util.Scanner;
+import static resources.StringsEreignisse.EINGABE_BOOLEAN;
 
 /**
  * Diese Klasse legt fest, was jedes Ereignis gemeinsam hat. Ereignisse treten in Raeumen in der aktuellen
@@ -21,7 +21,7 @@ public abstract class Ereignis
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      */
-    public Ereignis(String name, String beschreibung)
+    public Ereignis (String name, String beschreibung)
     {
         this.name = name;
         this.beschreibung = beschreibung;
@@ -69,9 +69,8 @@ public abstract class Ereignis
      */
     public void auswaehlen ()
     {
-        KonsolenIO.ausgeben("Auswahl: Entweder true oder false, um Ereignis auszufuehren.");
-        Scanner playerWahl = new Scanner(System.in);
-        auswahl = playerWahl.nextBoolean();
+        KonsolenIO.ausgeben(EINGABE_BOOLEAN);
+        auswahl = KonsolenIO.eingabeBoolean();
     }
 
     /**

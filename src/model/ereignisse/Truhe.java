@@ -3,6 +3,9 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
+import static resources.StringsEreignisse.TRUHE_1;
+import static resources.StringsEreignisse.TRUHE_2;
+
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean geleert = false;
@@ -34,11 +37,11 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
-                KonsolenIO.ausgeben("Truhe 1");
+                KonsolenIO.ausgeben(TRUHE_1);
             }
             else
             {
-                KonsolenIO.ausgeben("Truhe 2");
+                KonsolenIO.ausgeben(TRUHE_2);
             }
             geleert = true;
         }
@@ -55,7 +58,12 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
         return wahrscheinlichkeit;
     }
 
-    public boolean isGeleert() {
+    /**
+     * Gibt wieder, ob eine Truhe geleert ist
+     * @return ob die Truhe geleert ist
+     */
+    public boolean isGeleert ()
+    {
         return geleert;
     }
 

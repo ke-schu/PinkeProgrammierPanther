@@ -18,7 +18,7 @@ public abstract class Mensch extends Ereignis
     protected int interaktionsZaehler = ZAHL_0;
 
     //Konstante für keine weiteren gratis Interaktionen.
-    protected final int KEINE_GRATIS_INTERAKTION = 0;
+    protected final int KEINE_GRATIS_INTERAKTION = ZAHL_0;
 
     /**
      * Der Konstruktor von Mensch
