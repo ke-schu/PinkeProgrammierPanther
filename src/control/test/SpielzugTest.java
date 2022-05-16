@@ -12,31 +12,15 @@ import java.io.IOException;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
 import static control.KartenEinheitController.beschwoerenHeld;
-import static resources.Effekte.LETZTEWORTE;
-import static resources.Effekte.ZURUECKWERFEN;
+import static resources.Effekte.*;
 import static resources.Einheiten.FERNKAEMPFER;
 import static resources.Strings.ZEILENUMBRUCH;
-import static resources.Zahlen.ZAHL_1;
+import static resources.TestKonstanten.*;
+import static resources.Zahlen.*;
 
 public class SpielzugTest
 {
-    private static final String BJOERN = "Bjoern";
-    private static final String SPIELFELDBREITE = " Spielfeldbreite ";
-    private static final String SPIELFELDZEILEN = " Spielfeldzeilen ";
-    private static final String VORSTELLENSPIELER  = " Hallo ich bin der Spieler ";
-    private static final String VORSTELLENEINHEIT = " Hallo ich bin eine beschworene Einheit und heiße";
-    private static final String POSITIONSANGABENULLEINS = " ich stehe an position 0,1 ";
-    private static final String POSITIONSANGABEEINSEINS = " nach dem bewegen bin ich stehe an position 1,1 ";
-    private static final String POSITIONSANGABEEINHEIT = " und ich denke ich stehe in Spalte ";
-    private static final String VORSTELLENGEGNER = " Halllo Ich bin der Gegner ";
-    private static final String ZEILE = " und Zeile ";
-    private static final String VON = " und vor dem bewegen stehe ich an position ";
-    private static final String BEWEGEN = "jetzt bewege ich mich...";
-    private static final String LEBENSPUNKTEFREUND =" Lebenspunkte freund einheit: ";
-    private static final String POSITIONSANGABEKAMPF = "an stelle 0, 1 befindet sich vor dem Kampf";
-    private static final String KAEMPFEN = "jetzt wird gerade gekaempft...";
-    private static final String LEBENSPUNKTENACHKAMPF = "Lebenspunkte freund einheit nach Kampf: ";
-    private static final String POSITIONSANGABENULLEINSENDE = "an stelle 0, 1 befindet sich nun ";
+
 
 
     public static void Spielzugtesten()
@@ -45,7 +29,7 @@ public class SpielzugTest
         try
         {
             //Erstellen eine Spielfeldes und 2er spieldecks
-            SpielFeld meinfeld = new SpielFeld(5, 5);
+            SpielFeld meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
             System.out.println(
                     SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN + meinfeld.getFeldZeile());
             KartenDeck meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
