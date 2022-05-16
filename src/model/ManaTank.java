@@ -8,6 +8,10 @@ public class ManaTank
 {
     private int mana;
 
+    /**
+     * Erstellt einen ManaTank
+     * @param spieler welcher die Information uber die Groesse des ManaTanks in sich treagt
+     */
     public ManaTank (Spielbar spieler)
     {
         this.mana = spieler.getMana();

@@ -12,21 +12,37 @@ public class KartenHand
     private Karte[] hand = null;
     private final int HANDGROESSE = ZAHL_5;
 
+    /**
+     * Erstellt eine KartenHand mit 5 Plaetzen
+     */
     public KartenHand()
     {
         this.hand = new Karte [HANDGROESSE];
     }
 
+    /**
+     * Getter welche Karte aus der Hand wiedergibt
+     * @param position gibt die Position in der KartenHand an, von welcher die Karte wiedergegeben werden soll
+     * @return gibt eine Karte aus der Kartenhand wieder
+     */
     public Karte getelement (int position)
     {
         return this.hand [position];
     }
 
+    /**
+     * Setter welcher eine Karte in eine bestimmte Position in der Hand einsetzt
+     * @param position gibt die Position in der KartenHand an, in welche die Karte gelegt werden soll
+     * @param karte ist die Karte welche in die hand gelegt werden soll
+     */
     public void setElement (int position, Karte karte)
     {
         this.hand [position] = karte;
     }
 
+    /**
+     * @return gibt die Kartenhand als String wieder
+     */
     @Override
     public String toString()
     {
