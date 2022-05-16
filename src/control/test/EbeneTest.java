@@ -10,7 +10,6 @@ import resources.Effekte;
 import resources.Einheiten;
 import java.io.File;
 import java.io.IOException;
-
 import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.Zahlen.*;
 
@@ -26,17 +25,17 @@ public class EbeneTest
     private static Gegenspieler erstelleGegenspieler ()
     {
         return new Gegenspieler("Test_Gegner",
-                10,
+                ZAHL_10,
                 Einheiten.NAHKAEMPFER,
-                10,
-                10,
-                0,
-                10,
-                10,
-                10,
+                ZAHL_4,
+                ZAHL_10,
+                ZAHL_1,
+                ZAHL_2,
+                ZAHL_1,
+                ZAHL_2,
                 Effekte.ZURUECKWERFEN,
                 Effekte.LETZTEWORTE,
-                10);
+                ZAHL_10);
     }
 
     /**
