@@ -1,5 +1,7 @@
 package control.test;
 
+import control.KartenController;
+import control.KartenDeckController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
 import model.KarteEinheit;
@@ -62,6 +64,8 @@ public class KartenDeckTest
         try
         {
             KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD);
+            System.out.println(meinDeck);
+            KartenDeckController.mischen(meinDeck);
             System.out.println(meinDeck);
         }
         catch (KartenDeckFehlerhaftException e)
