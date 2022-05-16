@@ -55,22 +55,29 @@ try
 
     //beschwoeren einer Einheit auf dem Feld
     KartenEinheitController.beschwoeren(meinehand,2,meinfeld,0,1 ,meintank);
+
+    //Karte gibt ihre position wieder
     System.out.println(" Hallo ich bin eine beschworene Einheit und heiße "+meinfeld.getSpielfeldplatz(0,1).getName()+" ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(0,1));
     System.out.println("und ich denke ich stehe in Spalte " +meinfeld.getSpielfeldplatz(0,1).getPosition_x());
     System.out.println("und Zeile " + meinfeld.getSpielfeldplatz(0,1).getPosition_y());
+
+    //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
     System.out.println("vor dem bewegen stehe ich an position" + (meinfeld.getFeldZeile()-1)+ (meinfeld.getFeldSpalte()-1)  + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile()-ZAHL_1,meinfeld.getFeldSpalte()-ZAHL_1));
     EinheitenController.bewegen(meinfeld,1,3,master);
     EinheitenController.bewegen(meinfeld,1,2,master);
     EinheitenController.bewegen(meinfeld,1,1,master);
     System.out.println("ich stehe an position 2,3 " + meinfeld.getSpielfeldplatz(2,3));
 
+    //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
+    //und gibt danach wieder seine lebenspunkte wieder
     System.out.println("Lebenspunkte freund einheit: " + meinfeld.getSpielfeldplatz(0,1).getLebenspunkte());
     System.out.println("an stelle 0, 1 befindet sich vor dem kampf" + meinfeld.getSpielfeldplatz(0,1));
     einheitenAngreifenMitEinheiten(meinfeld,master,meinfeld.getSpielfeldplatz(0,1));
     System.out.println("Lebenspunkte freund einheit nach kampf: "+  meinfeld.getSpielfeldplatz(0,1).getLebenspunkte());
 
+    //daraufhin wird der zug beendet und
     RundenController.zugBeenden(meinfeld,meindeck,masterdeck);
-    System.out.println("an stelle 0, 1 befindet sich nun " + meinfeld.getSpielfeldplatz(0,1));
+    System.out.println("an stelle 0, 1 befindet sich nun " + meinfeld.getSpielfeldplatz(0,1).getName());
 
 }
 catch(KartenDeckFehlerhaftException | IOException e)

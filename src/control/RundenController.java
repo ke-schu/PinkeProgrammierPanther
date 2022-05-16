@@ -46,13 +46,15 @@ public class RundenController
                         {
                             spielerdeck.push( feld.getSpielfeldplatz(i,j));
                             KartenDeckController.mischen(spielerdeck);
+                            feld.einheitloeschen(i,j);
                         }
                         if(feld.getSpielfeldplatz(i,j).getFreundlich()== false)
                         {
                             masterdeck.push( feld.getSpielfeldplatz(i,j));
                             KartenDeckController.mischen(masterdeck);
-                        }
                             feld.einheitloeschen(i,j);
+                        }
+
                     }
                 }
 
