@@ -3,10 +3,11 @@ package control;
 import io.KonsolenIO;
 import model.KarteEinheit;
 import model.SpielFeld;
+import static resources.Zahlen.*;
 
-import static resources.Zahlen.ZAHL_1;
-import static resources.Zahlen.ZAHL_2;
-
+/**
+ * Löst die Effekte der Karten aus und kontrolliert diese.
+ */
 public class EffektController
 {
     /**
@@ -14,7 +15,7 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt auslöst.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    public void effektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
+    public void effektAusloesen (KarteEinheit ausloeser, SpielFeld feld)
     {
         switch (ausloeser.getEffektEins())
         {
@@ -27,7 +28,7 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt auslöst.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    private static void letzteWorte(KarteEinheit ausloeser, SpielFeld feld)
+    private static void letzteWorte (KarteEinheit ausloeser, SpielFeld feld)
     {
         if (ausloeser.getLebenspunkte() == 0);
         {
@@ -40,39 +41,48 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt auslöst.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    private static void zurueckWerfen(KarteEinheit ausloeser, SpielFeld feld)
+    private static void zurueckWerfen (KarteEinheit ausloeser, SpielFeld feld)
     {
+        KarteEinheit zielOben = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x(), ausloeser.getPosition_y() - ZAHL_1);
+        KarteEinheit platzOben = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x(), ausloeser.getPosition_y() - ZAHL_2);
+        KarteEinheit zielUnten = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x(), ausloeser.getPosition_y() + ZAHL_1);
+        KarteEinheit platzUnten = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x(), ausloeser.getPosition_y() + ZAHL_2);
+        KarteEinheit zielLinks  = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x() - ZAHL_1, ausloeser.getPosition_y());
+        KarteEinheit platzLinks = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y());
+        KarteEinheit zielRechts  = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x() + ZAHL_1, ausloeser.getPosition_y());
+        KarteEinheit platzRechts = feld.getSpielfeldplatz(
+                ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y());
+
         try
         {
-            KarteEinheit zieloben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()- ZAHL_1);
-            KarteEinheit platzoben = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2);
-            KarteEinheit zielunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
-            KarteEinheit platzunten = feld.getSpielfeldplatz(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2);
-            KarteEinheit ziellinks  = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_1, ausloeser.getPosition_y());
-            KarteEinheit platzlinks = feld.getSpielfeldplatz(ausloeser.getPosition_x()-ZAHL_2, ausloeser.getPosition_y());
-            KarteEinheit zielrechts  = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_1, ausloeser.getPosition_y());
-            KarteEinheit platzrechts = feld.getSpielfeldplatz(ausloeser.getPosition_x()+ZAHL_2, ausloeser.getPosition_y());
-
-            if (zieloben != null && platzoben == null)
+            if (zielOben != null && platzOben == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2, zieloben);
+                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2, zielOben);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_1);
             }
-            if (zielunten != null && platzunten == null)
+
+            if (zielUnten != null && platzUnten == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2, zielunten);
+                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2, zielUnten);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
             }
 
-            if (ziellinks != null && platzlinks == null)
+            if (zielLinks != null && platzLinks == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y(), ziellinks);
+                feld.einheitEinsetzten(ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y(), zielLinks);
                 feld.einheitloeschen(ausloeser.getPosition_x() - ZAHL_1, ausloeser.getPosition_y());
             }
 
-            if (zielrechts != null && platzrechts == null)
+            if (zielRechts != null && platzRechts == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y(), zielrechts);
+                feld.einheitEinsetzten(ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y(), zielRechts);
                 feld.einheitloeschen(ausloeser.getPosition_x() + ZAHL_1, ausloeser.getPosition_y());
             }
         }
