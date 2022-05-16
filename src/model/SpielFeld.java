@@ -106,7 +106,7 @@ public class SpielFeld
         return this.feldZeile;
     }
 
-    public void einheiteinsetzten (int x, int y, KarteEinheit einheit )
+    public void einheitEinsetzten(int x, int y, KarteEinheit einheit )
     {
         if (einheit == null)
         {
@@ -122,7 +122,8 @@ public class SpielFeld
 
     public KarteEinheit getSpielfeldplatz (int x, int y)
     {
-        if(x<0 || x>=this.feldSpalte || y<0 || y>=this.feldZeile) {
+        if(x<0 || x>=this.feldSpalte || y<0 || y>=this.feldZeile)
+        {
             return null;
         }
         return this.spielfeld[y][x];

@@ -7,27 +7,33 @@ import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
 import static resources.Strings.*;
+import static resources.Zahlen.ZAHL_1;
+
 import java.io.File;
 
 public class KartenDeckTest
 {
     private final static String TESTPFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     private final static String TESTBEZEICHNUNG = "IchBinDasSpieldeck";
+    private final static String KARTEN_NAME = "HarryPotter";
 
     private static KarteEinheit erstelleKarte ()
     {
         return new KarteEinheit(
-                "HarryPotter",
-                40,
+                KARTEN_NAME,
+                ZAHL_1,
                 Einheiten.NAHKAEMPFER,
-                3,
-                10,
-                1,
-                1,
-                1,
-                1,
+                ZAHL_1,
+                ZAHL_1,
+                ZAHL_1,
+                ZAHL_1,
+                ZAHL_1,
+                ZAHL_1,
+                ZAHL_1,
                 Effekte.LETZTEWORTE,
-                Effekte.ZURUECKWERFEN);
+                Effekte.ZURUECKWERFEN,
+                true,
+                true);
     }
 
     public static void erstelleDeck ()

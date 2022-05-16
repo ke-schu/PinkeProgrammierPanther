@@ -7,9 +7,9 @@ public class Gegenspieler extends KarteEinheit implements Spielbar
 {
     private final int mana;
 
-    public Gegenspieler(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei, int mana)
+    public Gegenspieler(String name, int level, Einheiten typ, int macht, int lebenspunkte, int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins, Effekte effektZwei, int mana)
     {
-        super(name, level, typ, macht, lebenspunkte, manaKosten, beweglichkeit, reichweite, verteidigung, effektEins, effektZwei);
+        super(name, level, typ, macht, lebenspunkte, 0, beweglichkeit, reichweite, schild, verteidigung, effektEins, effektZwei, true, false);
         this.mana = mana;
     }
 

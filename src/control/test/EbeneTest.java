@@ -26,11 +26,17 @@ public class EbeneTest
     private static Gegenspieler erstelleGegenspieler ()
     {
         return new Gegenspieler("Test_Gegner",
-                ZAHL_10,
-                Einheiten.FERNKAEMPFER,
-                ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,
-                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                ZAHL_10);
+                10,
+                Einheiten.NAHKAEMPFER,
+                10,
+                10,
+                0,
+                10,
+                10,
+                10,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE,
+                10);
     }
 
     /**
