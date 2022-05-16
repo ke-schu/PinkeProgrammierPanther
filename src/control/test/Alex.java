@@ -4,8 +4,6 @@ import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import exceptions.KartenDeckFehlerhaftException;
-import exceptions.SpielfeldDimensionGleichNullException;
-import exceptions.SpielfeldNichtQuadratischException;
 import io.KartenDeckIO;
 import io.SpielStandIO;
 import model.*;
@@ -122,8 +120,7 @@ public class Alex
     */
     }
 
-    private static void erstelleSpielfeld() throws SpielfeldNichtQuadratischException,
-            SpielfeldDimensionGleichNullException
+
     {
         /*KarteEinheit peter = new KarteEinheit(EricKarte);
         KarteEinheit karin = new KarteEinheit(StanKarte);
