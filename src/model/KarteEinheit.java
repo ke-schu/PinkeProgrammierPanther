@@ -41,134 +41,238 @@ public class KarteEinheit extends Karte
     this.freundlich = freundlich;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes typ zu erhalten
+   * @return gibt den Wert des Attributes typ wieder
+   */
   public Einheiten getTyp()
   {
     return typ;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes macht zu erhalten
+   * @return gibt den Wert des Attributes macht wieder
+   */
   public int getMacht()
   {
     return macht;
   }
 
+  /**
+   * Setter Methode um das Attribut macht zu setzen
+   * @param macht auf welchen das Attribut gesetzt werden soll
+   */
   public void setMacht(int macht)
   {
     this.macht = macht;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes lebenspunkte zu erhalten
+   * @return gibt den Wert des Attributes lebenspunkte wieder
+   */
   public int getLebenspunkte()
   {
     return lebenspunkte;
   }
 
+  /**
+   * Setter Methode um das Attribut lebenspunkte zu setzen
+   * @param lebenspunkte auf welchen das Attribut gesetzt werden soll
+   */
   public void setLebenspunkte(int lebenspunkte)
   {
     this.lebenspunkte = lebenspunkte;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes manaKosten zu erhalten
+   * @return gibt den Wert des Attributes manaKosten wieder
+   */
   public int getManaKosten()
   {
     return manaKosten;
   }
 
+  /**
+   * Setter Methode um das Attribut manaKosten zu setzen
+   * @param manaKosten auf welchen das Attribut gesetzt werden soll
+   */
   public void setManaKosten(int manaKosten)
   {
     this.manaKosten = manaKosten;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes beweglichkeit zu erhalten
+   * @return gibt den Wert des Attributes beweglichkeit wieder
+   */
   public int getBeweglichkeit()
   {
     return beweglichkeit;
   }
 
+  /**
+   * Setter Methode um das Attribut beweglichkeit zu setzen
+   * @param beweglichkeit auf welchen das Attribut gesetzt werden soll
+   */
   public void setBeweglichkeit(int beweglichkeit)
   {
     this.beweglichkeit = beweglichkeit;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes reichweite zu erhalten
+   * @return gibt den Wert des Attributes reichweite wieder
+   */
   public int getReichweite()
   {
     return reichweite;
   }
 
+  /**
+   * Setter Methode um das Attribut reichweite zu setzen
+   * @param reichweite auf welchen das Attribut gesetzt werden soll
+   */
   public void setReichweite(int reichweite)
   {
     this.reichweite = reichweite;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes effektEins zu erhalten
+   * @return gibt den Wert des Attributes effektEins wieder
+   */
   public Effekte getEffektEins()
   {
     return effektEins;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes effektZwei zu erhalten
+   * @return gibt den Wert des Attributes effektZwei wieder
+   */
   public Effekte getEffektZwei()
   {
     return effektZwei;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes verteidigung zu erhalten
+   * @return gibt den Wert des Attributes verteidigung wieder
+   */
   public int getVerteidigung()
   {
     return verteidigung;
   }
 
+  /**
+   * Setter Methode um das Attribut verteidigung zu setzen
+   * @param verteidigung auf welchen das Attribut gesetzt werden soll
+   */
   public void setVerteidigung(int verteidigung)
   {
     this.verteidigung = verteidigung;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes schild zu erhalten
+   * @return gibt den Wert des Attributes schild wieder
+   */
   public int getSchild()
   {
     return schild;
   }
 
+  /**
+   * Setter Methode um das Attribut schild zu setzen
+   * @param schild auf welchen das Attribut gesetzt werden soll
+   */
   public void setSchild(int schild)
   {
     this.schild = schild;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes position zu erhalten
+   * @return gibt den Wert des Attributes position wieder
+   */
   public Position getPosition()
   {
     return position;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes schild zu erhalten
+   * @return gibt den Wert des Attributes schild wieder
+   */
   public int getPosition_x ()
   {
     return this.position.getX();
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes position und dessen Attribut y zu erhalten
+   * @return gibt den Wert des Attributes  position únd dessen Attribut y wieder
+   */
   public int getPosition_y ()
   {
     return this.position.getY();
   }
 
 
+  /**
+   * Setter Methode um das Attribut position zu setzen
+   * @param x auf welchen das Attribut gesetzt werden soll
+   * @param y auf welchen das Attribut gesetzt werden soll
+   */
   public void setPosition(int x, int y)
   {
     this.position.setX(x);
     this.position.setY(y);
   }
 
+  /**
+   * Setter Methode um das Attribut position zu setzen
+   * @param posi auf welchen das Attribut gesetzt werden soll
+   */
   public void setPosition(Position posi)
   {
     this.position = posi;
-
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes schlafend zu erhalten
+   * @return gibt den Wert des Attributes schlafend wieder
+   */
   public boolean getSchlafend()
   {
     return schlafend;
   }
 
+  /**
+   * Setter Methode um das Attribut schlafend zu setzen
+   * @param schlafend auf welchen das Attribut gesetzt werden soll
+   */
   public void setSchlafend(boolean schlafend)
   {
     this.schlafend = schlafend;
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes schlafend zu erhalten
+   * @return gibt den Wert des Attributes schlafend wieder
+   */
   public boolean getFreundlich()
   {
     return freundlich;
   }
 
+  /**
+   * Setter Methode um das Attribut freundlich zu setzen
+   * @param freundlich auf welchen das Attribut gesetzt werden soll
+   */
   public void setFreundlich(boolean freundlich)
   {
     this.freundlich = freundlich;
@@ -210,11 +314,19 @@ public class KarteEinheit extends Karte
     this.schlafend = init.getSchlafend();
   }
 
+  /**
+   * Getter Methode um den Wert des Attributes init zu erhalten
+   * @return gibt den Wert des Attributes init wieder
+   */
   public InitialisierungKarteEinheit getInit()
   {
     return init;
   }
 
+  /**
+   * Setter Methode um das Attribut init zu setzen
+   * @param init auf welchen das Attribut gesetzt werden soll
+   */
   public void setInit(InitialisierungKarteEinheit init)
   {
     this.init = init;
