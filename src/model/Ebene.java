@@ -44,7 +44,7 @@ public class Ebene
      * Konstruktor der Klasse Ebene, welcher aus der uebergebenen Ebene alle Attribute übernimmt.
      * @param ebene Instanz der Klasse Ebene dessen Attribute uebernommen werden sollen.
      */
-    public Ebene(Ebene ebene)
+    public Ebene (Ebene ebene)
     {
         this.ebene = ebene.getEbene();
         this.ebenenSpalte = ebene.getEbenenSpalte();
@@ -55,7 +55,7 @@ public class Ebene
      * Methode die das Attribut ebene wiedergibt.
      * @return liefert den 2D-Array gefüllt mit Raeumen.
      */
-    public Raum[][] getEbene()
+    public Raum[][] getEbene ()
     {
         return this.ebene;
     }
@@ -64,7 +64,7 @@ public class Ebene
      * Methode um das Attribut ebene zu setzen.
      * @param ebene 2D-Array bestehend aus Raeumen, welches in das Attribut ebene gesetzt werden soll.
      */
-    public final void setEbene(Raum[][] ebene)
+    public final void setEbene (Raum[][] ebene)
     {
         this.ebene = ebene;
     }
@@ -73,7 +73,7 @@ public class Ebene
      * Methode um den Wert des Attributes ebenenZeile zu bekommen.
      * @return gibt den Int des Attributes ebeneZeile.
      */
-    public int getEbenenZeile()
+    public int getEbenenZeile ()
     {
         return this.ebenenZeile;
     }
@@ -82,7 +82,7 @@ public class Ebene
      * Methode um einen Wert in das Attribut ebeneZeile zu setzen.
      * @param ebenenZeile Int der in das Attribut ebeneZeile gesetzt wird.
      */
-    public final void setEbenenZeile(int ebenenZeile)
+    public final void setEbenenZeile (int ebenenZeile)
     {
         this.ebenenZeile=ebenenZeile;
     }
@@ -91,7 +91,7 @@ public class Ebene
      * Methode um den Wert des Attributes ebeneSpalte zu bekommen.
      * @return gibt den Int des Attributes ebeneSpalte.
      */
-    public int getEbenenSpalte()
+    public int getEbenenSpalte ()
     {
         return this.ebenenSpalte;
     }
@@ -100,7 +100,7 @@ public class Ebene
      * Methode um einen Wert in das Attribut ebeneSpalte zu setzen.
      * @param ebenenSpalte Int der in das Attribut ebeneSpalte gesetzt wird.
      */
-    public final void setEbenenSpalte(int ebenenSpalte)
+    public final void setEbenenSpalte (int ebenenSpalte)
     {
         this.ebenenSpalte=ebenenSpalte;
     }
@@ -111,7 +111,7 @@ public class Ebene
      * @param zeile Position in der Zeile, beginnend bei 0.
      * @param raum Instanz der Klasse Raeume, welche an die gezielte Stelle gesetzt werden soll.
      */
-    public void raumEinsetzen(int spalte, int zeile, Raum raum)
+    public void raumEinsetzen (int spalte, int zeile, Raum raum)
     {
         this.ebene[zeile][spalte] = raum;
     }
@@ -122,7 +122,7 @@ public class Ebene
      * @param zeile Position der Zeile von dem der Inhalt zurueck gegeben wird.
      * @return gibt den Inhalt an der bestimmten Position des Attributes ebene.
      */
-    public Raum getRaumAnPosition(int spalte, int zeile)
+    public Raum getRaumAnPosition (int spalte, int zeile)
     {
         return this.ebene[zeile][spalte];
     }
@@ -132,7 +132,7 @@ public class Ebene
      * @return gibt einen String der die Matrix des Attributes ebene repraesentiert wieder.
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.ebenenZeile; i++)
