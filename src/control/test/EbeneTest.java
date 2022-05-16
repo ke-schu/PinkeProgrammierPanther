@@ -24,8 +24,7 @@ import static resources.Zahlen.*;
 public class EbeneTest
 {
     /**
-     * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das erstellen von Gegnern notwendig ist.
-     *
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das Erstellen von Gegnern notwendig ist.
      * @return gibt eine Instanz von Gegenspieler zurück.
      */
     private static Gegenspieler erstelleGegenspieler ()
@@ -35,16 +34,12 @@ public class EbeneTest
     }
 
     /**
-     * Diese Methode testet alle grundlegenden Funktionen einer Ebene. Es wird eine Ebene und Raeume erstellt, welche
-     * mit Ereignissen gefüllt sind. Anschließend wird die Instanz in die EbeneTest.json geschrieben und anschließend
-     * aus dieser in eine neue Instanz von Ebene geschrieben. Hiernach durchläuft eine Instanz der Klasse
-     * SpielfigurEbene diese Ebene und durchquert alle Ereignisse einmal.
+     * Erstellt eine neue Ebene mit beispielhaften Werten.
+     * @return die erstellte Ebene
      */
-    public static void testeEbene ()
+    private static Ebene erstelleEbene ()
     {
-        Ebene testEbene1 = new Ebene(ZAHL_9, ZAHL_9);
-        Ebene testEbene2 = new Ebene(ZAHL_0, ZAHL_0);
-        SpielStand spielStand = null;
+        Ebene meineEbene = new Ebene(ZAHL_9, ZAHL_9);
 
         LeererRaum leererRaum1 = new LeererRaum(START_RAUM_NAME, START_RAUM_BESCHREIBUNG);
         LeererRaum leererRaum2 = new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG);
@@ -58,27 +53,31 @@ public class EbeneTest
         Gegner gegner = new Gegner(GEGNER_NAME, GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
         Treppe treppe = new Treppe(TREPPE_NAME, TREPPE_BESCHREIBUNG);
 
-        Raum startRaum = new Raum(leererRaum1);
-        Raum leererRaum = new Raum(leererRaum2);
-        Raum haendlerRaum = new Raum(haendler);
-        Raum schmiedRaum = new Raum(schmied);
-        Raum tempelRaum = new Raum(tempel);
-        Raum heilerRaum = new Raum(heiler);
-        Raum zufallsRaum = new Raum(zufallsEreignis);
-        Raum truhenRaum = new Raum(truhe);
-        Raum gegnerRaum = new Raum(gegner);
-        Raum treppenRaum = new Raum(treppe);
+        meineEbene.raumEinsetzen(ZAHL_4, ZAHL_4, new Raum(leererRaum1));
+        meineEbene.raumEinsetzen(ZAHL_4, ZAHL_3, new Raum(leererRaum2));
+        meineEbene.raumEinsetzen(ZAHL_4, ZAHL_2, new Raum(haendler));
+        meineEbene.raumEinsetzen(ZAHL_4, ZAHL_1, new Raum(schmied));
+        meineEbene.raumEinsetzen(ZAHL_4, ZAHL_0, new Raum(tempel));
+        meineEbene.raumEinsetzen(ZAHL_5, ZAHL_0, new Raum(heiler));
+        meineEbene.raumEinsetzen(ZAHL_6, ZAHL_0, new Raum(zufallsEreignis));
+        meineEbene.raumEinsetzen(ZAHL_7, ZAHL_0, new Raum(truhe));
+        meineEbene.raumEinsetzen(ZAHL_8, ZAHL_0, new Raum(gegner));
+        meineEbene.raumEinsetzen(ZAHL_8, ZAHL_1, new Raum(treppe));
 
-        testEbene1.raumEinsetzen(ZAHL_4, ZAHL_4, startRaum);
-        testEbene1.raumEinsetzen(ZAHL_4, ZAHL_3, leererRaum);
-        testEbene1.raumEinsetzen(ZAHL_4, ZAHL_2, haendlerRaum);
-        testEbene1.raumEinsetzen(ZAHL_4, ZAHL_1, schmiedRaum);
-        testEbene1.raumEinsetzen(ZAHL_4, ZAHL_0, tempelRaum);
-        testEbene1.raumEinsetzen(ZAHL_5, ZAHL_0, heilerRaum);
-        testEbene1.raumEinsetzen(ZAHL_6, ZAHL_0, zufallsRaum);
-        testEbene1.raumEinsetzen(ZAHL_7, ZAHL_0, truhenRaum);
-        testEbene1.raumEinsetzen(ZAHL_8, ZAHL_0, gegnerRaum);
-        testEbene1.raumEinsetzen(ZAHL_8, ZAHL_1, treppenRaum);
+        return meineEbene;
+    }
+
+    /**
+     * Diese Methode testet alle grundlegenden Funktionen einer Ebene. Dafuer
+     * wird die erstellte Testebene in die EbeneTest.json geschrieben und anschließend
+     * aus dieser in eine neue Instanz von Ebene erstellt. Hiernach durchläuft eine Instanz der Klasse
+     * SpielfigurEbene diese Ebene und durchquert alle Ereignisse einmal.
+     */
+    public static void testeEbene ()
+    {
+        Ebene testEbene1 = erstelleEbene();
+        Ebene testEbene2 = new Ebene(ZAHL_0, ZAHL_0);
+        SpielStand spielStand = null;
 
         KonsolenIO.ausgeben(testEbene1.toString());
 
