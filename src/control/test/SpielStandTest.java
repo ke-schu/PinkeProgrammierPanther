@@ -13,9 +13,9 @@ import resources.*;
 import java.io.IOException;
 import java.util.Stack;
 
-import static resources.Artefakte.DER_GRABSTEIN;
-import static resources.Talente.ABKLINGEN;
-import static resources.Talente.MANA_GOTT;
+import static resources.Artefakte.*;
+import static resources.TestKonstanten.*;
+import static resources.Talente.*;
 import static resources.Zahlen.*;
 
 /**
@@ -23,10 +23,6 @@ import static resources.Zahlen.*;
  */
 public class SpielStandTest
 {
-    private final static String TESTBEZEICHNUNG_SPIELER = "meinSpieler";
-    private final static String TESTBEZEICHNUNG_WAFFE = "meineWaffe";
-    private final static String TESTBEZEICHNUNG_CHARAKTER = "meinCharakter";
-
     /**
      * Erstellt einen Beispielspieler mit beispielhaften Werten
      * @return den Spieler

@@ -7,7 +7,7 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
-import static resources.Strings.*;
+import static resources.TestKonstanten.*;
 import static resources.Zahlen.ZAHL_1;
 import java.io.File;
 
@@ -16,11 +16,6 @@ import java.io.File;
  */
 public class KartenDeckTest
 {
-    private final static String TESTPFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
-    private final static String TESTBEZEICHNUNG = "IchBinDasSpieldeck";
-    private final static String KARTEN_NAME = "HarryPotter";
-    private final static int ANZAHL_KARTEN = 1;
-
     /**
      * Erstellt eine neue KarteEinheit mit beispielhaften Werten
      * @return die KarteEinheit
@@ -50,7 +45,7 @@ public class KartenDeckTest
      */
     public static void erstelleDeck ()
     {
-        KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD), TESTBEZEICHNUNG);
+        KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD_KARTENDECK), TESTBEZEICHNUNG_KARTENDECK);
 
         for (int i = 0; i < ANZAHL_KARTEN; i++)
         {
@@ -74,7 +69,7 @@ public class KartenDeckTest
     {
         try
         {
-            KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD);
+            KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD_KARTENDECK);
             System.out.println(meinDeck);
             KartenDeckController.mischen(meinDeck);
             System.out.println(meinDeck);
