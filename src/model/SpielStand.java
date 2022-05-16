@@ -29,7 +29,7 @@ public class SpielStand
      * @throws KartenDeckFehlerhaftException wenn die Kartendecks des Spielers oder des Gegners Fehler enthalten
      * @throws IOException wenn die Spielstanddatei nur falsch oder gar nicht gelesen werden kann
      */
-    public SpielStand(int gold, int erfahrungspunkte, Spieler spieler) throws KartenDeckFehlerhaftException, IOException
+    public SpielStand (int gold, int erfahrungspunkte, Spieler spieler) throws KartenDeckFehlerhaftException, IOException
     {
         this.gold = gold;
         this.erfahrungspunkte = erfahrungspunkte;
@@ -58,7 +58,7 @@ public class SpielStand
      * Gibt die aktuelle Spielebene wieder
      * @return die Spielebene
      */
-    public Ebene getAktuelleEbene()
+    public Ebene getAktuelleEbene ()
     {
         return aktuelleEbene;
     }
@@ -67,7 +67,7 @@ public class SpielStand
      * Gibt das Gold des Spielstandes wieder
      * @return das Gold
      */
-    public int getGold()
+    public int getGold ()
     {
         return gold;
     }
@@ -76,7 +76,7 @@ public class SpielStand
      * Setzt das Gold des Spielstandes auf einen neuen Wert
      * @param gold das neue Guthaben
      */
-    public void setGold(int gold)
+    public void setGold (int gold)
     {
         this.gold = gold;
     }
@@ -85,7 +85,7 @@ public class SpielStand
      * Gibt die Erfahrungspunkte des Spielstandes wieder
      * @return die Erfahrungspunkte
      */
-    public int getErfahrungspunkte()
+    public int getErfahrungspunkte ()
     {
         return erfahrungspunkte;
     }
@@ -94,7 +94,7 @@ public class SpielStand
      * Setzt die Erfahrungspunkte des Spielstandes auf einen neuen Wert
      * @param erfahrungspunkte die neuen Erfahrungspunkte
      */
-    public void setErfahrungspunkte(int erfahrungspunkte)
+    public void setErfahrungspunkte (int erfahrungspunkte)
     {
         this.erfahrungspunkte = erfahrungspunkte;
     }
@@ -112,7 +112,7 @@ public class SpielStand
      * Setzt den Spieler des Spielstandes neu
      * @param spieler der Spieler
      */
-    public void setSpieler(Spieler spieler)
+    public void setSpieler (Spieler spieler)
     {
         this.spieler = spieler;
     }
@@ -121,7 +121,7 @@ public class SpielStand
      * Gibt das Spieldeck des Spielers wieder
      * @return das Kartendeck des Spielers
      */
-    public KartenDeck getSpieldeckSpieler()
+    public KartenDeck getSpieldeckSpieler ()
     {
         return spieldeckSpieler;
     }
@@ -130,7 +130,7 @@ public class SpielStand
      * Gibt das Spieldeck des Gegners wieder
      * @return das Kartendeck des Gegners
      */
-    public KartenDeck getSpieldeckGegner()
+    public KartenDeck getSpieldeckGegner ()
     {
         return spieldeckGegner;
     }
