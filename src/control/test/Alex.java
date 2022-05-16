@@ -18,6 +18,7 @@ import static control.KartenEinheitController.beschwoerenHeld;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
+import static resources.Strings.ZEILENUMBRUCH;
 import static resources.Zahlen.ZAHL_1;
 
 public class Alex
@@ -41,7 +42,7 @@ try
     masterhand.handziehen(masterdeck);
     System.out.println(meinehand);
     Spieler spieler = SpielStandIO.leseDatei().getSpieler();
-    System.out.println(spieler);
+    System.out.println(spieler.getName());
 
     //Erstellen von Manatank instanzen für Spieler und Gegenspieler
     ManaTank meintank = new ManaTank(spieler);
@@ -57,23 +58,23 @@ try
     KartenEinheitController.beschwoeren(meinehand,2,meinfeld,1,0 ,meintank);
 
     //Karte gibt ihre position wieder
-    System.out.println(" Hallo ich bin eine beschworene Einheit und heiße "+meinfeld.getSpielfeldplatz(1,0).getName()+" ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(1,0));
+    System.out.println("Hallo ich bin eine beschworene Einheit und heiße "+meinfeld.getSpielfeldplatz(1,0).getName()+" ich stehe an position 0,1 " + meinfeld.getSpielfeldplatz(1,0));
     System.out.println("und ich denke ich stehe in Spalte " +meinfeld.getSpielfeldplatz(1,0).getPosition_x());
-    System.out.println("und Zeile " + meinfeld.getSpielfeldplatz(1,0).getPosition_y());
+    System.out.println("und Zeile " + meinfeld.getSpielfeldplatz(1,0).getPosition_y() + ZEILENUMBRUCH);
 
     //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
     System.out.println("Ich bin der Gegner und vor dem bewegen stehe ich an position" + (meinfeld.getFeldZeile()-1)+ (meinfeld.getFeldSpalte()-1)  + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile()-ZAHL_1,meinfeld.getFeldSpalte()-ZAHL_1));
     EinheitenController.bewegen(meinfeld,1,3,master);
     EinheitenController.bewegen(meinfeld,1,2,master);
     EinheitenController.bewegen(meinfeld,1,1,master);
-    System.out.println("nach dem bewegen bin ich stehe an position 2,3 " + meinfeld.getSpielfeldplatz(1,1));
+    System.out.println("nach dem bewegen bin ich stehe an position 2,3 " + meinfeld.getSpielfeldplatz(1,1)+ ZEILENUMBRUCH);
 
     //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
     //und gibt danach wieder seine lebenspunkte wieder
     System.out.println("Lebenspunkte freund einheit: " + meinfeld.getSpielfeldplatz(1,0).getLebenspunkte());
     System.out.println("an stelle 0, 1 befindet sich vor dem kampf" + meinfeld.getSpielfeldplatz(1,0));
     einheitenAngreifenMitEinheiten(meinfeld,master,meinfeld.getSpielfeldplatz(1,0));
-    System.out.println("Lebenspunkte freund einheit nach kampf: "+  meinfeld.getSpielfeldplatz(1,0).getLebenspunkte());
+    System.out.println("Lebenspunkte freund einheit nach kampf: "+  meinfeld.getSpielfeldplatz(1,0).getLebenspunkte()+ ZEILENUMBRUCH);
 
     //daraufhin wird der zug beendet und
     RundenController.zugBeenden(meinfeld,meindeck,masterdeck);
