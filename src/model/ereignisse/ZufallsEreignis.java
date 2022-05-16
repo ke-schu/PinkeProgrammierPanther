@@ -14,7 +14,6 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;    //Wert zur Bestimmung, welches Ereignis eintritt
-
     protected static int ereignismenge;     //Menge an Ereignissen, welche eintreten können.
 
     /**
@@ -32,7 +31,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Diese Methode dient als Getter um zu ueberpruefen, ob ein Ereignis ausgefuehrt wurde.
-     * @return Es wird zurückgegeben ob das Ereignis ausgefuehrt wurde.
+     * @return Es wird zurückgegeben, ob das Ereignis ausgefuehrt wurde.
      */
     public boolean isAusgefuehrt ()
     {

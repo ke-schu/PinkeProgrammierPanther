@@ -31,7 +31,7 @@ public abstract class Mensch extends Ereignis
     }
 
     /**
-     * Diese Methode prueft ob der Spieler gratis sein Deck verändern kann, wenn er die Dienste der
+     * Diese Methode prueft, ob der Spieler gratis sein Deck verändern kann, wenn er die Dienste der
      * Einrichtungen in Anspruch nimmt.
      */
     public boolean pruefeGratisInteraktion ()

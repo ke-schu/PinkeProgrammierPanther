@@ -31,6 +31,20 @@ public class KonsolenIO
     public static int eingabeInt ()
     {
         Scanner sc = new Scanner(System.in);
-        return sc.nextInt();
+        int temp = sc.nextInt();
+        sc.close();
+        return temp;
+    }
+
+    /**
+     * Diese Methode liest einen Boolean ueber eine Benutzereingabe ein.
+     * @return eingegebener Wert als Boolean
+     */
+    public static boolean eingabeBoolean ()
+    {
+        Scanner sc = new Scanner(System.in);
+        boolean temp = sc.nextBoolean();
+        sc.close();
+        return temp;
     }
 }

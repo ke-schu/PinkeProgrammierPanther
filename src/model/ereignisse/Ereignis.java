@@ -81,5 +81,4 @@ public abstract class Ereignis
     public void ausfuehren (SpielStand spielStand)
     {
     }
-
 }
