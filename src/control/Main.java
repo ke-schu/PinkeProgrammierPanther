@@ -1,6 +1,6 @@
 package control;
 
-import control.test.Alex;
+import control.test.*;
 import control.test.EbeneTest;
 import control.test.KartenDeckTest;
 import control.test.SpielStandTest;
@@ -24,9 +24,9 @@ public class Main
      */
     private static void teste()
     {
-        switch(2)
+        switch(1)
         {
-            case 1: Alex.ausfuehren();
+            case 1: SpielzugTest.Spielzugtesten(); ;
             break;
             case 2: EbeneTest.testeEbene();
             break;

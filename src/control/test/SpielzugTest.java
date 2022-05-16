@@ -50,7 +50,7 @@ public class SpielzugTest
             //Erstellen von Manatank instanzen für Spieler und Gegenspieler
             ManaTank meintank = new ManaTank(spieler);
             Gegenspieler master =
-                    new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_2, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
+                    new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
             ManaTank mastertank = new ManaTank(master);
 
 
@@ -65,16 +65,19 @@ public class SpielzugTest
             KonsolenIO.ausgeben(
                     VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
                     POSITIONSANGABENULLEINS);
-            KonsolenIO.ausgeben(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
-            KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
+            System.out.println(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
+            System.out.println(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
 
             //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
-            KonsolenIO.ausgeben(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile() - ZAHL_1,
-                    meinfeld.getFeldSpalte() - ZAHL_1) + VON +
+            System.out.println(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
                                (meinfeld.getFeldZeile()) + "," + (meinfeld.getFeldSpalte()));
             KonsolenIO.ausgeben(BEWEGEN);
-            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_3, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_2, master);
+
+            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_1, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
             EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
             KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_1) +
                                ZEILENUMBRUCH);
