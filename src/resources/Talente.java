@@ -2,7 +2,7 @@ package resources;
 
 /**
  * Neben Artefakten kann der Spieler auch Talente besitzen.
- * Alle möglichen Talente sind hier festgehalten.
+ * Alle moeglichen Talente sind hier festgehalten.
  */
 public enum Talente
 {
