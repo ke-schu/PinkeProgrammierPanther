@@ -26,7 +26,7 @@ public class Main
     {
         switch(1)
         {
-            case 1: SpielzugTest.Spielzugtesten(); ;
+            case 1: SpielzugTest.spielzugtesten(); ;
             break;
             case 2: EbeneTest.testeEbene();
             break;

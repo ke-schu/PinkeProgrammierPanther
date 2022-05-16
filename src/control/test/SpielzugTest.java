@@ -16,7 +16,7 @@ import static control.KartenEinheitController.beschwoerenHeld;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
-import static resources.Strings.ZEILENUMBRUCH;
+import static resources.Strings.*;
 import static resources.TestKonstanten.*;
 import static resources.Zahlen.*;
 
@@ -33,7 +33,7 @@ public class SpielzugTest
     static ManaTank mastertank;
 
 
-    public static void Spielzugtesten()
+    public static void spielzugtesten ()
     {
         auslesen();
         erstellen();
@@ -43,7 +43,7 @@ public class SpielzugTest
         kaempfen();
         zugbeenden();
     }
-    public static void erstellen()
+    public static void erstellen ()
     {
         meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
         KonsolenIO.ausgeben(
@@ -54,13 +54,13 @@ public class SpielzugTest
         master =new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
         mastertank = new ManaTank(master);
     }
-    public static void auslesen()
+    public static void auslesen ()
     {
         try
         {
             //Erstellen 2er Spieldecks
-            meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
-            masterdeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Gegner.json");
+            meindeck = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+            masterdeck = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
             KonsolenIO.ausgeben(meindeck.toString());
             spieler = SpielStandIO.leseDatei().getSpieler();
         }
@@ -70,7 +70,7 @@ public class SpielzugTest
         }
     }
 
-    public static void haendeziehen()
+    public static void haendeziehen ()
     {
         meinehand.handziehen(meindeck);
         masterhand.handziehen(masterdeck);
@@ -78,7 +78,7 @@ public class SpielzugTest
         KonsolenIO.ausgeben(VORSTELLENSPIELER + spieler.getName());
     }
 
-    public static void einheitenbeschwoeren()
+    public static void einheitenbeschwoeren ()
     {
         beschwoerenHeld(spieler, meinfeld);
         beschwoerenHeld(master, meinfeld);
@@ -89,7 +89,7 @@ public class SpielzugTest
         KonsolenIO.ausgeben(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
         KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
     }
-    public static void rumlaufen()
+    public static void rumlaufen ()
     {
         KonsolenIO.ausgeben(meinfeld.toString());
         //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
@@ -106,7 +106,7 @@ public class SpielzugTest
         KonsolenIO.ausgeben(meinfeld.toString());
     }
 
-    public static void kaempfen()
+    public static void kaempfen ()
     {
         //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
         //und gibt danach wieder seine lebenspunkte wieder
@@ -118,7 +118,7 @@ public class SpielzugTest
                 LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() +
                 ZEILENUMBRUCH);
     }
-    public static void zugbeenden()
+    public static void zugbeenden ()
     {
         //daraufhin wird der zug beendet und
         RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
