@@ -26,7 +26,7 @@ public class KarteZauber extends Karte
      * Methode die einen Int-Wert in das Attribut macht setzt.
      * @param macht Int-Wert, welcher in das Attribut macht gesetzt wird.
      */
-    public void setMacht(int macht)
+    public void setMacht (int macht)
     {
         this.macht = macht;
     }

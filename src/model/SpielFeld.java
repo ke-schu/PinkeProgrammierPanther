@@ -121,7 +121,7 @@ public class SpielFeld
      * Methode die den Int-Wert des Attributes feldSpalte liefert.
      * @return gibt den Int-Wert des Attributes feldSpalte wieder.
      */
-    public int getFeldSpalte()
+    public int getFeldSpalte ()
     {
         return this.feldSpalte;
     }

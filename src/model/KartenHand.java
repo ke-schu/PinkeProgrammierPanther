@@ -44,7 +44,7 @@ public class KartenHand
      * @return gibt die Kartenhand als String wieder
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         return "KartenHand{" + "hand=" + Arrays.toString(hand) + '}';
     }

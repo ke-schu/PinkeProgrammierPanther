@@ -81,8 +81,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @return
+     * Methode die ein Array mit Elementen des Enums Artefakte wiedergibt
+     * @return gibt ein Array mit Elementen des Enums Artefakte wieder.
      */
     public Artefakte[] getArtefakte ()
     {
@@ -90,8 +90,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @param artefakte
+     * Setzt den uebergebenen Parameter des Enum Artefakte in das Attribut artefakt.
+     * @param artefakte Array mit Elementen des Enums Artefakte, welches in das Attribut artefakte gesetzt werden soll.
      */
     public void setArtefakte (Artefakte[] artefakte)
     {
@@ -99,8 +99,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @return
+     * Getter Methode um den INT-Wert vom Mana des Spielers zurueckzugeben
+     * @return Den Manawert des Spielers
      */
     public int getMana ()
     {

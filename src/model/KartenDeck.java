@@ -59,7 +59,7 @@ public class KartenDeck extends Stack<Karte>
      * Setzt die Datei des Kartendecks
      * @param datei Die Datei des Kartendecks
      */
-    public void setDatei(File datei)
+    public void setDatei (File datei)
     {
         this.datei = datei;
     }
