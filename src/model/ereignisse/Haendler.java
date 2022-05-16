@@ -6,10 +6,8 @@ import io.KonsolenIO;
 import model.KartenDeck;
 import model.SpielStand;
 
-import java.util.Scanner;
-
 import static io.KonsolenIO.eingabeInt;
-import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
+import static resources.Strings.*;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Haendler ist ein Ereignis, welches innerhalb einer Ebene angetroffen
@@ -17,7 +15,8 @@ import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
  */
 public class Haendler extends Mensch
 {
-    protected transient KartenDeck haendlerDeck = null;   //Das Deck des Haendlers, aus dem der Spieler Karten kaufen kann.
+    //Das Deck des Haendlers, aus dem der Spieler Karten kaufen kann.
+    private transient KartenDeck haendlerDeck = null;
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler. Haendler sind Ereignisse, die es dem
@@ -43,11 +42,19 @@ public class Haendler extends Mensch
         super(name, beschreibung);
     }
 
+    /**
+     * Diese Methode dient als Getter um auf das aktuelle Deck des Haendlers zuzugreifen.
+     * @return das aktuelle Deck des Haendlers
+     */
     public KartenDeck getHaendlerDeck()
     {
         return haendlerDeck;
     }
 
+    /**
+     * Diese Methode dient als Setter um dem Haendler ein neues Deck zuzuweisen.
+     * @param haendlerDeck das Deck, welches der Haendler erhalten soll.
+     */
     public void setHaendlerDeck(KartenDeck haendlerDeck)
     {
         this.haendlerDeck = haendlerDeck;
@@ -58,7 +65,7 @@ public class Haendler extends Mensch
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt oder
      * vorher die Zahlung durchgefuehrt.
-     * @param spielStand
+     * @param spielStand der aktuelle Spielstand und seine Attribute
      */
     public void ausfuehren (SpielStand spielStand)
     {

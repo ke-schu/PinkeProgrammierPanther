@@ -1,5 +1,8 @@
 package resources;
 
+/**
+ * Dieses Interface enthaelt Strings, welche fuer Ereignisse benoetigt werden.
+ */
 public interface StringsEreignisse
 {
     //Namen der Ereignisse

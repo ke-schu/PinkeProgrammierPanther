@@ -3,6 +3,10 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
+/**
+ * Diese Klasse ist eine Subklasse von Ereignis und implementiert das Interface Wahrscheinlichkeit.
+ * Ein ZufallsEreignis ist fuer den Spieler erst erkennbar, wenn dieser es ausfuehrt.
+ */
 public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
@@ -56,7 +60,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     /**
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
-     * @param spielStand:
+     * @param spielStand der aktuelle Spielstand und seine Attribute
      */
     public void ausfuehren (SpielStand spielStand)
     {

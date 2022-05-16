@@ -3,6 +3,10 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
+/**
+ * Diese Klasse ist eine Subklasse von Ereignis. Ein Treppe ist nur als Uebergang in die naechste Ebene für den Spieler
+ * gedacht. Treppe enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
+ */
 public class Treppe extends Ereignis
 {
     /**
@@ -18,20 +22,11 @@ public class Treppe extends Ereignis
 
     /**
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Wird diese Methode ausgefuehrt,
-     * dann wechselt der Spieler die Ebene, auf der er sich befindet, zur nächst höheren.
+     * dann wird der Name der Treppe ausgegeben.
+     * @param spielStand der aktuelle Spielstand und seine Attribute
      */
     public void ausfuehren (SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        //Ebene ebene = new Ebene();
-        //try
-        {
-          //  ebene = EbeneIO.leseDatei();
-        }
-        //catch (IOException e)
-        {
-         //e.getMessage();
-        }
-        //return ebene;
     }
 }
