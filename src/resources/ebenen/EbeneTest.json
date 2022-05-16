@@ -81,12 +81,6 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
                 null,
                 null
               ],
@@ -95,6 +89,15 @@
                 null,
                 null,
                 null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
                 null
               ],
               [
@@ -102,9 +105,11 @@
                 null,
                 null,
                 null,
+                null,
                 null
               ],
               [
+                null,
                 null,
                 null,
                 null,
@@ -113,7 +118,7 @@
               ]
             ],
             "feldZeile": 5,
-            "feldSpalte": 5
+            "feldSpalte": 6
           },
           "name": "Gegner",
           "beschreibung": "Hier kann man gegnern.",
