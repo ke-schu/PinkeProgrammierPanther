@@ -211,7 +211,7 @@ public class KarteEinheit extends Karte
    * Getter Methode um den Wert des Attributes schild zu erhalten
    * @return gibt den Wert des Attributes schild wieder
    */
-  public int getPosition_x ()
+  public int getPositionX ()
   {
     return this.position.getX();
   }
@@ -220,7 +220,7 @@ public class KarteEinheit extends Karte
    * Getter Methode um den Wert des Attributes position und dessen Attribut y zu erhalten
    * @return gibt den Wert des Attributes  position únd dessen Attribut y wieder
    */
-  public int getPosition_y ()
+  public int getPositionY ()
   {
     return this.position.getY();
   }

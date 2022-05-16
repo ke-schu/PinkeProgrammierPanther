@@ -3,11 +3,8 @@ package control;
 import com.google.gson.*;
 import model.Karte;
 import model.KartenDeck;
-
 import java.lang.reflect.Type;
-
-import static resources.Strings.KARTEN_DECK_BEZEICHNUNG;
-import static resources.Strings.KARTEN_DECK_STACK;
+import static resources.Strings.*;
 
 /**
  * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer für ein KartenDeck.
@@ -57,7 +54,7 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
             JsonObject JsonKarte = meinJsonArray.get(i).getAsJsonObject();
             try
             {
-                Type klasse = Class.forName(JsonKarte.get("klasse").getAsString());
+                Type klasse = Class.forName(JsonKarte.get(KLASSE).getAsString());
                 Karte karte = meinGson.fromJson(JsonKarte, klasse);
                 meinKartenDeck.add(i, karte);
             }

@@ -104,8 +104,8 @@ public class SpielzugTest
         KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
         KonsolenIO.ausgeben(
                 VORSTELLEN_EINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() + POSITIONS_ANGABE_NULL_EINS);
-        KonsolenIO.ausgeben(POSITIONS_ANGABE_EINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
-        KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(POSITIONS_ANGABE_EINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPositionX());
+        KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPositionY() + ZEILENUMBRUCH);
     }
 
     /**
@@ -139,7 +139,7 @@ public class SpielzugTest
         KonsolenIO.ausgeben(LEBENSPUNKTE_FREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
         KonsolenIO.ausgeben(POSITIONS_ANGABE_KAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName());
         KonsolenIO.ausgeben(KAEMPFEN);
-        einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
+        einheitenAngreifenMitEinheiten(master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
         KonsolenIO.ausgeben(
                 LEBENSPUNKTE_NACH_KAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() + ZEILENUMBRUCH);
     }

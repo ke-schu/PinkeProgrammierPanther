@@ -5,25 +5,37 @@ import model.*;
 import static resources.Zahlen.ZAHL_0;
 import static resources.Zahlen.ZAHL_1;
 
+/**
+ * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der Einheiten.
+ */
 public class KartenEinheitController
 {
     /**
-     * @param kartenhand Hand aus welcher die Karte auf das Spielfeld gelegt wird
-     * @param positionhand Stelle auf der hand an welcher sich die ausgewehlte karte befindet
-     * @param spielfeld spielfeld auf welches die karte gelegt wird
-     * @param x zeile im spielfeld
-     * @param y spalte im spielfeld
-     * @param tank zu verfügung stehende manareserve
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
      */
-    public static void beschwoeren (KartenHand kartenhand, int positionhand, SpielFeld spielfeld, int x, int y, ManaTank tank)
+    private KartenEinheitController ()
     {
-        if ((spielfeld.getSpielfeld()[x][y] == null) && (freundbenachbart(x,y,spielfeld)))
+    }
+
+    /**
+     * @param kartenhand Hand aus welcher die Karte auf das Spielfeld gelegt wird
+     * @param positionhand Stelle, auf der hand an welcher sich die ausgewaehlte Karte befindet
+     * @param spielfeld Spielfeld, auf welches die Karte gelegt wird
+     * @param x Zeile im spielfeld
+     * @param y Spalte im spielfeld
+     * @param tank zu Verfügung stehende Mana-Reserve
+     */
+    public static void beschwoeren (KartenHand kartenhand, int positionhand,
+                                    SpielFeld spielfeld, int x, int y, ManaTank tank)
+    {
+        if ((spielfeld.getSpielfeld()[x][y] == null) && (freundBenachbart(x,y,spielfeld)))
         {
             Karte meinekarte = kartenhand.getelement(positionhand);
             if(meinekarte instanceof KarteEinheit && (tank.getMana()>=((KarteEinheit) meinekarte).getManaKosten()) )
             {
                 ((KarteEinheit) meinekarte).startwertespeichern();
-                positiongeben((KarteEinheit) meinekarte,x,y);
+                positionGeben((KarteEinheit) meinekarte,x,y);
                 spielfeld.einheitEinsetzten(x,y, (KarteEinheit) meinekarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(((KarteEinheit) meinekarte).getManaKosten());
@@ -33,27 +45,27 @@ public class KartenEinheitController
 
     public static void beschwoerenHeld (KarteEinheit held, SpielFeld spielfeld)
     {
-        if(held.getFreundlich() == true)
+        if(held.getFreundlich())
         {
             (held).startwertespeichern();
-            positiongeben((KarteEinheit) held,ZAHL_0,ZAHL_0);
+            positionGeben((KarteEinheit) held,ZAHL_0,ZAHL_0);
             spielfeld.einheitEinsetzten(ZAHL_0,ZAHL_0, held);
         }
         else
         {
             (held).startwertespeichern();
-            positiongeben(held,spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1);
+            positionGeben(held,spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1);
             spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1, held);
         }
     }
 
-    public static void positiongeben(KarteEinheit einheit, int x, int y)
+    public static void positionGeben (KarteEinheit einheit, int x, int y)
     {
         Position position = new Position(x,y);
         einheit.setPosition(position);
     }
 
-    public static boolean freundbenachbart(int x, int y, SpielFeld spielfeld)
+    public static boolean freundBenachbart (int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;
 
@@ -64,32 +76,33 @@ public class KartenEinheitController
 
         if(oben != null)
         {
-            if(oben.getFreundlich() == true)
+            if(oben.getFreundlich())
             {
                 freundlich = true;
             }
         }
         if(unten != null)
         {
-            if(unten.getFreundlich() == true)
+            if(unten.getFreundlich())
             {
                 freundlich = true;
             }
         }
         if(links != null)
         {
-            if(links.getFreundlich() == true)
+            if(links.getFreundlich())
             {
                 freundlich = true;
             }
         }
         if(rechts != null)
         {
-            if(rechts.getFreundlich() == true)
+            if(rechts.getFreundlich())
             {
                 freundlich = true;
             }
         }
+
         return freundlich;
     }
 }

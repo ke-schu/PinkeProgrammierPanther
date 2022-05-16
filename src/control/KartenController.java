@@ -5,7 +5,7 @@ import model.KarteEinheit;
 import static resources.Zahlen.*;
 
 /**
- * In dieser Klassen befinden sich Methoden um mit Instanzen von Karten zu interagieren.
+ * In dieser Klassen befinden sich Methoden, um mit Instanzen von Karten zu interagieren.
  */
 public class KartenController
 {

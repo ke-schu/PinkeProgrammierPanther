@@ -5,63 +5,79 @@ import model.SpielFeld;
 
 import static resources.Zahlen.ZAHL_1;
 
+/**
+ * Kontrolliert eine Runde auf dem Kampffeld.
+ */
 public class RundenController
 {
-    private static int zugzeahler = ZAHL_1;
-   private static boolean freundlich =true;
-    //boolean plaatzhalter = false;
+    private static int zugZaehler = ZAHL_1;
+    private static boolean freundlich = true;
 
-    public static boolean getFreundlich()
+    /**
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private RundenController ()
     {
-        return freundlich;
     }
 
-    public static void setFreundlich(boolean freundlich)
+    /**
+     * Beendet eine Runde und zaehlt dabei den Zugzaehler hoch
+     * @param feld Feld aud dem die Runde gespielt wird
+     * @param spielerDeck Kartendeck des spielers
+     * @param masterDeck Kartendeck Dungeonmasters
+     */
+    public static void  zugBeenden (SpielFeld feld,KartenDeck spielerDeck, KartenDeck masterDeck)
     {
-        RundenController.freundlich = freundlich;
-    }
+        zugZaehler = zugZaehler + ZAHL_1;
 
-    public static void  zugBeenden (SpielFeld feld,KartenDeck spielerdeck, KartenDeck masterdeck )
-    {
-        zugzeahler = zugzeahler + ZAHL_1;
-
-        feldaufraeumen(feld, spielerdeck,masterdeck);
-        beweglichkeitauffrischen(feld);
+        feldAufraeumen(feld, spielerDeck, masterDeck);
+        beweglichkeitAuffrischen(feld);
         aufwecken(feld);
-        bestimmenwerdranist();
+        bestimmenWerDranIst();
     }
 
-    public static void feldaufraeumen(SpielFeld feld,KartenDeck spielerdeck,KartenDeck masterdeck )
+    /**
+     * Entfernt alle Karten vom Spielfeld, welche keine Lebenspunkte mehr haben
+     * und legt Sie zurueck in ihr zugehoeriges Kartendeck
+     * @param feld Feld aud dem die Runde gespielt wird
+     * @param spielerDeck Kartendeck des spielers
+     * @param masterDeck Kartendeck Dungeonmasters
+     */
+    public static void feldAufraeumen (SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterDeck)
     {
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if(feld.getSpielfeldplatz(i,j) != null)
+                if (feld.getSpielfeldplatz(i,j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= 0 )
+                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= 0)
                     {
                         feld.getSpielfeldplatz(i,j).initialisieren();
-                        if(feld.getSpielfeldplatz(i,j).getFreundlich()== true)
+                        if (feld.getSpielfeldplatz(i, j).getFreundlich())
                         {
-                            spielerdeck.push( feld.getSpielfeldplatz(i,j));
-                            KartenDeckController.mischen(spielerdeck);
+                            spielerDeck.push( feld.getSpielfeldplatz(i,j));
+                            KartenDeckController.mischen(spielerDeck);
                             feld.einheitloeschen(i,j);
                         }
                         else
                         {
-                            masterdeck.push( feld.getSpielfeldplatz(i,j));
-                            KartenDeckController.mischen(masterdeck);
+                            masterDeck.push( feld.getSpielfeldplatz(i,j));
+                            KartenDeckController.mischen(masterDeck);
                             feld.einheitloeschen(i,j);
                         }
-
                     }
                 }
-
             }
         }
     }
-    public static void beweglichkeitauffrischen(SpielFeld feld)
+
+    /**
+     * gibt den Karten auf dem Feld nach jedem Zug ihre Beweglichkeitspunkte zurueck
+     * @param feld Feld aud dem die Runde gespielt wird
+     */
+    public static void beweglichkeitAuffrischen (SpielFeld feld)
     {
 
         for (int i = 0; i < feld.getFeldZeile(); i++)
@@ -79,9 +95,13 @@ public class RundenController
             }
         }
     }
-    public static void bestimmenwerdranist()
+
+    /**
+     * bestimmt, welcher Spieler dran ist
+     */
+    public static void bestimmenWerDranIst ()
     {
-        if(zugzeahler % 2 == 0)
+        if(zugZaehler % 2 == 0)
         {
             freundlich = true;
         }
@@ -91,7 +111,10 @@ public class RundenController
         }
     }
 
-    public static void aufwecken(SpielFeld feld)
+    /**
+     * @param feld weckt die Karten nach jedem Zug auf sodas sie im naechsten Zug wieder agieren koennen
+     */
+    public static void aufwecken (SpielFeld feld)
     {
         for(int i = 0; i < feld.getFeldZeile(); i++)
         {
@@ -105,14 +128,41 @@ public class RundenController
         }
 
     }
-    public static int getZugzeahler()
+
+    /**
+     * Gibt den Zugzaehler als Int-Wert wider
+     * @return Wert des Zuges
+     */
+    public static int getZugZaehler ()
     {
-        return zugzeahler;
+        return zugZaehler;
     }
 
-    public void setZugzeahler(int zugzeahler)
+    /**
+     * Setzt den Int-Wert Zugzaehler
+     * @param zugZaehler Wert des Zuges
+     */
+    public static void setZugZaehler (int zugZaehler)
     {
-        this.zugzeahler = zugzeahler;
+        RundenController.zugZaehler = zugZaehler;
+    }
+
+    /**
+     * Gibt wieder, ob eine freundliche Einheit am Zug ist.
+     * @return true oder false
+     */
+    public static boolean isFreundlich ()
+    {
+        return freundlich;
+    }
+
+    /**
+     * Setzt den Wahrheitswert freundlich
+     * @param freundlich true oder false
+     */
+    public static void setFreundlich (boolean freundlich)
+    {
+        RundenController.freundlich = freundlich;
     }
 }
 

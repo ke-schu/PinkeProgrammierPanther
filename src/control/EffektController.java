@@ -44,46 +44,46 @@ public class EffektController
     private static void zurueckWerfen (KarteEinheit ausloeser, SpielFeld feld)
     {
         KarteEinheit zielOben = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x(), ausloeser.getPosition_y() - ZAHL_1);
+                ausloeser.getPositionX(), ausloeser.getPositionY() - ZAHL_1);
         KarteEinheit platzOben = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x(), ausloeser.getPosition_y() - ZAHL_2);
+                ausloeser.getPositionX(), ausloeser.getPositionY() - ZAHL_2);
         KarteEinheit zielUnten = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x(), ausloeser.getPosition_y() + ZAHL_1);
+                ausloeser.getPositionX(), ausloeser.getPositionY() + ZAHL_1);
         KarteEinheit platzUnten = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x(), ausloeser.getPosition_y() + ZAHL_2);
+                ausloeser.getPositionX(), ausloeser.getPositionY() + ZAHL_2);
         KarteEinheit zielLinks  = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x() - ZAHL_1, ausloeser.getPosition_y());
+                ausloeser.getPositionX() - ZAHL_1, ausloeser.getPositionY());
         KarteEinheit platzLinks = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y());
+                ausloeser.getPositionX() - ZAHL_2, ausloeser.getPositionY());
         KarteEinheit zielRechts  = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x() + ZAHL_1, ausloeser.getPosition_y());
+                ausloeser.getPositionX() + ZAHL_1, ausloeser.getPositionY());
         KarteEinheit platzRechts = feld.getSpielfeldplatz(
-                ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y());
+                ausloeser.getPositionX() + ZAHL_2, ausloeser.getPositionY());
 
         try
         {
             if (zielOben != null && platzOben == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2, zielOben);
-                feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_1);
+                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY()-ZAHL_2, zielOben);
+                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY()-ZAHL_1);
             }
 
             if (zielUnten != null && platzUnten == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2, zielUnten);
-                feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
+                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY()+ZAHL_2, zielUnten);
+                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY()+ZAHL_1);
             }
 
             if (zielLinks != null && platzLinks == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y(), zielLinks);
-                feld.einheitloeschen(ausloeser.getPosition_x() - ZAHL_1, ausloeser.getPosition_y());
+                feld.einheitEinsetzten(ausloeser.getPositionX() - ZAHL_2, ausloeser.getPositionY(), zielLinks);
+                feld.einheitloeschen(ausloeser.getPositionX() - ZAHL_1, ausloeser.getPositionY());
             }
 
             if (zielRechts != null && platzRechts == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y(), zielRechts);
-                feld.einheitloeschen(ausloeser.getPosition_x() + ZAHL_1, ausloeser.getPosition_y());
+                feld.einheitEinsetzten(ausloeser.getPositionX() + ZAHL_2, ausloeser.getPositionY(), zielRechts);
+                feld.einheitloeschen(ausloeser.getPositionX() + ZAHL_1, ausloeser.getPositionY());
             }
         }
         catch (ArrayIndexOutOfBoundsException e)

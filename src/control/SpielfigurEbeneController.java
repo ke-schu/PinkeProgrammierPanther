@@ -13,11 +13,19 @@ public class SpielfigurEbeneController
 {
 
     /**
-     * Methode um eine Instanz von SpielfigurEbene um einen Raum der Ebene zu bewegen und das Ereignis des Raums
-     * nach betreten auszufuehren.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
+     * gebildet werden.
+     */
+    private SpielfigurEbeneController ()
+    {
+    }
+
+    /**
+     * Methode, um eine Instanz von SpielfigurEbene in einen Raum der Ebene zu bewegen und das Ereignis des Raums
+     * nach Betreten auszufuehren.
      * @param ebene Instanz der Klasse Ebene in der sich die Instanz von SpielfigurEbene befindet.
      * @param ziel_x Zielkoordinate des Raums auf der X-Achse.
-     * @param ziel_y Zielkoorinate des Raums auf der Y-Achse.
+     * @param ziel_y Zielkoordinate des Raums auf der Y-Achse.
      * @param spielfigur Instanz der Klasse SpielfigurEbene, welche in der Instanz von Ebene bewegt werden soll.
      * @param spielStand Instanz der Klasse SpielStand, welcher den Ereignissen uebergeben wird.
      */
@@ -30,8 +38,8 @@ public class SpielfigurEbeneController
 
         if ((ebene.getRaumAnPosition(ziel_x, ziel_y) != null))
         {
-            zielErreichbarInX = (ziel_x == spielfigur.getPosition_x() + ZAHL_1) || (ziel_x == spielfigur.getPosition_x() - ZAHL_1);
-            zielErreichbarInY = (ziel_y == spielfigur.getPosition_y() + ZAHL_1) || (ziel_y == spielfigur.getPosition_y() - ZAHL_1);
+            zielErreichbarInX = (ziel_x == start_x + ZAHL_1) || (ziel_x == start_x - ZAHL_1);
+            zielErreichbarInY = (ziel_y == start_y + ZAHL_1) || (ziel_y == start_y - ZAHL_1);
 
             if ((zielErreichbarInX || zielErreichbarInY) && !(zielErreichbarInX && zielErreichbarInY))
             {
