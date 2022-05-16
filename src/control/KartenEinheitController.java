@@ -19,6 +19,7 @@ public class KartenEinheitController
     }
 
     /**
+     * Legt Karte auf Spielfeld und ueberprueft ob die dafuer noetigen Voraussetzungen gegeben sind
      * @param kartenhand Hand aus welcher die Karte auf das Spielfeld gelegt wird
      * @param positionhand Stelle, auf der hand an welcher sich die ausgewaehlte Karte befindet
      * @param spielfeld Spielfeld, auf welches die Karte gelegt wird
@@ -43,6 +44,11 @@ public class KartenEinheitController
         }
     }
 
+    /**
+     * Legt Held-und Dungeonmasterkarte zu Beginn einer runde an ihre vorgesehenen Plaetze
+     * @param held HeldKarte welche gelegt werden soll
+     * @param spielfeld auf dem die Karten gelegt werden
+     */
     public static void beschwoerenHeld (KarteEinheit held, SpielFeld spielfeld)
     {
         if(held.getFreundlich())
@@ -59,12 +65,24 @@ public class KartenEinheitController
         }
     }
 
+    /**
+     * weist einer Karte eine Position zu
+     * @param einheit Karte welcher eine Position gegeben wird
+     * @param x   x Position im Spielfeld
+     * @param y   y Position im Spielfeld
+     */
     public static void positionGeben (KarteEinheit einheit, int x, int y)
     {
         Position position = new Position(x,y);
         einheit.setPosition(position);
     }
 
+    /**
+     * Gibt an, ob befreundete Karten an eine position grenzen
+     * @param y, @param x Position in welcher umgebung nach befreundetet karten gesucht wird
+     * @param spielfeld Spielfeld in dem gesucht wird
+     * @return boolean ob befreundetet karten in der umgebung ist
+     */
     public static boolean freundBenachbart (int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;
