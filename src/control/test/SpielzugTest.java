@@ -43,17 +43,19 @@ public class SpielzugTest
         kaempfen();
         zugbeenden();
     }
+
     public static void erstellen ()
     {
         meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
-        KonsolenIO.ausgeben(
-                SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN + meinfeld.getFeldZeile());
+        KonsolenIO.ausgeben(SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN + meinfeld.getFeldZeile());
         meinehand = new KartenHand();
         masterhand = new KartenHand();
         meintank = new ManaTank(spieler);
-        master =new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
+        master = new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1,
+                LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
         mastertank = new ManaTank(master);
     }
+
     public static void auslesen ()
     {
         try
@@ -63,8 +65,7 @@ public class SpielzugTest
             masterdeck = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
             KonsolenIO.ausgeben(meindeck.toString());
             spieler = SpielStandIO.leseDatei().getSpieler();
-        }
-        catch (KartenDeckFehlerhaftException | IOException e)
+        } catch (KartenDeckFehlerhaftException | IOException e)
         {
             throw new RuntimeException(e);
         }
@@ -84,17 +85,18 @@ public class SpielzugTest
         beschwoerenHeld(master, meinfeld);
         KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
         KonsolenIO.ausgeben(
-                VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
-                POSITIONSANGABENULLEINS);
+                VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() + POSITIONSANGABENULLEINS);
         KonsolenIO.ausgeben(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
         KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
     }
+
     public static void rumlaufen ()
     {
         KonsolenIO.ausgeben(meinfeld.toString());
         //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
-        KonsolenIO.ausgeben(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
-                            (meinfeld.getFeldZeile()) + "," + (meinfeld.getFeldSpalte()));
+        KonsolenIO.ausgeben(
+                VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON + (meinfeld.getFeldZeile()) + "," +
+                (meinfeld.getFeldSpalte()));
         KonsolenIO.ausgeben(BEWEGEN);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
@@ -102,7 +104,7 @@ public class SpielzugTest
         EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
-        KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS );
+        KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS);
         KonsolenIO.ausgeben(meinfeld.toString());
     }
 
@@ -115,15 +117,14 @@ public class SpielzugTest
         KonsolenIO.ausgeben(KAEMPFEN);
         einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
         KonsolenIO.ausgeben(
-                LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() +
-                ZEILENUMBRUCH);
+                LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() + ZEILENUMBRUCH);
     }
+
     public static void zugbeenden ()
     {
         //daraufhin wird der zug beendet und
         RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
-        KonsolenIO.ausgeben(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)+
-                            ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0) + ZEILENUMBRUCH);
         KonsolenIO.ausgeben(meinfeld.toString());
 
     }
