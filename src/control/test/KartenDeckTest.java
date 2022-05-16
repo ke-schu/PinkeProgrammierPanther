@@ -12,13 +12,22 @@ import static resources.Strings.*;
 import static resources.Zahlen.ZAHL_1;
 
 import java.io.File;
+import java.util.Random;
 
+/**
+ * Enthält Methoden zum Testen von Kartendecks
+ */
 public class KartenDeckTest
 {
     private final static String TESTPFAD = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     private final static String TESTBEZEICHNUNG = "IchBinDasSpieldeck";
     private final static String KARTEN_NAME = "HarryPotter";
+    private final static int ANZAHL_KARTEN = 1;
 
+    /**
+     * Erstellt eine neue KarteEinheit mit beispielhaften Werten
+     * @return die KarteEinheit
+     */
     private static KarteEinheit erstelleKarte ()
     {
         return new KarteEinheit(
@@ -38,16 +47,18 @@ public class KartenDeckTest
                 true);
     }
 
+    /**
+     * Erstellt ein Beispieldeck mit einer Anzahl an Beispielkarten
+     * und schreibt es in eine Datei.
+     */
     public static void erstelleDeck ()
     {
         KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD), TESTBEZEICHNUNG);
 
-        meinDeck.push(erstelleKarte());
-        meinDeck.push(erstelleKarte());
-        meinDeck.push(erstelleKarte());
-        meinDeck.push(erstelleKarte());
-        meinDeck.push(erstelleKarte());
-        meinDeck.push(erstelleKarte());
+        for (int i = 0; i < ANZAHL_KARTEN; i++)
+        {
+            meinDeck.push(erstelleKarte());
+        }
 
         try
         {
@@ -59,6 +70,9 @@ public class KartenDeckTest
         }
     }
 
+    /**
+     * Liest ein Deck in dem Testpfad ein, gibt es einmal im Original und einmal gemischt aus.
+     */
     public static void leseDeck ()
     {
         try
