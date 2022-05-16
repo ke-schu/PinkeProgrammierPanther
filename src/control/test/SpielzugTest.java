@@ -48,7 +48,7 @@ public class SpielzugTest
             //Erstellen von Manatank instanzen für Spieler und Gegenspieler
             ManaTank meintank = new ManaTank(spieler);
             Gegenspieler master =
-                    new Gegenspieler(BJOERN, 3, FERNKAEMPFER, 15, 15, 2, 7, 3, 1, LETZTEWORTE, ZURUECKWERFEN, 12);
+                    new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_2, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
             ManaTank mastertank = new ManaTank(master);
 
 
@@ -57,39 +57,39 @@ public class SpielzugTest
             beschwoerenHeld(master, meinfeld);
 
             //beschwoeren einer Einheit auf dem Feld
-            KartenEinheitController.beschwoeren(meinehand, 2, meinfeld, 1, 0, meintank);
+            KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
 
             //Karte gibt ihre position wieder
             System.out.println(
-                    VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(1, 0).getName() +
+                    VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
                     POSITIONSANGABENULLEINS);
-            System.out.println(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(1, 0).getPosition_x());
-            System.out.println(ZEILE + meinfeld.getSpielfeldplatz(1, 0).getPosition_y() + ZEILENUMBRUCH);
+            System.out.println(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
+            System.out.println(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
 
             //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
             System.out.println(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(meinfeld.getFeldZeile() - ZAHL_1,
                     meinfeld.getFeldSpalte() - ZAHL_1) + VON +
                                (meinfeld.getFeldZeile()) + "," + (meinfeld.getFeldSpalte()));
             System.out.println(BEWEGEN);
-            EinheitenController.bewegen(meinfeld, 1, 3, master);
-            EinheitenController.bewegen(meinfeld, 1, 2, master);
-            EinheitenController.bewegen(meinfeld, 1, 1, master);
-            System.out.println(POSITIONSANGABEEINSEINS + meinfeld.getSpielfeldplatz(1, 1) +
+            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_3, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_2, master);
+            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
+            System.out.println(POSITIONSANGABEEINSEINS + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_1) +
                                ZEILENUMBRUCH);
 
             //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
             //und gibt danach wieder seine lebenspunkte wieder
-            System.out.println(LEBENSPUNKTEFREUND + meinfeld.getSpielfeldplatz(1, 0).getLebenspunkte());
-            System.out.println(POSITIONSANGABEKAMPF + meinfeld.getSpielfeldplatz(1, 0));
+            System.out.println(LEBENSPUNKTEFREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
+            System.out.println(POSITIONSANGABEKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
             System.out.println(KAEMPFEN);
-            einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(1, 0));
+            einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
             System.out.println(
-                    LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(1, 0).getLebenspunkte() +
+                    LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() +
                     ZEILENUMBRUCH);
 
             //daraufhin wird der zug beendet und
             RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
-            System.out.println(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(1, 0));
+            System.out.println(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
 
         } catch (KartenDeckFehlerhaftException | IOException e)
         {
