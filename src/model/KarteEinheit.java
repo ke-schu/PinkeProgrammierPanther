@@ -24,6 +24,10 @@ public class KarteEinheit extends Karte
   private InitialisierungKarteEinheit init;
   private boolean freundlich;
 
+
+  /**
+   * Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen
+   */
   public KarteEinheit(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins, Effekte effektZwei, boolean schlafend, boolean freundlich)
   {
     super(name, level);
