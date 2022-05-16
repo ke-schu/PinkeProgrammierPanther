@@ -3,6 +3,10 @@ package model;
 import static resources.Strings.*;
 import resources.Zahlen;
 
+/**
+ * Diese Klasse stellt das Spielfeld dar, indem sich der Spieler durch Raeume bewegt und verschiedene Ereignisse
+ * antreffen kann.
+ */
 public class Ebene
 {
     private Raum[][] ebene = null;
@@ -11,6 +15,7 @@ public class Ebene
 
     /**
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der Raeume beinhaltet.
+     * Der Raumarray hat dabei die Abmaße der beiden übergebenen Integer.
      * @param ebenenZeile Abmessung der Zeilengröße des Arrays
      * @param ebenenSpalte Abmessung der Spaltengröße des Arrays
      */
@@ -21,6 +26,12 @@ public class Ebene
         this.setEbenenSpalte(ebenenSpalte);
     }
 
+    /**
+     * Konstruktor der Klasse Ebene, welcher alle Attribute uebergeben bekommt und setzt.
+     * @param ebenenZeile Int-Wert der in das Attribut ebeneZeile gesetzt werden soll.
+     * @param ebenenSpalte Int-Wert der in das Attribut ebeneSpalte gesetzt werden soll.
+     * @param ebene 2D-Raumarray, welcher in das Attribut ebene gesetzt werden soll.
+     */
     public Ebene (int ebenenZeile, int ebenenSpalte, Raum[][] ebene)
     {
         this.setEbene(ebene);
@@ -28,16 +39,15 @@ public class Ebene
         this.setEbenenSpalte(ebenenSpalte);
     }
 
-    public Ebene ()
+    /**
+     * Konstruktor der Klasse Ebene, welcher aus der uebergebenen Ebene alle Attribute übernimmt.
+     * @param ebene Instanz der Klasse Ebene dessen Attribute uebernommen werden sollen.
+     */
+    public Ebene(Ebene ebene)
     {
-
-    }
-
-    public Ebene(Ebene versuch)
-    {
-        this.ebene = versuch.getEbene();
-        this.ebenenSpalte = versuch.getEbenenSpalte();
-        this.ebenenZeile = versuch.getEbenenZeile();
+        this.ebene = ebene.getEbene();
+        this.ebenenSpalte = ebene.getEbenenSpalte();
+        this.ebenenZeile = ebene.getEbenenZeile();
     }
 
     /**
@@ -143,13 +153,6 @@ public class Ebene
                     if (this.ebene[i][j].getEreignis() != null)
                     {
                         sb.append(this.ebene[i][j].getEreignis().getName());
-                        sb.append(LEERZEICHEN);
-                        sb.append(SENKRECHTER_STRICH);
-                        sb.append(LEERZEICHEN);
-                    }
-                    else
-                    {
-                        sb.append(LEERER_RAUM);
                         sb.append(LEERZEICHEN);
                         sb.append(SENKRECHTER_STRICH);
                         sb.append(LEERZEICHEN);

@@ -10,7 +10,6 @@ import resources.Effekte;
 import resources.Einheiten;
 import java.io.File;
 import java.io.IOException;
-
 import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.Zahlen.*;
 
@@ -27,9 +26,15 @@ public class EbeneTest
     {
         return new Gegenspieler("Test_Gegner",
                 ZAHL_10,
-                Einheiten.FERNKAEMPFER,
-                ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,
-                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
+                Einheiten.NAHKAEMPFER,
+                ZAHL_4,
+                ZAHL_10,
+                ZAHL_1,
+                ZAHL_2,
+                ZAHL_1,
+                ZAHL_2,
+                Effekte.ZURUECKWERFEN,
+                Effekte.LETZTEWORTE,
                 ZAHL_10);
     }
 
@@ -43,7 +48,7 @@ public class EbeneTest
     public static void testeEbene()
     {
         Ebene testEbene1 = new Ebene(ZAHL_9, ZAHL_9);
-        Ebene testEbene2 = new Ebene();
+        Ebene testEbene2 = new Ebene(ZAHL_0,ZAHL_0);
         SpielStand spielStand = null;
 
         LeererRaum leererRaum1 = new LeererRaum("Startraum", "Hier kann man starten.");

@@ -1,16 +1,26 @@
 package control;
 import control.test.*;
 
+/**
+ * In dieser Klasse startet das Programm.
+ */
 public class Main
 {
+    /**
+     * Diese main-Methode wird beim Start des Programms aufgerufen.
+     * @param args mitgegebene Kommandozeilenargumente.
+     */
     public static void main (String[] args)
     {
-        testen();
+        teste();
     }
 
-    private static void testen()
+    /**
+     * Ruft die verschiedenen Testmethoden auf.
+     */
+    private static void teste()
     {
-        switch(1)
+        switch(2)
         {
             case 1: Alex.ausfuehren();
             break;
