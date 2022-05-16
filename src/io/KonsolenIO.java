@@ -1,5 +1,8 @@
 package io;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -32,7 +35,6 @@ public class KonsolenIO
     {
         Scanner sc = new Scanner(System.in);
         int temp = sc.nextInt();
-        sc.close();
         return temp;
     }
 
@@ -44,7 +46,6 @@ public class KonsolenIO
     {
         Scanner sc = new Scanner(System.in);
         boolean temp = sc.nextBoolean();
-        sc.close();
         return temp;
     }
 }

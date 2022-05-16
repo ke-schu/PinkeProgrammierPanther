@@ -40,7 +40,6 @@ public interface Strings
     String JSON_EREIGNIS = "ereignis";
 
     //  Exception Strings
-    String START_DECK_FEHLERHAFT_EXCEPTION_INFO =
-            "Das Kartendeck %s wurde nicht gefunden!";                          // %s = Name des Kartendecks (optional)
+    String START_DECK_FEHLERHAFT_EXCEPTION_INFO = "Das Kartendeck wurde nicht gefunden!";
     String JSON_FORMAT_FEHLERHAFT_INFO = "Fehlerhafte Json Formatierung";
 }

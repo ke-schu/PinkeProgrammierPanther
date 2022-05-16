@@ -33,11 +33,9 @@ public class Main
             case 3: SpielStandTest.schreibeCharacter();
                 break;
             case 4: SpielStandTest.speichereSpielstand();
-                break;
             case 5: SpielStandTest.leseSpielstand();
                 break;
             case 6: KartenDeckTest.erstelleDeck();
-                break;
             case 7: KartenDeckTest.leseDeck();
                 break;
         }

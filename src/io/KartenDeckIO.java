@@ -61,7 +61,7 @@ public class KartenDeckIO
         }
         catch (IOException e)
         {
-            throw new KartenDeckFehlerhaftException(deck.getDeckBezeichnung());
+            throw new KartenDeckFehlerhaftException();
         }
     }
 

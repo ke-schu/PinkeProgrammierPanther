@@ -9,7 +9,7 @@ public interface TestKonstanten
 {
     String TESTBEZEICHNUNG_SPIELER = "meinSpieler";
     String TESTBEZEICHNUNG_WAFFE = "meineWaffe";
-    String TESTBEZEICHNUNG_CHARAKTER = "meinCharakter";
+    String TESTBEZEICHNUNG_CHARAKTER = "Magier";
     String TESTBEZEICHNUNG_KARTENDECK = "IchBinDasSpieldeck";
     String TESTPFAD_KARTENDECK = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     String KARTEN_NAME = "HarryPotter";

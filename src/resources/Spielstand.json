@@ -1,6 +1,6 @@
 {
-  "gold": 100,
-  "erfahrungspunkte": 32,
+  "gold": 10,
+  "erfahrungspunkte": 9,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -32,7 +32,7 @@
     "schlafend": true,
     "freundlich": true,
     "id": 0,
-    "name": "Harald Hegolzon",
+    "name": "meinSpieler",
     "level": 1,
     "klasse": "model.Spieler"
   }

@@ -1,7 +1,7 @@
 [
   {
     "name": "Magier",
-    "freischaltgebuehr": 321,
+    "freischaltgebuehr": 1,
     "spieler": {
       "waffe": {
         "name": "meineWaffe",
@@ -15,15 +15,15 @@
         "DER_GRABSTEIN",
         null
       ],
-      "mana": 10,
+      "mana": 1,
       "typ": "FERNKAEMPFER",
-      "macht": 10,
-      "lebenspunkte": 20,
+      "macht": 11,
+      "lebenspunkte": 1,
       "manaKosten": 0,
       "beweglichkeit": 1,
       "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 10,
+      "schild": 1,
+      "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
@@ -41,7 +41,7 @@
   },
   {
     "name": "Magier",
-    "freischaltgebuehr": 321,
+    "freischaltgebuehr": 1,
     "spieler": {
       "waffe": {
         "name": "meineWaffe",
@@ -55,15 +55,15 @@
         "DER_GRABSTEIN",
         null
       ],
-      "mana": 10,
+      "mana": 1,
       "typ": "FERNKAEMPFER",
-      "macht": 10,
-      "lebenspunkte": 20,
+      "macht": 11,
+      "lebenspunkte": 1,
       "manaKosten": 0,
       "beweglichkeit": 1,
       "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 10,
+      "schild": 1,
+      "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
