@@ -20,7 +20,7 @@ public class Spieler extends KarteEinheit implements Spielbar
 
     public Spieler(String name, int level, Einheiten typ, int macht, int lebenspunkte, int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins, Effekte effektZwei, Waffe waffe, Stack<Talente> talente, Artefakte[] artefakte, int mana)
     {
-        super(name, level, typ, macht, lebenspunkte, 0, beweglichkeit, reichweite, schild, verteidigung, effektEins, effektZwei, true, true);
+        super(name, level, typ, macht + waffe.getAngriffsPunkte(), lebenspunkte, 0, beweglichkeit, reichweite, schild, verteidigung, effektEins, effektZwei, true, true);
         this.waffe = waffe;
         this.talente = talente;
         this.artefakte = artefakte;
