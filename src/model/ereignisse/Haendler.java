@@ -8,10 +8,12 @@ import model.SpielStand;
 
 import java.util.Scanner;
 
+import static io.KonsolenIO.eingabeInt;
 import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
 
 /**
- *
+ * Diese Klasse ist eine Subklasse von Mensch. Ein Haendler ist ein Ereignis, welches innerhalb einer Ebene angetroffen
+ * werden kann. Haendler enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
  */
 public class Haendler extends Mensch
 {
@@ -64,7 +66,7 @@ public class Haendler extends Mensch
         auswaehlen();
         if(isAuswahl())
         {
-            int kartenPosition;
+            int indexKarte;
             try
             {
                 //  Wenn die Ebenen angelegt sind, wird hier jeweils ein Händlerdeck pro Ebene eingelesen
@@ -75,19 +77,18 @@ public class Haendler extends Mensch
                 e.getMessage();
             }
 
-            Scanner sc = new Scanner(System.in);
-            kartenPosition = sc.nextInt();
+            indexKarte = eingabeInt();
             if (pruefeGratisInteraktion())
             {
-                spielStand.getSpieldeckSpieler().push(haendlerDeck.get(kartenPosition));
-                haendlerDeck.remove(kartenPosition);
+                spielStand.getSpieldeckSpieler().push(haendlerDeck.get(indexKarte));
+                haendlerDeck.remove(indexKarte);
                 gratisInteraktion--;
             }
             else
             {
                 spielStand.setGold(spielStand.getGold() - kosten);
-                spielStand.getSpieldeckSpieler().push(haendlerDeck.get(kartenPosition));
-                haendlerDeck.remove(kartenPosition);
+                spielStand.getSpieldeckSpieler().push(haendlerDeck.get(indexKarte));
+                haendlerDeck.remove(indexKarte);
                 interaktionsZaehler++;
                 kostenErhoehen();
             }

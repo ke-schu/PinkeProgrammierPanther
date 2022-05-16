@@ -7,6 +7,8 @@ import model.SpielStand;
 
 import java.util.Scanner;
 
+import static io.KonsolenIO.eingabeInt;
+
 public class Schmied extends Mensch
 {
     /**
@@ -33,17 +35,16 @@ public class Schmied extends Mensch
         auswaehlen();
         if(isAuswahl())
         {
-            Scanner sc = new Scanner(System.in);
-            int kartenNummer = sc.nextInt();
+            int indexKarte = eingabeInt();
             if (pruefeGratisInteraktion())
             {
-                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(kartenNummer)));
+                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(indexKarte)));
                 gratisInteraktion--;
             }
             else
             {
                 spielStand.setGold(spielStand.getGold() - kosten);
-                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(kartenNummer)));
+                KartenController.kartenVerbessern((KarteEinheit)(spielStand.getSpieldeckSpieler().get(indexKarte)));
                 interaktionsZaehler++;
                 kostenErhoehen();
             }
