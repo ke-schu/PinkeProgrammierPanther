@@ -1,6 +1,5 @@
 package control.test;
 
-import control.KartenController;
 import control.KartenDeckController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
@@ -10,9 +9,7 @@ import resources.Effekte;
 import resources.Einheiten;
 import static resources.Strings.*;
 import static resources.Zahlen.ZAHL_1;
-
 import java.io.File;
-import java.util.Random;
 
 /**
  * Enthält Methoden zum Testen von Kartendecks
