@@ -4,13 +4,10 @@ import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import exceptions.KartenDeckFehlerhaftException;
-import exceptions.SpielfeldDimensionGleichNullException;
-import exceptions.SpielfeldNichtQuadratischException;
 import io.KartenDeckIO;
 import io.SpielStandIO;
 import model.*;
 
-import java.io.File;
 import java.io.IOException;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
@@ -118,8 +115,8 @@ catch(KartenDeckFehlerhaftException | IOException e)
         System.out.println("habe meine hand abgelegt jetzt ist mein deck wieder  "+meindeck.size()+" Elemente groß.");
     */}
 
-    private static void erstelleSpielfeld () throws SpielfeldNichtQuadratischException, SpielfeldDimensionGleichNullException
-    {
+    private static void erstelleSpielfeld ()
+        {
         /*KarteEinheit peter = new KarteEinheit(EricKarte);
         KarteEinheit karin = new KarteEinheit(StanKarte);
         Spielfeld meinspielfeld = new Spielfeld();
