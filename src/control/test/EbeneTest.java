@@ -43,7 +43,7 @@ public class EbeneTest
     public static void testeEbene()
     {
         Ebene testEbene1 = new Ebene(ZAHL_9, ZAHL_9);
-        Ebene testEbene2 = new Ebene();
+        Ebene testEbene2 = new Ebene(ZAHL_0,ZAHL_0);
         SpielStand spielStand = null;
 
         LeererRaum leererRaum1 = new LeererRaum("Startraum", "Hier kann man starten.");
