@@ -2,6 +2,7 @@ package model.ereignisse;
 
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
+import io.KonsolenIO;
 import model.KartenDeck;
 import model.SpielStand;
 
@@ -59,7 +60,7 @@ public class Haendler extends Mensch
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

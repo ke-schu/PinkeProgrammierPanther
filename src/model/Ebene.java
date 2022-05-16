@@ -1,7 +1,8 @@
 package model;
 
-import static resources.Strings.*;
 import resources.Zahlen;
+
+import static resources.Strings.*;
 
 /**
  * Diese Klasse stellt das Spielfeld dar, indem sich der Spieler durch Raeume bewegt und verschiedene Ereignisse

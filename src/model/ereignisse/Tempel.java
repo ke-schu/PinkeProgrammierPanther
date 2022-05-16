@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import model.KartenDeck;
+import io.KonsolenIO;
 import model.SpielStand;
 
 import java.util.Scanner;
@@ -26,7 +26,7 @@ public class Tempel extends Mensch
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

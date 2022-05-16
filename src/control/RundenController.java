@@ -1,9 +1,9 @@
 package control;
-import model.*;
 
-import java.util.Collections;
+import model.KartenDeck;
+import model.SpielFeld;
 
-import static resources.Zahlen.*;
+import static resources.Zahlen.ZAHL_1;
 
 public class RundenController
 {

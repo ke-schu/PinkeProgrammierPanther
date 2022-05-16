@@ -1,7 +1,11 @@
 package control;
 
-import model.*;
-import static resources.Zahlen.*;
+import model.KarteEinheit;
+import model.KarteZauber;
+import model.SpielFeld;
+
+import static resources.Zahlen.ZAHL_0;
+import static resources.Zahlen.ZAHL_1;
 
 
 /**

@@ -1,6 +1,6 @@
 package exceptions;
 
-import static resources.Strings.*;
+import static resources.Strings.START_DECK_FEHLERHAFT_EXCEPTION_INFO;
 
 public class KartenDeckFehlerhaftException extends Exception
 {

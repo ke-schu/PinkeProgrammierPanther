@@ -4,6 +4,7 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
+
 import static resources.Strings.LEERER_RAUM;
 import static resources.Strings.LEERER_RAUM_BESCHREIBUNG;
 import static resources.StringsGegner.*;

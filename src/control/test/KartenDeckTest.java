@@ -3,13 +3,16 @@ package control.test;
 import control.KartenDeckController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
+import io.KonsolenIO;
 import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
+
+import java.io.File;
+
 import static resources.TestKonstanten.*;
 import static resources.Zahlen.ZAHL_1;
-import java.io.File;
 
 /**
  * Enthält Methoden zum Testen von Kartendecks
@@ -58,7 +61,7 @@ public class KartenDeckTest
         }
         catch (KartenDeckFehlerhaftException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 
@@ -70,13 +73,13 @@ public class KartenDeckTest
         try
         {
             KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD_KARTENDECK);
-            System.out.println(meinDeck);
+            KonsolenIO.ausgeben(meinDeck);
             KartenDeckController.mischen(meinDeck);
-            System.out.println(meinDeck);
+            KonsolenIO.ausgeben(meinDeck);
         }
         catch (KartenDeckFehlerhaftException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 }

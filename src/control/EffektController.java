@@ -1,7 +1,11 @@
 package control;
 
-import model.*;
-import static resources.Zahlen.*;
+import io.KonsolenIO;
+import model.KarteEinheit;
+import model.SpielFeld;
+
+import static resources.Zahlen.ZAHL_1;
+import static resources.Zahlen.ZAHL_2;
 
 public class EffektController
 {
@@ -74,7 +78,7 @@ public class EffektController
         }
         catch (ArrayIndexOutOfBoundsException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 }

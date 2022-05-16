@@ -2,7 +2,8 @@ package model;
 
 import java.io.File;
 import java.util.Stack;
-import static resources.Strings.*;
+
+import static resources.Strings.TRENNUNG;
 
 public class KartenDeck extends Stack<Karte>
 {

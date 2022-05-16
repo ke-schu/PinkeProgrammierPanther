@@ -2,7 +2,8 @@ package control;
 
 import model.*;
 
-import static resources.Zahlen.*;
+import static resources.Zahlen.ZAHL_0;
+import static resources.Zahlen.ZAHL_1;
 
 public class KartenEinheitController
 {

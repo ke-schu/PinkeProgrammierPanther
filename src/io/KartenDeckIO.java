@@ -1,17 +1,19 @@
 package io;
 
-import java.io.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
+import control.KartenDeckSerialisierung;
+import exceptions.KartenDeckFehlerhaftException;
+import model.KartenDeck;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.Random;
-
-import com.google.gson.*;
-import control.KartenDeckSerialisierung;
-import exceptions.KartenDeckFehlerhaftException;
-import model.KartenDeck;
 
 /**
  * Diese Klasse beinhaltet das Lesen und Schreiben von Kartenstapeln aus bzw. in Dateien.

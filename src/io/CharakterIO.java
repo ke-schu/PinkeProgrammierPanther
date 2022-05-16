@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 import model.Charakter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -44,11 +45,11 @@ public class CharakterIO
     {
         if (datei.createNewFile())
         {
-            System.out.println(CHARAKTER_DATEI_ERSTELLT);
+            KonsolenIO.ausgeben(CHARAKTER_DATEI_ERSTELLT);
         }
         else
         {
-            System.out.println(CHARAKTER_DATEI_UEBERSCHRIEBEN);
+            KonsolenIO.ausgeben(CHARAKTER_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
         verfasser.write(serialisieren(charaktere));

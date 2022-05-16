@@ -2,7 +2,8 @@ package model;
 
 import exceptions.KartenDeckFehlerhaftException;
 import io.KartenDeckIO;
-import static resources.Strings.*;
+
+import static resources.Strings.START_DECK_PFAD;
 
 public class Charakter
 {

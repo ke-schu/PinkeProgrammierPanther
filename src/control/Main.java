@@ -1,5 +1,9 @@
 package control;
-import control.test.*;
+
+import control.test.Alex;
+import control.test.EbeneTest;
+import control.test.KartenDeckTest;
+import control.test.SpielStandTest;
 
 /**
  * In dieser Klasse startet das Programm.

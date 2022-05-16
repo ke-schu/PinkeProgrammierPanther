@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import io.KonsolenIO;
 import model.SpielStand;
 
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
@@ -26,18 +27,18 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
-                System.out.println("Truhe 1");
+                KonsolenIO.ausgeben("Truhe 1");
             }
             else
             {
-                System.out.println("Truhe 2");
+                KonsolenIO.ausgeben("Truhe 2");
             }
             geleert = true;
         }

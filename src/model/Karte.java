@@ -1,6 +1,6 @@
 package model;
 
-import static resources.Strings.*;
+import static resources.Strings.LEERZEICHEN;
 
 /**
  * Karte ist eine abstrakte Superklasse für genauer definierte Karten

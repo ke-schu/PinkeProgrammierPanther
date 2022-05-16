@@ -1,8 +1,7 @@
 package model.ereignisse;
 
-import model.KarteEinheit;
+import io.KonsolenIO;
 import model.SpielStand;
-import model.Spieler;
 
 import java.util.Scanner;
 
@@ -70,7 +69,7 @@ public abstract class Ereignis
      */
     public void auswaehlen ()
     {
-        System.out.println("Auswahl: Entweder true oder false, um Ereignis auszufuehren.");
+        KonsolenIO.ausgeben("Auswahl: Entweder true oder false, um Ereignis auszufuehren.");
         Scanner playerWahl = new Scanner(System.in);
         auswahl = playerWahl.nextBoolean();
     }

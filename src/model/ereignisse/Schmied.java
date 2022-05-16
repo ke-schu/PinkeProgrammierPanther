@@ -1,6 +1,7 @@
 package model.ereignisse;
 
 import control.KartenController;
+import io.KonsolenIO;
 import model.KarteEinheit;
 import model.SpielStand;
 
@@ -28,7 +29,7 @@ public class Schmied extends Mensch
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

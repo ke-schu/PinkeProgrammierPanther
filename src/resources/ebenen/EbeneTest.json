@@ -11,8 +11,8 @@
           "kosten": 20,
           "interaktionsZaehler": 0,
           "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Tempel",
-          "beschreibung": "Hier kann tempeln.",
+          "name": "Die Nachbarschaft.",
+          "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
           "auswahl": false,
           "klasse": "model.ereignisse.Tempel"
         }
@@ -23,8 +23,8 @@
           "kosten": 20,
           "interaktionsZaehler": 0,
           "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Heiler",
-          "beschreibung": "Hier kann man heilern.",
+          "name": "Mutti.",
+          "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
           "auswahl": false,
           "klasse": "model.ereignisse.Heiler"
         }
@@ -33,8 +33,8 @@
         "ereignis": {
           "ausgefuehrt": false,
           "wahrscheinlichkeit": 0.0,
-          "name": "Zufallsereignis",
-          "beschreibung": "Hier kann man zufalls ereignissen.",
+          "name": "Zufaelliges Ereignis.",
+          "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss näher rangehen...",
           "auswahl": false,
           "klasse": "model.ereignisse.ZufallsEreignis"
         }
@@ -43,8 +43,8 @@
         "ereignis": {
           "geleert": false,
           "wahrscheinlichkeit": 0.0,
-          "name": "Truhe",
-          "beschreibung": "Hier kann man truhen.",
+          "name": "Truhe.",
+          "beschreibung": "Eine Truhe, was da wohl drin ist?",
           "auswahl": false,
           "klasse": "model.ereignisse.Truhe"
         }
@@ -56,10 +56,10 @@
             "typ": "FERNKAEMPFER",
             "macht": 1,
             "lebenspunkte": 1,
-            "manaKosten": 1,
+            "manaKosten": 0,
             "beweglichkeit": 1,
             "reichweite": 1,
-            "schild": 0,
+            "schild": 1,
             "verteidigung": 1,
             "effektEins": "LETZTEWORTE",
             "effektZwei": "ZURUECKWERFEN",
@@ -70,7 +70,7 @@
             "schlafend": true,
             "freundlich": false,
             "id": 0,
-            "name": "Test_Gegner",
+            "name": "Gegner",
             "level": 10,
             "klasse": "model.Gegenspieler"
           },
@@ -81,12 +81,6 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
                 null,
                 null
               ],
@@ -95,9 +89,35 @@
                 null,
                 null,
                 null,
+                null,
                 null
               ],
               [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
                 null,
                 null,
                 null,
@@ -105,11 +125,11 @@
                 null
               ]
             ],
-            "feldZeile": 4,
-            "feldSpalte": 5
+            "feldZeile": 6,
+            "feldSpalte": 6
           },
-          "name": "Gegner",
-          "beschreibung": "Hier kann man gegnern.",
+          "name": "Gegner.",
+          "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "auswahl": false,
           "klasse": "model.ereignisse.Gegner"
         }
@@ -126,8 +146,8 @@
           "kosten": 20,
           "interaktionsZaehler": 0,
           "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Schmied",
-          "beschreibung": "Hier kann man schmieden.",
+          "name": "Die Schule.",
+          "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
           "auswahl": false,
           "klasse": "model.ereignisse.Schmied"
         }
@@ -137,8 +157,8 @@
       null,
       {
         "ereignis": {
-          "name": "Treppe",
-          "beschreibung": "Hier kann treppen.",
+          "name": "Die Bushaltestelle.",
+          "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
           "auswahl": false,
           "klasse": "model.ereignisse.Treppe"
         }
@@ -155,8 +175,8 @@
           "kosten": 20,
           "interaktionsZaehler": 0,
           "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Haendler",
-          "beschreibung": "Hier kann man handeln.",
+          "name": "Der Spielplatz.",
+          "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
           "auswahl": false,
           "klasse": "model.ereignisse.Haendler"
         }
@@ -173,8 +193,8 @@
       null,
       {
         "ereignis": {
-          "name": "Leerer Raum",
-          "beschreibung": "Hier kann man leeren.",
+          "name": "Leere Straße.",
+          "beschreibung": "Hier ist absolut gar nichts... wie öde.",
           "auswahl": false,
           "klasse": "model.ereignisse.LeererRaum"
         }
@@ -191,8 +211,8 @@
       null,
       {
         "ereignis": {
-          "name": "Startraum",
-          "beschreibung": "Hier kann man starten.",
+          "name": "Startpunkt.",
+          "beschreibung": "Hier bin ich ausgestiegen, ich sollte mich in der Gegend mal umsehen.",
           "auswahl": false,
           "klasse": "model.ereignisse.LeererRaum"
         }

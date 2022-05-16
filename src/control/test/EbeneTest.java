@@ -3,6 +3,7 @@ package control.test;
 import control.EbeneController;
 import control.SpielfigurEbeneController;
 import io.EbeneIO;
+import io.KonsolenIO;
 import io.SpielStandIO;
 import model.*;
 import model.ereignisse.*;
@@ -79,7 +80,7 @@ public class EbeneTest
         testEbene1.raumEinsetzen(ZAHL_8, ZAHL_0, gegnerRaum);
         testEbene1.raumEinsetzen(ZAHL_8, ZAHL_1, treppenRaum);
 
-        System.out.println(testEbene1.toString());
+        KonsolenIO.ausgeben(testEbene1.toString());
 
 
         try
@@ -112,8 +113,8 @@ public class EbeneTest
         SpielfigurEbene spielfigur = new SpielfigurEbene();
         EbeneController.initSpielerInEbene(spielfigur, testEbene2);
 
-        System.out.println(testEbene2.toString());
-        System.out.println(testEbene2.getRaumAnPosition(ZAHL_4, ZAHL_4).getSpielfigur());
+        KonsolenIO.ausgeben(testEbene2.toString());
+        KonsolenIO.ausgeben(testEbene2.getRaumAnPosition(ZAHL_4, ZAHL_4).getSpielfigur());
 
         SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_3, spielfigur, spielStand);
         SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_2, spielfigur, spielStand);

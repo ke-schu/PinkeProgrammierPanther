@@ -15,7 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static resources.Strings.*;
-import static resources.Strings.JSON_FORMAT_FEHLERHAFT_INFO;
 
 /**
  * Diese Klasse beinhaltet das Lesen und Schreiben von Ebenen aus bzw. in Dateien.
@@ -46,11 +45,11 @@ public class EbeneIO
     {
         if (datei.createNewFile())
         {
-            System.out.println(EBENE_DATEI_ERSTELLT);
+            KonsolenIO.ausgeben(EBENE_DATEI_ERSTELLT);
         }
         else
         {
-            System.out.println(EBENE_DATEI_UEBERSCHRIEBEN);
+            KonsolenIO.ausgeben(EBENE_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
         verfasser.write(serialisieren(ebene));

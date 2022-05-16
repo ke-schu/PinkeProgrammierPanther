@@ -1,9 +1,7 @@
 package model.ereignisse;
 
 import io.KonsolenIO;
-import model.KarteEinheit;
 import model.SpielStand;
-import model.Spieler;
 
 import static resources.Zahlen.ZAHL_2;
 

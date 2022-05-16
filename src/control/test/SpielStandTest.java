@@ -3,6 +3,7 @@ package control.test;
 import control.CharakterController;
 import exceptions.KartenDeckFehlerhaftException;
 import io.CharakterIO;
+import io.KonsolenIO;
 import io.SpielStandIO;
 import model.Charakter;
 import model.SpielStand;
@@ -13,9 +14,10 @@ import resources.*;
 import java.io.IOException;
 import java.util.Stack;
 
-import static resources.Artefakte.*;
+import static resources.Artefakte.DER_GRABSTEIN;
+import static resources.Talente.ABKLINGEN;
+import static resources.Talente.MANA_GOTT;
 import static resources.TestKonstanten.*;
-import static resources.Talente.*;
 import static resources.Zahlen.*;
 
 /**
@@ -57,7 +59,7 @@ public class SpielStandTest
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 
@@ -82,13 +84,13 @@ public class SpielStandTest
         try
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
-            System.out.println(meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
+            KonsolenIO.ausgeben(meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
                     + Strings.LEERZEICHEN
                     + meinSpielStand.getSpieldeckSpieler().size());
         }
         catch (IOException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
 
     }
@@ -105,7 +107,7 @@ public class SpielStandTest
         }
         catch (IOException | KartenDeckFehlerhaftException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 }

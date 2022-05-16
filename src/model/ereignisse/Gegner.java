@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import io.KonsolenIO;
 import model.Gegenspieler;
 import model.SpielFeld;
 import model.SpielStand;
@@ -30,7 +31,7 @@ public class Gegner extends Ereignis
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if (isAuswahl())
         {

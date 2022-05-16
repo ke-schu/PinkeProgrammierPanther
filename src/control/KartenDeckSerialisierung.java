@@ -3,8 +3,11 @@ package control;
 import com.google.gson.*;
 import model.Karte;
 import model.KartenDeck;
+
 import java.lang.reflect.Type;
-import static resources.Strings.*;
+
+import static resources.Strings.KARTEN_DECK_BEZEICHNUNG;
+import static resources.Strings.KARTEN_DECK_STACK;
 
 /**
  * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer für ein KartenDeck.

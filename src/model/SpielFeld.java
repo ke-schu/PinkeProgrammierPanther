@@ -1,8 +1,9 @@
 package model;
 
+import java.util.Random;
+
 import static resources.Strings.*;
 import static resources.Zahlen.*;
-import java.util.Random;
 
 /**
  * SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden

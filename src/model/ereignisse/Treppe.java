@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import io.KonsolenIO;
 import model.SpielStand;
 
 public class Treppe extends Ereignis
@@ -21,7 +22,7 @@ public class Treppe extends Ereignis
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         //Ebene ebene = new Ebene();
         //try
         {

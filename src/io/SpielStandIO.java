@@ -5,12 +5,14 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import exceptions.KartenDeckFehlerhaftException;
 import model.SpielStand;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import static resources.Strings.*;
 
 /**
@@ -42,11 +44,11 @@ public class SpielStandIO
     {
         if (datei.createNewFile())
         {
-            System.out.println(SPIELSTAND_DATEI_ERSTELLT);
+            KonsolenIO.ausgeben(SPIELSTAND_DATEI_ERSTELLT);
         }
         else
         {
-            System.out.println(SPIELSTAND_DATEI_UEBERSCHRIEBEN);
+            KonsolenIO.ausgeben(SPIELSTAND_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
         verfasser.write(serialisieren(stand));
