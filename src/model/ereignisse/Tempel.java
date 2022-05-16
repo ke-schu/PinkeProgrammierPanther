@@ -5,6 +5,8 @@ import model.SpielStand;
 
 import java.util.Scanner;
 
+import static io.KonsolenIO.eingabeInt;
+
 public class Tempel extends Mensch
 {
 
@@ -30,8 +32,7 @@ public class Tempel extends Mensch
         auswaehlen();
         if(isAuswahl())
         {
-            Scanner sc = new Scanner(System.in);
-            int indexKarte = sc.nextInt();
+            int indexKarte = eingabeInt();
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
