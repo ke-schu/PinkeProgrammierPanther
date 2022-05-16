@@ -26,10 +26,10 @@ public class Main
     {
         switch(2)
         {
-            case 1: SpielzugTest.spielzugtesten(); ;
-            break;
+            case 1: SpielzugTest.spielzugtesten();
+                break;
             case 2: EbeneTest.testeEbene();
-            break;
+                break;
             case 3: SpielStandTest.schreibeCharacter();
             case 4: SpielStandTest.speichereSpielstand();
             case 5: SpielStandTest.leseSpielstand();

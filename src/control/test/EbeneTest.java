@@ -9,7 +9,6 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -30,7 +29,6 @@ public class EbeneTest
     private EbeneTest ()
     {
     }
-
 
     /**
      * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das Erstellen von Gegnern notwendig ist.

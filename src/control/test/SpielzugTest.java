@@ -8,7 +8,6 @@ import io.KartenDeckIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import model.*;
-
 import java.io.IOException;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;

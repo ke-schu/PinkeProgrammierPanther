@@ -33,7 +33,7 @@ public class KartenEinheitController
         if ((spielfeld.getSpielfeld()[x][y] == null) && (freundBenachbart(x,y,spielfeld)))
         {
             Karte meinekarte = kartenhand.getelement(positionhand);
-            if(meinekarte instanceof KarteEinheit && (tank.getMana()>=((KarteEinheit) meinekarte).getManaKosten()) )
+            if(meinekarte instanceof KarteEinheit && (tank.getMana() >= ((KarteEinheit) meinekarte).getManaKosten()) )
             {
                 ((KarteEinheit) meinekarte).startwertespeichern();
                 positionGeben((KarteEinheit) meinekarte,x,y);
@@ -60,8 +60,8 @@ public class KartenEinheitController
         else
         {
             (held).startwertespeichern();
-            positionGeben(held,spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1);
-            spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte()-ZAHL_1,spielfeld.getFeldZeile()-ZAHL_1, held);
+            positionGeben(held,spielfeld.getFeldSpalte() - ZAHL_1,spielfeld.getFeldZeile() - ZAHL_1);
+            spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte() - ZAHL_1,spielfeld.getFeldZeile() - ZAHL_1, held);
         }
     }
 
@@ -78,8 +78,9 @@ public class KartenEinheitController
     }
 
     /**
-     * Gibt an, ob befreundete Karten an eine position grenzen
-     * @param y, @param x Position in welcher umgebung nach befreundetet karten gesucht wird
+     * Gibt an, ob befreundete Karten an eine Position grenzen
+     * @param x Position in welcher Umgebung nach befreundeten Karten gesucht wird
+     * @param y Position in welcher Umgebung nach befreundeten Karten gesucht wird
      * @param spielfeld Spielfeld in dem gesucht wird
      * @return boolean ob befreundetet karten in der umgebung ist
      */
@@ -120,7 +121,6 @@ public class KartenEinheitController
                 freundlich = true;
             }
         }
-
         return freundlich;
     }
 }

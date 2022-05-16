@@ -8,7 +8,6 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
-
 import java.io.File;
 
 import static resources.TestKonstanten.*;

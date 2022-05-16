@@ -3,7 +3,7 @@ package control;
 import model.KartenDeck;
 import model.SpielFeld;
 
-import static resources.Zahlen.ZAHL_1;
+import static resources.Zahlen.*;
 
 /**
  * Kontrolliert eine Runde auf dem Kampffeld.
@@ -23,9 +23,9 @@ public class RundenController
 
     /**
      * Beendet eine Runde und zaehlt dabei den Zugzaehler hoch
-     * @param feld Feld aud dem die Runde gespielt wird
-     * @param spielerDeck Kartendeck des spielers
-     * @param masterDeck Kartendeck Dungeonmasters
+     * @param feld Feld aus dem die Runde gespielt wird
+     * @param spielerDeck Kartendeck des Spielers
+     * @param masterDeck Kartendeck des Dungeonmasters
      */
     public static void  zugBeenden (SpielFeld feld,KartenDeck spielerDeck, KartenDeck masterDeck)
     {
@@ -52,7 +52,7 @@ public class RundenController
             {
                 if (feld.getSpielfeldplatz(i,j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= 0)
+                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= ZAHL_0)
                     {
                         feld.getSpielfeldplatz(i,j).initialisieren();
                         if (feld.getSpielfeldplatz(i, j).getFreundlich())
@@ -86,7 +86,7 @@ public class RundenController
             {
                 if(feld.getSpielfeldplatz(i,j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == 0)
+                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == ZAHL_0)
                     {
                         feld.getSpielfeldplatz(i,j).setBeweglichkeit(feld.getSpielfeldplatz(i,j).getInit().getBeweglichkeit());
                     }
@@ -101,7 +101,7 @@ public class RundenController
      */
     public static void bestimmenWerDranIst ()
     {
-        if(zugZaehler % 2 == 0)
+        if(zugZaehler % ZAHL_2 == ZAHL_0)
         {
             freundlich = true;
         }
@@ -130,7 +130,7 @@ public class RundenController
     }
 
     /**
-     * Gibt den Zugzaehler als Int-Wert wider
+     * Gibt den Zugzaehler als Int-Wert wieder
      * @return Wert des Zuges
      */
     public static int getZugZaehler ()

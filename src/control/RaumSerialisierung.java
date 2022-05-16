@@ -2,8 +2,9 @@ package control;
 
 import com.google.gson.*;
 import model.Raum;
-
 import java.lang.reflect.Type;
+
+import static resources.Strings.*;
 
 /**
  * Klasse in der sich Methoden befinden um Raeume aus .json Dateien korrekt zu deserialisieren.
@@ -25,7 +26,7 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
     {
         JsonObject meinJsonObject = json.getAsJsonObject();
 
-        if ((meinJsonObject != null) && (meinJsonObject.getAsJsonObject("ereignis") != null))
+        if ((meinJsonObject != null) && (meinJsonObject.getAsJsonObject(JSON_EREIGNIS) != null))
         {
             JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject("ereignis");
 

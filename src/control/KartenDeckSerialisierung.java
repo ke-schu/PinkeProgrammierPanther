@@ -4,6 +4,7 @@ import com.google.gson.*;
 import model.Karte;
 import model.KartenDeck;
 import java.lang.reflect.Type;
+
 import static resources.Strings.*;
 
 /**
@@ -54,7 +55,7 @@ public class KartenDeckSerialisierung implements JsonSerializer<KartenDeck>, Jso
             JsonObject JsonKarte = meinJsonArray.get(i).getAsJsonObject();
             try
             {
-                Type klasse = Class.forName(JsonKarte.get(KLASSE).getAsString());
+                Type klasse = Class.forName(JsonKarte.get(JSON_KLASSE).getAsString());
                 Karte karte = meinGson.fromJson(JsonKarte, klasse);
                 meinKartenDeck.add(i, karte);
             }

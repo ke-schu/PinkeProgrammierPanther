@@ -72,14 +72,14 @@ public class EffektController
         {
             if (zielOben != null && platzOben == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY()-ZAHL_2, zielOben);
-                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY()-ZAHL_1);
+                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY() - ZAHL_2, zielOben);
+                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY() - ZAHL_1);
             }
 
             if (zielUnten != null && platzUnten == null)
             {
-                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY()+ZAHL_2, zielUnten);
-                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY()+ZAHL_1);
+                feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY() + ZAHL_2, zielUnten);
+                feld.einheitloeschen(ausloeser.getPositionX(), ausloeser.getPositionY() + ZAHL_1);
             }
 
             if (zielLinks != null && platzLinks == null)

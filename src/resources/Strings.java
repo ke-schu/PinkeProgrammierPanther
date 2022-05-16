@@ -36,7 +36,8 @@ public interface Strings
     //  Json-Parameter
     String KARTEN_DECK_BEZEICHNUNG = "bezeichnung";
     String KARTEN_DECK_STACK = "karten";
-    String KLASSE = "klasse";
+    String JSON_KLASSE = "klasse";
+    String JSON_EREIGNIS = "ereignis";
 
     //  Exception Strings
     String START_DECK_FEHLERHAFT_EXCEPTION_INFO =

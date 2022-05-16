@@ -10,7 +10,6 @@ import model.SpielStand;
 import model.Spieler;
 import model.Waffe;
 import resources.*;
-
 import java.io.IOException;
 import java.util.Stack;
 
@@ -87,7 +86,7 @@ public class SpielStandTest
      * Liest den aktuell abgespeicherten Spielstand ein und gibt das Spieldeck
      * über die Konsole aus.
      */
-    public static void leseSpielstand()
+    public static void leseSpielstand ()
     {
         try
         {
@@ -100,7 +99,6 @@ public class SpielStandTest
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
-
     }
 
     /**

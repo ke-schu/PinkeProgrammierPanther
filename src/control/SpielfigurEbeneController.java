@@ -46,7 +46,6 @@ public class SpielfigurEbeneController
                 ebene.getRaumAnPosition(ziel_x, ziel_y).setSpielfigur(spielfigur);
                 spielfigur.setPosition(ziel_x,ziel_y);
                 ebene.getRaumAnPosition(start_x, start_y).setSpielfigur(null);
-
                 ebene.getRaumAnPosition(ziel_x,ziel_y).getEreignis().ausfuehren(spielStand);
             }
         }
