@@ -82,32 +82,15 @@ public class EbeneTest
 
         KonsolenIO.ausgeben(testEbene1.toString());
 
-
         try
         {
             EbeneIO.schreibeDatei(testEbene1, new File(EBENE_TEST_PFAD));
-        }
-        catch (IOException e)
-        {
-            e.getMessage();
-        }
-
-        try
-        {
             testEbene2 = EbeneIO.leseDatei(new File(EBENE_TEST_PFAD));
-        }
-        catch (IOException e)
-        {
-            e.getMessage();
-        }
-
-        try
-        {
             spielStand = SpielStandIO.leseDatei();
         }
         catch (IOException e)
         {
-            e.getMessage();
+            KonsolenIO.ausgeben(e.getMessage());
         }
 
         SpielfigurEbene spielfigur = new SpielfigurEbene();

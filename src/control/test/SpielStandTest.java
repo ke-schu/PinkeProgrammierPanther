@@ -46,7 +46,7 @@ public class SpielStandTest
     /**
      * Schreibt einen neuen Charakter-Stack mit zwei Charakteren in die Datei.
      */
-    public static void schreibeCharacter()
+    public static void schreibeCharacter ()
     {
         try
         {
@@ -69,7 +69,7 @@ public class SpielStandTest
      * @throws KartenDeckFehlerhaftException wenn das Kartendeck des Charakters Fehler aufwirft
      * @throws IOException wenn die Datei nicht oder nur falsch geladen werden kann
      */
-    private static Spieler leseCharakter() throws KartenDeckFehlerhaftException, IOException
+    private static Spieler leseCharakter () throws KartenDeckFehlerhaftException, IOException
     {
         Charakter meineKlasse = CharakterController.leseCharakter(1);
         return meineKlasse.getSpieler();
