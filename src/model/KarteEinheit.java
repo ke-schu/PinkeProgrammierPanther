@@ -278,6 +278,10 @@ public class KarteEinheit extends Karte
     this.freundlich = freundlich;
   }
 
+  /**
+   * methdoe welche es der Karte ermöglicht Schaden zu nehmen
+   * @param schaden welcher von den Lebenspunkten abgezogen werden soll
+   */
   public void schadenNehmen (int schaden)
   {
     this.lebenspunkte = lebenspunkte-schaden;
