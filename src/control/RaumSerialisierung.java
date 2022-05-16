@@ -28,11 +28,11 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
 
         if ((meinJsonObject != null) && (meinJsonObject.getAsJsonObject(JSON_EREIGNIS) != null))
         {
-            JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject("ereignis");
+            JsonObject meinJsonEreignis = meinJsonObject.getAsJsonObject(JSON_EREIGNIS);
 
             try
             {
-                Type klasse = Class.forName(meinJsonEreignis.get("klasse").getAsString());
+                Type klasse = Class.forName(meinJsonEreignis.get(JSON_KLASSE).getAsString());
                 Raum meinRaum = new Raum(meinGson.fromJson(meinJsonEreignis, klasse));
                 return meinRaum;
             }

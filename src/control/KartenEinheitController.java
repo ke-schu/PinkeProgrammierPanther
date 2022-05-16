@@ -88,7 +88,7 @@ public class KartenEinheitController
     {
         boolean freundlich = false;
 
-        KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y- ZAHL_1);
+        KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y - ZAHL_1);
         KarteEinheit unten  = spielfeld.getSpielfeldplatz(x, y + ZAHL_1);
         KarteEinheit links  = spielfeld.getSpielfeldplatz(x - ZAHL_1, y);
         KarteEinheit rechts = spielfeld.getSpielfeldplatz(x + ZAHL_1, y);

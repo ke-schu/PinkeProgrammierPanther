@@ -104,7 +104,7 @@ public class SpielStandTest
     /**
      * Speichert einen neuen Spielstand mit beispielhaften Werten in der Datei ab.
      */
-    public static void speichereSpielstand()
+    public static void speichereSpielstand ()
     {
         try
         {
