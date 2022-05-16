@@ -3,8 +3,11 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
-import static resources.Zahlen.ZAHL_2;
+import static resources.Zahlen.*;
 
+/**
+ * Diese Klasse ist eine Subklasse von Mensch.
+ */
 public class Heiler extends Mensch
 {
     /**
