@@ -28,7 +28,8 @@ public class EffektController
     {
         switch (ausloeser.getEffektEins())
         {
-            case LETZTEWORTE: letzteWorte(ausloeser, feld); break;
+            case LETZTEWORTE: letzteWorte(ausloeser, feld);
+                break;
         }
     }
 
@@ -39,7 +40,7 @@ public class EffektController
      */
     private static void letzteWorte (KarteEinheit ausloeser, SpielFeld feld)
     {
-        if (ausloeser.getLebenspunkte() == 0);
+        if (ausloeser.getLebenspunkte() == ZAHL_0);
         {
             zurueckWerfen(ausloeser, feld);
         }
