@@ -6,7 +6,8 @@ import model.SpielStand;
 import static resources.Zahlen.*;
 
 /**
- * Diese Klasse ist eine Subklasse von Mensch.
+ * Diese Klasse ist eine Subklasse von Mensch. Ein Heiler ist ein Ereignis, welches innerhalb einer Ebene angetroffen
+ * werden kann. Heiler enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
  */
 public class Heiler extends Mensch
 {
@@ -25,7 +26,7 @@ public class Heiler extends Mensch
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Heiler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat werden die Lebenspunkte des Spielers kostenlos oder gegen
      * eine Bezahlung regeneriert.
-     * @param spielStand:
+     * @param spielStand der aktuelle Spielstand und seine Attribute
      */
     public void ausfuehren (SpielStand spielStand)
     {

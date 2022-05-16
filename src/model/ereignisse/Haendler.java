@@ -7,7 +7,7 @@ import model.KartenDeck;
 import model.SpielStand;
 
 import static io.KonsolenIO.eingabeInt;
-import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
+import static resources.Strings.*;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Haendler ist ein Ereignis, welches innerhalb einer Ebene angetroffen
@@ -16,7 +16,7 @@ import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
 public class Haendler extends Mensch
 {
     //Das Deck des Haendlers, aus dem der Spieler Karten kaufen kann.
-    protected transient KartenDeck haendlerDeck = null;
+    private transient KartenDeck haendlerDeck = null;
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler. Haendler sind Ereignisse, die es dem

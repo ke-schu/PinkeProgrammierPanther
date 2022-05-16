@@ -17,7 +17,7 @@ public abstract class Ereignis
     private String klasse = this.getClass().getCanonicalName();
 
     /**
-     *
+     * Der Konstruktor von Ereignis
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      */
@@ -74,6 +74,11 @@ public abstract class Ereignis
         auswahl = playerWahl.nextBoolean();
     }
 
+    /**
+     * Diese Methode ist die zentrale Methode der Ereignisse. Sie wird von jeder Subklasse ueberlagert und bestimmt,
+     * was bei welchem Ereignis ausgefuehrt wird.
+     * @param spielStand der aktuelle Spielstand mit seinen Attributen
+     */
     public void ausfuehren (SpielStand spielStand)
     {
 

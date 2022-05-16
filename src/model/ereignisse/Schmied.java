@@ -5,10 +5,12 @@ import io.KonsolenIO;
 import model.KarteEinheit;
 import model.SpielStand;
 
-import java.util.Scanner;
-
 import static io.KonsolenIO.eingabeInt;
 
+/**
+ * Diese Klasse ist eine Subklasse von Mensch. Ein Schmied ist ein Ereignis, welches innerhalb einer Ebene angetroffen
+ * werden kann. Schmied enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
+ */
 public class Schmied extends Mensch
 {
     /**
@@ -26,8 +28,7 @@ public class Schmied extends Mensch
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
-     * @param spielStand
-     * @return
+     * @param spielStand der aktuelle Spielstand und seine Attribute
      */
     public void ausfuehren (SpielStand spielStand)
     {

@@ -3,6 +3,8 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
+import static resources.Strings.LEERER_RAUM_BESCHREIBUNG;
+
 /**
  * Diese Klasse ist eine Subklasse von Ereignis. Ein Leerer Raum ist nur als Durchgangsraum für den Spieler gedacht.
  * LeererRaum enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
@@ -27,6 +29,6 @@ public class LeererRaum extends Ereignis
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        KonsolenIO.ausgeben("Dies ist ein leerer Raum");
+        KonsolenIO.ausgeben(LEERER_RAUM_BESCHREIBUNG);
     }
 }
