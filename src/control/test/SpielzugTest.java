@@ -91,7 +91,7 @@ public class SpielzugTest
         meinehand.handziehen(meindeck);
         masterhand.handziehen(masterdeck);
         KonsolenIO.ausgeben(meinehand + ZEILENUMBRUCH);
-        KonsolenIO.ausgeben(VORSTELLENSPIELER + spieler.getName());
+        KonsolenIO.ausgeben(VORSTELLEN_SPIELER + spieler.getName());
     }
 
     /**
@@ -103,8 +103,8 @@ public class SpielzugTest
         beschwoerenHeld(master, meinfeld);
         KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
         KonsolenIO.ausgeben(
-                VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() + POSITIONSANGABENULLEINS);
-        KonsolenIO.ausgeben(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
+                VORSTELLEN_EINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() + POSITIONS_ANGABE_NULL_EINS);
+        KonsolenIO.ausgeben(POSITIONS_ANGABE_EINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
         KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
     }
 
@@ -116,7 +116,7 @@ public class SpielzugTest
         KonsolenIO.ausgeben(meinfeld.toString());
         //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
         KonsolenIO.ausgeben(
-                VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON + (meinfeld.getFeldZeile()) + "," +
+                VORSTELLEN_GEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON + (meinfeld.getFeldZeile()) + "," +
                 (meinfeld.getFeldSpalte()));
         KonsolenIO.ausgeben(BEWEGEN);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
@@ -125,7 +125,7 @@ public class SpielzugTest
         EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
-        KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS);
+        KonsolenIO.ausgeben(POSITIONS_ANGABE_EINS_EINS);
         KonsolenIO.ausgeben(meinfeld.toString());
     }
 
@@ -136,12 +136,12 @@ public class SpielzugTest
     {
         //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
         //und gibt danach wieder seine lebenspunkte wieder
-        KonsolenIO.ausgeben(LEBENSPUNKTEFREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
-        KonsolenIO.ausgeben(POSITIONSANGABEKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName());
+        KonsolenIO.ausgeben(LEBENSPUNKTE_FREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
+        KonsolenIO.ausgeben(POSITIONS_ANGABE_KAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName());
         KonsolenIO.ausgeben(KAEMPFEN);
         einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
         KonsolenIO.ausgeben(
-                LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() + ZEILENUMBRUCH);
+                LEBENSPUNKTE_NACH_KAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() + ZEILENUMBRUCH);
     }
 
     /**
@@ -151,7 +151,7 @@ public class SpielzugTest
     {
         //daraufhin wird der zug beendet und
         RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
-        KonsolenIO.ausgeben(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0) + ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(POSITIONS_ANGABE_NULL_EINS_ENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0) + ZEILENUMBRUCH);
         KonsolenIO.ausgeben(meinfeld.toString());
 
     }

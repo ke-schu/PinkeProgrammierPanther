@@ -2,31 +2,39 @@ package resources;
 
 import static resources.Strings.KARTENDECK_PAKET_PFAD;
 
+/**
+ * Für das Paket control.test werden Konstanten zum Testen benötigt, die hier festgehalten sind.
+ */
 public interface TestKonstanten
 {
     String TESTBEZEICHNUNG_SPIELER = "meinSpieler";
     String TESTBEZEICHNUNG_WAFFE = "meineWaffe";
     String TESTBEZEICHNUNG_CHARAKTER = "meinCharakter";
-    String TESTPFAD_KARTENDECK = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     String TESTBEZEICHNUNG_KARTENDECK = "IchBinDasSpieldeck";
+
+    String TESTPFAD_KARTENDECK = KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     String KARTEN_NAME = "HarryPotter";
     int ANZAHL_KARTEN = 1;
 
     String BJOERN = " Bjoern ";
     String SPIELFELDBREITE = " Spielfeldbreite ";
-    String SPIELFELDZEILEN = " Spielfeldzeilen ";
-    String VORSTELLENSPIELER  = " Hallo ich bin der Spieler ";
-    String VORSTELLENEINHEIT = " Hallo ich bin eine beschworene Einheit und heiße";
-    String POSITIONSANGABENULLEINS = " ich stehe an position 0,1 ";
-    String POSITIONSANGABEEINSEINS = " nach dem bewegen bin ich stehe an position 1,1 ";
-    String POSITIONSANGABEEINHEIT = " und ich denke ich stehe in Spalte ";
-    String VORSTELLENGEGNER = " Halllo Ich bin der Gegner ";
+    String SPIELFELDZEILEN = " Spielfeldhöhe ";
+
+    String VORSTELLEN_SPIELER = " Hallo, ich bin der Spieler ";
+    String VORSTELLEN_EINHEIT = " Hallo, ich bin eine beschworene Einheit und heiße ";
+    String VORSTELLEN_GEGNER = " Hallo, ich bin der Gegner ";
+
+    String POSITIONS_ANGABE_NULL_EINS = " ich stehe an Position 0,1 ";
+    String POSITIONS_ANGABE_EINS_EINS = " nach dem Bewegen bin ich stehe an Position 1,1 ";
+    String POSITIONS_ANGABE_EINHEIT = " und ich denke ich stehe in Spalte ";
+    String POSITIONS_ANGABE_NULL_EINS_ENDE = " an Stelle 0, 1 befindet sich nun ";
+    String POSITIONS_ANGABE_KAMPF = " an Stelle 0, 1 befindet sich vor dem Kampf ";
+
+    String LEBENSPUNKTE_FREUND = " Lebenspunkte HarryPotter: ";
+    String LEBENSPUNKTE_NACH_KAMPF = " Lebenspunkte HarryPotter nach Kampf: ";
+
     String ZEILE = " und Zeile ";
-    String VON = " und vor dem bewegen stehe ich an position ";
+    String VON = " und vor dem Bewegen stehe ich an Position ";
     String BEWEGEN = " jetzt bewege ich mich...";
-    String LEBENSPUNKTEFREUND =" Lebenspunkte HarryPotter: ";
-    String POSITIONSANGABEKAMPF = " an stelle 0, 1 befindet sich vor dem Kampf ";
-    String KAEMPFEN = " jetzt wird gerade gekaempft...";
-    String LEBENSPUNKTENACHKAMPF = " Lebenspunkte HarryPotter nach Kampf: ";
-    String POSITIONSANGABENULLEINSENDE = " an stelle 0, 1 befindet sich nun ";
+    String KAEMPFEN = " jetzt wird gerade gekämpft...";
 }

@@ -1,12 +1,11 @@
 package resources;
 
 /**
- * Dieses Interface enthaelt Strings, welche fuer Ereignisse benoetigt werden.
+ * Dieses Interface enthaelt Zeichenketten, welche fuer Ereignisse benoetigt werden.
  */
 public interface StringsEreignisse
 {
-    //Namen der Ereignisse
-
+    //  Namen der Ereignisse
     String START_RAUM_NAME = "Startpunkt.";
     String HAENDLER_NAME = "Der Spielplatz.";
     String TEMPEL_NAME = "Die Nachbarschaft.";
@@ -18,8 +17,7 @@ public interface StringsEreignisse
     String LEERER_RAUM_NAME = "Leere Straße.";
     String TREPPE_NAME = "Die Bushaltestelle.";
 
-    //Beschreibungen der Ereignisse
-
+    //  Beschreibungen der Ereignisse
     String START_RAUM_BESCHREIBUNG = "Hier bin ich ausgestiegen, ich sollte mich in der Gegend mal umsehen.";
     String HAENDLER_BESCHREIBUNG = "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.";
     String TEMPEL_BESCHREIBUNG = "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.";

@@ -1,4 +1,8 @@
 package resources;
+
+/**
+ * Das Interface enthaelt konstante Zeichenketten für die Konfiguration des Programms.
+ */
 public interface Strings
 {
     //  Satzzeichen
@@ -36,8 +40,6 @@ public interface Strings
     String KARTEN_DECK_STACK = "karten";
 
     //  Exception Strings
-    String SPIELFELD_DIMENSION_GLEICH_NULL_EXCEPTION_INFO = "Die Spielfelddimension ist in einer Ausdehnung gleich 0!";
-    String SPIELFELD_NICHT_QUADRATISCH_EXCEPTION_INFO = "Das Spielfeld wurde nicht quadratisch generiert!";
     String START_DECK_FEHLERHAFT_EXCEPTION_INFO =
             "Das Kartendeck %s wurde nicht gefunden!";                          // %s = Name des Kartendecks (optional)
     String JSON_FORMAT_FEHLERHAFT_INFO = "Fehlerhafte Json Formatierung";
