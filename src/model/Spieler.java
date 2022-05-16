@@ -4,12 +4,11 @@ import resources.Artefakte;
 import resources.Effekte;
 import resources.Einheiten;
 import resources.Talente;
-
 import java.util.Stack;
 
 /**
- * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld darstellt
- * Sie erbt von Klasse KarteEinheit
+ * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld darstellt.
+ * Sie erbt von Klasse KarteEinheit.
  */
 public class Spieler extends KarteEinheit implements Spielbar
 {
@@ -46,8 +45,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @return
+     * Methode die eine Instanz der Klasse Waffe aus dem Attribut waffe wiedergibt.
+     * @return gibt eine Instanz der Klasse Waffe aus dem Attribut waffe wieder.
      */
     public Waffe getWaffe ()
     {
@@ -55,8 +54,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @param waffe
+     * Setzt den uebergebenen Parameter der Klasse Waffe in das Attribut waffe.
+     * @param waffe Instanz der Klasse Waffe, die in das Attribut waffe gesetzt werden soll.
      */
     public void setWaffe (Waffe waffe)
     {
@@ -64,8 +63,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @return
+     * Methode die einen Stack mit Elementen des Enums Talente wiedergibt.
+     * @return gibt einen Stack mit Elementen des Enums Talente wieder.
      */
     public Stack<Talente> getTalente ()
     {
@@ -73,8 +72,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     *
-     * @param talente
+     * Setzt den uebergebenen Parameter in das Attribut talente.
+     * @param talente Stack mit Elementen des Enums Talente, welches in das Attribut talente gesetzt werden soll.
      */
     public void setTalente (Stack<Talente> talente)
     {

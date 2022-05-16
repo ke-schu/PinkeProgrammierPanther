@@ -9,8 +9,7 @@ public interface StringsGegner
     String GENERISCHER_GEGNER_NAME = "Gegner";
     String GENERISCHER_GEGNER_BESCHREIBUNG = "Hallo, ich bin ein Gegner!";
 
-
-    //  Namen und Beschreibungen für die Bosse der Ebenen
+    //  Namen und Beschreibungen fuer die Bosse der Ebenen
     String BOSS_ERSTES_LEVEL_NAME = "Boss 1";
     String BOSS_ERSTES_LEVEL_BESCHREIBUNG = "Das ist Boss 1";
     String BOSS_ZWEITES_LEVEL_NAME = "Boss 2";

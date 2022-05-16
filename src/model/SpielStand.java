@@ -3,7 +3,6 @@ package model;
 import exceptions.KartenDeckFehlerhaftException;
 import io.EbeneIO;
 import io.KartenDeckIO;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -103,7 +102,7 @@ public class SpielStand
      * Gibt den Spieler wieder
      * @return der Spieler
      */
-    public Spieler getSpieler()
+    public Spieler getSpieler ()
     {
         return spieler;
     }

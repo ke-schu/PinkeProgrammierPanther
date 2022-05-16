@@ -1,8 +1,7 @@
 package model;
 
-import resources.Zahlen;
-
 import static resources.Strings.*;
+import static resources.Zahlen.ZAHL_0;
 
 /**
  * Diese Klasse stellt das Spielfeld dar, indem sich der Spieler durch Raeume bewegt und verschiedene Ereignisse
@@ -11,8 +10,8 @@ import static resources.Strings.*;
 public class Ebene
 {
     private Raum[][] ebene = null;
-    private int ebenenSpalte = 0;
-    private int ebenenZeile = 0;
+    private int ebenenSpalte = ZAHL_0;
+    private int ebenenZeile = ZAHL_0;
 
     /**
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der Raeume beinhaltet.
@@ -151,7 +150,7 @@ public class Ebene
                 }
                 else
                 {
-                    sb.append(Zahlen.ZAHL_0);
+                    sb.append(ZAHL_0);
                     sb.append(LEERZEICHEN);
                     sb.append(SENKRECHTER_STRICH);
                     sb.append(LEERZEICHEN);

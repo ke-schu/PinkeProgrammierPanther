@@ -56,7 +56,7 @@ public abstract class Karte
      * Methode um den String des Attributes name zu bekommen.
      * @return gibt den String des Attributes name wieder.
      */
-    public String getName()
+    public String getName ()
     {
         return name;
     }
@@ -65,7 +65,7 @@ public abstract class Karte
      * Mehtode um den Int-Wert des Attributes level zu bekommen.
      * @return gibt den Int-Wert des Attributes level wieder.
      */
-    public int getLevel()
+    public int getLevel ()
     {
         return level;
     }
@@ -74,7 +74,7 @@ public abstract class Karte
      * Methode um einen Int-Wert in das Attribut level zu setzen.
      * @param level Int-Wert, der in das Attribut level gesetzt werden soll.
      */
-    public void setLevel(int level)
+    public void setLevel (int level)
     {
         this.level = level;
     }

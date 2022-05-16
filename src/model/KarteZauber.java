@@ -17,7 +17,7 @@ public class KarteZauber extends Karte
      * Methoden, welche den Wert des Attributs macht liefert.
      * @return gibt den Wert macht als Int wieder.
      */
-    public int getMacht()
+    public int getMacht ()
     {
         return macht;
     }

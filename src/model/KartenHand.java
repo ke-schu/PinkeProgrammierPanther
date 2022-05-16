@@ -15,7 +15,7 @@ public class KartenHand
     /**
      * Erstellt eine KartenHand mit 5 Plaetzen
      */
-    public KartenHand()
+    public KartenHand ()
     {
         this.hand = new Karte [HANDGROESSE];
     }
