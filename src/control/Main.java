@@ -10,7 +10,7 @@ public class Main
 
     private static void testen()
     {
-        switch(1)
+        switch(3)
         {
             case 1: Alex.ausfuehren();
             break;

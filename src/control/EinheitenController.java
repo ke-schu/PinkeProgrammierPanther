@@ -37,9 +37,9 @@ public class EinheitenController
 
             if ((zielErreichbarInX || zielErreichbarInY) && (selbeZeile || selbeSpalte) && (beweglichkeit - distanz) >= ZAHL_0)
             {
-                spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
+                spielfeld.einheitEinsetzten(ziel_x, ziel_y, einheit);
                 einheit.setPosition(ziel_x,ziel_y);
-                spielfeld.einheiteinsetzten(start_x, start_y, null);
+                spielfeld.einheitEinsetzten(start_x, start_y, null);
                 einheit.setBeweglichkeit(einheit.getBeweglichkeit() - distanz);
             }
         }
@@ -66,9 +66,9 @@ public class EinheitenController
 
             if ((zielErreichbarInX || zielErreichbarInY) && !(zielErreichbarInX && zielErreichbarInY))
             {
-                spielfeld.einheiteinsetzten(ziel_x, ziel_y, einheit);
+                spielfeld.einheitEinsetzten(ziel_x, ziel_y, einheit);
                 einheit.setPosition(ziel_x,ziel_y);
-                spielfeld.einheiteinsetzten(start_x, start_y, null);
+                spielfeld.einheitEinsetzten(start_x, start_y, null);
                 einheit.setBeweglichkeit(einheit.getBeweglichkeit() - ZAHL_1);
             }
         }

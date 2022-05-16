@@ -66,6 +66,7 @@ public class Haendler extends Mensch
             int kartenPosition;
             try
             {
+                //  Wenn die Ebenen angelegt sind, wird hier jeweils ein Händlerdeck pro Ebene eingelesen
                 this.setHaendlerDeck(KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
             }
             catch (KartenDeckFehlerhaftException e)

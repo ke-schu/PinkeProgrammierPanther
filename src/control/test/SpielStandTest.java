@@ -58,6 +58,7 @@ public class SpielStandTest
                 1,
                 1,
                 0,
+                10,
                 Effekte.LETZTEWORTE,
                 Effekte.ZURUECKWERFEN,
                 new Waffe("meineWaffe", 10),

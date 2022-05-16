@@ -24,8 +24,7 @@ public class KarteEinheit extends Karte
   private InitialisierungKarteEinheit init;
   private boolean freundlich;
 
-
-  public KarteEinheit(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int verteidigung, Effekte effektEins, Effekte effektZwei)
+  public KarteEinheit(String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten, int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins, Effekte effektZwei, boolean schlafend, boolean freundlich)
   {
     super(name, level);
     this.typ = typ;
@@ -34,9 +33,12 @@ public class KarteEinheit extends Karte
     this.manaKosten = manaKosten;
     this.beweglichkeit = beweglichkeit;
     this.reichweite = reichweite;
+    this.schild = schild;
     this.verteidigung = verteidigung;
     this.effektEins = effektEins;
     this.effektZwei = effektZwei;
+    this.schlafend = schlafend;
+    this.freundlich = freundlich;
   }
 
   public Einheiten getTyp()

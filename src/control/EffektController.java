@@ -35,7 +35,7 @@ public class EffektController
 
             if (zieloben != null && platzoben == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2, zieloben);
+                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_2, zieloben);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()-ZAHL_1);
             }
         }
@@ -51,7 +51,7 @@ public class EffektController
 
             if (zielunten != null && platzunten == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2, zielunten);
+                feld.einheitEinsetzten(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_2, zielunten);
                 feld.einheitloeschen(ausloeser.getPosition_x(), ausloeser.getPosition_y()+ZAHL_1);
             }
         }
@@ -67,7 +67,7 @@ public class EffektController
 
             if (ziellinks != null && platzlinks == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y(), ziellinks);
+                feld.einheitEinsetzten(ausloeser.getPosition_x() - ZAHL_2, ausloeser.getPosition_y(), ziellinks);
                 feld.einheitloeschen(ausloeser.getPosition_x() - ZAHL_1, ausloeser.getPosition_y());
             }
         }
@@ -83,7 +83,7 @@ public class EffektController
 
             if (zielrechts != null && platzrechts == null)
             {
-                feld.einheiteinsetzten(ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y(), zielrechts);
+                feld.einheitEinsetzten(ausloeser.getPosition_x() + ZAHL_2, ausloeser.getPosition_y(), zielrechts);
                 feld.einheitloeschen(ausloeser.getPosition_x() + ZAHL_1, ausloeser.getPosition_y());
             }
         }
