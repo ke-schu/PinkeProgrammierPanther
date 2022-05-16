@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import io.KonsolenIO;
 import model.KarteEinheit;
 import model.SpielStand;
 import model.Spieler;
@@ -27,7 +28,7 @@ public class Heiler extends Mensch
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {

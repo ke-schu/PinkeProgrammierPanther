@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import io.KonsolenIO;
 import model.SpielStand;
 
 public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
@@ -55,21 +56,22 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     /**
      * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
+     * @param spielStand:
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        System.out.println(this.getName());
+        KonsolenIO.ausgeben(this.getName());
         auswaehlen();
         if(isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
-                System.out.println("Ereignis 1");
+                KonsolenIO.ausgeben("Ereignis 1");
             }
             else
             {
-                System.out.println("Ereignis 2");
+                KonsolenIO.ausgeben("Ereignis 2");
             }
             ausgefuehrt = true;
         }
