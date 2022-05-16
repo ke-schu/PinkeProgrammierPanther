@@ -23,8 +23,6 @@ import static resources.Zahlen.*;
 public class SpielzugTest
 {
 
-
-
     public static void Spielzugtesten()
     {
 
