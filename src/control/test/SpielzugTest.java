@@ -22,82 +22,109 @@ import static resources.Zahlen.*;
 
 public class SpielzugTest
 {
+    static SpielFeld meinfeld;
+    static KartenHand meinehand;
+    static KartenHand masterhand;
+    static KartenDeck meindeck;
+    static KartenDeck masterdeck;
+    static Spieler spieler;
+    static ManaTank meintank;
+    static Gegenspieler master;
+    static ManaTank mastertank;
+
 
     public static void Spielzugtesten()
     {
-
+        auslesen();
+        erstellen();
+        haendeziehen();
+        einheitenbeschwoeren();
+        rumlaufen();
+        kaempfen();
+        zugbeenden();
+    }
+    public static void erstellen()
+    {
+        meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
+        KonsolenIO.ausgeben(
+                SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN + meinfeld.getFeldZeile());
+        meinehand = new KartenHand();
+        masterhand = new KartenHand();
+        meintank = new ManaTank(spieler);
+        master =new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
+        mastertank = new ManaTank(master);
+    }
+    public static void auslesen()
+    {
         try
         {
-            //Erstellen eine Spielfeldes und 2er spieldecks
-            SpielFeld meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
-            KonsolenIO.ausgeben(
-                    SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN + meinfeld.getFeldZeile());
-            KartenDeck meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
-            KartenDeck masterdeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Gegner.json");
+            //Erstellen 2er Spieldecks
+            meindeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Spieler.json");
+            masterdeck = KartenDeckIO.leseDatei("src\\resources\\kartendecks\\Spieldeck_Gegner.json");
             KonsolenIO.ausgeben(meindeck.toString());
-
-            //Erstellen 2er haende und befuellen dieser
-            KartenHand meinehand = new KartenHand();
-            KartenHand masterhand = new KartenHand();
-            meinehand.handziehen(meindeck);
-            masterhand.handziehen(masterdeck);
-            KonsolenIO.ausgeben(meinehand + ZEILENUMBRUCH);
-            Spieler spieler = SpielStandIO.leseDatei().getSpieler();
-            KonsolenIO.ausgeben(VORSTELLENSPIELER + spieler.getName());
-
-            //Erstellen von Manatank instanzen für Spieler und Gegenspieler
-            ManaTank meintank = new ManaTank(spieler);
-            Gegenspieler master =
-                    new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
-            ManaTank mastertank = new ManaTank(master);
-
-
-            //Beschwoeren des Helden und des Gegners auf dem Spielfeld, diese haben feste positionen
-            beschwoerenHeld(spieler, meinfeld);
-            beschwoerenHeld(master, meinfeld);
-
-            //beschwoeren einer Einheit auf dem Feld
-            KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
-
-            //Karte gibt ihre position wieder
-            KonsolenIO.ausgeben(
-                    VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
-                    POSITIONSANGABENULLEINS);
-            System.out.println(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
-            System.out.println(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
-
-            //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
-            System.out.println(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
-                               (meinfeld.getFeldZeile()) + "," + (meinfeld.getFeldSpalte()));
-            KonsolenIO.ausgeben(BEWEGEN);
-
-            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_1, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
-            EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
-            KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_1) +
-                               ZEILENUMBRUCH);
-
-            //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
-            //und gibt danach wieder seine lebenspunkte wieder
-            KonsolenIO.ausgeben(LEBENSPUNKTEFREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
-            KonsolenIO.ausgeben(POSITIONSANGABEKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
-            KonsolenIO.ausgeben(KAEMPFEN);
-            einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
-            KonsolenIO.ausgeben(
-                    LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() +
-                    ZEILENUMBRUCH);
-
-            //daraufhin wird der zug beendet und
-            RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
-            KonsolenIO.ausgeben(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
-
-        } catch (KartenDeckFehlerhaftException | IOException e)
-        {
-            KonsolenIO.ausgeben(e.getMessage());
+            spieler = SpielStandIO.leseDatei().getSpieler();
         }
+        catch (KartenDeckFehlerhaftException | IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void haendeziehen()
+    {
+        meinehand.handziehen(meindeck);
+        masterhand.handziehen(masterdeck);
+        KonsolenIO.ausgeben(meinehand + ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(VORSTELLENSPIELER + spieler.getName());
+    }
+
+    public static void einheitenbeschwoeren()
+    {
+        beschwoerenHeld(spieler, meinfeld);
+        beschwoerenHeld(master, meinfeld);
+        KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1, ZAHL_0, meintank);
+        KonsolenIO.ausgeben(
+                VORSTELLENEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
+                POSITIONSANGABENULLEINS);
+        KonsolenIO.ausgeben(POSITIONSANGABEEINHEIT + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_x());
+        KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getPosition_y() + ZEILENUMBRUCH);
+    }
+    public static void rumlaufen()
+    {
+        KonsolenIO.ausgeben(meinfeld.toString());
+        //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
+        KonsolenIO.ausgeben(VORSTELLENGEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
+                            (meinfeld.getFeldZeile()) + "," + (meinfeld.getFeldSpalte()));
+        KonsolenIO.ausgeben(BEWEGEN);
+        EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_1, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
+        KonsolenIO.ausgeben(POSITIONSANGABEEINSEINS );
+        KonsolenIO.ausgeben(meinfeld.toString());
+    }
+
+    public static void kaempfen()
+    {
+        //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
+        //und gibt danach wieder seine lebenspunkte wieder
+        KonsolenIO.ausgeben(LEBENSPUNKTEFREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
+        KonsolenIO.ausgeben(POSITIONSANGABEKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName());
+        KonsolenIO.ausgeben(KAEMPFEN);
+        einheitenAngreifenMitEinheiten(meinfeld, master, meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0));
+        KonsolenIO.ausgeben(
+                LEBENSPUNKTENACHKAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte() +
+                ZEILENUMBRUCH);
+    }
+    public static void zugbeenden()
+    {
+        //daraufhin wird der zug beendet und
+        RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
+        KonsolenIO.ausgeben(POSITIONSANGABENULLEINSENDE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)+
+                            ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(meinfeld.toString());
 
     }
 }
