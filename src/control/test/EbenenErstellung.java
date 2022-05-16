@@ -26,8 +26,8 @@ public class EbenenErstellung
     }
 
     /**
-     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benötigt wird um einen Gegner zu erstellen.
-     * @return gibt eine Instanz der Klasse Gegenspieler zurück.
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benoetigt wird um einen Gegner zu erstellen.
+     * @return gibt eine Instanz der Klasse Gegenspieler zurueck.
      */
     private static Gegenspieler erstelleGegenspieler ()
     {

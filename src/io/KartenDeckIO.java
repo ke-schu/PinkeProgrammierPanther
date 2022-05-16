@@ -33,7 +33,7 @@ public class KartenDeckIO
 
     /**
      * Serialisiert ein KartenDeck ins Json-Format.
-     * @param deck Instanz der Klasse KartenDeck die als .json String zurückgeben werden soll.
+     * @param deck Instanz der Klasse KartenDeck die als .json String zurueckgeben werden soll.
      * @return liefert den Inhalt der Instanz als String in .json formatierung.
      */
     private static String serialisieren (KartenDeck deck)
@@ -69,7 +69,7 @@ public class KartenDeckIO
      * Methode zum deserialisieren eines Strings in .json Format um eine Instanz der Klasse KartenDeck zu bilden.
      * @param jsonKartenDeck String in .json Format der zu der Instanzbildung genutzt wird.
      * @return liefert die erstellte Instanz der Klasse KartenDeck
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung übereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
      */
     private static KartenDeck deserialisieren (String jsonKartenDeck) throws JsonSyntaxException
     {
@@ -80,7 +80,7 @@ public class KartenDeckIO
     }
 
     /**
-     * Liest eine Kartendeck-Datei ein und gibt das entsprechende Deck deserialisiert zurück.
+     * Liest eine Kartendeck-Datei ein und gibt das entsprechende Deck deserialisiert zurueck.
      * @param pfad der Dateipfad
      * @return das Kartendeck
      * @throws KartenDeckFehlerhaftException wenn die Formatierung oder Attribute des Kartendecks falsch sind.

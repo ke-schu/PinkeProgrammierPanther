@@ -1,7 +1,7 @@
 package resources;
 
 /**
- * Die Effekte können sich an eine KarteEinheit binden und lösen immer andere Methoden im EffektController aus.
+ * Die Effekte koennen sich an eine KarteEinheit binden und loesen immer andere Methoden im EffektController aus.
  */
 public enum Effekte
 {

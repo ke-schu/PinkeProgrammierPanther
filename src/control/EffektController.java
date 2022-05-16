@@ -7,7 +7,7 @@ import model.SpielFeld;
 import static resources.Zahlen.*;
 
 /**
- * Löst die Effekte der Karten aus und kontrolliert diese.
+ * Loest die Effekte der Karten aus und kontrolliert diese.
  */
 public class EffektController
 {
@@ -20,8 +20,8 @@ public class EffektController
     }
 
     /**
-     * Löst einen neuen Effekt aus.
-     * @param ausloeser die Einheit, welche den Effekt auslöst.
+     * Loest einen neuen Effekt aus.
+     * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
     public void effektAusloesen (KarteEinheit ausloeser, SpielFeld feld)
@@ -34,8 +34,8 @@ public class EffektController
     }
 
     /**
-     * Löst den Effekt "LetzteWorte" aus.
-     * @param ausloeser die Einheit, welche den Effekt auslöst.
+     * Loest den Effekt "LetzteWorte" aus.
+     * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
     private static void letzteWorte (KarteEinheit ausloeser, SpielFeld feld)
@@ -47,8 +47,8 @@ public class EffektController
     }
 
     /**
-     * Wirft die umliegenden, feindlichen Einheiten zurück.
-     * @param ausloeser die Einheit, welche den Effekt auslöst.
+     * Wirft die umliegenden, feindlichen Einheiten zurueck.
+     * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
     private static void zurueckWerfen (KarteEinheit ausloeser, SpielFeld feld)

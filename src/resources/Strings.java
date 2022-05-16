@@ -1,7 +1,7 @@
 package resources;
 
 /**
- * Das Interface enthaelt konstante Zeichenketten für die Konfiguration des Programms.
+ * Das Interface enthaelt konstante Zeichenketten fuer die Konfiguration des Programms.
  */
 public interface Strings
 {

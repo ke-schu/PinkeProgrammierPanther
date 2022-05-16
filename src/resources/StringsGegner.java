@@ -5,7 +5,7 @@ package resources;
  */
 public interface StringsGegner
 {
-    //  Namen und Beschreibungen für die Gegner der Ebenen
+    //  Namen und Beschreibungen fuer die Gegner der Ebenen
     String GENERISCHER_GEGNER_NAME = "Gegner";
     String GENERISCHER_GEGNER_BESCHREIBUNG = "Hallo, ich bin ein Gegner!";
 

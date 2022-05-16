@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Klasse Position welche informationen über die Position einer Karte auf dem Spielfeld in sich traegt
+ * Klasse Position welche Informationen ueber die Position einer Karte auf dem Spielfeld in sich traegt
  */
 public class Position
 {

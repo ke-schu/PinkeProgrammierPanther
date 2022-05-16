@@ -62,7 +62,7 @@ public class Haendler extends Mensch
 
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt oder
      * vorher die Zahlung durchgefuehrt.
      * @param spielStand der aktuelle Spielstand und seine Attribute
@@ -76,7 +76,7 @@ public class Haendler extends Mensch
             int indexKarte;
             try
             {
-                //  Wenn die Ebenen angelegt sind, wird hier jeweils ein Händlerdeck pro Ebene eingelesen
+                //  Wenn die Ebenen angelegt sind, wird hier jeweils ein Haendlerdeck pro Ebene eingelesen
                 this.setHaendlerDeck(KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
             }
             catch (KartenDeckFehlerhaftException e)

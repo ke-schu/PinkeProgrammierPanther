@@ -25,7 +25,7 @@ public class KartenEinheitController
      * @param spielfeld Spielfeld, auf welches die Karte gelegt wird
      * @param x Zeile im spielfeld
      * @param y Spalte im spielfeld
-     * @param tank zu Verfügung stehende Mana-Reserve
+     * @param tank zu Verfuegung stehende Mana-Reserve
      */
     public static void beschwoeren (KartenHand kartenhand, int positionhand,
                                     SpielFeld spielfeld, int x, int y, ManaTank tank)

@@ -15,9 +15,9 @@ public class Ebene
 
     /**
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der Raeume beinhaltet.
-     * Der Raumarray hat dabei die Abmaße der beiden übergebenen Integer.
-     * @param ebenenZeile Abmessung der Zeilengröße des Arrays
-     * @param ebenenSpalte Abmessung der Spaltengröße des Arrays
+     * Der Raumarray hat dabei die Abmasse der beiden uebergebenen Integer.
+     * @param ebenenZeile Abmessung der Zeilengroesse des Arrays
+     * @param ebenenSpalte Abmessung der Spaltengroesse des Arrays
      */
     public Ebene (int ebenenZeile, int ebenenSpalte)
     {
@@ -40,7 +40,7 @@ public class Ebene
     }
 
     /**
-     * Konstruktor der Klasse Ebene, welcher aus der uebergebenen Ebene alle Attribute übernimmt.
+     * Konstruktor der Klasse Ebene, welcher aus der uebergebenen Ebene alle Attribute uebernimmt.
      * @param ebene Instanz der Klasse Ebene dessen Attribute uebernommen werden sollen.
      */
     public Ebene (Ebene ebene)
@@ -52,7 +52,7 @@ public class Ebene
 
     /**
      * Methode die das Attribut ebene wiedergibt.
-     * @return liefert den 2D-Array gefüllt mit Raeumen.
+     * @return liefert den 2D-Array gefuellt mit Raeumen.
      */
     public Raum[][] getEbene ()
     {

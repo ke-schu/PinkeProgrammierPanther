@@ -14,11 +14,11 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected boolean ausgefuehrt = false;  //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;    //Wert zur Bestimmung, welches Ereignis eintritt
-    protected static int ereignismenge;     //Menge an Ereignissen, welche eintreten können.
+    protected static int ereignismenge;     //Menge an Ereignissen, welche eintreten koennen.
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ ZufallsEreignis. Ein ZufallsEreignis ist ein Ereignis, dessen
-     * genaue Art für den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
+     * genaue Art fuer den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt
@@ -31,7 +31,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Diese Methode dient als Getter um zu ueberpruefen, ob ein Ereignis ausgefuehrt wurde.
-     * @return Es wird zurückgegeben, ob das Ereignis ausgefuehrt wurde.
+     * @return Es wird zurueckgegeben, ob das Ereignis ausgefuehrt wurde.
      */
     public boolean isAusgefuehrt ()
     {
@@ -48,9 +48,9 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     }
 
     /**
-     * Diese Methode generiert einen Wert für das Attribut "wahrscheinlichkeit", indem ein zufaelliger
+     * Diese Methode generiert einen Wert fuer das Attribut "wahrscheinlichkeit", indem ein zufaelliger
      * Wert zwischen 0.0 und dem maximalen Wert der Skalierung gebildet wird.
-     * @return das Attribut "wahrscheinlichkeit" wird mit dem generierten Wert zurückgegeben.
+     * @return das Attribut "wahrscheinlichkeit" wird mit dem generierten Wert zurueckgegeben.
      */
     @Override
     public double generiereWahrscheinlichkeit ()
@@ -60,7 +60,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      * @param spielStand der aktuelle Spielstand und seine Attribute
      */

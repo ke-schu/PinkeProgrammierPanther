@@ -14,7 +14,7 @@ import static resources.TestKonstanten.*;
 import static resources.Zahlen.ZAHL_1;
 
 /**
- * Enthält Methoden zum Testen von Kartendecks
+ * Enthaelt Methoden zum Testen von Kartendecks
  */
 public class KartenDeckTest
 {

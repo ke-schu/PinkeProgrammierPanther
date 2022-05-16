@@ -13,7 +13,7 @@ public class Heiler extends Mensch
 {
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Heiler. Heiler sind Ereignisse, die es dem
-     * Spieler ermöglichen seine Lebenspunkte zu regenerieren, wenn er vorher Schaden genommen hat.
+     * Spieler ermoeglichen seine Lebenspunkte zu regenerieren, wenn er vorher Schaden genommen hat.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      */
@@ -23,7 +23,7 @@ public class Heiler extends Mensch
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Heiler prueft ob die Interaktion
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Der Heiler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat werden die Lebenspunkte des Spielers kostenlos oder gegen
      * eine Bezahlung regeneriert.
      * @param spielStand der aktuelle Spielstand und seine Attribute

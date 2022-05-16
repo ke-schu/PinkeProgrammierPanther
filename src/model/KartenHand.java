@@ -5,7 +5,7 @@ import java.util.Arrays;
 import static resources.Zahlen.ZAHL_5;
 
 /**
- *KartenHand repraesentiert die Kartenhand von welcher Karten ausgespielt werden koennen
+ * KartenHand repraesentiert die Kartenhand von welcher Karten ausgespielt werden koennen
  */
 public class KartenHand
 {

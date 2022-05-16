@@ -1,7 +1,7 @@
 package resources;
 
 /**
- * Mit den folgenden Objekten können Einheiten typisiert werden.
+ * Mit den folgenden Objekten koennen Einheiten typisiert werden.
  */
 public enum Einheiten
 {

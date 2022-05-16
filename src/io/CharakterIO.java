@@ -67,7 +67,7 @@ public class CharakterIO
      * Deserialisiert einen im Json-Format vorliegenden String in einen Charakter-Stapel.
      * @param jsonCharaktere die Zeichenkette
      * @return den Charakter-Stapel
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung übereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
      */
     private static Stack<Charakter> deserialisieren (String jsonCharaktere) throws JsonSyntaxException
     {
@@ -76,7 +76,7 @@ public class CharakterIO
     }
 
     /**
-     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren deserialisiert zurück.
+     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren deserialisiert zurueck.
      * @return den Charakter-Stapel
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */

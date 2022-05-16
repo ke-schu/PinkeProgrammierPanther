@@ -34,7 +34,7 @@
           "ausgefuehrt": false,
           "wahrscheinlichkeit": 0.0,
           "name": "Zufaelliges Ereignis.",
-          "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss näher rangehen...",
+          "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
           "auswahl": false,
           "klasse": "model.ereignisse.ZufallsEreignis"
         }
@@ -174,7 +174,7 @@
       {
         "ereignis": {
           "name": "Leere Straße.",
-          "beschreibung": "Hier ist absolut gar nichts... wie öde.",
+          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
           "auswahl": false,
           "klasse": "model.ereignisse.LeererRaum"
         }

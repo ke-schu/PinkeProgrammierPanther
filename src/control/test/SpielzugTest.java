@@ -57,7 +57,7 @@ public class SpielzugTest
     }
 
     /**
-     * erstellen erstellt die für einen Spielzug noetigen Objekte
+     * Erstellen erstellt die fuer einen Spielzug noetigen Objekte
      */
     public static void erstellen ()
     {
@@ -120,7 +120,7 @@ public class SpielzugTest
     public static void rumlaufen ()
     {
         KonsolenIO.ausgeben(meinfeld.toString());
-        //Gegner gibt Ihre Position wieder und bewegt sich danach um anschließend wieder ihre Position wiederzugeben
+        //Gegner gibt Ihre Position wieder und bewegt sich danach um anschliessend wieder ihre Position wiederzugeben
         KonsolenIO.ausgeben(
                 VORSTELLEN_GEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON + (meinfeld.getFeldZeile()) + "," +
                 (meinfeld.getFeldSpalte()));
@@ -140,7 +140,7 @@ public class SpielzugTest
      */
     public static void kaempfen ()
     {
-        //RonWeasley gibt seine Lebenspunkte an und wird anschließend vom Gegner angegriffen
+        //RonWeasley gibt seine Lebenspunkte an und wird anschliessend vom Gegner angegriffen
         //und gibt danach wieder seine lebenspunkte wieder
         KonsolenIO.ausgeben(LEBENSPUNKTE_FREUND + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getLebenspunkte());
         KonsolenIO.ausgeben(POSITIONS_ANGABE_KAMPF + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName());

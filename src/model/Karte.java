@@ -3,7 +3,7 @@ package model;
 import static resources.Strings.LEERZEICHEN;
 
 /**
- * Karte ist eine abstrakte Superklasse für genauer definierte Karten
+ * Karte ist eine abstrakte Superklasse fuer genauer definierte Karten
  */
 public abstract class Karte
 {
@@ -15,8 +15,8 @@ public abstract class Karte
 
     /**
      * Konstruktor der Klasse Karte, welcher alle Attribute setzt.
-     * @param name String der in das Attribut name gesetzt wird.
-     * @param level Int der in das Attribut
+     * @param name der Name der Karte.
+     * @param level das Kartenlevel.
      */
     public Karte (String name, int level)
     {

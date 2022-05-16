@@ -20,7 +20,7 @@ import static resources.TestKonstanten.*;
 import static resources.Zahlen.*;
 
 /**
- * Enthält Methoden zum Testen vom Spielstand
+ * Enthaelt Methoden zum Testen vom Spielstand
  */
 public class SpielStandTest
 {
@@ -71,7 +71,7 @@ public class SpielStandTest
     }
 
     /**
-     * Liest den ersten Charakter aus der Datei ein und gibt den zugehörigen Spieler zurück.
+     * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen Spieler zurueck.
      * @return den Spieler
      * @throws KartenDeckFehlerhaftException wenn das Kartendeck des Charakters Fehler aufwirft
      * @throws IOException wenn die Datei nicht oder nur falsch geladen werden kann
@@ -84,7 +84,7 @@ public class SpielStandTest
 
     /**
      * Liest den aktuell abgespeicherten Spielstand ein und gibt das Spieldeck
-     * über die Konsole aus.
+     * ueber die Konsole aus.
      */
     public static void leseSpielstand ()
     {

@@ -9,7 +9,6 @@ public class KartenDeck extends Stack<Karte>
 {
     private File datei;
     private String deckBezeichnung;
-    private final static String dateiPfad = "resources/kartendecks/";
 
     /**
      * Konstruktor der alle Attribute setzt.
@@ -32,7 +31,7 @@ public class KartenDeck extends Stack<Karte>
     }
 
     /**
-     * Überlagert die toString-Methode hier für ein Kartendeck.
+     * Ueberlagert die toString-Methode hier fuer ein Kartendeck.
      * @return die Deckbezeichnung und die einzelnen Karten.
      */
     public String toString ()

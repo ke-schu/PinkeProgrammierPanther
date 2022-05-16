@@ -13,7 +13,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ Truhe. Ein ZufallsEreignis ist ein Ereignis, dessen
-     * genaue Art für den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
+     * genaue Art fuer den Spieler erst bekannt wird, wenn er den zugehoerigen Raum betritt.
      * @param name: Der Name des Ereignisses
      * @param beschreibung: Die Beschreibung fuer den Spieler
      * @param geoeffnet: Der Zustand der Truhe, ob sie geoeffnet ist.
@@ -25,7 +25,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "ZufallsEreignis". Ueber das Attribut "wahrscheinlichkeit"
+     * Diese Methode ueberlagert die Methode aus der Superklasse "ZufallsEreignis". Ueber das Attribut "wahrscheinlichkeit"
      * wird bestimmt, welches Ereignis ausgefuehrt wird.
      */
     public void ausfuehren (SpielStand spielStand)
@@ -49,7 +49,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Dies ist eine Methode zum Generieren des Attributs "Wahrscheinlichkeit". Dieses Attribut wird
-     * benötigt um zu bestimmen, welcher Inhalt sich in der Truhe befindet.
+     * benoetigt um zu bestimmen, welcher Inhalt sich in der Truhe befindet.
      * @return Attribut zur Bestimmung des Truheninhalts
      */
     @Override

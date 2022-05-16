@@ -3,7 +3,7 @@ package resources;
 import static resources.Strings.KARTENDECK_PAKET_PFAD;
 
 /**
- * Für das Paket control.test werden Konstanten zum Testen benötigt, die hier festgehalten sind.
+ * Fuer das Paket control.test werden Konstanten zum Testen benoetigt, die hier festgehalten sind.
  */
 public interface TestKonstanten
 {
@@ -16,8 +16,7 @@ public interface TestKonstanten
     int ANZAHL_KARTEN = 1;
     String BJOERN = " Bjoern ";
     String SPIELFELDBREITE = " Spielfeldbreite ";
-    String SPIELFELDZEILEN = " Spielfeldhöhe ";
-
+    String SPIELFELDZEILEN = " Spielfeldhoehe ";
     String VORSTELLEN_SPIELER = " Hallo, ich bin der Spieler ";
     String VORSTELLEN_EINHEIT = " Hallo, ich bin eine beschworene Einheit und heiße ";
     String VORSTELLEN_GEGNER = " Hallo, ich bin der Gegner ";
@@ -31,5 +30,5 @@ public interface TestKonstanten
     String ZEILE = " und Zeile ";
     String VON = " und vor dem Bewegen stehe ich an Position ";
     String BEWEGEN = " jetzt bewege ich mich...";
-    String KAEMPFEN = " jetzt wird gerade gekämpft...";
+    String KAEMPFEN = " jetzt wird gerade gekaempft...";
 }

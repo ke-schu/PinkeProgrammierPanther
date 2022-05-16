@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 import static resources.Strings.*;
 
 /**
- * Diese Klasse beinhaltet das Lesen und Schreiben von Spielständen aus bzw. in Dateien.
+ * Diese Klasse beinhaltet das Lesen und Schreiben von Spielstaenden aus bzw. in Dateien.
  */
 public class SpielStandIO
 {
@@ -66,7 +66,7 @@ public class SpielStandIO
      * Deserialisiert einen im Json-Format vorliegenden String in einen Spielstand.
      * @param jsonStand die Zeichenkette
      * @return den Spielstand
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung übereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
      */
     private static SpielStand deserialisieren (String jsonStand) throws JsonSyntaxException
     {
@@ -75,7 +75,7 @@ public class SpielStandIO
     }
 
     /**
-     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren deserialisiert zurück.
+     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren deserialisiert zurueck.
      * @return den Charakter-Stapel
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */

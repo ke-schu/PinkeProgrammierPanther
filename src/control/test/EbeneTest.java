@@ -18,7 +18,7 @@ import static resources.StringsGegner.GENERISCHER_GEGNER_NAME;
 import static resources.Zahlen.*;
 
 /**
- * Diese Klasse beinhaltet die für das Testen der Ebene notwendigen Methoden.
+ * Diese Klasse beinhaltet die fuer das Testen der Ebene notwendigen Methoden.
  */
 public class EbeneTest
 {
@@ -31,8 +31,8 @@ public class EbeneTest
     }
 
     /**
-     * Methode um eine Instanz von Gegenspieler zu erstellen, welche für das Erstellen von Gegnern notwendig ist.
-     * @return gibt eine Instanz von Gegenspieler zurück.
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche fuer das Erstellen von Gegnern notwendig ist.
+     * @return gibt eine Instanz von Gegenspieler zurueck.
      */
     private static Gegenspieler erstelleGegenspieler ()
     {
@@ -76,8 +76,8 @@ public class EbeneTest
 
     /**
      * Diese Methode testet alle grundlegenden Funktionen einer Ebene. Dafuer
-     * wird die erstellte Testebene in die EbeneTest.json geschrieben und anschließend
-     * aus dieser in eine neue Instanz von Ebene erstellt. Hiernach durchläuft eine Instanz der Klasse
+     * wird die erstellte Testebene in die EbeneTest.json geschrieben und anschliessend
+     * aus dieser in eine neue Instanz von Ebene erstellt. Hiernach durchlaeuft eine Instanz der Klasse
      * SpielfigurEbene diese Ebene und durchquert alle Ereignisse einmal.
      */
     public static void testeEbene ()

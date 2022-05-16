@@ -67,7 +67,7 @@ public class EbeneIO
      * Deserialisiert einen im Json-Format vorliegenden String in eine Ebene.
      * @param jsonEbene die Zeichenkette
      * @return die Ebene
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung übereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
      */
     private static Ebene deserialisieren (String jsonEbene) throws JsonSyntaxException
     {
@@ -79,7 +79,7 @@ public class EbeneIO
     }
 
     /**
-     * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert zurück.
+     * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert zurueck.
      * @return die Ebene
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */

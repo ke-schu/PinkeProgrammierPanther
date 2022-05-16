@@ -24,7 +24,7 @@ public class SpielStand
      * Konstruiert einen neuen Spielstand mit den notwendigen Attributen
      * @param gold das Guthaben des Spielers
      * @param erfahrungspunkte die gesammelten Erfahrungspunkte
-     * @param spieler der kämpfende Spieler
+     * @param spieler der kaempfende Spieler
      * @throws KartenDeckFehlerhaftException wenn die Kartendecks des Spielers oder des Gegners Fehler enthalten
      * @throws IOException wenn die Spielstanddatei nur falsch oder gar nicht gelesen werden kann
      */

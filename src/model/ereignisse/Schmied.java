@@ -25,7 +25,7 @@ public class Schmied extends Mensch
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion
      * eine Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
      * @param spielStand der aktuelle Spielstand und seine Attribute

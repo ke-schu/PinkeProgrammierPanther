@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 import static resources.Strings.*;
 
 /**
- * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer für ein KartenDeck.
+ * Diese Klasse ist ein benutzerdefinierter JsonSerializer und JsonDeserializer fuer ein KartenDeck.
  * Es wird hier festgelegt, wie genau ein Kartendeck im Controller serialisiert bzw. deserialisiert wird, indem
  * diese Klasse als Adapter im GsonBuilder eingebaut wird.
  */

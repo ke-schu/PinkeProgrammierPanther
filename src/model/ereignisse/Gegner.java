@@ -31,7 +31,7 @@ public class Gegner extends Ereignis
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Sobald die Methode ausgefuert wird
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Sobald die Methode ausgefuert wird
      * wird der Name des Gegners ausgegeben und ein Spielfeld wird erzeugt.
      * @param spielStand der aktuelle Spielstand und seine Attribute
      */

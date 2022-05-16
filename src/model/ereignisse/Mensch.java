@@ -8,16 +8,16 @@ import static resources.Zahlen.*;
  */
 public abstract class Mensch extends Ereignis
 {
-    //Kostenloses Nutzen der Dienste von Händlern, Tempeln, Heilern und Schmieden.
+    //Kostenloses Nutzen der Dienste von Haendlern, Tempeln, Heilern und Schmieden.
     protected int gratisInteraktion = ZAHL_1;
 
-    //Höhe der Kosten zum Nutzen der Dienste
+    //Hoehe der Kosten zum Nutzen der Dienste
     protected int kosten = ZAHL_20;
 
     //Zählt die Menge an Interaktionen mit dem jeweiligen Objekt
     protected int interaktionsZaehler = ZAHL_0;
 
-    //Konstante für keine weiteren gratis Interaktionen.
+    //Konstante fuer keine weiteren gratis Interaktionen.
     protected final int KEINE_GRATIS_INTERAKTION = ZAHL_0;
 
     /**
@@ -31,7 +31,7 @@ public abstract class Mensch extends Ereignis
     }
 
     /**
-     * Diese Methode prueft, ob der Spieler gratis sein Deck verändern kann, wenn er die Dienste der
+     * Diese Methode prueft, ob der Spieler gratis sein Deck veraendern kann, wenn er die Dienste der
      * Einrichtungen in Anspruch nimmt.
      */
     public boolean pruefeGratisInteraktion ()
@@ -58,7 +58,7 @@ public abstract class Mensch extends Ereignis
     }
 
     /**
-     * Getter für die Menge an kostenlosen Interaktionen mit dem jeweiligen Ereignis
+     * Getter fuer die Menge an kostenlosen Interaktionen mit dem jeweiligen Ereignis
      * @return Menge an konstenlosen Interaktionen.
      */
     public int getGratisInteraktion ()

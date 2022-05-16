@@ -23,7 +23,7 @@ public class KartenController
      */
     public static void kartenVerbessern (KarteEinheit karte)
     {
-        //  Muss noch für andere Karten anwendbar gemacht werden
+        //  Muss noch fuer andere Karten anwendbar gemacht werden
         switch (karte.getTyp())
         {
             case NAHKAEMPFER:

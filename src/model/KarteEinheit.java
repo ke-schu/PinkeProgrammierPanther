@@ -27,6 +27,18 @@ public class KarteEinheit extends Karte
 
   /**
    * Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen
+   * @param typ Der Typ der Karte
+   * @param macht Die Macht der Karte
+   * @param lebenspunkte Die Lebenspunkte der Karte
+   * @param manaKosten Die Manakosten der Karte
+   * @param beweglichkeit Die Beweglichkeit der Karte
+   * @param reichweite Die Reichweite der Karte
+   * @param schild Anzahl der Schilde der Karte
+   * @param verteidigung mit wie viel Punkten ein Angriff verteidigt werden soll
+   * @param effektEins der erste Effekt
+   * @param effektZwei der zweite Effekt
+   * @param schlafend ob die Einheit schlaeft
+   * @param freundlich ob die Einheit freundlich
    */
   public KarteEinheit (String name, int level, Einheiten typ, int macht, int lebenspunkte, int manaKosten,
                        int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins,
@@ -285,7 +297,7 @@ public class KarteEinheit extends Karte
   }
 
   /**
-   * methdoe welche es der Karte ermöglicht Schaden zu nehmen
+   * methdoe welche es der Karte ermoeglicht Schaden zu nehmen
    * @param schaden welcher von den Lebenspunkten abgezogen werden soll
    */
   public void schadenNehmen (int schaden)

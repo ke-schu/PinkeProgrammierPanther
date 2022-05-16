@@ -5,7 +5,7 @@ import model.*;
 import static resources.Zahlen.*;
 
 /**
- * Diese Klasse enthält Methoden, um mit Instanzen der Klasse Ebene zu interagieren.
+ * Diese Klasse enthaelt Methoden, um mit Instanzen der Klasse Ebene zu interagieren.
  */
 public class EbeneController
 {

@@ -3,7 +3,7 @@ package io;
 import java.util.Scanner;
 
 /**
- * Diese Klasse ist für Eingabe- und Ausgabemethoden durch die Konsole.
+ * Diese Klasse ist fuer Eingabe- und Ausgabemethoden durch die Konsole.
  */
 public class KonsolenIO
 {

@@ -9,7 +9,7 @@ public class KartenDeckFehlerhaftException extends Exception
 {
     /**
      * Konstruiert eine KartenDeckFehlerhaftException.
-     * @param kartenDeck das Kartendeck, welches die Exception auslöst
+     * @param kartenDeck das Kartendeck, welches die Exception ausloest
      */
     public KartenDeckFehlerhaftException (String kartenDeck)
     {

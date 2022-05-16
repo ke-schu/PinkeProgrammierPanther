@@ -7,7 +7,7 @@ import static resources.StringsEreignisse.LEERER_RAUM_BESCHREIBUNG;
 
 
 /**
- * Diese Klasse ist eine Subklasse von Ereignis. Ein Leerer Raum ist nur als Durchgangsraum für den Spieler gedacht.
+ * Diese Klasse ist eine Subklasse von Ereignis. Ein Leerer Raum ist nur als Durchgangsraum fuer den Spieler gedacht.
  * LeererRaum enthaelt alle Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute.
  */
 public class LeererRaum extends Ereignis
@@ -24,7 +24,7 @@ public class LeererRaum extends Ereignis
     }
 
     /**
-     * Diese Methode überlagert die Methode aus der Superklasse "Ereignis". Sie zeigt die Eigenschaft des leeren Raumes
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Sie zeigt die Eigenschaft des leeren Raumes
      * an.
      * @param spielStand: Spielstand Datei
      */

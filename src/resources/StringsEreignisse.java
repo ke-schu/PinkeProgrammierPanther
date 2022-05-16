@@ -25,8 +25,8 @@ public interface StringsEreignisse
     String HEILER_BESCHREIBUNG = "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.";
     String GEGNER_BESCHREIBUNG = "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?";
     String TRUHE_BESCHREIBUNG = "Eine Truhe, was da wohl drin ist?";
-    String ZUFALLS_EREIGNIS_BESCHREIBUNG = "Ich kann nicht erkennen was vor mir ist. Ich muss näher rangehen...";
-    String LEERER_RAUM_BESCHREIBUNG = "Hier ist absolut gar nichts... wie öde.";
+    String ZUFALLS_EREIGNIS_BESCHREIBUNG = "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...";
+    String LEERER_RAUM_BESCHREIBUNG = "Hier ist absolut gar nichts... wie langweilig.";
     String TREPPE_BESCHREIBUNG = "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.";
 
     //Strings fuer die Eingabe
