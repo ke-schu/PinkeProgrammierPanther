@@ -130,6 +130,6 @@ public class SpielFeld
 
     public void einheitloeschen (int x, int y)
     {
-        this.spielfeld[x][y] = null;
+        this.spielfeld[y][x] = null;
     }
 }

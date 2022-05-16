@@ -48,7 +48,7 @@ public class RundenController
                             KartenDeckController.mischen(spielerdeck);
                             feld.einheitloeschen(i,j);
                         }
-                        if(feld.getSpielfeldplatz(i,j).getFreundlich()== false)
+                        else
                         {
                             masterdeck.push( feld.getSpielfeldplatz(i,j));
                             KartenDeckController.mischen(masterdeck);
