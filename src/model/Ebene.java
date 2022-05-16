@@ -117,16 +117,6 @@ public class Ebene
     }
 
     /**
-     * Methode um an einer bestimmen Position innerhalb dem Attribut ebene ein null-Literal zu setzen.
-     * @param spalte Position der Spalte an dem das null-Literal eingefügt werden soll.
-     * @param zeile Position der Zeile an dem das null-Literal eingefügt werden soll.
-     */
-    public void raumLoeschen (int spalte, int zeile)
-    {
-        this.ebene[zeile][spalte] = null;
-    }
-
-    /**
      * Methode um an einer bestimmten Position den Inhalt des Attributes ebene zu bekommen.
      * @param spalte Position der Spalte von dem der Inhalt zurueck gegeben wird.
      * @param zeile Position der Zeile von dem der Inhalt zurueck gegeben wird.

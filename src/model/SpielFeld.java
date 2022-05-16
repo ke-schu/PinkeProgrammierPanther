@@ -12,14 +12,14 @@ public class SpielFeld
 {
 
     private KarteEinheit[][] spielfeld = null;
-    private int feldZeile = 0;
-    private int feldSpalte = 0;
+    private int feldZeile = ZAHL_0;
+    private int feldSpalte = ZAHL_0;
 
     /**
      * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse eine Instanz mit
      * einer zufaelligen Spielfeldgroesse zwischen 4 und 6 erzeugt.
      */
-    public SpielFeld()
+    public SpielFeld ()
     {
         this.feldSpalte = generiereSpielfeldGroesse();
         this.feldZeile = generiereSpielfeldGroesse();
@@ -32,7 +32,7 @@ public class SpielFeld
      * @param x Spaltenanzahl des Spielfeldes.
      * @param y Zeilenanzahl des Spielfeldes.
      */
-    public SpielFeld(int x, int y)
+    public SpielFeld (int x, int y)
     {
         this.feldSpalte = x;
         this.feldZeile = y;
@@ -44,7 +44,7 @@ public class SpielFeld
      * Methode die eine zufaellige Zahl zwischen 4 und 6 generiert.
      * @return Gibt einen Int-Wert zwischen 4 und 6.
      */
-    private static int generiereSpielfeldGroesse()
+    private static int generiereSpielfeldGroesse ()
     {
         int spielfeldGroesse = ZAHL_0;
         int i = ZAHL_0;
@@ -71,7 +71,7 @@ public class SpielFeld
      * @return gibt einen String der die Matrix des Attributes ebene spielfeld wieder.
      */
     @Override
-    public String toString()
+    public String toString ()
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.feldZeile; i++)
@@ -103,7 +103,7 @@ public class SpielFeld
      * Methode die einem den Wert des Attributes spielfeld gibt.
      * @return gibt einen 2D-Array mit Instanzen der Klasse KarteEinheit.
      */
-    public KarteEinheit[][] getSpielfeld()
+    public KarteEinheit[][] getSpielfeld ()
     {
         return this.spielfeld;
     }
@@ -112,7 +112,7 @@ public class SpielFeld
      * Methode die ein 2D-Array mit Instanzen der Klasse KarteEinheit in das Attribut spielfeld setzt.
      * @param spielfeld 2D-Array mit Instanzen der Klasse KarteEinheit der in das Attribut spielfeld gesetzt werden soll.
      */
-    public final void setSpielfeld(KarteEinheit[][] spielfeld)
+    public final void setSpielfeld (KarteEinheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
     }
@@ -142,7 +142,7 @@ public class SpielFeld
      * @param y Y-Koordinate als Int-Wert, an welcher die Instanz der Klasse KarteEinheit eingesetzt werden soll.
      * @param einheit Instanz der Klasse KarteEinheit, welche in das Spielfeld eingesetzt werden soll.
      */
-    public void einheitEinsetzten(int x, int y, KarteEinheit einheit )
+    public void einheitEinsetzten (int x, int y, KarteEinheit einheit )
     {
         if (einheit == null)
         {

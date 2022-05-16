@@ -2,5 +2,5 @@ package model;
 
 public interface Spielbar
 {
-    int getMana();
+    int getMana ();
 }

@@ -12,11 +12,11 @@ public class Raum {
      *
      * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
      */
-    public Raum(Ereignis ereignis) {
+    public Raum (Ereignis ereignis) {
         this.ereignis = ereignis;
     }
 
-    public Raum() {
+    public Raum () {
 
     }
 
@@ -25,16 +25,16 @@ public class Raum {
      *
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis() {
+    public Ereignis getEreignis () {
         return ereignis;
     }
 
-    public SpielfigurEbene getSpielfigur()
+    public SpielfigurEbene getSpielfigur ()
     {
         return spielfigur;
     }
 
-    public void setSpielfigur(SpielfigurEbene spielfigur)
+    public void setSpielfigur (SpielfigurEbene spielfigur)
     {
         this.spielfigur = spielfigur;
     }

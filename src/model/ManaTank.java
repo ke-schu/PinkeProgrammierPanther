@@ -26,7 +26,7 @@ public class ManaTank
      * Verringert den Manawert im Manatank um die höhe der gezahlten kosten
      * @param kosten, Kosten welche gezahlt werden
      */
-    public void manabezahlen (int kosten)
+    public void manaBezahlen (int kosten)
     {
         this.mana = mana-kosten;
     }
