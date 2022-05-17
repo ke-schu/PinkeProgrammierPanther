@@ -145,8 +145,8 @@ public class SpielzugTest
         KonsolenIO.ausgeben(
                 VORSTELLEN_GEGNER +
                 meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
-                (meinfeld.getFeldZeile()) + "," +
-                (meinfeld.getFeldSpalte()));
+                (meinfeld.getSpielfeldplatz(4,4).getPositionX()) + "," +
+                (meinfeld.getSpielfeldplatz(4,4).getPositionY()));
         KonsolenIO.ausgeben(BEWEGEN);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);

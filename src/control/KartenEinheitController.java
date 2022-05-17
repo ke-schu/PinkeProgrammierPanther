@@ -82,7 +82,7 @@ public class KartenEinheitController
      * @param x x Position im Spielfeld
      * @param y y Position im Spielfeld
      */
-    public static void positionGeben(KarteEinheit einheit, int x, int y)
+    private static void positionGeben(KarteEinheit einheit, int x, int y)
     {
         Position position = new Position(x, y);
         einheit.setPosition(position);
