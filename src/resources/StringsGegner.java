@@ -1,7 +1,8 @@
 package resources;
 
 /**
- * Hier befinden sich Zeichenketten, welche bei der Erstellung von Gegnern genutzt werden.
+ * Hier befinden sich Zeichenketten, welche bei der Erstellung von Gegnern
+ * genutzt werden.
  */
 public interface StringsGegner
 {

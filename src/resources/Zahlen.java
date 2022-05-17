@@ -1,8 +1,8 @@
 package resources;
 
 /**
- * Fuer den Zugriff auf bestimmte Stellen im Array und die Verwendung von Zahlen im Code
- * ist hier ein zentrales Interface angelegt.
+ * Fuer den Zugriff auf bestimmte Stellen im Array und die Verwendung von
+ * Zahlen im Code ist hier ein zentrales Interface angelegt.
  */
 public interface Zahlen
 {

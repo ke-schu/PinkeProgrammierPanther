@@ -12,10 +12,12 @@ public class Raum
     private transient SpielfigurEbene spielfigur = null;
 
     /**
-     * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das Attribut ereignis setzt.
-     * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden soll.
+     * Konstruktor fuer die Klasse Raume die direkt ein Ereignis in das
+     * Attribut ereignis setzt.
+     * @param ereignis die Instanz die in das Attribut ereignis gesetzt werden
+     * soll.
      */
-    public Raum (Ereignis ereignis)
+    public Raum(Ereignis ereignis)
     {
         this.ereignis = ereignis;
     }
@@ -23,7 +25,7 @@ public class Raum
     /**
      * Leerer Konstruktor fuer Raum.
      */
-    public Raum ()
+    public Raum()
     {
 
     }
@@ -32,7 +34,7 @@ public class Raum
      * Methode um das Ereignis aus dem Attribut ereignis zu bekommen.
      * @return gibt das den Inhalt des Attributes ereignis wieder.
      */
-    public Ereignis getEreignis ()
+    public Ereignis getEreignis()
     {
         return ereignis;
     }
@@ -41,7 +43,7 @@ public class Raum
      * Getter um zu ueberpruefen, ob eine Spielfigur im Raum ist.
      * @return gibt an, ob eine Spielfigur im Raum ist.
      */
-    public SpielfigurEbene getSpielfigur ()
+    public SpielfigurEbene getSpielfigur()
     {
         return spielfigur;
     }
@@ -50,7 +52,7 @@ public class Raum
      * Setter um eine Spielfigur in einen Raum zu setzen.
      * @param spielfigur Spielfigur, die in den Raum gesetzt werden soll.
      */
-    public void setSpielfigur (SpielfigurEbene spielfigur)
+    public void setSpielfigur(SpielfigurEbene spielfigur)
     {
         this.spielfigur = spielfigur;
     }

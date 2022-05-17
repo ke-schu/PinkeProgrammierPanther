@@ -18,7 +18,7 @@ public abstract class Karte
      * @param name der Name der Karte.
      * @param level das Kartenlevel.
      */
-    public Karte (String name, int level)
+    public Karte(String name, int level)
     {
         this.id = instanzZaehler;
         this.name = name;
@@ -29,16 +29,17 @@ public abstract class Karte
     /**
      * Leerer Konstruktor der Klasse Karte.
      */
-    public Karte ()
+    public Karte()
     {
     }
 
     /**
-     * Ueberlagerung der toString Methode um das Attribut id richtig als string wiederzugeben.
+     * Ueberlagerung der toString Methode um das Attribut id richtig als
+     * string wiederzugeben.
      * @return gibt einen String aus dem Attribut id zurueck.
      */
     @Override
-    public String toString ()
+    public String toString()
     {
         return this.getName() + LEERZEICHEN + this.getId();
     }
@@ -47,7 +48,7 @@ public abstract class Karte
      * Methode die den Int des Attributes id liefert.
      * @return gibt den Int-Wert des Attributes id.
      */
-    public int getId ()
+    public int getId()
     {
         return id;
     }
@@ -56,7 +57,7 @@ public abstract class Karte
      * Methode um den String des Attributes name zu bekommen.
      * @return gibt den String des Attributes name wieder.
      */
-    public String getName ()
+    public String getName()
     {
         return name;
     }
@@ -65,7 +66,7 @@ public abstract class Karte
      * Mehtode um den Int-Wert des Attributes level zu bekommen.
      * @return gibt den Int-Wert des Attributes level wieder.
      */
-    public int getLevel ()
+    public int getLevel()
     {
         return level;
     }
@@ -74,7 +75,7 @@ public abstract class Karte
      * Methode um einen Int-Wert in das Attribut level zu setzen.
      * @param level Int-Wert, der in das Attribut level gesetzt werden soll.
      */
-    public void setLevel (int level)
+    public void setLevel(int level)
     {
         this.level = level;
     }

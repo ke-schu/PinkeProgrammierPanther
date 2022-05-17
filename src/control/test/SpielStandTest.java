@@ -10,6 +10,7 @@ import model.SpielStand;
 import model.Spieler;
 import model.Waffe;
 import resources.*;
+
 import java.io.IOException;
 import java.util.Stack;
 
@@ -25,10 +26,10 @@ import static resources.Zahlen.*;
 public class SpielStandTest
 {
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private SpielStandTest ()
+    private SpielStandTest()
     {
     }
 
@@ -36,7 +37,7 @@ public class SpielStandTest
      * Erstellt einen Beispielspieler mit beispielhaften Werten
      * @return den Spieler
      */
-    private static Spieler erstelleSpieler ()
+    private static Spieler erstelleSpieler()
     {
         Stack<Talente> meinTalentStack = new Stack<>();
         meinTalentStack.push(ABKLINGEN);
@@ -45,38 +46,48 @@ public class SpielStandTest
         Artefakte[] meineArtefake = new Artefakte[ZAHL_2];
         meineArtefake[ZAHL_0] = DER_GRABSTEIN;
 
-        return new Spieler(TESTBEZEICHNUNG_SPIELER, ZAHL_1, Einheiten.FERNKAEMPFER, ZAHL_1,
-                ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                new Waffe(TESTBEZEICHNUNG_WAFFE, ZAHL_10), meinTalentStack, meineArtefake, ZAHL_1);
+        return new Spieler(TESTBEZEICHNUNG_SPIELER, ZAHL_1,
+                           Einheiten.FERNKAEMPFER, ZAHL_1,
+                           ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
+                           Effekte.LETZTEWORTE,
+                           Effekte.ZURUECKWERFEN,
+                           new Waffe(TESTBEZEICHNUNG_WAFFE, ZAHL_10),
+                           meinTalentStack,
+                           meineArtefake, ZAHL_1);
     }
 
     /**
-     * Schreibt einen neuen Charakter-Stack mit zwei Charakteren in die Datei.
+     * Schreibt einen neuen Charakter-Stack mit zwei Charakteren in die
+     * Datei.
      */
-    public static void schreibeCharacter ()
+    public static void schreibeCharacter()
     {
         try
         {
-            Charakter charakter = new Charakter(TESTBEZEICHNUNG_CHARAKTER, ZAHL_1,
-                    erstelleSpieler(), true);
+            Charakter charakter =
+                    new Charakter(TESTBEZEICHNUNG_CHARAKTER, ZAHL_1,
+                                  erstelleSpieler(), true);
             Stack<Charakter> meinCharakterStack = new Stack<>();
             meinCharakterStack.push(charakter);
             meinCharakterStack.push(charakter);
             CharakterIO.schreibeDatei(meinCharakterStack);
-        }
-        catch (IOException | KartenDeckFehlerhaftException e)
+        } catch (IOException | KartenDeckFehlerhaftException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
 
     /**
-     * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen Spieler zurueck.
+     * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen
+     * Spieler zurueck.
      * @return den Spieler
-     * @throws KartenDeckFehlerhaftException wenn das Kartendeck des Charakters Fehler aufwirft
-     * @throws IOException wenn die Datei nicht oder nur falsch geladen werden kann
+     * @throws KartenDeckFehlerhaftException wenn das Kartendeck des
+     * Charakters Fehler aufwirft
+     * @throws IOException wenn die Datei nicht oder nur falsch geladen werden
+     * kann
      */
-    private static Spieler leseCharakter () throws KartenDeckFehlerhaftException, IOException
+    private static Spieler leseCharakter()
+            throws KartenDeckFehlerhaftException, IOException
     {
         Charakter meineKlasse = CharakterController.leseCharakter(1);
         return meineKlasse.getSpieler();
@@ -86,32 +97,33 @@ public class SpielStandTest
      * Liest den aktuell abgespeicherten Spielstand ein und gibt das Spieldeck
      * ueber die Konsole aus.
      */
-    public static void leseSpielstand ()
+    public static void leseSpielstand()
     {
         try
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
-            KonsolenIO.ausgeben(meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
+            KonsolenIO.ausgeben(
+                    meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
                     + Strings.LEERZEICHEN
                     + meinSpielStand.getSpieldeckSpieler().size());
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
 
     /**
-     * Speichert einen neuen Spielstand mit beispielhaften Werten in der Datei ab.
+     * Speichert einen neuen Spielstand mit beispielhaften Werten in der Datei
+     * ab.
      */
-    public static void speichereSpielstand ()
+    public static void speichereSpielstand()
     {
         try
         {
-            SpielStand meinSpielStand = new SpielStand(ZAHL_10, ZAHL_9, leseCharakter());
+            SpielStand meinSpielStand =
+                    new SpielStand(ZAHL_10, ZAHL_9, leseCharakter());
             SpielStandIO.schreibeDatei(meinSpielStand);
-        }
-        catch (IOException | KartenDeckFehlerhaftException e)
+        } catch (IOException | KartenDeckFehlerhaftException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import exceptions.KartenDeckFehlerhaftException;
 import model.SpielStand;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,7 +16,8 @@ import java.nio.file.Paths;
 import static resources.Strings.*;
 
 /**
- * Diese Klasse beinhaltet das Lesen und Schreiben von Spielstaenden aus bzw. in Dateien.
+ * Diese Klasse beinhaltet das Lesen und Schreiben von Spielstaenden aus bzw.
+ * in Dateien.
  */
 public class SpielStandIO
 {
@@ -24,10 +26,10 @@ public class SpielStandIO
     private final static File datei = new File(SPIELSTAND_PFAD);
 
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private SpielStandIO ()
+    private SpielStandIO()
     {
     }
 
@@ -36,7 +38,7 @@ public class SpielStandIO
      * @param stand der Spielstand
      * @return einen String im Json-Format
      */
-    private static String serialisieren (SpielStand stand)
+    private static String serialisieren(SpielStand stand)
     {
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
         return meinGson.toJson(stand);
@@ -47,13 +49,12 @@ public class SpielStandIO
      * @param stand der Spielstand
      * @throws IOException wenn ein Fehler im Schreiben auftritt.
      */
-    public static void schreibeDatei (SpielStand stand) throws IOException
+    public static void schreibeDatei(SpielStand stand) throws IOException
     {
         if (datei.createNewFile())
         {
             KonsolenIO.ausgeben(SPIELSTAND_DATEI_ERSTELLT);
-        }
-        else
+        } else
         {
             KonsolenIO.ausgeben(SPIELSTAND_DATEI_UEBERSCHRIEBEN);
         }
@@ -63,23 +64,27 @@ public class SpielStandIO
     }
 
     /**
-     * Deserialisiert einen im Json-Format vorliegenden String in einen Spielstand.
+     * Deserialisiert einen im Json-Format vorliegenden String in einen
+     * Spielstand.
      * @param jsonStand die Zeichenkette
      * @return den Spielstand
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der
+     * Json-Formatierung uebereinstimmt.
      */
-    private static SpielStand deserialisieren (String jsonStand) throws JsonSyntaxException
+    private static SpielStand deserialisieren(String jsonStand)
+            throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
         return meinGson.fromJson(jsonStand, SpielStand.class);
     }
 
     /**
-     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren deserialisiert zurueck.
+     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren
+     * deserialisiert zurueck.
      * @return den Charakter-Stapel
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static SpielStand leseDatei () throws IOException
+    public static SpielStand leseDatei() throws IOException
     {
         Path path = Paths.get(datei.toURI());
         String content = Files.readString(path);
@@ -87,8 +92,7 @@ public class SpielStandIO
         try
         {
             return new SpielStand(deserialisieren(content));
-        }
-        catch (JsonSyntaxException | KartenDeckFehlerhaftException e)
+        } catch (JsonSyntaxException | KartenDeckFehlerhaftException e)
         {
             throw new IOException(JSON_FORMAT_FEHLERHAFT_INFO);
         }

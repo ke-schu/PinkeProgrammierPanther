@@ -15,7 +15,7 @@ public class KartenDeck extends Stack<Karte>
      * @param datei .json Datei in der das KartenDeck hinterlegt ist.
      * @param deckBezeichnung deckBezeichnung String der DeckBezeichnung.
      */
-    public KartenDeck (File datei, String deckBezeichnung)
+    public KartenDeck(File datei, String deckBezeichnung)
     {
         this.datei = datei;
         this.deckBezeichnung = deckBezeichnung;
@@ -25,7 +25,7 @@ public class KartenDeck extends Stack<Karte>
      * Konstruktor der Klasse KartenDeck, welcher alle Attribute setzt.
      * @param deckBezeichnung String der DeckBezeichnung
      */
-    public KartenDeck (String deckBezeichnung)
+    public KartenDeck(String deckBezeichnung)
     {
         this.deckBezeichnung = deckBezeichnung;
     }
@@ -34,7 +34,7 @@ public class KartenDeck extends Stack<Karte>
      * Ueberlagert die toString-Methode hier fuer ein Kartendeck.
      * @return die Deckbezeichnung und die einzelnen Karten.
      */
-    public String toString ()
+    public String toString()
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.size(); i++)
@@ -49,7 +49,7 @@ public class KartenDeck extends Stack<Karte>
      * Gibt die Datei wieder, in der das Kartendeck gespeichert ist.
      * @return die Kartendeck-Datei.
      */
-    public File getDatei ()
+    public File getDatei()
     {
         return datei;
     }
@@ -58,7 +58,7 @@ public class KartenDeck extends Stack<Karte>
      * Setzt die Datei des Kartendecks
      * @param datei Die Datei des Kartendecks
      */
-    public void setDatei (File datei)
+    public void setDatei(File datei)
     {
         this.datei = datei;
     }
@@ -67,7 +67,7 @@ public class KartenDeck extends Stack<Karte>
      * Methode um den String des Attributes deckBezeichnung zu bekommen.
      * @return gibt den String des Attributes deckBezeichnung.
      */
-    public String getDeckBezeichnung ()
+    public String getDeckBezeichnung()
     {
         return deckBezeichnung;
     }

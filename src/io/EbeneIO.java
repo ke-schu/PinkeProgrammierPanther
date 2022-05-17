@@ -6,6 +6,7 @@ import com.google.gson.JsonSyntaxException;
 import control.RaumSerialisierung;
 import model.Ebene;
 import model.Raum;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +17,8 @@ import java.nio.file.Paths;
 import static resources.Strings.*;
 
 /**
- * Diese Klasse beinhaltet das Lesen und Schreiben von Ebenen aus bzw. in Dateien.
+ * Diese Klasse beinhaltet das Lesen und Schreiben von Ebenen aus bzw. in
+ * Dateien.
  */
 public class EbeneIO
 {
@@ -24,10 +26,10 @@ public class EbeneIO
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
 
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EbeneIO ()
+    private EbeneIO()
     {
     }
 
@@ -36,7 +38,7 @@ public class EbeneIO
      * @param ebene die Ebene
      * @return einen String im Json-Format
      */
-    private static String serialisieren (Ebene ebene)
+    private static String serialisieren(Ebene ebene)
     {
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
         return meinGson.toJson(ebene);
@@ -48,13 +50,13 @@ public class EbeneIO
      * @param datei die Datei
      * @throws IOException wenn ein Fehler im Schreiben auftritt.
      */
-    public static void schreibeDatei (Ebene ebene, File datei) throws IOException
+    public static void schreibeDatei(Ebene ebene, File datei)
+            throws IOException
     {
         if (datei.createNewFile())
         {
             KonsolenIO.ausgeben(EBENE_DATEI_ERSTELLT);
-        }
-        else
+        } else
         {
             KonsolenIO.ausgeben(EBENE_DATEI_UEBERSCHRIEBEN);
         }
@@ -67,9 +69,11 @@ public class EbeneIO
      * Deserialisiert einen im Json-Format vorliegenden String in eine Ebene.
      * @param jsonEbene die Zeichenkette
      * @return die Ebene
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der Json-Formatierung uebereinstimmt.
+     * @throws JsonSyntaxException wenn die Formatierung nicht mit der
+     * Json-Formatierung uebereinstimmt.
      */
-    private static Ebene deserialisieren (String jsonEbene) throws JsonSyntaxException
+    private static Ebene deserialisieren(String jsonEbene)
+            throws JsonSyntaxException
     {
         RaumSerialisierung meineSerialisierung = new RaumSerialisierung();
         meinGsonBuilder.registerTypeAdapter(Raum.class, meineSerialisierung);
@@ -79,11 +83,12 @@ public class EbeneIO
     }
 
     /**
-     * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert zurueck.
+     * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert
+     * zurueck.
      * @return die Ebene
      * @throws IOException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static Ebene leseDatei (File datei) throws IOException
+    public static Ebene leseDatei(File datei) throws IOException
     {
         Path path = Paths.get(datei.toURI());
         String content = Files.readString(path);
@@ -91,8 +96,7 @@ public class EbeneIO
         try
         {
             return new Ebene(deserialisieren(content));
-        }
-        catch (JsonSyntaxException e)
+        } catch (JsonSyntaxException e)
         {
             throw new IOException(JSON_FORMAT_FEHLERHAFT_INFO);
         }

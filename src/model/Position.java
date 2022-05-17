@@ -1,7 +1,8 @@
 package model;
 
 /**
- * Klasse Position welche Informationen ueber die Position einer Karte auf dem Spielfeld in sich traegt
+ * Klasse Position welche Informationen ueber die Position einer Karte auf dem
+ * Spielfeld in sich traegt
  */
 public class Position
 {
@@ -11,7 +12,7 @@ public class Position
     /**
      * Leerer Konstruktor, der keine Attribute setzt.
      */
-    public Position ()
+    public Position()
     {
     }
 
@@ -20,7 +21,7 @@ public class Position
      * @param x Zahl der Spalte
      * @param y Zahl der Zeile
      */
-    public Position (int x, int y)
+    public Position(int x, int y)
     {
         this.x = x;
         this.y = y;
@@ -30,7 +31,7 @@ public class Position
      * Getter fuer die Zahl der Spalte der Position
      * @return Spaltenzahl
      */
-    public int getX ()
+    public int getX()
     {
         return x;
     }
@@ -39,7 +40,7 @@ public class Position
      * Setter fuer die Zahl der Spalte der Position
      * @param x Spaltenzahl
      */
-    public void setX (int x)
+    public void setX(int x)
     {
         this.x = x;
     }
@@ -49,7 +50,7 @@ public class Position
      * Getter fuer die Zahl der Zeile der Position
      * @return Zeilenzahl
      */
-    public int getY ()
+    public int getY()
     {
         return y;
     }
@@ -58,7 +59,7 @@ public class Position
      * Setter fuer die Zahl der Zeile der Position
      * @param y Zeilenzahl
      */
-    public void setY (int y)
+    public void setY(int y)
     {
         this.y = y;
     }

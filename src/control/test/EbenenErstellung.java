@@ -18,32 +18,35 @@ import static resources.StringsEreignisse.*;
 public class EbenenErstellung
 {
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EbenenErstellung ()
+    private EbenenErstellung()
     {
     }
 
     /**
-     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benoetigt wird um einen Gegner zu erstellen.
+     * Methode um eine Instanz von Gegenspieler zu erstellen, welche benoetigt
+     * wird um einen Gegner zu erstellen.
      * @return gibt eine Instanz der Klasse Gegenspieler zurueck.
      */
-    private static Gegenspieler erstelleGegenspieler ()
+    private static Gegenspieler erstelleGegenspieler()
     {
         return new Gegenspieler(GENERISCHER_GEGNER_NAME,
-                ZAHL_10,
-                Einheiten.FERNKAEMPFER,
-                ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,ZAHL_1,
-                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                ZAHL_10);
+                                ZAHL_10,
+                                Einheiten.FERNKAEMPFER,
+                                ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
+                                ZAHL_1,
+                                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
+                                ZAHL_10);
     }
 
     /**
-     * Methode eine Ebene zu erstellen und mit vorbestimmten Raeumen zu fuellen.
+     * Methode eine Ebene zu erstellen und mit vorbestimmten Raeumen zu
+     * fuellen.
      * @return liefert eine mit Raeumen gefuellte Ebene.
      */
-    public static Ebene fuelleEbene (int EbenenStufe)
+    public static Ebene fuelleEbene(int EbenenStufe)
     {
         int spalten = ZAHL_9;
         int zeilen = ZAHL_9;
@@ -51,9 +54,18 @@ public class EbenenErstellung
         switch (EbenenStufe)
         {
             case ZAHL_1:
-                Gegner platzhalter10 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter11 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossErstesLevel = new Gegner(BOSS_ERSTES_LEVEL_NAME, BOSS_ERSTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter10 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter11 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossErstesLevel = new Gegner(BOSS_ERSTES_LEVEL_NAME,
+                                                    BOSS_ERSTES_LEVEL_BESCHREIBUNG,
+                                                    erstelleGegenspieler(),
+                                                    new SpielFeld());
                 Raum gegner10 = new Raum(platzhalter10);
                 Raum gegner11 = new Raum(platzhalter11);
                 Raum boss1 = new Raum(bossErstesLevel);
@@ -61,11 +73,15 @@ public class EbenenErstellung
                 meinRaum[ZAHL_3][ZAHL_5] = gegner11;
                 meinRaum[ZAHL_2][ZAHL_6] = boss1;
 
-                ZufallsEreignis ze = new ZufallsEreignis(ZUFALLS_EREIGNIS_NAME, ZUFALLS_EREIGNIS_BESCHREIBUNG,false);
+                ZufallsEreignis ze =
+                        new ZufallsEreignis(ZUFALLS_EREIGNIS_NAME,
+                                            ZUFALLS_EREIGNIS_BESCHREIBUNG,
+                                            false);
                 Raum RaumMitZufallsEreignis = new Raum(ze);
                 meinRaum[ZAHL_3][ZAHL_3] = RaumMitZufallsEreignis;
 
-                Schmied schmied1 = new Schmied(SCHMIED_NAME,SCHMIED_BESCHREIBUNG);
+                Schmied schmied1 =
+                        new Schmied(SCHMIED_NAME, SCHMIED_BESCHREIBUNG);
                 Raum raumSchmied = new Raum(schmied1);
                 meinRaum[ZAHL_6][ZAHL_4] = raumSchmied;
 
@@ -73,27 +89,50 @@ public class EbenenErstellung
                 Raum raumTreppe1 = new Raum(treppe1);
                 meinRaum[ZAHL_2][ZAHL_7] = raumTreppe1;
 
-                Raum leererRaum10 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum11 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum12 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
-                Raum leererRaum13 = new Raum(new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum10 = new Raum(new LeererRaum(LEERER_RAUM_NAME,
+                                                            LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum11 = new Raum(new LeererRaum(LEERER_RAUM_NAME,
+                                                            LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum12 = new Raum(new LeererRaum(LEERER_RAUM_NAME,
+                                                            LEERER_RAUM_BESCHREIBUNG));
+                Raum leererRaum13 = new Raum(new LeererRaum(LEERER_RAUM_NAME,
+                                                            LEERER_RAUM_BESCHREIBUNG));
                 meinRaum[ZAHL_5][ZAHL_4] = leererRaum10;
                 meinRaum[ZAHL_3][ZAHL_4] = leererRaum11;
                 meinRaum[ZAHL_3][ZAHL_6] = leererRaum12;
                 meinRaum[ZAHL_4][ZAHL_4] = leererRaum13;
 
-                Haendler haendler1 = new Haendler(HAENDLER_NAME, HAENDLER_BESCHREIBUNG);
+                Haendler haendler1 =
+                        new Haendler(HAENDLER_NAME, HAENDLER_BESCHREIBUNG);
                 Raum raumHaendler1 = new Raum(haendler1);
                 meinRaum[ZAHL_4][ZAHL_6] = raumHaendler1;
                 break;
 
             case ZAHL_2:
-                Gegner platzhalter20 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter21 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter22 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter23 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter24 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossZweitesLevel = new Gegner(BOSS_ZWEITES_LEVEL_NAME, BOSS_ZWEITES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter20 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter21 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter22 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter23 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter24 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossZweitesLevel = new Gegner(BOSS_ZWEITES_LEVEL_NAME,
+                                                     BOSS_ZWEITES_LEVEL_BESCHREIBUNG,
+                                                     erstelleGegenspieler(),
+                                                     new SpielFeld());
                 Raum gegner20 = new Raum(platzhalter20);
                 Raum gegner21 = new Raum(platzhalter21);
                 Raum gegner22 = new Raum(platzhalter22);
@@ -110,12 +149,30 @@ public class EbenenErstellung
                 break;
 
             case ZAHL_3:
-                Gegner platzhalter30 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter31 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter32 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter33 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter34 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossDrittesLevel = new Gegner(BOSS_DRITTES_LEVEL_NAME, BOSS_DRITTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter30 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter31 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter32 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter33 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter34 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossDrittesLevel = new Gegner(BOSS_DRITTES_LEVEL_NAME,
+                                                     BOSS_DRITTES_LEVEL_BESCHREIBUNG,
+                                                     erstelleGegenspieler(),
+                                                     new SpielFeld());
                 Raum gegner30 = new Raum(platzhalter30);
                 Raum gegner31 = new Raum(platzhalter31);
                 Raum gegner32 = new Raum(platzhalter32);
@@ -132,12 +189,30 @@ public class EbenenErstellung
                 break;
 
             case ZAHL_4:
-                Gegner platzhalter40 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter41 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter42 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter43 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter44 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossViertesLevel = new Gegner(BOSS_VIERTES_LEVEL_NAME, BOSS_VIERTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter40 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter41 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter42 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter43 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter44 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossViertesLevel = new Gegner(BOSS_VIERTES_LEVEL_NAME,
+                                                     BOSS_VIERTES_LEVEL_BESCHREIBUNG,
+                                                     erstelleGegenspieler(),
+                                                     new SpielFeld());
                 Raum gegner40 = new Raum(platzhalter40);
                 Raum gegner41 = new Raum(platzhalter41);
                 Raum gegner42 = new Raum(platzhalter42);
@@ -154,12 +229,30 @@ public class EbenenErstellung
                 break;
 
             case ZAHL_5:
-                Gegner platzhalter50 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter51 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter52 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter53 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter54 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossFuenftesLevel = new Gegner(BOSS_FUENFTES_LEVEL_NAME, BOSS_FUENFTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter50 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter51 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter52 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter53 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter54 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossFuenftesLevel =
+                        new Gegner(BOSS_FUENFTES_LEVEL_NAME,
+                                   BOSS_FUENFTES_LEVEL_BESCHREIBUNG,
+                                   erstelleGegenspieler(), new SpielFeld());
                 Raum gegner50 = new Raum(platzhalter50);
                 Raum gegner51 = new Raum(platzhalter51);
                 Raum gegner52 = new Raum(platzhalter52);
@@ -176,12 +269,30 @@ public class EbenenErstellung
                 break;
 
             case ZAHL_6:
-                Gegner platzhalter60 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter61 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter62 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter63 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter64 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossSechstesLevel = new Gegner(BOSS_SECHSTES_LEVEL_NAME, BOSS_SECHSTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter60 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter61 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter62 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter63 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter64 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossSechstesLevel =
+                        new Gegner(BOSS_SECHSTES_LEVEL_NAME,
+                                   BOSS_SECHSTES_LEVEL_BESCHREIBUNG,
+                                   erstelleGegenspieler(), new SpielFeld());
                 Raum gegner60 = new Raum(platzhalter60);
                 Raum gegner61 = new Raum(platzhalter61);
                 Raum gegner62 = new Raum(platzhalter62);
@@ -198,12 +309,30 @@ public class EbenenErstellung
                 break;
 
             case ZAHL_7:
-                Gegner platzhalter70 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter71 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter72 = new Gegner(GENERISCHER_GEGNER_NAME,GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter73 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner platzhalter74 = new Gegner(GENERISCHER_GEGNER_NAME, GENERISCHER_GEGNER_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
-                Gegner bossSiebtesLevel = new Gegner(BOSS_SIEBTES_LEVEL_NAME, BOSS_SIEBTES_LEVEL_BESCHREIBUNG, erstelleGegenspieler(), new SpielFeld());
+                Gegner platzhalter70 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter71 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter72 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter73 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner platzhalter74 = new Gegner(GENERISCHER_GEGNER_NAME,
+                                                  GENERISCHER_GEGNER_BESCHREIBUNG,
+                                                  erstelleGegenspieler(),
+                                                  new SpielFeld());
+                Gegner bossSiebtesLevel = new Gegner(BOSS_SIEBTES_LEVEL_NAME,
+                                                     BOSS_SIEBTES_LEVEL_BESCHREIBUNG,
+                                                     erstelleGegenspieler(),
+                                                     new SpielFeld());
                 Raum gegner70 = new Raum(platzhalter70);
                 Raum gegner71 = new Raum(platzhalter71);
                 Raum gegner72 = new Raum(platzhalter72);
@@ -218,6 +347,8 @@ public class EbenenErstellung
                 meinRaum[ZAHL_0][ZAHL_4] = gegner74;
                 meinRaum[ZAHL_0][ZAHL_5] = boss7;
                 break;
+            default:
+                return null;
         }
         return new Ebene(zeilen, spalten, meinRaum);
     }

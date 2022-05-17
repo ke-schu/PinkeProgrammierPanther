@@ -14,10 +14,10 @@ public class RundenController
     private static boolean freundlich = true;
 
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private RundenController ()
+    private RundenController()
     {
     }
 
@@ -27,7 +27,8 @@ public class RundenController
      * @param spielerDeck Kartendeck des Spielers
      * @param masterDeck Kartendeck des Dungeonmasters
      */
-    public static void  zugBeenden (SpielFeld feld,KartenDeck spielerDeck, KartenDeck masterDeck)
+    public static void zugBeenden(SpielFeld feld, KartenDeck spielerDeck,
+                                  KartenDeck masterDeck)
     {
         zugZaehler = zugZaehler + ZAHL_1;
 
@@ -38,34 +39,35 @@ public class RundenController
     }
 
     /**
-     * Entfernt alle Karten vom Spielfeld, welche keine Lebenspunkte mehr haben
-     * und legt Sie zurueck in ihr zugehoeriges Kartendeck
+     * Entfernt alle Karten vom Spielfeld, welche keine Lebenspunkte mehr
+     * haben und legt Sie zurueck in ihr zugehoeriges Kartendeck
      * @param feld Feld aud dem die Runde gespielt wird
      * @param spielerDeck Kartendeck des spielers
      * @param masterDeck Kartendeck Dungeonmasters
      */
-    public static void feldAufraeumen (SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterDeck)
+    public static void feldAufraeumen(SpielFeld feld, KartenDeck spielerDeck,
+                                      KartenDeck masterDeck)
     {
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if (feld.getSpielfeldplatz(i,j) != null)
+                if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() <= ZAHL_0)
+                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() <=
+                        ZAHL_0)
                     {
-                        feld.getSpielfeldplatz(i,j).initialisieren();
+                        feld.getSpielfeldplatz(i, j).initialisieren();
                         if (feld.getSpielfeldplatz(i, j).getFreundlich())
                         {
-                            spielerDeck.push( feld.getSpielfeldplatz(i,j));
+                            spielerDeck.push(feld.getSpielfeldplatz(i, j));
                             KartenDeckController.mischen(spielerDeck);
-                            feld.einheitloeschen(i,j);
-                        }
-                        else
+                            feld.einheitloeschen(i, j);
+                        } else
                         {
-                            masterDeck.push( feld.getSpielfeldplatz(i,j));
+                            masterDeck.push(feld.getSpielfeldplatz(i, j));
                             KartenDeckController.mischen(masterDeck);
-                            feld.einheitloeschen(i,j);
+                            feld.einheitloeschen(i, j);
                         }
                     }
                 }
@@ -74,21 +76,25 @@ public class RundenController
     }
 
     /**
-     * gibt den Karten auf dem Feld nach jedem Zug ihre Beweglichkeitspunkte zurueck
+     * gibt den Karten auf dem Feld nach jedem Zug ihre Beweglichkeitspunkte
+     * zurueck
      * @param feld Feld aud dem die Runde gespielt wird
      */
-    public static void beweglichkeitAuffrischen (SpielFeld feld)
+    public static void beweglichkeitAuffrischen(SpielFeld feld)
     {
 
         for (int i = 0; i < feld.getFeldZeile(); i++)
         {
             for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if(feld.getSpielfeldplatz(i,j) != null)
+                if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i,j).getLebenspunkte() == ZAHL_0)
+                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() ==
+                        ZAHL_0)
                     {
-                        feld.getSpielfeldplatz(i,j).setBeweglichkeit(feld.getSpielfeldplatz(i,j).getInit().getBeweglichkeit());
+                        feld.getSpielfeldplatz(i, j).setBeweglichkeit(
+                                feld.getSpielfeldplatz(i, j).getInit()
+                                    .getBeweglichkeit());
                     }
                 }
 
@@ -99,30 +105,30 @@ public class RundenController
     /**
      * bestimmt, welcher Spieler dran ist
      */
-    public static void bestimmenWerDranIst ()
+    public static void bestimmenWerDranIst()
     {
-        if(zugZaehler % ZAHL_2 == ZAHL_0)
+        if (zugZaehler % ZAHL_2 == ZAHL_0)
         {
             freundlich = true;
-        }
-        else
+        } else
         {
             freundlich = false;
         }
     }
 
     /**
-     * @param feld weckt die Karten nach jedem Zug auf sodas sie im naechsten Zug wieder agieren koennen
+     * @param feld weckt die Karten nach jedem Zug auf sodas sie im naechsten
+     * Zug wieder agieren koennen
      */
-    public static void aufwecken (SpielFeld feld)
+    public static void aufwecken(SpielFeld feld)
     {
-        for(int i = 0; i < feld.getFeldZeile(); i++)
+        for (int i = 0; i < feld.getFeldZeile(); i++)
         {
-            for(int j = 0; j < feld.getFeldSpalte(); j++)
+            for (int j = 0; j < feld.getFeldSpalte(); j++)
             {
-                if (feld.getSpielfeldplatz(i,j) != null)
+                if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    feld.getSpielfeldplatz(i,j).setSchlafend(false);
+                    feld.getSpielfeldplatz(i, j).setSchlafend(false);
                 }
             }
         }
@@ -133,7 +139,7 @@ public class RundenController
      * Gibt den Zugzaehler als Int-Wert wieder
      * @return Wert des Zuges
      */
-    public static int getZugZaehler ()
+    public static int getZugZaehler()
     {
         return zugZaehler;
     }
@@ -142,7 +148,7 @@ public class RundenController
      * Setzt den Int-Wert Zugzaehler
      * @param zugZaehler Wert des Zuges
      */
-    public static void setZugZaehler (int zugZaehler)
+    public static void setZugZaehler(int zugZaehler)
     {
         RundenController.zugZaehler = zugZaehler;
     }
@@ -151,7 +157,7 @@ public class RundenController
      * Gibt wieder, ob eine freundliche Einheit am Zug ist.
      * @return true oder false
      */
-    public static boolean isFreundlich ()
+    public static boolean isFreundlich()
     {
         return freundlich;
     }
@@ -160,7 +166,7 @@ public class RundenController
      * Setzt den Wahrheitswert freundlich
      * @param freundlich true oder false
      */
-    public static void setFreundlich (boolean freundlich)
+    public static void setFreundlich(boolean freundlich)
     {
         RundenController.freundlich = freundlich;
     }

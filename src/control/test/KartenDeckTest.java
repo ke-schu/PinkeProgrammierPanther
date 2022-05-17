@@ -8,6 +8,7 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
+
 import java.io.File;
 
 import static resources.TestKonstanten.*;
@@ -19,10 +20,10 @@ import static resources.Zahlen.ZAHL_1;
 public class KartenDeckTest
 {
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass keine Instanzen dieser Klasse
-     * gebildet werden.
+     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
+     * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private KartenDeckTest ()
+    private KartenDeckTest()
     {
     }
 
@@ -30,32 +31,23 @@ public class KartenDeckTest
      * Erstellt eine neue KarteEinheit mit beispielhaften Werten
      * @return die KarteEinheit
      */
-    private static KarteEinheit erstelleKarte ()
+    private static KarteEinheit erstelleKarte()
     {
-        return new KarteEinheit(
-                KARTEN_NAME,
-                ZAHL_1,
-                Einheiten.NAHKAEMPFER,
-                ZAHL_1,
-                ZAHL_1,
-                ZAHL_1,
-                ZAHL_1,
-                ZAHL_1,
-                ZAHL_1,
-                ZAHL_1,
-                Effekte.LETZTEWORTE,
-                Effekte.ZURUECKWERFEN,
-                true,
-                true);
+        return new KarteEinheit(KARTEN_NAME, ZAHL_1, Einheiten.NAHKAEMPFER,
+                                ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
+                                ZAHL_1, ZAHL_1,
+                                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
+                                true, true);
     }
 
     /**
-     * Erstellt ein Beispieldeck mit einer Anzahl an Beispielkarten
-     * und schreibt es in eine Datei.
+     * Erstellt ein Beispieldeck mit einer Anzahl an Beispielkarten und
+     * schreibt es in eine Datei.
      */
-    public static void erstelleDeck ()
+    public static void erstelleDeck()
     {
-        KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD_KARTENDECK), TESTBEZEICHNUNG_KARTENDECK);
+        KartenDeck meinDeck = new KartenDeck(new File(TESTPFAD_KARTENDECK),
+                                             TESTBEZEICHNUNG_KARTENDECK);
 
         for (int i = 0; i < ANZAHL_KARTEN; i++)
         {
@@ -65,17 +57,17 @@ public class KartenDeckTest
         try
         {
             KartenDeckIO.schreibeDatei(meinDeck);
-        }
-        catch (KartenDeckFehlerhaftException e)
+        } catch (KartenDeckFehlerhaftException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
 
     /**
-     * Liest ein Deck in dem Testpfad ein, gibt es einmal im Original und einmal gemischt aus.
+     * Liest ein Deck in dem Testpfad ein, gibt es einmal im Original und
+     * einmal gemischt aus.
      */
-    public static void leseDeck ()
+    public static void leseDeck()
     {
         try
         {
@@ -83,8 +75,7 @@ public class KartenDeckTest
             KonsolenIO.ausgeben(meinDeck);
             KartenDeckController.mischen(meinDeck);
             KonsolenIO.ausgeben(meinDeck);
-        }
-        catch (KartenDeckFehlerhaftException e)
+        } catch (KartenDeckFehlerhaftException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

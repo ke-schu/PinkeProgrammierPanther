@@ -4,11 +4,12 @@ import resources.Artefakte;
 import resources.Effekte;
 import resources.Einheiten;
 import resources.Talente;
+
 import java.util.Stack;
 
 /**
- * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld darstellt.
- * Sie erbt von Klasse KarteEinheit.
+ * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld
+ * darstellt. Sie erbt von Klasse KarteEinheit.
  */
 public class Spieler extends KarteEinheit implements Spielbar
 {
@@ -24,9 +25,15 @@ public class Spieler extends KarteEinheit implements Spielbar
      * @param artefakte die Artefakte des Spielers als Array
      * @param mana das Mana-Guthaben
      */
-    public Spieler (String name, int level, Einheiten typ, int macht, int lebenspunkte, int beweglichkeit, int reichweite, int schild, int verteidigung, Effekte effektEins, Effekte effektZwei, Waffe waffe, Stack<Talente> talente, Artefakte[] artefakte, int mana)
+    public Spieler(String name, int level, Einheiten typ, int macht,
+                   int lebenspunkte, int beweglichkeit, int reichweite,
+                   int schild, int verteidigung, Effekte effektEins,
+                   Effekte effektZwei, Waffe waffe, Stack<Talente> talente,
+                   Artefakte[] artefakte, int mana)
     {
-        super(name, level, typ, macht + waffe.getAngriffsPunkte(), lebenspunkte, 0, beweglichkeit, reichweite, schild, verteidigung, effektEins, effektZwei, true, true);
+        super(name, level, typ, macht + waffe.getAngriffsPunkte(),
+              lebenspunkte, 0, beweglichkeit, reichweite, schild,
+              verteidigung, effektEins, effektZwei, true, true);
         this.waffe = waffe;
         this.talente = talente;
         this.artefakte = artefakte;
@@ -34,19 +41,23 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Methode die eine Instanz der Klasse Waffe aus dem Attribut waffe wiedergibt.
-     * @return gibt eine Instanz der Klasse Waffe aus dem Attribut waffe wieder.
+     * Methode die eine Instanz der Klasse Waffe aus dem Attribut waffe
+     * wiedergibt.
+     * @return gibt eine Instanz der Klasse Waffe aus dem Attribut waffe
+     * wieder.
      */
-    public Waffe getWaffe ()
+    public Waffe getWaffe()
     {
         return waffe;
     }
 
     /**
-     * Setzt den uebergebenen Parameter der Klasse Waffe in das Attribut waffe.
-     * @param waffe Instanz der Klasse Waffe, die in das Attribut waffe gesetzt werden soll.
+     * Setzt den uebergebenen Parameter der Klasse Waffe in das Attribut
+     * waffe.
+     * @param waffe Instanz der Klasse Waffe, die in das Attribut waffe
+     * gesetzt werden soll.
      */
-    public void setWaffe (Waffe waffe)
+    public void setWaffe(Waffe waffe)
     {
         this.waffe = waffe;
     }
@@ -55,16 +66,17 @@ public class Spieler extends KarteEinheit implements Spielbar
      * Methode die einen Stack mit Elementen des Enums Talente wiedergibt.
      * @return gibt einen Stack mit Elementen des Enums Talente wieder.
      */
-    public Stack<Talente> getTalente ()
+    public Stack<Talente> getTalente()
     {
         return talente;
     }
 
     /**
      * Setzt den uebergebenen Parameter in das Attribut talente.
-     * @param talente Stack mit Elementen des Enums Talente, welches in das Attribut talente gesetzt werden soll.
+     * @param talente Stack mit Elementen des Enums Talente, welches in das
+     * Attribut talente gesetzt werden soll.
      */
-    public void setTalente (Stack<Talente> talente)
+    public void setTalente(Stack<Talente> talente)
     {
         this.talente = talente;
     }
@@ -73,16 +85,18 @@ public class Spieler extends KarteEinheit implements Spielbar
      * Methode die ein Array mit Elementen des Enums Artefakte wiedergibt
      * @return gibt ein Array mit Elementen des Enums Artefakte wieder.
      */
-    public Artefakte[] getArtefakte ()
+    public Artefakte[] getArtefakte()
     {
         return artefakte;
     }
 
     /**
-     * Setzt den uebergebenen Parameter des Enum Artefakte in das Attribut artefakt.
-     * @param artefakte Array mit Elementen des Enums Artefakte, welches in das Attribut artefakte gesetzt werden soll.
+     * Setzt den uebergebenen Parameter des Enum Artefakte in das Attribut
+     * artefakt.
+     * @param artefakte Array mit Elementen des Enums Artefakte, welches in
+     * das Attribut artefakte gesetzt werden soll.
      */
-    public void setArtefakte (Artefakte[] artefakte)
+    public void setArtefakte(Artefakte[] artefakte)
     {
         this.artefakte = artefakte;
     }
@@ -91,7 +105,7 @@ public class Spieler extends KarteEinheit implements Spielbar
      * Getter Methode um den INT-Wert vom Mana des Spielers zurueckzugeben
      * @return Den Manawert des Spielers
      */
-    public int getMana ()
+    public int getMana()
     {
         return mana;
     }

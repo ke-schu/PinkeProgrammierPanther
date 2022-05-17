@@ -1,8 +1,8 @@
 package model.ereignisse;
 
 /**
- * Dieses Interface enthaelt Konstanten und Methoden, welche fuer die Ermittlung von Wahrscheinlichkeiten
- * fuer Ereignisse relevant sind.
+ * Dieses Interface enthaelt Konstanten und Methoden, welche fuer die
+ * Ermittlung von Wahrscheinlichkeiten fuer Ereignisse relevant sind.
  */
 public interface Wahrscheinlichkeit
 {
@@ -13,9 +13,10 @@ public interface Wahrscheinlichkeit
     double FUENFZIG_PROZENT = 50.0;
 
     /**
-     * Diese Methode dient zum generieren einer Wahrscheinlichkeit. Die jeweilige Klasse formuliert die Methode
-     * selbst aus
-     * @return generierte Wahrscheinlichkeit zur Bestimmung des jeweiligen Ereignisses.
+     * Diese Methode dient zum generieren einer Wahrscheinlichkeit. Die
+     * jeweilige Klasse formuliert die Methode selbst aus
+     * @return generierte Wahrscheinlichkeit zur Bestimmung des jeweiligen
+     * Ereignisses.
      */
-    double generiereWahrscheinlichkeit ();
+    double generiereWahrscheinlichkeit();
 }

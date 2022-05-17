@@ -14,7 +14,7 @@ public class Main
      * Diese main-Methode wird beim Start des Programms aufgerufen.
      * @param args mitgegebene Kommandozeilenargumente.
      */
-    public static void main (String[] args)
+    public static void main(String[] args)
     {
         teste();
     }
@@ -22,22 +22,31 @@ public class Main
     /**
      * Ruft die verschiedenen Testmethoden auf.
      */
-    private static void teste ()
+    private static void teste()
     {
-        switch(2)
+        switch (6)
         {
-            case 1: SpielzugTest.spielzugtesten();
+            case 1:
+                SpielzugTest.spielzugTesten();
                 break;
-            case 2: EbeneTest.testeEbene();
+            case 2:
+                EbeneTest.testeEbene();
                 break;
-            case 3: SpielStandTest.schreibeCharacter();
+            case 3:
+                SpielStandTest.schreibeCharacter();
                 break;
-            case 4: SpielStandTest.speichereSpielstand();
-            case 5: SpielStandTest.leseSpielstand();
+            case 4:
+                SpielStandTest.speichereSpielstand();
+            case 5:
+                SpielStandTest.leseSpielstand();
                 break;
-            case 6: KartenDeckTest.erstelleDeck();
-            case 7: KartenDeckTest.leseDeck();
+            case 6:
+                KartenDeckTest.erstelleDeck();
+            case 7:
+                KartenDeckTest.leseDeck();
                 break;
+            default:
+                return;
         }
     }
 }
