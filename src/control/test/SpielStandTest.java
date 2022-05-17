@@ -103,9 +103,10 @@ public class SpielStandTest
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
             KonsolenIO.ausgeben(
-                    meinSpielStand.getSpieldeckSpieler().getDeckBezeichnung()
-                    + Strings.LEERZEICHEN
-                    + meinSpielStand.getSpieldeckSpieler().size());
+                    Strings.ZEILENUMBRUCH
+                    + meinSpielStand.getSpieldeckSpieler()
+                    + Strings.ZEILENUMBRUCH
+                    + meinSpielStand.getAktuelleEbene().toString());
         } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());

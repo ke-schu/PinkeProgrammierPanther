@@ -22,6 +22,182 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
     }
   ]
 }

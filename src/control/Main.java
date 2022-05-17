@@ -24,7 +24,7 @@ public class Main
      */
     private static void teste()
     {
-        switch (6)
+        switch (1)
         {
             case 1:
                 SpielzugTest.spielzugTesten();
@@ -34,7 +34,6 @@ public class Main
                 break;
             case 3:
                 SpielStandTest.schreibeCharacter();
-                break;
             case 4:
                 SpielStandTest.speichereSpielstand();
             case 5:
