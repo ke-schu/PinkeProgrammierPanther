@@ -4,8 +4,9 @@ import resources.Artefakte;
 import resources.Effekte;
 import resources.Einheiten;
 import resources.Talente;
-
 import java.util.Stack;
+
+import static resources.Zahlen.*;
 
 /**
  * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld
@@ -17,6 +18,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
     private final int mana;
+    private int erfahrungspunkte = 0;
+    private int levelGrenze = 50;
 
     /**
      * Konstruiert einen Spieler mit allen notwendigen Attributen.
@@ -109,4 +112,62 @@ public class Spieler extends KarteEinheit implements Spielbar
     {
         return mana;
     }
+
+    /**
+     * Methode um den Int-Wert des Attributes erfahrungspunkte zu bekommen.
+     * @return gibt den Int-Wert des Attributes erfahrungspunkte wieder.
+     */
+    public int getErfahrungspunkte()
+    {
+        return erfahrungspunkte;
+    }
+
+    /**
+     * Methode um einen Int-Wert in das Attribut erfahrungspunkte zu setzen.
+     * @param erfahrungspunkte Int-Wert, welcher in das Attribut gesetzt werden soll.
+     */
+    public void setErfahrungspunkte(int erfahrungspunkte)
+    {
+        this.erfahrungspunkte = erfahrungspunkte;
+    }
+
+    /**
+     * Methode um den Int-Wert des Attributes levelGrenze zu bekommen.
+     * @return gibt den Int-Wert des Attributes levelGrenze wieder.
+     */
+    public int getLevelGrenze()
+    {
+        return levelGrenze;
+    }
+    /**
+     * Methode um einen Int-Wert in das Attribut levelGrenze zu setzen.
+     * @param levelGrenze Int-Wert, welcher in das Attribut gesetzt werden soll.
+     */
+    public void setLevelGrenze(int levelGrenze)
+    {
+        this.levelGrenze = levelGrenze;
+    }
+
+    /**
+     * Private Methode um das Attribut level um eins zu erhöhen.
+     */
+    private void levelUp ()
+    {
+        this.setLevel(this.getLevel() + ZAHL_1);
+    }
+
+    /**
+     * Methode um zu pruefen, ob die Levelgrenze ueberschritten wurde.
+     * Ist dies der Fall, wird das Attribut level erhoeht und die Erfahrungspunkte zurueck gesetzt.
+     */
+    public void berechneLevelUp ()
+    {
+        if (this.getErfahrungspunkte() >= this.getLevelGrenze())
+        {
+            this.levelUp();
+            this.setErfahrungspunkte(ZAHL_0);
+            this.setLevelGrenze(this.getLevelGrenze() * ZAHL_2);
+        }
+    }
+
 }

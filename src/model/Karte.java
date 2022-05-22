@@ -10,7 +10,7 @@ public abstract class Karte
     private static int instanzZaehler = 0;
     private int id;
     private String name;
-    private int level;
+    private int level = 1;
     private String klasse = this.getClass().getCanonicalName();
 
     /**
