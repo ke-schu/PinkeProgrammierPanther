@@ -80,10 +80,6 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
                 null,
                 null,
                 null
@@ -91,10 +87,6 @@
               [
                 null,
                 null,
-                null,
-                null
-              ],
-              [
                 null,
                 null,
                 null,
@@ -104,17 +96,21 @@
                 null,
                 null,
                 null,
+                null,
+                null,
                 null
               ],
               [
+                null,
+                null,
                 null,
                 null,
                 null,
                 null
               ]
             ],
-            "feldZeile": 6,
-            "feldSpalte": 4
+            "feldZeile": 4,
+            "feldSpalte": 6
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",

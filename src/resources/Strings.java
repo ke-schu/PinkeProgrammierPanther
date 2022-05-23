@@ -10,7 +10,7 @@ public interface Strings
     String LEERZEICHEN = " ";
     String ZEILENUMBRUCH = "\n";
     String SENKRECHTER_STRICH = "|";
-    String TRENNUNG = "\t" + SENKRECHTER_STRICH + "\t";
+    String TRENNUNG = ",\t";
 
     //  Infos
     String SPIELSTAND_DATEI_ERSTELLT =

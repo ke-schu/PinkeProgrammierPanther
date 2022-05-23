@@ -40,7 +40,7 @@
       },
       "schlafend": true,
       "freundlich": true,
-      "id": 0,
+      "id": 1,
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"
@@ -62,7 +62,7 @@
       },
       "schlafend": true,
       "freundlich": true,
-      "id": 0,
+      "id": 2,
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"
@@ -84,7 +84,7 @@
       },
       "schlafend": true,
       "freundlich": true,
-      "id": 0,
+      "id": 3,
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"
@@ -106,7 +106,7 @@
       },
       "schlafend": true,
       "freundlich": true,
-      "id": 0,
+      "id": 4,
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"
@@ -128,73 +128,7 @@
       },
       "schlafend": true,
       "freundlich": true,
-      "id": 0,
-      "name": "HarryPotter",
-      "level": 1,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 1,
-      "lebenspunkte": 1,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "freundlich": true,
-      "id": 0,
-      "name": "HarryPotter",
-      "level": 1,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 1,
-      "lebenspunkte": 1,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "freundlich": true,
-      "id": 0,
-      "name": "HarryPotter",
-      "level": 1,
-      "klasse": "model.KarteEinheit"
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 1,
-      "lebenspunkte": 1,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "freundlich": true,
-      "id": 0,
+      "id": 5,
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit"

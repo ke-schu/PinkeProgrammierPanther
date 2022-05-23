@@ -15,7 +15,7 @@ public interface TestKonstanten
     String TESTPFAD_KARTENDECK =
             KARTENDECK_PAKET_PFAD + "Spieldeck_Gegner.json";
     String KARTEN_NAME = "HarryPotter";
-    int ANZAHL_KARTEN = 1;
+    int ANZAHL_KARTEN = 6;
     String BJOERN = " Bjoern ";
     String SPIELFELDBREITE = " Spielfeldbreite ";
     String SPIELFELDZEILEN = " Spielfeldhoehe ";
