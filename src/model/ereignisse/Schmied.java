@@ -1,6 +1,7 @@
 package model.ereignisse;
 
 import control.KartenController;
+import exceptions.KarteNichtVerbessertException;
 import io.KonsolenIO;
 import model.KarteEinheit;
 import model.SpielStand;
@@ -41,20 +42,29 @@ public class Schmied extends Mensch
         if (isAuswahl())
         {
             int indexKarte = eingabeInt();
-            if (pruefeGratisInteraktion())
+            try
             {
-                KartenController.kartenVerbessern(
-                        (KarteEinheit) (spielStand.getSpieldeckSpieler()
-                                                  .get(indexKarte)));
-                gratisInteraktion--;
-            } else
+                if (pruefeGratisInteraktion())
+                {
+                    KartenController.kartenVerbessern(
+                            spielStand.getSpieldeckSpieler()
+                                      .get(indexKarte));
+                    gratisInteraktion--;
+                }
+                else
+                {
+                    spielStand.setGold(spielStand.getGold() - kosten);
+                    KartenController.kartenVerbessern(
+                            spielStand.getSpieldeckSpieler()
+                                      .get(indexKarte));
+                    interaktionsZaehler++;
+                    kostenErhoehen();
+                }
+            }
+            catch (KarteNichtVerbessertException ausnahme)
             {
-                spielStand.setGold(spielStand.getGold() - kosten);
-                KartenController.kartenVerbessern(
-                        (KarteEinheit) (spielStand.getSpieldeckSpieler()
-                                                  .get(indexKarte)));
-                interaktionsZaehler++;
-                kostenErhoehen();
+                KonsolenIO.ausgeben(ausnahme.getMessage());
+                return;
             }
         }
     }

@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.KartenDeckZuKleinException;
+
 import java.util.Arrays;
 
 import static resources.Zahlen.ZAHL_5;
@@ -59,9 +61,16 @@ public class KartenHand
      */
     public void handziehen(KartenDeck kartendeck)
     {
-        for (int i = 0; i < hand.length; i++)
+        if (kartendeck.size() > hand.length)
         {
-            this.hand[i] = kartendeck.pop();
+            for (int i = 0; i < hand.length; i++)
+            {
+                this.hand[i] = kartendeck.pop();
+            }
+        }
+        else
+        {
+            throw new KartenDeckZuKleinException();
         }
     }
 

@@ -3,12 +3,13 @@ package io;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import model.SpielStand;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -82,19 +83,20 @@ public class SpielStandIO
      * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren
      * deserialisiert zurueck.
      * @return den Charakter-Stapel
-     * @throws IOException wenn ein Fehler beim Einlesen auftritt.
+     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static SpielStand leseDatei() throws IOException
+    public static SpielStand leseDatei() throws JsonNichtLesbarException
     {
-        Path path = Paths.get(datei.toURI());
-        String content = Files.readString(path);
-
         try
         {
+            Path path = Paths.get(datei.toURI());
+            String content = Files.readString(path);
             return new SpielStand(deserialisieren(content));
-        } catch (JsonSyntaxException | KartenDeckFehlerhaftException e)
+        }
+        catch (JsonSyntaxException | IOException | IllegalArgumentException |
+               FileSystemNotFoundException ex)
         {
-            throw new IOException(JSON_FORMAT_FEHLERHAFT_INFO);
+            throw new JsonNichtLesbarException(ex.getMessage(), ex);
         }
     }
 }

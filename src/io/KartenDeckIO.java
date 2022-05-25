@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import control.KartenDeckSerialisierung;
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import model.KartenDeck;
 
 import java.io.File;
@@ -55,22 +55,16 @@ public class KartenDeckIO
      * Kartendeck hat seine eigene Datei, festgehalten in der entsprechenden
      * Instanz.
      * @param deck das Kartendeck
-     * @throws KartenDeckFehlerhaftException wenn die Formatierung oder
+     * @throws JsonNichtLesbarException wenn die Formatierung oder
      * Attribute des Kartendecks falsch sind.
      */
     public static void schreibeDatei(KartenDeck deck)
-            throws KartenDeckFehlerhaftException
+            throws IOException
     {
-        try
-        {
-            deck.getDatei().createNewFile();
-            FileWriter verfasser = new FileWriter(deck.getDatei());
-            verfasser.write(KartenDeckIO.serialisieren(deck));
-            verfasser.close();
-        } catch (IOException e)
-        {
-            throw new KartenDeckFehlerhaftException();
-        }
+        deck.getDatei().createNewFile();
+        FileWriter verfasser = new FileWriter(deck.getDatei());
+        verfasser.write(KartenDeckIO.serialisieren(deck));
+        verfasser.close();
     }
 
     /**
@@ -97,11 +91,10 @@ public class KartenDeckIO
      * deserialisiert zurueck.
      * @param pfad der Dateipfad
      * @return das Kartendeck
-     * @throws KartenDeckFehlerhaftException wenn die Formatierung oder
-     * Attribute des Kartendecks falsch sind.
+     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
     public static KartenDeck leseDatei(String pfad)
-            throws KartenDeckFehlerhaftException
+            throws JsonNichtLesbarException
     {
         try
         {
@@ -110,9 +103,10 @@ public class KartenDeckIO
             KartenDeck deck = KartenDeckIO.deserialisieren(content);
             deck.setDatei(new File(pfad));
             return deck;
-        } catch (IOException | InvalidPathException e)
+        }
+        catch (JsonSyntaxException | IOException | InvalidPathException ex)
         {
-            throw new KartenDeckFehlerhaftException();
+            throw new JsonNichtLesbarException(ex.getMessage(), ex);
         }
     }
 }

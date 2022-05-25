@@ -1,6 +1,6 @@
 package model;
 
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.EbeneIO;
 import io.KartenDeckIO;
 
@@ -26,13 +26,11 @@ public class SpielStand
      * @param gold das Guthaben des Spielers
      * @param erfahrungspunkte die gesammelten Erfahrungspunkte
      * @param spieler der kaempfende Spieler
-     * @throws KartenDeckFehlerhaftException wenn die Kartendecks des Spielers
+     * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
      * oder des Gegners Fehler enthalten
-     * @throws IOException wenn die Spielstanddatei nur falsch oder gar nicht
-     * gelesen werden kann
      */
     public SpielStand(int gold, int erfahrungspunkte, Spieler spieler)
-            throws KartenDeckFehlerhaftException, IOException
+            throws JsonNichtLesbarException
     {
         this.gold = gold;
         this.erfahrungspunkte = erfahrungspunkte;
@@ -48,13 +46,11 @@ public class SpielStand
      * die nicht abgespeicherten Kartendecks und Ebenen aus den anderen
      * json-Dateien in die Instanz zu binden.
      * @param stand der Spielstand
-     * @throws KartenDeckFehlerhaftException wenn die Kartendecks des Spielers
+     * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
      * oder des Gegners Fehler enthalten
-     * @throws IOException wenn die Spielstanddatei nur falsch oder gar nicht
-     * gelesen werden kann
      */
     public SpielStand(SpielStand stand)
-            throws KartenDeckFehlerhaftException, IOException
+            throws JsonNichtLesbarException
     {
         this(stand.getGold(), stand.getErfahrungspunkte(),
              stand.getSpieler());

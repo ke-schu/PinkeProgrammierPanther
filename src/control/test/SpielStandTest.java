@@ -1,7 +1,7 @@
 package control.test;
 
 import control.CharakterController;
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
@@ -71,9 +71,9 @@ public class SpielStandTest
             meinCharakterStack.push(charakter);
             meinCharakterStack.push(charakter);
             CharakterIO.schreibeDatei(meinCharakterStack);
-        } catch (IOException | KartenDeckFehlerhaftException e)
+        } catch (IOException ausnahme)
         {
-            KonsolenIO.ausgeben(e.getMessage());
+            KonsolenIO.ausgeben(ausnahme.getMessage());
         }
     }
 
@@ -81,13 +81,13 @@ public class SpielStandTest
      * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen
      * Spieler zurueck.
      * @return den Spieler
-     * @throws KartenDeckFehlerhaftException wenn das Kartendeck des
+     * @throws JsonNichtLesbarException wenn das Kartendeck des
      * Charakters Fehler aufwirft
      * @throws IOException wenn die Datei nicht oder nur falsch geladen werden
      * kann
      */
     private static Spieler leseCharakter()
-            throws KartenDeckFehlerhaftException, IOException
+            throws JsonNichtLesbarException, IOException
     {
         Charakter meineKlasse = CharakterController.leseCharakter(1);
         return meineKlasse.getSpieler();
@@ -107,7 +107,7 @@ public class SpielStandTest
                     + meinSpielStand.getSpieldeckSpieler()
                     + Strings.ZEILENUMBRUCH
                     + meinSpielStand.getAktuelleEbene().toString());
-        } catch (IOException e)
+        } catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -124,7 +124,7 @@ public class SpielStandTest
             SpielStand meinSpielStand =
                     new SpielStand(ZAHL_10, ZAHL_9, leseCharakter());
             SpielStandIO.schreibeDatei(meinSpielStand);
-        } catch (IOException | KartenDeckFehlerhaftException e)
+        } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

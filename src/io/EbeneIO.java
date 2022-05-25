@@ -4,15 +4,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import control.RaumSerialisierung;
+import exceptions.JsonNichtLesbarException;
 import model.Ebene;
 import model.Raum;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 import static resources.Strings.*;
 
@@ -86,19 +85,20 @@ public class EbeneIO
      * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert
      * zurueck.
      * @return die Ebene
-     * @throws IOException wenn ein Fehler beim Einlesen auftritt.
+     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static Ebene leseDatei(File datei) throws IOException
+    public static Ebene leseDatei(File datei) throws JsonNichtLesbarException
     {
-        Path path = Paths.get(datei.toURI());
-        String content = Files.readString(path);
-
         try
         {
+            Path path = Paths.get(datei.toURI());
+            String content = Files.readString(path);
             return new Ebene(deserialisieren(content));
-        } catch (JsonSyntaxException e)
+        }
+        catch (JsonSyntaxException | IOException | IllegalArgumentException |
+               FileSystemNotFoundException ex)
         {
-            throw new IOException(JSON_FORMAT_FEHLERHAFT_INFO);
+            throw new JsonNichtLesbarException(ex.getMessage(), ex);
         }
     }
 }

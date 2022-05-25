@@ -1,6 +1,6 @@
 package control;
 
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
 import model.Charakter;
 
@@ -24,12 +24,10 @@ public class CharakterController
      * Liest einen Charakter aus der Auswahl an Charakteren ein.
      * @param position die Position in der Liste an Charakteren
      * @return den Charakter
-     * @throws IOException wenn der Charakter nicht gelesen werden kann.
-     * @throws KartenDeckFehlerhaftException wenn die Formatierung oder
-     * Attribute des Kartendecks falsch sind.
+     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
     public static Charakter leseCharakter(int position)
-            throws IOException, KartenDeckFehlerhaftException
+            throws JsonNichtLesbarException
     {
         Stack meineCharaktere = CharakterIO.leseDatei();
         Charakter meinCharakter =

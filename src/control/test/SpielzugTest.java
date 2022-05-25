@@ -3,7 +3,7 @@ package control.test;
 import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.KartenDeckIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
@@ -90,9 +90,9 @@ public class SpielzugTest
             masterdeck = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
             KonsolenIO.ausgeben(meindeck.toString());
             spieler = SpielStandIO.leseDatei().getSpieler();
-        } catch (KartenDeckFehlerhaftException | IOException e)
+        } catch (JsonNichtLesbarException e)
         {
-            throw new RuntimeException(e);
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 

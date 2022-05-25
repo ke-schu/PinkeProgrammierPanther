@@ -1,7 +1,7 @@
 package control.test;
 
 import control.KartenDeckController;
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.KartenDeckIO;
 import io.KonsolenIO;
 import model.KarteEinheit;
@@ -10,6 +10,7 @@ import resources.Effekte;
 import resources.Einheiten;
 
 import java.io.File;
+import java.io.IOException;
 
 import static resources.TestKonstanten.*;
 import static resources.Zahlen.ZAHL_1;
@@ -57,7 +58,7 @@ public class KartenDeckTest
         try
         {
             KartenDeckIO.schreibeDatei(meinDeck);
-        } catch (KartenDeckFehlerhaftException e)
+        } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -75,7 +76,7 @@ public class KartenDeckTest
             KonsolenIO.ausgeben(meinDeck);
             KartenDeckController.mischen(meinDeck);
             KonsolenIO.ausgeben(meinDeck);
-        } catch (KartenDeckFehlerhaftException e)
+        } catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

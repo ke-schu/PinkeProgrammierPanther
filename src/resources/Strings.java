@@ -53,7 +53,11 @@ public interface Strings
     String JSON_EREIGNIS = "ereignis";
 
     //  Exception Strings
-    String START_DECK_FEHLERHAFT_EXCEPTION_INFO =
-            "Das Kartendeck wurde nicht gefunden!";
+    String JSON_NICHT_LESBAR_INFO =
+            "Die Json-Datei konnte nicht gelesen werden.";
+    String KARTE_NICHT_VERBESSERT_INFO =
+            "Die Karte konnte nicht verbessert werden.";
+    String KARTEN_DECK_ZU_KLEIN_INFO =
+            "Das Kartendeck enthält zu wenige Karten für die Operation.";
     String JSON_FORMAT_FEHLERHAFT_INFO = "Fehlerhafte Json Formatierung";
 }

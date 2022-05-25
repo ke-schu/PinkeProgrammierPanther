@@ -1,5 +1,6 @@
 package control;
 
+import exceptions.KarteNichtVerbessertException;
 import model.Karte;
 import model.KarteEinheit;
 import model.KarteZauber;
@@ -26,6 +27,7 @@ public class KartenController
      * @param karte Die Karte die verbessert werden soll.
      */
     public static void kartenVerbessern(Karte karte)
+            throws KarteNichtVerbessertException
     {
         if (karte instanceof KarteEinheit)
         {
@@ -37,7 +39,7 @@ public class KartenController
         }
         else
         {
-            throw new RuntimeException();
+            throw new KarteNichtVerbessertException();
         }
     }
 

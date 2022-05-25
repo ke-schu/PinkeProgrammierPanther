@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.KartenDeckIO;
 import io.KonsolenIO;
 import model.KartenDeck;
@@ -88,9 +88,10 @@ public class Haendler extends Mensch
                 //  Haendlerdeck pro Ebene eingelesen
                 this.setHaendlerDeck(
                         KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
-            } catch (KartenDeckFehlerhaftException e)
+            }
+            catch (JsonNichtLesbarException e)
             {
-                e.getMessage();
+                KonsolenIO.ausgeben(e.getMessage());
             }
 
             indexKarte = eingabeInt();

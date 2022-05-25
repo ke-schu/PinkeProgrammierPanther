@@ -1,6 +1,6 @@
 package model;
 
-import exceptions.KartenDeckFehlerhaftException;
+import exceptions.JsonNichtLesbarException;
 import io.KartenDeckIO;
 
 import static resources.Strings.START_DECK_PFAD;
@@ -24,12 +24,12 @@ public class Charakter
      * @param freischaltgebuehr Hoehe der Freischaltgebuehr, falls vorhanden
      * @param spieler Der Spieler des Charakters, welcher verwendet wird
      * @param freigeschaltet Zustand, ob dieser Charakter verwendbar ist
-     * @throws KartenDeckFehlerhaftException Exception, welche sich im Fall
+     * @throws JsonNichtLesbarException Exception, welche sich im Fall
      * eines fehlerhaften Decks um eine Loesung kuemmert
      */
     public Charakter(String name, int freischaltgebuehr, Spieler spieler,
                      boolean freigeschaltet)
-            throws KartenDeckFehlerhaftException
+            throws JsonNichtLesbarException
     {
         this.name = name;
         this.freischaltgebuehr = freischaltgebuehr;
@@ -42,10 +42,10 @@ public class Charakter
     /**
      * Konstruktor fuer den jeweiligen Charakter nach der Deserialisierung
      * @param charakter deserialisierter Charakter
-     * @throws KartenDeckFehlerhaftException Exception, welche sich im Fall
+     * @throws JsonNichtLesbarException Exception, welche sich im Fall
      * eines fehlerhaften Decks um eine Loesung kuemmert
      */
-    public Charakter(Charakter charakter) throws KartenDeckFehlerhaftException
+    public Charakter(Charakter charakter) throws JsonNichtLesbarException
     {
         this.name = charakter.getName();
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
