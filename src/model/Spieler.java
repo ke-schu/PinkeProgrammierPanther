@@ -6,7 +6,7 @@ import resources.Einheiten;
 import resources.Talente;
 import java.util.Stack;
 
-import static resources.Zahlen.*;
+import static resources.Konstanten.*;
 
 /**
  * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld
@@ -153,7 +153,7 @@ public class Spieler extends KarteEinheit implements Spielbar
      */
     private void levelUp ()
     {
-        this.setLevel(this.getLevel() + ZAHL_1);
+        this.setLevel(this.getLevel() + LEVEL_SUMMAND_SPIELER);
     }
 
     /**
@@ -165,8 +165,8 @@ public class Spieler extends KarteEinheit implements Spielbar
         if (this.getErfahrungspunkte() >= this.getLevelGrenze())
         {
             this.levelUp();
-            this.setErfahrungspunkte(ZAHL_0);
-            this.setLevelGrenze(this.getLevelGrenze() * ZAHL_2);
+            this.setErfahrungspunkte(AUSGANGSWERT_ERFAHRUNGSPUNKTE_SPIELER);
+            this.setLevelGrenze(this.getLevelGrenze() * LEVEL_GRENZE_FAKTOR);
         }
     }
 

@@ -4,6 +4,7 @@ import exceptions.KartenDeckZuKleinException;
 
 import java.util.Arrays;
 
+import static resources.Konstanten.HANDGROESSE;
 import static resources.Zahlen.ZAHL_5;
 
 /**
@@ -13,7 +14,6 @@ import static resources.Zahlen.ZAHL_5;
 public class KartenHand
 {
     private Karte[] hand = null;
-    private final int HANDGROESSE = ZAHL_5;
 
     /**
      * Erstellt eine KartenHand mit 5 Plaetzen
