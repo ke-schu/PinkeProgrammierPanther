@@ -1,6 +1,8 @@
 package control;
 
+import model.Karte;
 import model.KarteEinheit;
+import model.KarteZauber;
 
 import static resources.Zahlen.*;
 
@@ -23,48 +25,63 @@ public class KartenController
      * den Klassen unterschieden.
      * @param karte Die Karte die verbessert werden soll.
      */
-    public static void kartenVerbessern(KarteEinheit karte)
+    public static void kartenVerbessern(Karte karte)
     {
-        //  Muss noch fuer andere Karten anwendbar gemacht werden
-        switch (karte.getTyp())
+        if (karte instanceof KarteEinheit)
+        {
+            kartenVerbessern((KarteEinheit) karte);
+        }
+        else if (karte instanceof KarteZauber)
+        {
+            //  TODO
+        }
+        else
+        {
+            throw new RuntimeException();
+        }
+    }
+
+    private static void kartenVerbessern(KarteEinheit karteEinheit)
+    {
+        switch (karteEinheit.getTyp())
         {
             case NAHKAEMPFER:
-                if (karte.getLevel() == ZAHL_3)
+                if (karteEinheit.getLevel() == ZAHL_3)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_2);
-                    karte.setMacht(karte.getMacht() + ZAHL_2);
-                    karte.setLevel(ZAHL_4);
-                } else if (karte.getLevel() == ZAHL_2)
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
+                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_2);
+                    karteEinheit.setLevel(ZAHL_4);
+                } else if (karteEinheit.getLevel() == ZAHL_2)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_2);
-                    karte.setMacht(karte.getMacht() + ZAHL_1);
-                    karte.setLevel(ZAHL_3);
-                } else if (karte.getLevel() == ZAHL_1)
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
+                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
+                    karteEinheit.setLevel(ZAHL_3);
+                } else if (karteEinheit.getLevel() == ZAHL_1)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_1);
-                    karte.setMacht(karte.getMacht() + ZAHL_1);
-                    karte.setLevel(ZAHL_2);
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
+                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
+                    karteEinheit.setLevel(ZAHL_2);
                 }
                 break;
 
             case FERNKAEMPFER:
-                if (karte.getLevel() == ZAHL_3)
+                if (karteEinheit.getLevel() == ZAHL_3)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_1);
-                    karte.setMacht(karte.getMacht() + ZAHL_1);
-                    karte.setReichweite(karte.getReichweite() + ZAHL_1);
-                    karte.setLevel(ZAHL_4);
-                } else if (karte.getLevel() == ZAHL_2)
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
+                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
+                    karteEinheit.setReichweite(karteEinheit.getReichweite() + ZAHL_1);
+                    karteEinheit.setLevel(ZAHL_4);
+                } else if (karteEinheit.getLevel() == ZAHL_2)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_2);
-                    karte.setReichweite(karte.getReichweite() + ZAHL_1);
-                    karte.setLevel(ZAHL_3);
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
+                    karteEinheit.setReichweite(karteEinheit.getReichweite() + ZAHL_1);
+                    karteEinheit.setLevel(ZAHL_3);
 
-                } else if (karte.getLevel() == ZAHL_1)
+                } else if (karteEinheit.getLevel() == ZAHL_1)
                 {
-                    karte.setLebenspunkte(karte.getLebenspunkte() + ZAHL_1);
-                    karte.setMacht(karte.getMacht() + ZAHL_2);
-                    karte.setLevel(ZAHL_2);
+                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
+                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_2);
+                    karteEinheit.setLevel(ZAHL_2);
                 }
                 break;
             default:
