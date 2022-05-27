@@ -50,4 +50,31 @@ public class GuiContoller {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void wechselZuHilfeHauptmenue(ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeHauptmenue.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void wechselZuHilfeEinstellungen (ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeEinstellungen.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void wechselZuHilfeCharakterauswahl (ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeCharakterauswahl.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
