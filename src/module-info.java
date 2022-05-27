@@ -14,4 +14,5 @@ module PinkeProgrammierPanther {
     opens model;
     opens resources;
     opens model.ereignisse;
+    opens gui.xml;
 }
