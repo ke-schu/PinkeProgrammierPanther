@@ -7,10 +7,9 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktion": 1,
+          "gratisInteraktionen": 1,
           "kosten": 20,
           "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
           "name": "Die Nachbarschaft.",
           "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
           "auswahl": false,
@@ -19,10 +18,9 @@
       },
       {
         "ereignis": {
-          "gratisInteraktion": 1,
+          "gratisInteraktionen": 1,
           "kosten": 20,
           "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
           "name": "Mutti.",
           "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
           "auswahl": false,
@@ -80,6 +78,10 @@
                 null,
                 null,
                 null,
+                null
+              ],
+              [
+                null,
                 null,
                 null,
                 null
@@ -88,6 +90,10 @@
                 null,
                 null,
                 null,
+                null
+              ],
+              [
+                null,
                 null,
                 null,
                 null
@@ -96,21 +102,17 @@
                 null,
                 null,
                 null,
-                null,
-                null,
                 null
               ],
               [
-                null,
-                null,
                 null,
                 null,
                 null,
                 null
               ]
             ],
-            "feldZeile": 4,
-            "feldSpalte": 6
+            "feldZeile": 6,
+            "feldSpalte": 4
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
@@ -126,10 +128,9 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktion": 1,
+          "gratisInteraktionen": 1,
           "kosten": 20,
           "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
           "auswahl": false,
@@ -155,10 +156,9 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktion": 1,
+          "gratisInteraktionen": 1,
           "kosten": 20,
           "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
           "auswahl": false,

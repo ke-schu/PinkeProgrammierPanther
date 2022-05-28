@@ -3,7 +3,6 @@ package model.ereignisse;
 import control.KartenController;
 import exceptions.KarteNichtVerbessertException;
 import io.KonsolenIO;
-import model.KarteEinheit;
 import model.SpielStand;
 
 import static io.KonsolenIO.eingabeInt;
@@ -46,15 +45,15 @@ public class Schmied extends Mensch
             {
                 if (pruefeGratisInteraktion())
                 {
-                    KartenController.kartenVerbessern(
+                    KartenController.karteVerbessern(
                             spielStand.getSpieldeckSpieler()
                                       .get(indexKarte));
-                    gratisInteraktion--;
+                    gratisInteraktionen--;
                 }
                 else
                 {
-                    spielStand.setGold(spielStand.getGold() - kosten);
-                    KartenController.kartenVerbessern(
+                    spielStand.setGold(spielStand.getGold() - this.getKosten());
+                    KartenController.karteVerbessern(
                             spielStand.getSpieldeckSpieler()
                                       .get(indexKarte));
                     interaktionsZaehler++;

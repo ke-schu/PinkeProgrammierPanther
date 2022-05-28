@@ -5,7 +5,6 @@ import exceptions.KartenDeckZuKleinException;
 import java.util.Arrays;
 
 import static resources.Konstanten.HANDGROESSE;
-import static resources.Zahlen.ZAHL_5;
 
 /**
  * KartenHand repraesentiert die Kartenhand von welcher Karten ausgespielt

@@ -4,8 +4,6 @@ import model.Ebene;
 import model.SpielStand;
 import model.SpielfigurEbene;
 
-import static resources.Zahlen.ZAHL_1;
-
 /**
  * Klasse, in der sich Methoden befinden, die mit Instanzen der Klasse
  * SpielfigurEbene interagieren.
@@ -39,15 +37,16 @@ public class SpielfigurEbeneController
     {
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;
-        int start_x = spielfigur.getPosition_x();
-        int start_y = spielfigur.getPosition_y();
+        final int start_x = spielfigur.getPosition_x();
+        final int start_y = spielfigur.getPosition_y();
+        final int umkreis = 1;
 
         if ((ebene.getRaumAnPosition(ziel_x, ziel_y) != null))
         {
-            zielErreichbarInX = (ziel_x == start_x + ZAHL_1) ||
-                                (ziel_x == start_x - ZAHL_1);
-            zielErreichbarInY = (ziel_y == start_y + ZAHL_1) ||
-                                (ziel_y == start_y - ZAHL_1);
+            zielErreichbarInX = (ziel_x == start_x + umkreis) ||
+                                (ziel_x == start_x - umkreis);
+            zielErreichbarInY = (ziel_y == start_y + umkreis) ||
+                                (ziel_y == start_y - umkreis);
 
             if ((zielErreichbarInX || zielErreichbarInY) &&
                 !(zielErreichbarInX && zielErreichbarInY))

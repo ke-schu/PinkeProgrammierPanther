@@ -16,6 +16,8 @@
         null
       ],
       "mana": 1,
+      "erfahrungspunkte": 0,
+      "levelGrenze": 50,
       "typ": "FERNKAEMPFER",
       "macht": 11,
       "lebenspunkte": 1,
@@ -56,6 +58,8 @@
         null
       ],
       "mana": 1,
+      "erfahrungspunkte": 0,
+      "levelGrenze": 50,
       "typ": "FERNKAEMPFER",
       "macht": 11,
       "lebenspunkte": 1,

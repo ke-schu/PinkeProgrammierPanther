@@ -17,8 +17,8 @@ import java.util.Stack;
 import static resources.Artefakte.DER_GRABSTEIN;
 import static resources.Talente.ABKLINGEN;
 import static resources.Talente.MANA_GOTT;
-import static resources.TestKonstanten.*;
-import static resources.Zahlen.*;
+import static control.test.TestKonstanten.*;
+import static control.test.TestZahlen.*;
 
 /**
  * Enthaelt Methoden zum Testen vom Spielstand

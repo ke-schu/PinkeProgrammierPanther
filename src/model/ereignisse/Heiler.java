@@ -3,7 +3,7 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
-import static resources.Zahlen.*;
+import static resources.Konstanten.HEILER_AUFWERTUNG_LEBENSPUNKTE;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Heiler ist ein Ereignis,
@@ -40,13 +40,13 @@ public class Heiler extends Mensch
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() + ZAHL_2);
-                gratisInteraktion--;
+                        spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
+                gratisInteraktionen--;
             } else
             {
-                spielStand.setGold(spielStand.getGold() - kosten);
+                spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() + ZAHL_2);
+                        spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
             }
         }
         interaktionsZaehler++;

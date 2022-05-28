@@ -4,9 +4,6 @@ import model.KarteEinheit;
 import model.KarteZauber;
 import model.SpielFeld;
 
-import static resources.Zahlen.ZAHL_0;
-import static resources.Zahlen.ZAHL_1;
-
 
 /**
  * Klasse, in der sich Methoden befinden die, mit Instanzen der Klasse
@@ -54,7 +51,7 @@ public class EinheitenController
                     (zielY <= startY + flex) || (zielY >= startY - flex);
 
             if ((zielErreichbarInX || zielErreichbarInY) &&
-                (selbeZeile || selbeSpalte) && (flex - distanz) >= ZAHL_0)
+                (selbeZeile || selbeSpalte) && (flex - distanz) >= 0)
             {
                 spielfeld.einheitEinsetzten(zielX, zielY, einheit);
                 einheit.setPosition(zielX, zielY);
@@ -78,16 +75,17 @@ public class EinheitenController
     {
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;
-        int startX = einheit.getPositionX();
-        int startY = einheit.getPositionY();
+        final int startX = einheit.getPositionX();
+        final int startY = einheit.getPositionY();
+        final int umkreis = 1;
 
         if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
-            (einheit.getBeweglichkeit() > ZAHL_0))
+            (einheit.getBeweglichkeit() > 0))
         {
-            zielErreichbarInX = (ziel_x == startX + ZAHL_1) ||
-                                (ziel_x == startX - ZAHL_1);
-            zielErreichbarInY = (ziel_y == startY + ZAHL_1) ||
-                                (ziel_y == startY - ZAHL_1);
+            zielErreichbarInX = (ziel_x == startX + umkreis) ||
+                                (ziel_x == startX - umkreis);
+            zielErreichbarInY = (ziel_y == startY + umkreis) ||
+                                (ziel_y == startY - umkreis);
 
             if ((zielErreichbarInX || zielErreichbarInY) &&
                 !(zielErreichbarInX && zielErreichbarInY))
@@ -95,7 +93,7 @@ public class EinheitenController
                 spielfeld.einheitEinsetzten(ziel_x, ziel_y, einheit);
                 einheit.setPosition(ziel_x, ziel_y);
                 spielfeld.einheitEinsetzten(startX, startY, null);
-                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - ZAHL_1);
+                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - 1);
             }
         }
     }
@@ -113,11 +111,11 @@ public class EinheitenController
         boolean zielErreichbarInY = false;
         boolean selbeZeile = false;
         boolean selbeSpalte = false;
-        int angreiferX = angreifer.getPositionX();
-        int angreiferY = angreifer.getPositionY();
-        int verteidigerX = verteidiger.getPositionX();
-        int verteidigerY = verteidiger.getPositionX();
-        int reichweite = angreifer.getReichweite();
+        final int angreiferX = angreifer.getPositionX();
+        final int angreiferY = angreifer.getPositionY();
+        final int verteidigerX = verteidiger.getPositionX();
+        final int verteidigerY = verteidiger.getPositionX();
+        final int reichweite = angreifer.getReichweite();
 
         selbeZeile = angreiferX == verteidigerX;
         selbeSpalte = angreiferY == verteidigerY;
@@ -173,11 +171,11 @@ public class EinheitenController
     {
         int differenzDefAtk = verteidiger.getVerteidigung() - schadensWert;
 
-        if (verteidiger.getSchild() > ZAHL_0)
+        if (verteidiger.getSchild() > 0)
         {
-            verteidiger.setSchild(verteidiger.getSchild() - ZAHL_1);
+            verteidiger.setSchild(verteidiger.getSchild() - 1);
         }
-        if (differenzDefAtk < ZAHL_0)
+        if (differenzDefAtk < 0)
         {
             verteidiger.setLebenspunkte(
                     verteidiger.getLebenspunkte() + differenzDefAtk);

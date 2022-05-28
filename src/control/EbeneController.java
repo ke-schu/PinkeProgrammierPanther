@@ -1,9 +1,10 @@
 package control;
 
-import control.test.EbeneTest;
-import model.*;
+import model.Ebene;
+import model.SpielfigurEbene;
 
-import static resources.Zahlen.*;
+import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION_X;
+import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION_Y;
 
 /**
  * Diese Klasse enthaelt Methoden, um mit Instanzen der Klasse Ebene zu
@@ -30,7 +31,10 @@ public class EbeneController
     public static void initSpielerInEbene(SpielfigurEbene spielfigur,
                                           Ebene ebene)
     {
-        ebene.getRaumAnPosition(ZAHL_4, ZAHL_4).setSpielfigur(spielfigur);
-        spielfigur.setPosition(ZAHL_4, ZAHL_4);
+        ebene.getRaumAnPosition(SPIELFIGUR_EBENE_STARTPOSITION_X,
+                                SPIELFIGUR_EBENE_STARTPOSITION_Y)
+             .setSpielfigur(spielfigur);
+        spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION_X,
+                               SPIELFIGUR_EBENE_STARTPOSITION_Y);
     }
 }

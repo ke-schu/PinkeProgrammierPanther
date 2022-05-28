@@ -1,6 +1,6 @@
 package model;
 
-import static resources.Zahlen.ZAHL_4;
+import static resources.Konstanten.*;
 
 /**
  * Eine Instanz dieser Klasse soll sich durch das Attribut ebene der Klasse
@@ -16,8 +16,8 @@ public class SpielfigurEbene
      */
     public SpielfigurEbene()
     {
-        this.position.setX(ZAHL_4);
-        this.position.setY(ZAHL_4);
+        this.position.setX(SPIELFIGUR_EBENE_STARTPOSITION_X);
+        this.position.setY(SPIELFIGUR_EBENE_STARTPOSITION_Y);
     }
 
     /**

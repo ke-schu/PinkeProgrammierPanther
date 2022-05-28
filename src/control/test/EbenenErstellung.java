@@ -9,7 +9,7 @@ import resources.Effekte;
 import resources.Einheiten;
 
 import static resources.StringsGegner.*;
-import static resources.Zahlen.*;
+import static control.test.TestZahlen.*;
 import static resources.StringsEreignisse.*;
 
 /**

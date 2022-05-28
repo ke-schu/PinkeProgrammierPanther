@@ -15,4 +15,5 @@ module PinkeProgrammierPanther {
     opens resources;
     opens model.ereignisse;
     opens gui.xml;
+    opens control.test;
 }

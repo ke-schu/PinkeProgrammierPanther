@@ -2,8 +2,7 @@ package control;
 
 import model.*;
 
-import static resources.Zahlen.ZAHL_0;
-import static resources.Zahlen.ZAHL_1;
+import static resources.Konstanten.*;
 
 /**
  * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
@@ -53,7 +52,7 @@ public class KartenEinheitController
     }
 
     /**
-     * Legt Held-und Dungeonmasterkarte zu Beginn einer runde an ihre
+     * Legt Held- und Dungeonmasterkarte zu Beginn einer runde an ihre
      * vorgesehenen Plaetze
      * @param held HeldKarte welche gelegt werden soll
      * @param spielfeld auf dem die Karten gelegt werden
@@ -63,15 +62,22 @@ public class KartenEinheitController
         if (held.getFreundlich())
         {
             (held).startwertespeichern();
-            positionGeben((KarteEinheit) held, ZAHL_0, ZAHL_0);
-            spielfeld.einheitEinsetzten(ZAHL_0, ZAHL_0, held);
+            positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
+                          SPIELER_KAMPFFELD_STARTPOSITION_Y);
+            spielfeld.einheitEinsetzten(SPIELER_KAMPFFELD_STARTPOSITION_X,
+                                        SPIELER_KAMPFFELD_STARTPOSITION_Y,
+                                        held);
         } else
         {
             (held).startwertespeichern();
-            positionGeben(held, spielfeld.getFeldSpalte() - ZAHL_1,
-                          spielfeld.getFeldZeile() - ZAHL_1);
-            spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte() - ZAHL_1,
-                                        spielfeld.getFeldZeile() - ZAHL_1,
+            positionGeben(held, spielfeld.getFeldSpalte() -
+                                GEGNER_KAMPFFELD_STARTPOSITION_X,
+                          spielfeld.getFeldZeile() -
+                          GEGNER_KAMPFFELD_STARTPOSITION_Y);
+            spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte() -
+                                        GEGNER_KAMPFFELD_STARTPOSITION_X,
+                                        spielfeld.getFeldZeile() -
+                                        GEGNER_KAMPFFELD_STARTPOSITION_Y,
                                         held);
         }
     }
@@ -100,11 +106,12 @@ public class KartenEinheitController
     public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;
+        final int umkreis = 1;
 
-        KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y - ZAHL_1);
-        KarteEinheit unten = spielfeld.getSpielfeldplatz(x, y + ZAHL_1);
-        KarteEinheit links = spielfeld.getSpielfeldplatz(x - ZAHL_1, y);
-        KarteEinheit rechts = spielfeld.getSpielfeldplatz(x + ZAHL_1, y);
+        KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y - umkreis);
+        KarteEinheit unten = spielfeld.getSpielfeldplatz(x, y + umkreis);
+        KarteEinheit links = spielfeld.getSpielfeldplatz(x - umkreis, y);
+        KarteEinheit rechts = spielfeld.getSpielfeldplatz(x + umkreis, y);
 
         if (oben != null)
         {

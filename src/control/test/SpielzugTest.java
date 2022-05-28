@@ -9,16 +9,14 @@ import io.KonsolenIO;
 import io.SpielStandIO;
 import model.*;
 
-import java.io.IOException;
-
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
 import static control.KartenEinheitController.beschwoerenHeld;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
 import static resources.Strings.*;
-import static resources.TestKonstanten.*;
-import static resources.Zahlen.*;
+import static control.test.TestKonstanten.*;
+import static control.test.TestZahlen.*;
 
 /**
  * SpielzugTest dient zum Testen der Klassen und Methoden welche die

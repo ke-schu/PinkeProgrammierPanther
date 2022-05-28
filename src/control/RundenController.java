@@ -3,14 +3,14 @@ package control;
 import model.KartenDeck;
 import model.SpielFeld;
 
-import static resources.Zahlen.*;
+import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
 
 /**
  * Kontrolliert eine Runde auf dem Kampffeld.
  */
 public class RundenController
 {
-    private static int zugZaehler = ZAHL_1;
+    private static int zugZaehler = 1;
     private static boolean freundlich = true;
 
     /**
@@ -30,7 +30,7 @@ public class RundenController
     public static void zugBeenden(SpielFeld feld, KartenDeck spielerDeck,
                                   KartenDeck masterDeck)
     {
-        zugZaehler = zugZaehler + ZAHL_1;
+        zugZaehler = zugZaehler++;
 
         feldAufraeumen(feld, spielerDeck, masterDeck);
         beweglichkeitAuffrischen(feld);
@@ -54,8 +54,7 @@ public class RundenController
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() <=
-                        ZAHL_0)
+                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() <= 0)
                     {
                         feld.getSpielfeldplatz(i, j).initialisieren();
                         if (feld.getSpielfeldplatz(i, j).getFreundlich())
@@ -89,8 +88,7 @@ public class RundenController
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() ==
-                        ZAHL_0)
+                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() == 0)
                     {
                         feld.getSpielfeldplatz(i, j).setBeweglichkeit(
                                 feld.getSpielfeldplatz(i, j).getInit()
@@ -107,7 +105,7 @@ public class RundenController
      */
     public static void bestimmenWerDranIst()
     {
-        if (zugZaehler % ZAHL_2 == ZAHL_0)
+        if (zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0)
         {
             freundlich = true;
         } else

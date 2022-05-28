@@ -1,7 +1,6 @@
 package model;
 
 import static resources.Strings.*;
-import static resources.Zahlen.ZAHL_0;
 
 /**
  * Diese Klasse stellt das Spielfeld dar, indem sich der Spieler durch Raeume
@@ -10,8 +9,8 @@ import static resources.Zahlen.ZAHL_0;
 public class Ebene
 {
     private Raum[][] ebene = null;
-    private int ebenenSpalte = ZAHL_0;
-    private int ebenenZeile = ZAHL_0;
+    private int ebenenSpalte = 0;
+    private int ebenenZeile = 0;
 
     /**
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der
@@ -115,29 +114,29 @@ public class Ebene
     /**
      * Methode um eine Instanz der Klasse Raeume an eine bestimmte Position in
      * dem Attribut ebene zu setzen.
-     * @param spalte Position in der Spalte, beginnend bei 0.
-     * @param zeile Position in der Zeile, beginnend bei 0.
+     * @param x Position in der Spalte, beginnend bei 0.
+     * @param y Position in der Zeile, beginnend bei 0.
      * @param raum Instanz der Klasse Raeume, welche an die gezielte Stelle
      * gesetzt werden soll.
      */
-    public void raumEinsetzen(int spalte, int zeile, Raum raum)
+    public void raumEinsetzen(int x, int y, Raum raum)
     {
-        this.ebene[zeile][spalte] = raum;
+        this.ebene[y][x] = raum;
     }
 
     /**
      * Methode um an einer bestimmten Position den Inhalt des Attributes ebene
      * zu bekommen.
-     * @param spalte Position der Spalte von dem der Inhalt zurueck gegeben
+     * @param x Position der Spalte von dem der Inhalt zurueck gegeben
      * wird.
-     * @param zeile Position der Zeile von dem der Inhalt zurueck gegeben
+     * @param y Position der Zeile von dem der Inhalt zurueck gegeben
      * wird.
      * @return gibt den Inhalt an der bestimmten Position des Attributes
      * ebene.
      */
-    public Raum getRaumAnPosition(int spalte, int zeile)
+    public Raum getRaumAnPosition(int x, int y)
     {
-        return this.ebene[zeile][spalte];
+        return this.ebene[y][x];
     }
 
     /**
@@ -153,22 +152,17 @@ public class Ebene
         {
             for (int j = 0; j < this.ebenenSpalte; j++)
             {
-                if (this.ebene[i][j] != null)
+                if (this.ebene[i][j] != null && this.ebene[i][j].getEreignis() != null)
                 {
-                    if (this.ebene[i][j].getEreignis() != null)
-                    {
-                        sb.append(this.ebene[i][j].getEreignis().getName());
-                        sb.append(LEERZEICHEN);
-                        sb.append(SENKRECHTER_STRICH);
-                        sb.append(LEERZEICHEN);
-                    }
-                } else
-                {
-                    sb.append(ZAHL_0);
-                    sb.append(LEERZEICHEN);
-                    sb.append(SENKRECHTER_STRICH);
-                    sb.append(LEERZEICHEN);
+                    sb.append(this.ebene[i][j].getEreignis().getName());
                 }
+                else
+                {
+                    sb.append(EBENE_LEERES_FELD);
+                }
+                sb.append(LEERZEICHEN);
+                sb.append(SENKRECHTER_STRICH);
+                sb.append(LEERZEICHEN);
             }
             sb.append(ZEILENUMBRUCH);
         }

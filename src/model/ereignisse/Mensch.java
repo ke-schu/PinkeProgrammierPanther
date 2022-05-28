@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import static resources.Zahlen.*;
+import static resources.Konstanten.*;
 
 /**
  * Diese Klasse ist eine Subklasse von Ereignis. Sie ist ebenfalls eine
@@ -9,18 +9,12 @@ import static resources.Zahlen.*;
  */
 public abstract class Mensch extends Ereignis
 {
-    //Kostenloses Nutzen der Dienste von Haendlern, Tempeln, Heilern und
-    // Schmieden.
-    protected int gratisInteraktion = ZAHL_1;
-
-    //Hoehe der Kosten zum Nutzen der Dienste
-    protected int kosten = ZAHL_20;
-
-    //Zählt die Menge an Interaktionen mit dem jeweiligen Objekt
-    protected int interaktionsZaehler = ZAHL_0;
-
-    //Konstante fuer keine weiteren gratis Interaktionen.
-    protected final int KEINE_GRATIS_INTERAKTION = ZAHL_0;
+    protected int gratisInteraktionen =
+            AUSGANGSWERT_ANZAHL_GRATIS_HANDLUNGEN_MENSCH;
+    //  Gold, welches für die Interaktion mit dem Ereignis verlangt wird
+    private int kosten = AUSGANGSWERT_KOSTEN_HANDLUNG_MENSCH;
+    //  Zaehlt die Menge an Interaktionen mit dem jeweiligen Objekt
+    protected int interaktionsZaehler = 0;
 
     /**
      * Der Konstruktor von Mensch
@@ -38,10 +32,11 @@ public abstract class Mensch extends Ereignis
      */
     public boolean pruefeGratisInteraktion()
     {
-        if (gratisInteraktion > KEINE_GRATIS_INTERAKTION)
+        if (gratisInteraktionen > 0)
         {
             return true;
-        } else
+        }
+        else
         {
             return false;
         }
@@ -53,30 +48,10 @@ public abstract class Mensch extends Ereignis
      */
     public void kostenErhoehen()
     {
-        if (interaktionsZaehler % ZAHL_3 == ZAHL_0)
+        if (interaktionsZaehler % KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN == 0)
         {
-            setKosten(kosten + ZAHL_10);
+            setKosten(kosten + KOSTEN_ERHOEHUNG_GOLD);
         }
-    }
-
-    /**
-     * Getter fuer die Menge an kostenlosen Interaktionen mit dem jeweiligen
-     * Ereignis
-     * @return Menge an konstenlosen Interaktionen.
-     */
-    public int getGratisInteraktion()
-    {
-        return gratisInteraktion;
-    }
-
-    /**
-     * Setter fuer die Menge an kostenlosen Interaktionen mit dem jeweiligen
-     * Ereignis
-     * @param gratisInteraktion Anzahl an kostenlosen Interaktionen
-     */
-    public void setGratisInteraktion(int gratisInteraktion)
-    {
-        this.gratisInteraktion = gratisInteraktion;
     }
 
     /**
@@ -95,14 +70,5 @@ public abstract class Mensch extends Ereignis
     public void setKosten(int kosten)
     {
         this.kosten = kosten;
-    }
-
-    /**
-     * Getter fuer die Menge an Interaktionen mit dem jeweiligen Ereignis
-     * @return Menge an Interaktionen
-     */
-    public int getInteraktionsZaehler()
-    {
-        return interaktionsZaehler;
     }
 }

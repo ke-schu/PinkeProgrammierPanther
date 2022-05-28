@@ -1,4 +1,4 @@
-package resources;
+package control.test;
 
 import static resources.Strings.KARTENDECK_PAKET_PFAD;
 
@@ -6,7 +6,7 @@ import static resources.Strings.KARTENDECK_PAKET_PFAD;
  * Fuer das Paket control.test werden Konstanten zum Testen benoetigt, die
  * hier festgehalten sind.
  */
-public interface TestKonstanten
+interface TestKonstanten
 {
     String TESTBEZEICHNUNG_SPIELER = "meinSpieler";
     String TESTBEZEICHNUNG_WAFFE = "meineWaffe";

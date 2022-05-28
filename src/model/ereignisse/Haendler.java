@@ -100,10 +100,10 @@ public class Haendler extends Mensch
                 spielStand.getSpieldeckSpieler()
                           .push(haendlerDeck.get(indexKarte));
                 haendlerDeck.remove(indexKarte);
-                gratisInteraktion--;
+                gratisInteraktionen--;
             } else
             {
-                spielStand.setGold(spielStand.getGold() - kosten);
+                spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler()
                           .push(haendlerDeck.get(indexKarte));
                 haendlerDeck.remove(indexKarte);

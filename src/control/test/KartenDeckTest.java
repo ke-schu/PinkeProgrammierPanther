@@ -12,8 +12,8 @@ import resources.Einheiten;
 import java.io.File;
 import java.io.IOException;
 
-import static resources.TestKonstanten.*;
-import static resources.Zahlen.ZAHL_1;
+import static control.test.TestKonstanten.*;
+import static control.test.TestZahlen.ZAHL_1;
 
 /**
  * Enthaelt Methoden zum Testen von Kartendecks

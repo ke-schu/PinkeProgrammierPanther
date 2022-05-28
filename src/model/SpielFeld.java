@@ -2,8 +2,8 @@ package model;
 
 import java.util.Random;
 
+import static resources.Konstanten.*;
 import static resources.Strings.*;
-import static resources.Zahlen.*;
 
 /**
  * SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden
@@ -12,8 +12,8 @@ public class SpielFeld
 {
 
     private KarteEinheit[][] spielfeld = null;
-    private int feldZeile = ZAHL_0;
-    private int feldSpalte = ZAHL_0;
+    private int feldZeile = 0;
+    private int feldSpalte = 0;
 
     /**
      * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse
@@ -47,23 +47,11 @@ public class SpielFeld
      * Methode die eine zufaellige Zahl zwischen 4 und 6 generiert.
      * @return Gibt einen Int-Wert zwischen 4 und 6.
      */
-    private static int generiereSpielfeldGroesse()
+    public static int generiereSpielfeldGroesse()
     {
-        int spielfeldGroesse = ZAHL_0;
-        int i = ZAHL_0;
-        Random zufall = new Random();
-        i = zufall.nextInt(ZAHL_3);
-        if (i == ZAHL_0)
-        {
-            spielfeldGroesse = ZAHL_4;
-        } else if (i == ZAHL_1)
-        {
-            spielfeldGroesse = ZAHL_5;
-        } else
-        {
-            spielfeldGroesse = ZAHL_6;
-        }
-        return spielfeldGroesse;
+        Random ran = new Random();
+        int bereich = SPIELFELD_GENERATOR_MAX - SPIELFELD_GENERATOR_MIN;
+        return SPIELFELD_GENERATOR_MIN + ran.nextInt(bereich + 1);
     }
 
     /**
@@ -83,17 +71,14 @@ public class SpielFeld
                 if (this.spielfeld[i][j] != null)
                 {
                     sb.append(this.spielfeld[i][j].getName());
-                    sb.append(LEERZEICHEN);
-                    sb.append(SENKRECHTER_STRICH);
-                    sb.append(LEERZEICHEN);
-                } else
-                {
-                    sb.append(ZAHL_0);
-                    sb.append(LEERZEICHEN);
-                    sb.append(SENKRECHTER_STRICH);
-                    sb.append(LEERZEICHEN);
                 }
-
+                else
+                {
+                    sb.append(SPIELFELD_LEERES_FELD);
+                }
+                sb.append(LEERZEICHEN);
+                sb.append(SENKRECHTER_STRICH);
+                sb.append(LEERZEICHEN);
             }
             sb.append(ZEILENUMBRUCH);
         }

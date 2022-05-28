@@ -41,10 +41,10 @@ public class Tempel extends Mensch
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
-                gratisInteraktion--;
+                gratisInteraktionen--;
             } else
             {
-                spielStand.setGold(spielStand.getGold() - kosten);
+                spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
                 interaktionsZaehler++;
                 kostenErhoehen();

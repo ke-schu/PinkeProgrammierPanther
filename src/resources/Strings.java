@@ -25,6 +25,8 @@ public interface Strings
             "Es wurde eine neue Ebene in die Datei geschrieben.";
     String EBENE_DATEI_UEBERSCHRIEBEN =
             "Die bestehende Ebenendatei wurde überschrieben.";
+    String SPIELFELD_LEERES_FELD = "0";
+    String EBENE_LEERES_FELD = "0";
 
     //  Pfade
     String JSON_DATEIENDUNG = ".json";

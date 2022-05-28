@@ -1,14 +1,12 @@
 package model;
 
-import static resources.Zahlen.ZAHL_0;
-
 /**
  * Klasse dessen Instanzen eine Waffe des Helden darstellen.
  */
 public class Waffe
 {
     private String name;
-    private int angriffsPunkte = ZAHL_0;
+    private int angriffsPunkte = 0;
 
     /**
      * Konstruktor der die uebergebenen Variablen in die Attribute setzt.

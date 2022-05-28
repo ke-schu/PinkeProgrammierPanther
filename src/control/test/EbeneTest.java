@@ -16,7 +16,7 @@ import java.io.IOException;
 import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.StringsEreignisse.*;
 import static resources.StringsGegner.GENERISCHER_GEGNER_NAME;
-import static resources.Zahlen.*;
+import static control.test.TestZahlen.*;
 
 /**
  * Diese Klasse beinhaltet die fuer das Testen der Ebene notwendigen

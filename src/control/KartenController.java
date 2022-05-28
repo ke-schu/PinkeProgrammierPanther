@@ -5,8 +5,6 @@ import model.Karte;
 import model.KarteEinheit;
 import model.KarteZauber;
 
-import static resources.Zahlen.*;
-
 /**
  * In dieser Klassen befinden sich Methoden, um mit Instanzen von Karten zu
  * interagieren.
@@ -26,16 +24,16 @@ public class KartenController
      * den Klassen unterschieden.
      * @param karte Die Karte die verbessert werden soll.
      */
-    public static void kartenVerbessern(Karte karte)
+    public static void karteVerbessern(Karte karte)
             throws KarteNichtVerbessertException
     {
-        if (karte instanceof KarteEinheit)
+        if (karte instanceof KarteZauber)
         {
-            kartenVerbessern((KarteEinheit) karte);
+            karteVerbessern((KarteZauber) karte);
         }
-        else if (karte instanceof KarteZauber)
+        else if (karte instanceof KarteEinheit)
         {
-            //  TODO
+            karteVerbessern((KarteEinheit) karte);
         }
         else
         {
@@ -43,51 +41,82 @@ public class KartenController
         }
     }
 
-    private static void kartenVerbessern(KarteEinheit karteEinheit)
+    private static void karteVerbessern(KarteZauber karteZauber)
     {
-        switch (karteEinheit.getTyp())
+        //  TODO
+        throw new KarteNichtVerbessertException();
+    }
+
+    private static void karteVerbessern(KarteEinheit einheit)
+    {
+        switch (einheit.getTyp())
         {
             case NAHKAEMPFER:
-                if (karteEinheit.getLevel() == ZAHL_3)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
-                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_2);
-                    karteEinheit.setLevel(ZAHL_4);
-                } else if (karteEinheit.getLevel() == ZAHL_2)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
-                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
-                    karteEinheit.setLevel(ZAHL_3);
-                } else if (karteEinheit.getLevel() == ZAHL_1)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
-                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
-                    karteEinheit.setLevel(ZAHL_2);
-                }
+                nahkaempferVerbessern(einheit);
                 break;
-
             case FERNKAEMPFER:
-                if (karteEinheit.getLevel() == ZAHL_3)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
-                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_1);
-                    karteEinheit.setReichweite(karteEinheit.getReichweite() + ZAHL_1);
-                    karteEinheit.setLevel(ZAHL_4);
-                } else if (karteEinheit.getLevel() == ZAHL_2)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_2);
-                    karteEinheit.setReichweite(karteEinheit.getReichweite() + ZAHL_1);
-                    karteEinheit.setLevel(ZAHL_3);
-
-                } else if (karteEinheit.getLevel() == ZAHL_1)
-                {
-                    karteEinheit.setLebenspunkte(karteEinheit.getLebenspunkte() + ZAHL_1);
-                    karteEinheit.setMacht(karteEinheit.getMacht() + ZAHL_2);
-                    karteEinheit.setLevel(ZAHL_2);
-                }
+                fernkaempferVerbessern(einheit);
+                break;
+            case BLOCKADE:
+                blockadeVerbessern(einheit);
                 break;
             default:
-                return;
+                throw new KarteNichtVerbessertException();
         }
+    }
+
+    private static void nahkaempferVerbessern(KarteEinheit einheit)
+    {
+        if (einheit.getLevel() == 3)
+        {
+            einheitVerbessern(einheit, 2, 2,0);
+        }
+        else if (einheit.getLevel() == 2)
+        {
+            einheitVerbessern(einheit, 2, 1,0);
+        }
+        else if (einheit.getLevel() == 1)
+        {
+            einheitVerbessern(einheit, 1, 1,0);
+        }
+        else
+        {
+            throw new KarteNichtVerbessertException();
+        }
+    }
+
+    private static void fernkaempferVerbessern(KarteEinheit einheit)
+    {
+        if (einheit.getLevel() == 3)
+        {
+            einheitVerbessern(einheit, 1, 1,1);
+        }
+        else if (einheit.getLevel() == 2)
+        {
+            einheitVerbessern(einheit, 2, 0,1);
+
+        }
+        else if (einheit.getLevel() == 1)
+        {
+            einheitVerbessern(einheit, 1, 2,0);
+        }
+        else
+        {
+            throw new KarteNichtVerbessertException();
+        }
+    }
+
+    private static void blockadeVerbessern(KarteEinheit einheit)
+    {
+        //  TODO
+        throw new KarteNichtVerbessertException();
+    }
+
+    private static void einheitVerbessern(KarteEinheit einheit, int lp, int macht, int reichweite)
+    {
+        einheit.setLebenspunkte(einheit.getLebenspunkte() + lp);
+        einheit.setMacht(einheit.getMacht() + macht);
+        einheit.setReichweite(einheit.getReichweite() + reichweite);
+        einheit.setLevel(einheit.getLevel() + 1);
     }
 }
