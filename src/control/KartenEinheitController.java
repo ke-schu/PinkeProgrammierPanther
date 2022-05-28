@@ -70,13 +70,13 @@ public class KartenEinheitController
         } else
         {
             (held).startwertespeichern();
-            positionGeben(held, spielfeld.getFeldSpalte() -
+            positionGeben(held, spielfeld.getSpalten() -
                                 GEGNER_KAMPFFELD_STARTPOSITION_X,
-                          spielfeld.getFeldZeile() -
+                          spielfeld.getZeilen() -
                           GEGNER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(spielfeld.getFeldSpalte() -
+            spielfeld.einheitEinsetzten(spielfeld.getSpalten() -
                                         GEGNER_KAMPFFELD_STARTPOSITION_X,
-                                        spielfeld.getFeldZeile() -
+                                        spielfeld.getZeilen() -
                                         GEGNER_KAMPFFELD_STARTPOSITION_Y,
                                         held);
         }

@@ -64,8 +64,8 @@ public class SpielzugTest
     {
         meinfeld = new SpielFeld(ZAHL_5, ZAHL_5);
         KonsolenIO.ausgeben(
-                SPIELFELDBREITE + meinfeld.getFeldSpalte() + SPIELFELDZEILEN +
-                meinfeld.getFeldZeile());
+                SPIELFELDBREITE + meinfeld.getSpalten() + SPIELFELDZEILEN +
+                meinfeld.getZeilen());
         meinehand = new KartenHand();
         masterhand = new KartenHand();
         meintank = new ManaTank(spieler);

@@ -48,9 +48,9 @@ public class RundenController
     public static void feldAufraeumen(SpielFeld feld, KartenDeck spielerDeck,
                                       KartenDeck masterDeck)
     {
-        for (int i = 0; i < feld.getFeldZeile(); i++)
+        for (int i = 0; i < feld.getZeilen(); i++)
         {
-            for (int j = 0; j < feld.getFeldSpalte(); j++)
+            for (int j = 0; j < feld.getSpalten(); j++)
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
@@ -82,9 +82,9 @@ public class RundenController
     public static void beweglichkeitAuffrischen(SpielFeld feld)
     {
 
-        for (int i = 0; i < feld.getFeldZeile(); i++)
+        for (int i = 0; i < feld.getZeilen(); i++)
         {
-            for (int j = 0; j < feld.getFeldSpalte(); j++)
+            for (int j = 0; j < feld.getSpalten(); j++)
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
@@ -120,9 +120,9 @@ public class RundenController
      */
     public static void aufwecken(SpielFeld feld)
     {
-        for (int i = 0; i < feld.getFeldZeile(); i++)
+        for (int i = 0; i < feld.getZeilen(); i++)
         {
-            for (int j = 0; j < feld.getFeldSpalte(); j++)
+            for (int j = 0; j < feld.getSpalten(); j++)
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {

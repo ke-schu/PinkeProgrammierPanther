@@ -12,8 +12,8 @@ public class SpielFeld
 {
 
     private KarteEinheit[][] spielfeld = null;
-    private int feldZeile = 0;
-    private int feldSpalte = 0;
+    private int zeilen = 0;
+    private int spalten = 0;
 
     /**
      * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse
@@ -22,10 +22,10 @@ public class SpielFeld
      */
     public SpielFeld()
     {
-        this.feldSpalte = generiereSpielfeldGroesse();
-        this.feldZeile = generiereSpielfeldGroesse();
+        this.spalten = generiereSpielfeldGroesse();
+        this.zeilen = generiereSpielfeldGroesse();
         KarteEinheit[][] spielfeld =
-                new KarteEinheit[this.feldZeile][this.feldSpalte];
+                new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
 
@@ -36,10 +36,10 @@ public class SpielFeld
      */
     public SpielFeld(int x, int y)
     {
-        this.feldSpalte = x;
-        this.feldZeile = y;
+        this.spalten = x;
+        this.zeilen = y;
         KarteEinheit[][] spielfeld =
-                new KarteEinheit[this.feldZeile][this.feldSpalte];
+                new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
 
@@ -64,9 +64,9 @@ public class SpielFeld
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.feldZeile; i++)
+        for (int i = 0; i < this.zeilen; i++)
         {
-            for (int j = 0; j < this.feldSpalte; j++)
+            for (int j = 0; j < this.spalten; j++)
             {
                 if (this.spielfeld[i][j] != null)
                 {
@@ -109,18 +109,18 @@ public class SpielFeld
      * Methode die den Int-Wert des Attributes feldSpalte liefert.
      * @return gibt den Int-Wert des Attributes feldSpalte wieder.
      */
-    public int getFeldSpalte()
+    public int getSpalten()
     {
-        return this.feldSpalte;
+        return this.spalten;
     }
 
     /**
      * Methode die den Int-Wert des Attributes feldZeile liefert.
      * @return gibt den Int-Wert des Attributes feldSpalte wieder.
      */
-    public int getFeldZeile()
+    public int getZeilen()
     {
-        return this.feldZeile;
+        return this.zeilen;
     }
 
     /**
@@ -158,7 +158,7 @@ public class SpielFeld
      */
     public KarteEinheit getSpielfeldplatz(int x, int y)
     {
-        if (x < 0 || x >= this.feldSpalte || y < 0 || y >= this.feldZeile)
+        if (x < 0 || x >= this.spalten || y < 0 || y >= this.zeilen)
         {
             return null;
         }
