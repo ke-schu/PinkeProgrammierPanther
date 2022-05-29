@@ -25,10 +25,10 @@ public class Gui extends Application
 
         stage.setTitle("DungeonDing");
         stage.setScene(scene);
-        stage.setMaxHeight(ZAHL_720); //Auloesung bei Start
-        stage.setMinHeight(ZAHL_720);
-        stage.setMaxWidth(ZAHL_1280);
-        stage.setMinWidth(ZAHL_1280);
+        stage.setMaxHeight(AUFLOESUNG_BREITE_HD); //Auloesung bei Start
+        stage.setMinHeight(AUFLOESUNG_BREITE_HD);
+        stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
+        stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
         stage.setMaximized(true);
         stage.setResizable(false);
         stage.getIcons().add(logo);

@@ -69,18 +69,18 @@ public class GuiContoller {
     public void wechselAufloesungFullHD (ActionEvent event)
     {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setMinHeight(ZAHL_1080);
-        stage.setMaxHeight(ZAHL_1080);
-        stage.setMinWidth(ZAHL_1920);
-        stage.setMaxWidth(ZAHL_1920);
+        stage.setMinHeight(AUFLOESUNG_BREITE_FULLHD);
+        stage.setMaxHeight(AUFLOESUNG_BREITE_FULLHD);
+        stage.setMinWidth(AUFLOESUNG_HOEHE_FULLHD);
+        stage.setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
     }
 
     public void wechselAufloesungHD (ActionEvent event)
     {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setMinHeight(ZAHL_720);
-        stage.setMaxHeight(ZAHL_720);
-        stage.setMinWidth(ZAHL_1280);
-        stage.setMaxWidth(ZAHL_1280);
+        stage.setMinHeight(AUFLOESUNG_BREITE_HD);
+        stage.setMaxHeight(AUFLOESUNG_BREITE_HD);
+        stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
+        stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
     }
 }
