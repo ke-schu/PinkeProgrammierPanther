@@ -16,8 +16,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import static gui.GuiKonstanten.*;
+
 public class Gui extends Application
 {
+
     @Override
     public void start(Stage stage) throws IOException
     {
@@ -29,6 +32,12 @@ public class Gui extends Application
 
         stage.setTitle("DungeonDing");
         stage.setScene(scene);
+        stage.setMaxHeight(ZAHL_720); //Auloesung bei Start
+        stage.setMinHeight(ZAHL_720);
+        stage.setMaxWidth(ZAHL_1280);
+        stage.setMinWidth(ZAHL_1280);
+        stage.setMaximized(true);
+        stage.setResizable(false);
         stage.getIcons().add(logo);
         stage.show();
     }
@@ -37,4 +46,5 @@ public class Gui extends Application
     {
         launch();
     }
+
 }

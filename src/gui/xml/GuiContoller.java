@@ -1,5 +1,6 @@
 package gui.xml;
 
+import gui.Gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import static gui.GuiKonstanten.*;
 
 public class GuiContoller {
 
@@ -76,5 +79,23 @@ public class GuiContoller {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void wechselAufloesungFullHD (ActionEvent event)
+    {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setMinHeight(ZAHL_1080);
+        stage.setMaxHeight(ZAHL_1080);
+        stage.setMinWidth(ZAHL_1920);
+        stage.setMaxWidth(ZAHL_1920);
+    }
+
+    public void wechselAufloesungHD (ActionEvent event)
+    {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setMinHeight(ZAHL_720);
+        stage.setMaxHeight(ZAHL_720);
+        stage.setMinWidth(ZAHL_1280);
+        stage.setMaxWidth(ZAHL_1280);
     }
 }
