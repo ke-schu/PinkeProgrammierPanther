@@ -49,9 +49,9 @@ public class RundenController
     public static void feldAufraeumen(SpielFeld feld, KartenDeck spielerDeck,
                                       KartenDeck masterDeck)
     {
-        for (int i = 0; i < feld.getZeilen(); i++)
+        for (int j = 0; j < feld.getZeilen(); j++)
         {
-            for (int j = 0; j < feld.getSpalten(); j++)
+            for (int i = 0; i < feld.getSpalten(); i++)
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
@@ -62,26 +62,26 @@ public class RundenController
     }
 
     public static void feldplatzAufraumen(SpielFeld feld, KartenDeck spielerDeck,
-                                      KartenDeck masterDeck, int feldzeile, int feldspalte)
+                                      KartenDeck masterDeck, int feldspalte , int feldzeile)
     {
-        if (feld.getSpielfeldplatz(feldzeile, feldspalte).getLebenspunkte() <= 0)
+        if (feld.getSpielfeldplatz(feldspalte, feldzeile).getLebenspunkte() <= 0)
         {
-            if(feld.getSpielfeldplatz(feldzeile, feldspalte).getEffektEins() == LETZTEWORTE
-               || feld.getSpielfeldplatz(feldzeile, feldspalte).getEffektZwei() == LETZTEWORTE)
+            if(feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektEins() == LETZTEWORTE
+               || feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektZwei() == LETZTEWORTE)
             {
-                EffektController.effektAusloesen(feld.getSpielfeldplatz(feldzeile, feldspalte), feld);
+                EffektController.effektAusloesen(feld.getSpielfeldplatz(feldspalte, feldzeile), feld);
             }
-            feld.getSpielfeldplatz(feldzeile, feldspalte).initialisieren();
-            if (feld.getSpielfeldplatz(feldzeile, feldspalte).getFreundlich())
+            feld.getSpielfeldplatz(feldspalte, feldzeile).initialisieren();
+            if (feld.getSpielfeldplatz(feldspalte, feldzeile).getFreundlich())
             {
-                spielerDeck.push(feld.getSpielfeldplatz(feldzeile, feldspalte));
+                spielerDeck.push(feld.getSpielfeldplatz(feldspalte, feldzeile));
                 KartenDeckController.mischen(spielerDeck);
-                feld.einheitloeschen(feldzeile, feldspalte);
+                feld.einheitloeschen(feldspalte, feldzeile);
             } else
             {
-                masterDeck.push(feld.getSpielfeldplatz(feldzeile, feldspalte));
+                masterDeck.push(feld.getSpielfeldplatz(feldspalte, feldzeile));
                 KartenDeckController.mischen(masterDeck);
-                feld.einheitloeschen(feldzeile, feldspalte);
+                feld.einheitloeschen(feldspalte, feldzeile);
             }
         }
     }

@@ -151,7 +151,7 @@ public class EinheitenController
             {
                 verursacheschaden(verteidiger, angreifer.getMacht());
                 RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
-                        verteidiger.getPositionY(),verteidiger.getPositionX());
+                        verteidiger.getPositionX(),verteidiger.getPositionY());
             }
 
         }

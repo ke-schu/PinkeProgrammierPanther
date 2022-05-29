@@ -175,10 +175,10 @@ public class SpielzugTest
         einheitenAngreifenMitEinheiten(meinfeld, meindeck,masterdeck, master,
                                        meinfeld.getSpielfeldplatz(ZAHL_1,
                                                                   ZAHL_0));
-        KonsolenIO.ausgeben(
+        /*KonsolenIO.ausgeben(
                 LEBENSPUNKTE_NACH_KAMPF +
                 meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
-                        .getLebenspunkte() + ZEILENUMBRUCH);
+                        .getLebenspunkte() + ZEILENUMBRUCH);         */
     }
 
     /**
