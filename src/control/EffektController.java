@@ -22,7 +22,7 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    public void effektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
+    public static void effektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
     {
         switch (ausloeser.getEffektEins())
         {

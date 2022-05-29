@@ -172,7 +172,7 @@ public class SpielzugTest
                             meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
                                     .getName());
         KonsolenIO.ausgeben(KAEMPFEN);
-        einheitenAngreifenMitEinheiten(master,
+        einheitenAngreifenMitEinheiten(meinfeld, meindeck,masterdeck, master,
                                        meinfeld.getSpielfeldplatz(ZAHL_1,
                                                                   ZAHL_0));
         KonsolenIO.ausgeben(

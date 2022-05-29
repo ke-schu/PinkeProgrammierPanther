@@ -2,6 +2,7 @@ package control;
 
 import model.KarteEinheit;
 import model.KarteZauber;
+import model.KartenDeck;
 import model.SpielFeld;
 import static resources.Konstanten.WERT_SCHILD;
 
@@ -136,7 +137,8 @@ public class EinheitenController
      * @param angreifer Einheit, welche angreift.
      * @param verteidiger Einheit, welche angegriffen wird.
      */
-    public static void einheitenAngreifenMitEinheiten(KarteEinheit angreifer,
+    public static void einheitenAngreifenMitEinheiten(SpielFeld feld, KartenDeck spielerDeck,
+                                                      KartenDeck masterDeck, KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
         if (einheitInReichweite(angreifer, verteidiger) || pruefenobfeindlich(angreifer, verteidiger))
@@ -145,7 +147,13 @@ public class EinheitenController
             {
                 schildbrechen(verteidiger);
             }
-            berechneSchaden(verteidiger, angreifer.getMacht());
+            else
+            {
+                verursacheschaden(verteidiger, angreifer.getMacht());
+                RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
+                        verteidiger.getPositionY(),verteidiger.getPositionX());
+            }
+
         }
     }
 
@@ -176,7 +184,7 @@ public class EinheitenController
     public static void einheitenAngreifenMitKarteZauber(KarteZauber zauber,
                                                         KarteEinheit verteidiger)
     {
-        berechneSchaden(verteidiger, zauber.getMacht());
+        verursacheschaden(verteidiger, zauber.getMacht());
     }
 
     /**
@@ -187,8 +195,8 @@ public class EinheitenController
      * @param schadensWert der Schadenwert, welcher mit dem Ziel verrechnet
      * werden soll.
      */
-    private static void berechneSchaden(KarteEinheit verteidiger,
-                                        int schadensWert)
+    private static void verursacheschaden (KarteEinheit verteidiger,
+                                           int schadensWert)
     {
         int differenzDefAtk = verteidiger.getVerteidigung() - schadensWert;
 
