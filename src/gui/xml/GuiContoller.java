@@ -21,72 +21,49 @@ public class GuiContoller {
     @FXML
     private Label welcomeText;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-
-    public void wechselZuHauptmenue (ActionEvent event) throws IOException
+    private void wechselZu(ActionEvent event, String pfad) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("Hauptmenue.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource(pfad));
         Scene scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void wechselZuHauptmenue (ActionEvent event) throws IOException
+    {
+        wechselZu(event, "Hauptmenue.fxml");
     }
 
     public void wechselZuEinstellungen (ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("Einstellungen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "Einstellungen.fxml");
     }
 
     public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("Charakterauswahl.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "Charakterauswahl.fxml");
     }
 
     public void wechselZuHilfeHauptmenue(ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeHauptmenue.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "HilfeHauptmenue.fxml");
     }
 
     public void wechselZuHilfeEinstellungen (ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeEinstellungen.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "HilfeEinstellungen.fxml");
     }
 
     public void wechselZuHilfeCharakterauswahl (ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeCharakterauswahl.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "HilfeCharakterauswahl.fxml");
     }
 
     public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("Spielebene.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        wechselZu(event, "Spielebene.fxml");
     }
 
     public void wechselAufloesungFullHD (ActionEvent event)
