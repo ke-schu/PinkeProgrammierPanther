@@ -3,6 +3,7 @@ package control;
 import model.KarteEinheit;
 import model.KarteZauber;
 import model.SpielFeld;
+import static resources.Konstanten.WERT_SCHILD;
 
 
 /**
@@ -138,11 +139,31 @@ public class EinheitenController
     public static void einheitenAngreifenMitEinheiten(KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
-        if (einheitInReichweite(angreifer, verteidiger))
+        if (einheitInReichweite(angreifer, verteidiger) || pruefenobfeindlich(angreifer, verteidiger))
         {
+            if (verteidiger.getSchild() >= WERT_SCHILD)
+            {
+                schildbrechen(verteidiger);
+            }
             berechneSchaden(verteidiger, angreifer.getMacht());
         }
     }
+
+    public static boolean pruefenobfeindlich (KarteEinheit angreifer,KarteEinheit verteidiger)
+    {
+        if(angreifer.getFreundlich() != verteidiger.getFreundlich())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static void schildbrechen(KarteEinheit verteidiger)
+    {
+        verteidiger.setSchild(verteidiger.getSchild()-WERT_SCHILD);
+    }
+
+
 
     /**
      * Mit dieser Methode kann eine Instanz der Klasse KarteZauber auf eine

@@ -24,4 +24,6 @@ public interface Konstanten
     int SPIELER_KAMPFFELD_STARTPOSITION_Y = 0;
     int GEGNER_KAMPFFELD_STARTPOSITION_X = 1;
     int GEGNER_KAMPFFELD_STARTPOSITION_Y = 1;
+
+    int WERT_SCHILD = 1;
 }
