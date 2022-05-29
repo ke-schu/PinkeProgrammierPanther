@@ -1,6 +1,5 @@
 package gui.xml;
 
-import gui.Gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -75,6 +74,15 @@ public class GuiContoller {
     public void wechselZuHilfeCharakterauswahl (ActionEvent event) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("HilfeCharakterauswahl.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void wechselZuSpielEbene (ActionEvent event) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource("Spielebene.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
