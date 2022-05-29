@@ -6,5 +6,5 @@ package resources;
  */
 public enum Talente
 {
-    ABKLINGEN, MANA_GOTT
+    ABKLINGEN, MANA_GOTT, SCHARM
 }

@@ -2,8 +2,8 @@ package gui;
 
 public interface GuiKonstanten {
 
-    int ZAHL_720 = 720;
-    int ZAHL_1080 = 1080;
-    int ZAHL_1280 = 1280;
-    int ZAHL_1920 = 1920;
+    int AUFLOESUNG_HOEHE_HD = 1280;
+    int AUFLOESUNG_BREITE_HD = 720;
+    int AUFLOESUNG_HOEHE_FULLHD = 1920;
+    int AUFLOESUNG_BREITE_FULLHD = 1080;
 }
