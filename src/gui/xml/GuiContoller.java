@@ -1,5 +1,6 @@
 package gui.xml;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -82,5 +83,10 @@ public class GuiContoller {
         stage.setMaxHeight(AUFLOESUNG_BREITE_HD);
         stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
         stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
+    }
+
+    public void spielBeenden (ActionEvent event)
+    {
+        Platform.exit();
     }
 }
