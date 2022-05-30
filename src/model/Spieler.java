@@ -1,5 +1,6 @@
 package model;
 
+import control.SpielStandController;
 import resources.Artefakte;
 import resources.Effekte;
 import resources.Einheiten;
@@ -197,6 +198,16 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.setVerteidigung(getInit().getVerteidigung());
         this.setPosition(getInit().getPosition());
         this.setSchlafend(getInit().getSchlafend());
+    }
+
+    @Override
+    public void schadenNehmen(int schaden)
+    {
+        this.setLebenspunkte(this.getLebenspunkte() - schaden);
+        if (getLebenspunkte() <= 0)
+        {
+            SpielStandController.sterben();
+        }
     }
 
 }
