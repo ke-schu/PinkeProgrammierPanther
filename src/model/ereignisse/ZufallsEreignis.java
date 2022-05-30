@@ -1,8 +1,10 @@
 package model.ereignisse;
 
+import control.KartenController;
 import io.KonsolenIO;
 import model.SpielStand;
 
+import static resources.Konstanten.*;
 import static resources.StringsEreignisse.EREIGNIS_1;
 import static resources.StringsEreignisse.EREIGNIS_2;
 
@@ -84,12 +86,31 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
         if (isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
-            if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
+            // Wahrscheinlichkeit 1%
+            if (wahrscheinlichkeit <= EIN_PROZENT)
             {
-                KonsolenIO.ausgeben(EREIGNIS_1);
-            } else
+                //Es gibt noch kein Attribut fuer maximale Lebenspunkte
+                //spielStand.getSpieler().setLebenspunkte();
+            }
+            // Wahrscheinlichkeit 9%
+            else if (wahrscheinlichkeit <= ZEHN_PROZENT && wahrscheinlichkeit > EIN_PROZENT)
             {
-                KonsolenIO.ausgeben(EREIGNIS_2);
+                spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht()+ZE_MACHT_ERHOEHUNG);
+            }
+            // Wahrscheinlichkeit 10%
+            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT && wahrscheinlichkeit > ZEHN_PROZENT)
+            {
+                spielStand.getSpieler().setMana(spielStand.getSpieler().getMana()+ZE_MANA_ERHOEHUNG);
+            }
+            // Wahrscheinlichkeit 20%
+            else if (wahrscheinlichkeit <= VIERZIG_PROZENT && wahrscheinlichkeit > ZWANZIG_PROZENT)
+            {
+                spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte()-ZE_SCHADEN);
+            }
+            // Wahrscheinlichkeit 10%
+            else if (wahrscheinlichkeit <= FUENFZIG_PROZENT && wahrscheinlichkeit > VIERZIG_PROZENT)
+            {
+                KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
             }
             ausgefuehrt = true;
         }

@@ -17,7 +17,7 @@ public class Spieler extends KarteEinheit implements Spielbar
     private Waffe waffe;
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
-    private final int mana;
+    private int mana;
     private int erfahrungspunkte = 0;
     private int levelGrenze = 50;
 
@@ -113,6 +113,11 @@ public class Spieler extends KarteEinheit implements Spielbar
     public int getMana()
     {
         return mana;
+    }
+
+    public void setMana (int mana)
+    {
+        this.mana = mana;
     }
 
     /**
