@@ -5,7 +5,6 @@ import io.EbeneIO;
 import io.KartenDeckIO;
 
 import java.io.File;
-import java.io.IOException;
 
 import static resources.Strings.*;
 
@@ -15,7 +14,6 @@ import static resources.Strings.*;
 public class SpielStand
 {
     private int gold;
-    private int erfahrungspunkte;
     private Spieler spieler;
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
@@ -24,16 +22,14 @@ public class SpielStand
     /**
      * Konstruiert einen neuen Spielstand mit den notwendigen Attributen
      * @param gold das Guthaben des Spielers
-     * @param erfahrungspunkte die gesammelten Erfahrungspunkte
      * @param spieler der kaempfende Spieler
      * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
      * oder des Gegners Fehler enthalten
      */
-    public SpielStand(int gold, int erfahrungspunkte, Spieler spieler)
+    public SpielStand(int gold, Spieler spieler)
             throws JsonNichtLesbarException
     {
         this.gold = gold;
-        this.erfahrungspunkte = erfahrungspunkte;
         this.spieler = spieler;
         this.spieldeckSpieler =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
@@ -52,8 +48,7 @@ public class SpielStand
     public SpielStand(SpielStand stand)
             throws JsonNichtLesbarException
     {
-        this(stand.getGold(), stand.getErfahrungspunkte(),
-             stand.getSpieler());
+        this(stand.getGold(), stand.getSpieler());
         this.spieldeckSpieler =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
@@ -85,24 +80,6 @@ public class SpielStand
     public void setGold(int gold)
     {
         this.gold = gold;
-    }
-
-    /**
-     * Gibt die Erfahrungspunkte des Spielstandes wieder
-     * @return die Erfahrungspunkte
-     */
-    public int getErfahrungspunkte()
-    {
-        return erfahrungspunkte;
-    }
-
-    /**
-     * Setzt die Erfahrungspunkte des Spielstandes auf einen neuen Wert
-     * @param erfahrungspunkte die neuen Erfahrungspunkte
-     */
-    public void setErfahrungspunkte(int erfahrungspunkte)
-    {
-        this.erfahrungspunkte = erfahrungspunkte;
     }
 
     /**

@@ -141,15 +141,15 @@ public class EinheitenController
                                                       KartenDeck masterDeck, KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
-        if (einheitInReichweite(angreifer, verteidiger) || pruefenobfeindlich(angreifer, verteidiger))
+        if (einheitInReichweite(angreifer, verteidiger) || pruefeObFeindlich(angreifer, verteidiger))
         {
             if (verteidiger.getSchild() >= WERT_SCHILD)
             {
-                schildbrechen(verteidiger);
+                brecheSchild(verteidiger);
             }
             else
             {
-                verursacheschaden(verteidiger, angreifer.getMacht());
+                verursacheSchaden(verteidiger, angreifer.getMacht());
                 RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                         verteidiger.getPositionX(),verteidiger.getPositionY());
             }
@@ -157,7 +157,7 @@ public class EinheitenController
         }
     }
 
-    public static boolean pruefenobfeindlich (KarteEinheit angreifer,KarteEinheit verteidiger)
+    public static boolean pruefeObFeindlich(KarteEinheit angreifer, KarteEinheit verteidiger)
     {
         if(angreifer.getFreundlich() != verteidiger.getFreundlich())
         {
@@ -166,7 +166,7 @@ public class EinheitenController
         return false;
     }
 
-    public static void schildbrechen(KarteEinheit verteidiger)
+    public static void brecheSchild(KarteEinheit verteidiger)
     {
         verteidiger.setSchild(verteidiger.getSchild()-WERT_SCHILD);
     }
@@ -184,7 +184,7 @@ public class EinheitenController
     public static void einheitenAngreifenMitKarteZauber(KarteZauber zauber,
                                                         KarteEinheit verteidiger)
     {
-        verursacheschaden(verteidiger, zauber.getMacht());
+        verursacheSchaden(verteidiger, zauber.getMacht());
     }
 
     /**
@@ -195,8 +195,8 @@ public class EinheitenController
      * @param schadensWert der Schadenwert, welcher mit dem Ziel verrechnet
      * werden soll.
      */
-    private static void verursacheschaden (KarteEinheit verteidiger,
-                                           int schadensWert)
+    private static void verursacheSchaden(KarteEinheit verteidiger,
+                                          int schadensWert)
     {
         int schaden = schadensWert - verteidiger.getVerteidigung() ;
 

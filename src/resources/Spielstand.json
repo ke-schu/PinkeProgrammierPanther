@@ -1,6 +1,5 @@
 {
   "gold": 10,
-  "erfahrungspunkte": 9,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -11,12 +10,13 @@
       "MANA_GOTT"
     ],
     "artefakte": [
-      "DER_GRABSTEIN",
+      "SCHUTZENGEL",
       null
     ],
     "mana": 1,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
+    "maxleben": 0,
     "typ": "FERNKAEMPFER",
     "macht": 11,
     "lebenspunkte": 1,
@@ -33,7 +33,7 @@
     },
     "schlafend": true,
     "freundlich": true,
-    "id": 0,
+    "id": 2,
     "name": "meinSpieler",
     "level": 1,
     "klasse": "model.Spieler"

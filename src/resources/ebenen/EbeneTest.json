@@ -67,7 +67,7 @@
             },
             "schlafend": true,
             "freundlich": false,
-            "id": 0,
+            "id": 1,
             "name": "Gegner",
             "level": 10,
             "klasse": "model.Gegenspieler"
@@ -78,21 +78,11 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
-                null,
                 null,
                 null
               ],
               [
                 null,
-                null,
-                null,
-                null
-              ],
-              [
                 null,
                 null,
                 null,
@@ -102,17 +92,19 @@
                 null,
                 null,
                 null,
+                null,
                 null
               ],
               [
+                null,
                 null,
                 null,
                 null,
                 null
               ]
             ],
-            "feldZeile": 6,
-            "feldSpalte": 4
+            "zeilen": 4,
+            "spalten": 5
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",

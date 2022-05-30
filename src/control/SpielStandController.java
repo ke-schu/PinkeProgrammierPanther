@@ -2,14 +2,15 @@ package control;
 
 import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import io.EbeneIO;
 import model.Charakter;
-import resources.Artefakte;
+import model.Ebene;
+import model.Spieler;
 
 import java.util.Stack;
 
 import static resources.Artefakte.SCHUTZENGEL;
+import static resources.Konstanten.SCHUTZENGEL_ANTEIL_MAXLEBEN;
 
 /**
  * Beinhaltet verschiedene Methoden, die an und mit Charakteren arbeiten.
@@ -39,11 +40,19 @@ public class SpielStandController
         return meinCharakter;
     }
 
-    public static void sterben()
+    public static void sterben(Spieler spieler)
     {
-        /*if(ArtefaktController.hatArtefakt(SCHUTZENGEL, SpielStandIO.leseDatei().getSpieler()))
+        if(ArtefaktController.entferneArtefakt(SCHUTZENGEL, spieler))
         {
+            spieler.setLebenspunkte(spieler.getMaxleben() / SCHUTZENGEL_ANTEIL_MAXLEBEN);
+        }
+        else
+        {
+            spielZurueckSetzen();
+        }
+    }
 
-        }*/
+    private static void spielZurueckSetzen()
+    {
     }
 }

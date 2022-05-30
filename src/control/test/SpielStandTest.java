@@ -122,7 +122,7 @@ public class SpielStandTest
         try
         {
             SpielStand meinSpielStand =
-                    new SpielStand(ZAHL_10, ZAHL_9, leseCharakter());
+                    new SpielStand(ZAHL_10, leseCharakter());
             SpielStandIO.schreibeDatei(meinSpielStand);
         } catch (IOException e)
         {
