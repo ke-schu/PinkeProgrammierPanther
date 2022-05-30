@@ -25,5 +25,18 @@ public interface Konstanten
     int GEGNER_KAMPFFELD_STARTPOSITION_X = 1;
     int GEGNER_KAMPFFELD_STARTPOSITION_Y = 1;
 
+    // Konstanten, welche beim Ereignis Truhe verwendet werden
+    int TRUHE_GOLD_ERHOEHUNG_EINS = 100;
+    int TRUHE_GOLD_ERHOEHUNG_ZWEI = 50;
+    int TRUHE_GOLD_ERHOEHUNG_DREI = 25;
+    int TRUHE_GOLD_ERHOEHUNG_VIER = 10;
+    int TRUHE_GOLD_ERHOEHUNG_FUENF = 5;
+
+    // Konstanten, welche beim Ereignis ZufallsEreignis verwendet werden
+    int ZE_SCHADEN = 5;
+    int ZE_MANA_ERHOEHUNG = 1;
+    int ZE_MACHT_ERHOEHUNG = 1;
+
+
     int WERT_SCHILD = 1;
 }

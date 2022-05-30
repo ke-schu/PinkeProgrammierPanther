@@ -3,8 +3,7 @@ package model.ereignisse;
 import io.KonsolenIO;
 import model.SpielStand;
 
-import static resources.StringsEreignisse.TRUHE_1;
-import static resources.StringsEreignisse.TRUHE_2;
+import static resources.Konstanten.*;
 
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
@@ -37,12 +36,25 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
         if (isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
-            if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
+            if (wahrscheinlichkeit <= EIN_PROZENT)
             {
-                KonsolenIO.ausgeben(TRUHE_1);
-            } else
+                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_EINS);
+            }
+            else if (wahrscheinlichkeit <= ZEHN_PROZENT && wahrscheinlichkeit > EIN_PROZENT)
             {
-                KonsolenIO.ausgeben(TRUHE_2);
+                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_ZWEI);
+            }
+            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT && wahrscheinlichkeit > ZEHN_PROZENT)
+            {
+                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_DREI);
+            }
+            else if (wahrscheinlichkeit <= VIERZIG_PROZENT && wahrscheinlichkeit > ZWANZIG_PROZENT)
+            {
+                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_VIER);
+            }
+            else if (wahrscheinlichkeit > VIERZIG_PROZENT)
+            {
+                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_FUENF);
             }
             geleert = true;
         }
