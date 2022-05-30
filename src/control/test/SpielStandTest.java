@@ -1,6 +1,6 @@
 package control.test;
 
-import control.CharakterController;
+import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
 import io.KonsolenIO;
@@ -14,7 +14,7 @@ import resources.*;
 import java.io.IOException;
 import java.util.Stack;
 
-import static resources.Artefakte.DER_GRABSTEIN;
+import static resources.Artefakte.SCHUTZENGEL;
 import static resources.Talente.ABKLINGEN;
 import static resources.Talente.MANA_GOTT;
 import static control.test.TestKonstanten.*;
@@ -44,7 +44,7 @@ public class SpielStandTest
         meinTalentStack.push(MANA_GOTT);
 
         Artefakte[] meineArtefake = new Artefakte[ZAHL_2];
-        meineArtefake[ZAHL_0] = DER_GRABSTEIN;
+        meineArtefake[ZAHL_0] = SCHUTZENGEL;
 
         return new Spieler(TESTBEZEICHNUNG_SPIELER, ZAHL_1,
                            Einheiten.FERNKAEMPFER, ZAHL_1,
@@ -89,7 +89,7 @@ public class SpielStandTest
     private static Spieler leseCharakter()
             throws JsonNichtLesbarException, IOException
     {
-        Charakter meineKlasse = CharakterController.leseCharakter(1);
+        Charakter meineKlasse = SpielStandController.leseCharakter(1);
         return meineKlasse.getSpieler();
     }
 
