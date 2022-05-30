@@ -198,16 +198,11 @@ public class EinheitenController
     private static void verursacheschaden (KarteEinheit verteidiger,
                                            int schadensWert)
     {
-        int differenzDefAtk = verteidiger.getVerteidigung() - schadensWert;
+        int schaden = schadensWert - verteidiger.getVerteidigung() ;
 
-        if (verteidiger.getSchild() > 0)
+        if (schaden > 0)
         {
-            verteidiger.setSchild(verteidiger.getSchild() - 1);
-        }
-        if (differenzDefAtk < 0)
-        {
-            verteidiger.setLebenspunkte(
-                    verteidiger.getLebenspunkte() + differenzDefAtk);
+            verteidiger.schadenNehmen(schaden);
         }
     }
 }

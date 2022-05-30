@@ -57,11 +57,11 @@ public class KartenEinheitController
      * @param held HeldKarte welche gelegt werden soll
      * @param spielfeld auf dem die Karten gelegt werden
      */
-    public static void beschwoerenHeld(KarteEinheit held, SpielFeld spielfeld)
+    public static void beschwoerenhelden (KarteEinheit held, SpielFeld spielfeld)
     {
         if (held.getFreundlich())
         {
-            (held).startwertespeichern();
+            held.startwertespeichern();
             positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
                           SPIELER_KAMPFFELD_STARTPOSITION_Y);
             spielfeld.einheitEinsetzten(SPIELER_KAMPFFELD_STARTPOSITION_X,
@@ -69,7 +69,7 @@ public class KartenEinheitController
                                         held);
         } else
         {
-            (held).startwertespeichern();
+            held.startwertespeichern();
             positionGeben(held, spielfeld.getSpalten() -
                                 GEGNER_KAMPFFELD_STARTPOSITION_X,
                           spielfeld.getZeilen() -

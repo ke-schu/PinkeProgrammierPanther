@@ -10,7 +10,7 @@ import io.SpielStandIO;
 import model.*;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
-import static control.KartenEinheitController.beschwoerenHeld;
+import static control.KartenEinheitController.beschwoerenhelden;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
@@ -112,8 +112,8 @@ public class SpielzugTest
      */
     public static void einheitenBeschwoeren()
     {
-        beschwoerenHeld(spieler, meinfeld);
-        beschwoerenHeld(master, meinfeld);
+        beschwoerenhelden(spieler, meinfeld);
+        beschwoerenhelden(master, meinfeld);
         KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld,
                                             ZAHL_1, ZAHL_0, meintank);
         KonsolenIO.ausgeben(
