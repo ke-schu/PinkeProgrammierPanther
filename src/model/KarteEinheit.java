@@ -359,5 +359,6 @@ public class KarteEinheit extends Karte
     {
         this.init = init;
     }
+
 }
 

@@ -21,6 +21,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     private int erfahrungspunkte = 0;
     private int levelGrenze = 50;
 
+    private int maxleben;
+
     /**
      * Konstruiert einen Spieler mit allen notwendigen Attributen.
      * @param waffe die Waffe des Spielers
@@ -148,6 +150,17 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.levelGrenze = levelGrenze;
     }
 
+
+    public int getMaxleben ()
+    {
+        return maxleben;
+    }
+
+    public void setMaxleben (int maxleben)
+    {
+        this.maxleben = maxleben;
+    }
+
     /**
      * Private Methode um das Attribut level um eins zu erhöhen.
      */
@@ -168,6 +181,17 @@ public class Spieler extends KarteEinheit implements Spielbar
             this.setErfahrungspunkte(AUSGANGSWERT_ERFAHRUNGSPUNKTE_SPIELER);
             this.setLevelGrenze(this.getLevelGrenze() * LEVEL_GRENZE_FAKTOR);
         }
+    }
+    @Override
+    public void initialisieren()
+    {
+        this.setMacht(getInit().getMacht());
+        this.setBeweglichkeit(getInit().getBeweglichkeit());
+        this.setReichweite(getInit().getReichweite());
+        this.setSchild(getInit().getSchild());
+        this.setVerteidigung(getInit().getVerteidigung());
+        this.setPosition(getInit().getPosition());
+        this.setSchlafend(getInit().getSchlafend());
     }
 
 }
