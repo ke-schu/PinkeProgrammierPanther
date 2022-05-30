@@ -2,21 +2,25 @@ package control;
 
 import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
+import io.KonsolenIO;
+import io.SpielStandIO;
 import model.Charakter;
+import resources.Artefakte;
 
-import java.io.IOException;
 import java.util.Stack;
+
+import static resources.Artefakte.SCHUTZENGEL;
 
 /**
  * Beinhaltet verschiedene Methoden, die an und mit Charakteren arbeiten.
  */
-public class CharakterController
+public class SpielStandController
 {
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private CharakterController()
+    private SpielStandController()
     {
     }
 
@@ -33,5 +37,13 @@ public class CharakterController
         Charakter meinCharakter =
                 new Charakter((Charakter) meineCharaktere.get(position));
         return meinCharakter;
+    }
+
+    public static void sterben()
+    {
+        /*if(ArtefaktController.hatArtefakt(SCHUTZENGEL, SpielStandIO.leseDatei().getSpieler()))
+        {
+
+        }*/
     }
 }
