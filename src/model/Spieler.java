@@ -206,7 +206,7 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.setLebenspunkte(this.getLebenspunkte() - schaden);
         if (getLebenspunkte() <= 0)
         {
-            SpielStandController.sterben();
+            SpielStandController.sterben(this);
         }
     }
 
