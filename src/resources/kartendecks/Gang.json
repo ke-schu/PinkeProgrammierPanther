@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "IchBinDasSpieldeck",
+  "bezeichnung": "DasDeckDerGang",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -19,7 +19,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 0,
-      "name": "HarryPotter",
+      "name": "Böser Nachbar",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -41,7 +41,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 1,
-      "name": "HarryPotter",
+      "name": "Genervter Nachbar",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -63,7 +63,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 2,
-      "name": "HarryPotter",
+      "name": "Eismann",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -85,7 +85,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 3,
-      "name": "HarryPotter",
+      "name": "Nachbarsjunge",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -107,7 +107,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 4,
-      "name": "HarryPotter",
+      "name": "Rüdiger",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -129,7 +129,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 5,
-      "name": "HarryPotter",
+      "name": "Streuner",
       "level": 40,
       "klasse": "model.KarteEinheit"
     }

@@ -1,0 +1,137 @@
+{
+  "bezeichnung": "DasDeckDerSchule",
+  "karten": [
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 0,
+      "name": "Lehrer",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 1,
+      "name": "Klassenlehrer",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 2,
+      "name": "verrückter Wissenschaftler",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 3,
+      "name": "Sportplatzwart",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 4,
+      "name": "HarryPotter",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 5,
+      "name": "Bänker",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    }
+  ]
+}
