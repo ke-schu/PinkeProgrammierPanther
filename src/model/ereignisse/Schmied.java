@@ -1,6 +1,7 @@
 package model.ereignisse;
 
 import control.KartenController;
+import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
 import io.KonsolenIO;
 import model.SpielStand;
@@ -52,6 +53,7 @@ public class Schmied extends Mensch
                 }
                 else
                 {
+                    TalentController.charme(spielStand.getSpieler(), this);
                     spielStand.setGold(spielStand.getGold() - this.getKosten());
                     KartenController.karteVerbessern(
                             spielStand.getSpieldeckSpieler()

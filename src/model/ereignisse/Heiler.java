@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import control.TalentController;
 import io.KonsolenIO;
 import model.SpielStand;
 
@@ -42,8 +43,10 @@ public class Heiler extends Mensch
                 spielStand.getSpieler().setLebenspunkte(
                         spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 gratisInteraktionen--;
-            } else
+            }
+            else
             {
+                TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieler().setLebenspunkte(
                         spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);

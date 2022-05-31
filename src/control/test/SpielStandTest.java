@@ -14,9 +14,9 @@ import resources.*;
 import java.io.IOException;
 import java.util.Stack;
 
+import static resources.Artefakte.*;
+import static resources.Talente.*;
 import static resources.Artefakte.SCHUTZENGEL;
-import static resources.Talente.ABKLINGEN;
-import static resources.Talente.MANA_GOTT;
 import static control.test.TestKonstanten.*;
 import static control.test.TestZahlen.*;
 
@@ -40,8 +40,7 @@ public class SpielStandTest
     private static Spieler erstelleSpieler()
     {
         Stack<Talente> meinTalentStack = new Stack<>();
-        meinTalentStack.push(ABKLINGEN);
-        meinTalentStack.push(MANA_GOTT);
+        meinTalentStack.push(CHARME);
 
         Artefakte[] meineArtefake = new Artefakte[ZAHL_2];
         meineArtefake[ZAHL_0] = SCHUTZENGEL;

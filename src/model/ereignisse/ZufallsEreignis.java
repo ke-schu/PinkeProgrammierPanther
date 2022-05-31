@@ -5,8 +5,6 @@ import io.KonsolenIO;
 import model.SpielStand;
 
 import static resources.Konstanten.*;
-import static resources.StringsEreignisse.EREIGNIS_1;
-import static resources.StringsEreignisse.EREIGNIS_2;
 
 /**
  * Diese Klasse ist eine Subklasse von Ereignis und implementiert das
@@ -19,8 +17,6 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;
     //Wert zur Bestimmung, welches Ereignis eintritt
-    protected static int ereignismenge;
-    //Menge an Ereignissen, welche eintreten koennen.
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ ZufallsEreignis. Ein
@@ -93,22 +89,22 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
                 //spielStand.getSpieler().setLebenspunkte();
             }
             // Wahrscheinlichkeit 9%
-            else if (wahrscheinlichkeit <= ZEHN_PROZENT && wahrscheinlichkeit > EIN_PROZENT)
+            else if (wahrscheinlichkeit <= ZEHN_PROZENT)
             {
                 spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht()+ZE_MACHT_ERHOEHUNG);
             }
             // Wahrscheinlichkeit 10%
-            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT && wahrscheinlichkeit > ZEHN_PROZENT)
+            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
             {
                 spielStand.getSpieler().setMana(spielStand.getSpieler().getMana()+ZE_MANA_ERHOEHUNG);
             }
             // Wahrscheinlichkeit 20%
-            else if (wahrscheinlichkeit <= VIERZIG_PROZENT && wahrscheinlichkeit > ZWANZIG_PROZENT)
+            else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
             {
                 spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte()-ZE_SCHADEN);
             }
             // Wahrscheinlichkeit 10%
-            else if (wahrscheinlichkeit <= FUENFZIG_PROZENT && wahrscheinlichkeit > VIERZIG_PROZENT)
+            else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
             }

@@ -116,6 +116,10 @@ public class Spieler extends KarteEinheit implements Spielbar
         return mana;
     }
 
+    /**
+     * Setter Methode um den INT-Wert vom Mana des Spielers zu setzen
+     * @param mana Der neue Manawert des Spielers
+     */
     public void setMana (int mana)
     {
         this.mana = mana;

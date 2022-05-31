@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import control.TalentController;
 import exceptions.JsonNichtLesbarException;
 import io.KartenDeckIO;
 import io.KonsolenIO;
@@ -101,8 +102,10 @@ public class Haendler extends Mensch
                           .push(haendlerDeck.get(indexKarte));
                 haendlerDeck.remove(indexKarte);
                 gratisInteraktionen--;
-            } else
+            }
+            else
             {
+                TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler()
                           .push(haendlerDeck.get(indexKarte));

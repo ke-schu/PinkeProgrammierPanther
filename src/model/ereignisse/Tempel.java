@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import control.TalentController;
 import io.KonsolenIO;
 import model.SpielStand;
 
@@ -42,8 +43,10 @@ public class Tempel extends Mensch
             {
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
                 gratisInteraktionen--;
-            } else
+            }
+            else
             {
+                TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
                 interaktionsZaehler++;

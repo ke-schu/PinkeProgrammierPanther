@@ -4,6 +4,7 @@ import exceptions.KartenDeckZuKleinException;
 
 import java.util.Arrays;
 
+import static control.TalentController.grosseHand;
 import static resources.Konstanten.HANDGROESSE;
 
 /**
@@ -15,9 +16,26 @@ public class KartenHand
     private Karte[] hand = null;
 
     /**
-     * Erstellt eine KartenHand mit 5 Plaetzen
+     *
+     * @param spieler
      */
-    public KartenHand()
+    public KartenHand (Spieler spieler)
+    {
+        if(grosseHand(spieler))
+        {
+            this.hand = new Karte[HANDGROESSE + 1];
+        }
+        else
+        {
+            this.hand = new Karte[HANDGROESSE];
+        }
+    }
+
+    /**
+     *
+     * @param gegenspieler
+     */
+    public KartenHand (Gegenspieler gegenspieler)
     {
         this.hand = new Karte[HANDGROESSE];
     }
@@ -28,7 +46,7 @@ public class KartenHand
      * Karte wiedergegeben werden soll
      * @return gibt eine Karte aus der Kartenhand wieder
      */
-    public Karte getelement(int position)
+    public Karte getElement (int position)
     {
         return this.hand[position];
     }
@@ -58,7 +76,7 @@ public class KartenHand
      * Zieht aus einem Kartendeck Karten und legt diese in das hand Array
      * @param kartendeck, Kartendeck aus welchem gezogen wird
      */
-    public void handziehen(KartenDeck kartendeck)
+    public void handZiehen (KartenDeck kartendeck)
     {
         if (kartendeck.size() > hand.length)
         {
@@ -77,7 +95,7 @@ public class KartenHand
      * Legt karten aus der Hand zurueck ins Kartendeck
      * @param kartendeck, Kartendeck in welches Karten gelegt werden
      */
-    public void handablegen(KartenDeck kartendeck)
+    public void handAblegen (KartenDeck kartendeck)
     {
         for (int i = 0; i < hand.length; i++)
         {
@@ -93,7 +111,7 @@ public class KartenHand
      * @param positionkarte, position der Karte in der Hand
      * @param kartendeck, Kartendeck in welches Karte gelegt wird
      */
-    public void karteablegen(int positionkarte, KartenDeck kartendeck)
+    public void karteAblegen (int positionkarte, KartenDeck kartendeck)
     {
         kartendeck.push(this.hand[positionkarte]);
         this.hand[positionkarte] = null;

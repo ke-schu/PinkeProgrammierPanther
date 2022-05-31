@@ -38,23 +38,23 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             if (wahrscheinlichkeit <= EIN_PROZENT)
             {
-                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_EINS);
+                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_EINS);
             }
-            else if (wahrscheinlichkeit <= ZEHN_PROZENT && wahrscheinlichkeit > EIN_PROZENT)
+            else if (wahrscheinlichkeit <= ZEHN_PROZENT)
             {
-                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_ZWEI);
+                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
             }
-            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT && wahrscheinlichkeit > ZEHN_PROZENT)
+            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
             {
-                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_DREI);
+                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
             }
-            else if (wahrscheinlichkeit <= VIERZIG_PROZENT && wahrscheinlichkeit > ZWANZIG_PROZENT)
+            else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
             {
-                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_VIER);
+                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
             }
             else if (wahrscheinlichkeit > VIERZIG_PROZENT)
             {
-                spielStand.setGold(TRUHE_GOLD_ERHOEHUNG_FUENF);
+                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
             }
             geleert = true;
         }

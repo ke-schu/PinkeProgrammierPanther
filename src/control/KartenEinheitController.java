@@ -37,7 +37,7 @@ public class KartenEinheitController
         if ((spielfeld.getSpielfeld()[x][y] == null) &&
             (freundBenachbart(x, y, spielfeld)))
         {
-            Karte meinekarte = kartenhand.getelement(positionhand);
+            Karte meinekarte = kartenhand.getElement(positionhand);
             if (meinekarte instanceof KarteEinheit && (tank.getMana() >=
                                                        ((KarteEinheit) meinekarte).getManaKosten()))
             {

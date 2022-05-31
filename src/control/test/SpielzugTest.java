@@ -66,12 +66,12 @@ public class SpielzugTest
         KonsolenIO.ausgeben(
                 SPIELFELDBREITE + meinfeld.getSpalten() + SPIELFELDZEILEN +
                 meinfeld.getZeilen());
-        meinehand = new KartenHand();
-        masterhand = new KartenHand();
+        meinehand = new KartenHand(spieler);
         meintank = new ManaTank(spieler);
         master = new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15,
                                   ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1,
                                   LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
+        masterhand = new KartenHand(master);
         mastertank = new ManaTank(master);
     }
 
@@ -100,8 +100,8 @@ public class SpielzugTest
      */
     public static void haendeZiehen()
     {
-        meinehand.handziehen(meindeck);
-        masterhand.handziehen(masterdeck);
+        meinehand.handZiehen(meindeck);
+        masterhand.handZiehen(masterdeck);
         KonsolenIO.ausgeben(meinehand + ZEILENUMBRUCH);
         KonsolenIO.ausgeben(VORSTELLEN_SPIELER + spieler.getName());
     }
