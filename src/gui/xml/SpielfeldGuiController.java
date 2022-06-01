@@ -1,6 +1,6 @@
 package gui.xml;
 
-public class SpielfeldGuiController extends GuiContoller
+public class SpielfeldGuiController extends GuiController
 {
 
 }

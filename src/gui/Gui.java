@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 
 import static gui.GuiKonstanten.*;
@@ -17,11 +16,12 @@ public class Gui extends Application
     @Override
     public void start(Stage stage) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource("xml/Hauptmenue.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        String cssPfad = this.getClass().getResource(MAIN_CSS_PFAD).toExternalForm();
+        Application.setUserAgentStylesheet(cssPfad);
 
-        File f = new File("src/gui/bilder/Logo.png");
-        Image logo = new Image(f.getAbsolutePath());
+        FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource("xml/Hauptmenue.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("DungeonDing");
         stage.setScene(scene);
@@ -31,7 +31,7 @@ public class Gui extends Application
         stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
         stage.setMaximized(true);
         stage.setResizable(false);
-        stage.getIcons().add(logo);
+        stage.getIcons().add(new Image(ICON.getAbsolutePath()));
         stage.show();
     }
 

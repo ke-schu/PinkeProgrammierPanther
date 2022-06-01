@@ -7,14 +7,12 @@ import io.KonsolenIO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,7 +24,9 @@ import model.Charakter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CharakterAuswahlGuiController extends GuiContoller implements Initializable
+public class CharakterAuswahlGuiController
+        extends GuiController
+        implements Initializable
 {
     @FXML HBox charaktere;
     @FXML VBox kartenDeck;
@@ -100,13 +100,8 @@ public class CharakterAuswahlGuiController extends GuiContoller implements Initi
         ObjectProperty<Charakter> charakterProperty =
                 new SimpleObjectProperty<>(charakter);
 
-        v.setOnMouseClicked(new EventHandler<MouseEvent>()
-        {
-            @Override public void handle(MouseEvent mouseEvent)
-            {
-                aktiverCharakter.bind(charakterProperty);
-            }
-        });
+        v.setOnMouseClicked(
+                mouseEvent -> aktiverCharakter.bind(charakterProperty));
 
         return v;
     }
@@ -116,7 +111,4 @@ public class CharakterAuswahlGuiController extends GuiContoller implements Initi
         SpielStandController.spielErstellen(aktiverCharakter.get());
         //wechselZuSpielEbene(event);
     }
-
-
-
 }

@@ -1,0 +1,16 @@
+.button {
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+    -fx-border-image-width: 5;
+    -fx-padding: 10;
+}
+
+.button:hover {
+    -fx-background-color: "E5C94B";
+    -fx-background-radius: 10;
+}
+
+.button:disabled {
+    -fx-border-color: lightgrey;
+    -fx-text-fill: lightgrey;
+}

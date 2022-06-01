@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import static gui.GuiKonstanten.*;
 import static gui.GuiKonstanten.AUFLOESUNG_HOEHE_HD;
 
-public class EinstellungenGuiController extends GuiContoller
+public class EinstellungenGuiController extends GuiController
 {
     public void wechselAufloesungFullHD (ActionEvent event)
     {

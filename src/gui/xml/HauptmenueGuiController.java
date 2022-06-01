@@ -2,7 +2,7 @@ package gui.xml;
 
 
 
-public class HauptmenueGuiController extends GuiContoller
+public class HauptmenueGuiController extends GuiController
 {
 }
 

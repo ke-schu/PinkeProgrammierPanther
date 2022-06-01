@@ -1,6 +1,12 @@
 package gui;
 
-public interface GuiKonstanten {
+import java.io.File;
+import java.net.URL;
+
+public interface GuiKonstanten
+{
+    File ICON = new File("src/gui/bilder/Logo.png");
+    String MAIN_CSS_PFAD = "css/Main.css";
 
     //Integer fuer die Aufloesung
     int AUFLOESUNG_HOEHE_HD = 1280;

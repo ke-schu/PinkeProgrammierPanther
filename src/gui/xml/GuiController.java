@@ -10,18 +10,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 import static gui.GuiKonstanten.*;
 
-public class GuiContoller {
+public class GuiController {
 
     private Stage stage;
     private Scene scene;
@@ -30,7 +28,7 @@ public class GuiContoller {
 
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiContoller.class.getResource(pfad));
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
         Scene scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
