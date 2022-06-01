@@ -26,9 +26,7 @@ import model.Charakter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CharakterAuswahlGuiController
-        extends GuiContoller
-        implements Initializable
+public class CharakterAuswahlGuiController extends GuiContoller implements Initializable
 {
     @FXML HBox charaktere;
     @FXML VBox kartenDeck;
@@ -118,4 +116,7 @@ public class CharakterAuswahlGuiController
         SpielStandController.spielErstellen(aktiverCharakter.get());
         //wechselZuSpielEbene(event);
     }
+
+
+
 }

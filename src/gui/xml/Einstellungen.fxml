@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.EinstellungenGuiController">
    <children>
-      <Button layoutX="522.0" layoutY="20.0" mnemonicParsing="false" onAction="#wechselZuHilfeEinstellungen" text="Hilfe" />
+      <Button layoutX="522.0" layoutY="20.0" mnemonicParsing="false" onAction="#oeffneHilfe" text="Hilfe" />
       <Button layoutX="260.0" layoutY="325.0" mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
       <Button layoutX="79.0" layoutY="112.0" mnemonicParsing="false" onAction="#wechselAufloesungFullHD" text="1920x1080" />
       <Button layoutX="79.0" layoutY="150.0" mnemonicParsing="false" onAction="#wechselAufloesungHD" text="1280x720" />

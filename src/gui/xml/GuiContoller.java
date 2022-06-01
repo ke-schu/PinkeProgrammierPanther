@@ -38,7 +38,7 @@ public class GuiContoller {
     }
 
     @FXML
-    public void oeffneHilfe (ActionEvent event) throws IOException
+    public void oeffneHilfe (ActionEvent event)
     {
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -46,7 +46,7 @@ public class GuiContoller {
 
         VBox vbox = new VBox(20);
         TextArea text = new TextArea();
-        text.setText("Hier stehen ganz viele tolle sachen zum test blaaa blaa hier ist es so toll yes um so schöner.");
+        text.setText("Text dswerlkjsldkfjslkdjfsd sldkjf sldfkj s slkdfj kjlsdflkj sdf lkj");
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
@@ -84,20 +84,7 @@ public class GuiContoller {
         wechselZu(event, "Charakterauswahl.fxml");
     }
 
-    public void wechselZuHilfeHauptmenue(ActionEvent event) throws IOException
-    {
-        wechselZu(event, "HilfeHauptmenue.fxml");
-    }
 
-    public void wechselZuHilfeEinstellungen (ActionEvent event) throws IOException
-    {
-        wechselZu(event, "HilfeEinstellungen.fxml");
-    }
-
-    public void wechselZuHilfeCharakterauswahl (ActionEvent event) throws IOException
-    {
-        wechselZu(event, "HilfeCharakterauswahl.fxml");
-    }
 
     public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
