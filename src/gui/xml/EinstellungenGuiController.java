@@ -28,4 +28,8 @@ public class EinstellungenGuiController extends GuiController
     }
 
 
+    @Override
+    public void oeffneHilfe(ActionEvent event) {
+        offneHilfeTextEinsetzen(HILFE_EINSTELLUNGEN);
+    }
 }

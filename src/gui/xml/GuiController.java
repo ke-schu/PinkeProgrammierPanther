@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -38,13 +39,19 @@ public class GuiController {
     @FXML
     public void oeffneHilfe (ActionEvent event)
     {
+        offneHilfeTextEinsetzen(HILFE_TEXT);
+    }
+
+    public void offneHilfeTextEinsetzen (String hilfeText)
+    {
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle("Hilfe");
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
         VBox vbox = new VBox(20);
         TextArea text = new TextArea();
-        text.setText("Text dswerlkjsldkfjslkdjfsd sldkjf sldfkj s slkdfj kjlsdflkj sdf lkj");
+        text.setText(hilfeText);
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
@@ -81,8 +88,6 @@ public class GuiController {
     {
         wechselZu(event, "Charakterauswahl.fxml");
     }
-
-
 
     public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {

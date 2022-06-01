@@ -15,6 +15,12 @@ public interface GuiKonstanten
     int AUFLOESUNG_BREITE_FULLHD = 1080;
 
     //Strings fuer Texte der Hilfefenster
-
+    String HILFE_TEXT = "Hier steht ein Text, der hilft.";
+    String HILFE_HAUPTMENUE = "Hier ist der String der nachher in unserem Hilfefenster des Hauptmenüs steht." +
+            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
+    String HILFE_EINSTELLUNGEN = "Hier ist der String der nachher in unserem Hilfefenster der Einstellungen steht." +
+            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
+    String HILFE_CHARAKTERAUSWAHL = "Hier ist der String der nachher in unserem Hilfefenster der Charakterauswahl steht." +
+            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
 
 }

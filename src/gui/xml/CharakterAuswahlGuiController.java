@@ -24,6 +24,9 @@ import model.Charakter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static gui.GuiKonstanten.HILFE_CHARAKTERAUSWAHL;
+import static gui.GuiKonstanten.HILFE_EINSTELLUNGEN;
+
 public class CharakterAuswahlGuiController
         extends GuiController
         implements Initializable
@@ -110,5 +113,10 @@ public class CharakterAuswahlGuiController
     {
         SpielStandController.spielErstellen(aktiverCharakter.get());
         //wechselZuSpielEbene(event);
+    }
+
+    @Override
+    public void oeffneHilfe(ActionEvent event) {
+        offneHilfeTextEinsetzen(HILFE_CHARAKTERAUSWAHL);
     }
 }
