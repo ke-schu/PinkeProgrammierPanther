@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "DasDeckDerSchule",
+  "bezeichnung": "DasDeckDerPolizei",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -19,7 +19,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 0,
-      "name": "Lehrer",
+      "name": "Polizist",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -41,7 +41,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 1,
-      "name": "Klassenlehrer",
+      "name": "Pastor",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -63,7 +63,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 2,
-      "name": "verrückter Wissenschaftler",
+      "name": "Zeitungsausträger",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -85,7 +85,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 3,
-      "name": "Sportplatzwart",
+      "name": "Katze",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -107,7 +107,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 4,
-      "name": "HarryPotter",
+      "name": "Verkäufer",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -129,7 +129,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 5,
-      "name": "Bänker",
+      "name": "Bäcker",
       "level": 40,
       "klasse": "model.KarteEinheit"
     }

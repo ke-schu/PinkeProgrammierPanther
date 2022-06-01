@@ -57,5 +57,6 @@ public class SpielStandController
 
     private static void spielZurueckSetzen()
     {
+
     }
 }

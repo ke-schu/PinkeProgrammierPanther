@@ -2,23 +2,28 @@ package gui.xml;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
+import gui.animationen.HintergrundAnimation;
 import io.CharakterIO;
 import io.KonsolenIO;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.Transition;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.util.Duration;
 import model.Charakter;
 
 import java.net.URL;
@@ -37,6 +42,7 @@ public class CharakterAuswahlGuiController
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         spielButton.setDisable(true);
+
         try
         {
             for (int i = 0; i < CharakterIO.leseDatei().size(); i++)
@@ -44,13 +50,14 @@ public class CharakterAuswahlGuiController
                 charaktere.getChildren().add(einfuegenCharakter(
                         CharakterIO.leseCharakter(i)));
             }
-
-            aktiverCharakter.addListener(
-                    (observableValue, charakter, t1) -> kartenDeckSetzen());
-        } catch (JsonNichtLesbarException e)
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
+
+        aktiverCharakter.addListener(
+                (observableValue, charakter, t1) -> kartenDeckSetzen());
     }
 
     private void kartenDeckSetzen()
@@ -99,8 +106,15 @@ public class CharakterAuswahlGuiController
         ObjectProperty<Charakter> charakterProperty =
                 new SimpleObjectProperty<>(charakter);
 
-        v.setOnMouseClicked(
-                mouseEvent -> aktiverCharakter.bind(charakterProperty));
+        v.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override public void handle(MouseEvent mouseEvent)
+            {
+                aktiverCharakter.bind(charakterProperty);
+                //Animation animation = new HintergrundAnimation(v, Color.WHITE, Color.RED, 500);
+                //animation.play();
+            }
+        });
 
         return v;
     }
