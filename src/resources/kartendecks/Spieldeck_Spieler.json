@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "IchBinDasSpieldeck",
+  "bezeichnung": "DasDeckDerSchule",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -19,7 +19,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 0,
-      "name": "HarryPotter",
+      "name": "Lehrer",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -41,7 +41,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 1,
-      "name": "HarryPotter",
+      "name": "Klassenlehrer",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -63,7 +63,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 2,
-      "name": "HarryPotter",
+      "name": "verrückter Wissenschaftler",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -85,7 +85,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 3,
-      "name": "HarryPotter",
+      "name": "Sportplatzwart",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -129,7 +129,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 5,
-      "name": "HarryPotter",
+      "name": "Bänker",
       "level": 40,
       "klasse": "model.KarteEinheit"
     }

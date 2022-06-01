@@ -1,16 +1,18 @@
 package control;
 
-import exceptions.JsonNichtLesbarException;
-import io.CharakterIO;
-import io.EbeneIO;
+import io.KartenDeckIO;
+import io.KonsolenIO;
+import io.SpielStandIO;
 import model.Charakter;
-import model.Ebene;
+import model.KartenDeck;
+import model.SpielStand;
 import model.Spieler;
 
-import java.util.Stack;
+import java.io.IOException;
 
 import static resources.Artefakte.SCHUTZENGEL;
 import static resources.Konstanten.SCHUTZENGEL_ANTEIL_MAXLEBEN;
+import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 
 /**
  * Beinhaltet verschiedene Methoden, die an und mit Charakteren arbeiten.
@@ -25,19 +27,20 @@ public class SpielStandController
     {
     }
 
-    /**
-     * Liest einen Charakter aus der Auswahl an Charakteren ein.
-     * @param position die Position in der Liste an Charakteren
-     * @return den Charakter
-     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
-     */
-    public static Charakter leseCharakter(int position)
-            throws JsonNichtLesbarException
+    public static void spielErstellen(Charakter charakter)
     {
-        Stack meineCharaktere = CharakterIO.leseDatei();
-        Charakter meinCharakter =
-                new Charakter((Charakter) meineCharaktere.get(position));
-        return meinCharakter;
+        try
+        {
+            SpielStand alterSpielStand = SpielStandIO.leseDatei();
+            SpielStand neuerSpielStand = new SpielStand(alterSpielStand.getGold(), charakter.getSpieler());
+            SpielStandIO.schreibeDatei(neuerSpielStand);
+            KartenDeck spielDeck = KartenDeckController.kopiereDeck(charakter.getStartDeck(), SPIEL_DECK_SPIELER_PFAD);
+            KartenDeckIO.schreibeDatei(spielDeck);
+        }
+        catch (IOException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
     }
 
     public static void sterben(Spieler spieler)

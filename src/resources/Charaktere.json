@@ -36,7 +36,7 @@
       "schlafend": true,
       "freundlich": true,
       "id": 2,
-      "name": "meinSpieler",
+      "name": "Bandit",
       "level": 1,
       "klasse": "model.Spieler"
     },
@@ -79,7 +79,7 @@
       "schlafend": true,
       "freundlich": true,
       "id": 2,
-      "name": "meinSpieler",
+      "name": "Oberkommissar",
       "level": 1,
       "klasse": "model.Spieler"
     },
@@ -123,7 +123,7 @@
       "schlafend": true,
       "freundlich": true,
       "id": 2,
-      "name": "meinSpieler",
+      "name": "Schulleiter",
       "level": 1,
       "klasse": "model.Spieler"
     },

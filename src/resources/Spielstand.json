@@ -6,8 +6,8 @@
       "angriffsPunkte": 10
     },
     "talente": [
-      "ABKLINGEN",
-      "MANA_GOTT"
+      null,
+      null
     ],
     "artefakte": [
       "SCHUTZENGEL",
@@ -34,7 +34,7 @@
     "schlafend": true,
     "freundlich": true,
     "id": 2,
-    "name": "meinSpieler",
+    "name": "Schulleiter",
     "level": 1,
     "klasse": "model.Spieler"
   }

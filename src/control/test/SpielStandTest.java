@@ -1,6 +1,5 @@
 package control.test;
 
-import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import io.CharakterIO;
 import io.KonsolenIO;
@@ -14,7 +13,6 @@ import resources.*;
 import java.io.IOException;
 import java.util.Stack;
 
-import static resources.Artefakte.*;
 import static resources.Talente.*;
 import static resources.Artefakte.SCHUTZENGEL;
 import static control.test.TestKonstanten.*;
@@ -88,7 +86,7 @@ public class SpielStandTest
     private static Spieler leseCharakter()
             throws JsonNichtLesbarException, IOException
     {
-        Charakter meineKlasse = SpielStandController.leseCharakter(1);
+        Charakter meineKlasse = CharakterIO.leseCharakter(1);
         return meineKlasse.getSpieler();
     }
 

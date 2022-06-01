@@ -2,6 +2,7 @@ package control;
 
 import model.KartenDeck;
 
+import java.io.File;
 import java.util.Collections;
 import java.util.Random;
 
@@ -27,5 +28,13 @@ public class KartenDeckController
     public static void mischen(KartenDeck deck)
     {
         Collections.shuffle(deck, meinRandom);
+    }
+
+    public static KartenDeck kopiereDeck(KartenDeck quelle, String pfad)
+    {
+        File ziel = new File(pfad);
+        KartenDeck kopie = (KartenDeck) quelle.clone();
+        kopie.setDatei(ziel);
+        return kopie;
     }
 }

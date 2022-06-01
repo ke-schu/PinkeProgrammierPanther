@@ -102,4 +102,19 @@ public class CharakterIO
             throw new JsonNichtLesbarException(ex.getMessage(), ex);
         }
     }
+
+    /**
+     * Liest einen Charakter aus der Auswahl an Charakteren ein.
+     * @param position die Position in der Liste an Charakteren
+     * @return den Charakter
+     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
+     */
+    public static Charakter leseCharakter(int position)
+            throws JsonNichtLesbarException
+    {
+        Stack meineCharaktere = leseDatei();
+        Charakter meinCharakter =
+                new Charakter((Charakter) meineCharaktere.get(position));
+        return meinCharakter;
+    }
 }

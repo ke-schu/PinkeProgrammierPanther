@@ -1,5 +1,7 @@
 package resources;
 
+import model.KartenDeck;
+
 /**
  * Hier werden finale, numerische Werte fuer das Spiel gesammelt.
  */
@@ -38,10 +40,7 @@ public interface Konstanten
     int ZE_MACHT_ERHOEHUNG = 1;
 
     // Konstanten fuer Talente
-
     double CHARME_FAKTOR = 0.9;
-
-
     int WERT_SCHILD = 1;
     int SCHUTZENGEL_ANTEIL_MAXLEBEN = 2;
 }
