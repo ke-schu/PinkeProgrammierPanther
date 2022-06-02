@@ -10,14 +10,14 @@ import java.util.ResourceBundle;
 
 public class mp3Controller implements Initializable
 {
-    private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File("C:\\Users\\hendr\\Documents\\GitHub\\PinkeProgrammierPanther\\src\\gui\\mp3\\fun-life-112188.mp3").toURI().toString()));
+    private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString()));
 
     private Media media;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        media = new Media(new File("C:\\Users\\hendr\\Documents\\GitHub\\PinkeProgrammierPanther\\src\\gui\\mp3\\fun-life-112188.mp3").toURI().toString());
+        media = new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString());
         mediaplayer = new MediaPlayer(media);
 
     }
