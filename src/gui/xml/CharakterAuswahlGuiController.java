@@ -25,7 +25,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.HILFE_CHARAKTERAUSWAHL;
-import static gui.GuiKonstanten.HILFE_EINSTELLUNGEN;
 
 public class CharakterAuswahlGuiController
         extends GuiController

@@ -33,6 +33,7 @@ public class Gui extends Application
         stage.setResizable(false);
         stage.getIcons().add(new Image(ICON.getAbsolutePath()));
         stage.show();
+        mp3Controller.test();
     }
 
     public static void main(String[] args)

@@ -24,7 +24,7 @@ public class Main
      */
     private static void teste()
     {
-        switch (1)
+        switch (2)
         {
             case 1:
                 SpielzugTest.spielzugTesten();
