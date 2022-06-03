@@ -34,7 +34,7 @@
     "schlafend": true,
     "freundlich": true,
     "id": 2,
-    "name": "Bandit",
+    "name": "Oberkommissar",
     "level": 1,
     "klasse": "model.Spieler"
   }

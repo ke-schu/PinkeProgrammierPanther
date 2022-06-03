@@ -11,6 +11,11 @@
     -fx-background-color: lightgreen;
 }
 
+
+.charakter-vbox:nicht-freigeschaltet {
+    -fx-opacity: 0.5;
+}
+
 #kartenDeck {
     -fx-border-color: black;
     -fx-border-radius: 10;

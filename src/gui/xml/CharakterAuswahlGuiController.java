@@ -89,6 +89,8 @@ public class CharakterAuswahlGuiController
     {
         CharakterVBox v = new CharakterVBox();
 
+        v.setFreigeschaltet(meinCharakter.getFreigeschaltet());
+
         v.getChildren()
                 .add(new Label(meinCharakter.getName()));
         v.getChildren()
@@ -99,8 +101,13 @@ public class CharakterAuswahlGuiController
         ObjectProperty<Charakter> charakterProperty =
                 new SimpleObjectProperty<>(meinCharakter);
 
-        v.setOnMouseClicked(
-                mouseEvent -> aktiverCharakter.bind(charakterProperty));
+        v.setOnMouseClicked(mouseEvent ->
+        {
+            if(meinCharakter.getFreigeschaltet())
+            {
+                aktiverCharakter.bind(charakterProperty);
+            }
+        });
 
         aktiverCharakter.addListener((observableValue, charakter, t1) ->
         {

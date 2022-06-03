@@ -7,9 +7,11 @@ import javafx.scene.layout.VBox;
 
 public class CharakterVBox extends VBox
 {
-    BooleanProperty gewaehlt;
+    private BooleanProperty gewaehlt;
+    private BooleanProperty freigeschaltet;
     private final static String STYLE_CLASS = "charakter-vbox";
-    private final static String PSEUDO_CLASS = "ausgewaehlt";
+    private final static String PSEUDO_CLASS_GEWAEHLT = "ausgewaehlt";
+    private final static String PSEUDO_CLASS_FREIGESCHALTET = "nicht-freigeschaltet";
 
     public CharakterVBox()
     {
@@ -17,7 +19,12 @@ public class CharakterVBox extends VBox
 
         gewaehlt = new SimpleBooleanProperty(false);
         gewaehlt.addListener(e -> {
-            pseudoClassStateChanged(PseudoClass.getPseudoClass(PSEUDO_CLASS), gewaehlt.get());
+            pseudoClassStateChanged(PseudoClass.getPseudoClass(PSEUDO_CLASS_GEWAEHLT), gewaehlt.get());
+        });
+
+        freigeschaltet = new SimpleBooleanProperty(false);
+        freigeschaltet.addListener(e -> {
+            pseudoClassStateChanged(PseudoClass.getPseudoClass(PSEUDO_CLASS_FREIGESCHALTET), freigeschaltet.get());
         });
     }
 
@@ -25,7 +32,16 @@ public class CharakterVBox extends VBox
         return gewaehlt.get();
     }
 
-    public void setGewaehlt(boolean shiny) {
-        this.gewaehlt.set(shiny);
+    public void setGewaehlt(boolean gewaehlt) {
+        this.gewaehlt.set(gewaehlt);
+    }
+
+    public boolean istFreigeschaltet() {
+        return freigeschaltet.get();
+    }
+
+    public void setFreigeschaltet(boolean freigeschaltet)
+    {
+        this.freigeschaltet.set(!freigeschaltet);
     }
 }
