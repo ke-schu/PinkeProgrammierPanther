@@ -35,6 +35,9 @@ public class CharakterAuswahlGuiController
     @FXML
     Button spielButton;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
+    private final String STYLE_CHARAKTER_NAME = "charakter-name";
+    private final String CHARAKTER_KAUFEN = "Kaufen für %d €";
+    private final String SCHON_FREIGESCHALTET = "Im Besitz";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -91,19 +94,28 @@ public class CharakterAuswahlGuiController
 
         v.setFreigeschaltet(meinCharakter.getFreigeschaltet());
 
-        v.getChildren()
-                .add(new Label(meinCharakter.getName()));
-        v.getChildren()
-                .add(new Label(String.valueOf(meinCharakter.getFreischaltgebuehr())));
-        v.getChildren()
-                .add(new Label(String.valueOf(meinCharakter.getFreigeschaltet())));
+        Label name = new Label(meinCharakter.getName());
+        name.setId(STYLE_CHARAKTER_NAME);
+
+        v.getChildren().add(name);
+
+        if(!v.istFreigeschaltet())
+        {
+            v.getChildren()
+                    .add(new Label(String.format(CHARAKTER_KAUFEN, meinCharakter.getFreischaltgebuehr())));
+        }
+        else
+        {
+            v.getChildren()
+                    .add(new Label(SCHON_FREIGESCHALTET));
+        }
 
         ObjectProperty<Charakter> charakterProperty =
                 new SimpleObjectProperty<>(meinCharakter);
 
         v.setOnMouseClicked(mouseEvent ->
         {
-            if(meinCharakter.getFreigeschaltet())
+            if(v.istFreigeschaltet())
             {
                 aktiverCharakter.bind(charakterProperty);
             }

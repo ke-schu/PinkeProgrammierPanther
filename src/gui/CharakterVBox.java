@@ -37,7 +37,7 @@ public class CharakterVBox extends VBox
     }
 
     public boolean istFreigeschaltet() {
-        return freigeschaltet.get();
+        return !freigeschaltet.get();
     }
 
     public void setFreigeschaltet(boolean freigeschaltet)
