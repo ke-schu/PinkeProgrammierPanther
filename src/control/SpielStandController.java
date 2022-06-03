@@ -25,6 +25,11 @@ public class SpielStandController
      */
     private SpielStandController()
     {
+        /*
+        Hier muss man zum Hauptmenü weitergeleitet werden.
+        Dort darf man nicht das Spiel fortsetzten können, sondern nur
+        ein neues Spiel starten können.
+         */
     }
 
     public static void spielErstellen(Charakter charakter)

@@ -1,9 +1,6 @@
 package control;
 
 import control.test.*;
-import control.test.EbeneTest;
-import control.test.KartenDeckTest;
-import control.test.SpielStandTest;
 
 /**
  * In dieser Klasse startet das Programm.
@@ -28,17 +25,14 @@ public class Main
         {
             case 1:
                 SpielzugTest.spielzugTesten();
-                break;
             case 2:
                 EbeneTest.testeEbene();
-                break;
             case 3:
                 SpielStandTest.schreibeCharacter();
             case 4:
                 SpielStandTest.speichereSpielstand();
             case 5:
                 SpielStandTest.leseSpielstand();
-                break;
             case 6:
                 KartenDeckTest.erstelleDeck();
             case 7:

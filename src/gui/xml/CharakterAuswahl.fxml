@@ -22,40 +22,40 @@
                 </HBox>
             </top>
             <bottom>
-            <HBox BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <children>
-                  <Pane HBox.hgrow="ALWAYS">
-                     <children>
-                              <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
-                     </children>
-                  </Pane>
-                  <Pane nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
-                     <children>
-                              <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen" />
-                     </children>
-                  </Pane>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
+                <HBox BorderPane.alignment="CENTER">
+                   <BorderPane.margin>
+                      <Insets />
+                   </BorderPane.margin>
+                   <children>
+                      <Pane HBox.hgrow="ALWAYS">
+                         <children>
+                                  <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
+                         </children>
+                      </Pane>
+                      <Pane nodeOrientation="RIGHT_TO_LEFT" HBox.hgrow="ALWAYS">
+                         <children>
+                                  <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen" />
+                         </children>
+                      </Pane>
+                   </children>
+                   <padding>
+                      <Insets bottom="10.0" left="10.0" right="0.0" top="10.0" />
+                   </padding>
+                </HBox>
             </bottom>
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-         <center>
-                  <HBox fx:id="charaktere" prefHeight="0.0" prefWidth="0.0" spacing="20.0" style="-fx-background-color: #fff176;" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </HBox>
-         </center>
-         <right>
-            <VBox fx:id="kartenDeck" prefHeight="0.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </right>
+             <center>
+                 <HBox fx:id="charaktere" prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER">
+                   <padding>
+                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                   </padding>
+                </HBox>
+             </center>
+             <right>
+                <VBox fx:id="kartenDeck" prefHeight="0.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER" />
+             </right>
         </BorderPane>
     </children>
 </AnchorPane>

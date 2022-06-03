@@ -101,9 +101,16 @@
                 null,
                 null,
                 null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
               ]
             ],
-            "zeilen": 4,
+            "zeilen": 5,
             "spalten": 5
           },
           "name": "Gegner.",

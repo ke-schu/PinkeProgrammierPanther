@@ -2,6 +2,7 @@ package gui.xml;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
+import gui.CharakterVBox;
 import io.CharakterIO;
 import io.KonsolenIO;
 import javafx.beans.property.ObjectProperty;
@@ -9,14 +10,11 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
@@ -30,14 +28,21 @@ public class CharakterAuswahlGuiController
         extends GuiController
         implements Initializable
 {
-    @FXML HBox charaktere;
-    @FXML VBox kartenDeck;
-    @FXML Button spielButton;
+    @FXML
+    HBox charaktere;
+    @FXML
+    VBox kartenDeck;
+    @FXML
+    Button spielButton;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        String cssPfad = this.getClass().getResource("Charakter.css").toExternalForm();
+        charaktere.getStylesheets().add(cssPfad);
+        kartenDeck.getStylesheets().add(cssPfad);
+
         spielButton.setDisable(true);
 
         try
@@ -62,9 +67,6 @@ public class CharakterAuswahlGuiController
         {
             spielButton.setDisable(false);
         }
-        kartenDeck.setSpacing(20);
-        final int padding = 20;
-        kartenDeck.setPadding(new Insets(padding, padding, padding, padding));
         kartenDeck.getChildren().clear();
         Label deckBezeichnung = new Label(
                 aktiverCharakter.get().getStartDeck().getDeckBezeichnung());
@@ -74,7 +76,7 @@ public class CharakterAuswahlGuiController
         for (int i = 0; i < aktiverCharakter.get().getStartDeck().size(); i++)
         {
             kartenDeck.getChildren()
-                      .add(einfuegenKarte(aktiverCharakter.get(), i));
+                    .add(einfuegenKarte(aktiverCharakter.get(), i));
         }
     }
 
@@ -83,27 +85,30 @@ public class CharakterAuswahlGuiController
         return new Label(charakter.getStartDeck().get(i).getName());
     }
 
-    private VBox einfuegenCharakter(Charakter charakter)
+    private VBox einfuegenCharakter(Charakter meinCharakter)
     {
-        VBox v = new VBox();
-        v.setBackground(Background.fill(Color.WHITE));
-        v.setSpacing(20);
-        final int padding = 20;
-        v.setPadding(new Insets(padding, padding, padding, padding));
+        CharakterVBox v = new CharakterVBox();
 
         v.getChildren()
-         .add(new Label(charakter.getName()));
+                .add(new Label(meinCharakter.getName()));
         v.getChildren()
-         .add(new Label(String.valueOf(charakter.getFreischaltgebuehr())));
+                .add(new Label(String.valueOf(meinCharakter.getFreischaltgebuehr())));
         v.getChildren()
-         .add(new Label(String.valueOf(charakter.getFreigeschaltet())));
-
+                .add(new Label(String.valueOf(meinCharakter.getFreigeschaltet())));
 
         ObjectProperty<Charakter> charakterProperty =
-                new SimpleObjectProperty<>(charakter);
+                new SimpleObjectProperty<>(meinCharakter);
 
         v.setOnMouseClicked(
                 mouseEvent -> aktiverCharakter.bind(charakterProperty));
+
+        aktiverCharakter.addListener((observableValue, charakter, t1) ->
+        {
+            if (aktiverCharakter.get() == charakterProperty.get())
+                v.setGewaehlt(true);
+            else
+                v.setGewaehlt(false);
+        });
 
         return v;
     }
@@ -115,7 +120,8 @@ public class CharakterAuswahlGuiController
     }
 
     @Override
-    public void oeffneHilfe(ActionEvent event) {
+    public void oeffneHilfe(ActionEvent event)
+    {
         offneHilfeTextEinsetzen(HILFE_CHARAKTERAUSWAHL);
     }
 }
