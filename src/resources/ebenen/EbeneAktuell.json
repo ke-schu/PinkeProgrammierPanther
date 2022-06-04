@@ -425,7 +425,71 @@
       null,
       null,
       null,
-      null,
+      {
+        "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 0,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 4,
+            "feldSpalte": 5
+          },
+          "name": "Alex",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
+        }
+      },
       null,
       null,
       null,
@@ -440,64 +504,73 @@
       null,
       null,
       null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
+      {
+        "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 1,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 0,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "freundlich": false,
+            "id": 0,
+            "name": "Test_Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler"
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "feldZeile": 4,
+            "feldSpalte": 5
+          },
+          "name": "Keno",
+          "beschreibung": "Hallo, ich bin ein Gegner!",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner"
+        }
+      }
     ]
   ],
   "ebenenSpalte": 9,
-  "ebenenZeile": 9
+  "ebenenZeile": 4
 }

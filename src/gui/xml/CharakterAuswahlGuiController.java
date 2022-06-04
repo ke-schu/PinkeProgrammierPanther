@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -42,10 +43,6 @@ public class CharakterAuswahlGuiController
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        String cssPfad = this.getClass().getResource("Charakter.css").toExternalForm();
-        charaktere.getStylesheets().add(cssPfad);
-        kartenDeck.getStylesheets().add(cssPfad);
-
         spielButton.setDisable(true);
 
         try
@@ -135,7 +132,14 @@ public class CharakterAuswahlGuiController
     public void spielen(ActionEvent event)
     {
         SpielStandController.spielErstellen(aktiverCharakter.get());
-        //wechselZuSpielEbene(event);
+        try
+        {
+            wechselZuSpielEbene(event);
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
