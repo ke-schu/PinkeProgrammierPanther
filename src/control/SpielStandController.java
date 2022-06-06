@@ -1,5 +1,7 @@
 package control;
 
+import exceptions.NichtGenugGoldException;
+import io.CharakterIO;
 import io.KartenDeckIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
@@ -32,12 +34,11 @@ public class SpielStandController
          */
     }
 
-    public static void spielErstellen(Charakter charakter)
+    public static void spielErstellen(Charakter charakter, SpielStand spiel)
     {
         try
         {
-            SpielStand alterSpielStand = SpielStandIO.leseDatei();
-            SpielStand neuerSpielStand = new SpielStand(alterSpielStand.getGold(), charakter.getSpieler());
+            SpielStand neuerSpielStand = new SpielStand(spiel.getGold(), charakter.getSpieler());
             SpielStandIO.schreibeDatei(neuerSpielStand);
             KartenDeck spielDeck = KartenDeckController.kopiereDeck(charakter.getStartDeck(), SPIEL_DECK_SPIELER_PFAD);
             KartenDeckIO.schreibeDatei(spielDeck);
@@ -45,6 +46,20 @@ public class SpielStandController
         catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
+        }
+    }
+
+    public static void charakterKaufen(Charakter charakter, SpielStand spiel)
+            throws NichtGenugGoldException
+    {
+        if(spiel.getGold() > charakter.getFreischaltgebuehr())
+        {
+            spiel.setGold(spiel.getGold() - charakter.getFreischaltgebuehr());
+            charakter.setFreigeschaltet(true);
+        }
+        else
+        {
+            throw new NichtGenugGoldException();
         }
     }
 

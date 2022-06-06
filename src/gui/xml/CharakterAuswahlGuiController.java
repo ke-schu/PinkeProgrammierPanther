@@ -2,11 +2,14 @@ package gui.xml;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
+import exceptions.NichtGenugGoldException;
 import gui.modelFx.CharakterVBox;
 import io.CharakterIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +28,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.GuiKonstanten.HILFE_CHARAKTERAUSWAHL;
+import static gui.GuiKonstanten.*;
 
 public class CharakterAuswahlGuiController
         extends GuiController
@@ -36,10 +39,7 @@ public class CharakterAuswahlGuiController
     @FXML Button spielButton;
     @FXML Label gold;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
-    private final String STYLE_CHARAKTER_NAME = "charakter-name";
-    private final String CHARAKTER_KAUFEN = "Kaufen für %d €";
-    private final String SCHON_FREIGESCHALTET = "Im Besitz";
-    private final String GOLD_BESTAND = "Goldbestand: ";
+    private SpielStand spiel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -47,7 +47,7 @@ public class CharakterAuswahlGuiController
         spielButton.setDisable(true);
         try
         {
-            SpielStand spiel = SpielStandIO.leseDatei();
+            spiel = SpielStandIO.leseDatei();
             gold.setText(GOLD_BESTAND + spiel.getGold());
             for (int i = 0; i < CharakterIO.leseDatei().size(); i++)
             {
@@ -91,49 +91,60 @@ public class CharakterAuswahlGuiController
     {
         CharakterVBox v = new CharakterVBox();
 
-        v.setFreigeschaltet(meinCharakter.getFreigeschaltet());
-
         Label name = new Label(meinCharakter.getName());
         name.setId(STYLE_CHARAKTER_NAME);
-
         v.getChildren().add(name);
 
-        if(!v.istFreigeschaltet())
-        {
-            v.getChildren()
-                    .add(new Label(String.format(CHARAKTER_KAUFEN, meinCharakter.getFreischaltgebuehr())));
-        }
-        else
-        {
-            v.getChildren()
-                    .add(new Label(SCHON_FREIGESCHALTET));
-        }
-
-        ObjectProperty<Charakter> charakterProperty =
-                new SimpleObjectProperty<>(meinCharakter);
-
-        v.setOnMouseClicked(mouseEvent ->
-        {
-            if(v.istFreigeschaltet())
-            {
-                aktiverCharakter.bind(charakterProperty);
-            }
-        });
-
-        aktiverCharakter.addListener((observableValue, charakter, t1) ->
-        {
-            if (aktiverCharakter.get() == charakterProperty.get())
-                v.setGewaehlt(true);
-            else
-                v.setGewaehlt(false);
-        });
+        updateFreigeschaltet(v, meinCharakter);
+        updateGewaehlt(v, meinCharakter);
 
         return v;
     }
 
+    private void updateFreigeschaltet(CharakterVBox v,  Charakter c)
+    {
+        v.setFreigeschaltet(c.getFreigeschaltet());
+        if(!v.istFreigeschaltet())
+        {
+            v.getChildren()
+             .add(new Label(String.format(CHARAKTER_KAUFEN, c.getFreischaltgebuehr())));
+        }
+        else
+        {
+            v.getChildren()
+             .add(new Label(SCHON_FREIGESCHALTET));
+        }
+    }
+
+    private void updateGewaehlt(CharakterVBox v,  Charakter c)
+    {
+        ObjectProperty<Charakter> dieserCharakter =
+                new SimpleObjectProperty<>(c);
+
+        v.setOnMouseClicked(mouseEvent ->
+                            {
+                                if(v.istFreigeschaltet())
+                                {
+                                    aktiverCharakter.bind(dieserCharakter);
+                                }
+                                else
+                                {
+                                    kaufen(dieserCharakter.get());
+                                }
+                            });
+
+        aktiverCharakter.addListener((observableValue, charakter, t1) ->
+                                             v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
+    }
+
+    private void kaufen(Charakter charakter)
+    {
+        //SpielStandController.charakterKaufen(charakter, spiel);
+    }
+
     public void spielen(ActionEvent event)
     {
-        SpielStandController.spielErstellen(aktiverCharakter.get());
+        SpielStandController.spielErstellen(aktiverCharakter.get(), spiel);
         try
         {
             wechselZuSpielEbene(event);

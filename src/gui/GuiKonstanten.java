@@ -22,5 +22,9 @@ public interface GuiKonstanten
             "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
     String HILFE_CHARAKTERAUSWAHL = "Hier ist der String der nachher in unserem Hilfefenster der Charakterauswahl steht." +
             "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
+    String STYLE_CHARAKTER_NAME = "charakter-name";
+    String CHARAKTER_KAUFEN = "Kaufen für %d €";
+    String SCHON_FREIGESCHALTET = "Im Besitz";
+    String GOLD_BESTAND = "Goldbestand: ";
 
 }
