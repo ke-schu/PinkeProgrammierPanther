@@ -16,6 +16,7 @@ public class InitialisierungKarteEinheit
     private Position position;
     private boolean schlafend = true;
 
+
     /**
      * Gibt den Int-Wert des Attributes macht wieder.
      * @return Int-Wert des Attributes macht.
@@ -170,5 +171,6 @@ public class InitialisierungKarteEinheit
     {
         this.schlafend = schlafend;
     }
+
 }
 

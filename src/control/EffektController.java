@@ -34,6 +34,24 @@ public class EffektController
         }
     }
 
+    public static void starteffektausloesen(KarteEinheit ausloeser)
+    {
+        switch (ausloeser.getEffektEins())
+        {
+            case SPRINT:
+                sprint(ausloeser);
+                break;
+            case EILE:
+                eile(ausloeser);
+                break;
+            case SCHLACHTRUF:
+                schlachtruf();
+                break;
+            default:
+                return;
+        }
+    }
+
     /**
      * Loest den Effekt "LetzteWorte" aus.
      * @param ausloeser die Einheit, welche den Effekt ausloest.
@@ -114,4 +132,37 @@ public class EffektController
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
+
+    private static void sprint(KarteEinheit ausloeser)
+    {
+        ausloeser.setBeweglichkeit(ausloeser.getBeweglichkeit()+1);
+    }
+
+    private static void raubtier(KarteEinheit ausloeser, KarteEinheit ziel)
+    {
+
+        if((ausloeser.getMacht() > ziel.getMacht()) && ausloeser.getZaehler() == 0)
+        {
+            ausloeser.setZaehler(1);
+            ausloeser.setSchlafend(false);
+        }
+    }
+
+    private static void eile(KarteEinheit ausloeser)
+    {
+        ausloeser.setSchlafend(false);
+    }
+
+    private static void kopie(KarteEinheit ausloeser, SpielFeld feld)
+    {
+
+    }
+    private static void schlachtruf()
+    {
+
+    }
+
+
+
+
 }

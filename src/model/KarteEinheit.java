@@ -23,6 +23,7 @@ public class KarteEinheit extends Karte
     private boolean schlafend = true;
     private InitialisierungKarteEinheit init;
     private boolean freundlich;
+    private int zaehler = 0;
 
 
     /**
@@ -302,6 +303,16 @@ public class KarteEinheit extends Karte
         this.freundlich = freundlich;
     }
 
+    public int getZaehler ()
+    {
+        return zaehler;
+    }
+
+    public void setZaehler (int zaehler)
+    {
+        this.zaehler = zaehler;
+    }
+
     /**
      * methdoe welche es der Karte ermoeglicht Schaden zu nehmen
      * @param schaden welcher von den Lebenspunkten abgezogen werden soll
@@ -340,6 +351,7 @@ public class KarteEinheit extends Karte
         this.verteidigung = init.getVerteidigung();
         this.position = init.getPosition();
         this.schlafend = init.getSchlafend();
+        this.zaehler = 0;
     }
 
     /**

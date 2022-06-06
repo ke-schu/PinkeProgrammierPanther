@@ -4,6 +4,9 @@ import model.KarteEinheit;
 import model.KarteZauber;
 import model.KartenDeck;
 import model.SpielFeld;
+
+import static control.EffektController.effektAusloesen;
+import static resources.Effekte.RAUBTIER;
 import static resources.Konstanten.WERT_SCHILD;
 
 
@@ -141,7 +144,8 @@ public class EinheitenController
                                                       KartenDeck masterDeck, KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
-        if (einheitInReichweite(angreifer, verteidiger) || pruefeObFeindlich(angreifer, verteidiger))
+        boolean schlafend = angreifer.getSchlafend();
+        if ((einheitInReichweite(angreifer, verteidiger) || pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
         {
             if (verteidiger.getSchild() >= WERT_SCHILD)
             {
@@ -152,8 +156,18 @@ public class EinheitenController
                 verursacheSchaden(verteidiger, angreifer.getMacht());
                 RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                         verteidiger.getPositionX(),verteidiger.getPositionY());
+                angreifer.setSchlafend(true);
+                raubtierpruefen(angreifer, feld);
             }
 
+        }
+    }
+
+    public static void raubtierpruefen(KarteEinheit angreifer,SpielFeld feld)
+    {
+        if((angreifer.getEffektEins()) == RAUBTIER ||angreifer.getEffektZwei() == RAUBTIER)
+        {
+            effektAusloesen(angreifer,feld);
         }
     }
 

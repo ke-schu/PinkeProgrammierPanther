@@ -21,7 +21,6 @@ public class Spieler extends KarteEinheit implements Spielbar
     private int mana;
     private int erfahrungspunkte = 0;
     private int levelGrenze = 50;
-
     private int maxleben;
 
     /**

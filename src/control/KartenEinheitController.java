@@ -47,9 +47,12 @@ public class KartenEinheitController
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(
                         ((KarteEinheit) meinekarte).getManaKosten());
+                EffektController.starteffektausloesen((KarteEinheit)meinekarte);
             }
         }
     }
+
+
 
     /**
      * Legt Held- und Dungeonmasterkarte zu Beginn einer runde an ihre

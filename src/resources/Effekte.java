@@ -6,5 +6,5 @@ package resources;
  */
 public enum Effekte
 {
-    LETZTEWORTE, ZURUECKWERFEN
+    LETZTEWORTE, ZURUECKWERFEN, SPRINT, RAUBTIER, EILE, SCHLACHTRUF
 }
