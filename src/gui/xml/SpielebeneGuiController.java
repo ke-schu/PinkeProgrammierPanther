@@ -1,64 +1,98 @@
 package gui.xml;
 
 import exceptions.JsonNichtLesbarException;
+import gui.modelFx.RaumPane;
 import io.EbeneIO;
 import io.KonsolenIO;
+import io.SpielStandIO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import model.Ebene;
+import model.Position;
+import model.Raum;
+import model.SpielStand;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import static resources.Strings.AKTUELLE_EBENE_PFAD;
 
 public class SpielebeneGuiController
         extends GuiController
         implements Initializable
 {
     @FXML GridPane spielebenenGitter;
-    final String STYLE_CLASS_FELD = "feld";
+    @FXML Label spielerLabel;
+    private SpielStand spiel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         try
         {
-            Ebene test = EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
+            spiel = SpielStandIO.leseDatei();
+            spielerLabel.setText(spiel.getSpieler().getName());
+            Ebene ebene = spiel.getAktuelleEbene();
 
-            for(int i = 0; i < test.getEbenenZeile(); i++)
+            for(int i = 0; i < ebene.getEbenenZeile(); i++)
             {
                 spielebenenGitter.addRow(1);
             }
 
-            for(int i = 0; i < test.getEbenenSpalte(); i++)
+            for(int i = 0; i < ebene.getEbenenSpalte(); i++)
             {
                 spielebenenGitter.addColumn(1);
-                for(int j = 0; j < test.getEbenenZeile(); j++)
+                for(int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
-                    StackPane meinePane = new StackPane();
-                    Label meinLabel = new Label();
-                    meinePane.setId(STYLE_CLASS_FELD);
-                    if(test.getRaumAnPosition(i, j) != null && test.getRaumAnPosition(i, j).getEreignis() != null)
+                    Raum aktuellerRaum = ebene.getRaumAnPosition(i, j);
+                    Position aktuellePosition = new Position(i, j);
+                    RaumPane raum = new RaumPane();
+                    if(ebene.getRaumAnPosition(i, j) == null)
                     {
-                        meinLabel.setText(test.getRaumAnPosition(i, j).getEreignis().getName());
+                        raum.setNichtig(true);
+                    }
+                    else if (ebene.getRaumAnPosition(i, j).getEreignis() == null)
+                    {
                     }
                     else
                     {
-                        meinLabel.setText("");
+                        raum.getChildren().add(new Label(aktuellerRaum.getEreignis().getName()));
                     }
-                    meinePane.getChildren().add(meinLabel);
-                    spielebenenGitter.add(meinePane, i, j);
+                    raum.setBeinhaltetSpieler(spiel.getSpieler().getPosition().equals(aktuellePosition));
+                    spielebenenGitter.add(raum, i, j);
                 }
             }
         }
         catch (JsonNichtLesbarException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void spielSpeichern(ActionEvent event)
+    {
+        try
+        {
+            SpielStandIO.schreibeDatei(spiel);
+        }
+        catch (IOException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
+    }
+
+    @FXML
+    public void zurueckHauptmenue(ActionEvent event)
+    {
+        try
+        {
+            wechselZuHauptmenue(event);
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

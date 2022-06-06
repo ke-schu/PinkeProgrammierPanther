@@ -27,6 +27,11 @@ public class Position
         this.y = y;
     }
 
+    public boolean equals(Position pos)
+    {
+        return this.x == pos.getX() && this.y == pos.getY();
+    }
+
     /**
      * Getter fuer die Zahl der Spalte der Position
      * @return Spaltenzahl

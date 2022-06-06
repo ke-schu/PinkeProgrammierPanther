@@ -30,8 +30,8 @@
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
-        "x": 0,
-        "y": 0
+        "x": 2,
+        "y": 2
       },
       "schlafend": true,
       "freundlich": true,
@@ -73,8 +73,8 @@
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
-        "x": 0,
-        "y": 0
+        "x": 3,
+        "y": 2
       },
       "schlafend": true,
       "freundlich": true,
@@ -116,8 +116,8 @@
       "effektEins": "LETZTEWORTE",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
-        "x": 0,
-        "y": 0
+        "x": 3,
+        "y": 3
       },
       "schlafend": true,
       "freundlich": true,

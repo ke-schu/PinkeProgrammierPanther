@@ -2,16 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.SpielebeneGuiController">
    <bottom>
-      <HBox prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
           <children>
-              <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
-              <Button mnemonicParsing="false" onAction="#wechselZuEinstellungen" text="Einstellungen" />
+              <Button mnemonicParsing="false" onAction="#spielSpeichern" text="Spiel speichern" />
+            <Button mnemonicParsing="false" onAction="#zurueckHauptmenue" text="Zurück zum Hauptmenü" />
+            <StackPane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="spielerLabel" alignment="CENTER" contentDisplay="CENTER" text="" />
+               </children>
+            </StackPane>
           </children>
           <padding>
               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.HauptmenueGuiController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -29,11 +28,11 @@
                   <Insets bottom="30.0" />
                </VBox.margin>
             </ImageView>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Weiter" />
-            <Button fx:id="neuesSpielButton" alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuCharakterauswahl" prefHeight="40.0" prefWidth="150.0" text="Neues Spiel" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#weiterSpielen" prefHeight="40.0" prefWidth="150.0" text="Weiter" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuCharakterauswahl" prefHeight="40.0" prefWidth="150.0" text="Neues Spiel" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#oeffneHilfe" prefHeight="40.0" prefWidth="150.0" text="Hilfe" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuEinstellungen" prefHeight="40.0" prefWidth="150.0" text="Einstellungen" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#spielBeenden" prefHeight="40.0" prefWidth="150.0" text="Spiel Beenden">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#spielBeenden" prefHeight="40.0" prefWidth="150.0" text="Spiel beenden">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>

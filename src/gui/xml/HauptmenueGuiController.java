@@ -2,6 +2,9 @@ package gui.xml;
 
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
+import java.io.IOException;
 
 import static gui.GuiKonstanten.HILFE_HAUPTMENUE;
 
@@ -12,6 +15,11 @@ public class HauptmenueGuiController extends GuiController
         offneHilfeTextEinsetzen(HILFE_HAUPTMENUE);
     }
 
+    @FXML
+    public void weiterSpielen (ActionEvent event) throws IOException
+    {
+        wechselZuSpielEbene(event);
+    }
 }
 
 

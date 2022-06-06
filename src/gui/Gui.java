@@ -29,7 +29,7 @@ public class Gui extends Application
         stage.setMinHeight(AUFLOESUNG_BREITE_HD);
         stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
         stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.setResizable(false);
         stage.getIcons().add(new Image(ICON.getAbsolutePath()));
         stage.show();

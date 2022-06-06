@@ -28,13 +28,14 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 0,
-      "y": 0
+      "x": 2,
+      "y": 2
     },
     "schlafend": true,
     "freundlich": true,
+    "zaehler": 0,
     "id": 2,
-    "name": "Oberkommissar",
+    "name": "Bandit",
     "level": 1,
     "klasse": "model.Spieler"
   }

@@ -1,9 +1,12 @@
+.root {
+    -fx-font-family: Calibri;
+}
+
 .button {
     -fx-text-fill: "000000";
     -fx-border-color: "000000";
     -fx-border-width: 1;
     -fx-padding: 8, 16, 8, 16;
-    -fx-font-family: Calibri;
     -fx-font-size: 14;
     -fx-border-radius: 6;
 }
@@ -17,10 +20,6 @@
 .button:disabled {
     -fx-border-color: "4f504f";
     -fx-text-fill: "4f504f";
-}
-
-#neuesSpielButton {
-    -fx-font-weight: bold;
 }
 
 /*----Charakterauswahl----*/
@@ -53,7 +52,7 @@
 }
 
 .charakter-vbox #charakter-name {
-    -fx-font-size: 16;
+    -fx-font-size: 18;
 }
 
 #kartenDeck {
@@ -62,11 +61,28 @@
     -fx-padding: 20;
 }
 
+#gold {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
 /*----Ebene----*/
 
-#feld {
+.raum-pane {
     -fx-background-color: "91E0FF";
     -fx-min-height: 80;
     -fx-min-width: 80;
     -fx-alignment: center;
+}
+
+.raum-pane:hover {
+    -fx-background-color: "87CEEB";
+}
+
+.raum-pane:nichtig {
+    -fx-opacity: 0.2;
+}
+
+.raum-pane:spieler {
+    -fx-background-color: red;
 }

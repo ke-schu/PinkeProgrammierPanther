@@ -2,9 +2,10 @@ package gui.xml;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
-import gui.CharakterVBox;
+import gui.modelFx.CharakterVBox;
 import io.CharakterIO;
 import io.KonsolenIO;
+import io.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
+import model.SpielStand;
 
 import java.io.IOException;
 import java.net.URL;
@@ -29,24 +31,24 @@ public class CharakterAuswahlGuiController
         extends GuiController
         implements Initializable
 {
-    @FXML
-    HBox charaktere;
-    @FXML
-    VBox kartenDeck;
-    @FXML
-    Button spielButton;
+    @FXML HBox charaktere;
+    @FXML VBox kartenDeck;
+    @FXML Button spielButton;
+    @FXML Label gold;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
     private final String STYLE_CHARAKTER_NAME = "charakter-name";
     private final String CHARAKTER_KAUFEN = "Kaufen für %d €";
     private final String SCHON_FREIGESCHALTET = "Im Besitz";
+    private final String GOLD_BESTAND = "Goldbestand: ";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         spielButton.setDisable(true);
-
         try
         {
+            SpielStand spiel = SpielStandIO.leseDatei();
+            gold.setText(GOLD_BESTAND + spiel.getGold());
             for (int i = 0; i < CharakterIO.leseDatei().size(); i++)
             {
                 charaktere.getChildren().add(einfuegenCharakter(
