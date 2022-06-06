@@ -5,7 +5,7 @@ import model.KarteZauber;
 import model.KartenDeck;
 import model.SpielFeld;
 
-import static control.EffektController.effektAusloesen;
+import static control.EffektController.angriffeffektAusloesen;
 import static resources.Effekte.RAUBTIER;
 import static resources.Konstanten.WERT_SCHILD;
 
@@ -167,7 +167,7 @@ public class EinheitenController
     {
         if((angreifer.getEffektEins()) == RAUBTIER ||angreifer.getEffektZwei() == RAUBTIER)
         {
-            effektAusloesen(angreifer,feld);
+            angriffeffektAusloesen(angreifer, feld);
         }
     }
 

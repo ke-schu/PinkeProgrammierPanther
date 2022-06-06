@@ -26,6 +26,24 @@ public class EffektController
     {
         switch (ausloeser.getEffektEins())
         {
+
+        }
+    }
+    public static void sterbeneffektausloesen(KarteEinheit ausloeser, SpielFeld feld)
+    {
+        switch (ausloeser.getEffektEins())
+        {
+            case LETZTEWORTE:
+                letzteWorte(ausloeser, feld);
+                break;
+            default:
+                return;
+        }
+    }
+    public static void angriffeffektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
+    {
+        switch (ausloeser.getEffektEins())
+        {
             case LETZTEWORTE:
                 letzteWorte(ausloeser, feld);
                 break;
@@ -43,9 +61,6 @@ public class EffektController
                 break;
             case EILE:
                 eile(ausloeser);
-                break;
-            case SCHLACHTRUF:
-                schlachtruf();
                 break;
             default:
                 return;

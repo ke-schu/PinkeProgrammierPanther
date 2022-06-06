@@ -69,7 +69,7 @@ public class RundenController
             if(feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektEins() == LETZTEWORTE
                || feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektZwei() == LETZTEWORTE)
             {
-                EffektController.effektAusloesen(feld.getSpielfeldplatz(feldspalte, feldzeile), feld);
+                EffektController.sterbeneffektausloesen(feld.getSpielfeldplatz(feldspalte, feldzeile), feld);
             }
             feld.getSpielfeldplatz(feldspalte, feldzeile).initialisieren();
             if (feld.getSpielfeldplatz(feldspalte, feldzeile).getFreundlich())
