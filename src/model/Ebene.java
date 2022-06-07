@@ -11,6 +11,7 @@ public class Ebene
     private Raum[][] ebene = null;
     private int ebenenSpalte = 0;
     private int ebenenZeile = 0;
+    private SpielfigurEbene spielfigur = null;
 
     /**
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der
@@ -19,9 +20,10 @@ public class Ebene
      * @param ebenenZeile Abmessung der Zeilengroesse des Arrays
      * @param ebenenSpalte Abmessung der Spaltengroesse des Arrays
      */
-    public Ebene(int ebenenZeile, int ebenenSpalte)
+    public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte)
     {
         this.setEbene(new Raum[ebenenZeile][ebenenSpalte]);
+        this.setSpielfigur(spielfigur);
         this.setEbenenZeile(ebenenZeile);
         this.setEbenenSpalte(ebenenSpalte);
     }
@@ -36,24 +38,12 @@ public class Ebene
      * @param ebene 2D-Raumarray, welcher in das Attribut ebene gesetzt werden
      * soll.
      */
-    public Ebene(int ebenenZeile, int ebenenSpalte, Raum[][] ebene)
+    public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte, Raum[][] ebene)
     {
         this.setEbene(ebene);
+        this.setSpielfigur(spielfigur);
         this.setEbenenZeile(ebenenZeile);
         this.setEbenenSpalte(ebenenSpalte);
-    }
-
-    /**
-     * Konstruktor der Klasse Ebene, welcher aus der uebergebenen Ebene alle
-     * Attribute uebernimmt.
-     * @param ebene Instanz der Klasse Ebene dessen Attribute uebernommen
-     * werden sollen.
-     */
-    public Ebene(Ebene ebene)
-    {
-        this.ebene = ebene.getEbene();
-        this.ebenenSpalte = ebene.getEbenenSpalte();
-        this.ebenenZeile = ebene.getEbenenZeile();
     }
 
     /**
@@ -167,6 +157,17 @@ public class Ebene
             sb.append(ZEILENUMBRUCH);
         }
         return sb.toString();
+    }
+
+
+    public SpielfigurEbene getSpielfigur()
+    {
+        return spielfigur;
+    }
+
+    public void setSpielfigur(SpielfigurEbene spielfigur)
+    {
+        this.spielfigur = spielfigur;
     }
 }
 

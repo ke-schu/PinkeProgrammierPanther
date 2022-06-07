@@ -130,11 +130,11 @@ public class GuiController {
         this.root = root;
     }
 
-    public void erstelleCombobox(int[] comboBoxArray, ComboBox meineCombobox)
+    public void erstelleCombobox(String[] comboBoxArray, ComboBox meineCombobox)
     {
         for(int i = 0; i < comboBoxArray.length; i++)
         {
-            meineCombobox.getItems().add(Integer.toString(comboBoxArray[i]));
+            meineCombobox.getItems().add(comboBoxArray[i]);
         }
     }
 }

@@ -79,10 +79,6 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
                 null,
                 null,
                 null
@@ -91,17 +87,45 @@
                 null,
                 null,
                 null,
+                null,
+                null,
                 null
               ],
               [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
                 null,
                 null,
                 null,
                 null
               ]
             ],
-            "zeilen": 4,
-            "spalten": 4
+            "zeilen": 6,
+            "spalten": 6
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
@@ -241,5 +265,11 @@
     ]
   ],
   "ebenenSpalte": 9,
-  "ebenenZeile": 9
+  "ebenenZeile": 9,
+  "spielfigur": {
+    "position": {
+      "x": 4,
+      "y": 4
+    }
+  }
 }

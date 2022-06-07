@@ -1,5 +1,5 @@
 {
-  "gold": 99700,
+  "gold": 123,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -28,14 +28,14 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 2,
-      "y": 2
+      "x": 3,
+      "y": 3
     },
     "schlafend": true,
     "freundlich": true,
     "zaehler": 0,
     "id": 2,
-    "name": "Bandit",
+    "name": "Schulleiter",
     "level": 1,
     "klasse": "model.Spieler"
   }

@@ -1,13 +1,16 @@
 package gui.xml;
 
+import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
 import gui.modelFx.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import model.Ebene;
 import model.Position;
@@ -37,30 +40,15 @@ public class SpielebeneGuiController
 
             for(int i = 0; i < ebene.getEbenenZeile(); i++)
             {
-                spielebenenGitter.addRow(1);
+                spielebenenGitter.addRow(0);
             }
 
             for(int i = 0; i < ebene.getEbenenSpalte(); i++)
             {
-                spielebenenGitter.addColumn(1);
+                spielebenenGitter.addColumn(0);
                 for(int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
-                    Raum aktuellerRaum = ebene.getRaumAnPosition(i, j);
-                    Position aktuellePosition = new Position(i, j);
-                    RaumPane raum = new RaumPane();
-                    if(ebene.getRaumAnPosition(i, j) == null)
-                    {
-                        raum.setNichtig(true);
-                    }
-                    else if (ebene.getRaumAnPosition(i, j).getEreignis() == null)
-                    {
-                    }
-                    else
-                    {
-                        raum.getChildren().add(new Label(aktuellerRaum.getEreignis().getName()));
-                    }
-                    raum.setBeinhaltetSpieler(spiel.getSpieler().getPosition().equals(aktuellePosition));
-                    spielebenenGitter.add(raum, i, j);
+                    raumEinfuegen(ebene, i, j);
                 }
             }
         }
@@ -68,6 +56,35 @@ public class SpielebeneGuiController
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
+    }
+
+    private void raumEinfuegen(Ebene ebene, int x, int y)
+    {
+        Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
+        RaumPane raum = new RaumPane();
+        if(aktuellerRaum == null)
+        {
+            raum.setNichtig(true);
+        }
+        else if (aktuellerRaum.getEreignis() == null)
+        {
+        }
+        else
+        {
+            raum.getChildren().add(new Label(aktuellerRaum.getEreignis().getName()));
+        }
+        Position spielerPosition = ebene.getSpielfigur().getPosition();
+        Position aktuellePosition = new Position(x, y);
+        raum.setBeinhaltetSpieler(spielerPosition.equals(aktuellePosition));
+        spielebenenGitter.add(raum, x, y);
+
+        raum.setOnMouseClicked(new EventHandler<MouseEvent>()
+        {
+            @Override public void handle(MouseEvent mouseEvent)
+            {
+                SpielfigurEbeneController.bewegen(ebene, x, y, spiel);
+            }
+        });
     }
 
     @FXML

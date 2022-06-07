@@ -6,18 +6,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.*;
 import static gui.GuiKonstanten.AUFLOESUNG_HOEHE_HD;
@@ -31,20 +24,19 @@ public class EinstellungenGuiController extends GuiController
     @FXML
     private Label lautstaerkeLabel;
 
-    private int[]aufloesungsgrößen = {AUFLOESUNG_HOEHE_HD,AUFLOESUNG_HOEHE_FULLHD};
+    private String[] aufloesungsgroessen = {"1280x720", "1920x1080"};
     private int lautstaerke=0;
 
 
     public void initialize()
     {
-        erstelleCombobox(aufloesungsgrößen,FenstergroesseBox);
+        erstelleCombobox(aufloesungsgroessen,FenstergroesseBox);
         FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
 
         lautstaerkeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 lautstaerke = (int)lautstaerkeSlider.getValue();
-                lautstaerkeLabel.setText(Integer.toString(lautstaerke));
                 mp3Controller.wechselLautstaerke(lautstaerke);
             }
         });
@@ -77,6 +69,16 @@ public class EinstellungenGuiController extends GuiController
 
     public void wechselFenstergroesse(Event event)
     {
+
+        if (FenstergroesseBox.getValue()== "1280x720")
+        {
+            wechselAufloesungHD(event);
+        }
+        if (FenstergroesseBox.getValue() == "1920x1080")
+        {
+            wechselAufloesungFullHD(event);
+        }
+        /*
         if (Integer.parseInt(FenstergroesseBox.getValue().toString())== AUFLOESUNG_HOEHE_HD)
         {
             wechselAufloesungHD(event);
@@ -85,6 +87,8 @@ public class EinstellungenGuiController extends GuiController
         {
             wechselAufloesungFullHD(event);
         }
+
+         */
     }
 
 

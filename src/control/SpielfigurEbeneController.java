@@ -26,15 +26,13 @@ public class SpielfigurEbeneController
      * SpielfigurEbene befindet.
      * @param ziel_x Zielkoordinate des Raums auf der X-Achse.
      * @param ziel_y Zielkoordinate des Raums auf der Y-Achse.
-     * @param spielfigur Instanz der Klasse SpielfigurEbene, welche in der
-     * Instanz von Ebene bewegt werden soll.
      * @param spielStand Instanz der Klasse SpielStand, welcher den
      * Ereignissen uebergeben wird.
      */
     public static void bewegen(Ebene ebene, int ziel_x, int ziel_y,
-                               SpielfigurEbene spielfigur,
                                SpielStand spielStand)
     {
+        SpielfigurEbene spielfigur = ebene.getSpielfigur();
         boolean zielErreichbarInX = false;
         boolean zielErreichbarInY = false;
         final int start_x = spielfigur.getPosition_x();
@@ -51,10 +49,7 @@ public class SpielfigurEbeneController
             if ((zielErreichbarInX || zielErreichbarInY) &&
                 !(zielErreichbarInX && zielErreichbarInY))
             {
-                ebene.getRaumAnPosition(ziel_x, ziel_y)
-                     .setSpielfigur(spielfigur);
                 spielfigur.setPosition(ziel_x, ziel_y);
-                ebene.getRaumAnPosition(start_x, start_y).setSpielfigur(null);
                 ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis()
                      .ausfuehren(spielStand);
             }

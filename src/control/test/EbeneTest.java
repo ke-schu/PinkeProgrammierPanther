@@ -53,7 +53,7 @@ public class EbeneTest
      */
     private static Ebene erstelleEbene()
     {
-        Ebene meineEbene = new Ebene(ZAHL_9, ZAHL_9);
+        Ebene meineEbene = new Ebene(new SpielfigurEbene(), ZAHL_9, ZAHL_9);
 
         LeererRaum leererRaum1 =
                 new LeererRaum(START_RAUM_NAME, START_RAUM_BESCHREIBUNG);
@@ -96,45 +96,30 @@ public class EbeneTest
     public static void testeEbene()
     {
         Ebene testEbene1 = erstelleEbene();
-        Ebene testEbene2 = new Ebene(ZAHL_0, ZAHL_0);
-        SpielStand spielStand = null;
-
         KonsolenIO.ausgeben(testEbene1.toString());
 
         try
         {
             EbeneIO.schreibeDatei(testEbene1, new File(EBENE_TEST_PFAD));
-            testEbene2 = EbeneIO.leseDatei(new File(EBENE_TEST_PFAD));
-            spielStand = SpielStandIO.leseDatei();
-        } catch (IOException e)
+            Ebene testEbene2 = EbeneIO.leseDatei(new File(EBENE_TEST_PFAD));
+            SpielStand spielStand = SpielStandIO.leseDatei();
+
+            KonsolenIO.ausgeben(testEbene2.toString());
+            KonsolenIO.ausgeben(testEbene2.getSpielfigur());
+
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_3, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_2, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_1, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_0, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_5, ZAHL_0, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_6, ZAHL_0, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_7, ZAHL_0, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_0, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_1, spielStand);
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
-
-        SpielfigurEbene spielfigur = new SpielfigurEbene();
-        EbeneController.initSpielerInEbene(spielfigur, testEbene2);
-
-        KonsolenIO.ausgeben(testEbene2.toString());
-        KonsolenIO.ausgeben(
-                testEbene2.getRaumAnPosition(ZAHL_4, ZAHL_4).getSpielfigur());
-
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_3,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_2,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_1,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_0,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_5, ZAHL_0,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_6, ZAHL_0,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_7, ZAHL_0,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_0,
-                                          spielfigur, spielStand);
-        SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_1,
-                                          spielfigur, spielStand);
     }
 }

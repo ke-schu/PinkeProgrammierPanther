@@ -1,3 +1,7 @@
+.root {
+    -fx-font-family: Calibri;
+}
+
 .button {
     -fx-background-color: white;
     -fx-text-fill: "000000";
@@ -17,23 +21,4 @@
 .button:disabled {
     -fx-border-color: "4f504f";
     -fx-text-fill: "4f504f";
-}
-
-.raum-pane {
-    -fx-background-color: "91E0FF";
-    -fx-min-height: 80;
-    -fx-min-width: 80;
-    -fx-alignment: center;
-}
-
-.raum-pane:hover {
-    -fx-background-color: "87CEEB";
-}
-
-.raum-pane:nichtig {
-    -fx-opacity: 0;
-}
-
-.raum-pane:spieler {
-    -fx-background-color: red;
 }
