@@ -31,18 +31,13 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label text="Musiklautstärke" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label text="Musiklautstärke" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="FenstergroesseBox" onAction="#wechselAufloesungFullHD" prefHeight="70.0" prefWidth="191.0" promptText="Fenstergröße" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Label fx:id="lautstaerkeLabel" prefHeight="176.0" prefWidth="426.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Slider fx:id="lautstaerkeSlider" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <ComboBox fx:id="FenstergroesseBox" onAction="#wechselAufloesungFullHD" prefHeight="70.0" prefWidth="300.0" promptText="Fenstergröße" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Slider fx:id="lautstaerkeSlider" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
          </cursor></Slider>
