@@ -1,0 +1,61 @@
+.button {
+    -fx-text-fill: "000000";
+    -fx-border-color: "000000";
+    -fx-border-width: 1;
+    -fx-padding: 8, 16, 8, 16;
+    -fx-font-size: 14;
+    -fx-border-radius: 6;
+}
+
+.button:hover {
+    -fx-background-color: "ffe3ff";
+    -fx-text-fill: "000000";
+    -fx-background-radius: 6;
+}
+
+.button:disabled {
+    -fx-border-color: "4f504f";
+    -fx-text-fill: "4f504f";
+}
+
+.charakter-vbox {
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+    -fx-background-radius: 10;
+    -fx-pref-width: 150;
+    -fx-alignment: top-center;
+}
+
+.charakter-vbox:hover {
+    -fx-background-color: "91E0FF";
+}
+
+.charakter-vbox:ausgewaehlt {
+    -fx-border-color: "3D5E6B";
+    -fx-background-color: "87CEEB";
+}
+
+.charakter-vbox:nicht-freigeschaltet {
+    -fx-background-color: "D4D4D4";
+}
+
+.charakter-vbox:nicht-freigeschaltet:hover {
+    -fx-background-color: silver;
+}
+
+.charakter-vbox #charakter-name {
+    -fx-font-size: 18;
+}
+
+#kartenDeck {
+    -fx-border-color: black;
+    -fx-border-radius: 10;
+    -fx-padding: 20;
+}
+
+#gold {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
