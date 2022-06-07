@@ -1,9 +1,6 @@
 package control.test;
 
-import model.Ebene;
-import model.Gegenspieler;
-import model.Raum;
-import model.SpielFeld;
+import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
@@ -350,6 +347,6 @@ public class EbenenErstellung
             default:
                 return null;
         }
-        return new Ebene(zeilen, spalten, meinRaum);
+        return new Ebene(new SpielfigurEbene(), zeilen, spalten, meinRaum);
     }
 }

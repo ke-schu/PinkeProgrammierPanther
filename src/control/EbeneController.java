@@ -31,9 +31,7 @@ public class EbeneController
     public static void initSpielerInEbene(SpielfigurEbene spielfigur,
                                           Ebene ebene)
     {
-        ebene.getRaumAnPosition(SPIELFIGUR_EBENE_STARTPOSITION_X,
-                                SPIELFIGUR_EBENE_STARTPOSITION_Y)
-             .setSpielfigur(spielfigur);
+        ebene.setSpielfigur(spielfigur);
         spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION_X,
                                SPIELFIGUR_EBENE_STARTPOSITION_Y);
     }

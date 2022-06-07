@@ -67,7 +67,8 @@
             },
             "schlafend": true,
             "freundlich": false,
-            "id": 1,
+            "zaehler": 0,
+            "id": 0,
             "name": "Gegner",
             "level": 10,
             "klasse": "model.Gegenspieler"
@@ -79,12 +80,6 @@
                 null,
                 null,
                 null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
                 null,
                 null
               ],
@@ -93,6 +88,15 @@
                 null,
                 null,
                 null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
                 null
               ],
               [
@@ -100,9 +104,19 @@
                 null,
                 null,
                 null,
+                null,
                 null
               ],
               [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
                 null,
                 null,
                 null,
@@ -110,8 +124,8 @@
                 null
               ]
             ],
-            "zeilen": 5,
-            "spalten": 5
+            "zeilen": 6,
+            "spalten": 6
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
@@ -251,5 +265,11 @@
     ]
   ],
   "ebenenSpalte": 9,
-  "ebenenZeile": 9
+  "ebenenZeile": 9,
+  "spielfigur": {
+    "position": {
+      "x": 4,
+      "y": 4
+    }
+  }
 }

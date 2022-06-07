@@ -53,6 +53,10 @@ public interface Strings
     String KARTEN_DECK_STACK = "karten";
     String JSON_KLASSE = "klasse";
     String JSON_EREIGNIS = "ereignis";
+    String JSON_EBENEN_SPALTE = "ebenenSpalte";
+    String JSON_EBENEN_ZEILE = "ebenenZeile";
+    String JSON_SPIELFIGUR_EBENE = "spielfigur";
+    String JSON_EBENE = "ebene";
 
     //  Exception Strings
     String JSON_NICHT_LESBAR_INFO =

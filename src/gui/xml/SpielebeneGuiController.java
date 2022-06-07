@@ -46,7 +46,6 @@ public class SpielebeneGuiController
                 for(int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
                     Raum aktuellerRaum = ebene.getRaumAnPosition(i, j);
-                    Position aktuellePosition = new Position(i, j);
                     RaumPane raum = new RaumPane();
                     if(ebene.getRaumAnPosition(i, j) == null)
                     {
@@ -59,7 +58,9 @@ public class SpielebeneGuiController
                     {
                         raum.getChildren().add(new Label(aktuellerRaum.getEreignis().getName()));
                     }
-                    raum.setBeinhaltetSpieler(spiel.getSpieler().getPosition().equals(aktuellePosition));
+                    Position spielerPosition = ebene.getSpielfigur().getPosition();
+                    Position aktuellePosition = new Position(i, j);
+                    raum.setBeinhaltetSpieler(spielerPosition.equals(aktuellePosition));
                     spielebenenGitter.add(raum, i, j);
                 }
             }
