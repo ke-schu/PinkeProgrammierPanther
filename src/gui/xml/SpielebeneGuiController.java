@@ -40,12 +40,12 @@ public class SpielebeneGuiController
 
             for(int i = 0; i < ebene.getEbenenZeile(); i++)
             {
-                spielebenenGitter.addRow(1);
+                spielebenenGitter.addRow(0);
             }
 
             for(int i = 0; i < ebene.getEbenenSpalte(); i++)
             {
-                spielebenenGitter.addColumn(1);
+                spielebenenGitter.addColumn(0);
                 for(int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
                     raumEinfuegen(ebene, i, j);

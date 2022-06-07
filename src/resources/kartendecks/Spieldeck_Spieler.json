@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "DasDeckDerGang",
+  "bezeichnung": "DasDeckDerSchule",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -20,7 +20,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 0,
-      "name": "Böser Nachbar",
+      "name": "Lehrer",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -43,7 +43,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 1,
-      "name": "Genervter Nachbar",
+      "name": "Klassenlehrer",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -66,7 +66,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 2,
-      "name": "Eismann",
+      "name": "verrückter Wissenschaftler",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -89,7 +89,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 3,
-      "name": "Nachbarsjunge",
+      "name": "Sportplatzwart",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -112,7 +112,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 4,
-      "name": "Rüdiger",
+      "name": "HarryPotter",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -135,7 +135,7 @@
       "freundlich": false,
       "zaehler": 0,
       "id": 5,
-      "name": "Streuner",
+      "name": "Bänker",
       "level": 40,
       "klasse": "model.KarteEinheit"
     }

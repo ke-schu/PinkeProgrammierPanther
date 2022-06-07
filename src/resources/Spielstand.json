@@ -1,5 +1,5 @@
 {
-  "gold": 10,
+  "gold": 123,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -29,13 +29,13 @@
     "effektZwei": "ZURUECKWERFEN",
     "position": {
       "x": 3,
-      "y": 2
+      "y": 3
     },
     "schlafend": true,
     "freundlich": true,
     "zaehler": 0,
     "id": 2,
-    "name": "Oberkommissar",
+    "name": "Schulleiter",
     "level": 1,
     "klasse": "model.Spieler"
   }

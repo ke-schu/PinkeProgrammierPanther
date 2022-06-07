@@ -27,6 +27,7 @@ import model.SpielStand;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import static gui.GuiKonstanten.*;
 
@@ -40,6 +41,7 @@ public class CharakterAuswahlGuiController
     @FXML Label gold;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
     private SpielStand spiel;
+    private Stack<Charakter> charakterStack;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -47,12 +49,11 @@ public class CharakterAuswahlGuiController
         spielButton.setDisable(true);
         try
         {
+            charakterStack = CharakterIO.leseDatei();
             spiel = SpielStandIO.leseDatei();
-            gold.setText(GOLD_BESTAND + spiel.getGold());
-            for (int i = 0; i < CharakterIO.leseDatei().size(); i++)
+            for (int i = 0; i < charakterStack.size(); i++)
             {
-                charaktere.getChildren().add(einfuegenCharakter(
-                        CharakterIO.leseCharakter(i)));
+                charaktere.getChildren().add(einfuegenCharakter(i));
             }
         } catch (JsonNichtLesbarException e)
         {
@@ -87,24 +88,31 @@ public class CharakterAuswahlGuiController
         return new Label(charakter.getStartDeck().get(i).getName());
     }
 
-    private VBox einfuegenCharakter(Charakter meinCharakter)
+    private VBox einfuegenCharakter(int pos) throws JsonNichtLesbarException
     {
+        Charakter meinCharakter = new Charakter(charakterStack.get(pos));
         CharakterVBox v = new CharakterVBox();
 
-        Label name = new Label(meinCharakter.getName());
-        name.setId(STYLE_CHARAKTER_NAME);
-        v.getChildren().add(name);
+        BooleanProperty freigeschaltet = new SimpleBooleanProperty(meinCharakter.getFreigeschaltet());
+        updateFreigeschaltet(v, meinCharakter, freigeschaltet.get());
+        freigeschaltet.addListener((observableValue, aBoolean, t1) ->
+                        updateFreigeschaltet(v, meinCharakter, freigeschaltet.get()));
 
-        updateFreigeschaltet(v, meinCharakter);
-        updateGewaehlt(v, meinCharakter);
+        updateGewaehlt(v, meinCharakter, pos, freigeschaltet);
 
         return v;
     }
 
-    private void updateFreigeschaltet(CharakterVBox v,  Charakter c)
+    private void updateFreigeschaltet(CharakterVBox v,  Charakter c, boolean b)
     {
-        v.setFreigeschaltet(c.getFreigeschaltet());
-        if(!v.istFreigeschaltet())
+        v.getChildren().clear();
+
+        Label name = new Label(c.getName());
+        name.setId(STYLE_CHARAKTER_NAME);
+        v.getChildren().add(name);
+
+        v.setFreigeschaltet(b);
+        if(!b)
         {
             v.getChildren()
              .add(new Label(String.format(CHARAKTER_KAUFEN, c.getFreischaltgebuehr())));
@@ -114,9 +122,10 @@ public class CharakterAuswahlGuiController
             v.getChildren()
              .add(new Label(SCHON_FREIGESCHALTET));
         }
+        gold.setText(GOLD_BESTAND + spiel.getGold());
     }
 
-    private void updateGewaehlt(CharakterVBox v,  Charakter c)
+    private void updateGewaehlt(CharakterVBox v,  Charakter c, int pos, BooleanProperty b)
     {
         ObjectProperty<Charakter> dieserCharakter =
                 new SimpleObjectProperty<>(c);
@@ -129,7 +138,7 @@ public class CharakterAuswahlGuiController
                                 }
                                 else
                                 {
-                                    kaufen(dieserCharakter.get());
+                                    kaufen(pos, b);
                                 }
                             });
 
@@ -137,9 +146,17 @@ public class CharakterAuswahlGuiController
                                              v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
     }
 
-    private void kaufen(Charakter charakter)
+    private void kaufen(int pos, BooleanProperty freigeschaltet)
     {
-        //SpielStandController.charakterKaufen(charakter, spiel);
+        try
+        {
+            SpielStandController.charakterKaufen(charakterStack, pos, spiel);
+            freigeschaltet.set(true);
+        }
+        catch (NichtGenugGoldException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
     }
 
     public void spielen(ActionEvent event)

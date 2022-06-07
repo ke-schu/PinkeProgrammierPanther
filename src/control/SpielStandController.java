@@ -11,6 +11,7 @@ import model.SpielStand;
 import model.Spieler;
 
 import java.io.IOException;
+import java.util.Stack;
 
 import static resources.Artefakte.SCHUTZENGEL;
 import static resources.Konstanten.SCHUTZENGEL_ANTEIL_MAXLEBEN;
@@ -49,13 +50,23 @@ public class SpielStandController
         }
     }
 
-    public static void charakterKaufen(Charakter charakter, SpielStand spiel)
+    public static void charakterKaufen(Stack<Charakter> charakterStack, int pos, SpielStand spiel)
             throws NichtGenugGoldException
     {
-        if(spiel.getGold() > charakter.getFreischaltgebuehr())
+        Charakter charakter = charakterStack.get(pos);
+        if(spiel.getGold() >= charakter.getFreischaltgebuehr())
         {
             spiel.setGold(spiel.getGold() - charakter.getFreischaltgebuehr());
             charakter.setFreigeschaltet(true);
+            try
+            {
+                CharakterIO.schreibeDatei(charakterStack);
+                SpielStandIO.schreibeDatei(spiel);
+            }
+            catch (IOException e)
+            {
+                KonsolenIO.ausgeben(e.getMessage());
+            }
         }
         else
         {

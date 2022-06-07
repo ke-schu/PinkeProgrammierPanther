@@ -36,12 +36,12 @@
                    <children>
                   <StackPane alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                      <children>
-                                  <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
+                         <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
                      </children>
                   </StackPane>
                   <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
-                                  <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen" />
+                         <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen" />
                      </children>
                   </StackPane>
                    </children>
