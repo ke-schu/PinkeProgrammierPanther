@@ -1,0 +1,18 @@
+.raum-pane {
+    -fx-background-color: "91E0FF";
+    -fx-min-height: 80;
+    -fx-min-width: 80;
+    -fx-alignment: center;
+}
+
+.raum-pane:hover {
+    -fx-background-color: "87CEEB";
+}
+
+.raum-pane:nichtig {
+    -fx-opacity: 0.2;
+}
+
+.raum-pane:spieler {
+    -fx-background-color: red;
+}

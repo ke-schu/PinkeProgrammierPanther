@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.SpielebeneGuiController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.SpielebeneGuiController" stylesheets="@../css/Ebene.css">
    <bottom>
       <HBox prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
           <children>

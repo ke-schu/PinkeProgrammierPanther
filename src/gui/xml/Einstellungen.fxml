@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.EinstellungenGuiController">
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.EinstellungenGuiController" stylesheets="@../css/Einstellungen.css">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,6 +41,6 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <Slider fx:id="lautstaerkeSlider" orientation="VERTICAL" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Slider fx:id="lautstaerkeSlider" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
