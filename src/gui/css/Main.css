@@ -86,3 +86,8 @@
 .raum-pane:spieler {
     -fx-background-color: red;
 }
+
+/*------Einstellungen----*/
+.combo-box {
+    -fx-font-size: 32;
+}

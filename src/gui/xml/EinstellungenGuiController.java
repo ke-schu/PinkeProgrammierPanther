@@ -1,11 +1,15 @@
 package gui.xml;
 
+import gui.mp3Controller;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -24,14 +28,26 @@ public class EinstellungenGuiController extends GuiController
     private Slider lautstaerkeSlider;
     @FXML
     private ComboBox FenstergroesseBox;
+    @FXML
+    private Label lautstaerkeLabel;
 
     private int[]aufloesungsgrößen = {AUFLOESUNG_HOEHE_HD,AUFLOESUNG_HOEHE_FULLHD};
+    private int lautstaerke=0;
 
 
     public void initialize()
     {
         erstelleCombobox(aufloesungsgrößen,FenstergroesseBox);
         FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
+
+        lautstaerkeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                lautstaerke = (int)lautstaerkeSlider.getValue();
+                lautstaerkeLabel.setText(Integer.toString(lautstaerke));
+                mp3Controller.wechselLautstaerke(lautstaerke);
+            }
+        });
     }
 
 

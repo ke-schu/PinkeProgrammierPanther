@@ -35,7 +35,12 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Slider fx:id="lautstaerkeSlider" showTickLabels="true" showTickMarks="true" value="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <ComboBox fx:id="FenstergroesseBox" onAction="#wechselAufloesungFullHD" prefHeight="70.0" prefWidth="191.0" promptText="Fenstergröße" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <Label fx:id="lautstaerkeLabel" prefHeight="176.0" prefWidth="426.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Slider fx:id="lautstaerkeSlider" orientation="VERTICAL" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>

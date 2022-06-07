@@ -14,6 +14,9 @@ public interface GuiKonstanten
     int AUFLOESUNG_HOEHE_FULLHD = 1920;
     int AUFLOESUNG_BREITE_FULLHD = 1080;
 
+    //Werte für die Sound Einstellungen
+    double FAKTOR_FUER_LAUTSTAERKE = 0.01;
+
     //Strings fuer Texte der Hilfefenster
     String HILFE_TEXT = "Hier steht ein Text, der hilft.";
     String HILFE_HAUPTMENUE = "Hier ist der String der nachher in unserem Hilfefenster des Hauptmenüs steht." +

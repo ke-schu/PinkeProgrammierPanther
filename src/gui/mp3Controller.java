@@ -8,6 +8,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static gui.GuiKonstanten.FAKTOR_FUER_LAUTSTAERKE;
+
 public class mp3Controller implements Initializable
 {
     private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString()));
@@ -26,5 +28,11 @@ public class mp3Controller implements Initializable
     {
         mediaplayer.play();
     }
+
+    public static void wechselLautstaerke(int lautstaerke)
+    {
+        mediaplayer.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
+    }
+
 
 }
