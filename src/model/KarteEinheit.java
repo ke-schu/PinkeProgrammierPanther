@@ -25,6 +25,8 @@ public class KarteEinheit extends Karte
     private boolean freundlich;
     private int zaehler = 0;
 
+    private boolean kopie = false;
+
 
     /**
      * Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen
@@ -62,6 +64,30 @@ public class KarteEinheit extends Karte
         this.effektZwei = effektZwei;
         this.schlafend = schlafend;
         this.freundlich = freundlich;
+    }
+    private KarteEinheit(KarteEinheit vorlage)
+    {
+        super(vorlage.getName(), vorlage.getLevel());
+        this.typ = vorlage.getTyp();
+        this.macht = vorlage.getMacht();
+        this.lebenspunkte = vorlage.getInit().getLebenspunkte();
+        this.manaKosten = 0;
+        this.beweglichkeit = vorlage.getBeweglichkeit();
+        this.reichweite = vorlage.getReichweite();
+        this.schild = vorlage.getSchild();
+        this.verteidigung = vorlage.getVerteidigung();
+        this.effektEins = null;
+        this.effektZwei = null;
+        this.schlafend = true;
+        this.freundlich = vorlage.getFreundlich();
+        this.position = vorlage.getPosition();
+        this.kopie = true;
+    }
+
+    public KarteEinheit kopieerstelen(KarteEinheit vorlage)
+    {
+        KarteEinheit kopie = new KarteEinheit(vorlage);
+        return kopie;
     }
 
     /**
@@ -311,6 +337,12 @@ public class KarteEinheit extends Karte
     public void setZaehler (int zaehler)
     {
         this.zaehler = zaehler;
+    }
+
+
+    public boolean getKopie ()
+    {
+        return kopie;
     }
 
     /**

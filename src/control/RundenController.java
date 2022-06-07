@@ -1,5 +1,6 @@
 package control;
 
+import model.KarteEinheit;
 import model.KartenDeck;
 import model.SpielFeld;
 
@@ -64,24 +65,27 @@ public class RundenController
     public static void feldplatzAufraumen(SpielFeld feld, KartenDeck spielerDeck,
                                       KartenDeck masterDeck, int feldspalte , int feldzeile)
     {
+        KarteEinheit sterbendeeinheit = feld.getSpielfeldplatz(feldspalte, feldzeile);
         if (feld.getSpielfeldplatz(feldspalte, feldzeile).getLebenspunkte() <= 0)
+
         {
-            if(feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektEins() == LETZTEWORTE
-               || feld.getSpielfeldplatz(feldspalte, feldzeile).getEffektZwei() == LETZTEWORTE)
+            sterbendeeinheit.initialisieren();
+            feld.einheitloeschen(feldspalte, feldzeile);
+            EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektEins(), feld);
+            EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektZwei(), feld);
+
+            if (sterbendeeinheit.getKopie())
             {
-                EffektController.sterbeneffektausloesen(feld.getSpielfeldplatz(feldspalte, feldzeile), feld);
+                ;
             }
-            feld.getSpielfeldplatz(feldspalte, feldzeile).initialisieren();
-            if (feld.getSpielfeldplatz(feldspalte, feldzeile).getFreundlich())
+            else if (sterbendeeinheit.getFreundlich())
             {
-                spielerDeck.push(feld.getSpielfeldplatz(feldspalte, feldzeile));
+                spielerDeck.push(sterbendeeinheit);
                 KartenDeckController.mischen(spielerDeck);
-                feld.einheitloeschen(feldspalte, feldzeile);
             } else
             {
-                masterDeck.push(feld.getSpielfeldplatz(feldspalte, feldzeile));
+                masterDeck.push(sterbendeeinheit);
                 KartenDeckController.mischen(masterDeck);
-                feld.einheitloeschen(feldspalte, feldzeile);
             }
         }
     }

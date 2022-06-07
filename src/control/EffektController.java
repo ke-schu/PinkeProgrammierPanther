@@ -2,7 +2,10 @@ package control;
 
 import io.KonsolenIO;
 import model.KarteEinheit;
+import model.KartenDeck;
+import model.Position;
 import model.SpielFeld;
+import resources.Effekte;
 
 /**
  * Loest die Effekte der Karten aus und kontrolliert diese.
@@ -22,39 +25,57 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    public static void effektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
+    public static void aktioneffektausloesen(KarteEinheit ausloeser,KarteEinheit ziel,Effekte meineffekt, SpielFeld feld)
     {
-        switch (ausloeser.getEffektEins())
+        switch (meineffekt)
         {
-
-        }
-    }
-    public static void sterbeneffektausloesen(KarteEinheit ausloeser, SpielFeld feld)
-    {
-        switch (ausloeser.getEffektEins())
-        {
-            case LETZTEWORTE:
-                letzteWorte(ausloeser, feld);
+            case OPFERN:
+                //opfern();
                 break;
             default:
                 return;
         }
     }
-    public static void angriffeffektAusloesen(KarteEinheit ausloeser, SpielFeld feld)
+    public static void sterbeneffektausloesen(KarteEinheit ausloeser,Effekte meineffekt, SpielFeld feld)
     {
-        switch (ausloeser.getEffektEins())
+        switch (meineffekt)
         {
-            case LETZTEWORTE:
-                letzteWorte(ausloeser, feld);
+            case KOPIE:
+                kopie(ausloeser, feld);
+                break;
+            case HELDENTAT:
+               // heldentat();
+                break;
+            case ZURUECKWERFEN:
+                zurueckWerfen(ausloeser, feld);
                 break;
             default:
                 return;
         }
     }
-
-    public static void starteffektausloesen(KarteEinheit ausloeser)
+    public static void angriffeffektAusloesen(KarteEinheit ausloeser,KarteEinheit ziel,
+                                              Effekte meineffekt, SpielFeld feld,
+                                              KartenDeck spielerDeck,KartenDeck masterDeck)
     {
-        switch (ausloeser.getEffektEins())
+            switch (meineffekt)
+            {
+                case RAUBTIER:
+                    raubtier(ausloeser,ziel);
+                    break;
+                case DURCHSCHNEIDEN:
+                    durchschneiden(ausloeser, ziel, feld, spielerDeck, masterDeck);
+                    break;
+                case VERSCHLINGEN:
+                   // verschlingen();
+                    break;
+                default:
+                    return;
+            }
+    }
+
+    public static void starteffektausloesen(KarteEinheit ausloeser, Effekte meineffekt)
+    {
+        switch (meineffekt)
         {
             case SPRINT:
                 sprint(ausloeser);
@@ -64,19 +85,6 @@ public class EffektController
                 break;
             default:
                 return;
-        }
-    }
-
-    /**
-     * Loest den Effekt "LetzteWorte" aus.
-     * @param ausloeser die Einheit, welche den Effekt ausloest.
-     * @param feld das Spielfeld, auf dem gespielt wird.
-     */
-    private static void letzteWorte(KarteEinheit ausloeser, SpielFeld feld)
-    {
-        if (ausloeser.getLebenspunkte() == 0) ;
-        {
-            zurueckWerfen(ausloeser, feld);
         }
     }
 
@@ -170,14 +178,19 @@ public class EffektController
 
     private static void kopie(KarteEinheit ausloeser, SpielFeld feld)
     {
-
+        feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY(),ausloeser.kopieerstelen(ausloeser));
     }
-    private static void schlachtruf()
+    private static void durchschneiden(KarteEinheit ausloeser,KarteEinheit ziel,
+                                       SpielFeld feld, KartenDeck spielerDeck,
+                                       KartenDeck masterDeck)
     {
-
+        Position positonhinterziel = EinheitenController.positionhinterkarteberechnen(ausloeser, ziel, feld);
+        boolean imfeld =  EinheitenController.positioninnerhalbvonfeld(positonhinterziel,feld);
+        if(imfeld)
+        {
+            EinheitenController.einheitenAngreifenMitEinheiten(feld, spielerDeck,masterDeck,ausloeser,
+                    feld.getSpielfeldplatz(positonhinterziel.getX(),positonhinterziel.getY()));
+        }
     }
-
-
-
 
 }

@@ -1,9 +1,6 @@
 package control;
 
-import model.KarteEinheit;
-import model.KarteZauber;
-import model.KartenDeck;
-import model.SpielFeld;
+import model.*;
 
 import static control.EffektController.angriffeffektAusloesen;
 import static resources.Effekte.RAUBTIER;
@@ -156,20 +153,15 @@ public class EinheitenController
                 verursacheSchaden(verteidiger, angreifer.getMacht());
                 RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                         verteidiger.getPositionX(),verteidiger.getPositionY());
+                EffektController.angriffeffektAusloesen(angreifer, verteidiger, angreifer.getEffektEins(),
+                        feld, spielerDeck,masterDeck);
+                EffektController.angriffeffektAusloesen(angreifer, verteidiger, angreifer.getEffektZwei(),
+                        feld, spielerDeck,masterDeck);
                 angreifer.setSchlafend(true);
-                raubtierpruefen(angreifer, feld);
             }
-
         }
     }
 
-    public static void raubtierpruefen(KarteEinheit angreifer,SpielFeld feld)
-    {
-        if((angreifer.getEffektEins()) == RAUBTIER ||angreifer.getEffektZwei() == RAUBTIER)
-        {
-            angriffeffektAusloesen(angreifer, feld);
-        }
-    }
 
     public static boolean pruefeObFeindlich(KarteEinheit angreifer, KarteEinheit verteidiger)
     {
@@ -218,5 +210,46 @@ public class EinheitenController
         {
             verteidiger.schadenNehmen(schaden);
         }
+    }
+
+    public static Position positionhinterkarteberechnen (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
+    {
+        Position positionhinterkarte = new Position();
+        int xausloeser = ausloeser.getPositionX();
+        int yausloeser = ausloeser.getPositionY();
+
+        int xziel = ziel.getPositionX();
+        int yziel = ziel.getPositionY();
+
+        if (xausloeser == xziel)
+        {
+            positionhinterkarte.setX(xausloeser);
+            if(yausloeser>yziel)
+                positionhinterkarte.setY(yziel-1);
+            else if (yziel>yausloeser)
+            {
+                positionhinterkarte.setY(yziel+1);
+            }
+        }
+        if (yausloeser == yziel)
+        {
+            positionhinterkarte.setY(yausloeser);
+            if(xausloeser>xziel)
+                positionhinterkarte.setX(xziel-1);
+            else if (xziel>xausloeser)
+            {
+                positionhinterkarte.setX(xziel+1);
+            }
+        }
+        return positionhinterkarte;
+    }
+
+    public static boolean positioninnerhalbvonfeld(Position position, SpielFeld feld)
+    {
+        if((position.getX() < feld.getSpalten()) && (position.getY() < feld.getZeilen()))
+        {
+            return true;
+        }
+        return false;
     }
 }
