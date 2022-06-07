@@ -24,6 +24,14 @@ public class EinstellungenGuiController extends GuiController
     @FXML
     private ComboBox FenstergroesseBox;
 
+    private int[]aufloesungsgrößen = {AUFLOESUNG_HOEHE_HD,AUFLOESUNG_HOEHE_FULLHD};
+
+
+    public void initialize()
+    {
+        erstelleCombobox(aufloesungsgrößen,FenstergroesseBox);
+    }
+
 
     public void wechselAufloesungFullHD (ActionEvent event)
     {
@@ -53,6 +61,7 @@ public class EinstellungenGuiController extends GuiController
     {
 
     }
+
 
 
 }

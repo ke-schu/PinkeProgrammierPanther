@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
@@ -127,5 +128,13 @@ public class GuiController {
     public void setRoot(Parent root)
     {
         this.root = root;
+    }
+
+    public void erstelleCombobox(int[] comboBoxArray, ComboBox meineCombobox)
+    {
+        for(int i = 0; i < comboBoxArray.length; i++)
+        {
+            meineCombobox.getItems().add(Integer.toString(comboBoxArray[i]));
+        }
     }
 }
