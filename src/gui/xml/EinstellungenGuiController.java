@@ -1,6 +1,7 @@
 package gui.xml;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -30,10 +31,11 @@ public class EinstellungenGuiController extends GuiController
     public void initialize()
     {
         erstelleCombobox(aufloesungsgrößen,FenstergroesseBox);
+        FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
     }
 
 
-    public void wechselAufloesungFullHD (ActionEvent event)
+    public void wechselAufloesungFullHD (Event event)
     {
         super.setStage((Stage)((Node)event.getSource()).getScene().getWindow());
         super.getStage().setMinHeight(AUFLOESUNG_BREITE_FULLHD);
@@ -42,7 +44,7 @@ public class EinstellungenGuiController extends GuiController
         super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
     }
 
-    public void wechselAufloesungHD (ActionEvent event)
+    public void wechselAufloesungHD (Event event)
     {
         super.setStage((Stage)((Node)event.getSource()).getScene().getWindow());
         super.getStage().setMinHeight(AUFLOESUNG_BREITE_HD);
@@ -57,11 +59,17 @@ public class EinstellungenGuiController extends GuiController
         offneHilfeTextEinsetzen(HILFE_EINSTELLUNGEN);
     }
 
-    public void wechslFenstergroesse (ActionEvent event)
+    public void wechselFenstergroesse(Event event)
     {
-
+        if (Integer.parseInt(FenstergroesseBox.getValue().toString())== AUFLOESUNG_HOEHE_HD)
+        {
+            wechselAufloesungHD(event);
+        }
+        if (Integer.parseInt(FenstergroesseBox.getValue().toString())== AUFLOESUNG_HOEHE_FULLHD)
+        {
+            wechselAufloesungFullHD(event);
+        }
     }
-
 
 
 }
