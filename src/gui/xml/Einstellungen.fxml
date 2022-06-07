@@ -35,7 +35,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Slider fx:id="lautstaerkeSlider" max="200.0" showTickLabels="true" showTickMarks="true" value="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Slider fx:id="lautstaerkeSlider" showTickLabels="true" showTickMarks="true" value="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <ComboBox fx:id="fenstergroesse" onAction="#wechslFenstergroesse" prefWidth="150.0" promptText="Fenstergöße" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

@@ -2,7 +2,6 @@ package gui.xml;
 
 import exceptions.JsonNichtLesbarException;
 import gui.modelFx.RaumPane;
-import io.EbeneIO;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import model.Position;
 import model.Raum;
 import model.SpielStand;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
