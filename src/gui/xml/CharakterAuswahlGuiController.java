@@ -138,7 +138,10 @@ public class CharakterAuswahlGuiController
                                 }
                                 else
                                 {
-                                    kaufen(pos, b);
+                                    if(kaufen(pos, b))
+                                    {
+                                        aktiverCharakter.bind(dieserCharakter);
+                                    }
                                 }
                             });
 
@@ -146,16 +149,18 @@ public class CharakterAuswahlGuiController
                                              v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
     }
 
-    private void kaufen(int pos, BooleanProperty freigeschaltet)
+    private boolean kaufen(int pos, BooleanProperty freigeschaltet)
     {
         try
         {
             SpielStandController.charakterKaufen(charakterStack, pos, spiel);
             freigeschaltet.set(true);
+            return true;
         }
         catch (NichtGenugGoldException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
+            return false;
         }
     }
 
