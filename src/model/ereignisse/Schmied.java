@@ -38,7 +38,7 @@ public class Schmied extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
+        //auswaehlen();
         if (isAuswahl())
         {
             int indexKarte = eingabeInt();

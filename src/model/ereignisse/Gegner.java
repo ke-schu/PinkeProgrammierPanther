@@ -41,7 +41,7 @@ public class Gegner extends Ereignis
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
+        //auswaehlen();
         if (isAuswahl())
         {
             spielfeld = new SpielFeld();

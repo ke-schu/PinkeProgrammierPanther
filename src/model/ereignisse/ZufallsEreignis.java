@@ -78,15 +78,14 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
+        //auswaehlen();
         if (isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
             // Wahrscheinlichkeit 1%
             if (wahrscheinlichkeit <= EIN_PROZENT)
             {
-                //Es gibt noch kein Attribut fuer maximale Lebenspunkte
-                //spielStand.getSpieler().setLebenspunkte();
+
             }
             // Wahrscheinlichkeit 9%
             else if (wahrscheinlichkeit <= ZEHN_PROZENT)

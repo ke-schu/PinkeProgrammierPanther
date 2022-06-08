@@ -1,5 +1,5 @@
 {
-  "gold": 123,
+  "gold": 158,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -32,11 +32,12 @@
       "y": 2
     },
     "schlafend": true,
-    "freundlich": true,
     "zaehler": 0,
+    "kopie": false,
     "id": 2,
     "name": "Oberkommissar",
     "level": 1,
-    "klasse": "model.Spieler"
+    "klasse": "model.Spieler",
+    "freundlich": true
   }
 }

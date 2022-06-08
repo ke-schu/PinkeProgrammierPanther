@@ -3,7 +3,7 @@ package gui.xml;
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import exceptions.NichtGenugGoldException;
-import gui.modelFx.CharakterVBox;
+import gui.components.CharakterVBox;
 import io.CharakterIO;
 import io.KonsolenIO;
 import io.SpielStandIO;

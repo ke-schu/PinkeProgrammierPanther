@@ -31,4 +31,9 @@ public interface GuiKonstanten
     String GOLD_BESTAND = "Goldbestand: ";
     String EREIGNIS_ANNEHMEN = "Annehmen";
     String EREIGNIS_ABLEHNEN = "Ablehnen";
+    String EREIGNIS_GEHEN = "Gehen";
+    String TRUHE_AUSFUEHREN_1 = "Ich hab hier ";
+    String TRUHE_AUSFUEHREN_2 = " Gold gefunden! Wie cool.";
+    String HEILER_AUSFUEHREN_1 = "Ich hab ";
+    String HEILER_AUSFUEHREN_2 = " Lebenspunkte zurueckerhalten";
 }

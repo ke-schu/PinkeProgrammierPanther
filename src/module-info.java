@@ -16,5 +16,5 @@ module PinkeProgrammierPanther {
     opens model.ereignisse;
     opens gui.xml;
     opens control.test;
-    opens gui.modelFx;
+    opens gui.components;
 }
