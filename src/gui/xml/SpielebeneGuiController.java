@@ -5,6 +5,8 @@ import exceptions.JsonNichtLesbarException;
 import gui.modelFx.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,6 +30,8 @@ public class SpielebeneGuiController
     @FXML GridPane spielebenenGitter;
     @FXML Label spielerLabel;
     private SpielStand spiel;
+    private ObjectProperty<Position> spielerPosition =
+            new SimpleObjectProperty<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -38,21 +42,21 @@ public class SpielebeneGuiController
             spielerLabel.setText(spiel.getSpieler().getName());
             Ebene ebene = spiel.getAktuelleEbene();
 
-            for(int i = 0; i < ebene.getEbenenZeile(); i++)
+            for (int i = 0; i < ebene.getEbenenZeile(); i++)
             {
                 spielebenenGitter.addRow(0);
             }
 
-            for(int i = 0; i < ebene.getEbenenSpalte(); i++)
+            for (int i = 0; i < ebene.getEbenenSpalte(); i++)
             {
                 spielebenenGitter.addColumn(0);
-                for(int j = 0; j < ebene.getEbenenZeile(); j++)
+                for (int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
                     raumEinfuegen(ebene, i, j);
                 }
             }
-        }
-        catch (JsonNichtLesbarException e)
+            spielerPosition.set(ebene.getSpielfigur().getPosition());
+        } catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -62,29 +66,33 @@ public class SpielebeneGuiController
     {
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
         RaumPane raum = new RaumPane();
-        if(aktuellerRaum == null)
+        if (aktuellerRaum == null)
         {
             raum.setNichtig(true);
-        }
-        else if (aktuellerRaum.getEreignis() == null)
+        } else if (aktuellerRaum.getEreignis() == null)
         {
-        }
-        else
+        } else
         {
-            raum.getChildren().add(new Label(aktuellerRaum.getEreignis().getName()));
+            raum.getChildren()
+                .add(new Label(aktuellerRaum.getEreignis().getName()));
         }
-        Position spielerPosition = ebene.getSpielfigur().getPosition();
-        Position aktuellePosition = new Position(x, y);
-        raum.setBeinhaltetSpieler(spielerPosition.equals(aktuellePosition));
-        spielebenenGitter.add(raum, x, y);
+
+        ObjectProperty<Position> aktuellePosition =
+                new SimpleObjectProperty<>(new Position(x, y));
+        spielerPosition.addListener(
+                (observableValue, position, t1) -> raum.setBeinhaltetSpieler(
+                        spielerPosition.get().equals(aktuellePosition.get())));
 
         raum.setOnMouseClicked(new EventHandler<MouseEvent>()
         {
             @Override public void handle(MouseEvent mouseEvent)
             {
                 SpielfigurEbeneController.bewegen(ebene, x, y, spiel);
+                spielerPosition.bind(aktuellePosition);
             }
         });
+
+        spielebenenGitter.add(raum, x, y);
     }
 
     @FXML
@@ -93,8 +101,7 @@ public class SpielebeneGuiController
         try
         {
             SpielStandIO.schreibeDatei(spiel);
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -106,8 +113,7 @@ public class SpielebeneGuiController
         try
         {
             wechselZuHauptmenue(event);
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
