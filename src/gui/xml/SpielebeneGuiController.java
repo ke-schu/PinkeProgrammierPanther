@@ -2,7 +2,7 @@ package gui.xml;
 
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
-import gui.modelFx.RaumPane;
+import gui.components.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
