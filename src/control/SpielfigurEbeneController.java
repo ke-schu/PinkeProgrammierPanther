@@ -28,8 +28,9 @@ public class SpielfigurEbeneController
      * @param ziel_y Zielkoordinate des Raums auf der Y-Achse.
      * @param spielStand Instanz der Klasse SpielStand, welcher den
      * Ereignissen uebergeben wird.
+     * @return true, wenn die Bewegung erfolgreich war.
      */
-    public static void bewegen(Ebene ebene, int ziel_x, int ziel_y,
+    public static boolean bewegen(Ebene ebene, int ziel_x, int ziel_y,
                                SpielStand spielStand)
     {
         SpielfigurEbene spielfigur = ebene.getSpielfigur();
@@ -52,7 +53,9 @@ public class SpielfigurEbeneController
                 spielfigur.setPosition(ziel_x, ziel_y);
                 ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis()
                      .ausfuehren(spielStand);
+                return true;
             }
         }
+        return false;
     }
 }
