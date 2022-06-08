@@ -21,4 +21,6 @@ public class ZauberEffektController
         }
     }
 
+    //private static void wurfspee
+
 }
