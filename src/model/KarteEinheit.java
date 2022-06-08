@@ -404,6 +404,15 @@ public class KarteEinheit extends Karte
         this.init = init;
     }
 
+    public void heilen(int heilung)
+    {
+        this.setLebenspunkte(this.getLebenspunkte()+heilung);
+    }
+    public void angrifferhoehen(int erhoehung)
+    {
+        this.setMacht(this.getMacht()+erhoehung);
+    }
+
 
 }
 

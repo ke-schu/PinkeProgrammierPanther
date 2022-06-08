@@ -1,10 +1,7 @@
 package control;
 
 import io.KonsolenIO;
-import model.KarteEinheit;
-import model.KartenDeck;
-import model.Position;
-import model.SpielFeld;
+import model.*;
 import resources.Effekte;
 
 /**
@@ -190,6 +187,41 @@ public class EffektController
         {
             EinheitenController.einheitenAngreifenMitEinheiten(feld, spielerDeck,masterDeck,ausloeser,
                     feld.getSpielfeldplatz(positonhinterziel.getX(),positonhinterziel.getY()));
+        }
+    }
+
+    private static void verschlingen(KarteEinheit ausloeser,KarteEinheit ziel)
+    {
+        ausloeser.heilen(ziel.getMacht());
+    }
+
+    private static void opfern(KarteEinheit ausloeser,KarteEinheit ziel,
+                               SpielFeld feld, KartenDeck spielerDeck,
+                               KartenDeck masterDeck)
+    {
+        if(ausloeser.getFreundlich() == ziel.getFreundlich())
+        ziel.heilen(1);
+        ziel.angrifferhoehen(1);
+        RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
+                ausloeser.getPositionX(),ausloeser.getPositionY());
+    }
+    private static void heldentat(KarteEinheit ausloeser,SpielFeld feld)
+    {
+        for (int i = 0; i < feld.getZeilen(); i++)
+        {
+            for (int j = 0; j < feld.getSpalten(); j++)
+            {
+                if ((feld.getSpielfeldplatz(i, j) != null && feld.getSpielfeldplatz(i, j) instanceof Spieler)
+                    || (feld.getSpielfeldplatz(i, j) != null && feld.getSpielfeldplatz(i, j) instanceof Gegenspieler))
+                {
+                    if (feld.getSpielfeldplatz(i, j).getFreundlich() == ausloeser.getFreundlich())
+                    {
+                        feld.getSpielfeldplatz(i, j).angrifferhoehen(1);
+                    }
+
+                }
+
+            }
         }
     }
 
