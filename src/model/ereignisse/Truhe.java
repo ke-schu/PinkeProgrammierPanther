@@ -1,5 +1,6 @@
 package model.ereignisse;
 
+import gui.xml.SpielebeneGuiController;
 import io.KonsolenIO;
 import model.SpielStand;
 
@@ -31,32 +32,35 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
-        if (isAuswahl())
+        //KonsolenIO.ausgeben(this.getName());
+        //auswaehlen();
+        if(!geleert)
         {
-            wahrscheinlichkeit = generiereWahrscheinlichkeit();
-            if (wahrscheinlichkeit <= EIN_PROZENT)
+            if (isAuswahl())
             {
-                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_EINS);
+                wahrscheinlichkeit = generiereWahrscheinlichkeit();
+                if (wahrscheinlichkeit <= EIN_PROZENT)
+                {
+                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_EINS);
+                }
+                else if (wahrscheinlichkeit <= ZEHN_PROZENT)
+                {
+                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
+                }
+                else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
+                {
+                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
+                }
+                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
+                {
+                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
+                }
+                else if (wahrscheinlichkeit > VIERZIG_PROZENT)
+                {
+                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
+                }
+                geleert = true;
             }
-            else if (wahrscheinlichkeit <= ZEHN_PROZENT)
-            {
-                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
-            }
-            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
-            {
-                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
-            }
-            else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
-            {
-                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
-            }
-            else if (wahrscheinlichkeit > VIERZIG_PROZENT)
-            {
-                spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
-            }
-            geleert = true;
         }
     }
 

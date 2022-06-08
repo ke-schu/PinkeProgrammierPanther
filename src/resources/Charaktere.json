@@ -85,7 +85,7 @@
       "level": 1,
       "klasse": "model.Spieler"
     },
-    "freigeschaltet": false
+    "freigeschaltet": true
   },
   {
     "name": "Schule",

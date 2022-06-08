@@ -79,14 +79,12 @@ public class Haendler extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
+        //auswaehlen();
         if (isAuswahl())
         {
             int indexKarte;
             try
             {
-                //  Wenn die Ebenen angelegt sind, wird hier jeweils ein
-                //  Haendlerdeck pro Ebene eingelesen
                 this.setHaendlerDeck(
                         KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
             }

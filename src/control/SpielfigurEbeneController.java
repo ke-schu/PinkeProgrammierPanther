@@ -1,5 +1,6 @@
 package control;
 
+import gui.xml.SpielebeneGuiController;
 import model.Ebene;
 import model.SpielStand;
 import model.SpielfigurEbene;
@@ -51,8 +52,9 @@ public class SpielfigurEbeneController
                 !(zielErreichbarInX && zielErreichbarInY))
             {
                 spielfigur.setPosition(ziel_x, ziel_y);
-                ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis()
-                     .ausfuehren(spielStand);
+                //SpielebeneGuiController.oeffneEreignis(ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis());
+                //ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis()
+                //    .ausfuehren(spielStand);
                 return true;
             }
         }

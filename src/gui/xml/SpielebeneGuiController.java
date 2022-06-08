@@ -27,6 +27,7 @@ import model.Position;
 import model.Raum;
 import model.SpielStand;
 import model.ereignisse.Ereignis;
+import model.ereignisse.Truhe;
 
 import java.io.IOException;
 import java.net.URL;
@@ -101,6 +102,7 @@ public class SpielebeneGuiController
                 if(SpielfigurEbeneController.bewegen(ebene, x, y, spiel))
                 {
                     spielerPosition.bind(aktuellePosition);
+                    oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
                 }
             }
         });
@@ -132,12 +134,13 @@ public class SpielebeneGuiController
         }
     }
 
-    public static void oeffneEventEreignis (ActionEvent event, Ereignis ereignis)
+    /**
+     * Diese Methode oeffnet ein Pop-Up Fenster auf der Spielebene, welches das Ereignis repraesentiert
+     * @param ereignis das zu oeffnende Ereignis
+     */
+    public void oeffneEreignis (Ereignis ereignis)
     {
-        oeffneEreignis(ereignis);
-    }
-    public static void oeffneEreignis (Ereignis ereignis)
-    {
+
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle(ereignis.getName());
@@ -145,11 +148,11 @@ public class SpielebeneGuiController
 
         VBox vbox = new VBox(20);
         TextArea text = new TextArea();
-        text.setText(ereignis.getName());
+        text.setText(ereignis.getBeschreibung());
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        Scene popupScene = new Scene(vbox, 300, 400);
+        Scene popupScene = new Scene(vbox, 700, 500);
         Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
         Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
         annehmenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -157,6 +160,18 @@ public class SpielebeneGuiController
             @Override
             public void handle(ActionEvent arg0)
             {
+                ereignis.setAuswahl(true);
+                ereignis.ausfuehren(spiel);
+                ereignisGuiAusfuehren(ereignis);
+                popupStage.close();
+            }
+        });
+        ablehnenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent arg0)
+            {
+                ereignis.setAuswahl(false);
                 popupStage.close();
             }
         });
@@ -167,5 +182,40 @@ public class SpielebeneGuiController
         popupStage.setResizable(false);
         popupStage.setAlwaysOnTop(true);
         popupStage.show();
+    }
+
+    public void ereignisGuiAusfuehren (Ereignis ereignis)
+    {
+        if(ereignis instanceof Truhe)
+        {
+            final Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle(ereignis.getName());
+            popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+            VBox vbox = new VBox(20);
+            TextArea ereignisText = new TextArea();
+            ereignisText.setText(ereignis.getBeschreibung());
+            ereignisText.setWrapText(true);
+            ereignisText.setEditable(false);
+            vbox.getChildren().add(ereignisText);
+            Scene popupScene = new Scene(vbox, 400, 300);
+            Button gehenButton = new Button(EREIGNIS_GEHEN);
+            ereignisText.setText(TRUHE_AUSFUEHREN_1 + spiel.getGold() + TRUHE_AUSFUEHREN_2);
+            gehenButton.setOnAction(new EventHandler<ActionEvent>()
+            {
+                @Override
+                public void handle(ActionEvent arg0)
+                {
+                    popupStage.close();
+                }
+            });
+            vbox.setAlignment(Pos.CENTER);
+            vbox.getChildren().add(gehenButton);
+            popupStage.setScene(popupScene);
+            popupStage.setResizable(false);
+            popupStage.setAlwaysOnTop(true);
+            popupStage.show();
+        }
     }
 }

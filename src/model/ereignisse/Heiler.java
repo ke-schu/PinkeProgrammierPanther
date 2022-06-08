@@ -35,7 +35,7 @@ public class Heiler extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        auswaehlen();
+        //auswaehlen();
         if (isAuswahl())
         {
             if (pruefeGratisInteraktion())

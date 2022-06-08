@@ -77,11 +77,18 @@ public abstract class Ereignis
      * Benutzereingabe, wird ausgewaehlt, ob das Ereignis ausgefuehrt werden
      * soll oder nicht.
      */
+    /*
     public void auswaehlen()
     {
         //KonsolenIO.ausgeben(EINGABE_BOOLEAN);
         //auswahl = KonsolenIO.eingabeBoolean();
         SpielebeneGuiController.oeffneEreignis(this);
+    }
+     */
+
+    public String getKlasse ()
+    {
+        return klasse;
     }
 
     /**
