@@ -10,7 +10,6 @@ public class KarteZauber extends Karte
 {
     private int macht;
     private Zaubereffekte zeffekt;
-
     public KarteZauber(String name, int level)
     {
         super(name, level);

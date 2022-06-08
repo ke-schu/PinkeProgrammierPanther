@@ -4,6 +4,7 @@ import exceptions.KarteNichtVerbessertException;
 import model.Karte;
 import model.KarteEinheit;
 import model.KarteZauber;
+import model.KartenDeck;
 
 /**
  * In dieser Klassen befinden sich Methoden, um mit Instanzen von Karten zu
@@ -118,5 +119,40 @@ public class KartenController
         einheit.setMacht(einheit.getMacht() + macht);
         einheit.setReichweite(einheit.getReichweite() + reichweite);
         einheit.setLevel(einheit.getLevel() + 1);
+    }
+
+    public static void karteindeckeinordnen(Karte karte, KartenDeck spielerDeck, KartenDeck masterDeck)
+    {
+        if (karte instanceof KarteEinheit)
+        {
+            KarteEinheit meinekarte = (KarteEinheit) karte;
+
+            if (meinekarte.getKopie())
+            {
+                ;
+            }
+            else if (karte.getFreundlich())
+            {
+                spielerDeck.push(karte);
+                KartenDeckController.mischen(spielerDeck);
+            } else
+            {
+                masterDeck.push(karte);
+                KartenDeckController.mischen(masterDeck);
+            }
+        }
+        else
+        {
+            if (karte.getFreundlich())
+            {
+                spielerDeck.push(karte);
+                KartenDeckController.mischen(spielerDeck);
+            } else
+            {
+                masterDeck.push(karte);
+                KartenDeckController.mischen(masterDeck);
+            }
+        }
+
     }
 }

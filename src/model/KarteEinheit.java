@@ -22,7 +22,6 @@ public class KarteEinheit extends Karte
     private Position position = new Position();
     private boolean schlafend = true;
     private InitialisierungKarteEinheit init;
-    private boolean freundlich;
     private int zaehler = 0;
 
     private boolean kopie = false;
@@ -309,24 +308,6 @@ public class KarteEinheit extends Karte
     public void setSchlafend(boolean schlafend)
     {
         this.schlafend = schlafend;
-    }
-
-    /**
-     * Getter Methode um den Wert des Attributes schlafend zu erhalten
-     * @return gibt den Wert des Attributes schlafend wieder
-     */
-    public boolean getFreundlich()
-    {
-        return freundlich;
-    }
-
-    /**
-     * Setter Methode um das Attribut freundlich zu setzen
-     * @param freundlich auf welchen das Attribut gesetzt werden soll
-     */
-    public void setFreundlich(boolean freundlich)
-    {
-        this.freundlich = freundlich;
     }
 
     public int getZaehler ()

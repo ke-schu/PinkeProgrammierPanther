@@ -73,20 +73,7 @@ public class RundenController
             feld.einheitloeschen(feldspalte, feldzeile);
             EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektEins(), feld);
             EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektZwei(), feld);
-
-            if (sterbendeeinheit.getKopie())
-            {
-                ;
-            }
-            else if (sterbendeeinheit.getFreundlich())
-            {
-                spielerDeck.push(sterbendeeinheit);
-                KartenDeckController.mischen(spielerDeck);
-            } else
-            {
-                masterDeck.push(sterbendeeinheit);
-                KartenDeckController.mischen(masterDeck);
-            }
+            KartenController.karteindeckeinordnen(sterbendeeinheit, spielerDeck, masterDeck);
         }
     }
 

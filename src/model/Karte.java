@@ -13,6 +13,18 @@ public abstract class Karte
     private int level = 1;
     private String klasse = this.getClass().getCanonicalName();
 
+    public boolean getFreundlich ()
+    {
+        return freundlich;
+    }
+
+    public void setFreundlich (boolean freundlich)
+    {
+        this.freundlich = freundlich;
+    }
+
+    protected boolean freundlich;
+
     /**
      * Konstruktor der Klasse Karte, welcher alle Attribute setzt.
      * @param name der Name der Karte.
