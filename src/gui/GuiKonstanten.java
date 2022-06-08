@@ -29,5 +29,6 @@ public interface GuiKonstanten
     String CHARAKTER_KAUFEN = "Kaufen für %d €";
     String SCHON_FREIGESCHALTET = "Im Besitz";
     String GOLD_BESTAND = "Goldbestand: ";
-
+    String EREIGNIS_ANNEHMEN = "Annehmen";
+    String EREIGNIS_ABLEHNEN = "Ablehnen";
 }

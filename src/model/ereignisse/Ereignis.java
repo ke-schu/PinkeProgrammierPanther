@@ -1,5 +1,7 @@
 package model.ereignisse;
 
+import gui.xml.GuiController;
+import gui.xml.SpielebeneGuiController;
 import io.KonsolenIO;
 import model.SpielStand;
 
@@ -77,8 +79,9 @@ public abstract class Ereignis
      */
     public void auswaehlen()
     {
-        KonsolenIO.ausgeben(EINGABE_BOOLEAN);
-        auswahl = KonsolenIO.eingabeBoolean();
+        //KonsolenIO.ausgeben(EINGABE_BOOLEAN);
+        //auswahl = KonsolenIO.eingabeBoolean();
+        SpielebeneGuiController.oeffneEreignis(this);
     }
 
     /**

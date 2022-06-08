@@ -40,8 +40,9 @@ public class Heiler extends Mensch
         {
             if (pruefeGratisInteraktion())
             {
+                spielStand.getSpieler().getMaxleben();
                 spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
+                spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 gratisInteraktionen--;
             }
             else
@@ -49,7 +50,7 @@ public class Heiler extends Mensch
                 TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
+                spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
             }
         }
         interaktionsZaehler++;

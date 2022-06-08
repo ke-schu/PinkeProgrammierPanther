@@ -65,7 +65,6 @@ public class Schmied extends Mensch
             catch (KarteNichtVerbessertException ausnahme)
             {
                 KonsolenIO.ausgeben(ausnahme.getMessage());
-                return;
             }
         }
     }
