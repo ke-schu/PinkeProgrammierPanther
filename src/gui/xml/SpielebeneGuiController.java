@@ -87,8 +87,10 @@ public class SpielebeneGuiController
         {
             @Override public void handle(MouseEvent mouseEvent)
             {
-                SpielfigurEbeneController.bewegen(ebene, x, y, spiel);
-                spielerPosition.bind(aktuellePosition);
+                if(SpielfigurEbeneController.bewegen(ebene, x, y, spiel))
+                {
+                    spielerPosition.bind(aktuellePosition);
+                }
             }
         });
 
