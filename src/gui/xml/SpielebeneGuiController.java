@@ -26,8 +26,7 @@ import model.Ebene;
 import model.Position;
 import model.Raum;
 import model.SpielStand;
-import model.ereignisse.Ereignis;
-import model.ereignisse.Truhe;
+import model.ereignisse.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -161,7 +160,6 @@ public class SpielebeneGuiController
             public void handle(ActionEvent arg0)
             {
                 ereignis.setAuswahl(true);
-                ereignis.ausfuehren(spiel);
                 ereignisGuiAusfuehren(ereignis);
                 popupStage.close();
             }
@@ -186,36 +184,86 @@ public class SpielebeneGuiController
 
     public void ereignisGuiAusfuehren (Ereignis ereignis)
     {
-        if(ereignis instanceof Truhe)
+        if(ereignis instanceof Gegner)
         {
-            final Stage popupStage = new Stage();
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setTitle(ereignis.getName());
-            popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
-
-            VBox vbox = new VBox(20);
-            TextArea ereignisText = new TextArea();
-            ereignisText.setText(ereignis.getBeschreibung());
-            ereignisText.setWrapText(true);
-            ereignisText.setEditable(false);
-            vbox.getChildren().add(ereignisText);
-            Scene popupScene = new Scene(vbox, 400, 300);
-            Button gehenButton = new Button(EREIGNIS_GEHEN);
-            ereignisText.setText(TRUHE_AUSFUEHREN_1 + spiel.getGold() + TRUHE_AUSFUEHREN_2);
-            gehenButton.setOnAction(new EventHandler<ActionEvent>()
-            {
-                @Override
-                public void handle(ActionEvent arg0)
-                {
-                    popupStage.close();
-                }
-            });
-            vbox.setAlignment(Pos.CENTER);
-            vbox.getChildren().add(gehenButton);
-            popupStage.setScene(popupScene);
-            popupStage.setResizable(false);
-            popupStage.setAlwaysOnTop(true);
-            popupStage.show();
+            gegnerGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Haendler)
+        {
+            haendlerGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Heiler)
+        {
+            heilerGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Schmied)
+        {
+            schmiedGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Tempel)
+        {
+            tempelGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Treppe)
+        {
+            treppeGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof Truhe)
+        {
+            truheGuiAusfuehren(ereignis);
+        }
+        else if(ereignis instanceof ZufallsEreignis)
+        {
+            zufallsEreignisGuiAusfuehren(ereignis);
         }
     }
+
+    public void gegnerGuiAusfuehren (Ereignis ereignis){}
+    public void haendlerGuiAusfuehren (Ereignis ereignis){}
+    public void heilerGuiAusfuehren (Ereignis ereignis){}
+    public void schmiedGuiAusfuehren (Ereignis ereignis){}
+    public void tempelGuiAusfuehren (Ereignis ereignis){}
+    public void treppeGuiAusfuehren (Ereignis ereignis){}
+
+    /**
+     *
+     * @param ereignis
+     */
+    public void truheGuiAusfuehren (Ereignis ereignis)
+    {
+        int goldVorher = spiel.getGold();
+        ereignis.ausfuehren(spiel);
+        int goldNachher = spiel.getGold();
+        int goldGefunden = goldNachher-goldVorher;
+
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(20);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene = new Scene(vbox, 400, 300);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        ereignisText.setText(TRUHE_AUSFUEHREN_1 + goldGefunden + TRUHE_AUSFUEHREN_2);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
+    }
+
+    public void zufallsEreignisGuiAusfuehren (Ereignis ereignis){}
 }
