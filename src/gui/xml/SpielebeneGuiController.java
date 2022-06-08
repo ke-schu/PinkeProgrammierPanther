@@ -210,7 +210,10 @@ public class SpielebeneGuiController
         }
         else if(ereignis instanceof Truhe)
         {
-            truheGuiAusfuehren(ereignis);
+            if(!((Truhe) ereignis).isGeleert())
+            {
+                truheGuiAusfuehren(ereignis);
+            }
         }
         else if(ereignis instanceof ZufallsEreignis)
         {
@@ -220,7 +223,41 @@ public class SpielebeneGuiController
 
     public void gegnerGuiAusfuehren (Ereignis ereignis){}
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
-    public void heilerGuiAusfuehren (Ereignis ereignis){}
+    public void heilerGuiAusfuehren (Ereignis ereignis)
+    {
+        int lebenVorher = spiel.getGold();
+        ereignis.ausfuehren(spiel);
+        int lebenNachher = spiel.getGold();
+        int lebenErhalten = lebenNachher-lebenVorher;
+
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(20);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene = new Scene(vbox, 400, 300);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        ereignisText.setText(HEILER_AUSFUEHREN_1 + lebenErhalten + HEILER_AUSFUEHREN_2);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
+    }
     public void schmiedGuiAusfuehren (Ereignis ereignis){}
     public void tempelGuiAusfuehren (Ereignis ereignis){}
     public void treppeGuiAusfuehren (Ereignis ereignis){}
