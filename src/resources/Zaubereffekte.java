@@ -1,0 +1,6 @@
+package resources;
+
+public enum Zaubereffekte
+{
+    WURFSPEER, SCHILD, FREIEBAHN, BARIERE, TRANSFER, WANDLUNG, EXPLOSION, ZERMAHLEN, PEITESCHE, FEUERBALL
+}

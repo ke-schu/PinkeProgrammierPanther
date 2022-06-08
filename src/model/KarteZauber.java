@@ -1,5 +1,7 @@
 package model;
 
+import resources.Zaubereffekte;
+
 /**
  * KarteZauber repraesentiert eine Zauberkarte welche einen Effekt ausloesen
  * kann Sie erbt von Karte
@@ -7,6 +9,7 @@ package model;
 public class KarteZauber extends Karte
 {
     private int macht;
+    private Zaubereffekte zeffekt;
 
     public KarteZauber(String name, int level)
     {
@@ -29,5 +32,9 @@ public class KarteZauber extends Karte
     public void setMacht(int macht)
     {
         this.macht = macht;
+    }
+    public Zaubereffekte getZeffekt ()
+    {
+        return zeffekt;
     }
 }
