@@ -8,14 +8,15 @@ import io.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -38,8 +39,12 @@ public class SpielebeneGuiController
         extends GuiController
         implements Initializable
 {
-    @FXML GridPane spielebenenGitter;
-    @FXML Label spielerLabel;
+    @FXML
+    GridPane spielebenenGitter;
+    @FXML
+    Label spielerLabel;
+    @FXML
+    MenuBar menueLeiste;
     private SpielStand spiel;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
@@ -121,6 +126,16 @@ public class SpielebeneGuiController
         }
     }
 
+    @Override
+    protected void wechselZu(ActionEvent event, String pfad) throws IOException
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
+        Scene scene = new Scene(fxmlLoader.load());
+        super.setStage(((Stage)menueLeiste.getScene().getWindow()));
+        super.getStage().setScene(scene);
+        super.getStage().show();
+    }
+
     @FXML
     public void zurueckHauptmenue(ActionEvent event)
     {
@@ -132,6 +147,8 @@ public class SpielebeneGuiController
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
+
+
 
     /**
      * Diese Methode oeffnet ein Pop-Up Fenster auf der Spielebene, welches das Ereignis repraesentiert
@@ -303,4 +320,24 @@ public class SpielebeneGuiController
     }
 
     public void zufallsEreignisGuiAusfuehren (Ereignis ereignis){}
+
+    @Override
+    public void wechselAufloesungFullHD (Event event)
+    {
+        super.setStage((Stage)menueLeiste.getScene().getWindow());
+        super.getStage().setMinHeight(AUFLOESUNG_BREITE_FULLHD);
+        super.getStage().setMaxHeight(AUFLOESUNG_BREITE_FULLHD);
+        super.getStage().setMinWidth(AUFLOESUNG_HOEHE_FULLHD);
+        super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
+    }
+
+    @Override
+    public void wechselAufloesungHD (Event event)
+    {
+        super.setStage((Stage)menueLeiste.getScene().getWindow());
+        super.getStage().setMinHeight(AUFLOESUNG_BREITE_HD);
+        super.getStage().setMaxHeight(AUFLOESUNG_BREITE_HD);
+        super.getStage().setMinWidth(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_HD);
+    }
 }

@@ -2,6 +2,7 @@ package gui.xml;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -136,5 +137,23 @@ public class GuiController {
         {
             meineCombobox.getItems().add(comboBoxArray[i]);
         }
+    }
+
+    public void wechselAufloesungFullHD (Event event)
+    {
+        setStage((Stage)((Node)event.getSource()).getScene().getWindow());
+        getStage().setMinHeight(AUFLOESUNG_BREITE_FULLHD);
+        getStage().setMaxHeight(AUFLOESUNG_BREITE_FULLHD);
+        getStage().setMinWidth(AUFLOESUNG_HOEHE_FULLHD);
+        getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
+    }
+
+    public void wechselAufloesungHD (Event event)
+    {
+        setStage((Stage)((Node)event.getSource()).getScene().getWindow());
+        getStage().setMinHeight(AUFLOESUNG_BREITE_HD);
+        getStage().setMaxHeight(AUFLOESUNG_BREITE_HD);
+        getStage().setMinWidth(AUFLOESUNG_HOEHE_HD);
+        getStage().setMaxWidth(AUFLOESUNG_HOEHE_HD);
     }
 }
