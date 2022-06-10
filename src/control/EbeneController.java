@@ -3,8 +3,7 @@ package control;
 import model.Ebene;
 import model.SpielfigurEbene;
 
-import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION_X;
-import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION_Y;
+import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION;
 
 /**
  * Diese Klasse enthaelt Methoden, um mit Instanzen der Klasse Ebene zu
@@ -32,7 +31,6 @@ public class EbeneController
                                           Ebene ebene)
     {
         ebene.setSpielfigur(spielfigur);
-        spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION_X,
-                               SPIELFIGUR_EBENE_STARTPOSITION_Y);
+        spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION);
     }
 }

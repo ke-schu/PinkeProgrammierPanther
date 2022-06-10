@@ -1,7 +1,7 @@
 package control;
 
-import gui.xml.SpielebeneGuiController;
 import model.Ebene;
+import model.Position;
 import model.SpielStand;
 import model.SpielfigurEbene;
 
@@ -25,36 +25,40 @@ public class SpielfigurEbeneController
      * bewegen und das Ereignis des Raums nach Betreten auszufuehren.
      * @param ebene Instanz der Klasse Ebene in der sich die Instanz von
      * SpielfigurEbene befindet.
-     * @param ziel_x Zielkoordinate des Raums auf der X-Achse.
-     * @param ziel_y Zielkoordinate des Raums auf der Y-Achse.
+     * @param zielX Zielkoordinate des Raums auf der X-Achse.
+     * @param zielY Zielkoordinate des Raums auf der Y-Achse.
      * @param spielStand Instanz der Klasse SpielStand, welcher den
      * Ereignissen uebergeben wird.
      * @return true, wenn die Bewegung erfolgreich war.
      */
-    public static boolean bewegen(Ebene ebene, int ziel_x, int ziel_y,
-                               SpielStand spielStand)
+    public static boolean bewegen(Ebene ebene, int zielX, int zielY,
+                                  SpielStand spielStand)
     {
         SpielfigurEbene spielfigur = ebene.getSpielfigur();
-        boolean zielErreichbarInX = false;
-        boolean zielErreichbarInY = false;
-        final int start_x = spielfigur.getPosition_x();
-        final int start_y = spielfigur.getPosition_y();
+
+        final Position zielPosition = new Position(zielX, zielY);
+        final Position startPosition = spielfigur.getPosition();
+        final int startX = startPosition.getX();
+        final int startY = startPosition.getY();
         final int umkreis = 1;
 
-        if ((ebene.getRaumAnPosition(ziel_x, ziel_y) != null))
+        if ((ebene.getRaumAnPosition(zielX, zielY) != null))
         {
-            zielErreichbarInX = (ziel_x == start_x + umkreis) ||
-                                (ziel_x == start_x - umkreis);
-            zielErreichbarInY = (ziel_y == start_y + umkreis) ||
-                                (ziel_y == start_y - umkreis);
+            boolean zielErreichbarInX = (zielX == startX + umkreis) ||
+                                        (zielX == startX - umkreis) ||
+                                        (zielX == startX);
+            boolean zielErreichbarInY = (zielY == startY + umkreis) ||
+                                        (zielY == startY - umkreis) ||
+                                        (zielY == startY);
 
-            if ((zielErreichbarInX || zielErreichbarInY) &&
-                !(zielErreichbarInX && zielErreichbarInY))
+            if (zielErreichbarInX && zielErreichbarInY &&
+                !zielPosition.equals(startPosition))
             {
-                spielfigur.setPosition(ziel_x, ziel_y);
-                //SpielebeneGuiController.oeffneEreignis(ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis());
-                //ebene.getRaumAnPosition(ziel_x, ziel_y).getEreignis()
-                //    .ausfuehren(spielStand);
+                spielfigur.setPosition(zielPosition);
+                /* SpielebeneGuiController.oeffneEreignis(ebene
+                .getRaumAnPosition(zielX, zielY).getEreignis());
+                ebene.getRaumAnPosition(zielX, zielY).getEreignis()
+                .ausfuehren(spielStand);*/
                 return true;
             }
         }

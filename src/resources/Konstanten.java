@@ -1,6 +1,7 @@
 package resources;
 
 import model.KartenDeck;
+import model.Position;
 
 /**
  * Hier werden finale, numerische Werte fuer das Spiel gesammelt.
@@ -17,8 +18,8 @@ public interface Konstanten
     int KOSTEN_ERHOEHUNG_GOLD = 10;
     int SPIELFELD_GENERATOR_MIN = 4;
     int SPIELFELD_GENERATOR_MAX = 6;
-    int SPIELFIGUR_EBENE_STARTPOSITION_X = 4;
-    int SPIELFIGUR_EBENE_STARTPOSITION_Y = 4;
+    Position SPIELFIGUR_EBENE_STARTPOSITION = new Position(4,4);
+
     int HEILER_AUFWERTUNG_LEBENSPUNKTE = 2;
     int SPIELER_WECHSEL_NACH_ZUEGEN = 2;
 

@@ -16,8 +16,8 @@ public class SpielfigurEbene
      */
     public SpielfigurEbene()
     {
-        this.position.setX(SPIELFIGUR_EBENE_STARTPOSITION_X);
-        this.position.setY(SPIELFIGUR_EBENE_STARTPOSITION_Y);
+        this.position.setX(SPIELFIGUR_EBENE_STARTPOSITION.getX());
+        this.position.setY(SPIELFIGUR_EBENE_STARTPOSITION.getY());
     }
 
     /**
@@ -52,16 +52,11 @@ public class SpielfigurEbene
     }
 
     /**
-     * Diese Methode setzt die Attribute der Instanz von Position, welche in
-     * im Attribut position hinterlegt ist.
-     * @param x Int-Wert der in das Attribut der Instanz von Position im
-     * Attribut position gesetzt wird.
-     * @param y Int-Wert der in das Attribut der Instanz von Position im
-     * Attribut position gesetzt wird.
+     * Setzt die aktuelle Position an eine andere Position
+     * @param position die neue Position
      */
-    public void setPosition(int x, int y)
+    public void setPosition(Position position)
     {
-        this.position.setX(x);
-        this.position.setY(y);
+        this.position = position;
     }
 }
