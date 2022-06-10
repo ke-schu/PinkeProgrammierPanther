@@ -177,7 +177,7 @@ public class SpielebeneGuiController
             public void handle(ActionEvent arg0)
             {
                 ereignis.setAuswahl(true);
-                ereignisGuiAusfuehren(ereignis);
+                ereignisGuiAusfuehren(ereignis, arg0);
                 popupStage.close();
             }
         });
@@ -199,11 +199,11 @@ public class SpielebeneGuiController
         popupStage.show();
     }
 
-    public void ereignisGuiAusfuehren (Ereignis ereignis)
+    public void ereignisGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
         if(ereignis instanceof Gegner)
         {
-            gegnerGuiAusfuehren(ereignis);
+            gegnerGuiAusfuehren(ereignis, event);
         }
         else if(ereignis instanceof Haendler)
         {
