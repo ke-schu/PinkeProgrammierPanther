@@ -96,6 +96,11 @@ public class GuiController {
         wechselZu(event, "Spielebene.fxml");
     }
 
+    public void wechselZuSpielfeld (ActionEvent event) throws IOException
+    {
+        wechselZu(event, "Spielfeld.fxml");
+    }
+
     public void spielBeenden (ActionEvent event)
     {
         Platform.exit();

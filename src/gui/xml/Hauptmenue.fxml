@@ -34,6 +34,7 @@
                </cursor>
             </Button>
          </children>
+          <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuSpielfeld" prefHeight="40.0" prefWidth="150.0" text=" gehe zu Kamp" />
       </VBox>
    </children>
 </GridPane>

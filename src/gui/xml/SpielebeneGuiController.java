@@ -238,7 +238,17 @@ public class SpielebeneGuiController
         }
     }
 
-    public void gegnerGuiAusfuehren (Ereignis ereignis){}
+    public void gegnerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
+    {
+        try
+        {
+            wechselZuSpielfeld(event);
+        }
+        catch (IOException e)
+        {
+            System.out.println("Zum Spielfeld wechseln hat nicht geklappt");
+        }
+    }
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
     public void heilerGuiAusfuehren (Ereignis ereignis)
     {
