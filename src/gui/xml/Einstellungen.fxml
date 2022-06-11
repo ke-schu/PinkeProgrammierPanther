@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/Einstellungen.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.xml.EinstellungenGuiController">
@@ -26,20 +27,29 @@
    <children>
       <Button mnemonicParsing="false" onAction="#oeffneHilfe" prefHeight="44.0" prefWidth="72.0" text="Hilfe" />
       <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" prefHeight="51.0" prefWidth="107.0" text="Hauptmenü" GridPane.rowIndex="4" />
-      <Label text="Fenstergröße" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label text="Musiklautstärke" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="FenstergroesseBox" onAction="#wechselAufloesungFullHD" prefHeight="70.0" prefWidth="300.0" promptText="Fenstergröße" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <Slider fx:id="lautstaerkeSlider" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
-         </cursor></Slider>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <children>
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="521.0" text="Fenstergröße">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="FenstergroesseBox" onAction="#wechselAufloesungFullHD" prefHeight="17.0" prefWidth="427.0" promptText="Fenstergröße" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+         <children>
+            <Label alignment="CENTER" text="Musiklautstärke">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Slider fx:id="lautstaerkeSlider" prefHeight="140.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" value="50.0">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Slider>
+         </children>
+      </VBox>
    </children>
 </GridPane>

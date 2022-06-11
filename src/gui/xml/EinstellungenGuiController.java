@@ -32,6 +32,8 @@ public class EinstellungenGuiController extends GuiController
     {
         erstelleCombobox(aufloesungsgroessen,FenstergroesseBox);
         FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
+        FenstergroesseBox.setPromptText(aufloesungsgroessen[0]);
+
 
         lautstaerkeSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
