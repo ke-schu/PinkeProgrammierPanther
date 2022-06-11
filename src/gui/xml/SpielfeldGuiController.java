@@ -1,5 +1,6 @@
 package gui.xml;
 
+import control.KartenEinheitController;
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
 import gui.components.FeldPane;
@@ -32,6 +33,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.*;
+import static resources.Konstanten.HANDGROESSE;
 
 public class SpielfeldGuiController
         extends GuiController
@@ -40,11 +42,14 @@ public class SpielfeldGuiController
     @FXML
     GridPane spielfeldGitter;
     @FXML
-    Label spielerLabel;
+    GridPane kartenhandGitter;
     @FXML
     MenuBar menueLeiste;
     private SpielStand spielstand;
     private SpielFeld spielfeld;
+    private KartenDeck spieldeck;
+
+    private KartenHand kartenhand;
 
     private Spieler spieler;
     private ObjectProperty<Position> spielerPosition =
@@ -56,10 +61,21 @@ public class SpielfeldGuiController
         try
         {
             spielstand = SpielStandIO.leseDatei();
+            spieler = spielstand.getSpieler();
+            spieldeck = spielstand.getSpieldeckSpieler();
+            kartenhand = new KartenHand(spieler);
+            kartenhand.handZiehen(spieldeck);
+
+            Label spielerLabel = new Label();
             spielerLabel.setText(spielstand.getSpieler().getName());
             spielfeld = new SpielFeld();
-            spieler = spielstand.getSpieler();
+
             spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
+
+            for (int i = 0; i < HANDGROESSE; i++)
+            {
+                Karteinhandeinfuegen(i);
+            }
 
             for (int i = 0; i < spielfeld.getZeilen(); i++)
             {
@@ -80,6 +96,23 @@ public class SpielfeldGuiController
             KonsolenIO.ausgeben(e.getMessage());
         }
     }
+
+    private void Karteinhandeinfuegen(int x)
+    {
+
+        FeldPane handplatz = new FeldPane();
+        if (kartenhand.getElement(x) == null)
+        {
+            handplatz.setkeineKarte(true);
+        }
+        else
+        {
+            handplatz.getChildren()
+                    .add(new Label(kartenhand.getElement(x).getName()));
+        }
+        kartenhandGitter.add(handplatz,x,0);
+    }
+
 
 
     private void spielerEinfuegen(int x, int y)
