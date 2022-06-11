@@ -31,7 +31,7 @@
 }
 
 .feld-pane:keinekarte {
-    -fx-border-width: 10;
+    -fx-border-width: 2;
     -fx-border-color: "000000";
     -fx-background-color: "b9b9b9";
 }
