@@ -10,10 +10,12 @@ import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.FAKTOR_FUER_LAUTSTAERKE;
 
+/**
+ * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers zu dem Abspielen von MP3s.
+ */
 public class mp3Controller implements Initializable
 {
     private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString()));
-
     private Media media;
 
     @Override
@@ -29,6 +31,10 @@ public class mp3Controller implements Initializable
         mediaplayer.play();
     }
 
+    /**
+     * Mit dieser Methode wird die Lautstaerke der Instanz der Mediaplayers angepasst.
+     * @param lautstaerke der Integer welcher mit einem Faktor als Lautstaerke eingestellt wird.
+     */
     public static void wechselLautstaerke(int lautstaerke)
     {
         mediaplayer.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);

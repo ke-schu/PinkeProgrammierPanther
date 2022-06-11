@@ -1,10 +1,7 @@
 package gui.xml;
 
-import control.KartenEinheitController;
-import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
 import gui.components.FeldPane;
-import gui.components.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
@@ -16,18 +13,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
 import model.ereignisse.*;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +29,9 @@ import java.util.ResourceBundle;
 import static gui.GuiKonstanten.*;
 import static resources.Konstanten.HANDGROESSE;
 
+/**
+ * Klasse, welche alle Methoden der Spielfeld Szene enthaelt.
+ */
 public class SpielfeldGuiController
         extends GuiController
         implements Initializable
@@ -163,6 +160,12 @@ public class SpielfeldGuiController
         }
     }
 
+    /**
+     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
+     * @param event Event durch welches die Methode ausgeloest wird.
+     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @throws IOException
+     */
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
@@ -276,7 +279,9 @@ public class SpielfeldGuiController
     }
 
     public void gegnerGuiAusfuehren (Ereignis ereignis){}
+
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
+
     public void heilerGuiAusfuehren (Ereignis ereignis)
     {
         int lebenVorher = spielstand.getGold();
@@ -358,6 +363,10 @@ public class SpielfeldGuiController
 
     public void zufallsEreignisGuiAusfuehren (Ereignis ereignis){}
 
+    /**
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     @Override
     public void wechselAufloesungFullHD (Event event)
     {
@@ -368,6 +377,10 @@ public class SpielfeldGuiController
         super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
     }
 
+    /**
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     @Override
     public void wechselAufloesungHD (Event event)
     {

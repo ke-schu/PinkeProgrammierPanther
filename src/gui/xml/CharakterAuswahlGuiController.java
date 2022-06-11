@@ -23,7 +23,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
 import model.SpielStand;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +30,9 @@ import java.util.Stack;
 
 import static gui.GuiKonstanten.*;
 
+/**
+ * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.
+ */
 public class CharakterAuswahlGuiController
         extends GuiController
         implements Initializable
@@ -177,6 +179,10 @@ public class CharakterAuswahlGuiController
         }
     }
 
+    /**
+     * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem Text des Popups geaendert.
+     * @param event ActionEvent, welches dieser mit diese Methode verknuepft wird.
+     */
     @Override
     public void oeffneHilfe(ActionEvent event)
     {

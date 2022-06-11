@@ -17,11 +17,13 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 import static gui.GuiKonstanten.*;
 
+/**
+ * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.
+ */
 public class GuiController {
 
     private Stage stage;
@@ -29,6 +31,12 @@ public class GuiController {
     private Parent root;
 
 
+    /**
+     * Methode um eine Scenen zu laden und in die Stage zu setzen.
+     * @param event Event durch welches die Methode ausgeloest wird.
+     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @throws IOException kann durch den fxmlLoader.load() geworfen werden.
+     */
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
@@ -38,12 +46,20 @@ public class GuiController {
         stage.show();
     }
 
+    /**
+     * Methode, welche die Methode offneHilfeTextEinsetzen aufruft. Diese Methode wird durch
+     * @param event ActionEvent, welches mit dieser Methode verknuepft wird.
+     */
     @FXML
     public void oeffneHilfe (ActionEvent event)
     {
         offneHilfeTextEinsetzen(HILFE_TEXT);
     }
 
+    /**
+     * Methode, welche ein Popupfenster erstellt und fokussiert vor dem Hauptfenster oeffnet.
+     * @param hilfeText String welcher in dem Popup als Text eingesetzt werden soll.
+     */
     public void offneHilfeTextEinsetzen (String hilfeText)
     {
         final Stage popupStage = new Stage();
@@ -75,42 +91,79 @@ public class GuiController {
         popupStage.show();
     }
 
+    /**
+     * Mehtode mit der zu der Hauptmenue Scene gewechselt wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     */
     @FXML
     public void wechselZuHauptmenue (ActionEvent event) throws IOException
     {
         wechselZu(event, "Hauptmenue.fxml");
     }
 
+    /**
+     * Mehtode mit der zu der Einstellung Scene gewechselt wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     */
     public void wechselZuEinstellungen (ActionEvent event) throws IOException
     {
         wechselZu(event, "Einstellungen.fxml");
     }
 
+    /**
+     * Mehtode mit der zu der Charakterauswahl Scene gewechselt wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     */
     public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
     {
         wechselZu(event, "Charakterauswahl.fxml");
     }
 
+    /**
+     * Mehtode mit der zu der SpielEbene Scene gewechselt wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     */
     public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
         wechselZu(event, "Spielebene.fxml");
     }
 
+    /**
+     * Mehtode mit der zu der Spielfeld Scene gewechselt wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     */
     public void wechselZuSpielfeld (ActionEvent event) throws IOException
     {
         wechselZu(event, "Spielfeld.fxml");
     }
 
+    /**
+     * Methode mit welcher die Anwendung geschlossen wird.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     public void spielBeenden (ActionEvent event)
     {
         Platform.exit();
     }
 
+    /**
+     * Methode, welche die Stage des Attribut Stage wieder gibt.
+     * @return gibt die Stage wieder.
+     */
     public Stage getStage()
     {
         return stage;
     }
 
+    /**
+     * Methode um eine Stage in das Attribut Stage zu setzen.
+     * @param stage Stage, welche in das Attribut gesetzt werden soll.
+     */
     public void setStage(Stage stage)
     {
         this.stage = stage;
@@ -136,6 +189,11 @@ public class GuiController {
         this.root = root;
     }
 
+    /**
+     * Methode um eine ComboBox zu erstellen.
+     * @param comboBoxArray StringArray welche in die ComboBox eingesetzte werden soll.
+     * @param meineCombobox ComboBox, in welche das StringArray eingesetzt werden soll.
+     */
     public void erstelleCombobox(String[] comboBoxArray, ComboBox meineCombobox)
     {
         for(int i = 0; i < comboBoxArray.length; i++)
@@ -144,6 +202,10 @@ public class GuiController {
         }
     }
 
+    /**
+     * Methode um die Fenstergroesse auf 1920x1080 zu wechseln.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     public void wechselAufloesungFullHD (Event event)
     {
         setStage((Stage)((Node)event.getSource()).getScene().getWindow());
@@ -153,6 +215,10 @@ public class GuiController {
         getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
     }
 
+    /**
+     * Methode um die Fenstergroesse auf 1280x720 zu wechseln.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     public void wechselAufloesungHD (Event event)
     {
         setStage((Stage)((Node)event.getSource()).getScene().getWindow());
