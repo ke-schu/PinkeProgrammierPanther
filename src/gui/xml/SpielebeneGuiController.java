@@ -46,7 +46,6 @@ public class SpielebeneGuiController
     Label spielerLabel;
     @FXML
     MenuBar menueLeiste;
-    private SpielStand spiel;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
 

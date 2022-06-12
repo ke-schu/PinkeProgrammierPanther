@@ -17,6 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.SpielStand;
+
 import java.io.IOException;
 
 import static gui.GuiKonstanten.*;
@@ -29,6 +31,7 @@ public class GuiController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    protected SpielStand spiel;
 
 
     /**

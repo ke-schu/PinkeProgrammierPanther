@@ -6,7 +6,6 @@ import javafx.css.PseudoClass;
 import javafx.scene.layout.StackPane;
 
 
-
 public class FeldPane extends StackPane
 {
     private BooleanProperty beinhaltetKarte;

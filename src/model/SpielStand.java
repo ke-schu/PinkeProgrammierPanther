@@ -18,6 +18,9 @@ public class SpielStand
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
     private transient Ebene aktuelleEbene;
+    private int lautstaerke = 10;
+    private int aufloesungX = 1280;
+    private int aufloesungY = 720;
 
     /**
      * Konstruiert einen neuen Spielstand mit den notwendigen Attributen
@@ -116,5 +119,35 @@ public class SpielStand
     public KartenDeck getSpieldeckGegner()
     {
         return spieldeckGegner;
+    }
+
+    public int getLautstaerke()
+    {
+        return lautstaerke;
+    }
+
+    public void setLautstaerke(int lautstaerke)
+    {
+        this.lautstaerke = lautstaerke;
+    }
+
+    public int getAufloesungX()
+    {
+        return aufloesungX;
+    }
+
+    public void setAufloesungX(int aufloesungX)
+    {
+        this.aufloesungX = aufloesungX;
+    }
+
+    public int getAufloesungY()
+    {
+        return aufloesungY;
+    }
+
+    public void setAufloesungY(int aufloesungY)
+    {
+        this.aufloesungY = aufloesungY;
     }
 }

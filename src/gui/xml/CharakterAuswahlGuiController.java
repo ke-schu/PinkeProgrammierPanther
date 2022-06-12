@@ -42,7 +42,6 @@ public class CharakterAuswahlGuiController
     @FXML Button spielButton;
     @FXML Label gold;
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
-    private SpielStand spiel;
     private Stack<Charakter> charakterStack;
 
     @Override

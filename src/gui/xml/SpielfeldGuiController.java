@@ -1,11 +1,8 @@
 package gui.xml;
 
-import control.KartenEinheitController;
-import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
 import gui.components.FeldPane;
 import gui.components.KarteVBox;
-import gui.components.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
@@ -17,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -25,9 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
@@ -52,7 +46,6 @@ public class SpielfeldGuiController
     MenuBar menueLeiste;
     @FXML
     ScrollPane scrollpane;
-    private SpielStand spielstand;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
     private KartenHand kartenhand;
@@ -66,14 +59,14 @@ public class SpielfeldGuiController
         try
         {
             spielfeldhintergrundfestlegen();
-            spielstand = SpielStandIO.leseDatei();
-            spieler = spielstand.getSpieler();
-            spieldeck = spielstand.getSpieldeckSpieler();
+            spiel = SpielStandIO.leseDatei();
+            spieler = spiel.getSpieler();
+            spieldeck = spiel.getSpieldeckSpieler();
             kartenhand = new KartenHand(spieler);
             kartenhand.handZiehen(spieldeck);
 
             Label spielerLabel = new Label();
-            spielerLabel.setText(spielstand.getSpieler().getName());
+            spielerLabel.setText(spiel.getSpieler().getName());
             spielfeld = new SpielFeld();
 
             spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
@@ -149,7 +142,7 @@ public class SpielfeldGuiController
     {
         try
         {
-            SpielStandIO.schreibeDatei(spielstand);
+            SpielStandIO.schreibeDatei(spiel);
         } catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
@@ -272,9 +265,9 @@ public class SpielfeldGuiController
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
     public void heilerGuiAusfuehren (Ereignis ereignis)
     {
-        int lebenVorher = spielstand.getGold();
-        ereignis.ausfuehren(spielstand);
-        int lebenNachher = spielstand.getGold();
+        int lebenVorher = spiel.getGold();
+        ereignis.ausfuehren(spiel);
+        int lebenNachher = spiel.getGold();
         int lebenErhalten = lebenNachher-lebenVorher;
 
         final Stage popupStage = new Stage();
@@ -315,9 +308,9 @@ public class SpielfeldGuiController
      */
     public void truheGuiAusfuehren (Ereignis ereignis)
     {
-        int goldVorher = spielstand.getGold();
-        ereignis.ausfuehren(spielstand);
-        int goldNachher = spielstand.getGold();
+        int goldVorher = spiel.getGold();
+        ereignis.ausfuehren(spiel);
+        int goldNachher = spiel.getGold();
         int goldGefunden = goldNachher-goldVorher;
 
         final Stage popupStage = new Stage();

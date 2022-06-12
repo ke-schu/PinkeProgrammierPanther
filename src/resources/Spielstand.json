@@ -39,5 +39,8 @@
     "level": 1,
     "klasse": "model.Spieler",
     "freundlich": true
-  }
+  },
+  "lautstaerke": 50,
+  "aufloesungX": 1280,
+  "aufloesungY": 720
 }

@@ -6,7 +6,6 @@ import javafx.scene.layout.*;
 import model.Karte;
 import model.KarteEinheit;
 import model.KarteZauber;
-import model.Spieler;
 
 import java.io.File;
 
