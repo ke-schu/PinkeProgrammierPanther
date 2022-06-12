@@ -3,6 +3,7 @@ package model;
 import exceptions.JsonNichtLesbarException;
 import io.EbeneIO;
 import io.KartenDeckIO;
+import io.SpielStandIO;
 
 import java.io.File;
 
@@ -18,9 +19,9 @@ public class SpielStand
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
     private transient Ebene aktuelleEbene;
-    private int lautstaerke = 10;
-    private int aufloesungX = 1280;
-    private int aufloesungY = 720;
+    private  double lautstaerke = 10;
+    private  int aufloesungX = 1280;
+    private  int aufloesungY = 720;
 
     /**
      * Konstruiert einen neuen Spielstand mit den notwendigen Attributen
@@ -121,33 +122,33 @@ public class SpielStand
         return spieldeckGegner;
     }
 
-    public int getLautstaerke()
+    public  double getLautstaerke()
     {
         return lautstaerke;
     }
 
-    public void setLautstaerke(int lautstaerke)
+    public  void setLautstaerke(double neueLautstaerke)
     {
-        this.lautstaerke = lautstaerke;
+        this.lautstaerke = neueLautstaerke;
     }
 
-    public int getAufloesungX()
+    public  int getAufloesungX()
     {
-        return aufloesungX;
+        return this.aufloesungX;
     }
 
-    public void setAufloesungX(int aufloesungX)
+    public  void setAufloesungX(int neueAufloesungX)
     {
-        this.aufloesungX = aufloesungX;
+        this.aufloesungX = neueAufloesungX;
     }
 
-    public int getAufloesungY()
+    public  int getAufloesungY()
     {
-        return aufloesungY;
+        return this.aufloesungY;
     }
 
-    public void setAufloesungY(int aufloesungY)
+    public  void setAufloesungY(int neueAufloesungY)
     {
-        this.aufloesungY = aufloesungY;
+        this.aufloesungY = neueAufloesungY;
     }
 }

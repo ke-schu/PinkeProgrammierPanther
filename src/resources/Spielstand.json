@@ -40,7 +40,7 @@
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerke": 50,
+  "lautstaerke": 15.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }

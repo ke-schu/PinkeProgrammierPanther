@@ -14,6 +14,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,15 +34,7 @@ public class EinstellungenGuiController extends GuiController
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        try
-        {
-            spiel = SpielStandIO.leseDatei();
-            lautstaerkeSlider.setValue(spiel.getLautstaerke());
-        }
-        catch (JsonNichtLesbarException e)
-        {
-            KonsolenIO.ausgeben(e.getMessage());
-        }
+        lautstaerkeSlider.setValue(spiel.getLautstaerke());
 
         erstelleCombobox(aufloesungsgroessen,FenstergroesseBox);
         FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
@@ -80,5 +73,13 @@ public class EinstellungenGuiController extends GuiController
         {
             wechselAufloesungFullHD(event);
         }
+    }
+
+    @Override
+    public void wechselZuHauptmenue (ActionEvent event) throws IOException
+    {
+        wechselZu(event, HAUPTMENUE_PFAD);
+        spiel.setLautstaerke(lautstaerkeSlider.getValue());
+        SpielStandIO.schreibeDatei(spiel);
     }
 }

@@ -1,11 +1,14 @@
 package gui.xml;
 
+import exceptions.JsonNichtLesbarException;
+import io.SpielStandIO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,18 +23,22 @@ import javafx.stage.Stage;
 import model.SpielStand;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.*;
 
 /**
  * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.
  */
-public class GuiController {
+public class GuiController implements Initializable
+{
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    protected SpielStand spiel;
+
+    protected static SpielStand spiel;
 
 
     /**
@@ -229,5 +236,29 @@ public class GuiController {
         getStage().setMaxHeight(AUFLOESUNG_BREITE_HD);
         getStage().setMinWidth(AUFLOESUNG_HOEHE_HD);
         getStage().setMaxWidth(AUFLOESUNG_HOEHE_HD);
+    }
+
+    /**
+     * Methode, welche das Objekt des Attributs spiel wiedergibt.
+     * @return gibt ein Objekt des Typs SpielStand wieder.
+     */
+    public static SpielStand getSpiel()
+    {
+        return spiel;
+    }
+
+    public static void setSpiel(SpielStand spiel)
+    {
+        GuiController.spiel = spiel;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        try {
+            spiel  =  SpielStandIO.leseDatei();
+        } catch (JsonNichtLesbarException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
