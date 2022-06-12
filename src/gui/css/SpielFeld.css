@@ -20,14 +20,11 @@
 }
 
 .feld-pane {
-    /*-fx-background-image: url(https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg);*/
     /*-fx-background-color: "6e1f00";*/
     -fx-min-height: 80;
     -fx-min-width: 80;
     -fx-alignment: center;
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: 80 80;
-    -fx-background-position: center center;
+
 }
 
 .feld-pane:hover {
@@ -37,9 +34,9 @@
 .feld-pane:keinekarte {
     -fx-border-width: 2;
     -fx-border-color: "000000";
-    -fx-background-color: "b9b9b9";
-}
+    /* -fx-background-color: "b9b9b9";*/
+ }
 
-.feld-pane:karte {
-    /*-fx-background-color: red;*/
+ .feld-pane:karte {
+     /*-fx-background-color: red;*/
 }

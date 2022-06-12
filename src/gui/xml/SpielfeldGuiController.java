@@ -19,9 +19,14 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
@@ -101,21 +106,26 @@ public class SpielfeldGuiController
 
     private void Karteinhandeinfuegen(int x)
     {
+
             Image meinimage = new Image("https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg");
+            BackgroundSize backgroundsize = new BackgroundSize(BackgroundSize.AUTO,
+                                                                BackgroundSize.AUTO,
+                                                                true,true,true,true);
             BackgroundImage meinbackroundimage = new BackgroundImage(meinimage, BackgroundRepeat.NO_REPEAT,
                     BackgroundRepeat.NO_REPEAT,
                     BackgroundPosition.DEFAULT,
-                    BackgroundSize.DEFAULT);
+                    backgroundsize);
             Background meinhintergrundbild = new Background(meinbackroundimage);
             FeldPane handplatz = new FeldPane();
             if (kartenhand.getElement(x) == null)
             {
                 handplatz.setkeineKarte(true);
-                handplatz.setBackground(meinhintergrundbild);
+                handplatz.setBackground(Background.fill(Color.BLACK));
             }
             else
             {
                 handplatz.getChildren().add(new Label(kartenhand.getElement(x).getName()));
+                handplatz.setBackground(meinhintergrundbild);
             }
 
             kartenhandGitter.add(handplatz,x,0);
