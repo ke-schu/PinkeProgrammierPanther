@@ -64,17 +64,17 @@ public class GuiController {
     {
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle("Hilfe");
+        popupStage.setTitle(HILFE);
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
-        VBox vbox = new VBox(20);
+        VBox vbox = new VBox(VBOX_20);
         TextArea text = new TextArea();
         text.setText(hilfeText);
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        Scene popupScene = new Scene(vbox,300,400);
-        Button okButton = new Button("CLOSE");
+        Scene popupScene = new Scene(vbox,POPUP_BREITE,POPUP_HOEHE);
+        Button okButton = new Button(POPUP_BUTTON_SCHLIESSEN);
         okButton.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -99,7 +99,7 @@ public class GuiController {
     @FXML
     public void wechselZuHauptmenue (ActionEvent event) throws IOException
     {
-        wechselZu(event, "Hauptmenue.fxml");
+        wechselZu(event, HAUPTMENUE_PFAD);
     }
 
     /**
@@ -109,7 +109,7 @@ public class GuiController {
      */
     public void wechselZuEinstellungen (ActionEvent event) throws IOException
     {
-        wechselZu(event, "Einstellungen.fxml");
+        wechselZu(event, EINSTELLUNG_PFAD);
     }
 
     /**
@@ -119,7 +119,7 @@ public class GuiController {
      */
     public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
     {
-        wechselZu(event, "Charakterauswahl.fxml");
+        wechselZu(event, CHARAKTERAUSWAHL_PFAD);
     }
 
     /**
@@ -129,7 +129,7 @@ public class GuiController {
      */
     public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
-        wechselZu(event, "Spielebene.fxml");
+        wechselZu(event, SPIELEBENE_PFAD);
     }
 
     /**
@@ -139,7 +139,7 @@ public class GuiController {
      */
     public void wechselZuSpielfeld (ActionEvent event) throws IOException
     {
-        wechselZu(event, "Spielfeld.fxml");
+        wechselZu(event, SPIELFELD_PFAD);
     }
 
     /**

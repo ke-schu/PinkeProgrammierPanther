@@ -5,9 +5,17 @@ import java.net.URL;
 
 public interface GuiKonstanten
 {
+    //Strings für Pfade
     String BILDER_PFAD = "src/gui/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
     File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
+    String HAUPTMENUE_PFAD = "Hauptmenue.fxml";
+    String EINSTELLUNG_PFAD = "Einstellungen.fxml";
+    String CHARAKTERAUSWAHL_PFAD = "Charakterauswahl.fxml";
+    String SPIELEBENE_PFAD = "Spielebene.fxml";
+    String SPIELFELD_PFAD = "Spielfeld.fxml";
+
+
 
     //Integer fuer die Aufloesung
     int AUFLOESUNG_HOEHE_HD = 1280;
@@ -18,14 +26,27 @@ public interface GuiKonstanten
     //Werte für die Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
 
-    //Strings fuer Texte der Hilfefenster
+    //Konstanten fuer Texte der Hilfefenster
+    String HILFE = "Hilfe";
     String HILFE_TEXT = "Hier steht ein Text, der hilft.";
-    String HILFE_HAUPTMENUE = "Hier ist der String der nachher in unserem Hilfefenster des Hauptmenüs steht." +
-            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
-    String HILFE_EINSTELLUNGEN = "Hier ist der String der nachher in unserem Hilfefenster der Einstellungen steht." +
-            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
-    String HILFE_CHARAKTERAUSWAHL = "Hier ist der String der nachher in unserem Hilfefenster der Charakterauswahl steht." +
-            "Ich hoffe das ist hilfreich und man kann damit was anfagen.";
+    String HILFE_HAUPTMENUE = "Das hier ist das Hauptmenü. Hier kann über die Knöpfe ein neues Spiel begonnen werden," +
+            "falls bereits ein Spielstand existiert kann dieser über `Weiter` fortgesetzt werden." +
+            "In den Einstellungen sind Möglichkeiten um die Lautstärke und Fenstergrößen anzupassen." +
+            "Dies ist aber auch später im Spiel selbst über eine Menüleiste möglich. Viel Spaß!";
+    String HILFE_EINSTELLUNGEN = "Hier können allgemeine Anwendungseinstellungen getätigt werden. Über das " +
+            "Fenstergröße-Menü kann die Rahmengröße eingestellt werden. Der Slider kontrolliert die Lautstärke" +
+            "aller Sounds dieser Anwendung.";
+    String HILFE_CHARAKTERAUSWAHL = "Hier kann ein Charakter mit Deck für den nächsten Versuch ausgewählt werden." +
+            "Es kann sein, dass noch nicht alle Charaktere freigeschaltet sind. Dies kann im laufe der Zeit" +
+            "mit dem gefunden Gold geändert werden.";
+    String POPUP_BUTTON_SCHLIESSEN = "Schließen";
+    Integer VBOX_20 = 20;
+    Integer POPUP_BREITE = 300;
+    Integer POPUP_HOEHE = 400;
+
+
+
+
     String STYLE_CHARAKTER_NAME = "charakter-name";
     String CHARAKTER_KAUFEN = "Kaufen für %d €";
     String SCHON_FREIGESCHALTET = "Im Besitz";
