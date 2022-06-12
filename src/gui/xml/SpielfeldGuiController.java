@@ -4,6 +4,7 @@ import control.KartenEinheitController;
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
 import gui.components.FeldPane;
+import gui.components.KarteVBox;
 import gui.components.RaumPane;
 import io.KonsolenIO;
 import io.SpielStandIO;
@@ -106,30 +107,11 @@ public class SpielfeldGuiController
 
     private void Karteinhandeinfuegen(int x)
     {
-
-            Image meinimage = new Image("https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg");
-            BackgroundSize backgroundsize = new BackgroundSize(BackgroundSize.AUTO,
-                                                                BackgroundSize.AUTO,
-                                                                true,true,true,true);
-            BackgroundImage meinbackroundimage = new BackgroundImage(meinimage, BackgroundRepeat.NO_REPEAT,
-                    BackgroundRepeat.NO_REPEAT,
-                    BackgroundPosition.DEFAULT,
-                    backgroundsize);
-            Background meinhintergrundbild = new Background(meinbackroundimage);
-            FeldPane handplatz = new FeldPane();
-            if (kartenhand.getElement(x) == null)
-            {
-                handplatz.setkeineKarte(true);
-                handplatz.setBackground(Background.fill(Color.BLACK));
-            }
-            else
-            {
-                handplatz.getChildren().add(new Label(kartenhand.getElement(x).getName()));
-                handplatz.setBackground(meinhintergrundbild);
-            }
-
-            kartenhandGitter.add(handplatz,x,0);
+            Karte aktuellekarte = kartenhand.getElement(x);
+            KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
+            kartenhandGitter.add(aktuellekartevbox,x,0);
     }
+
 
 
 
@@ -137,6 +119,7 @@ public class SpielfeldGuiController
     {
         KarteEinheit aktuellesfeld = spielfeld.getSpielfeldplatz(x, y);
         FeldPane feld = new FeldPane();
+        KarteVBox spielerkartevbox = new KarteVBox(spieler);
 
         if (aktuellesfeld == null)
         {
@@ -145,7 +128,7 @@ public class SpielfeldGuiController
         else
         {
             feld.getChildren()
-                    .add(new Label(aktuellesfeld.getName()));
+                    .add(spielerkartevbox);
         }
 
 //        ObjectProperty<Position> aktuellePosition =
