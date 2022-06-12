@@ -33,10 +33,7 @@ import javafx.stage.Stage;
 import model.*;
 import model.ereignisse.*;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,6 +50,8 @@ public class SpielfeldGuiController
     GridPane kartenhandGitter;
     @FXML
     MenuBar menueLeiste;
+    @FXML
+    ScrollPane scrollpane;
     private SpielStand spielstand;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
@@ -66,6 +65,15 @@ public class SpielfeldGuiController
     {
         try
         {
+            File meinhintergrund = new File(BILDER_PFAD + "Spielplatz" + PNG_DATEI_ENDUNG);
+            BackgroundSize backroundsize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,true,true,true);
+            Background hintergrund = new Background(new BackgroundImage(
+                    new Image(meinhintergrund.getAbsolutePath()),
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT,
+                    backroundsize));
+            scrollpane.setBackground(hintergrund);
             spielstand = SpielStandIO.leseDatei();
             spieler = spielstand.getSpieler();
             spieldeck = spielstand.getSpieldeckSpieler();
