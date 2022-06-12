@@ -56,9 +56,7 @@ public class SpielfeldGuiController
     private SpielStand spielstand;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
-
     private KartenHand kartenhand;
-
     private Spieler spieler;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
@@ -130,25 +128,6 @@ public class SpielfeldGuiController
             feld.getChildren()
                     .add(spielerkartevbox);
         }
-
-//        ObjectProperty<Position> aktuellePosition =
-//                new SimpleObjectProperty<>(new Position(x, y));
-//        spielerPosition.addListener(
-//                (observableValue, position, t1) -> raum.setBeinhaltetSpieler(
-//                        spielerPosition.get().equals(aktuellePosition.get())));
-
-//        raum.setOnMouseClicked(new EventHandler<MouseEvent>()
-//        {
-//            @Override public void handle(MouseEvent mouseEvent)
-//            {
-//                if(SpielfigurEbeneController.bewegen(ebene, x, y, spiel))
-//                {
-//                    spielerPosition.bind(aktuellePosition);
-//                    oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
-//                }
-//            }
-//        });
-//
         spielfeldGitter.add(feld, x, y);
     }
 

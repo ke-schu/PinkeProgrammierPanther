@@ -5,8 +5,9 @@ import java.net.URL;
 
 public interface GuiKonstanten
 {
-    File ICON = new File("src/gui/bilder/Logo.png");
-    String MAIN_CSS_PFAD = "css/Main.css";
+    String BILDER_PFAD = "src/gui/bilder/";
+    String PNG_DATEI_ENDUNG = ".png";
+    File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
 
     //Integer fuer die Aufloesung
     int AUFLOESUNG_HOEHE_HD = 1280;

@@ -35,10 +35,10 @@
     -fx-border-width: 2;
     -fx-border-color: "000000";
     /* -fx-background-color: "b9b9b9";*/
- }
+}
 
- .feld-pane:karte {
-     /*-fx-background-color: red;*/
+.feld-pane:karte {
+    /*-fx-background-color: red;*/
 }
 
 .karte-vbox {
