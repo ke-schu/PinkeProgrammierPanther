@@ -21,14 +21,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
 import model.ereignisse.*;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -99,18 +101,24 @@ public class SpielfeldGuiController
 
     private void Karteinhandeinfuegen(int x)
     {
+            Image meinimage = new Image("https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg");
+            BackgroundImage meinbackroundimage = new BackgroundImage(meinimage, BackgroundRepeat.NO_REPEAT,
+                    BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            Background meinhintergrundbild = new Background(meinbackroundimage);
+            FeldPane handplatz = new FeldPane();
+            if (kartenhand.getElement(x) == null)
+            {
+                handplatz.setkeineKarte(true);
+                handplatz.setBackground(meinhintergrundbild);
+            }
+            else
+            {
+                handplatz.getChildren().add(new Label(kartenhand.getElement(x).getName()));
+            }
 
-        FeldPane handplatz = new FeldPane();
-        if (kartenhand.getElement(x) == null)
-        {
-            handplatz.setkeineKarte(true);
-        }
-        else
-        {
-            handplatz.getChildren()
-                    .add(new Label(kartenhand.getElement(x).getName()));
-        }
-        kartenhandGitter.add(handplatz,x,0);
+            kartenhandGitter.add(handplatz,x,0);
     }
 
 
