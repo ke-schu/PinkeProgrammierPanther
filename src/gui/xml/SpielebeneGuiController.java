@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -28,13 +27,15 @@ import model.Position;
 import model.Raum;
 import model.SpielStand;
 import model.ereignisse.*;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.*;
 
+/**
+ * Klasse, welche alle Methoden der Spielebene Szene enthaelt.
+ */
 public class SpielebeneGuiController
         extends GuiController
         implements Initializable
@@ -126,6 +127,12 @@ public class SpielebeneGuiController
         }
     }
 
+    /**
+     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
+     * @param event Event durch welches die Methode ausgeloest wird.
+     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @throws IOException
+     */
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
@@ -249,7 +256,9 @@ public class SpielebeneGuiController
             System.out.println("Zum Spielfeld wechseln hat nicht geklappt");
         }
     }
+
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
+
     public void heilerGuiAusfuehren (Ereignis ereignis)
     {
         int lebenVorher = spiel.getGold();
@@ -286,7 +295,9 @@ public class SpielebeneGuiController
         popupStage.show();
     }
     public void schmiedGuiAusfuehren (Ereignis ereignis){}
+
     public void tempelGuiAusfuehren (Ereignis ereignis){}
+
     public void treppeGuiAusfuehren (Ereignis ereignis){}
 
     /**
@@ -331,6 +342,10 @@ public class SpielebeneGuiController
 
     public void zufallsEreignisGuiAusfuehren (Ereignis ereignis){}
 
+    /**
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     @Override
     public void wechselAufloesungFullHD (Event event)
     {
@@ -341,6 +356,10 @@ public class SpielebeneGuiController
         super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
     }
 
+    /**
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     @Override
     public void wechselAufloesungHD (Event event)
     {
