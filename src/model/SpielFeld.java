@@ -1,5 +1,7 @@
 package model;
 
+import utility.UtilityController;
+
 import java.util.Random;
 
 import static resources.Konstanten.*;
@@ -17,15 +19,14 @@ public class SpielFeld
 
     /**
      * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse
-     * eine Instanz mit einer zufaelligen Spielfeldgroesse zwischen 4 und 6
+     * eine Instanz mit einer zufaelligen Spielfeldgroesse
      * erzeugt.
      */
     public SpielFeld()
     {
-        this.spalten = generiereSpielfeldGroesse();
-        this.zeilen = generiereSpielfeldGroesse();
-        KarteEinheit[][] spielfeld =
-                new KarteEinheit[this.zeilen][this.spalten];
+        this.spalten = UtilityController.randomzahlmitbereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_MAX);
+        this.zeilen = UtilityController.randomzahlmitbereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_ZEILEN_MAX);
+        KarteEinheit[][] spielfeld = new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
 
@@ -43,16 +44,6 @@ public class SpielFeld
         this.spielfeld = spielfeld;
     }
 
-    /**
-     * Methode die eine zufaellige Zahl zwischen 4 und 6 generiert.
-     * @return Gibt einen Int-Wert zwischen 4 und 6.
-     */
-    public static int generiereSpielfeldGroesse()
-    {
-        Random ran = new Random();
-        int bereich = SPIELFELD_GENERATOR_MAX - SPIELFELD_GENERATOR_MIN;
-        return SPIELFELD_GENERATOR_MIN + ran.nextInt(bereich + 1);
-    }
 
     /**
      * Methode, die die Namen der Instanzen der Klasse KarteEinheit aus dem
