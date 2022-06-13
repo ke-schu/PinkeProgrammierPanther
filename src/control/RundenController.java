@@ -4,7 +4,6 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import model.SpielFeld;
 
-import static resources.Effekte.LETZTEWORTE;
 import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
 
 /**
@@ -71,8 +70,8 @@ public class RundenController
         {
             sterbendeeinheit.initialisieren();
             feld.einheitloeschen(feldspalte, feldzeile);
-            EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektEins(), feld);
-            EffektController.sterbeneffektausloesen(sterbendeeinheit, sterbendeeinheit.getEffektZwei(), feld);
+            EffektController.sterbenEffektAusloesen(sterbendeeinheit, sterbendeeinheit.getEffektEins(), feld);
+            EffektController.sterbenEffektAusloesen(sterbendeeinheit, sterbendeeinheit.getEffektZwei(), feld);
             KartenController.karteindeckeinordnen(sterbendeeinheit, spielerDeck, masterDeck);
         }
     }

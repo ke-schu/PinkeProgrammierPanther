@@ -22,7 +22,7 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    public static void aktioneffektausloesen(KarteEinheit ausloeser,KarteEinheit ziel,Effekte meineffekt, SpielFeld feld)
+    public static void aktionEffektAusloesen (KarteEinheit ausloeser, KarteEinheit ziel, Effekte meineffekt, SpielFeld feld)
     {
         switch (meineffekt)
         {
@@ -41,7 +41,7 @@ public class EffektController
      * @param meineffekt Der auszuloesende Effekt
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
-    public static void sterbeneffektausloesen(KarteEinheit ausloeser,Effekte meineffekt, SpielFeld feld)
+    public static void sterbenEffektAusloesen (KarteEinheit ausloeser, Effekte meineffekt, SpielFeld feld)
     {
         switch (meineffekt)
         {
@@ -69,9 +69,9 @@ public class EffektController
      * @param spielerDeck Das Deck des Players
      * @param masterDeck Das Deck des DungeonMaster
      */
-    public static void angriffeffektAusloesen(KarteEinheit ausloeser,KarteEinheit ziel,
-                                              Effekte meineffekt, SpielFeld feld,
-                                              KartenDeck spielerDeck,KartenDeck masterDeck)
+    public static void angriffEffektAusloesen (KarteEinheit ausloeser, KarteEinheit ziel,
+                                               Effekte meineffekt, SpielFeld feld,
+                                               KartenDeck spielerDeck, KartenDeck masterDeck)
     {
             switch (meineffekt)
             {
@@ -95,7 +95,7 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt ausloest
      * @param meineffekt Der auszuloesende Effekt
      */
-    public static void starteffektausloesen(KarteEinheit ausloeser, Effekte meineffekt)
+    public static void startEffektAusloesen (KarteEinheit ausloeser, Effekte meineffekt)
     {
         switch (meineffekt)
         {

@@ -2,8 +2,6 @@ package control;
 
 import model.*;
 
-import static control.EffektController.angriffeffektAusloesen;
-import static resources.Effekte.RAUBTIER;
 import static resources.Konstanten.WERT_SCHILD;
 
 
@@ -153,10 +151,10 @@ public class EinheitenController
                 verursacheSchaden(verteidiger, angreifer.getMacht());
                 RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                         verteidiger.getPositionX(),verteidiger.getPositionY());
-                EffektController.angriffeffektAusloesen(angreifer, verteidiger, angreifer.getEffektEins(),
-                        feld, spielerDeck,masterDeck);
-                EffektController.angriffeffektAusloesen(angreifer, verteidiger, angreifer.getEffektZwei(),
-                        feld, spielerDeck,masterDeck);
+                EffektController.angriffEffektAusloesen(angreifer, verteidiger, angreifer.getEffektEins(),
+                                                        feld, spielerDeck, masterDeck);
+                EffektController.angriffEffektAusloesen(angreifer, verteidiger, angreifer.getEffektZwei(),
+                                                        feld, spielerDeck, masterDeck);
                 angreifer.setSchlafend(true);
             }
         }

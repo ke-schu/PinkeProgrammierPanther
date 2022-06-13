@@ -47,8 +47,8 @@ public class KartenEinheitController
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(
                         ((KarteEinheit) meinekarte).getManaKosten());
-                EffektController.starteffektausloesen((KarteEinheit)meinekarte,((KarteEinheit) meinekarte).getEffektEins());
-                EffektController.starteffektausloesen((KarteEinheit)meinekarte,((KarteEinheit) meinekarte).getEffektZwei());
+                EffektController.startEffektAusloesen((KarteEinheit)meinekarte, ((KarteEinheit) meinekarte).getEffektEins());
+                EffektController.startEffektAusloesen((KarteEinheit)meinekarte, ((KarteEinheit) meinekarte).getEffektZwei());
             }
         }
     }
