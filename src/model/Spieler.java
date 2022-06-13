@@ -159,12 +159,19 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.levelGrenze = levelGrenze;
     }
 
-
+    /**
+     * Getter Methode um den Wert des Attributes maxleben zu erhalten
+     * @return gibt den Wert des Attributes maxleben wieder
+     */
     public int getMaxleben ()
     {
         return maxleben;
     }
 
+    /**
+     * Setter Methode um das Attribut maxleben zu setzen
+     * @param maxleben auf welchen das Attribut gesetzt werden soll
+     */
     public void setMaxleben (int maxleben)
     {
         this.maxleben = maxleben;
@@ -191,6 +198,10 @@ public class Spieler extends KarteEinheit implements Spielbar
             this.setLevelGrenze(this.getLevelGrenze() * LEVEL_GRENZE_FAKTOR);
         }
     }
+
+    /**
+     * gibt einer Karte ihre Initialwerte zurueck
+     */
     @Override
     public void initialisieren()
     {
@@ -203,6 +214,10 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.setSchlafend(getInit().getSchlafend());
     }
 
+    /**
+     * Methode welche Spieler Schaden nehmen laesst
+     * @param schaden welcher von den Lebenspunkten abgezogen werden soll
+     */
     @Override
     public void schadenNehmen(int schaden)
     {
