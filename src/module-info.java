@@ -17,5 +17,5 @@ module PinkeProgrammierPanther {
     opens view.fxml;
     opens control.test;
     opens view.components;
-    opens view.xmlControl;
+    opens view.fxmlControl;
 }

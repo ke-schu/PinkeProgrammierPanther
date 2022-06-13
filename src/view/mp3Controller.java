@@ -1,7 +1,7 @@
 package view;
 
 import exceptions.JsonNichtLesbarException;
-import view.xmlControl.GuiController;
+import view.fxmlControl.GuiController;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
 import javafx.fxml.Initializable;

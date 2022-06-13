@@ -1,4 +1,4 @@
-package view.xmlControl;
+package view.fxmlControl;
 
 import view.mp3Controller;
 import utility.SpielStandIO;

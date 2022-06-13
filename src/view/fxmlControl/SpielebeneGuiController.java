@@ -1,4 +1,4 @@
-package view.xmlControl;
+package view.fxmlControl;
 
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
@@ -93,7 +93,8 @@ public class SpielebeneGuiController
             raum.setNichtig(true);
         } else if (aktuellerRaum.getEreignis() == null)
         {
-        } else
+        }
+        else
         {
             raum.getChildren()
                 .add(new Label(aktuellerRaum.getEreignis().getName()));
