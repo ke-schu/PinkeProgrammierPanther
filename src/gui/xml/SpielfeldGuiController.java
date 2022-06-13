@@ -57,8 +57,6 @@ public class SpielfeldGuiController
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        try
-        {
             spielfeldhintergrundfestlegen();
             erstellenspielfeldumgebung();
 
@@ -96,8 +94,6 @@ public class SpielfeldGuiController
                     spielfeldGitter.add(feld, i, j);
                 }
             }
-        }
-
     }
 
     private void erstellenspielfeldumgebung()
