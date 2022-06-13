@@ -53,6 +53,7 @@ public class SpielStand
             throws JsonNichtLesbarException
     {
         this(stand.getGold(), stand.getSpieler());
+        this.lautstaerke = stand.getLautstaerke();
         this.spieldeckSpieler =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
