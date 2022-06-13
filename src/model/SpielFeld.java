@@ -19,7 +19,7 @@ public class SpielFeld
 
     /**
      * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse
-     * eine Instanz mit einer zufaelligen Spielfeldgroesse zwischen 4 und 6
+     * eine Instanz mit einer zufaelligen Spielfeldgroesse
      * erzeugt.
      */
     public SpielFeld()
