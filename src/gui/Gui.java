@@ -22,12 +22,10 @@ public class Gui extends Application
 
         stage.setTitle(SPIELTITEL);
         stage.setScene(scene);
-        //stage.setMaxHeight(AUFLOESUNG_BREITE_HD); //Aufloesung bei Start
-        //stage.setMinHeight(AUFLOESUNG_BREITE_HD);
-        //stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
-        //stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
-        stage.setHeight(AUFLOESUNG_HOEHE_HD);
-        stage.setWidth(AUFLOESUNG_BREITE_HD);
+        stage.setMaxHeight(AUFLOESUNG_BREITE_HD); //Aufloesung bei Start
+        stage.setMinHeight(AUFLOESUNG_BREITE_HD);
+        stage.setMaxWidth(AUFLOESUNG_HOEHE_HD);
+        stage.setMinWidth(AUFLOESUNG_HOEHE_HD);
         stage.setResizable(false);
         stage.getIcons().add(new Image(ICON.getAbsolutePath()));
         stage.show();

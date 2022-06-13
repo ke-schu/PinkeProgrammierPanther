@@ -44,6 +44,8 @@ public class mp3Controller implements Initializable
     {
         mediaplayer.play();
         mediaplayer.setAutoPlay(true);
+        mediaplayer.setOnRepeat(mediaplayer.getOnEndOfMedia());
+
     }
 
     public static void mute()

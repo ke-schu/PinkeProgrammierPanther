@@ -219,8 +219,10 @@ public class GuiController implements Initializable
     public void wechselAufloesungFullHD (Event event)
     {
         setStage((Stage)((Node)event.getSource()).getScene().getWindow());
-        getStage().setHeight(AUFLOESUNG_HOEHE_FULLHD);
-        getStage().setWidth(AUFLOESUNG_BREITE_FULLHD);
+        getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
+        getStage().setMinHeight(AUFLOESUNG_HOEHE_FULLHD);
+        getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
+        getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
     }
 
     /**
@@ -230,8 +232,10 @@ public class GuiController implements Initializable
     public void wechselAufloesungHD (Event event)
     {
         setStage((Stage)((Node)event.getSource()).getScene().getWindow());
-        getStage().setHeight(AUFLOESUNG_HOEHE_HD);
-        getStage().setWidth(AUFLOESUNG_BREITE_HD);
+        getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
+        getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
+        getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
+        getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
     }
 
     /**
