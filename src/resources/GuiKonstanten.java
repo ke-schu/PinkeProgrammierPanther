@@ -1,4 +1,4 @@
-package view;
+package resources;
 
 import java.io.File;
 
@@ -11,14 +11,12 @@ public interface GuiKonstanten
     String BILDER_PFAD = "src/view/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
     File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
-    String HAUPTMENUE_PFAD = "Hauptmenue.fxml";
-    String HAUPTMENUE_PFAD_START = "xml/Hauptmenue.fxml";
-    String EINSTELLUNG_PFAD = "Einstellungen.fxml";
-    String CHARAKTERAUSWAHL_PFAD = "Charakterauswahl.fxml";
-    String SPIELEBENE_PFAD = "Spielebene.fxml";
-    String SPIELFELD_PFAD = "Spielfeld.fxml";
-
-
+    String XML_PFADE = "src/view/xml/";
+    String HAUPTMENUE_PFAD = XML_PFADE + "Hauptmenue.fxml";
+    String EINSTELLUNG_PFAD = XML_PFADE + "Einstellungen.fxml";
+    String CHARAKTERAUSWAHL_PFAD = XML_PFADE +"Charakterauswahl.fxml";
+    String SPIELEBENE_PFAD = XML_PFADE + "Spielebene.fxml";
+    String SPIELFELD_PFAD = XML_PFADE +"Spielfeld.fxml";
 
     //Integer fuer die Aufloesung
     int AUFLOESUNG_HOEHE_HD = 720;
@@ -53,9 +51,6 @@ public interface GuiKonstanten
     Integer VBOX_20 = 20;
     Integer POPUP_BREITE = 300;
     Integer POPUP_HOEHE = 400;
-
-
-
 
     String STYLE_CHARAKTER_NAME = "charakter-name";
     String CHARAKTER_KAUFEN = "Kaufen für %d €";

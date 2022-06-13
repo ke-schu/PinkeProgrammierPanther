@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.Charakter;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 /**
  * Modelliert eine VBox mit eigenen Priority-Klassen um die Charaktere in der

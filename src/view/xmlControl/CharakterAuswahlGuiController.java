@@ -1,4 +1,4 @@
-package view.xml;
+package view.xmlControl;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
@@ -26,7 +26,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 /**
  * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.

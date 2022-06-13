@@ -1,4 +1,4 @@
-package view.xml;
+package view.xmlControl;
 
 import exceptions.JsonNichtLesbarException;
 import view.components.KarteVBox;
@@ -21,7 +21,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 import static resources.Konstanten.HANDGROESSE;
 
 public class SpielfeldGuiController
@@ -160,7 +160,8 @@ public class SpielfeldGuiController
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
+        File f = new File(pfad);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load());
         super.setStage(((Stage)menueLeiste.getScene().getWindow()));
         super.getStage().setScene(scene);

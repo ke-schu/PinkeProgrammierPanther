@@ -6,9 +6,10 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 public class Gui extends Application
 {
@@ -16,7 +17,8 @@ public class Gui extends Application
     @Override
     public void start(Stage stage) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(Gui.class.getResource(HAUPTMENUE_PFAD_START));
+        File f = new File(HAUPTMENUE_PFAD);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
 
         Scene scene = new Scene(fxmlLoader.load());
 

@@ -9,7 +9,7 @@ import model.KarteZauber;
 
 import java.io.File;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 public class KarteVBox extends VBox
 {

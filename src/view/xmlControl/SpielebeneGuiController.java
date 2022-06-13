@@ -1,4 +1,4 @@
-package view.xml;
+package view.xmlControl;
 
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
@@ -26,11 +26,13 @@ import model.Ebene;
 import model.Position;
 import model.Raum;
 import model.ereignisse.*;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 /**
  * Klasse, welche alle Methoden der Spielebene Szene enthaelt.
@@ -134,7 +136,8 @@ public class SpielebeneGuiController
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
+        File f = new File(pfad);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load());
         super.setStage(((Stage)menueLeiste.getScene().getWindow()));
         super.getStage().setScene(scene);

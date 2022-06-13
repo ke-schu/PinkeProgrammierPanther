@@ -1,4 +1,4 @@
-package view.xml;
+package view.xmlControl;
 
 import exceptions.JsonNichtLesbarException;
 import view.mp3Controller;
@@ -23,11 +23,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.SpielStand;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 /**
  * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.
@@ -51,7 +52,8 @@ public class GuiController implements Initializable
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
         mp3Controller.spieleEffekt(KLICK_SOUND);
-        FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
+        File f = new File(pfad);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -62,8 +64,7 @@ public class GuiController implements Initializable
      * Methode, welche die Methode offneHilfeTextEinsetzen aufruft. Diese Methode wird durch
      * @param event ActionEvent, welches mit dieser Methode verknuepft wird.
      */
-    @FXML
-    public void oeffneHilfe (ActionEvent event)
+    @FXML public void oeffneHilfe (ActionEvent event)
     {
         offneHilfeTextEinsetzen(HILFE_TEXT);
     }
@@ -72,7 +73,7 @@ public class GuiController implements Initializable
      * Methode, welche ein Popupfenster erstellt und fokussiert vor dem Hauptfenster oeffnet.
      * @param hilfeText String welcher in dem Popup als Text eingesetzt werden soll.
      */
-    public void offneHilfeTextEinsetzen (String hilfeText)
+    @FXML public void offneHilfeTextEinsetzen (String hilfeText)
     {
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -108,8 +109,7 @@ public class GuiController implements Initializable
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
      */
-    @FXML
-    public void wechselZuHauptmenue (ActionEvent event) throws IOException
+    @FXML public void wechselZuHauptmenue (ActionEvent event) throws IOException
     {
         wechselZu(event, HAUPTMENUE_PFAD);
     }
@@ -119,7 +119,7 @@ public class GuiController implements Initializable
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
      */
-    public void wechselZuEinstellungen (ActionEvent event) throws IOException
+    @FXML public void wechselZuEinstellungen (ActionEvent event) throws IOException
     {
         wechselZu(event, EINSTELLUNG_PFAD);
     }
@@ -129,7 +129,7 @@ public class GuiController implements Initializable
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
      */
-    public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
+    @FXML public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
     {
         wechselZu(event, CHARAKTERAUSWAHL_PFAD);
     }
@@ -139,7 +139,7 @@ public class GuiController implements Initializable
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
      */
-    public void wechselZuSpielEbene (ActionEvent event) throws IOException
+    @FXML public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
         wechselZu(event, SPIELEBENE_PFAD);
     }
@@ -149,7 +149,7 @@ public class GuiController implements Initializable
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
      */
-    public void wechselZuSpielfeld (ActionEvent event) throws IOException
+    @FXML public void wechselZuSpielfeld (ActionEvent event) throws IOException
     {
         wechselZu(event, SPIELFELD_PFAD);
     }
@@ -158,7 +158,7 @@ public class GuiController implements Initializable
      * Methode mit welcher die Anwendung geschlossen wird.
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    public void spielBeenden (ActionEvent event)
+    @FXML public void spielBeenden (ActionEvent event)
     {
         Platform.exit();
     }
