@@ -17,9 +17,9 @@ public abstract class Mensch extends Ereignis
     protected int interaktionsZaehler = 0;
 
     /**
-     * Der Konstruktor von Mensch
-     * @param name Der Name des Ereignisses
-     * @param beschreibung Die Beschreibung fuer den Spieler
+     * Der Konstruktor von Mensch.
+     * @param name Der Name des Ereignisses.
+     * @param beschreibung Die Beschreibung fuer den Spieler.
      */
     public Mensch(String name, String beschreibung)
     {
@@ -55,8 +55,8 @@ public abstract class Mensch extends Ereignis
     }
 
     /**
-     * Getter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt
-     * @return Hoehe der Kosten
+     * Getter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt.
+     * @return Hoehe der Kosten.
      */
     public int getKosten()
     {
@@ -64,8 +64,8 @@ public abstract class Mensch extends Ereignis
     }
 
     /**
-     * Setter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt
-     * @param kosten Hoehe der Kosten
+     * Setter fuer die Hoehe der Kosten, die das jeweilige Ereignis verlangt.
+     * @param kosten Hoehe der Kosten.
      */
     public void setKosten(int kosten)
     {

@@ -2,7 +2,7 @@ package model;
 
 /**
  * Klasse Position welche Informationen ueber die Position einer Karte auf dem
- * Spielfeld in sich traegt
+ * Spielfeld in sich traegt.
  */
 public class Position
 {
@@ -18,8 +18,8 @@ public class Position
 
     /**
      * Konstruktor fuer eine Position.
-     * @param x Zahl der Spalte
-     * @param y Zahl der Zeile
+     * @param x Zahl der Spalte.
+     * @param y Zahl der Zeile.
      */
     public Position(int x, int y)
     {
@@ -28,9 +28,9 @@ public class Position
     }
 
     /**
-     * Methode welche ueberprueft ob der Spalten und Zeilenwert einer Position gleich sind
-     * @param pos welche ueberprueft wird
-     * @return booleaan ob Spalten und Zeilenwert einer Position gleich sind
+     * Methode welche ueberprueft ob der Spalten und Zeilenwert einer Position gleich sind.
+     * @param pos welche ueberprueft wird.
+     * @return booleaan ob Spalten und Zeilenwert einer Position gleich sind.
      */
     public boolean equals(Position pos)
     {
@@ -38,8 +38,8 @@ public class Position
     }
 
     /**
-     * Getter fuer die Zahl der Spalte der Position
-     * @return Spaltenzahl
+     * Getter fuer die Zahl der Spalte der Position.
+     * @return Spaltenzahl.
      */
     public int getX()
     {
@@ -47,8 +47,8 @@ public class Position
     }
 
     /**
-     * Setter fuer die Zahl der Spalte der Position
-     * @param x Spaltenzahl
+     * Setter fuer die Zahl der Spalte der Position.
+     * @param x Spaltenzahl.
      */
     public void setX(int x)
     {
@@ -57,8 +57,8 @@ public class Position
 
 
     /**
-     * Getter fuer die Zahl der Zeile der Position
-     * @return Zeilenzahl
+     * Getter fuer die Zahl der Zeile der Position.
+     * @return Zeilenzahl.
      */
     public int getY()
     {
@@ -66,8 +66,8 @@ public class Position
     }
 
     /**
-     * Setter fuer die Zahl der Zeile der Position
-     * @param y Zeilenzahl
+     * Setter fuer die Zahl der Zeile der Position.
+     * @param y Zeilenzahl.
      */
     public void setY(int y)
     {

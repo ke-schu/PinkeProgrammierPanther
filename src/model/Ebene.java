@@ -17,8 +17,8 @@ public class Ebene
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der
      * Raeume beinhaltet. Der Raumarray hat dabei die Abmasse der beiden
      * uebergebenen Integer.
-     * @param ebenenZeile Abmessung der Zeilengroesse des Arrays
-     * @param ebenenSpalte Abmessung der Spaltengroesse des Arrays
+     * @param ebenenZeile Abmessung der Zeilengroesse des Arrays.
+     * @param ebenenSpalte Abmessung der Spaltengroesse des Arrays.
      */
     public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte)
     {
@@ -160,11 +160,19 @@ public class Ebene
     }
 
 
+    /**
+     * Getter Methode um den Wert des Attributes spielfigur zu erhalten.
+     * @return gibt den Wert des Attributes spielfigur wieder.
+     */
     public SpielfigurEbene getSpielfigur()
     {
         return spielfigur;
     }
 
+    /**
+     * Setter Methode um das Attribut spielfigur zu setzen.
+     * @param spielfigur auf welchen das Attribut gesetzt werden soll.
+     */
     public void setSpielfigur(SpielfigurEbene spielfigur)
     {
         this.spielfigur = spielfigur;

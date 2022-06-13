@@ -15,8 +15,8 @@ public class Treppe extends Ereignis
      * Der Konstruktor erstellt ein Ereignis vom Typ Treppe. Treppen sind
      * Ereignisse, die es dem Spieler ermoeglichen seine aktuelle Ebene zu
      * verlassen und die naechst hoehere zu betreten.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
+     * @param name: Der Name des Ereignisses.
+     * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Treppe(String name, String beschreibung)
     {
@@ -27,7 +27,7 @@ public class Treppe extends Ereignis
      * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis".
      * Wird diese Methode ausgefuehrt, dann wird der Name der Treppe
      * ausgegeben.
-     * @param spielStand der aktuelle Spielstand und seine Attribute
+     * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)
     {

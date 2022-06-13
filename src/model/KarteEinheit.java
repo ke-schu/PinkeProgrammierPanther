@@ -5,7 +5,7 @@ import resources.Einheiten;
 
 /**
  * KarteEinheit repraesentiert eine Einheit welche als Karte auf das Spielfeld
- * gelegt werden kann Sie erbt von Karte
+ * gelegt werden kann, Sie erbt von Karte.
  */
 public class KarteEinheit extends Karte
 {
@@ -28,20 +28,20 @@ public class KarteEinheit extends Karte
 
 
     /**
-     * Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen
-     * @param typ Der Typ der Karte
-     * @param macht Die Macht der Karte
-     * @param lebenspunkte Die Lebenspunkte der Karte
-     * @param manaKosten Die Manakosten der Karte
-     * @param beweglichkeit Die Beweglichkeit der Karte
-     * @param reichweite Die Reichweite der Karte
-     * @param schild Anzahl der Schilde der Karte
+     * Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen.
+     * @param typ Der Typ der Karte.
+     * @param macht Die Macht der Karte.
+     * @param lebenspunkte Die Lebenspunkte der Karte.
+     * @param manaKosten Die Manakosten der Karte.
+     * @param beweglichkeit Die Beweglichkeit der Karte.
+     * @param reichweite Die Reichweite der Karte.
+     * @param schild Anzahl der Schilde der Karte.
      * @param verteidigung mit wie viel Punkten ein Angriff verteidigt werden
-     * soll
-     * @param effektEins der erste Effekt
-     * @param effektZwei der zweite Effekt
-     * @param schlafend ob die Einheit schlaeft
-     * @param freundlich ob die Einheit freundlich
+     * soll.
+     * @param effektEins der erste Effekt.
+     * @param effektZwei der zweite Effekt.
+     * @param schlafend ob die Einheit schlaeft.
+     * @param freundlich ob die Einheit freundlich.
      */
     public KarteEinheit(String name, int level, Einheiten typ, int macht,
                         int lebenspunkte, int manaKosten,
@@ -84,19 +84,19 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Methode welche eine Kopie einer KarteEinheit erstellt, welche weniger Eigenschaften besitzt
-     * @param vorlage Vorlage aus welcher die Kopie erstellt wird
-     * @return Kopie welche erstellt wurde
+     * Methode welche eine Kopie einer KarteEinheit erstellt, welche weniger Eigenschaften besitzt.
+     * @param vorlage Vorlage aus welcher die Kopie erstellt wird.
+     * @return Kopie welche erstellt wurde.
      */
-    public KarteEinheit kopieerstelen(KarteEinheit vorlage)
+    public KarteEinheit kopieErstelen(KarteEinheit vorlage)
     {
         KarteEinheit kopie = new KarteEinheit(vorlage);
         return kopie;
     }
 
     /**
-     * Getter Methode um den Wert des Attributes typ zu erhalten
-     * @return gibt den Wert des Attributes typ wieder
+     * Getter Methode um den Wert des Attributes typ zu erhalten.
+     * @return gibt den Wert des Attributes typ wieder.
      */
     public Einheiten getTyp()
     {
@@ -104,8 +104,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes macht zu erhalten
-     * @return gibt den Wert des Attributes macht wieder
+     * Getter Methode um den Wert des Attributes macht zu erhalten.
+     * @return gibt den Wert des Attributes macht wieder.
      */
     public int getMacht()
     {
@@ -113,8 +113,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut macht zu setzen
-     * @param macht auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut macht zu setzen.
+     * @param macht auf welchen das Attribut gesetzt werden soll.
      */
     public void setMacht(int macht)
     {
@@ -122,8 +122,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes lebenspunkte zu erhalten
-     * @return gibt den Wert des Attributes lebenspunkte wieder
+     * Getter Methode um den Wert des Attributes lebenspunkte zu erhalten.
+     * @return gibt den Wert des Attributes lebenspunkte wieder.
      */
     public int getLebenspunkte()
     {
@@ -131,8 +131,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut lebenspunkte zu setzen
-     * @param lebenspunkte auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut lebenspunkte zu setzen.
+     * @param lebenspunkte auf welchen das Attribut gesetzt werden soll.
      */
     public void setLebenspunkte(int lebenspunkte)
     {
@@ -140,8 +140,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes manaKosten zu erhalten
-     * @return gibt den Wert des Attributes manaKosten wieder
+     * Getter Methode um den Wert des Attributes manaKosten zu erhalten.
+     * @return gibt den Wert des Attributes manaKosten wieder.
      */
     public int getManaKosten()
     {
@@ -149,8 +149,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut manaKosten zu setzen
-     * @param manaKosten auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut manaKosten zu setzen.
+     * @param manaKosten auf welchen das Attribut gesetzt werden soll.
      */
     public void setManaKosten(int manaKosten)
     {
@@ -158,7 +158,7 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes beweglichkeit zu erhalten
+     * Getter Methode um den Wert des Attributes beweglichkeit zu erhalten.
      * @return gibt den Wert des Attributes beweglichkeit wieder
      */
     public int getBeweglichkeit()
@@ -167,8 +167,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut beweglichkeit zu setzen
-     * @param beweglichkeit auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut beweglichkeit zu setzen.
+     * @param beweglichkeit auf welchen das Attribut gesetzt werden soll.
      */
     public void setBeweglichkeit(int beweglichkeit)
     {
@@ -176,8 +176,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes reichweite zu erhalten
-     * @return gibt den Wert des Attributes reichweite wieder
+     * Getter Methode um den Wert des Attributes reichweite zu erhalten.
+     * @return gibt den Wert des Attributes reichweite wieder.
      */
     public int getReichweite()
     {
@@ -185,8 +185,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut reichweite zu setzen
-     * @param reichweite auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut reichweite zu setzen.
+     * @param reichweite auf welchen das Attribut gesetzt werden soll.
      */
     public void setReichweite(int reichweite)
     {
@@ -194,8 +194,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes effektEins zu erhalten
-     * @return gibt den Wert des Attributes effektEins wieder
+     * Getter Methode um den Wert des Attributes effektEins zu erhalten.
+     * @return gibt den Wert des Attributes effektEins wieder.
      */
     public Effekte getEffektEins()
     {
@@ -203,8 +203,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes effektZwei zu erhalten
-     * @return gibt den Wert des Attributes effektZwei wieder
+     * Getter Methode um den Wert des Attributes effektZwei zu erhalten.
+     * @return gibt den Wert des Attributes effektZwei wieder.
      */
     public Effekte getEffektZwei()
     {
@@ -212,8 +212,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes verteidigung zu erhalten
-     * @return gibt den Wert des Attributes verteidigung wieder
+     * Getter Methode um den Wert des Attributes verteidigung zu erhalten.
+     * @return gibt den Wert des Attributes verteidigung wieder.
      */
     public int getVerteidigung()
     {
@@ -221,8 +221,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut verteidigung zu setzen
-     * @param verteidigung auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut verteidigung zu setzen.
+     * @param verteidigung auf welchen das Attribut gesetzt werden soll.
      */
     public void setVerteidigung(int verteidigung)
     {
@@ -230,8 +230,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes schild zu erhalten
-     * @return gibt den Wert des Attributes schild wieder
+     * Getter Methode um den Wert des Attributes schild zu erhalten.
+     * @return gibt den Wert des Attributes schild wieder.
      */
     public int getSchild()
     {
@@ -239,8 +239,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut schild zu setzen
-     * @param schild auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut schild zu setzen.
+     * @param schild auf welchen das Attribut gesetzt werden soll.
      */
     public void setSchild(int schild)
     {
@@ -248,8 +248,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes position zu erhalten
-     * @return gibt den Wert des Attributes position wieder
+     * Getter Methode um den Wert des Attributes position zu erhalten.
+     * @return gibt den Wert des Attributes position wieder.
      */
     public Position getPosition()
     {
@@ -257,8 +257,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes schild zu erhalten
-     * @return gibt den Wert des Attributes schild wieder
+     * Getter Methode um den Wert des Attributes schild zu erhalten.
+     * @return gibt den Wert des Attributes schild wieder.
      */
     public int getPositionX()
     {
@@ -267,9 +267,9 @@ public class KarteEinheit extends Karte
 
     /**
      * Getter Methode um den Wert des Attributes position und dessen Attribut
-     * y zu erhalten
-     * @return gibt den Wert des Attributes  position únd dessen Attribut y
-     * wieder
+     * y zu erhalten.
+     * @return gibt den Wert des Attributes position und dessen Attribut y
+     * wieder.
      */
     public int getPositionY()
     {
@@ -278,9 +278,9 @@ public class KarteEinheit extends Karte
 
 
     /**
-     * Setter Methode um das Attribut position zu setzen
-     * @param x auf welchen das Attribut gesetzt werden soll
-     * @param y auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut position zu setzen.
+     * @param x auf welchen das Attribut gesetzt werden soll.
+     * @param y auf welchen das Attribut gesetzt werden soll.
      */
     public void setPosition(int x, int y)
     {
@@ -289,8 +289,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut position zu setzen
-     * @param posi auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut position zu setzen.
+     * @param posi auf welchen das Attribut gesetzt werden soll.
      */
     public void setPosition(Position posi)
     {
@@ -298,8 +298,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes schlafend zu erhalten
-     * @return gibt den Wert des Attributes schlafend wieder
+     * Getter Methode um den Wert des Attributes schlafend zu erhalten.
+     * @return gibt den Wert des Attributes schlafend wieder.
      */
     public boolean getSchlafend()
     {
@@ -307,8 +307,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut schlafend zu setzen
-     * @param schlafend auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut schlafend zu setzen.
+     * @param schlafend auf welchen das Attribut gesetzt werden soll.
      */
     public void setSchlafend(boolean schlafend)
     {
@@ -316,8 +316,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes zaehler zu erhalten
-     * @return gibt den Wert des Attributes zaehler wieder
+     * Getter Methode um den Wert des Attributes zaehler zu erhalten.
+     * @return gibt den Wert des Attributes zaehler wieder.
      */
     public int getZaehler ()
     {
@@ -325,8 +325,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut zaehler zu setzen
-     * @param zaehler auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut zaehler zu setzen.
+     * @param zaehler auf welchen das Attribut gesetzt werden soll.
      */
     public void setZaehler (int zaehler)
     {
@@ -335,8 +335,8 @@ public class KarteEinheit extends Karte
 
 
     /**
-     * Getter Methode um den Wert des Attributes kopie zu erhalten
-     * @return gibt den Wert des Attributes kopie wieder
+     * Getter Methode um den Wert des Attributes kopie zu erhalten.
+     * @return gibt den Wert des Attributes kopie wieder.
      */
     public boolean getKopie ()
     {
@@ -344,8 +344,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * methdoe welche es der Karte ermoeglicht Schaden zu nehmen
-     * @param schaden welcher von den Lebenspunkten abgezogen werden soll
+     * methdoe welche es der Karte ermoeglicht Schaden zu nehmen.
+     * @param schaden welcher von den Lebenspunkten abgezogen werden soll.
      */
     public void schadenNehmen(int schaden)
     {
@@ -353,9 +353,9 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * speichert die im Kampfgeschehen veraenderbaren Startwerte einer Karte
+     * speichert die im Kampfgeschehen veraenderbaren Startwerte einer Karte.
      */
-    public void startwertespeichern()
+    public void startWerteSpeichern()
     {
         this.init = new InitialisierungKarteEinheit();
         this.init.setMacht(macht);
@@ -369,7 +369,7 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * gibt einer Karte ihre Initialwerte zurueck
+     * gibt einer Karte ihre Initialwerte zurueck.
      */
     public void initialisieren()
     {
@@ -385,8 +385,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Getter Methode um den Wert des Attributes init zu erhalten
-     * @return gibt den Wert des Attributes init wieder
+     * Getter Methode um den Wert des Attributes init zu erhalten.
+     * @return gibt den Wert des Attributes init wieder.
      */
     public InitialisierungKarteEinheit getInit()
     {
@@ -394,8 +394,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * Setter Methode um das Attribut init zu setzen
-     * @param init auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut init zu setzen.
+     * @param init auf welchen das Attribut gesetzt werden soll.
      */
     public void setInit(InitialisierungKarteEinheit init)
     {
@@ -403,8 +403,8 @@ public class KarteEinheit extends Karte
     }
 
     /**
-     * heilt eine KarteEinheit um den angegebenen wert
-     * @param heilung wert um den Der wert Lebenspunkte erhoeht wird
+     * heilt eine KarteEinheit um den angegebenen wert.
+     * @param heilung wert um den Der wert Lebenspunkte erhoeht wird.
      */
     public void heilen(int heilung)
     {

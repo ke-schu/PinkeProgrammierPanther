@@ -3,7 +3,7 @@ package model;
 /**
  * InitialisierungKarteEinheit ist verantwordlich fuer das Zwischenspeichern
  * von Werten welche fuer das initialisieren von Kartenattributen gebraucht
- * werden
+ * werden.
  */
 public class InitialisierungKarteEinheit
 {

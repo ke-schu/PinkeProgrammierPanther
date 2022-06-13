@@ -24,10 +24,10 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      * Der Konstruktor erstellt ein Ereignis vom Typ ZufallsEreignis. Ein
      * ZufallsEreignis ist ein Ereignis, dessen genaue Art fuer den Spieler
      * erst bekannt wird, wenn er den zugehoerigen Raum betritt.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
+     * @param name: Der Name des Ereignisses.
+     * @param beschreibung: Die Beschreibung fuer den Spieler.
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt
-     * oder ablehnt
+     * oder ablehnt.
      */
     public ZufallsEreignis(String name, String beschreibung,
                            boolean ausgefuehrt)
@@ -48,9 +48,9 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Diese Methode dient als Setter um darzustellen, ob ein Ereignis
-     * ausgefuehrt wurde oder nicht
+     * ausgefuehrt wurde oder nicht.
      * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt
-     * oder ablehnt
+     * oder ablehnt.
      */
     public void setAusgefuehrt(boolean ausgefuehrt)
     {
@@ -75,7 +75,7 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis".
      * Ueber das Attribut "wahrscheinlichkeit" wird bestimmt, welches Ereignis
      * ausgefuehrt wird.
-     * @param spielStand der aktuelle Spielstand und seine Attribute
+     * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)
     {
@@ -84,30 +84,30 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
         if (isAuswahl())
         {
             wahrscheinlichkeit = generiereWahrscheinlichkeit();
-            // Wahrscheinlichkeit 1%
+            // Wahrscheinlichkeit 1Prozent
             if (wahrscheinlichkeit <= EIN_PROZENT)
             {
                 ereignisnummer = ZE_1;
             }
-            // Wahrscheinlichkeit 9%
+            // Wahrscheinlichkeit 9Prozent
             else if (wahrscheinlichkeit <= ZEHN_PROZENT)
             {
                 spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht()+ZE_MACHT_ERHOEHUNG);
                 ereignisnummer = ZE_2;
             }
-            // Wahrscheinlichkeit 10%
+            // Wahrscheinlichkeit 10Prozent
             else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
             {
                 spielStand.getSpieler().setMana(spielStand.getSpieler().getMana()+ZE_MANA_ERHOEHUNG);
                 ereignisnummer = ZE_3;
             }
-            // Wahrscheinlichkeit 20%
+            // Wahrscheinlichkeit 20Prozent
             else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
             {
                 spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte()-ZE_SCHADEN);
                 ereignisnummer = ZE_4;
             }
-            // Wahrscheinlichkeit 10%
+            // Wahrscheinlichkeit 10Prozent
             else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
@@ -118,8 +118,8 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     }
 
     /**
-     * Getter fuer die Nummer, welches Ereignis ausgefuehrt wurde
-     * @return Nummer des ausgefuehrten Ereignisses
+     * Getter fuer die Nummer, welches Ereignis ausgefuehrt wurde.
+     * @return Nummer des ausgefuehrten Ereignisses.
      */
     public int getEreignisnummer ()
     {

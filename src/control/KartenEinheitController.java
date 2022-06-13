@@ -41,9 +41,9 @@ public class KartenEinheitController
             if (meineKarte instanceof KarteEinheit && (tank.getMana() >=
                                                        ((KarteEinheit) meineKarte).getManaKosten()))
             {
-                ((KarteEinheit) meinekarte).startwertespeichern();
-                positionGeben((KarteEinheit) meinekarte, x, y);
-                spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meinekarte);
+                ((KarteEinheit) meineKarte).startWerteSpeichern();
+                positionGeben((KarteEinheit) meineKarte, x, y);
+                spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meineKarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(
                         ((KarteEinheit) meineKarte).getManaKosten());
@@ -65,7 +65,7 @@ public class KartenEinheitController
     {
         if (held.getFreundlich())
         {
-            held.startwertespeichern();
+            held.startWerteSpeichern();
             positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
                           SPIELER_KAMPFFELD_STARTPOSITION_Y);
             spielfeld.einheitEinsetzten(SPIELER_KAMPFFELD_STARTPOSITION_X,
@@ -73,7 +73,7 @@ public class KartenEinheitController
                                         held);
         } else
         {
-            held.startwertespeichern();
+            held.startWerteSpeichern();
             positionGeben(held, spielfeld.getSpalten() -
                                 GEGNER_KAMPFFELD_STARTPOSITION_X,
                           spielfeld.getZeilen() -

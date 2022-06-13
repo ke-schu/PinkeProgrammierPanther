@@ -52,8 +52,8 @@ public class SpielfigurEbene
     }
 
     /**
-     * Setzt die aktuelle Position an eine andere Position
-     * @param position die neue Position
+     * Setzt die aktuelle Position an eine andere Position.
+     * @param position die neue Position.
      */
     public void setPosition(Position position)
     {

@@ -23,7 +23,7 @@ public class KartenDeck extends Stack<Karte>
 
     /**
      * Konstruktor der Klasse KartenDeck, welcher alle Attribute setzt.
-     * @param deckBezeichnung String der DeckBezeichnung
+     * @param deckBezeichnung String der DeckBezeichnung.
      */
     public KartenDeck(String deckBezeichnung)
     {
@@ -55,8 +55,8 @@ public class KartenDeck extends Stack<Karte>
     }
 
     /**
-     * Setzt die Datei des Kartendecks
-     * @param datei Die Datei des Kartendecks
+     * Setzt die Datei des Kartendecks.
+     * @param datei Die Datei des Kartendecks.
      */
     public void setDatei(File datei)
     {

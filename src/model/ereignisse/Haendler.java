@@ -25,10 +25,9 @@ public class Haendler extends Mensch
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler. Haendler sind
      * Ereignisse, die es dem Spieler ermoeglichen Karten zu dem bestehenden
      * Deck hinzuzufuegen.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
-     * @param haendlerDeck: Das Deck aus dem der Spieler neue Karten kaufen
-     * kann
+     * @param name: Der Name des Ereignisses.
+     * @param beschreibung: Die Beschreibung fuer den Spieler.
+     * @param haendlerDeck: Das Deck aus dem der Spieler neue Karten kaufen kann.
      */
     public Haendler(String name, String beschreibung, KartenDeck haendlerDeck)
     {
@@ -40,8 +39,8 @@ public class Haendler extends Mensch
      * Der Konstruktor erstellt ein Ereignis vom Typ Haendler ohne eine
      * Instanz der Klasse KartenDeck. Haendler sind Ereignisse, die es dem
      * Spieler ermoeglichen Karten zu dem bestehenden Deck hinzuzufuegen.
-     * @param name: Der Name des Ereignisses
-     * @param beschreibung: Die Beschreibung fuer den Spieler
+     * @param name: Der Name des Ereignisses.
+     * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Haendler(String name, String beschreibung)
     {
@@ -51,7 +50,7 @@ public class Haendler extends Mensch
     /**
      * Diese Methode dient als Getter um auf das aktuelle Deck des Haendlers
      * zuzugreifen.
-     * @return das aktuelle Deck des Haendlers
+     * @return das aktuelle Deck des Haendlers.
      */
     public KartenDeck getHaendlerDeck()
     {
@@ -74,7 +73,7 @@ public class Haendler extends Mensch
      * Der Haendler prueft ob die Interaktion eine Bezahlung erfordert. Je
      * nach Resultat wird entweder kostenlos eine Karte dem Deck hinzugefuegt
      * oder vorher die Zahlung durchgefuehrt.
-     * @param spielStand der aktuelle Spielstand und seine Attribute
+     * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)
     {

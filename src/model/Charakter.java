@@ -19,13 +19,13 @@ public class Charakter
     private transient KartenDeck startDeck;
 
     /**
-     * Konstruktor fuer den jeweiligen Charakter
-     * @param name Name des Charakters
-     * @param freischaltgebuehr Hoehe der Freischaltgebuehr, falls vorhanden
-     * @param spieler Der Spieler des Charakters, welcher verwendet wird
-     * @param freigeschaltet Zustand, ob dieser Charakter verwendbar ist
+     * Konstruktor fuer den jeweiligen Charakter.
+     * @param name Name des Charakters.
+     * @param freischaltgebuehr Hoehe der Freischaltgebuehr, falls vorhanden.
+     * @param spieler Der Spieler des Charakters, welcher verwendet wird.
+     * @param freigeschaltet Zustand, ob dieser Charakter verwendbar ist.
      * @throws JsonNichtLesbarException Exception, welche sich im Fall
-     * eines fehlerhaften Decks um eine Loesung kuemmert
+     * eines fehlerhaften Decks um eine Loesung kuemmert.
      */
     public Charakter(String name, int freischaltgebuehr, Spieler spieler,
                      boolean freigeschaltet)
@@ -40,10 +40,10 @@ public class Charakter
     }
 
     /**
-     * Konstruktor fuer den jeweiligen Charakter nach der Deserialisierung
-     * @param charakter deserialisierter Charakter
+     * Konstruktor fuer den jeweiligen Charakter nach der Deserialisierung.
+     * @param charakter deserialisierter Charakter.
      * @throws JsonNichtLesbarException Exception, welche sich im Fall
-     * eines fehlerhaften Decks um eine Loesung kuemmert
+     * eines fehlerhaften Decks um eine Loesung kuemmert.
      */
     public Charakter(Charakter charakter) throws JsonNichtLesbarException
     {

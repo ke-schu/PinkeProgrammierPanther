@@ -4,7 +4,7 @@ import resources.Effekte;
 import resources.Einheiten;
 
 /**
- * Diese Klasse definiert den Gegenspieler in Kaempfen mit dem Spieler
+ * Diese Klasse definiert den Gegenspieler in Kaempfen mit dem Spieler.
  */
 public class Gegenspieler extends KarteEinheit implements Spielbar
 {
@@ -12,7 +12,7 @@ public class Gegenspieler extends KarteEinheit implements Spielbar
 
     /**
      * Konstruktor der mit den uebergebenen Paramtern eine Instanz erstellt.
-     * @param mana Mana-Guthaben des Gegenspielers
+     * @param mana Mana-Guthaben des Gegenspielers.
      */
     public Gegenspieler(String name, int level, Einheiten typ, int macht,
                         int lebenspunkte, int beweglichkeit,

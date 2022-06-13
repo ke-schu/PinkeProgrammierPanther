@@ -6,7 +6,7 @@ import static resources.Konstanten.*;
 import static resources.Strings.*;
 
 /**
- * SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden
+ * SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden.
  */
 public class SpielFeld
 {
@@ -15,7 +15,7 @@ public class SpielFeld
     private int spalten = 0;
 
     /**
-     * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse
+     * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse,
      * eine Instanz mit einer zufaelligen Spielfeldgroesse
      * erzeugt.
      */
@@ -153,13 +153,13 @@ public class SpielFeld
 
     /**
      * Diese Methode setzt ein einer spezifischen Stelle im 2D-Array des
-     * Attributes spielfeld ein `null` Literal ein.
-     * @param x X-Koordiante an welcher das `null` Literal eingesetzt werden
+     * Attributes spielfeld ein null Literal ein.
+     * @param x X-Koordiante an welcher das null Literal eingesetzt werden
      * soll.
-     * @param y Y-Koordiante an welcher das `null` Literal eingesetzt werden
+     * @param y Y-Koordiante an welcher das null Literal eingesetzt werden
      * soll.
      */
-    public void einheitloeschen(int x, int y)
+    public void einheitLoeschen(int x, int y)
     {
         this.spielfeld[y][x] = null;
     }

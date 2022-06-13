@@ -9,7 +9,7 @@ import static resources.Konstanten.HANDGROESSE;
 
 /**
  * KartenHand repraesentiert die Kartenhand von welcher Karten ausgespielt
- * werden koennen
+ * werden koennen.
  */
 public class KartenHand
 {
@@ -41,10 +41,10 @@ public class KartenHand
     }
 
     /**
-     * Getter welche Karte aus der Hand wiedergibt
-     * @param position gibt die Position in der KartenHand an, von welcher die
-     * Karte wiedergegeben werden soll
-     * @return gibt eine Karte aus der Kartenhand wieder
+     * Getter welche Karte aus der Hand wiedergibt.
+     * @param position gibt die Position in der KartenHand an, von welcher die.
+     * Karte wiedergegeben werden soll.
+     * @return gibt eine Karte aus der Kartenhand wieder.
      */
     public Karte getElement (int position)
     {
@@ -53,10 +53,10 @@ public class KartenHand
 
     /**
      * Setter welcher eine Karte in eine bestimmte Position in der Hand
-     * einsetzt
+     * einsetzt.
      * @param position gibt die Position in der KartenHand an, in welche die
-     * Karte gelegt werden soll
-     * @param karte ist die Karte welche in die hand gelegt werden soll
+     * Karte gelegt werden soll.
+     * @param karte ist die Karte welche in die hand gelegt werden soll.
      */
     public void setElement(int position, Karte karte)
     {
@@ -64,7 +64,7 @@ public class KartenHand
     }
 
     /**
-     * @return gibt die Kartenhand als String wieder
+     * @return gibt die Kartenhand als String wieder.
      */
     @Override
     public String toString()
@@ -73,8 +73,8 @@ public class KartenHand
     }
 
     /**
-     * Zieht aus einem Kartendeck Karten und legt diese in das hand Array
-     * @param kartendeck, Kartendeck aus welchem gezogen wird
+     * Zieht aus einem Kartendeck Karten und legt diese in das hand Array.
+     * @param kartendeck, Kartendeck aus welchem gezogen wird.
      */
     public void handZiehen (KartenDeck kartendeck)
     {
@@ -92,8 +92,8 @@ public class KartenHand
     }
 
     /**
-     * Legt karten aus der Hand zurueck ins Kartendeck
-     * @param kartendeck, Kartendeck in welches Karten gelegt werden
+     * Legt karten aus der Hand zurueck ins Kartendeck.
+     * @param kartendeck, Kartendeck in welches Karten gelegt werden.
      */
     public void handAblegen (KartenDeck kartendeck)
     {
@@ -107,9 +107,9 @@ public class KartenHand
     }
 
     /**
-     * Legt einzelne Karte zurueck in ein Kartendeck
-     * @param positionkarte, position der Karte in der Hand
-     * @param kartendeck, Kartendeck in welches Karte gelegt wird
+     * Legt einzelne Karte zurueck in ein Kartendeck.
+     * @param positionkarte, position der Karte in der Hand.
+     * @param kartendeck, Kartendeck in welches Karte gelegt wird.
      */
     public void karteAblegen (int positionkarte, KartenDeck kartendeck)
     {

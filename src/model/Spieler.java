@@ -11,7 +11,8 @@ import static resources.Konstanten.*;
 
 /**
  * Spieler repraesentiert die Karte, welche den Spieler auf dem Spielfeld
- * darstellt. Sie erbt von Klasse KarteEinheit.
+ * darstellt.
+ * Sie erbt von Klasse KarteEinheit.
  */
 public class Spieler extends KarteEinheit implements Spielbar
 {
@@ -25,10 +26,10 @@ public class Spieler extends KarteEinheit implements Spielbar
 
     /**
      * Konstruiert einen Spieler mit allen notwendigen Attributen.
-     * @param waffe die Waffe des Spielers
-     * @param talente der Stack an Talenten
-     * @param artefakte die Artefakte des Spielers als Array
-     * @param mana das Mana-Guthaben
+     * @param waffe die Waffe des Spielers.
+     * @param talente der Stack an Talenten.
+     * @param artefakte die Artefakte des Spielers als Array.
+     * @param mana das Mana-Guthaben.
      */
     public Spieler(String name, int level, Einheiten typ, int macht,
                    int lebenspunkte, int beweglichkeit, int reichweite,
@@ -107,8 +108,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Getter Methode um den INT-Wert vom Mana des Spielers zurueckzugeben
-     * @return Den Manawert des Spielers
+     * Getter Methode um den INT-Wert vom Mana des Spielers zurueckzugeben.
+     * @return Den Manawert des Spielers.
      */
     public int getMana()
     {
@@ -116,8 +117,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Setter Methode um den INT-Wert vom Mana des Spielers zu setzen
-     * @param mana Der neue Manawert des Spielers
+     * Setter Methode um den INT-Wert vom Mana des Spielers zu setzen.
+     * @param mana Der neue Manawert des Spielers.
      */
     public void setMana (int mana)
     {
@@ -160,8 +161,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Getter Methode um den Wert des Attributes maxleben zu erhalten
-     * @return gibt den Wert des Attributes maxleben wieder
+     * Getter Methode um den Wert des Attributes maxleben zu erhalten.
+     * @return gibt den Wert des Attributes maxleben wieder.
      */
     public int getMaxleben ()
     {
@@ -169,8 +170,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Setter Methode um das Attribut maxleben zu setzen
-     * @param maxleben auf welchen das Attribut gesetzt werden soll
+     * Setter Methode um das Attribut maxleben zu setzen.
+     * @param maxleben auf welchen das Attribut gesetzt werden soll.
      */
     public void setMaxleben (int maxleben)
     {
@@ -200,7 +201,7 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * gibt einer Karte ihre Initialwerte zurueck
+     * gibt einer Karte ihre Initialwerte zurueck.
      */
     @Override
     public void initialisieren()
@@ -215,8 +216,8 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
 
     /**
-     * Methode welche Spieler Schaden nehmen laesst
-     * @param schaden welcher von den Lebenspunkten abgezogen werden soll
+     * Methode welche Spieler Schaden nehmen laesst.
+     * @param schaden welcher von den Lebenspunkten abgezogen werden soll.
      */
     @Override
     public void schadenNehmen(int schaden)

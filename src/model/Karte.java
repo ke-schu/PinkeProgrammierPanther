@@ -3,7 +3,7 @@ package model;
 import static resources.Strings.LEERZEICHEN;
 
 /**
- * Karte ist eine abstrakte Superklasse fuer genauer definierte Karten
+ * Karte ist eine abstrakte Superklasse fuer genauer definierte Karten.
  */
 public abstract class Karte
 {
@@ -13,11 +13,19 @@ public abstract class Karte
     private int level = 1;
     private String klasse = this.getClass().getCanonicalName();
 
+    /**
+     * Getter Methode um den Wert des Attributes freundlich zu erhalten.
+     * @return gibt den Wert des Attributes freundlich wieder.
+     */
     public boolean getFreundlich ()
     {
         return freundlich;
     }
 
+    /**
+     * Setter Methode um das Attribut freundlich zu setzen.
+     * @param freundlich auf welchen das Attribut gesetzt werden soll.
+     */
     public void setFreundlich (boolean freundlich)
     {
         this.freundlich = freundlich;

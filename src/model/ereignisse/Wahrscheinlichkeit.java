@@ -17,8 +17,8 @@ public interface Wahrscheinlichkeit
     double FUENFZIG_PROZENT = 50.0;
 
     /**
-     * Diese Methode dient zum generieren einer Wahrscheinlichkeit. Die
-     * jeweilige Klasse formuliert die Methode selbst aus
+     * Diese Methode dient zum generieren einer Wahrscheinlichkeit.
+     * Die jeweilige Klasse formuliert die Methode selbst aus.
      * @return generierte Wahrscheinlichkeit zur Bestimmung des jeweiligen
      * Ereignisses.
      */

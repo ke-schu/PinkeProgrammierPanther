@@ -144,7 +144,7 @@ public class EffektController
                 feld.einheitEinsetzten(ausloeser.getPositionX(),
                                        ausloeser.getPositionY() - umkreis2,
                                        zielOben);
-                feld.einheitloeschen(ausloeser.getPositionX(),
+                feld.einheitLoeschen(ausloeser.getPositionX(),
                                      ausloeser.getPositionY() - umkreis1);
             }
 
@@ -153,7 +153,7 @@ public class EffektController
                 feld.einheitEinsetzten(ausloeser.getPositionX(),
                                        ausloeser.getPositionY() + umkreis2,
                                        zielUnten);
-                feld.einheitloeschen(ausloeser.getPositionX(),
+                feld.einheitLoeschen(ausloeser.getPositionX(),
                                      ausloeser.getPositionY() + umkreis1);
             }
 
@@ -161,7 +161,7 @@ public class EffektController
             {
                 feld.einheitEinsetzten(ausloeser.getPositionX() - umkreis2,
                                        ausloeser.getPositionY(), zielLinks);
-                feld.einheitloeschen(ausloeser.getPositionX() - umkreis1,
+                feld.einheitLoeschen(ausloeser.getPositionX() - umkreis1,
                                      ausloeser.getPositionY());
             }
 
@@ -169,7 +169,7 @@ public class EffektController
             {
                 feld.einheitEinsetzten(ausloeser.getPositionX() + umkreis2,
                                        ausloeser.getPositionY(), zielRechts);
-                feld.einheitloeschen(ausloeser.getPositionX() + umkreis1,
+                feld.einheitLoeschen(ausloeser.getPositionX() + umkreis1,
                                      ausloeser.getPositionY());
             }
         } catch (ArrayIndexOutOfBoundsException e)
@@ -222,7 +222,7 @@ public class EffektController
      */
     private static void kopie (KarteEinheit ausloeser, SpielFeld feld)
     {
-        feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY(),ausloeser.kopieerstelen(ausloeser));
+        feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY(),ausloeser.kopieErstelen(ausloeser));
     }
 
     /**
@@ -273,7 +273,7 @@ public class EffektController
     {
         if(ausloeser.getFreundlich() == ziel.getFreundlich())
         ziel.heilen(1);
-        ziel.angrifferhoehen(1);
+        ziel.angriffErhoehen(1);
         RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                 ausloeser.getPositionX(),ausloeser.getPositionY());
     }
@@ -295,7 +295,7 @@ public class EffektController
                 {
                     if (feld.getSpielfeldplatz(i, j).getFreundlich() == ausloeser.getFreundlich())
                     {
-                        feld.getSpielfeldplatz(i, j).angrifferhoehen(1);
+                        feld.getSpielfeldplatz(i, j).angriffErhoehen(1);
                     }
 
                 }
