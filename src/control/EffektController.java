@@ -37,8 +37,8 @@ public class EffektController
     /**
      * Diese Methode erkennt, ob die Einheit einen Sterbeeffekt hat und falls ja, wird die zugehoerige
      * Methode aufgerufen.
-     * @param ausloeser Die Einheit, die den Effekt ausloest
-     * @param meineffekt Der auszuloesende Effekt
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param meineffekt Der auszuloesende Effekt.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
     public static void sterbenEffektAusloesen (KarteEinheit ausloeser, Effekte meineffekt, SpielFeld feld)
@@ -64,10 +64,10 @@ public class EffektController
      * Methode aufgerufen.
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param ziel Die Einheit, die angegriffen werden soll.
-     * @param meineffekt Der auszuloesende Effekt
+     * @param meineffekt Der auszuloesende Effekt.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
-     * @param spielerDeck Das Deck des Players
-     * @param masterDeck Das Deck des DungeonMaster
+     * @param spielerDeck Das Deck des Players.
+     * @param masterDeck Das Deck des DungeonMaster.
      */
     public static void angriffEffektAusloesen (KarteEinheit ausloeser, KarteEinheit ziel,
                                                Effekte meineffekt, SpielFeld feld,
@@ -92,8 +92,8 @@ public class EffektController
     /**
      * Diese Methode erkennt, ob die Einheit einen Starteffekt hat und falls ja, wird die zugehoerige
      * Methode aufgerufen.
-     * @param ausloeser Die Einheit, die den Effekt ausloest
-     * @param meineffekt Der auszuloesende Effekt
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param meineffekt Der auszuloesende Effekt.
      */
     public static void startEffektAusloesen (KarteEinheit ausloeser, Effekte meineffekt)
     {
@@ -180,7 +180,7 @@ public class EffektController
 
     /**
      * Diese Methode formuliert den Effekt "Sprint" aus. Dieser Effekt erhoeht den Bewegungswert der Einheit
-     * um 1
+     * um 1.
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      */
     private static void sprint (KarteEinheit ausloeser)
@@ -231,8 +231,8 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt auslöst.
      * @param ziel Die Einheit, die angegriffen werden soll.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
-     * @param spielerDeck Das Deck des Players
-     * @param masterDeck Das Deck des DungeonMaster
+     * @param spielerDeck Das Deck des Players.
+     * @param masterDeck Das Deck des DungeonMaster.
      */
     private static void durchschneiden (KarteEinheit ausloeser,KarteEinheit ziel,
                                        SpielFeld feld, KartenDeck spielerDeck,
@@ -260,12 +260,12 @@ public class EffektController
 
     /**
      * Diese Methode formuliert den Effekt "Opfern" aus. Die ausloesende Karte opfert sich selbst um einer
-     * anderen Einheit +1 Leben und Macht zu geben
+     * anderen Einheit +1 Leben und Macht zu geben.
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param ziel Die Einheit, die angegriffen werden soll.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
-     * @param spielerDeck
-     * @param masterDeck
+     * @param spielerDeck Das Deck des Player.
+     * @param masterDeck Das Deck des DungeonMaster.
      */
     private static void opfern (KarteEinheit ausloeser,KarteEinheit ziel,
                                SpielFeld feld, KartenDeck spielerDeck,
@@ -303,5 +303,4 @@ public class EffektController
             }
         }
     }
-
 }

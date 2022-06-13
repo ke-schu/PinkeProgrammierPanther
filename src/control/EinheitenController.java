@@ -100,8 +100,8 @@ public class EinheitenController
 
     /**
      * Ueberprueft, ob ein Verteidiger in Reichweite des Angreifers ist.
-     * @param angreifer die angreifende Einheit
-     * @param verteidiger die verteidigende Einheit
+     * @param angreifer die angreifende Einheit.
+     * @param verteidiger die verteidigende Einheit.
      * @return true, wenn sie in Reichweite ist.
      */
     private static boolean einheitInReichweite (KarteEinheit angreifer,
@@ -162,9 +162,9 @@ public class EinheitenController
 
     /**
      * Diese Methode ueberprueft, ob die beiden uebergebenen Einheiten sich angreifen koennen.
-     * @param angreifer Die Einheit, die angreifen soll
-     * @param verteidiger Die Einheit, die angegriffen werden soll
-     * @return Der Rueckgabewert ist, ob die Einheiten sich angreifen koennen
+     * @param angreifer Die Einheit, die angreifen soll.
+     * @param verteidiger Die Einheit, die angegriffen werden soll.
+     * @return Der Rueckgabewert ist, ob die Einheiten sich angreifen koennen.
      */
     public static boolean pruefeObFeindlich (KarteEinheit angreifer, KarteEinheit verteidiger)
     {
@@ -176,8 +176,8 @@ public class EinheitenController
     }
 
     /**
-     * Diese Methode setzt den Schildwert der Einheit um eine Konstante tiefer
-     * @param verteidiger Die Einheit, dessen Schild gesenkt wird
+     * Diese Methode setzt den Schildwert der Einheit um eine Konstante tiefer.
+     * @param verteidiger Die Einheit, dessen Schild gesenkt wird.
      */
     public static void brecheSchild (KarteEinheit verteidiger)
     {
@@ -218,11 +218,11 @@ public class EinheitenController
     }
 
     /**
-     * Diese Methode berechnet die Position hinter einer anvisierten Karte
-     * @param ausloeser Die anvisierende Karte
-     * @param ziel Die anvisierte Karte
-     * @param feld Das Spielfeld auf dem gespielt wird
-     * @return Die Position hinter der anvisierten Karte
+     * Diese Methode berechnet die Position hinter einer anvisierten Karte.
+     * @param ausloeser Die anvisierende Karte.
+     * @param ziel Die anvisierte Karte.
+     * @param feld Das Spielfeld auf dem gespielt wird.
+     * @return Die Position hinter der anvisierten Karte.
      */
     public static Position positionHinterKarteBerechnen (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
     {
@@ -258,9 +258,9 @@ public class EinheitenController
 
     /**
      * Diese Methode ueberprueft, ob eine Position innerhalb des vorhanden Spielfeldes liegt.
-     * @param position Die zu ueberpruefende Position
-     * @param feld Das Spielfeld auf dem gespielt wird
-     * @return Das Ergebnis, ob die Position innerhalb liegt oder nicht
+     * @param position Die zu ueberpruefende Position.
+     * @param feld Das Spielfeld auf dem gespielt wird.
+     * @return Das Ergebnis, ob die Position innerhalb liegt oder nicht.
      */
     public static boolean positionInnerhalbVonFeld (Position position, SpielFeld feld)
     {

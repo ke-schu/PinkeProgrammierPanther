@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
- * Beinhaltet verschiedene Methoden, die an Kartendeck-Instanzen arbeiten
+ * Beinhaltet verschiedene Methoden, die an Kartendeck-Instanzen arbeiten.
  */
 public class KartenDeckController
 {
@@ -31,10 +31,10 @@ public class KartenDeckController
     }
 
     /**
-     *
+     * Diese Methode kopiert ein Kartendeck.
      * @param quelle Das Kartendeck, welches kopiert werden soll.
-     * @param pfad
-     * @return
+     * @param pfad Der Pfad unter dem das Deck zu finden ist.
+     * @return Die Kopie des Decks.
      */
     public static KartenDeck kopiereDeck (KartenDeck quelle, String pfad)
     {

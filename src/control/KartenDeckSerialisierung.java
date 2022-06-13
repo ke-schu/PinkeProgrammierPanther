@@ -20,11 +20,11 @@ public class KartenDeckSerialisierung
     private Gson meinGson = new Gson();
 
     /**
-     * Serialisiert ein Kartendeck
-     * @param src das Kartendeck
-     * @param type Typ des zu serialisierenden Kartendecks
-     * @param context Kontext der Serialisierung
-     * @return ein Kartendeck als JsonElement
+     * Serialisiert ein Kartendeck.
+     * @param src das Kartendeck.
+     * @param type Typ des zu serialisierenden Kartendecks.
+     * @param context Kontext der Serialisierung.
+     * @return ein Kartendeck als JsonElement.
      */
     @Override
     public JsonElement serialize(KartenDeck src, Type type,
@@ -40,13 +40,13 @@ public class KartenDeckSerialisierung
     }
 
     /**
-     * Deserialisiert ein Kartendeck
-     * @param json das Kartendeck als JsonElement
-     * @param type Typ des zu serialisierenden Kartendecks
-     * @param context Kontext der Deserialisierung
-     * @return das Kartendeck
+     * Deserialisiert ein Kartendeck.
+     * @param json das Kartendeck als JsonElement.
+     * @param type Typ des zu serialisierenden Kartendecks.
+     * @param context Kontext der Deserialisierung.
+     * @return das Kartendeck.
      * @throws JsonParseException wird geworfen, wenn das Element nicht
-     * gelesen werden kann
+     * gelesen werden kann.
      */
     @Override
     public KartenDeck deserialize(JsonElement json, Type type,

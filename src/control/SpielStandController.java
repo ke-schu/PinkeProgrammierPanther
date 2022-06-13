@@ -35,6 +35,11 @@ public class SpielStandController
          */
     }
 
+    /**
+     * Diese Methode dient zum erstellen eines neuen Spielstandes.
+     * @param charakter Der ausgewaehlte Charakter des Player.
+     * @param spiel Der aktuelle Spielstand.
+     */
     public static void spielErstellen(Charakter charakter, SpielStand spiel)
     {
         try
@@ -50,6 +55,13 @@ public class SpielStandController
         }
     }
 
+    /**
+     * Diese Methode bietet die Moeglichkeit einen neuen Charakter freizuschalten.
+     * @param charakterStack Der Charakterstack des Players.
+     * @param pos Die Position an der sich der Charakter befindet.
+     * @param spiel Der aktuelle Spielstand.
+     * @throws NichtGenugGoldException Exception, falls der Player zu wenig Gold zum freischalten besitzt.
+     */
     public static void charakterKaufen(Stack<Charakter> charakterStack, int pos, SpielStand spiel)
             throws NichtGenugGoldException
     {
@@ -74,6 +86,10 @@ public class SpielStandController
         }
     }
 
+    /**
+     * Diese Methode formuliert aus, was passiert, wenn der Player stirbt.
+     * @param spieler Der Player.
+     */
     public static void sterben(Spieler spieler)
     {
         if(ArtefaktController.entferneArtefakt(SCHUTZENGEL, spieler))
@@ -86,6 +102,9 @@ public class SpielStandController
         }
     }
 
+    /**
+     * Diese Methode wird zu einem späteren Zeitpunkt ausformuliert.
+     */
     private static void spielZurueckSetzen()
     {
 

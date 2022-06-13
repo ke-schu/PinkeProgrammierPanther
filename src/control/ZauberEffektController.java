@@ -31,6 +31,9 @@ public class ZauberEffektController
         }
     }
 
+    /**
+     * Diese Methode wird zu einem späteren Zeitpunkt ausgefuehrt.
+     */
     private static void wurfspeer()
     {
 

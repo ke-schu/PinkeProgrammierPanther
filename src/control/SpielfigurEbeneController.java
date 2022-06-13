@@ -55,10 +55,6 @@ public class SpielfigurEbeneController
                 !zielPosition.equals(startPosition))
             {
                 spielfigur.setPosition(zielPosition);
-                /* SpielebeneGuiController.oeffneEreignis(ebene
-                .getRaumAnPosition(zielX, zielY).getEreignis());
-                ebene.getRaumAnPosition(zielX, zielY).getEreignis()
-                .ausfuehren(spielStand);*/
                 return true;
             }
         }

@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 import static resources.Strings.*;
 
 /**
- * Diese Klasse dient zum Serialisieren und Deserialisieren der Ebenen
+ * Diese Klasse dient zum Serialisieren und Deserialisieren der Ebenen.
  */
 public class EbeneSerialisierung implements JsonDeserializer<Ebene>
 {
@@ -22,7 +22,7 @@ public class EbeneSerialisierung implements JsonDeserializer<Ebene>
      * @param context Kontext der Deserialisierung.
      * @return gibt eine Instanz von Raum aus der .json wieder.
      * @throws JsonParseException wird geworfen, wenn das Element nicht
-     * gelesen werden kann..
+     * gelesen werden kann.
      */
     @Override
     public Ebene deserialize (JsonElement json, Type type,

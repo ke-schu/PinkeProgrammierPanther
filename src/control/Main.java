@@ -30,7 +30,7 @@ public class Main extends Application
 
     /**
      * Mit dieser Methode wird die GUI in einem neuen Window geoeffnet.
-     * @param stage die Buehne des Programms
+     * @param stage die Buehne des Programms.
      */
     @Override
     public void start(Stage stage)
@@ -81,7 +81,6 @@ public class Main extends Application
                 KartenDeckTest.leseDeck();
                 break;
             default:
-                return;
         }
     }
 }

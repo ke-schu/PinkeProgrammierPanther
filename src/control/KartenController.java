@@ -44,7 +44,7 @@ public class KartenController
 
     /**
      * Diese Methode formuliert aus, wie Karten des Typs KarteZauber verbessert werden.
-     * @param karteZauber die zu verbessernde Karte
+     * @param karteZauber die zu verbessernde Karte.
      */
     private static void karteVerbessern (KarteZauber karteZauber)
     {
@@ -54,7 +54,7 @@ public class KartenController
 
     /**
      * Diese Methode formuliert aus, wie Karten des Typs KarteEinheit verbessert werden.
-     * @param karteEinheit die zu verbessernde Karte
+     * @param einheit die zu verbessernde Karte.
      */
     private static void karteVerbessern (KarteEinheit einheit)
     {
@@ -76,7 +76,7 @@ public class KartenController
 
     /**
      * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs Nahkaempfer verbessert werden.
-     * @param einheit Die zu verbessernde Einheit
+     * @param einheit Die zu verbessernde Einheit.
      */
     private static void nahkaempferVerbessern (KarteEinheit einheit)
     {
@@ -100,7 +100,7 @@ public class KartenController
 
     /**
      * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs Fernkaempfer verbessert werden.
-     * @param einheit Die zu verbessernde Einheit
+     * @param einheit Die zu verbessernde Einheit.
      */
     private static void fernkaempferVerbessern(KarteEinheit einheit)
     {
@@ -125,7 +125,7 @@ public class KartenController
 
     /**
      * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs Blockade verbessert werden.
-     * @param einheit Die zu verbessernde Einheit
+     * @param einheit Die zu verbessernde Einheit.
      */
     private static void blockadeVerbessern(KarteEinheit einheit)
     {
@@ -136,9 +136,9 @@ public class KartenController
     /**
      * Diese Methode formuliert aus, wie sich eine Einheit verbessert.
      * @param einheit Die zu verbessernde Einheit.
-     * @param lp Die Menge an lp, die die Einheit dazu bekommen soll
-     * @param macht Die Menge an Macht, die die Einheit dazu bekommen soll
-     * @param reichweite Die Menge an Reichweite, die die Einheit dazu bekommen soll
+     * @param lp Die Menge an lp, die die Einheit dazu bekommen soll.
+     * @param macht Die Menge an Macht, die die Einheit dazu bekommen soll.
+     * @param reichweite Die Menge an Reichweite, die die Einheit dazu bekommen soll.
      */
     private static void einheitVerbessern(KarteEinheit einheit, int lp, int macht, int reichweite)
     {
@@ -151,9 +151,9 @@ public class KartenController
     /**
      * Diese Methode dient dazu eine Karte entweder in das Deck des Players oder das Deck des DungeonMasters
      * einzuordnen.
-     * @param karte Die einzuordnende Karte
-     * @param spielerDeck Das Deck des Players
-     * @param masterDeck Das Deck des DungeonMaster
+     * @param karte Die einzuordnende Karte.
+     * @param spielerDeck Das Deck des Players.
+     * @param masterDeck Das Deck des DungeonMaster.
      */
     public static void karteInDeckEinordnen (Karte karte, KartenDeck spielerDeck, KartenDeck masterDeck)
     {

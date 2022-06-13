@@ -22,7 +22,7 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
      * @param context Kontext der Deserialisierung.
      * @return gibt eine Instanz von Raum aus der .json wieder.
      * @throws JsonParseException wird geworfen, wenn das Element nicht
-     * gelesen werden kann..
+     * gelesen werden kann.
      */
     @Override
     public Raum deserialize(JsonElement json, Type type,

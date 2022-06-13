@@ -37,18 +37,18 @@ public class KartenEinheitController
         if ((spielfeld.getSpielfeld()[x][y] == null) &&
             (freundBenachbart(x, y, spielfeld)))
         {
-            Karte meinekarte = kartenhand.getElement(positionhand);
-            if (meinekarte instanceof KarteEinheit && (tank.getMana() >=
-                                                       ((KarteEinheit) meinekarte).getManaKosten()))
+            Karte meineKarte = kartenhand.getElement(positionhand);
+            if (meineKarte instanceof KarteEinheit && (tank.getMana() >=
+                                                       ((KarteEinheit) meineKarte).getManaKosten()))
             {
                 ((KarteEinheit) meinekarte).startwertespeichern();
                 positionGeben((KarteEinheit) meinekarte, x, y);
                 spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meinekarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(
-                        ((KarteEinheit) meinekarte).getManaKosten());
-                EffektController.startEffektAusloesen((KarteEinheit)meinekarte, ((KarteEinheit) meinekarte).getEffektEins());
-                EffektController.startEffektAusloesen((KarteEinheit)meinekarte, ((KarteEinheit) meinekarte).getEffektZwei());
+                        ((KarteEinheit) meineKarte).getManaKosten());
+                EffektController.startEffektAusloesen((KarteEinheit)meineKarte, ((KarteEinheit) meineKarte).getEffektEins());
+                EffektController.startEffektAusloesen((KarteEinheit)meineKarte, ((KarteEinheit) meineKarte).getEffektZwei());
             }
         }
     }
@@ -61,7 +61,7 @@ public class KartenEinheitController
      * @param held HeldKarte welche gelegt werden soll
      * @param spielfeld auf dem die Karten gelegt werden
      */
-    public static void beschwoerenhelden (KarteEinheit held, SpielFeld spielfeld)
+    public static void beschwoerenHelden(KarteEinheit held, SpielFeld spielfeld)
     {
         if (held.getFreundlich())
         {
