@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.CharakterAuswahlGuiController" stylesheets="@../css/Charakterauswahl.css">
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.fxmlControl.CharakterAuswahlGuiController" stylesheets="@../css/Charakterauswahl.css">
     <children>
-        <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
-                <HBox maxHeight="-Infinity" prefHeight="0.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                <HBox maxHeight="-Infinity" prefHeight="0.0" prefWidth="200.0" spacing="10.0"
+                      BorderPane.alignment="CENTER">
                     <children>
-                  <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                              <Button mnemonicParsing="false" onAction="#oeffneHilfe" text="Hilfe" />
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label fx:id="gold" text="Goldbestand: " />
-                     </children>
-                  </StackPane>
+                        <StackPane alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#oeffneHilfe" text="Hilfe"/>
+                            </children>
+                        </StackPane>
+                        <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="gold" text="Goldbestand: "/>
+                            </children>
+                        </StackPane>
                     </children>
                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
                 </HBox>
             </top>
             <bottom>
                 <HBox BorderPane.alignment="CENTER">
-                   <children>
-                  <StackPane alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
-                     <children>
-                         <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü" />
-                     </children>
-                  </StackPane>
-                  <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                     <children>
-                         <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen" />
-                     </children>
-                  </StackPane>
-                   </children>
-                   <padding>
-                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                   </padding>
+                    <children>
+                        <StackPane alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Hauptmenü"/>
+                            </children>
+                        </StackPane>
+                        <StackPane alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Button fx:id="spielButton" mnemonicParsing="false" onAction="#spielen" text="Spielen"/>
+                            </children>
+                        </StackPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
                 </HBox>
             </bottom>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
-             <center>
-                 <HBox fx:id="charaktere" prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER">
-                   <padding>
-                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                   </padding>
+            <center>
+                <HBox fx:id="charaktere" prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
                 </HBox>
-             </center>
-             <right>
-                <VBox fx:id="kartenDeck" prefHeight="0.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </BorderPane.margin></VBox>
-             </right>
+            </center>
+            <right>
+                <VBox fx:id="kartenDeck" prefHeight="0.0" prefWidth="200.0" spacing="20.0"
+                      BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </BorderPane.margin>
+                </VBox>
+            </right>
         </BorderPane>
     </children>
 </AnchorPane>

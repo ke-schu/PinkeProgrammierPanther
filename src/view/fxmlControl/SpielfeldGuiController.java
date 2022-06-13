@@ -1,9 +1,6 @@
 package view.fxmlControl;
 
 import exceptions.JsonNichtLesbarException;
-import view.components.KarteVBox;
-import utility.KonsolenIO;
-import utility.SpielStandIO;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -16,16 +13,21 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import model.*;
-import java.io.*;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
+import view.components.KarteVBox;
+
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.KonstantenGUI.*;
-import static resources.StringsGUI.*;
 import static resources.Konstanten.HANDGROESSE;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.BILDER_PFAD;
+import static resources.StringsGUI.PNG_DATEI_ENDUNG;
 
-public class SpielfeldGuiController
-        extends GuiController
+public class SpielfeldGuiController extends GuiController
         implements Initializable
 {
     @FXML GridPane spielfeldGitter;
@@ -40,55 +42,59 @@ public class SpielfeldGuiController
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     *
+     * @param url            Der Standort, der zum Auflösen relativer Pfade
+     *                       für das Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts
+     *                       verwendeten Ressourcen.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    @Override public void initialize(URL url, ResourceBundle resourceBundle)
     {
-            spielfeldhintergrundfestlegen();
-            erstellenspielfeldumgebung();
-            Label spielerLabel = new Label();
-            spielerLabel.setText(spiel.getSpieler().getName());
+        spielfeldhintergrundfestlegen();
+        erstellenspielfeldumgebung();
+        Label spielerLabel = new Label();
+        spielerLabel.setText(spiel.getSpieler().getName());
 
-            for (int i = 0; i < spielfeld.getZeilen(); i++)
-            {
-                spielfeldGitter.addRow(0);
-            }
+        for (int i = 0; i < spielfeld.getZeilen(); i++)
+        {
+            spielfeldGitter.addRow(0);
+        }
 
-            for (int i = 0; i < spielfeld.getSpalten(); i++)
+        for (int i = 0; i < spielfeld.getSpalten(); i++)
+        {
+            spielfeldGitter.addColumn(0);
+            for (int j = 0; j < spielfeld.getZeilen(); j++)
             {
-                spielfeldGitter.addColumn(0);
-                for (int j = 0; j < spielfeld.getZeilen(); j++)
+                StackPane feld = new StackPane();
+                feld.setPrefWidth(FELDGROESSE);
+                feld.setPrefHeight(FELDGROESSE);
+
+                if (j == spielfeld.getZeilen() - 1 &&
+                    i == spielfeld.getSpalten() - 1)
                 {
-                    StackPane feld = new StackPane();
-                    feld.setPrefWidth(FELDGROESSE);
-                    feld.setPrefHeight(FELDGROESSE);
-
-                    if(j == spielfeld.getZeilen()-1 && i == spielfeld.getSpalten()-1)
-                    {
-                        KarteVBox spielerKarteVBox = new KarteVBox(spieler);
-                        feld.getChildren().add(spielerKarteVBox);
-                    }
-                    spielfeldGitter.add(feld, i, j);
+                    KarteVBox spielerKarteVBox = new KarteVBox(spieler);
+                    feld.getChildren().add(spielerKarteVBox);
                 }
+                spielfeldGitter.add(feld, i, j);
             }
+        }
     }
 
     /**
      * Methode welche die für den kampf benötigten objekte4 erstellt
      */
-    private void erstellenspielfeldumgebung ()
+    private void erstellenspielfeldumgebung()
     {
         try
         {
-            spiel = SpielStandIO.leseDatei();
-            spieler = spiel.getSpieler();
-            spieldeck = spiel.getSpieldeckSpieler();
+            spiel      = SpielStandIO.leseDatei();
+            spieler    = spiel.getSpieler();
+            spieldeck  = spiel.getSpieldeckSpieler();
             kartenhand = new KartenHand(spieler);
             kartenhand.handZiehen(spieldeck);
             spielfeld = new SpielFeld();
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
+            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
+                                        spielfeld.getZeilen() - 1, spieler);
             Karteinhandeinfuegen();
         }
         catch (JsonNichtLesbarException e)
@@ -101,7 +107,7 @@ public class SpielfeldGuiController
     /**
      * Methode welche die kartenhand visualisiert
      */
-    private void Karteinhandeinfuegen ()
+    private void Karteinhandeinfuegen()
     {
         for (int i = 0; i < HANDGROESSE; i++)
         {
@@ -113,41 +119,39 @@ public class SpielfeldGuiController
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
 
-            kartenhandGitter.add(feld,i,0);
+            kartenhandGitter.add(feld, i, 0);
         }
     }
 
     /**
      * Legt das Hintergrundbild des Spielfeldes fest
      */
-    private void spielfeldhintergrundfestlegen ()
+    private void spielfeldhintergrundfestlegen()
     {
-        File meinhintergrund = new File(BILDER_PFAD +
-                                        "Spielplatz" + PNG_DATEI_ENDUNG);
-        BackgroundSize backroundsize = new BackgroundSize(BackgroundSize.AUTO,
-                                                          BackgroundSize.AUTO,
-                                                          true,true,
-                                                          true,true);
+        File meinhintergrund =
+                new File(BILDER_PFAD + "Spielplatz" + PNG_DATEI_ENDUNG);
+        BackgroundSize backroundsize =
+                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO,
+                                   true, true, true, true);
         Background hintergrund = new Background(new BackgroundImage(
                 new Image(meinhintergrund.getAbsolutePath()),
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.DEFAULT,
-                backroundsize));
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT, backroundsize));
         spielfeldGitter.setBackground(hintergrund);
     }
 
     /**
      * Speichert den aktuellen Spielstand
+     *
      * @param event Event durch das die Methode ausgeloest wird
      */
-    @FXML
-    public void spielSpeichern (ActionEvent event)
+    @FXML public void spielSpeichern(ActionEvent event)
     {
         try
         {
             SpielStandIO.schreibeDatei(spiel);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -156,18 +160,20 @@ public class SpielfeldGuiController
     /**
      * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die
      * Methode zugegriffen werden kann.
+     *
      * @param event Event durch welches die Methode ausgeloest wird.
-     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @param pfad  String mit dem Pfad der .fxml Datei welche geladen werden
+     *             soll.
      * @throws IOException Wirft die Exception, welche durch das .load()
-     * erursacht werden kann weiter.
+     *                     erursacht werden kann weiter.
      */
-    @Override
-    protected void wechselZu (ActionEvent event, String pfad) throws IOException
+    @Override protected void wechselZu(ActionEvent event, String pfad)
+            throws IOException
     {
         File f = new File(pfad);
         FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load());
-        super.setStage(((Stage)menueLeiste.getScene().getWindow()));
+        super.setStage(((Stage) menueLeiste.getScene().getWindow()));
         super.getStage().setScene(scene);
         super.getStage().show();
     }
@@ -175,15 +181,16 @@ public class SpielfeldGuiController
     /**
      * Methode durch welche, ueber die MenueLeiste zum Hauptmenue gewechselt
      * werden kann
+     *
      * @param event Event durch welches die Methode ausgeloest wird.
      */
-    @FXML
-    public void zurueckHauptmenue (ActionEvent event)
+    @FXML public void zurueckHauptmenue(ActionEvent event)
     {
         try
         {
             wechselZuHauptmenue(event);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -191,12 +198,12 @@ public class SpielfeldGuiController
 
     /**
      * Ermöglicht das einstellen der Aufloesung in der MenueLeiste
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    @Override
-    public void wechselAufloesungFullHD (Event event)
+    @Override public void wechselAufloesungFullHD(Event event)
     {
-        super.setStage((Stage)menueLeiste.getScene().getWindow());
+        super.setStage((Stage) menueLeiste.getScene().getWindow());
         super.getStage().setMinHeight(AUFLOESUNG_HOEHE_FULLHD);
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
@@ -206,12 +213,12 @@ public class SpielfeldGuiController
     /**
      * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode
      * zugegriffen werden kann.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    @Override
-    public void wechselAufloesungHD (Event event)
+    @Override public void wechselAufloesungHD(Event event)
     {
-        super.setStage((Stage)menueLeiste.getScene().getWindow());
+        super.setStage((Stage) menueLeiste.getScene().getWindow());
         super.getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);

@@ -19,9 +19,9 @@ public interface StringsEreignisse
     String TREPPE_NAME = "Die Bushaltestelle.";
 
     //  Beschreibungen der Ereignisse
-    String START_RAUM_BESCHREIBUNG =
-            "Hier bin ich ausgestiegen, " +
-            "ich sollte mich in der Gegend mal umsehen.";
+    String START_RAUM_BESCHREIBUNG = "Hier bin ich ausgestiegen, " +
+                                     "ich sollte mich in der Gegend mal " +
+                                     "umsehen.";
     String HAENDLER_BESCHREIBUNG =
             "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.";
     String TEMPEL_BESCHREIBUNG =

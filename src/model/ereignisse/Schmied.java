@@ -3,8 +3,8 @@ package model.ereignisse;
 import control.KartenController;
 import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
-import utility.KonsolenIO;
 import model.SpielStand;
+import utility.KonsolenIO;
 
 import static utility.KonsolenIO.eingabeInt;
 
@@ -20,7 +20,8 @@ public class Schmied extends Mensch
      * Der Konstruktor erstellt ein Ereignis vom Typ Schmied. Schmiede sind
      * Ereignisse, die es dem Spieler ermoeglichen Karten aufzuwerten um sie
      * zu verstaerken.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Schmied(String name, String beschreibung)
@@ -33,6 +34,7 @@ public class Schmied extends Mensch
      * Der Haendler prueft ob die Interaktion eine Bezahlung erfordert. Je
      * nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
      * vorher die Zahlung durchgefuehrt.
+     *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)
@@ -47,8 +49,7 @@ public class Schmied extends Mensch
                 if (pruefeGratisInteraktion())
                 {
                     KartenController.karteVerbessern(
-                            spielStand.getSpieldeckSpieler()
-                                      .get(indexKarte));
+                            spielStand.getSpieldeckSpieler().get(indexKarte));
                     gratisInteraktionen--;
                 }
                 else
@@ -56,8 +57,7 @@ public class Schmied extends Mensch
                     TalentController.charme(spielStand.getSpieler(), this);
                     spielStand.setGold(spielStand.getGold() - this.getKosten());
                     KartenController.karteVerbessern(
-                            spielStand.getSpieldeckSpieler()
-                                      .get(indexKarte));
+                            spielStand.getSpieldeckSpieler().get(indexKarte));
                     interaktionsZaehler++;
                     kostenErhoehen();
                 }

@@ -15,19 +15,20 @@ public class EinheitenController
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EinheitenController ()
+    private EinheitenController()
     {
     }
 
     /**
      * Methode zum Springen von Instanzen von Einheiten im Spielfeldarray.
+     *
      * @param spielfeld Instanz des Spielfeldes, auf der die Einheit bewegt
-     * werden soll.
-     * @param zielX Integer, mit der Zielzeile der Bewegung.
-     * @param zielY Integer, mit der Zielspalte der Bewegung.
-     * @param einheit Einheit, die springen soll.
+     *                  werden soll.
+     * @param zielX     Integer, mit der Zielzeile der Bewegung.
+     * @param zielY     Integer, mit der Zielspalte der Bewegung.
+     * @param einheit   Einheit, die springen soll.
      */
-    public static void springen (SpielFeld spielfeld, int zielX, int zielY,
+    public static void springen(SpielFeld spielfeld, int zielX, int zielY,
                                 KarteEinheit einheit)
     {
         boolean zielErreichbarInX = false;
@@ -42,7 +43,7 @@ public class EinheitenController
             int flex = einheit.getBeweglichkeit();
             int distanz = Math.abs((zielX - startX) - (zielY - startY));
 
-            selbeZeile = (startX == zielX);
+            selbeZeile  = (startX == zielX);
             selbeSpalte = (startY == zielY);
 
             zielErreichbarInX =
@@ -56,21 +57,21 @@ public class EinheitenController
                 spielfeld.einheitEinsetzten(zielX, zielY, einheit);
                 einheit.setPosition(zielX, zielY);
                 spielfeld.einheitEinsetzten(startX, startY, null);
-                einheit.setBeweglichkeit(
-                        einheit.getBeweglichkeit() - distanz);
+                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - distanz);
             }
         }
     }
 
     /**
      * Methode zum Bewegen von Instanzen von Einheiten im Spielfeldarray.
+     *
      * @param spielfeld Instanz des Spielfeldes, auf der die Einheit bewegt
-     * werden soll.
-     * @param ziel_x Integer mit der Zielzeile der Bewegung.
-     * @param ziel_y Integer mit der Zielspalte der Bewegung.
-     * @param einheit Einheit die bewegt werden soll.
+     *                  werden soll.
+     * @param ziel_x    Integer mit der Zielzeile der Bewegung.
+     * @param ziel_y    Integer mit der Zielspalte der Bewegung.
+     * @param einheit   Einheit die bewegt werden soll.
      */
-    public static void bewegen (SpielFeld spielfeld, int ziel_x, int ziel_y,
+    public static void bewegen(SpielFeld spielfeld, int ziel_x, int ziel_y,
                                KarteEinheit einheit)
     {
         boolean zielErreichbarInX = false;
@@ -100,11 +101,12 @@ public class EinheitenController
 
     /**
      * Ueberprueft, ob ein Verteidiger in Reichweite des Angreifers ist.
-     * @param angreifer die angreifende Einheit.
+     *
+     * @param angreifer   die angreifende Einheit.
      * @param verteidiger die verteidigende Einheit.
      * @return true, wenn sie in Reichweite ist.
      */
-    private static boolean einheitInReichweite (KarteEinheit angreifer,
+    private static boolean einheitInReichweite(KarteEinheit angreifer,
                                                KarteEinheit verteidiger)
     {
         boolean zielErreichbarInX = false;
@@ -117,7 +119,7 @@ public class EinheitenController
         final int verteidigerY = verteidiger.getPositionX();
         final int reichweite = angreifer.getReichweite();
 
-        selbeZeile = angreiferX == verteidigerX;
+        selbeZeile  = angreiferX == verteidigerX;
         selbeSpalte = angreiferY == verteidigerY;
 
         zielErreichbarInX = (verteidigerX <= angreiferX + reichweite) ||
@@ -132,15 +134,19 @@ public class EinheitenController
     /**
      * Mit dieser Methode kann mit einer auf dem Spielfeld platzierten Einheit
      * eine weitere angegriffen werden.
-     * @param angreifer Einheit, welche angreift.
+     *
+     * @param angreifer   Einheit, welche angreift.
      * @param verteidiger Einheit, welche angegriffen wird.
      */
-    public static void einheitenAngreifenMitEinheiten (SpielFeld feld, KartenDeck spielerDeck,
-                                                      KartenDeck masterDeck, KarteEinheit angreifer,
+    public static void einheitenAngreifenMitEinheiten(SpielFeld feld,
+                                                      KartenDeck spielerDeck,
+                                                      KartenDeck masterDeck,
+                                                      KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
         boolean schlafend = angreifer.getSchlafend();
-        if ((einheitInReichweite(angreifer, verteidiger) || pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
+        if ((einheitInReichweite(angreifer, verteidiger) ||
+             pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
         {
             if (verteidiger.getSchild() >= WERT_SCHILD)
             {
@@ -149,26 +155,35 @@ public class EinheitenController
             else
             {
                 verursacheSchaden(verteidiger, angreifer.getMacht());
-                RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
-                        verteidiger.getPositionX(),verteidiger.getPositionY());
-                EffektController.angriffEffektAusloesen(angreifer, verteidiger, angreifer.getEffektEins(),
-                                                        feld, spielerDeck, masterDeck);
-                EffektController.angriffEffektAusloesen(angreifer, verteidiger, angreifer.getEffektZwei(),
-                                                        feld, spielerDeck, masterDeck);
+                RundenController.feldplatzAufraumen(feld, spielerDeck,
+                                                    masterDeck,
+                                                    verteidiger.getPositionX(),
+                                                    verteidiger.getPositionY());
+                EffektController.angriffEffektAusloesen(angreifer, verteidiger,
+                                                        angreifer.getEffektEins(),
+                                                        feld, spielerDeck,
+                                                        masterDeck);
+                EffektController.angriffEffektAusloesen(angreifer, verteidiger,
+                                                        angreifer.getEffektZwei(),
+                                                        feld, spielerDeck,
+                                                        masterDeck);
                 angreifer.setSchlafend(true);
             }
         }
     }
 
     /**
-     * Diese Methode ueberprueft, ob die beiden uebergebenen Einheiten sich angreifen koennen.
-     * @param angreifer Die Einheit, die angreifen soll.
+     * Diese Methode ueberprueft, ob die beiden uebergebenen Einheiten sich
+     * angreifen koennen.
+     *
+     * @param angreifer   Die Einheit, die angreifen soll.
      * @param verteidiger Die Einheit, die angegriffen werden soll.
      * @return Der Rueckgabewert ist, ob die Einheiten sich angreifen koennen.
      */
-    public static boolean pruefeObFeindlich (KarteEinheit angreifer, KarteEinheit verteidiger)
+    public static boolean pruefeObFeindlich(KarteEinheit angreifer,
+                                            KarteEinheit verteidiger)
     {
-        if(angreifer.getFreundlich() != verteidiger.getFreundlich())
+        if (angreifer.getFreundlich() != verteidiger.getFreundlich())
         {
             return true;
         }
@@ -177,11 +192,12 @@ public class EinheitenController
 
     /**
      * Diese Methode setzt den Schildwert der Einheit um eine Konstante tiefer.
+     *
      * @param verteidiger Die Einheit, dessen Schild gesenkt wird.
      */
-    public static void brecheSchild (KarteEinheit verteidiger)
+    public static void brecheSchild(KarteEinheit verteidiger)
     {
-        verteidiger.setSchild(verteidiger.getSchild()-WERT_SCHILD);
+        verteidiger.setSchild(verteidiger.getSchild() - WERT_SCHILD);
     }
 
     /**
@@ -189,7 +205,8 @@ public class EinheitenController
      * Instanz der Klasse KarteEinheit innerhalb des Spielfeldes angewendet
      * werden. Die Macht von KarteZauber wird mit den Lebenspunkten von
      * KarteEinheit verrechnet.
-     * @param zauber Instanz von KarteZauber, welche benutzt werden soll.
+     *
+     * @param zauber      Instanz von KarteZauber, welche benutzt werden soll.
      * @param verteidiger Instanz von KarteEinheit, welche angegriffen wird.
      */
     public static void einheitenAngreifenMitKarteZauber(KarteZauber zauber,
@@ -201,15 +218,16 @@ public class EinheitenController
     /**
      * Methode um Schaden mit den Lebens- und Verteidigungswerten einer
      * Instanz von KarteEinheit zu verrechnen.
-     * @param verteidiger Die KarteEinheit mit dessen Verteidigungswerten ein
-     * Schadenswert verrechnet werden soll.
+     *
+     * @param verteidiger  Die KarteEinheit mit dessen Verteidigungswerten ein
+     *                     Schadenswert verrechnet werden soll.
      * @param schadensWert der Schadenwert, welcher mit dem Ziel verrechnet
-     * werden soll.
+     *                     werden soll.
      */
     private static void verursacheSchaden(KarteEinheit verteidiger,
                                           int schadensWert)
     {
-        int schaden = schadensWert - verteidiger.getVerteidigung() ;
+        int schaden = schadensWert - verteidiger.getVerteidigung();
 
         if (schaden > 0)
         {
@@ -219,12 +237,15 @@ public class EinheitenController
 
     /**
      * Diese Methode berechnet die Position hinter einer anvisierten Karte.
+     *
      * @param ausloeser Die anvisierende Karte.
-     * @param ziel Die anvisierte Karte.
-     * @param feld Das Spielfeld auf dem gespielt wird.
+     * @param ziel      Die anvisierte Karte.
+     * @param feld      Das Spielfeld auf dem gespielt wird.
      * @return Die Position hinter der anvisierten Karte.
      */
-    public static Position positionHinterKarteBerechnen (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
+    public static Position positionHinterKarteBerechnen(KarteEinheit ausloeser,
+                                                        KarteEinheit ziel,
+                                                        SpielFeld feld)
     {
         Position positionHinterKarte = new Position();
         int xAusloeser = ausloeser.getPositionX();
@@ -236,35 +257,39 @@ public class EinheitenController
         if (xAusloeser == xZiel)
         {
             positionHinterKarte.setX(xAusloeser);
-            if(yAusloeser>yZiel)
-                positionHinterKarte.setY(yZiel-1);
-            else if (yZiel>yAusloeser)
+            if (yAusloeser > yZiel)
+                positionHinterKarte.setY(yZiel - 1);
+            else if (yZiel > yAusloeser)
             {
-                positionHinterKarte.setY(yZiel+1);
+                positionHinterKarte.setY(yZiel + 1);
             }
         }
         if (yAusloeser == yZiel)
         {
             positionHinterKarte.setY(yAusloeser);
-            if(xAusloeser>xZiel)
-                positionHinterKarte.setX(xZiel-1);
-            else if (xZiel>xAusloeser)
+            if (xAusloeser > xZiel)
+                positionHinterKarte.setX(xZiel - 1);
+            else if (xZiel > xAusloeser)
             {
-                positionHinterKarte.setX(xZiel+1);
+                positionHinterKarte.setX(xZiel + 1);
             }
         }
         return positionHinterKarte;
     }
 
     /**
-     * Diese Methode ueberprueft, ob eine Position innerhalb des vorhanden Spielfeldes liegt.
+     * Diese Methode ueberprueft, ob eine Position innerhalb des vorhanden
+     * Spielfeldes liegt.
+     *
      * @param position Die zu ueberpruefende Position.
-     * @param feld Das Spielfeld auf dem gespielt wird.
+     * @param feld     Das Spielfeld auf dem gespielt wird.
      * @return Das Ergebnis, ob die Position innerhalb liegt oder nicht.
      */
-    public static boolean positionInnerhalbVonFeld (Position position, SpielFeld feld)
+    public static boolean positionInnerhalbVonFeld(Position position,
+                                                   SpielFeld feld)
     {
-        if((position.getX() < feld.getSpalten()) && (position.getY() < feld.getZeilen()))
+        if ((position.getX() < feld.getSpalten()) &&
+            (position.getY() < feld.getZeilen()))
         {
             return true;
         }

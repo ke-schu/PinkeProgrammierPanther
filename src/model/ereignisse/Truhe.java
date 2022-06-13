@@ -13,9 +13,10 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      * Der Konstruktor erstellt ein Ereignis vom Typ Truhe. Ein
      * ZufallsEreignis ist ein Ereignis, dessen genaue Art fuer den Spieler
      * erst bekannt wird, wenn er den zugehoerigen Raum betritt.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
-     * @param geoeffnet: Der Zustand der Truhe, ob sie geoeffnet ist.
+     * @param geoeffnet:    Der Zustand der Truhe, ob sie geoeffnet ist.
      */
     public Truhe(String name, String beschreibung, boolean geoeffnet)
     {
@@ -30,30 +31,35 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        if(!geleert)
+        if (!geleert)
         {
             if (isAuswahl())
             {
                 wahrscheinlichkeit = generiereWahrscheinlichkeit();
                 if (wahrscheinlichkeit <= EIN_PROZENT)
                 {
-                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_EINS);
+                    spielStand.setGold(
+                            spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_EINS);
                 }
                 else if (wahrscheinlichkeit <= ZEHN_PROZENT)
                 {
-                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
+                    spielStand.setGold(
+                            spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
                 }
                 else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
                 {
-                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
+                    spielStand.setGold(
+                            spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
                 }
                 else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
                 {
-                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
+                    spielStand.setGold(
+                            spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
                 }
                 else if (wahrscheinlichkeit > VIERZIG_PROZENT)
                 {
-                    spielStand.setGold(spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
+                    spielStand.setGold(
+                            spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
                 }
                 geleert = true;
             }
@@ -64,10 +70,10 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      * Dies ist eine Methode zum Generieren des Attributs
      * "Wahrscheinlichkeit". Dieses Attribut wird benoetigt um zu bestimmen,
      * welcher Inhalt sich in der Truhe befindet.
+     *
      * @return Attribut zur Bestimmung des Truheninhalts.
      */
-    @Override
-    public double generiereWahrscheinlichkeit()
+    @Override public double generiereWahrscheinlichkeit()
     {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
         return wahrscheinlichkeit;
@@ -75,6 +81,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Gibt wieder, ob eine Truhe geleert ist.
+     *
      * @return ob die Truhe geleert ist.
      */
     public boolean isGeleert()
@@ -84,8 +91,9 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
 
     /**
      * Setze das Attribut geleert auf den uebergebenen boolean Wert.
+     *
      * @param geleert boolean, welches in das Attribut geleert gesetzt werden
-     * soll.
+     *                soll.
      */
     public void setGeleert(boolean geleert)
     {

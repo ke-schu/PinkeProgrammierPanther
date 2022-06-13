@@ -1,8 +1,8 @@
 package model.ereignisse;
 
 import control.TalentController;
-import utility.KonsolenIO;
 import model.SpielStand;
+import utility.KonsolenIO;
 
 import static resources.Konstanten.HEILER_AUFWERTUNG_LEBENSPUNKTE;
 
@@ -17,7 +17,8 @@ public class Heiler extends Mensch
      * Der Konstruktor erstellt ein Ereignis vom Typ Heiler. Heiler sind
      * Ereignisse, die es dem Spieler ermoeglichen seine Lebenspunkte zu
      * regenerieren, wenn er vorher Schaden genommen hat.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Heiler(String name, String beschreibung)
@@ -30,6 +31,7 @@ public class Heiler extends Mensch
      * Der Heiler prueft ob die Interaktion eine Bezahlung erfordert. Je nach
      * Resultat werden die Lebenspunkte des Spielers kostenlos oder gegen eine
      * Bezahlung regeneriert.
+     *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)
@@ -42,20 +44,26 @@ public class Heiler extends Mensch
             {
                 spielStand.getSpieler().getMaxleben();
                 spielStand.getSpieler().setLebenspunkte(
-                spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
+                        spielStand.getSpieler().getLebenspunkte() +
+                        HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 gratisInteraktionen--;
             }
             else
             {
                 TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
-                if(spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE < spielStand.getSpieler().getMaxleben())
+                if (spielStand.getSpieler().getLebenspunkte() +
+                    HEILER_AUFWERTUNG_LEBENSPUNKTE <
+                    spielStand.getSpieler().getMaxleben())
                 {
-                    spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() + HEILER_AUFWERTUNG_LEBENSPUNKTE);
+                    spielStand.getSpieler().setLebenspunkte(
+                            spielStand.getSpieler().getLebenspunkte() +
+                            HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 }
                 else
                 {
-                    spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getMaxleben());
+                    spielStand.getSpieler().setLebenspunkte(
+                            spielStand.getSpieler().getMaxleben());
                 }
             }
         }

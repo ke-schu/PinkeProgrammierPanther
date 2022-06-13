@@ -5,7 +5,8 @@ import model.Raum;
 
 import java.lang.reflect.Type;
 
-import static resources.Strings.*;
+import static resources.Strings.JSON_EREIGNIS;
+import static resources.Strings.JSON_KLASSE;
 
 /**
  * Klasse in der sich Methoden befinden um Raeume aus .json Dateien korrekt zu
@@ -17,16 +18,16 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
 
     /**
      * Methode um aus einem Json-Element eine Instanz von Raum zu erhalten.
-     * @param json der Raum als JsonElement.
-     * @param type Typ des zu serialisierenden Raums.
+     *
+     * @param json    der Raum als JsonElement.
+     * @param type    Typ des zu serialisierenden Raums.
      * @param context Kontext der Deserialisierung.
      * @return gibt eine Instanz von Raum aus der .json wieder.
      * @throws JsonParseException wird geworfen, wenn das Element nicht
-     * gelesen werden kann.
+     *                            gelesen werden kann.
      */
-    @Override
-    public Raum deserialize(JsonElement json, Type type,
-                            JsonDeserializationContext context)
+    @Override public Raum deserialize(JsonElement json, Type type,
+                                      JsonDeserializationContext context)
             throws JsonParseException
     {
         JsonObject meinJsonObject = json.getAsJsonObject();
@@ -44,11 +45,13 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
                 Raum meinRaum =
                         new Raum(meinGson.fromJson(meinJsonEreignis, klasse));
                 return meinRaum;
-            } catch (ClassNotFoundException e)
+            }
+            catch (ClassNotFoundException e)
             {
                 throw new JsonParseException(e);
             }
-        } else
+        }
+        else
         {
             return null;
         }

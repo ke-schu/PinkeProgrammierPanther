@@ -26,11 +26,12 @@
 }
 
 .karte-vbox Label {
-    -fx-text-fill:rgba(201, 76, 76, 0.0);
+    -fx-text-fill: rgba(201, 76, 76, 0.0);
 
 }
+
 .karte-vbox:hover Label {
-    -fx-text-fill:black;
+    -fx-text-fill: black;
 }
 
 .karte-vbox:hover {

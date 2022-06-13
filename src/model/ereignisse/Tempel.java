@@ -1,8 +1,8 @@
 package model.ereignisse;
 
 import control.TalentController;
-import utility.KonsolenIO;
 import model.SpielStand;
+import utility.KonsolenIO;
 
 import static utility.KonsolenIO.eingabeInt;
 
@@ -17,7 +17,8 @@ public class Tempel extends Mensch
      * Der Konstruktor erstellt ein Ereignis vom Typ Tempel. Tempel sind
      * Ereignisse, die es dem Spieler ermoeglichen Karten aus dem Deck zu
      * entfernen.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Tempel(String name, String beschreibung)
@@ -30,6 +31,7 @@ public class Tempel extends Mensch
      * Der Haendler prueft ob die Interaktion eine Bezahlung erfordert. Je
      * nach Resultat wird entweder kostenlos eine Karte aus dem Deck entfernt
      * oder vorher die Zahlung durchgefuehrt.
+     *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
     public void ausfuehren(SpielStand spielStand)

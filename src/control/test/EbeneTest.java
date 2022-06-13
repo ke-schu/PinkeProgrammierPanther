@@ -1,21 +1,21 @@
 package control.test;
 
 import control.SpielfigurEbeneController;
-import utility.EbeneIO;
-import utility.KonsolenIO;
-import utility.SpielStandIO;
 import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
+import utility.EbeneIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 
 import java.io.File;
 import java.io.IOException;
 
+import static control.test.TestZahlen.*;
 import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.StringsEreignisse.*;
 import static resources.StringsGegner.GENERISCHER_GEGNER_NAME;
-import static control.test.TestZahlen.*;
 
 /**
  * Diese Klasse beinhaltet die fuer das Testen der Ebene notwendigen
@@ -34,20 +34,20 @@ public class EbeneTest
     /**
      * Methode um eine Instanz von Gegenspieler zu erstellen, welche fuer das
      * Erstellen von Gegnern notwendig ist.
+     *
      * @return gibt eine Instanz von Gegenspieler zurueck.
      */
     private static Gegenspieler erstelleGegenspieler()
     {
         return new Gegenspieler(GENERISCHER_GEGNER_NAME, ZAHL_10,
-                                Einheiten.FERNKAEMPFER, ZAHL_1, ZAHL_1,
-                                ZAHL_1, ZAHL_1,
-                                ZAHL_1,
-                                ZAHL_1, Effekte.LETZTEWORTE,
+                                Einheiten.FERNKAEMPFER, ZAHL_1, ZAHL_1, ZAHL_1,
+                                ZAHL_1, ZAHL_1, ZAHL_1, Effekte.LETZTEWORTE,
                                 Effekte.ZURUECKWERFEN, ZAHL_10);
     }
 
     /**
      * Erstellt eine neue Ebene mit beispielhaften Werten.
+     *
      * @return die erstellte Ebene
      */
     private static Ebene erstelleEbene()
@@ -58,8 +58,7 @@ public class EbeneTest
                 new LeererRaum(START_RAUM_NAME, START_RAUM_BESCHREIBUNG);
         LeererRaum leererRaum2 =
                 new LeererRaum(LEERER_RAUM_NAME, LEERER_RAUM_BESCHREIBUNG);
-        Haendler haendler =
-                new Haendler(HAENDLER_NAME, HAENDLER_BESCHREIBUNG);
+        Haendler haendler = new Haendler(HAENDLER_NAME, HAENDLER_BESCHREIBUNG);
         Schmied schmied = new Schmied(SCHMIED_NAME, SCHMIED_BESCHREIBUNG);
         Tempel tempel = new Tempel(TEMPEL_NAME, TEMPEL_BESCHREIBUNG);
         Heiler heiler = new Heiler(HEILER_NAME, HEILER_BESCHREIBUNG);
@@ -106,15 +105,24 @@ public class EbeneTest
             KonsolenIO.ausgeben(testEbene2.toString());
             KonsolenIO.ausgeben(testEbene2.getSpielfigur());
 
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_3, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_2, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_1, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_0, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_5, ZAHL_0, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_6, ZAHL_0, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_7, ZAHL_0, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_0, spielStand);
-            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_1, spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_3,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_2,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_1,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_4, ZAHL_0,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_5, ZAHL_0,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_6, ZAHL_0,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_7, ZAHL_0,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_0,
+                                              spielStand);
+            SpielfigurEbeneController.bewegen(testEbene2, ZAHL_8, ZAHL_1,
+                                              spielStand);
         }
         catch (IOException e)
         {

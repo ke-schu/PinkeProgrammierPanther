@@ -65,6 +65,5 @@ public interface Strings
             "Die Karte konnte nicht verbessert werden.";
     String KARTEN_DECK_ZU_KLEIN_INFO =
             "Das Kartendeck enthält zu wenige Karten für die Operation.";
-    String NICHT_GENUG_GOLD_INFO =
-            "Du hast nicht genug Gold.";
+    String NICHT_GENUG_GOLD_INFO = "Du hast nicht genug Gold.";
 }

@@ -15,18 +15,20 @@ public abstract class Karte
 
     /**
      * Getter Methode um den Wert des Attributes freundlich zu erhalten.
+     *
      * @return gibt den Wert des Attributes freundlich wieder.
      */
-    public boolean getFreundlich ()
+    public boolean getFreundlich()
     {
         return freundlich;
     }
 
     /**
      * Setter Methode um das Attribut freundlich zu setzen.
+     *
      * @param freundlich auf welchen das Attribut gesetzt werden soll.
      */
-    public void setFreundlich (boolean freundlich)
+    public void setFreundlich(boolean freundlich)
     {
         this.freundlich = freundlich;
     }
@@ -35,13 +37,14 @@ public abstract class Karte
 
     /**
      * Konstruktor der Klasse Karte, welcher alle Attribute setzt.
-     * @param name der Name der Karte.
+     *
+     * @param name  der Name der Karte.
      * @param level das Kartenlevel.
      */
     public Karte(String name, int level)
     {
-        this.id = instanzZaehler;
-        this.name = name;
+        this.id    = instanzZaehler;
+        this.name  = name;
         this.level = level;
         instanzZaehler++;
     }
@@ -56,16 +59,17 @@ public abstract class Karte
     /**
      * Ueberlagerung der toString Methode um das Attribut id richtig als
      * string wiederzugeben.
+     *
      * @return gibt einen String aus dem Attribut id zurueck.
      */
-    @Override
-    public String toString()
+    @Override public String toString()
     {
         return this.getName() + LEERZEICHEN + this.getId();
     }
 
     /**
      * Methode die den Int des Attributes id liefert.
+     *
      * @return gibt den Int-Wert des Attributes id.
      */
     public int getId()
@@ -75,6 +79,7 @@ public abstract class Karte
 
     /**
      * Methode um den String des Attributes name zu bekommen.
+     *
      * @return gibt den String des Attributes name wieder.
      */
     public String getName()
@@ -84,6 +89,7 @@ public abstract class Karte
 
     /**
      * Mehtode um den Int-Wert des Attributes level zu bekommen.
+     *
      * @return gibt den Int-Wert des Attributes level wieder.
      */
     public int getLevel()
@@ -93,6 +99,7 @@ public abstract class Karte
 
     /**
      * Methode um einen Int-Wert in das Attribut level zu setzen.
+     *
      * @param level Int-Wert, der in das Attribut level gesetzt werden soll.
      */
     public void setLevel(int level)

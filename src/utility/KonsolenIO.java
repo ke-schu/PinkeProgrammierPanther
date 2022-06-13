@@ -17,6 +17,7 @@ public class KonsolenIO
 
     /**
      * Diese Methode gibt, das uebergebene Objekt in der Konsole aus.
+     *
      * @param o auszugebendes Objekt
      */
     public static void ausgeben(Object o)
@@ -26,6 +27,7 @@ public class KonsolenIO
 
     /**
      * Diese Methode liest einen Integer ueber eine Benutzereingabe ein.
+     *
      * @return eingegebener Wert als Integer
      */
     public static int eingabeInt()
@@ -37,6 +39,7 @@ public class KonsolenIO
 
     /**
      * Diese Methode liest einen Boolean ueber eine Benutzereingabe ein.
+     *
      * @return eingegebener Wert als Boolean
      */
     public static boolean eingabeBoolean()

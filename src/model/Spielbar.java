@@ -8,6 +8,7 @@ public interface Spielbar
 {
     /**
      * Getter fuer Menge an Mana.
+     *
      * @return Menge an Mana.
      */
     int getMana();

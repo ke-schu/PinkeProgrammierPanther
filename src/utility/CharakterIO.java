@@ -10,7 +10,10 @@ import model.Charakter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileSystemNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Stack;
 
 import static resources.Strings.*;
@@ -35,6 +38,7 @@ public class CharakterIO
 
     /**
      * Serialisiert den Charakter-Stapel ins Json-Format.
+     *
      * @param charaktere der Charakter-Stapel
      * @return einen String im Json-Format
      */
@@ -46,6 +50,7 @@ public class CharakterIO
 
     /**
      * Schreibt einen Charakter-Stapel serialisiert in die Charaktere-Datei.
+     *
      * @param charaktere der Charakter-Stapel
      * @throws IOException wenn ein Fehler im Schreiben auftritt.
      */
@@ -55,7 +60,8 @@ public class CharakterIO
         if (datei.createNewFile())
         {
             KonsolenIO.ausgeben(CHARAKTER_DATEI_ERSTELLT);
-        } else
+        }
+        else
         {
             KonsolenIO.ausgeben(CHARAKTER_DATEI_UEBERSCHRIEBEN);
         }
@@ -67,10 +73,11 @@ public class CharakterIO
     /**
      * Deserialisiert einen im Json-Format vorliegenden String in einen
      * Charakter-Stapel.
+     *
      * @param jsonCharaktere die Zeichenkette
      * @return den Charakter-Stapel
      * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     * Json-Formatierung uebereinstimmt.
+     *                             Json-Formatierung uebereinstimmt.
      */
     private static Stack<Charakter> deserialisieren(String jsonCharaktere)
             throws JsonSyntaxException
@@ -85,6 +92,7 @@ public class CharakterIO
     /**
      * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren
      * deserialisiert zurueck.
+     *
      * @return den Charakter-Stapel
      * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
@@ -105,6 +113,7 @@ public class CharakterIO
 
     /**
      * Liest einen Charakter aus der Auswahl an Charakteren ein.
+     *
      * @param position die Position in der Liste an Charakteren
      * @return den Charakter
      * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.

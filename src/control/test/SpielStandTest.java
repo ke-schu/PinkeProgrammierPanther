@@ -1,22 +1,22 @@
 package control.test;
 
 import exceptions.JsonNichtLesbarException;
-import utility.CharakterIO;
-import utility.KonsolenIO;
-import utility.SpielStandIO;
 import model.Charakter;
 import model.SpielStand;
 import model.Spieler;
 import model.Waffe;
 import resources.*;
+import utility.CharakterIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 
 import java.io.IOException;
 import java.util.Stack;
 
-import static resources.Talente.*;
-import static resources.Artefakte.SCHUTZENGEL;
 import static control.test.TestKonstanten.*;
 import static control.test.TestZahlen.*;
+import static resources.Artefakte.SCHUTZENGEL;
+import static resources.Talente.CHARME;
 
 /**
  * Enthaelt Methoden zum Testen vom Spielstand
@@ -33,6 +33,7 @@ public class SpielStandTest
 
     /**
      * Erstellt einen Beispielspieler mit beispielhaften Werten
+     *
      * @return den Spieler
      */
     private static Spieler erstelleSpieler()
@@ -44,13 +45,11 @@ public class SpielStandTest
         meineArtefake[ZAHL_0] = SCHUTZENGEL;
 
         return new Spieler(TESTBEZEICHNUNG_SPIELER, ZAHL_1,
-                           Einheiten.FERNKAEMPFER, ZAHL_1,
-                           ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
-                           Effekte.LETZTEWORTE,
+                           Einheiten.FERNKAEMPFER, ZAHL_1, ZAHL_1, ZAHL_1,
+                           ZAHL_1, ZAHL_1, ZAHL_1, Effekte.LETZTEWORTE,
                            Effekte.ZURUECKWERFEN,
                            new Waffe(TESTBEZEICHNUNG_WAFFE, ZAHL_10),
-                           meinTalentStack,
-                           meineArtefake, ZAHL_1);
+                           meinTalentStack, meineArtefake, ZAHL_1);
     }
 
     /**
@@ -68,7 +67,8 @@ public class SpielStandTest
             meinCharakterStack.push(charakter);
             meinCharakterStack.push(charakter);
             CharakterIO.schreibeDatei(meinCharakterStack);
-        } catch (IOException ausnahme)
+        }
+        catch (IOException ausnahme)
         {
             KonsolenIO.ausgeben(ausnahme.getMessage());
         }
@@ -77,11 +77,13 @@ public class SpielStandTest
     /**
      * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen
      * Spieler zurueck.
+     *
      * @return den Spieler
      * @throws JsonNichtLesbarException wenn das Kartendeck des
-     * Charakters Fehler aufwirft
-     * @throws IOException wenn die Datei nicht oder nur falsch geladen werden
-     * kann
+     *                                  Charakters Fehler aufwirft
+     * @throws IOException              wenn die Datei nicht oder nur falsch
+     * geladen werden
+     *                                  kann
      */
     private static Spieler leseCharakter()
             throws JsonNichtLesbarException, IOException
@@ -99,12 +101,12 @@ public class SpielStandTest
         try
         {
             SpielStand meinSpielStand = SpielStandIO.leseDatei();
-            KonsolenIO.ausgeben(
-                    Strings.ZEILENUMBRUCH
-                    + meinSpielStand.getSpieldeckSpieler()
-                    + Strings.ZEILENUMBRUCH
-                    + meinSpielStand.getAktuelleEbene().toString());
-        } catch (JsonNichtLesbarException e)
+            KonsolenIO.ausgeben(Strings.ZEILENUMBRUCH +
+                                meinSpielStand.getSpieldeckSpieler() +
+                                Strings.ZEILENUMBRUCH +
+                                meinSpielStand.getAktuelleEbene().toString());
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -121,7 +123,8 @@ public class SpielStandTest
             SpielStand meinSpielStand =
                     new SpielStand(ZAHL_10, leseCharakter());
             SpielStandIO.schreibeDatei(meinSpielStand);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }

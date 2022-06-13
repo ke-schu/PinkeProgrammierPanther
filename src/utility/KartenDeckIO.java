@@ -36,8 +36,9 @@ public class KartenDeckIO
 
     /**
      * Serialisiert ein KartenDeck ins Json-Format.
+     *
      * @param deck Instanz der Klasse KartenDeck die als .json String
-     * zurueckgeben werden soll.
+     *             zurueckgeben werden soll.
      * @return liefert den Inhalt der Instanz als String in .json
      * formatierung.
      */
@@ -54,12 +55,12 @@ public class KartenDeckIO
      * Schreibt ein Kartendeck serialisiert ins Kartendeck-Paket. Jedes
      * Kartendeck hat seine eigene Datei, festgehalten in der entsprechenden
      * Instanz.
+     *
      * @param deck das Kartendeck
      * @throws JsonNichtLesbarException wenn die Formatierung oder
-     * Attribute des Kartendecks falsch sind.
+     *                                  Attribute des Kartendecks falsch sind.
      */
-    public static void schreibeDatei(KartenDeck deck)
-            throws IOException
+    public static void schreibeDatei(KartenDeck deck) throws IOException
     {
         deck.getDatei().createNewFile();
         FileWriter verfasser = new FileWriter(deck.getDatei());
@@ -70,11 +71,12 @@ public class KartenDeckIO
     /**
      * Methode zum deserialisieren eines Strings in .json Format um eine
      * Instanz der Klasse KartenDeck zu bilden.
+     *
      * @param jsonKartenDeck String in .json Format der zu der Instanzbildung
-     * genutzt wird.
+     *                       genutzt wird.
      * @return liefert die erstellte Instanz der Klasse KartenDeck
      * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     * Json-Formatierung uebereinstimmt.
+     *                             Json-Formatierung uebereinstimmt.
      */
     private static KartenDeck deserialisieren(String jsonKartenDeck)
             throws JsonSyntaxException
@@ -89,6 +91,7 @@ public class KartenDeckIO
     /**
      * Liest eine Kartendeck-Datei ein und gibt das entsprechende Deck
      * deserialisiert zurueck.
+     *
      * @param pfad der Dateipfad
      * @return das Kartendeck
      * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.

@@ -10,8 +10,9 @@ public class ManaTank
 
     /**
      * Erstellt einen ManaTank.
+     *
      * @param spieler welcher die Information uber die Groesse des ManaTanks
-     * in sich treagt.
+     *                in sich treagt.
      */
     public ManaTank(Spielbar spieler)
     {
@@ -20,6 +21,7 @@ public class ManaTank
 
     /**
      * Getter Methode um den Wert des Attributes mana zu erhalten.
+     *
      * @return gibt den Wert des Attributes mana wieder.
      */
     public int getMana()
@@ -29,6 +31,7 @@ public class ManaTank
 
     /**
      * Setter Methode um das Attribut mana zu setzen.
+     *
      * @param mana auf welchen das Attribut gesetzt werden soll.
      */
     public void setMana(int mana)
@@ -38,6 +41,7 @@ public class ManaTank
 
     /**
      * Verringert den Manawert im Manatank um die hoehe der gezahlten kosten.
+     *
      * @param kosten, Kosten welche gezahlt werden.
      */
     public void manaBezahlen(int kosten)

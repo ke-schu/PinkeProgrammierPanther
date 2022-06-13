@@ -19,6 +19,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes macht wieder.
+     *
      * @return Int-Wert des Attributes macht.
      */
     public int getMacht()
@@ -28,8 +29,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut macht zu setzen.
+     *
      * @param macht Int-Wert, welcher in das Attribut macht gesetzt werden
-     * soll.
+     *              soll.
      */
     public void setMacht(int macht)
     {
@@ -38,6 +40,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes lebenspunkte wieder.
+     *
      * @return Int-Wert des Attributes lebenspunkte.
      */
     public int getLebenspunkte()
@@ -47,8 +50,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut lebenspunkte zu setzten.
+     *
      * @param lebenspunkte Int-Wert, welcher in das Attribut gesetzt werden
-     * soll.
+     *                     soll.
      */
     public void setLebenspunkte(int lebenspunkte)
     {
@@ -57,6 +61,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes beweglichkeit wieder.
+     *
      * @return Int-Wert des Attributes beweglichkeit.
      */
     public int getBeweglichkeit()
@@ -66,8 +71,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut beweglichkeit zu setzen.
+     *
      * @param beweglichkeit Int-Wert der in das Attribut beweglichkeit gesetzt
-     * werden soll.
+     *                      werden soll.
      */
     public void setBeweglichkeit(int beweglichkeit)
     {
@@ -76,6 +82,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes reichweite wieder.
+     *
      * @return Int-Wert des Attributes reichweite.
      */
     public int getReichweite()
@@ -85,8 +92,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut reichweite zu setzen.
+     *
      * @param reichweite Int-Wert, welcher in das Attribut reichweite gesetzt
-     * werden soll.
+     *                   werden soll.
      */
     public void setReichweite(int reichweite)
     {
@@ -95,6 +103,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes schild wieder.
+     *
      * @return Int-Wert des Attributes schild.
      */
     public int getSchild()
@@ -104,8 +113,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut schild zu setzen.
+     *
      * @param schild Int-Wert, der in das Attribut schild gesetzt werden
-     * soll.
+     *               soll.
      */
     public void setSchild(int schild)
     {
@@ -114,6 +124,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den Int-Wert des Attributes verteidigung wieder.
+     *
      * @return Int-Wert des Attributes verteidigung.
      */
     public int getVerteidigung()
@@ -123,8 +134,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen Int-Wert in das Attribut verteidigung zu setzen.
+     *
      * @param verteidigung Int-Wert der in das Attribut verteidigung gesetzt
-     * werden soll.
+     *                     werden soll.
      */
     public void setVerteidigung(int verteidigung)
     {
@@ -134,6 +146,7 @@ public class InitialisierungKarteEinheit
     /**
      * Methode um eine Instanz der Klasse Position aus dem Attribut position
      * zu bekommen.
+     *
      * @return gibt eine Instanz der Klasse Position aus dem Attribut position
      * wieder.
      */
@@ -145,8 +158,9 @@ public class InitialisierungKarteEinheit
     /**
      * Methode um eine Instanz der Klasse Position in das Attribut position zu
      * setzen.
+     *
      * @param position Instanz der Klasse Position die in das Attribut
-     * position gesetzt werden soll.
+     *                 position gesetzt werden soll.
      */
     public void setPosition(Position position)
     {
@@ -155,6 +169,7 @@ public class InitialisierungKarteEinheit
 
     /**
      * Gibt den booleschen Wert des Attributes schlafend wieder.
+     *
      * @return booleschen Wert des Attributes schlafend.
      */
     public boolean getSchlafend()
@@ -164,8 +179,9 @@ public class InitialisierungKarteEinheit
 
     /**
      * Methode um einen booleschen Wert in das Attribut schlafend zu setzen.
+     *
      * @param schlafend boolescher Wert, welcher in das Attribut schlafend
-     * gesetzt werden soll.
+     *                  gesetzt werden soll.
      */
     public void setSchlafend(boolean schlafend)
     {

@@ -1,6 +1,5 @@
 package resources;
 
-import model.KartenDeck;
 import model.Position;
 
 /**
@@ -19,7 +18,7 @@ public interface Konstanten
     int SPIELFELD_GENERATOR_MIN = 4;
     int SPIELFELD_GENERATOR_MAX = 7;
     int SPIELFELD_GENERATOR_ZEILEN_MAX = 6;
-    Position SPIELFIGUR_EBENE_STARTPOSITION = new Position(4,4);
+    Position SPIELFIGUR_EBENE_STARTPOSITION = new Position(4, 4);
 
     int HEILER_AUFWERTUNG_LEBENSPUNKTE = 2;
     int SPIELER_WECHSEL_NACH_ZUEGEN = 2;

@@ -17,7 +17,8 @@ public class Ebene
      * Konstruktor der Klasse Ebene, welcher einen 2D-Array erstellt der
      * Raeume beinhaltet. Der Raumarray hat dabei die Abmasse der beiden
      * uebergebenen Integer.
-     * @param ebenenZeile Abmessung der Zeilengroesse des Arrays.
+     *
+     * @param ebenenZeile  Abmessung der Zeilengroesse des Arrays.
      * @param ebenenSpalte Abmessung der Spaltengroesse des Arrays.
      */
     public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte)
@@ -31,14 +32,17 @@ public class Ebene
     /**
      * Konstruktor der Klasse Ebene, welcher alle Attribute uebergeben bekommt
      * und setzt.
-     * @param ebenenZeile Int-Wert der in das Attribut ebeneZeile gesetzt
-     * werden soll.
+     *
+     * @param ebenenZeile  Int-Wert der in das Attribut ebeneZeile gesetzt
+     *                     werden soll.
      * @param ebenenSpalte Int-Wert der in das Attribut ebeneSpalte gesetzt
-     * werden soll.
-     * @param ebene 2D-Raumarray, welcher in das Attribut ebene gesetzt werden
-     * soll.
+     *                     werden soll.
+     * @param ebene        2D-Raumarray, welcher in das Attribut ebene
+     *                     gesetzt werden
+     *                     soll.
      */
-    public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte, Raum[][] ebene)
+    public Ebene(SpielfigurEbene spielfigur, int ebenenZeile, int ebenenSpalte,
+                 Raum[][] ebene)
     {
         this.setEbene(ebene);
         this.setSpielfigur(spielfigur);
@@ -48,6 +52,7 @@ public class Ebene
 
     /**
      * Methode die das Attribut ebene wiedergibt.
+     *
      * @return liefert den 2D-Array gefuellt mit Raeumen.
      */
     public Raum[][] getEbene()
@@ -57,8 +62,9 @@ public class Ebene
 
     /**
      * Methode um das Attribut ebene zu setzen.
+     *
      * @param ebene 2D-Array bestehend aus Raeumen, welches in das Attribut
-     * ebene gesetzt werden soll.
+     *              ebene gesetzt werden soll.
      */
     public final void setEbene(Raum[][] ebene)
     {
@@ -67,6 +73,7 @@ public class Ebene
 
     /**
      * Methode um den Wert des Attributes ebenenZeile zu bekommen.
+     *
      * @return gibt den Int des Attributes ebeneZeile.
      */
     public int getEbenenZeile()
@@ -76,6 +83,7 @@ public class Ebene
 
     /**
      * Methode um einen Wert in das Attribut ebeneZeile zu setzen.
+     *
      * @param ebenenZeile Int der in das Attribut ebeneZeile gesetzt wird.
      */
     public final void setEbenenZeile(int ebenenZeile)
@@ -85,6 +93,7 @@ public class Ebene
 
     /**
      * Methode um den Wert des Attributes ebeneSpalte zu bekommen.
+     *
      * @return gibt den Int des Attributes ebeneSpalte.
      */
     public int getEbenenSpalte()
@@ -94,6 +103,7 @@ public class Ebene
 
     /**
      * Methode um einen Wert in das Attribut ebeneSpalte zu setzen.
+     *
      * @param ebenenSpalte Int der in das Attribut ebeneSpalte gesetzt wird.
      */
     public final void setEbenenSpalte(int ebenenSpalte)
@@ -104,10 +114,11 @@ public class Ebene
     /**
      * Methode um eine Instanz der Klasse Raeume an eine bestimmte Position in
      * dem Attribut ebene zu setzen.
-     * @param x Position in der Spalte, beginnend bei 0.
-     * @param y Position in der Zeile, beginnend bei 0.
+     *
+     * @param x    Position in der Spalte, beginnend bei 0.
+     * @param y    Position in der Zeile, beginnend bei 0.
      * @param raum Instanz der Klasse Raeume, welche an die gezielte Stelle
-     * gesetzt werden soll.
+     *             gesetzt werden soll.
      */
     public void raumEinsetzen(int x, int y, Raum raum)
     {
@@ -117,10 +128,11 @@ public class Ebene
     /**
      * Methode um an einer bestimmten Position den Inhalt des Attributes ebene
      * zu bekommen.
+     *
      * @param x Position der Spalte von dem der Inhalt zurueck gegeben
-     * wird.
+     *          wird.
      * @param y Position der Zeile von dem der Inhalt zurueck gegeben
-     * wird.
+     *          wird.
      * @return gibt den Inhalt an der bestimmten Position des Attributes
      * ebene.
      */
@@ -131,18 +143,19 @@ public class Ebene
 
     /**
      * Methode, die die Raeume der Ebene in der Konsole formatiert ausgibt.
+     *
      * @return gibt einen String der die Matrix des Attributes ebene
      * repraesentiert wieder.
      */
-    @Override
-    public String toString()
+    @Override public String toString()
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.ebenenZeile; i++)
         {
             for (int j = 0; j < this.ebenenSpalte; j++)
             {
-                if (this.ebene[i][j] != null && this.ebene[i][j].getEreignis() != null)
+                if (this.ebene[i][j] != null &&
+                    this.ebene[i][j].getEreignis() != null)
                 {
                     sb.append(this.ebene[i][j].getEreignis().getName());
                 }
@@ -162,6 +175,7 @@ public class Ebene
 
     /**
      * Getter Methode um den Wert des Attributes spielfigur zu erhalten.
+     *
      * @return gibt den Wert des Attributes spielfigur wieder.
      */
     public SpielfigurEbene getSpielfigur()
@@ -171,6 +185,7 @@ public class Ebene
 
     /**
      * Setter Methode um das Attribut spielfigur zu setzen.
+     *
      * @param spielfigur auf welchen das Attribut gesetzt werden soll.
      */
     public void setSpielfigur(SpielfigurEbene spielfigur)

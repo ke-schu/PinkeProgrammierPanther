@@ -10,6 +10,7 @@ public class KarteZauber extends Karte
 {
     private int macht;
     private Zaubereffekte zeffekt;
+
     public KarteZauber(String name, int level)
     {
         super(name, level);
@@ -17,6 +18,7 @@ public class KarteZauber extends Karte
 
     /**
      * Methoden, welche den Wert des Attributs macht liefert.
+     *
      * @return gibt den Wert macht als Int wieder.
      */
     public int getMacht()
@@ -26,13 +28,15 @@ public class KarteZauber extends Karte
 
     /**
      * Methode die einen Int-Wert in das Attribut macht setzt.
+     *
      * @param macht Int-Wert, welcher in das Attribut macht gesetzt wird.
      */
     public void setMacht(int macht)
     {
         this.macht = macht;
     }
-    public Zaubereffekte getZeffekt ()
+
+    public Zaubereffekte getZeffekt()
     {
         return zeffekt;
     }

@@ -19,18 +19,20 @@ public abstract class Ereignis
 
     /**
      * Der Konstruktor von Ereignis.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public Ereignis(String name, String beschreibung)
     {
-        this.name = name;
+        this.name         = name;
         this.beschreibung = beschreibung;
     }
 
     /**
      * Diese Methode dient als Getter um den Namen des Ereignisses zugaenglich
      * zu machen.
+     *
      * @return Name des jeweiligen Ereignisses.
      */
     public String getName()
@@ -41,6 +43,7 @@ public abstract class Ereignis
     /**
      * Diese Methode dient als Getter um die Beschreibung des Ereignisses
      * zugaenglich zu machen.
+     *
      * @return Beschreibung des jeweiligen Ereignisses.
      */
     public String getBeschreibung()
@@ -51,6 +54,7 @@ public abstract class Ereignis
     /**
      * Diese Methode dient als Getter um die Wahl des Spielers zugaenglich zu
      * machen.
+     *
      * @return Wahl des Spielers, ob er das Ereignis annimmt oder ablehnt.
      */
     public boolean isAuswahl()
@@ -60,6 +64,7 @@ public abstract class Ereignis
 
     /**
      * Diese Methode dient als Setter um die Wahl des Spielers umzusetzen.
+     *
      * @param auswahl: die Wahl des Spielers.
      */
     public void setAuswahl(boolean auswahl)
@@ -71,6 +76,7 @@ public abstract class Ereignis
      * Diese Methode ist die zentrale Methode der Ereignisse.
      * Sie wird von jeder Subklasse ueberlagert und bestimmt,
      * was bei welchem Ereignis ausgefuehrt wird.
+     *
      * @param spielStand der aktuelle Spielstand mit seinen Attributen.
      */
     public void ausfuehren(SpielStand spielStand)

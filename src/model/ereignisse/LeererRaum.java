@@ -1,7 +1,7 @@
 package model.ereignisse;
 
-import utility.KonsolenIO;
 import model.SpielStand;
+import utility.KonsolenIO;
 
 import static resources.StringsEreignisse.LEERER_RAUM_BESCHREIBUNG;
 
@@ -17,7 +17,8 @@ public class LeererRaum extends Ereignis
      * Der Konstruktor erstellt ein Ereignis vom Typ Leerer Raum. Leere Raeume
      * sind fuer den Spieler nur zum durchqueren gedacht, ansonsten geschieht
      * in ihnen nichts.
-     * @param name: Der Name des Ereignisses.
+     *
+     * @param name:         Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
     public LeererRaum(String name, String beschreibung)
@@ -28,6 +29,7 @@ public class LeererRaum extends Ereignis
     /**
      * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis".
      * Sie zeigt die Eigenschaft des leeren Raumes an.
+     *
      * @param spielStand: Spielstand Datei.
      */
     public void ausfuehren(SpielStand spielStand)

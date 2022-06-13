@@ -10,9 +10,13 @@ import model.Ebene;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileSystemNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import static resources.Strings.*;
+import static resources.Strings.EBENE_DATEI_ERSTELLT;
+import static resources.Strings.EBENE_DATEI_UEBERSCHRIEBEN;
 
 /**
  * Diese Klasse beinhaltet das Lesen und Schreiben von Ebenen aus bzw. in
@@ -33,6 +37,7 @@ public class EbeneIO
 
     /**
      * Serialisiert die Ebene ins Json-Format.
+     *
      * @param ebene die Ebene
      * @return einen String im Json-Format
      */
@@ -44,17 +49,18 @@ public class EbeneIO
 
     /**
      * Schreibt eine Ebene serialisiert in eine Datei.
+     *
      * @param ebene die Ebene
      * @param datei die Datei
      * @throws IOException wenn ein Fehler im Schreiben auftritt.
      */
-    public static void schreibeDatei(Ebene ebene, File datei)
-            throws IOException
+    public static void schreibeDatei(Ebene ebene, File datei) throws IOException
     {
         if (datei.createNewFile())
         {
             KonsolenIO.ausgeben(EBENE_DATEI_ERSTELLT);
-        } else
+        }
+        else
         {
             KonsolenIO.ausgeben(EBENE_DATEI_UEBERSCHRIEBEN);
         }
@@ -65,10 +71,11 @@ public class EbeneIO
 
     /**
      * Deserialisiert einen im Json-Format vorliegenden String in eine Ebene.
+     *
      * @param jsonEbene die Zeichenkette
      * @return die Ebene
      * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     * Json-Formatierung uebereinstimmt.
+     *                             Json-Formatierung uebereinstimmt.
      */
     private static Ebene deserialisieren(String jsonEbene)
             throws JsonSyntaxException
@@ -83,6 +90,7 @@ public class EbeneIO
     /**
      * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert
      * zurueck.
+     *
      * @return die Ebene
      * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */

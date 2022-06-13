@@ -21,14 +21,15 @@ public class KartenEinheitController
     /**
      * Legt Karte auf Spielfeld und ueberprueft ob die dafuer noetigen
      * Voraussetzungen gegeben sind
-     * @param kartenhand Hand aus welcher die Karte auf das Spielfeld gelegt
-     * wird
+     *
+     * @param kartenhand   Hand aus welcher die Karte auf das Spielfeld gelegt
+     *                     wird
      * @param positionhand Stelle, auf der hand an welcher sich die
-     * ausgewaehlte Karte befindet
-     * @param spielfeld Spielfeld, auf welches die Karte gelegt wird
-     * @param x Zeile im spielfeld
-     * @param y Spalte im spielfeld
-     * @param tank zu Verfuegung stehende Mana-Reserve
+     *                     ausgewaehlte Karte befindet
+     * @param spielfeld    Spielfeld, auf welches die Karte gelegt wird
+     * @param x            Zeile im spielfeld
+     * @param y            Spalte im spielfeld
+     * @param tank         zu Verfuegung stehende Mana-Reserve
      */
     public static void beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
@@ -38,27 +39,28 @@ public class KartenEinheitController
             (freundBenachbart(x, y, spielfeld)))
         {
             Karte meineKarte = kartenhand.getElement(positionhand);
-            if (meineKarte instanceof KarteEinheit && (tank.getMana() >=
-                                                       ((KarteEinheit) meineKarte).getManaKosten()))
+            if (meineKarte instanceof KarteEinheit &&
+                (tank.getMana() >= ((KarteEinheit) meineKarte).getManaKosten()))
             {
                 ((KarteEinheit) meineKarte).startWerteSpeichern();
                 positionGeben((KarteEinheit) meineKarte, x, y);
                 spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meineKarte);
                 kartenhand.setElement(positionhand, null);
-                tank.manaBezahlen(
-                        ((KarteEinheit) meineKarte).getManaKosten());
-                EffektController.startEffektAusloesen((KarteEinheit)meineKarte, ((KarteEinheit) meineKarte).getEffektEins());
-                EffektController.startEffektAusloesen((KarteEinheit)meineKarte, ((KarteEinheit) meineKarte).getEffektZwei());
+                tank.manaBezahlen(((KarteEinheit) meineKarte).getManaKosten());
+                EffektController.startEffektAusloesen((KarteEinheit) meineKarte,
+                                                      ((KarteEinheit) meineKarte).getEffektEins());
+                EffektController.startEffektAusloesen((KarteEinheit) meineKarte,
+                                                      ((KarteEinheit) meineKarte).getEffektZwei());
             }
         }
     }
 
 
-
     /**
      * Legt Held- und Dungeonmasterkarte zu Beginn einer runde an ihre
      * vorgesehenen Plaetze
-     * @param held HeldKarte welche gelegt werden soll
+     *
+     * @param held      HeldKarte welche gelegt werden soll
      * @param spielfeld auf dem die Karten gelegt werden
      */
     public static void beschwoerenHelden(KarteEinheit held, SpielFeld spielfeld)
@@ -71,26 +73,27 @@ public class KartenEinheitController
             spielfeld.einheitEinsetzten(SPIELER_KAMPFFELD_STARTPOSITION_X,
                                         SPIELER_KAMPFFELD_STARTPOSITION_Y,
                                         held);
-        } else
+        }
+        else
         {
             held.startWerteSpeichern();
             positionGeben(held, spielfeld.getSpalten() -
                                 GEGNER_KAMPFFELD_STARTPOSITION_X,
                           spielfeld.getZeilen() -
                           GEGNER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten() -
-                                        GEGNER_KAMPFFELD_STARTPOSITION_X,
-                                        spielfeld.getZeilen() -
-                                        GEGNER_KAMPFFELD_STARTPOSITION_Y,
-                                        held);
+            spielfeld.einheitEinsetzten(
+                    spielfeld.getSpalten() - GEGNER_KAMPFFELD_STARTPOSITION_X,
+                    spielfeld.getZeilen() - GEGNER_KAMPFFELD_STARTPOSITION_Y,
+                    held);
         }
     }
 
     /**
      * weist einer Karte eine Position zu
+     *
      * @param einheit Karte welcher eine Position gegeben wird
-     * @param x x Position im Spielfeld
-     * @param y y Position im Spielfeld
+     * @param x       x Position im Spielfeld
+     * @param y       y Position im Spielfeld
      */
     private static void positionGeben(KarteEinheit einheit, int x, int y)
     {
@@ -100,10 +103,13 @@ public class KartenEinheitController
 
     /**
      * Gibt an, ob befreundete Karten an eine Position grenzen
-     * @param x Position in welcher Umgebung nach befreundeten Karten gesucht
-     * wird
-     * @param y Position in welcher Umgebung nach befreundeten Karten gesucht
-     * wird
+     *
+     * @param x         Position in welcher Umgebung nach befreundeten Karten
+     *                  gesucht
+     *                  wird
+     * @param y         Position in welcher Umgebung nach befreundeten Karten
+     *                  gesucht
+     *                  wird
      * @param spielfeld Spielfeld in dem gesucht wird
      * @return boolean ob befreundetet karten in der umgebung ist
      */

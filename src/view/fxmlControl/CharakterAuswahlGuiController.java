@@ -3,10 +3,6 @@ package view.fxmlControl;
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import exceptions.NichtGenugGoldException;
-import view.components.CharakterVBox;
-import utility.CharakterIO;
-import utility.KonsolenIO;
-import utility.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
@@ -19,42 +15,49 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
+import utility.CharakterIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
+import view.components.CharakterVBox;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import static resources.StringsGUI.*;
+import static resources.StringsGUI.GOLD_BESTAND;
+import static resources.StringsGUI.HILFE_CHARAKTERAUSWAHL;
 
 /**
  * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.
  */
-public class CharakterAuswahlGuiController
-        extends GuiController
+public class CharakterAuswahlGuiController extends GuiController
         implements Initializable
 {
     @FXML HBox charaktere;
     @FXML VBox kartenDeck;
     @FXML Button spielButton;
     @FXML Label gold;
-    private ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
+    private ObjectProperty<Charakter> aktiverCharakter =
+            new SimpleObjectProperty<>();
     private Stack<Charakter> charakterStack;
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das
-     *           Root-Objekt verwendet wird.
+     *
+     * @param url            Der Standort, der zum Auflösen relativer Pfade
+     *                       für das
+     *                       Root-Objekt verwendet wird.
      * @param resourceBundle Die zum Lokalisieren des Root-Objekts
      *                       verwendeten Ressourcen.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    @Override public void initialize(URL url, ResourceBundle resourceBundle)
     {
         spielButton.setDisable(true);
         try
         {
             charakterStack = CharakterIO.leseDatei();
-            spiel = SpielStandIO.leseDatei();
+            spiel          = SpielStandIO.leseDatei();
             for (int i = 0; i < charakterStack.size(); i++)
             {
                 Charakter meinChar = new Charakter(charakterStack.get(i));
@@ -62,7 +65,8 @@ public class CharakterAuswahlGuiController
                 charaktere.getChildren().add(meineBox);
                 charakterWaehlen(meineBox, meinChar, i);
             }
-        } catch (JsonNichtLesbarException e)
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -84,21 +88,22 @@ public class CharakterAuswahlGuiController
         kartenDeck.getChildren().clear();
         Label deckBezeichnung = new Label(
                 aktiverCharakter.get().getStartDeck().getDeckBezeichnung());
-        deckBezeichnung.setFont(
-                Font.font("Arial", FontWeight.EXTRA_BOLD, 16));
+        deckBezeichnung.setFont(Font.font("Arial", FontWeight.EXTRA_BOLD, 16));
         kartenDeck.getChildren().add(deckBezeichnung);
         for (int i = 0; i < aktiverCharakter.get().getStartDeck().size(); i++)
         {
-            kartenDeck.getChildren()
-                    .add(new Label(aktiverCharakter.get().getStartDeck().get(i).getName()));
+            kartenDeck.getChildren().add(new Label(
+                    aktiverCharakter.get().getStartDeck().get(i).getName()));
         }
     }
 
     /**
-     * Fügt der Charakter VBox ein Event beim Mausklick hinzu, welches den Charakter auswaehlt und als aktiven Charakter setzt.
+     * Fügt der Charakter VBox ein Event beim Mausklick hinzu, welches den
+     * Charakter auswaehlt und als aktiven Charakter setzt.
      * Dafuer wird auch ueberprueft, ob er bereits freigeschaltet ist.
-     * @param v Die Charakter VBox
-     * @param c Der Charakter
+     *
+     * @param v   Die Charakter VBox
+     * @param c   Der Charakter
      * @param pos Die Position im Charakter-Stack
      */
     private void charakterWaehlen(CharakterVBox v, Charakter c, int pos)
@@ -108,26 +113,29 @@ public class CharakterAuswahlGuiController
 
         v.setOnMouseClicked(mouseEvent ->
                             {
-                                if(v.istFreigeschaltet())
+                                if (v.istFreigeschaltet())
                                 {
                                     aktiverCharakter.bind(dieserCharakter);
                                 }
                                 else
                                 {
-                                    if(kaufen(v, pos))
+                                    if (kaufen(v, pos))
                                     {
                                         aktiverCharakter.bind(dieserCharakter);
                                     }
                                 }
                             });
 
-        aktiverCharakter.addListener((observableValue, charakter, t1) ->
-                                             v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
+        aktiverCharakter.addListener(
+                (observableValue, charakter, t1) -> v.setGewaehlt(
+                        aktiverCharakter.get() == dieserCharakter.get()));
     }
 
     /**
-     * Falls ein Charakter nicht freigeschaltet ist, kann er mit dieser Methode gekauft werden.
-     * @param v die Charakter-VBox
+     * Falls ein Charakter nicht freigeschaltet ist, kann er mit dieser
+     * Methode gekauft werden.
+     *
+     * @param v   die Charakter-VBox
      * @param pos die Position im Charakter-Stack
      * @return true, wenn er erfolgreich gekauft wurde
      */
@@ -149,6 +157,7 @@ public class CharakterAuswahlGuiController
 
     /**
      * Methode um mit ausgewaehltem Charakter ein Spiel zu beginnen.
+     *
      * @param event Event, welches diese Methode ausloest.
      */
     public void spielen(ActionEvent event)
@@ -165,11 +174,13 @@ public class CharakterAuswahlGuiController
     }
 
     /**
-     * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem Text des Popups geaendert.
-     * @param event ActionEvent, welches dieser mit diese Methode verknuepft wird.
+     * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem
+     * Text des Popups geaendert.
+     *
+     * @param event ActionEvent, welches dieser mit diese Methode verknuepft
+     *              wird.
      */
-    @Override
-    public void oeffneHilfe(ActionEvent event)
+    @Override public void oeffneHilfe(ActionEvent event)
     {
         offneHilfeTextEinsetzen(HILFE_CHARAKTERAUSWAHL);
     }

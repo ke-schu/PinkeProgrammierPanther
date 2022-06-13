@@ -1,8 +1,6 @@
 package view.fxmlControl;
 
 import exceptions.JsonNichtLesbarException;
-import view.mp3.mp3Controller;
-import utility.SpielStandIO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -22,6 +20,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.SpielStand;
+import utility.SpielStandIO;
+import view.mp3.mp3Controller;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +32,8 @@ import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
 /**
- * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.
+ * Klasse welche alle generellen Methoden enthaelt, die in den weiteren
+ * Controllern der GUI benutzt werden.
  */
 public class GuiController implements Initializable
 {
@@ -44,26 +46,31 @@ public class GuiController implements Initializable
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das
-     *            Root-Objekt verwendet wird.
+     *
+     * @param url            Der Standort, der zum Auflösen relativer Pfade
+     *                       für das
+     *                       Root-Objekt verwendet wird.
      * @param resourceBundle Die zum Lokalisieren des Root-Objekts
      *                       verwendeten Ressourcen.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
+    @Override public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        try {
-            spiel  =  SpielStandIO.leseDatei();
-        } catch (JsonNichtLesbarException e) {
+        try
+        {
+            spiel = SpielStandIO.leseDatei();
+        }
+        catch (JsonNichtLesbarException e)
+        {
             throw new RuntimeException(e);
         }
     }
 
     /**
      * Methode um eine Scenen zu laden und in die Stage zu setzen.
+     *
      * @param event Event durch welches die Methode ausgeloest wird.
-     * @param pfad String mit dem Pfad der .fxml Datei welche geladen
-     *             werden soll.
+     * @param pfad  String mit dem Pfad der .fxml Datei welche geladen
+     *              werden soll.
      * @throws IOException kann durch den fxmlLoader.load() geworfen werden.
      */
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
@@ -72,7 +79,7 @@ public class GuiController implements Initializable
         File f = new File(pfad);
         FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
@@ -80,9 +87,10 @@ public class GuiController implements Initializable
     /**
      * Methode, welche die Methode offneHilfeTextEinsetzen aufruft.
      * Diese Methode wird durch
+     *
      * @param event ActionEvent, welches mit dieser Methode verknuepft wird.
      */
-    @FXML public void oeffneHilfe (ActionEvent event)
+    @FXML public void oeffneHilfe(ActionEvent event)
     {
         offneHilfeTextEinsetzen(HILFE_TEXT);
     }
@@ -90,10 +98,11 @@ public class GuiController implements Initializable
     /**
      * Methode, welche ein Popupfenster erstellt und fokussiert vor dem
      * Hauptfenster oeffnet.
+     *
      * @param hilfeText String welcher in dem Popup als Text eingesetzt
      *                  werden soll.
      */
-    @FXML public void offneHilfeTextEinsetzen (String hilfeText)
+    @FXML public void offneHilfeTextEinsetzen(String hilfeText)
     {
         final Stage popupStage = new Stage();
         popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -110,8 +119,7 @@ public class GuiController implements Initializable
         Button okButton = new Button(POPUP_BUTTON_SCHLIESSEN);
         okButton.setOnAction(new EventHandler<ActionEvent>()
         {
-            @Override
-            public void handle(ActionEvent arg0)
+            @Override public void handle(ActionEvent arg0)
             {
                 popupStage.close();
             }
@@ -126,70 +134,79 @@ public class GuiController implements Initializable
 
     /**
      * Mehtode mit der zu der Hauptmenue Scene gewechselt wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu
-     * ausgeloest werden.
+     *                     ausgeloest werden.
      */
-    @FXML public void wechselZuHauptmenue (ActionEvent event) throws IOException
+    @FXML public void wechselZuHauptmenue(ActionEvent event) throws IOException
     {
         wechselZu(event, HAUPTMENUE_PFAD);
     }
 
     /**
      * Mehtode mit der zu der Einstellung Scene gewechselt wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu
-     * ausgeloest werden.
+     *                     ausgeloest werden.
      */
-    @FXML public void wechselZuEinstellungen (ActionEvent event) throws IOException
+    @FXML public void wechselZuEinstellungen(ActionEvent event)
+            throws IOException
     {
         wechselZu(event, EINSTELLUNG_PFAD);
     }
 
     /**
      * Mehtode mit der zu der Charakterauswahl Scene gewechselt wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu
-     * ausgeloest werden.
+     *                     ausgeloest werden.
      */
-    @FXML public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
+    @FXML public void wechselZuCharakterauswahl(ActionEvent event)
+            throws IOException
     {
         wechselZu(event, CHARAKTERAUSWAHL_PFAD);
     }
 
     /**
      * Mehtode mit der zu der SpielEbene Scene gewechselt wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu
-     * ausgeloest werden.
+     *                     ausgeloest werden.
      */
-    @FXML public void wechselZuSpielEbene (ActionEvent event) throws IOException
+    @FXML public void wechselZuSpielEbene(ActionEvent event) throws IOException
     {
         wechselZu(event, SPIELEBENE_PFAD);
     }
 
     /**
      * Mehtode mit der zu der Spielfeld Scene gewechselt wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechelZu
-     * ausgeloest werden.
+     *                     ausgeloest werden.
      */
-    @FXML public void wechselZuSpielfeld (ActionEvent event) throws IOException
+    @FXML public void wechselZuSpielfeld(ActionEvent event) throws IOException
     {
         wechselZu(event, SPIELFELD_PFAD);
     }
 
     /**
      * Methode mit welcher die Anwendung geschlossen wird.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    @FXML public void spielBeenden (ActionEvent event)
+    @FXML public void spielBeenden(ActionEvent event)
     {
         Platform.exit();
     }
 
     /**
      * Methode, welche die Stage des Attribut Stage wieder gibt.
+     *
      * @return gibt die Stage wieder.
      */
     public Stage getStage()
@@ -199,6 +216,7 @@ public class GuiController implements Initializable
 
     /**
      * Methode um eine Stage in das Attribut Stage zu setzen.
+     *
      * @param stage Stage, welche in das Attribut gesetzt werden soll.
      */
     public void setStage(Stage stage)
@@ -208,6 +226,7 @@ public class GuiController implements Initializable
 
     /**
      * Methode, um das Objekt aus dem Attribut scene zu bekommen.
+     *
      * @return gibt die Instanz des Attribut scene wieder.
      */
     public Scene getScene()
@@ -217,6 +236,7 @@ public class GuiController implements Initializable
 
     /**
      * Setzt eine Instanz des Klasse Scene in das Attribut scene.
+     *
      * @param scene Instanz der Scene, welche in das Attribut eingesetzt werden.
      */
     public void setScene(Scene scene)
@@ -226,14 +246,15 @@ public class GuiController implements Initializable
 
     /**
      * Methode um eine ComboBox zu erstellen.
+     *
      * @param comboBoxArray StringArray welche in die ComboBox eingesetzte
-     *                     werden soll.
+     *                      werden soll.
      * @param meineCombobox ComboBox, in welche das StringArray eingesetzt
-     *                     werden soll.
+     *                      werden soll.
      */
     public void erstelleCombobox(String[] comboBoxArray, ComboBox meineCombobox)
     {
-        for(int i = 0; i < comboBoxArray.length; i++)
+        for (int i = 0; i < comboBoxArray.length; i++)
         {
             meineCombobox.getItems().add(comboBoxArray[i]);
         }
@@ -241,11 +262,12 @@ public class GuiController implements Initializable
 
     /**
      * Methode um die Fenstergroesse auf 1920x1080 zu wechseln.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    public void wechselAufloesungFullHD (Event event)
+    public void wechselAufloesungFullHD(Event event)
     {
-        setStage((Stage)((Node)event.getSource()).getScene().getWindow());
+        setStage((Stage) ((Node) event.getSource()).getScene().getWindow());
         getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
         getStage().setMinHeight(AUFLOESUNG_HOEHE_FULLHD);
         getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
@@ -254,11 +276,12 @@ public class GuiController implements Initializable
 
     /**
      * Methode um die Fenstergroesse auf 1280x720 zu wechseln.
+     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
-    public void wechselAufloesungHD (Event event)
+    public void wechselAufloesungHD(Event event)
     {
-        setStage((Stage)((Node)event.getSource()).getScene().getWindow());
+        setStage((Stage) ((Node) event.getSource()).getScene().getWindow());
         getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
         getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
         getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
@@ -267,6 +290,7 @@ public class GuiController implements Initializable
 
     /**
      * Methode, welche das Objekt des Attributs spiel wiedergibt.
+     *
      * @return gibt ein Objekt des Typs SpielStand wieder.
      */
     public static SpielStand getSpiel()

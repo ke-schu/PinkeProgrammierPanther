@@ -11,15 +11,19 @@ import model.SpielFeld;
 public class ZauberEffektController
 {
     /**
-     * Diese Methode ueberprueft, welcher Effekt der ZauberKarte vorliegt und ausgefuehrt werden soll.
-     * @param ausloeser Die ausloesende ZauberKarte.
-     * @param ziel Das Ziel, welches angegriffen wird.
-     * @param feld Das Spielfeld auf dem gespielt wird.
+     * Diese Methode ueberprueft, welcher Effekt der ZauberKarte vorliegt und
+     * ausgefuehrt werden soll.
+     *
+     * @param ausloeser   Die ausloesende ZauberKarte.
+     * @param ziel        Das Ziel, welches angegriffen wird.
+     * @param feld        Das Spielfeld auf dem gespielt wird.
      * @param spielerDeck Das Deck des Players.
-     * @param masterDeck Das Deck des DungeonMaster.
+     * @param masterDeck  Das Deck des DungeonMaster.
      */
-    public static void zauberKarteAusspielen (KarteZauber ausloeser, KarteEinheit ziel, SpielFeld feld,
-                                              KartenDeck spielerDeck, KartenDeck masterDeck)
+    public static void zauberKarteAusspielen(KarteZauber ausloeser,
+                                             KarteEinheit ziel, SpielFeld feld,
+                                             KartenDeck spielerDeck,
+                                             KartenDeck masterDeck)
     {
         switch (ausloeser.getZeffekt())
         {

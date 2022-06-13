@@ -2,6 +2,7 @@ package view.fxmlControl;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
 import java.io.IOException;
 
 import static resources.StringsGUI.HILFE_HAUPTMENUE;
@@ -22,7 +23,9 @@ public class HauptmenueGuiController extends GuiController
         offneHilfeTextEinsetzen(HILFE_HAUPTMENUE);
     }
 
-    /** Methode, welche die Methode wechselZuSpielEbene() aufruft.
+    /**
+     * Methode, welche die Methode wechselZuSpielEbene() aufruft.
+     *
      * @param event Event, welche diese Methode ausloest.
      * @throws IOException Wird weiter gereicht.
      */

@@ -1,18 +1,19 @@
 package view.mp3;
 
 import exceptions.JsonNichtLesbarException;
-import view.fxmlControl.GuiController;
-import utility.KonsolenIO;
-import utility.SpielStandIO;
 import javafx.fxml.Initializable;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
+import view.fxmlControl.GuiController;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.KonstantenGUI.*;
-import static resources.StringsGUI.*;
+import static resources.KonstantenGUI.FAKTOR_FUER_LAUTSTAERKE;
+import static resources.StringsGUI.HAUPTMENUE_MUSIK;
 
 /**
  * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers
@@ -20,36 +21,25 @@ import static resources.StringsGUI.*;
  */
 public class mp3Controller implements Initializable
 {
-    private static MediaPlayer hintergrundmusik =
-            new MediaPlayer(new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
+    private static MediaPlayer hintergrundmusik = new MediaPlayer(
+            new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
     private static MediaPlayer effekt;
     private static Media titel;
     private static Media soundEffekt;
 
     /**
-     * Ruft die Methode spieleHintergrundmusik() auf, somit wird bei Start
-     * Musik gespielt.
-     * @param url Pfad fuer das root Objekt, bei null Speicherort nicht bekannt.
-     * @param resourceBundle Ressourcen zum root Objekt, bei null Speicherort
-     *                       nicht lokalisiert.
-     */
-    @Override
-    public void initialize (URL url, ResourceBundle resourceBundle)
-    {
-        spieleHintergrundmusik();
-    }
-
-    /**
      * Methode die einen Mediaplayer erstellt und eine Hauptmenuemusik
      * auf Dauerschleife laeuft.
      */
-    public static void spieleHintergrundmusik ()
+    public static void spieleHintergrundmusik()
     {
         try
         {
-            titel = new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
+            titel            =
+                    new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
             hintergrundmusik = new MediaPlayer(titel);
-            wechselLautstaerkeMusik(SpielStandIO.leseDatei().getLautstaerkeMusik());
+            wechselLautstaerkeMusik(
+                    SpielStandIO.leseDatei().getLautstaerkeMusik());
         }
         catch (JsonNichtLesbarException e)
         {
@@ -64,15 +54,17 @@ public class mp3Controller implements Initializable
     /**
      * Methode die einen Mediaplayer erstellt und einen Sound abspielt, der per
      * Parameterliste uebergeben wird.
+     *
      * @param pfad Pfad mit dem abzuspielenden Soundfile.
      */
-    public static void spieleEffekt (String pfad)
+    public static void spieleEffekt(String pfad)
     {
         try
         {
             soundEffekt = new Media(new File(pfad).toURI().toString());
-            effekt = new MediaPlayer(soundEffekt);
-            wechselLautstaerkeEffekte(SpielStandIO.leseDatei().getLaustaerkeEffekte());
+            effekt      = new MediaPlayer(soundEffekt);
+            wechselLautstaerkeEffekte(
+                    SpielStandIO.leseDatei().getLaustaerkeEffekte());
         }
         catch (JsonNichtLesbarException e)
         {
@@ -85,7 +77,7 @@ public class mp3Controller implements Initializable
     /**
      * Methode, welche die Musik stumm schaltet.
      */
-    public static void muteMusik ()
+    public static void muteMusik()
     {
         hintergrundmusik.setMute(true);
     }
@@ -93,18 +85,19 @@ public class mp3Controller implements Initializable
     /**
      * Methode, welche die Effekte stumm schaltet.
      */
-    public static void muteEffekte ()
+    public static void muteEffekte()
     {
-         effekt.setMute(true);
+        effekt.setMute(true);
     }
 
     /**
      * Mit dieser Methode wird die Lautstaerke der Instanz
      * der Mediaplayers angepasst.
+     *
      * @param lautstaerke der Integer welcher mit einem Faktor als
      *                    Lautstaerke eingestellt wird.
      */
-    public static void wechselLautstaerkeMusik (double lautstaerke)
+    public static void wechselLautstaerkeMusik(double lautstaerke)
     {
         hintergrundmusik.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
         GuiController.getSpiel().setLautstaerkeMusik(lautstaerke);
@@ -113,12 +106,27 @@ public class mp3Controller implements Initializable
     /**
      * Mit dieser Methode wird die Lautstaerke der Instanz
      * der Mediaplayers angepasst.
+     *
      * @param lautstaerke der Integer welcher mit einem Faktor als Lautstaerke
      *                    eingestellt wird.
      */
-    public static void wechselLautstaerkeEffekte (double lautstaerke)
+    public static void wechselLautstaerkeEffekte(double lautstaerke)
     {
         effekt.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
         GuiController.getSpiel().setLaustaerkeEffekte(lautstaerke);
+    }
+
+    /**
+     * Ruft die Methode spieleHintergrundmusik() auf, somit wird bei Start
+     * Musik gespielt.
+     *
+     * @param url            Pfad fuer das root Objekt, bei null Speicherort
+     *                       nicht bekannt.
+     * @param resourceBundle Ressourcen zum root Objekt, bei null Speicherort
+     *                       nicht lokalisiert.
+     */
+    @Override public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        spieleHintergrundmusik();
     }
 }

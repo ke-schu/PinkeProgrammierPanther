@@ -10,18 +10,21 @@ public class Waffe
 
     /**
      * Konstruktor der die uebergebenen Variablen in die Attribute setzt.
-     * @param name String der in das Attribut name gesetzt werden soll.
+     *
+     * @param name           String der in das Attribut name gesetzt werden
+     *                       soll.
      * @param angriffsPunkte Int-Wert der in das Attribut angriffsPunkte
-     * gesetzt werden soll.
+     *                       gesetzt werden soll.
      */
     public Waffe(String name, int angriffsPunkte)
     {
-        this.name = name;
+        this.name           = name;
         this.angriffsPunkte = angriffsPunkte;
     }
 
     /**
      * Methode die den String des Attributes name wiedergibt.
+     *
      * @return gibt den String des Attributes name wieder.
      */
     public String getName()
@@ -31,6 +34,7 @@ public class Waffe
 
     /**
      * Methode die den Int-Wert des Attributes angriffsPunkte wiedergibt.
+     *
      * @return gibt den Int-Wert des Attributes angriffsPunkte wieder.
      */
     public int getAngriffsPunkte()

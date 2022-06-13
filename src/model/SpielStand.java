@@ -20,49 +20,51 @@ public class SpielStand
     private transient Ebene aktuelleEbene;
     private double lautstaerkeMusik = 10;
     private double laustaerkeEffekte = 10;
-    private  int aufloesungX = 1280;
-    private  int aufloesungY = 720;
+    private int aufloesungX = 1280;
+    private int aufloesungY = 720;
 
     /**
      * Konstruiert einen neuen Spielstand mit den notwendigen Attributen.
-     * @param gold das Guthaben des Spielers.
+     *
+     * @param gold    das Guthaben des Spielers.
      * @param spieler der kaempfende Spieler.
      * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
-     * oder des Gegners Fehler enthalten.
+     *                                  oder des Gegners Fehler enthalten.
      */
-    public SpielStand(int gold, Spieler spieler)
-            throws JsonNichtLesbarException
+    public SpielStand(int gold, Spieler spieler) throws JsonNichtLesbarException
     {
-        this.gold = gold;
-        this.spieler = spieler;
-        this.spieldeckSpieler =
-                KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
-        this.aktuelleEbene = EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
+        this.gold             = gold;
+        this.spieler          = spieler;
+        this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeckGegner  = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
+        this.aktuelleEbene    =
+                EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
     }
 
     /**
      * Konstruiert einen neuen Spielstand mit einem bestehenden Spielstand, um
      * die nicht abgespeicherten Kartendecks und Ebenen aus den anderen
      * json-Dateien in die Instanz zu binden.
+     *
      * @param stand der Spielstand.
      * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
-     * oder des Gegners Fehler enthalten.
+     *                                  oder des Gegners Fehler enthalten.
      */
-    public SpielStand(SpielStand stand)
-            throws JsonNichtLesbarException
+    public SpielStand(SpielStand stand) throws JsonNichtLesbarException
     {
         this(stand.getGold(), stand.getSpieler());
-        this.lautstaerkeMusik = stand.getLautstaerkeMusik();
+        this.lautstaerkeMusik  = stand.getLautstaerkeMusik();
         this.laustaerkeEffekte = stand.getLaustaerkeEffekte();
-        this.spieldeckSpieler =
+        this.spieldeckSpieler  =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
-        this.aktuelleEbene = EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
+        this.spieldeckGegner   = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
+        this.aktuelleEbene     =
+                EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
     }
 
     /**
      * Gibt die aktuelle Spielebene wieder.
+     *
      * @return die Spielebene.
      */
     public Ebene getAktuelleEbene()
@@ -72,6 +74,7 @@ public class SpielStand
 
     /**
      * Gibt das Gold des Spielstandes wieder.
+     *
      * @return das Gold.
      */
     public int getGold()
@@ -81,6 +84,7 @@ public class SpielStand
 
     /**
      * Setzt das Gold des Spielstandes auf einen neuen Wert.
+     *
      * @param gold das neue Guthaben.
      */
     public void setGold(int gold)
@@ -90,6 +94,7 @@ public class SpielStand
 
     /**
      * Gibt den Spieler wieder.
+     *
      * @return der Spieler.
      */
     public Spieler getSpieler()
@@ -99,6 +104,7 @@ public class SpielStand
 
     /**
      * Setzt den Spieler des Spielstandes neu.
+     *
      * @param spieler der Spieler.
      */
     public void setSpieler(Spieler spieler)
@@ -108,6 +114,7 @@ public class SpielStand
 
     /**
      * Gibt das Spieldeck des Spielers wieder.
+     *
      * @return das Kartendeck des Spielers.
      */
     public KartenDeck getSpieldeckSpieler()
@@ -117,6 +124,7 @@ public class SpielStand
 
     /**
      * Gibt das Spieldeck des Gegners wieder.
+     *
      * @return das Kartendeck des Gegners.
      */
     public KartenDeck getSpieldeckGegner()
@@ -126,6 +134,7 @@ public class SpielStand
 
     /**
      * Liefert den double des Attributes lautstaerkeMusik.
+     *
      * @return gibt den double des Attributes lautstaerkeMusik wieder.
      */
     public double getLautstaerkeMusik()
@@ -135,66 +144,75 @@ public class SpielStand
 
     /**
      * Setzt einen double in das Attribut lautstaerkeMusik.
+     *
      * @param neueLautstaerke double, der in das Attribut lautstaerkeMusik
-     * eingesetzt wird.
+     *                        eingesetzt wird.
      */
-    public  void setLautstaerkeMusik(double neueLautstaerke)
+    public void setLautstaerkeMusik(double neueLautstaerke)
     {
         this.lautstaerkeMusik = neueLautstaerke;
     }
 
     /**
      * Liefert den int des Attributes aufloesungX.
+     *
      * @return gibt den int des Attributes aufloesungX.
      */
-    public  int getAufloesungX()
+    public int getAufloesungX()
     {
         return this.aufloesungX;
     }
 
     /**
      * Setzt einen int in das Attribut aufloesungX.
+     *
      * @param neueAufloesungX der int, welcher in das Attribut aufloesungX
-     *gesetzt werden soll.
+     *                        gesetzt werden soll.
      */
-    public  void setAufloesungX(int neueAufloesungX)
+    public void setAufloesungX(int neueAufloesungX)
     {
         this.aufloesungX = neueAufloesungX;
     }
 
     /**
      * Liefert den int des Attributes aufloesungY.
+     *
      * @return gibt den int des Attributes aufloesungY.
      */
-    public  int getAufloesungY()
+    public int getAufloesungY()
     {
         return this.aufloesungY;
     }
 
     /**
      * Setzt einen int in das Attribut aufloesungY.
+     *
      * @param neueAufloesungY der int, welcher in das Attribut aufloesungY
-     * gesetzt werden soll.
+     *                        gesetzt werden soll.
      */
-    public  void setAufloesungY(int neueAufloesungY)
+    public void setAufloesungY(int neueAufloesungY)
     {
         this.aufloesungY = neueAufloesungY;
     }
 
     /**
      * Liefert den double des Attributes lautstaerkeMusik.
+     *
      * @return gibt den double des Attributes lautstaerkeMusik wieder.
      */
-    public double getLaustaerkeEffekte() {
+    public double getLaustaerkeEffekte()
+    {
         return laustaerkeEffekte;
     }
 
     /**
      * Setzt einen double in das Attribut laustaerkeEffekte.
+     *
      * @param laustaerkeEffekte double, der in das Attribut laustaerkeEffekte
-     *eingesetzt wird.
+     *                          eingesetzt wird.
      */
-    public void setLaustaerkeEffekte(double laustaerkeEffekte) {
+    public void setLaustaerkeEffekte(double laustaerkeEffekte)
+    {
         this.laustaerkeEffekte = laustaerkeEffekte;
     }
 }

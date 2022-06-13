@@ -23,12 +23,13 @@ public class SpielfigurEbeneController
     /**
      * Methode, um eine Instanz von SpielfigurEbene in einen Raum der Ebene zu
      * bewegen und das Ereignis des Raums nach Betreten auszufuehren.
-     * @param ebene Instanz der Klasse Ebene in der sich die Instanz von
-     * SpielfigurEbene befindet.
-     * @param zielX Zielkoordinate des Raums auf der X-Achse.
-     * @param zielY Zielkoordinate des Raums auf der Y-Achse.
+     *
+     * @param ebene      Instanz der Klasse Ebene in der sich die Instanz von
+     *                   SpielfigurEbene befindet.
+     * @param zielX      Zielkoordinate des Raums auf der X-Achse.
+     * @param zielY      Zielkoordinate des Raums auf der Y-Achse.
      * @param spielStand Instanz der Klasse SpielStand, welcher den
-     * Ereignissen uebergeben wird.
+     *                   Ereignissen uebergeben wird.
      * @return true, wenn die Bewegung erfolgreich war.
      */
     public static boolean bewegen(Ebene ebene, int zielX, int zielY,

@@ -3,7 +3,8 @@ package resources;
 import javafx.scene.layout.BackgroundSize;
 
 /**
- * Hier werden finale, numerische Werte fuer die grafische Benutzeroberflaeche gesammelt.
+ * Hier werden finale, numerische Werte fuer die grafische
+ * Benutzeroberflaeche gesammelt.
  */
 public interface KonstantenGUI
 {
@@ -28,8 +29,7 @@ public interface KonstantenGUI
     Integer POPUP_VBOX_BREITE2 = 700;
     Integer POPUP_VBOX_HOEHE2 = 500;
 
-    BackgroundSize AUTO_HINTERGRUND = new BackgroundSize(
-                    BackgroundSize.AUTO,
-                    BackgroundSize.AUTO,
-                    true,true, true,true);
+    BackgroundSize AUTO_HINTERGRUND =
+            new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,
+                               true, true, true);
 }

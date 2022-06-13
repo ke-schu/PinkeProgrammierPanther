@@ -21,14 +21,14 @@ public class KartenDeckSerialisierung
 
     /**
      * Serialisiert ein Kartendeck.
-     * @param src das Kartendeck.
-     * @param type Typ des zu serialisierenden Kartendecks.
+     *
+     * @param src     das Kartendeck.
+     * @param type    Typ des zu serialisierenden Kartendecks.
      * @param context Kontext der Serialisierung.
      * @return ein Kartendeck als JsonElement.
      */
-    @Override
-    public JsonElement serialize(KartenDeck src, Type type,
-                                 JsonSerializationContext context)
+    @Override public JsonElement serialize(KartenDeck src, Type type,
+                                           JsonSerializationContext context)
     {
         JsonObject jsonKartenDeck = new JsonObject();
 
@@ -41,16 +41,16 @@ public class KartenDeckSerialisierung
 
     /**
      * Deserialisiert ein Kartendeck.
-     * @param json das Kartendeck als JsonElement.
-     * @param type Typ des zu serialisierenden Kartendecks.
+     *
+     * @param json    das Kartendeck als JsonElement.
+     * @param type    Typ des zu serialisierenden Kartendecks.
      * @param context Kontext der Deserialisierung.
      * @return das Kartendeck.
      * @throws JsonParseException wird geworfen, wenn das Element nicht
-     * gelesen werden kann.
+     *                            gelesen werden kann.
      */
-    @Override
-    public KartenDeck deserialize(JsonElement json, Type type,
-                                  JsonDeserializationContext context)
+    @Override public KartenDeck deserialize(JsonElement json, Type type,
+                                            JsonDeserializationContext context)
             throws JsonParseException
     {
         JsonObject meinJsonObject = json.getAsJsonObject();
@@ -65,11 +65,12 @@ public class KartenDeckSerialisierung
             JsonObject JsonKarte = meinJsonArray.get(i).getAsJsonObject();
             try
             {
-                Type klasse = Class.forName(
-                        JsonKarte.get(JSON_KLASSE).getAsString());
+                Type klasse =
+                        Class.forName(JsonKarte.get(JSON_KLASSE).getAsString());
                 Karte karte = meinGson.fromJson(JsonKarte, klasse);
                 meinKartenDeck.add(i, karte);
-            } catch (ClassNotFoundException e)
+            }
+            catch (ClassNotFoundException e)
             {
                 throw new JsonParseException(e);
             }

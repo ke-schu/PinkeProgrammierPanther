@@ -1,6 +1,6 @@
 package model;
 
-import static resources.Konstanten.*;
+import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION;
 
 /**
  * Eine Instanz dieser Klasse soll sich durch das Attribut ebene der Klasse
@@ -22,6 +22,7 @@ public class SpielfigurEbene
 
     /**
      * Methode die das Attribut position wiedergibt.
+     *
      * @return gibt das die Instanz des Attributes position wieder.
      */
     public Position getPosition()
@@ -32,6 +33,7 @@ public class SpielfigurEbene
     /**
      * Gibt das Attribut x der Instanz der Klasse Position, welche im Attribut
      * position liegt, wieder.
+     *
      * @return gibt den Int-Wert der im Attribut position hinterlegten Instanz
      * der Klasse Position.
      */
@@ -43,6 +45,7 @@ public class SpielfigurEbene
     /**
      * Gibt das Attribut y der Instanz der Klasse Position, welche im Attribut
      * position liegt, wieder.
+     *
      * @return gibt den Int-Wert der im Attribut position hinterlegten Instanz
      * der Klasse Position.
      */
@@ -53,6 +56,7 @@ public class SpielfigurEbene
 
     /**
      * Setzt die aktuelle Position an eine andere Position.
+     *
      * @param position die neue Position.
      */
     public void setPosition(Position position)

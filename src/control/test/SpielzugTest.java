@@ -4,19 +4,19 @@ import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import exceptions.JsonNichtLesbarException;
+import model.*;
 import utility.KartenDeckIO;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
-import model.*;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
 import static control.KartenEinheitController.beschwoerenHelden;
+import static control.test.TestKonstanten.*;
+import static control.test.TestZahlen.*;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
 import static resources.Strings.*;
-import static control.test.TestKonstanten.*;
-import static control.test.TestZahlen.*;
 
 /**
  * SpielzugTest dient zum Testen der Klassen und Methoden welche die
@@ -66,11 +66,12 @@ public class SpielzugTest
         KonsolenIO.ausgeben(
                 SPIELFELDBREITE + meinfeld.getSpalten() + SPIELFELDZEILEN +
                 meinfeld.getZeilen());
-        meinehand = new KartenHand(spieler);
-        meintank = new ManaTank(spieler);
-        master = new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15,
-                                  ZAHL_15, ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1,
-                                  LETZTEWORTE, ZURUECKWERFEN, ZAHL_12);
+        meinehand  = new KartenHand(spieler);
+        meintank   = new ManaTank(spieler);
+        master     =
+                new Gegenspieler(BJOERN, ZAHL_3, FERNKAEMPFER, ZAHL_15, ZAHL_15,
+                                 ZAHL_10, ZAHL_7, ZAHL_3, ZAHL_1, LETZTEWORTE,
+                                 ZURUECKWERFEN, ZAHL_12);
         masterhand = new KartenHand(master);
         mastertank = new ManaTank(master);
     }
@@ -84,11 +85,12 @@ public class SpielzugTest
         try
         {
             //Erstellen 2er Spieldecks
-            meindeck = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
+            meindeck   = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
             masterdeck = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
             KonsolenIO.ausgeben(meindeck.toString());
             spieler = SpielStandIO.leseDatei().getSpieler();
-        } catch (JsonNichtLesbarException e)
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -114,19 +116,16 @@ public class SpielzugTest
     {
         beschwoerenHelden(spieler, meinfeld);
         beschwoerenHelden(master, meinfeld);
-        KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld,
-                                            ZAHL_1, ZAHL_0, meintank);
-        KonsolenIO.ausgeben(
-                VORSTELLEN_EINHEIT +
-                meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0).getName() +
-                POSITIONS_ANGABE_NULL_EINS);
+        KartenEinheitController.beschwoeren(meinehand, ZAHL_2, meinfeld, ZAHL_1,
+                                            ZAHL_0, meintank);
+        KonsolenIO.ausgeben(VORSTELLEN_EINHEIT +
+                            meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
+                                    .getName() + POSITIONS_ANGABE_NULL_EINS);
         KonsolenIO.ausgeben(POSITIONS_ANGABE_EINHEIT +
                             meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
                                     .getPositionX());
-        KonsolenIO.ausgeben(ZEILE +
-                            meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
-                                    .getPositionY() +
-                            ZEILENUMBRUCH);
+        KonsolenIO.ausgeben(ZEILE + meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
+                                            .getPositionY() + ZEILENUMBRUCH);
     }
 
     /**
@@ -141,10 +140,9 @@ public class SpielzugTest
         danach um anschliessend wieder ihre Position wiederzugeben
          */
         KonsolenIO.ausgeben(
-                VORSTELLEN_GEGNER +
-                meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) + VON +
-                (meinfeld.getSpielfeldplatz(4,4).getPositionX()) + "," +
-                (meinfeld.getSpielfeldplatz(4,4).getPositionY()));
+                VORSTELLEN_GEGNER + meinfeld.getSpielfeldplatz(ZAHL_4, ZAHL_4) +
+                VON + (meinfeld.getSpielfeldplatz(4, 4).getPositionX()) + "," +
+                (meinfeld.getSpielfeldplatz(4, 4).getPositionY()));
         KonsolenIO.ausgeben(BEWEGEN);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
@@ -172,7 +170,7 @@ public class SpielzugTest
                             meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
                                     .getName());
         KonsolenIO.ausgeben(KAEMPFEN);
-        einheitenAngreifenMitEinheiten(meinfeld, meindeck,masterdeck, master,
+        einheitenAngreifenMitEinheiten(meinfeld, meindeck, masterdeck, master,
                                        meinfeld.getSpielfeldplatz(ZAHL_1,
                                                                   ZAHL_0));
         /*KonsolenIO.ausgeben(

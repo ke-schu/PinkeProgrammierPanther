@@ -2,12 +2,12 @@ package control.test;
 
 import control.KartenDeckController;
 import exceptions.JsonNichtLesbarException;
-import utility.KartenDeckIO;
-import utility.KonsolenIO;
 import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
+import utility.KartenDeckIO;
+import utility.KonsolenIO;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,15 +30,15 @@ public class KartenDeckTest
 
     /**
      * Erstellt eine neue KarteEinheit mit beispielhaften Werten
+     *
      * @return die KarteEinheit
      */
     private static KarteEinheit erstelleKarte()
     {
         return new KarteEinheit(KARTEN_NAME, ZAHL_1, Einheiten.NAHKAEMPFER,
-                                ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
-                                ZAHL_1, ZAHL_1,
-                                Effekte.LETZTEWORTE, Effekte.ZURUECKWERFEN,
-                                true, true);
+                                ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1, ZAHL_1,
+                                ZAHL_1, Effekte.LETZTEWORTE,
+                                Effekte.ZURUECKWERFEN, true, true);
     }
 
     /**
@@ -58,7 +58,8 @@ public class KartenDeckTest
         try
         {
             KartenDeckIO.schreibeDatei(meinDeck);
-        } catch (IOException e)
+        }
+        catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -76,7 +77,8 @@ public class KartenDeckTest
             KonsolenIO.ausgeben(meinDeck);
             KartenDeckController.mischen(meinDeck);
             KonsolenIO.ausgeben(meinDeck);
-        } catch (JsonNichtLesbarException e)
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
