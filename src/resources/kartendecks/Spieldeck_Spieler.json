@@ -68,7 +68,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 2,
-      "name": "Zeitungsausträger",
+      "name": "Postbote",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
