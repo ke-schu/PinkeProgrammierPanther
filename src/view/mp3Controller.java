@@ -22,6 +22,7 @@ public class mp3Controller implements Initializable
     private static MediaPlayer hintergrundmusik = new MediaPlayer(new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
     private static MediaPlayer effekt;
     private static Media titel;
+    private static Media soundEffekt;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -37,7 +38,7 @@ public class mp3Controller implements Initializable
         {
             titel = new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
             hintergrundmusik = new MediaPlayer(titel);
-            wechselLautstaerke(SpielStandIO.leseDatei().getLautstaerke());
+            wechselLautstaerkeMusik(SpielStandIO.leseDatei().getLautstaerkeMusik());
         }
         catch (JsonNichtLesbarException e)
         {
@@ -51,7 +52,17 @@ public class mp3Controller implements Initializable
 
     public static void spieleEffekt(String pfad)
     {
-        effekt = new MediaPlayer(new Media(new File(pfad).toURI().toString()));
+        try
+        {
+            soundEffekt = new Media(new File(pfad).toURI().toString());
+            effekt = new MediaPlayer(soundEffekt);
+            wechselLautstaerkeEffekte(SpielStandIO.leseDatei().getLaustaerkeEffekte());
+        }
+        catch (JsonNichtLesbarException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
+
         effekt.play();
     }
 
@@ -64,10 +75,16 @@ public class mp3Controller implements Initializable
      * Mit dieser Methode wird die Lautstaerke der Instanz der Mediaplayers angepasst.
      * @param lautstaerke der Integer welcher mit einem Faktor als Lautstaerke eingestellt wird.
      */
-    public static void wechselLautstaerke(double lautstaerke)
+    public static void wechselLautstaerkeMusik(double lautstaerke)
     {
-            hintergrundmusik.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
-            GuiController.getSpiel().setLautstaerke(lautstaerke);
+        hintergrundmusik.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
+        GuiController.getSpiel().setLautstaerkeMusik(lautstaerke);
+    }
+
+    public static void wechselLautstaerkeEffekte(double lautstaerke)
+    {
+        effekt.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
+        GuiController.getSpiel().setLaustaerkeEffekte(lautstaerke);
     }
 
 

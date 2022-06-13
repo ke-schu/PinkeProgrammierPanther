@@ -55,13 +55,23 @@
             </Label>
             <StackPane GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER">
                <children>
-                  <Slider fx:id="lautstaerkeSlider" showTickLabels="true" showTickMarks="true" value="50.0">
+                  <Slider fx:id="lautstaerkeMusikSlider" showTickLabels="true" showTickMarks="true" value="50.0">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Slider>
                </children>
             </StackPane>
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="117.0" text="Effektlautstärke" GridPane.rowIndex="3">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Slider fx:id="lautstaerkeEffektSlider" showTickLabels="true" showTickMarks="true" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Slider>
          </children>
       </GridPane>
    </center>

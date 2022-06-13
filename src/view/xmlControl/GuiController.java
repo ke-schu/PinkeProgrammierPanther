@@ -42,6 +42,16 @@ public class GuiController implements Initializable
 
     protected static SpielStand spiel;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        try {
+            spiel  =  SpielStandIO.leseDatei();
+        } catch (JsonNichtLesbarException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     /**
      * Methode um eine Scenen zu laden und in die Stage zu setzen.
@@ -254,13 +264,5 @@ public class GuiController implements Initializable
         GuiController.spiel = spiel;
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        try {
-            spiel  =  SpielStandIO.leseDatei();
-        } catch (JsonNichtLesbarException e) {
-            throw new RuntimeException(e);
-        }
-    }
+
 }

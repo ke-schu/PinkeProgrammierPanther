@@ -23,24 +23,33 @@ import static resources.GuiKonstanten.*;
  */
 public class EinstellungenGuiController extends GuiController implements Initializable
 {
-    @FXML private Slider lautstaerkeSlider;
+    @FXML private Slider lautstaerkeMusikSlider;
+    @FXML private Slider lautstaerkeEffektSlider;
     @FXML private ComboBox FenstergroesseBox;
     @FXML private String[] aufloesungsgroessen = {AUFLOESUNGSGROESSENHD, AUFLOESUNGSGROESSENFULLHD};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
-        lautstaerkeSlider.setValue(spiel.getLautstaerke());
-
+        lautstaerkeMusikSlider.setValue(spiel.getLautstaerkeMusik());
+        lautstaerkeEffektSlider.setValue(spiel.getLaustaerkeEffekte());
         erstelleCombobox(aufloesungsgroessen,FenstergroesseBox);
         FenstergroesseBox.setOnAction(this::wechselFenstergroesse);
         FenstergroesseBox.setPromptText(aufloesungsgroessen[0]);
 
-        lautstaerkeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+        lautstaerkeMusikSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                int lautstaerke = (int)lautstaerkeSlider.getValue();
-                mp3Controller.wechselLautstaerke(lautstaerke);
+                int lautstaerke = (int) lautstaerkeMusikSlider.getValue();
+                mp3Controller.wechselLautstaerkeMusik(lautstaerke);
+            }
+        });
+
+        lautstaerkeEffektSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                int lautstaerke = (int) lautstaerkeEffektSlider.getValue();
+                mp3Controller.wechselLautstaerkeEffekte(lautstaerke);
             }
         });
     }
@@ -75,7 +84,8 @@ public class EinstellungenGuiController extends GuiController implements Initial
     public void wechselZuHauptmenue (ActionEvent event) throws IOException
     {
         wechselZu(event, HAUPTMENUE_PFAD);
-        spiel.setLautstaerke(lautstaerkeSlider.getValue());
+        spiel.setLautstaerkeMusik(lautstaerkeMusikSlider.getValue());
+        spiel.setLaustaerkeEffekte(lautstaerkeEffektSlider.getValue());
         SpielStandIO.schreibeDatei(spiel);
     }
 }

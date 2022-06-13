@@ -18,7 +18,10 @@ public class SpielStand
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
     private transient Ebene aktuelleEbene;
-    private  double lautstaerke = 10;
+    private double lautstaerkeMusik = 10;
+
+
+    private double laustaerkeEffekte = 10;
     private  int aufloesungX = 1280;
     private  int aufloesungY = 720;
 
@@ -52,7 +55,8 @@ public class SpielStand
             throws JsonNichtLesbarException
     {
         this(stand.getGold(), stand.getSpieler());
-        this.lautstaerke = stand.getLautstaerke();
+        this.lautstaerkeMusik = stand.getLautstaerkeMusik();
+        this.laustaerkeEffekte = stand.getLaustaerkeEffekte();
         this.spieldeckSpieler =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
@@ -122,14 +126,14 @@ public class SpielStand
         return spieldeckGegner;
     }
 
-    public  double getLautstaerke()
+    public  double getLautstaerkeMusik()
     {
-        return lautstaerke;
+        return lautstaerkeMusik;
     }
 
-    public  void setLautstaerke(double neueLautstaerke)
+    public  void setLautstaerkeMusik(double neueLautstaerke)
     {
-        this.lautstaerke = neueLautstaerke;
+        this.lautstaerkeMusik = neueLautstaerke;
     }
 
     public  int getAufloesungX()
@@ -150,5 +154,13 @@ public class SpielStand
     public  void setAufloesungY(int neueAufloesungY)
     {
         this.aufloesungY = neueAufloesungY;
+    }
+
+    public double getLaustaerkeEffekte() {
+        return laustaerkeEffekte;
+    }
+
+    public void setLaustaerkeEffekte(double laustaerkeEffekte) {
+        this.laustaerkeEffekte = laustaerkeEffekte;
     }
 }
