@@ -11,7 +11,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.GuiKonstanten.*;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 
 /**
  * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers

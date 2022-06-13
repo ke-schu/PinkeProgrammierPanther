@@ -20,19 +20,17 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.GuiKonstanten.*;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 import static resources.Konstanten.HANDGROESSE;
 
 public class SpielfeldGuiController
         extends GuiController
         implements Initializable
 {
-    @FXML
-    GridPane spielfeldGitter;
-    @FXML
-    GridPane kartenhandGitter;
-    @FXML
-    MenuBar menueLeiste;
+    @FXML GridPane spielfeldGitter;
+    @FXML GridPane kartenhandGitter;
+    @FXML MenuBar menueLeiste;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
     private KartenHand kartenhand;

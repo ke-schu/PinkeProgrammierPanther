@@ -12,7 +12,8 @@ import view.mp3.mp3Controller;
 import java.io.File;
 import java.io.IOException;
 
-import static resources.GuiKonstanten.*;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 
 /**
  * In dieser Klasse startet das Programm.

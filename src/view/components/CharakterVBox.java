@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.Charakter;
 
-import static resources.GuiKonstanten.*;
+import static resources.StringsGUI.*;
 
 /**
  * Modelliert eine VBox mit eigenen Priority-Klassen um die Charaktere in der
@@ -17,9 +17,6 @@ public class CharakterVBox extends VBox
 {
     private BooleanProperty gewaehlt;
     private BooleanProperty freigeschaltet;
-    private final static String STYLE_CLASS = "charakter-vbox";
-    private final static String PSEUDO_CLASS_GEWAEHLT = "ausgewaehlt";
-    private final static String PSEUDO_CLASS_FREIGESCHALTET = "nicht-freigeschaltet";
 
     /**
      * Konstruiert die CharakterVBox und fügt Listener für die benoetigten
@@ -27,7 +24,7 @@ public class CharakterVBox extends VBox
      */
     public CharakterVBox(Charakter c)
     {
-        getStyleClass().add(STYLE_CLASS);
+        getStyleClass().add(STYLE_CLASS_CHARAKTER);
 
         freigeschaltet = new SimpleBooleanProperty(c.getFreigeschaltet());
         freigeschaltet.addListener(e ->

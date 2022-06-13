@@ -27,7 +27,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.GuiKonstanten.*;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 
 /**
  * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.
@@ -105,7 +106,7 @@ public class GuiController implements Initializable
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        Scene popupScene = new Scene(vbox,POPUP_BREITE,POPUP_HOEHE);
+        Scene popupScene = new Scene(vbox, POPUP_BREITE, POPUP_HOEHE);
         Button okButton = new Button(POPUP_BUTTON_SCHLIESSEN);
         okButton.setOnAction(new EventHandler<ActionEvent>()
         {

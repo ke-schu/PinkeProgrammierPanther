@@ -12,7 +12,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -25,7 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import static resources.GuiKonstanten.*;
+import static resources.StringsGUI.*;
 
 /**
  * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.
@@ -38,7 +37,7 @@ public class CharakterAuswahlGuiController
     @FXML VBox kartenDeck;
     @FXML Button spielButton;
     @FXML Label gold;
-    ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
+    private ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
     private Stack<Charakter> charakterStack;
 
     /**
@@ -61,14 +60,14 @@ public class CharakterAuswahlGuiController
                 Charakter meinChar = new Charakter(charakterStack.get(i));
                 CharakterVBox meineBox = new CharakterVBox(meinChar);
                 charaktere.getChildren().add(meineBox);
-                updateGewaehlt(meineBox, meinChar, i);
+                charakterWaehlen(meineBox, meinChar, i);
             }
         } catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
         aktiverCharakter.addListener(
-                (observableValue, charakter, t1) -> kartenDeckSetzen());
+                (observableValue, charakter, t1) -> initialisiereKartenDeck());
 
         gold.setText(GOLD_BESTAND + spiel.getGold());
     }
@@ -91,7 +90,7 @@ public class CharakterAuswahlGuiController
         for (int i = 0; i < aktiverCharakter.get().getStartDeck().size(); i++)
         {
             kartenDeck.getChildren()
-                    .add(einfuegenKarte(aktiverCharakter.get(), i));
+                    .add(new Label(aktiverCharakter.get().getStartDeck().get(i).getName()));
         }
     }
 

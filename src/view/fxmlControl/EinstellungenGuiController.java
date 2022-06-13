@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.GuiKonstanten.*;
+import static resources.StringsGUI.*;
 
 
 /**
@@ -80,11 +80,11 @@ public class EinstellungenGuiController extends GuiController
     public void wechselFenstergroesse(Event event)
     {
 
-        if (FenstergroesseBox.getValue()== AUFLOESUNGSGROESSENHD)
+        if (FenstergroesseBox.getValue() == AUFLOESUNG_GROESSE_HD)
         {
             wechselAufloesungHD(event);
         }
-        if (FenstergroesseBox.getValue() == AUFLOESUNGSGROESSENFULLHD)
+        if (FenstergroesseBox.getValue() == AUFLOESUNG_GROESSE_FULLHD)
         {
             wechselAufloesungFullHD(event);
         }

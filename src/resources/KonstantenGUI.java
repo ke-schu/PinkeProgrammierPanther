@@ -16,20 +16,7 @@ public interface KonstantenGUI
     //  Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
 
-    //Konstanten fuer Texte der Hilfefenster
-    String HILFE = "Hilfe";
-    String HILFE_TEXT = "Hier steht ein Text, der hilft.";
-    String HILFE_HAUPTMENUE = "Das hier ist das Hauptmenü. Hier kann über die Knöpfe ein neues Spiel begonnen werden," +
-            "falls bereits ein Spielstand existiert kann dieser über `Weiter` fortgesetzt werden." +
-            "In den Einstellungen sind Möglichkeiten um die Lautstärke und Fenstergrößen anzupassen." +
-            "Dies ist aber auch später im Spiel selbst über eine Menüleiste möglich. Viel Spaß!";
-    String HILFE_EINSTELLUNGEN = "Hier können allgemeine Anwendungseinstellungen getätigt werden. Über das " +
-            "Fenstergröße-Menü kann die Rahmengröße eingestellt werden. Der Slider kontrolliert die Lautstärke" +
-            "aller Sounds dieser Anwendung.";
-    String HILFE_CHARAKTERAUSWAHL = "Hier kann ein Charakter mit Deck für den nächsten Versuch ausgewählt werden." +
-            "Es kann sein, dass noch nicht alle Charaktere freigeschaltet sind. Dies kann im laufe der Zeit" +
-            "mit dem gefunden Gold geändert werden.";
-    String POPUP_BUTTON_SCHLIESSEN = "Schließen";
+    //  Hilfefenster
     Integer VBOX_20 = 20;
     Integer POPUP_BREITE = 300;
     Integer POPUP_HOEHE = 400;

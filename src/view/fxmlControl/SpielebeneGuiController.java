@@ -17,7 +17,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -31,7 +30,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.GuiKonstanten.*;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 
 /**
  * Klasse, welche alle Methoden der Spielebene Szene enthaelt.
@@ -40,12 +40,9 @@ public class SpielebeneGuiController
         extends GuiController
         implements Initializable
 {
-    @FXML
-    GridPane spielebenenGitter;
-    @FXML
-    Label spielerLabel;
-    @FXML
-    MenuBar menueLeiste;
+    @FXML GridPane spielebenenGitter;
+    @FXML Label spielerLabel;
+    @FXML MenuBar menueLeiste;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
 
@@ -75,7 +72,7 @@ public class SpielebeneGuiController
                 spielebenenGitter.addColumn(0);
                 for (int j = 0; j < ebene.getEbenenZeile(); j++)
                 {
-                    raumEinfuegen(ebene, i, j);
+                    initialisiereRaum(ebene, i, j);
                 }
             }
             spielerPosition.set(ebene.getSpielfigur().getPosition());
@@ -96,11 +93,9 @@ public class SpielebeneGuiController
     {
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
         RaumPane raum = new RaumPane();
-        if (aktuellerRaum == null)
+        if (aktuellerRaum == null || aktuellerRaum.getEreignis() == null)
         {
             raum.setNichtig(true);
-        } else if (aktuellerRaum.getEreignis() == null)
-        {
         }
         else
         {

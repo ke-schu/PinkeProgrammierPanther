@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
 
-import static resources.GuiKonstanten.HILFE_HAUPTMENUE;
+import static resources.StringsGUI.HILFE_HAUPTMENUE;
 
 /**
  * Klasse, welche alle Methoden der Hautpmenue Szene enthaelt.
@@ -12,11 +12,12 @@ import static resources.GuiKonstanten.HILFE_HAUPTMENUE;
 public class HauptmenueGuiController extends GuiController
 {
     /**
-     * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem Text des Popups geaendert.
+     * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem
+     * Text des Popups geaendert.
+     *
      * @param event ActionEvent, welches mit dieser Methode verknuepft wird.
      */
-    @Override
-    public void oeffneHilfe(ActionEvent event)
+    @Override public void oeffneHilfe(ActionEvent event)
     {
         offneHilfeTextEinsetzen(HILFE_HAUPTMENUE);
     }

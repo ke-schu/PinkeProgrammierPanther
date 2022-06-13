@@ -9,7 +9,8 @@ import model.KarteZauber;
 
 import java.io.File;
 
-import static resources.GuiKonstanten.*;
+import static resources.StringsGUI.*;
+import static resources.KonstantenGUI.*;
 
 /**
  * Eine Karte ist im Spiel als VBox implementiert. Sie wird mithilfe
@@ -17,17 +18,13 @@ import static resources.GuiKonstanten.*;
  */
 public class KarteVBox extends VBox
 {
-    private final static String STYLE_CLASS = "karte-vbox";
-    private final static BackgroundSize
-            AUTO_HINTERGRUND = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,true,true,true);
-
     /**
      * Konstruiert eine neue KarteVBox.
      * @param karte die Karte, die dargestellt werden soll.
      */
     public KarteVBox(Karte karte)
     {
-        getStyleClass().add(STYLE_CLASS);
+        getStyleClass().add(STYLE_CLASS_KARTE);
 
         File meinBild = new File(BILDER_PFAD + karte.getName() + PNG_DATEI_ENDUNG);
         Background hintergrund = new Background(new BackgroundImage(

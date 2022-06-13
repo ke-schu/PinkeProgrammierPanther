@@ -5,17 +5,16 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
 import javafx.scene.layout.StackPane;
 
+import static resources.StringsGUI.*;
+
 public class RaumPane extends StackPane
 {
     private BooleanProperty beinhaltetSpieler;
     private BooleanProperty nichtig;
-    private final static String STYLE_CLASS = "raum-pane";
-    private final static String PSEUDO_CLASS_BEINHALTET_SPIELER = "spieler";
-    private final static String PSEUDO_CLASS_NICHTIG = "nichtig";
 
     public RaumPane()
     {
-        getStyleClass().add(STYLE_CLASS);
+        getStyleClass().add(STYLE_CLASS_RAUM);
 
         beinhaltetSpieler = new SimpleBooleanProperty(false);
         beinhaltetSpieler.addListener(e ->
