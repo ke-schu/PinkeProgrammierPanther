@@ -4,8 +4,12 @@ import exceptions.JsonNichtLesbarException;
 import gui.components.KarteVBox;
 import io.KonsolenIO;
 import io.SpielStandIO;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -49,6 +53,8 @@ public class SpielfeldGuiController
     private Spieler spieler;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
+    private DoubleProperty feldGroesse =
+            new SimpleDoubleProperty(100);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -84,8 +90,21 @@ public class SpielfeldGuiController
                 for (int j = 0; j < spielfeld.getZeilen(); j++)
                 {
                     StackPane feld = new StackPane();
-                    feld.setPrefHeight(100);
-                    feld.setPrefWidth(100);
+
+                    feld.setPrefHeight(feldGroesse.get());
+                    feld.setPrefWidth(feldGroesse.get());
+
+                    feldGroesse.addListener((observableValue, number, t1) ->
+                    {
+                        feld.setPrefHeight(feldGroesse.get());
+                        feld.setPrefWidth(feldGroesse.get());
+                    });
+
+                    if(feld.getHeight() != feldGroesse.get() || feld.getWidth() != feldGroesse.get())
+                    {
+                        KonsolenIO.ausgeben("Achtung Feldgroesse geändert.");
+                    }
+
                     if(j == spielfeld.getZeilen()-1 && i == spielfeld.getSpalten()-1)
                     {
                         KarteVBox spielerKarteVBox = new KarteVBox(spieler);

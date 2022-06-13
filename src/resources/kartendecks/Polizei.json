@@ -17,11 +17,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 0,
       "name": "Polizist",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -39,11 +41,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 1,
       "name": "Pastor",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -61,11 +65,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 2,
-      "name": "Zeitungsausträger",
+      "name": "Postbote",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -83,11 +89,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 3,
       "name": "Katze",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -105,11 +113,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 4,
       "name": "Verkäufer",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -127,11 +137,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 5,
       "name": "Bäcker",
       "level": 40,
-      "klasse": "model.KarteEinheit"
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     }
   ]
 }
