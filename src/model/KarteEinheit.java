@@ -410,11 +410,14 @@ public class KarteEinheit extends Karte
     {
         this.setLebenspunkte(this.getLebenspunkte()+heilung);
     }
-    public void angrifferhoehen(int erhoehung)
+
+    /**
+     * Methdoe um die Macht um einen uebergebenen int zu erhoehen.
+     * @param erhoehung Wert um den die Macht erhoet wird.
+     */
+    public void angriffErhoehen(int erhoehung)
     {
         this.setMacht(this.getMacht()+erhoehung);
     }
-
-
 }
 

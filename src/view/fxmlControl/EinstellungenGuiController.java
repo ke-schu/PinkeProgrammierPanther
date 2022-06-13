@@ -21,17 +21,21 @@ import static resources.GuiKonstanten.*;
 /**
  * Klasse, welche alle Methoden der Einstellungs Szene enthaelt.
  */
-public class EinstellungenGuiController extends GuiController implements Initializable
+public class EinstellungenGuiController extends GuiController
+        implements Initializable
 {
     @FXML private Slider lautstaerkeMusikSlider;
     @FXML private Slider lautstaerkeEffektSlider;
     @FXML private ComboBox FenstergroesseBox;
-    @FXML private String[] aufloesungsgroessen = {AUFLOESUNGSGROESSENHD, AUFLOESUNGSGROESSENFULLHD};
+    @FXML private String[] aufloesungsgroessen = {AUFLOESUNG_GROESSE_HD,
+                                                  AUFLOESUNG_GROESSE_FULLHD};
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das
+     *            Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts
+     *                       verwendeten Ressourcen.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -44,7 +48,8 @@ public class EinstellungenGuiController extends GuiController implements Initial
 
         lautstaerkeMusikSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+            public void changed(ObservableValue<? extends Number> observableValue,
+                                Number number, Number t1) {
                 int lautstaerke = (int) lautstaerkeMusikSlider.getValue();
                 mp3Controller.wechselLautstaerkeMusik(lautstaerke);
             }

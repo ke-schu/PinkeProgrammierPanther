@@ -22,7 +22,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.SpielStand;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -44,8 +43,10 @@ public class GuiController implements Initializable
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das
+     *            Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts
+     *                       verwendeten Ressourcen.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -57,11 +58,11 @@ public class GuiController implements Initializable
         }
     }
 
-
     /**
      * Methode um eine Scenen zu laden und in die Stage zu setzen.
      * @param event Event durch welches die Methode ausgeloest wird.
-     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @param pfad String mit dem Pfad der .fxml Datei welche geladen
+     *             werden soll.
      * @throws IOException kann durch den fxmlLoader.load() geworfen werden.
      */
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
@@ -76,7 +77,8 @@ public class GuiController implements Initializable
     }
 
     /**
-     * Methode, welche die Methode offneHilfeTextEinsetzen aufruft. Diese Methode wird durch
+     * Methode, welche die Methode offneHilfeTextEinsetzen aufruft.
+     * Diese Methode wird durch
      * @param event ActionEvent, welches mit dieser Methode verknuepft wird.
      */
     @FXML public void oeffneHilfe (ActionEvent event)
@@ -85,8 +87,10 @@ public class GuiController implements Initializable
     }
 
     /**
-     * Methode, welche ein Popupfenster erstellt und fokussiert vor dem Hauptfenster oeffnet.
-     * @param hilfeText String welcher in dem Popup als Text eingesetzt werden soll.
+     * Methode, welche ein Popupfenster erstellt und fokussiert vor dem
+     * Hauptfenster oeffnet.
+     * @param hilfeText String welcher in dem Popup als Text eingesetzt
+     *                  werden soll.
      */
     @FXML public void offneHilfeTextEinsetzen (String hilfeText)
     {
@@ -122,7 +126,8 @@ public class GuiController implements Initializable
     /**
      * Mehtode mit der zu der Hauptmenue Scene gewechselt wird.
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     * @throws IOException durch den Aufruf der Methode wechelZu
+     * ausgeloest werden.
      */
     @FXML public void wechselZuHauptmenue (ActionEvent event) throws IOException
     {
@@ -132,7 +137,8 @@ public class GuiController implements Initializable
     /**
      * Mehtode mit der zu der Einstellung Scene gewechselt wird.
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     * @throws IOException durch den Aufruf der Methode wechelZu
+     * ausgeloest werden.
      */
     @FXML public void wechselZuEinstellungen (ActionEvent event) throws IOException
     {
@@ -142,7 +148,8 @@ public class GuiController implements Initializable
     /**
      * Mehtode mit der zu der Charakterauswahl Scene gewechselt wird.
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     * @throws IOException durch den Aufruf der Methode wechelZu
+     * ausgeloest werden.
      */
     @FXML public void wechselZuCharakterauswahl (ActionEvent event) throws IOException
     {
@@ -152,7 +159,8 @@ public class GuiController implements Initializable
     /**
      * Mehtode mit der zu der SpielEbene Scene gewechselt wird.
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     * @throws IOException durch den Aufruf der Methode wechelZu
+     * ausgeloest werden.
      */
     @FXML public void wechselZuSpielEbene (ActionEvent event) throws IOException
     {
@@ -162,7 +170,8 @@ public class GuiController implements Initializable
     /**
      * Mehtode mit der zu der Spielfeld Scene gewechselt wird.
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu ausgeloest werden.
+     * @throws IOException durch den Aufruf der Methode wechelZu
+     * ausgeloest werden.
      */
     @FXML public void wechselZuSpielfeld (ActionEvent event) throws IOException
     {
@@ -196,30 +205,30 @@ public class GuiController implements Initializable
         this.stage = stage;
     }
 
+    /**
+     * Methode, um das Objekt aus dem Attribut scene zu bekommen.
+     * @return gibt die Instanz des Attribut scene wieder.
+     */
     public Scene getScene()
     {
         return scene;
     }
 
+    /**
+     * Setzt eine Instanz des Klasse Scene in das Attribut scene.
+     * @param scene Instanz der Scene, welche in das Attribut eingesetzt werden.
+     */
     public void setScene(Scene scene)
     {
         this.scene = scene;
     }
 
-    public Parent getRoot()
-    {
-        return root;
-    }
-
-    public void setRoot(Parent root)
-    {
-        this.root = root;
-    }
-
     /**
      * Methode um eine ComboBox zu erstellen.
-     * @param comboBoxArray StringArray welche in die ComboBox eingesetzte werden soll.
-     * @param meineCombobox ComboBox, in welche das StringArray eingesetzt werden soll.
+     * @param comboBoxArray StringArray welche in die ComboBox eingesetzte
+     *                     werden soll.
+     * @param meineCombobox ComboBox, in welche das StringArray eingesetzt
+     *                     werden soll.
      */
     public void erstelleCombobox(String[] comboBoxArray, ComboBox meineCombobox)
     {
@@ -268,6 +277,4 @@ public class GuiController implements Initializable
     {
         GuiController.spiel = spiel;
     }
-
-
 }

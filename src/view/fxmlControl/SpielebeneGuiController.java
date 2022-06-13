@@ -26,7 +26,6 @@ import model.Ebene;
 import model.Position;
 import model.Raum;
 import model.ereignisse.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -52,8 +51,10 @@ public class SpielebeneGuiController
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das
+     *            Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten
+     *                      Ressourcen.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -84,7 +85,14 @@ public class SpielebeneGuiController
         }
     }
 
-    private void raumEinfuegen(Ebene ebene, int x, int y)
+    /**
+     * Initialisiert einen Raum aus einer Ebene an der Stelle x/y in ein
+     * RaumPane und fuegt ihn an derselben Stelle in das Spielfeld-Gitter ein.
+     * @param ebene die gegebene Ebene
+     * @param x die Spalte
+     * @param y die Zeile
+     */
+    private void initialisiereRaum(Ebene ebene, int x, int y)
     {
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
         RaumPane raum = new RaumPane();
@@ -99,28 +107,29 @@ public class SpielebeneGuiController
             raum.getChildren()
                 .add(new Label(aktuellerRaum.getEreignis().getName()));
         }
-
         ObjectProperty<Position> aktuellePosition =
                 new SimpleObjectProperty<>(new Position(x, y));
         spielerPosition.addListener(
                 (observableValue, position, t1) -> raum.setBeinhaltetSpieler(
                         spielerPosition.get().equals(aktuellePosition.get())));
-
-        raum.setOnMouseClicked(new EventHandler<MouseEvent>()
-        {
-            @Override public void handle(MouseEvent mouseEvent)
-            {
-                if(SpielfigurEbeneController.bewegen(ebene, x, y, spiel))
-                {
-                    spielerPosition.bind(aktuellePosition);
-                    oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
-                }
-            }
-        });
-
+        raum.setOnMouseClicked(mouseEvent ->
+                               {
+                                   if(SpielfigurEbeneController.bewegen(
+                                           ebene, x, y, spiel))
+                                   {
+                                       spielerPosition.bind(aktuellePosition);
+                                       oeffneEreignis(ebene.getRaumAnPosition(
+                                               x, y).getEreignis());
+                                   }
+                               });
         spielebenenGitter.add(raum, x, y);
     }
 
+    /**
+     * Ueberlagern der Methode, damit diese in der MenueLeiste auf die Methode
+     * zugreifen kann.
+     * @param event
+     */
     @FXML
     public void spielSpeichern(ActionEvent event)
     {
@@ -134,7 +143,8 @@ public class SpielebeneGuiController
     }
 
     /**
-     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
+     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die
+     * Methode zugegriffen werden kann.
      * @param event Event durch welches die Methode ausgeloest wird.
      * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
      * @throws IOException wenn die FXML nicht geladen werden kann.
@@ -150,6 +160,10 @@ public class SpielebeneGuiController
         super.getStage().show();
     }
 
+    /**
+     * Ueberlagern der Methode um uber die Menueleiste zum Hauptmenue zu kommen.
+     * @param event Event, welche diese Methode ausloest.
+     */
     @FXML
     public void zurueckHauptmenue(ActionEvent event)
     {
@@ -162,10 +176,9 @@ public class SpielebeneGuiController
         }
     }
 
-
-
     /**
-     * Diese Methode oeffnet ein Pop-Up Fenster auf der Spielebene, welches das Ereignis repraesentiert
+     * Diese Methode oeffnet ein Pop-Up Fenster auf der Spielebene,
+     * welches das Ereignis repraesentiert
      * @param ereignis das zu oeffnende Ereignis
      */
     public void oeffneEreignis (Ereignis ereignis)
@@ -176,13 +189,13 @@ public class SpielebeneGuiController
         popupStage.setTitle(ereignis.getName());
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
-        VBox vbox = new VBox(20);
+        VBox vbox = new VBox(POPUP_VBOX);
         TextArea text = new TextArea();
         text.setText(ereignis.getBeschreibung());
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        Scene popupScene = new Scene(vbox, 700, 500);
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_BREITE2, POPUP_VBOX_HOEHE2);
         Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
         Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
         annehmenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -214,7 +227,8 @@ public class SpielebeneGuiController
     }
 
     /**
-     * Diese Methode erkennt, welches Ereignis in der Spielebene angetroffen wurde und fuehrt die zugehoerige
+     * Diese Methode erkennt, welches Ereignis in der Spielebene angetroffen
+     * wurde und fuehrt die zugehoerige
      * Methode aus
      * @param ereignis das angetroffene Ereignis
      * @param event
@@ -258,6 +272,11 @@ public class SpielebeneGuiController
         }
     }
 
+    /**
+     *
+     * @param ereignis
+     * @param event
+     */
     public void gegnerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
         try
@@ -266,14 +285,20 @@ public class SpielebeneGuiController
         }
         catch (IOException e)
         {
-            KonsolenIO.ausgeben("Zum Spielfeld wechseln hat nicht geklappt");
+            KonsolenIO.ausgeben(STRING_FEHLER_WECHSEL_SPIELFELD);
         }
     }
 
+    /**
+     * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der
+     * GUI visualisiert wird
+     * @param ereignis Das Ereignis vom Typ Haendler
+     */
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
 
     /**
-     * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der GUI visualisiert wird
+     * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der
+     * GUI visualisiert wird
      * @param ereignis Das Ereignis vom Typ Heiler
      */
     public void heilerGuiAusfuehren (Ereignis ereignis)
@@ -288,11 +313,12 @@ public class SpielebeneGuiController
         popupStage.setTitle(ereignis.getName());
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
-        VBox vbox = new VBox(20);
+        VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
-        Scene popupScene = new Scene(vbox, 400, 300);
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_BREITE1,
+                                     POPUP_VBOX_HOEHE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         ereignisText.setText(HEILER_AUSFUEHREN_1 + lebenErhalten + HEILER_AUSFUEHREN_2);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -313,25 +339,35 @@ public class SpielebeneGuiController
     }
 
     /**
-     *  Diese Methode formuliert aus, wie das Ereignis "Schmied" in der GUI visualisiert wird
+     *  Diese Methode formuliert aus, wie das Ereignis "Schmied" in der
+     *  GUI visualisiert wird
      *  @param ereignis Das Ereignis vom Typ Schmied
      */
-    public void schmiedGuiAusfuehren (Ereignis ereignis){}
+    public void schmiedGuiAusfuehren (Ereignis ereignis)
+    {
+    }
 
     /**
-     *  Diese Methode formuliert aus, wie das Ereignis "Tempel" in der GUI visualisiert wird
+     *  Diese Methode formuliert aus, wie das Ereignis "Tempel" in der
+     *  GUI visualisiert wird
      *  @param ereignis Das Ereignis vom Typ Tempel
      */
-    public void tempelGuiAusfuehren (Ereignis ereignis){}
+    public void tempelGuiAusfuehren (Ereignis ereignis)
+    {
+    }
 
     /**
-     *  Diese Methode formuliert aus, wie das Ereignis "Treppe" in der GUI visualisiert wird
+     *  Diese Methode formuliert aus, wie das Ereignis "Treppe" in der
+     *  GUI visualisiert wird
      *  @param ereignis Das Ereignis vom Typ Treppe
      */
-    public void treppeGuiAusfuehren (Ereignis ereignis){}
+    public void treppeGuiAusfuehren (Ereignis ereignis)
+    {
+    }
 
     /**
-     * Diese Methode formuliert aus, wie das Ereignis "Truhe" in der GUI visualisiert wird
+     * Diese Methode formuliert aus, wie das Ereignis "Truhe" in der
+     * GUI visualisiert wird
      * @param ereignis Das Ereignis vom Typ Truhe
      */
     public void truheGuiAusfuehren (Ereignis ereignis)
@@ -346,11 +382,11 @@ public class SpielebeneGuiController
         popupStage.setTitle(ereignis.getName());
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
-        VBox vbox = new VBox(20);
+        VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
-        Scene popupScene = new Scene(vbox, 400, 300);
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         ereignisText.setText(TRUHE_AUSFUEHREN_1 + goldGefunden + TRUHE_AUSFUEHREN_2);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -371,7 +407,8 @@ public class SpielebeneGuiController
     }
 
     /**
-     *  Diese Methode formuliert aus, wie das Ereignis "ZufallsEreignis" in der GUI visualisiert wird
+     *  Diese Methode formuliert aus, wie das Ereignis "ZufallsEreignis"
+     *  in der GUI visualisiert wird
      *  @param ereignis Das Ereignis vom Typ ZufallsEreignis
      */
     public void zufallsEreignisGuiAusfuehren (Ereignis ereignis)
@@ -381,11 +418,11 @@ public class SpielebeneGuiController
         popupStage.setTitle(ereignis.getName());
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
 
-        VBox vbox = new VBox(20);
+        VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
-        Scene popupScene = new Scene(vbox, 400, 300);
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         ereignisText.setText(ZUFALLS_EREIGNIS_AUSFUEHREN);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -406,7 +443,8 @@ public class SpielebeneGuiController
     }
 
     /**
-     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode
+     * zugegriffen werden kann.
      * @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override
@@ -417,11 +455,11 @@ public class SpielebeneGuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
-
     }
 
     /**
-     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode
+     * zugegriffen werden kann.
      * @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override
@@ -432,6 +470,5 @@ public class SpielebeneGuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
-
     }
 }

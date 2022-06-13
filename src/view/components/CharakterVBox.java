@@ -22,7 +22,7 @@ public class CharakterVBox extends VBox
     private final static String PSEUDO_CLASS_FREIGESCHALTET = "nicht-freigeschaltet";
 
     /**
-     * Konstruiert die CharakterVBox und fügt Listener für die benötigten
+     * Konstruiert die CharakterVBox und fügt Listener für die benoetigten
      * Priority-Klassen hinzu.
      */
     public CharakterVBox(Charakter c)
@@ -74,7 +74,7 @@ public class CharakterVBox extends VBox
     }
 
     /**
-     * Gibt zurück, ob ein Charakter aktuell gewählt ist.
+     * Gibt zurück, ob ein Charakter aktuell gewaehlt ist.
      * @return true, wenn er gewaehlt ist.
      */
     public boolean istGewaehlt()
@@ -92,7 +92,7 @@ public class CharakterVBox extends VBox
     }
 
     /**
-     * Gibt zurück, ob ein Charakter freigeschaltet ist.
+     * Gibt zurueck, ob ein Charakter freigeschaltet ist.
      * @return true, wenn er freigeschaltet ist.
      */
     public boolean istFreigeschaltet()

@@ -20,7 +20,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,8 +43,10 @@ public class CharakterAuswahlGuiController
 
     /**
      * Wird aufgerufen, um diesen Controller zu initialisieren.
-     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das
+     *           Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts
+     *                       verwendeten Ressourcen.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -66,14 +67,16 @@ public class CharakterAuswahlGuiController
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
-
         aktiverCharakter.addListener(
                 (observableValue, charakter, t1) -> kartenDeckSetzen());
 
         gold.setText(GOLD_BESTAND + spiel.getGold());
     }
 
-    private void kartenDeckSetzen()
+    /**
+     * Initialisiert das Kartendeck vom aktiven Charakter.
+     */
+    private void initialisiereKartenDeck()
     {
         if (aktiverCharakter.isBound())
         {
@@ -92,12 +95,14 @@ public class CharakterAuswahlGuiController
         }
     }
 
-    private Node einfuegenKarte(Charakter charakter, int i)
-    {
-        return new Label(charakter.getStartDeck().get(i).getName());
-    }
-
-    private void updateGewaehlt(CharakterVBox v,  Charakter c, int pos)
+    /**
+     * Fügt der Charakter VBox ein Event beim Mausklick hinzu, welches den Charakter auswaehlt und als aktiven Charakter setzt.
+     * Dafuer wird auch ueberprueft, ob er bereits freigeschaltet ist.
+     * @param v Die Charakter VBox
+     * @param c Der Charakter
+     * @param pos Die Position im Charakter-Stack
+     */
+    private void charakterWaehlen(CharakterVBox v, Charakter c, int pos)
     {
         ObjectProperty<Charakter> dieserCharakter =
                 new SimpleObjectProperty<>(c);
@@ -121,6 +126,12 @@ public class CharakterAuswahlGuiController
                                              v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
     }
 
+    /**
+     * Falls ein Charakter nicht freigeschaltet ist, kann er mit dieser Methode gekauft werden.
+     * @param v die Charakter-VBox
+     * @param pos die Position im Charakter-Stack
+     * @return true, wenn er erfolgreich gekauft wurde
+     */
     private boolean kaufen(CharakterVBox v, int pos)
     {
         try
@@ -137,6 +148,10 @@ public class CharakterAuswahlGuiController
         }
     }
 
+    /**
+     * Methode um mit ausgewaehltem Charakter ein Spiel zu beginnen.
+     * @param event Event, welches diese Methode ausloest.
+     */
     public void spielen(ActionEvent event)
     {
         SpielStandController.spielErstellen(aktiverCharakter.get(), spiel);

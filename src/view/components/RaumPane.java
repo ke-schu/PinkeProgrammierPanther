@@ -18,27 +18,36 @@ public class RaumPane extends StackPane
         getStyleClass().add(STYLE_CLASS);
 
         beinhaltetSpieler = new SimpleBooleanProperty(false);
-        beinhaltetSpieler.addListener(e -> {
-            pseudoClassStateChanged(
-                    PseudoClass.getPseudoClass(PSEUDO_CLASS_BEINHALTET_SPIELER), beinhaltetSpieler.get());
-        });
+        beinhaltetSpieler.addListener(e ->
+                                      {
+                                          pseudoClassStateChanged(
+                                                  PseudoClass.getPseudoClass(
+                                                          PSEUDO_CLASS_BEINHALTET_SPIELER),
+                                                  beinhaltetSpieler.get());
+                                      });
 
         nichtig = new SimpleBooleanProperty(false);
-        nichtig.addListener(e -> {
-            pseudoClassStateChanged(PseudoClass.getPseudoClass(
-                    PSEUDO_CLASS_NICHTIG), nichtig.get());
-        });
+        nichtig.addListener(e ->
+                            {
+                                pseudoClassStateChanged(
+                                        PseudoClass.getPseudoClass(
+                                                PSEUDO_CLASS_NICHTIG),
+                                        nichtig.get());
+                            });
     }
 
-    public boolean getBeinhaltetSpieler() {
+    public boolean getBeinhaltetSpieler()
+    {
         return beinhaltetSpieler.get();
     }
 
-    public void setBeinhaltetSpieler(boolean beinhaltetSpieler) {
+    public void setBeinhaltetSpieler(boolean beinhaltetSpieler)
+    {
         this.beinhaltetSpieler.set(beinhaltetSpieler);
     }
 
-    public boolean istNichtig() {
+    public boolean istNichtig()
+    {
         return nichtig.get();
     }
 

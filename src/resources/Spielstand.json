@@ -28,8 +28,8 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 3,
-      "y": 2
+      "x": 5,
+      "y": 4
     },
     "schlafend": true,
     "zaehler": 0,
@@ -40,8 +40,8 @@
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerkeMusik": 10.0,
-  "laustaerkeEffekte": 10.0,
+  "lautstaerkeMusik": 33.28042328042328,
+  "laustaerkeEffekte": 45.44973544973545,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }

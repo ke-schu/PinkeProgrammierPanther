@@ -10,7 +10,6 @@ import static resources.Strings.*;
  */
 public class SpielFeld
 {
-
     private KarteEinheit[][] spielfeld = null;
     private int zeilen = 0;
     private int spalten = 0;
@@ -41,7 +40,6 @@ public class SpielFeld
                 new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
-
 
     /**
      * Methode, die die Namen der Instanzen der Klasse KarteEinheit aus dem
@@ -132,7 +130,6 @@ public class SpielFeld
             this.spielfeld[y][x] = einheit;
             einheit.setPosition(x, y);
         }
-
     }
 
     /**

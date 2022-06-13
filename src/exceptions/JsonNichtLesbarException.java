@@ -18,6 +18,11 @@ public class JsonNichtLesbarException extends IOException
         super(JSON_NICHT_LESBAR_INFO);
     }
 
+    /**
+     * Konstruiert eine JsonNichtLesbarException mit uebergebenen Werten.
+     * @param nachricht Naricht der Exception.
+     * @param grund Grund der Exception.
+     */
     public JsonNichtLesbarException(String nachricht, Throwable grund)
     {
         super(nachricht, grund);

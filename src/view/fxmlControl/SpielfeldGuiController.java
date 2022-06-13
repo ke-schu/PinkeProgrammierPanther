@@ -16,7 +16,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import model.*;
-
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,7 +80,7 @@ public class SpielfeldGuiController
     /**
      * Methode welche die für den kampf benötigten objekte4 erstellt
      */
-    private void erstellenspielfeldumgebung()
+    private void erstellenspielfeldumgebung ()
     {
         try
         {
@@ -102,9 +101,9 @@ public class SpielfeldGuiController
     }
 
     /**
-     * methode welche die kartenhand visualisiert
+     * Methode welche die kartenhand visualisiert
      */
-    private void Karteinhandeinfuegen()
+    private void Karteinhandeinfuegen ()
     {
         for (int i = 0; i < HANDGROESSE; i++)
         {
@@ -121,12 +120,16 @@ public class SpielfeldGuiController
     }
 
     /**
-     * legt das Hintergrundbild des Spielfeldes fest
+     * Legt das Hintergrundbild des Spielfeldes fest
      */
-    private void spielfeldhintergrundfestlegen()
+    private void spielfeldhintergrundfestlegen ()
     {
-        File meinhintergrund = new File(BILDER_PFAD + "Spielplatz" + PNG_DATEI_ENDUNG);
-        BackgroundSize backroundsize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,true,true,true);
+        File meinhintergrund = new File(BILDER_PFAD +
+                                        "Spielplatz" + PNG_DATEI_ENDUNG);
+        BackgroundSize backroundsize = new BackgroundSize(BackgroundSize.AUTO,
+                                                          BackgroundSize.AUTO,
+                                                          true,true,
+                                                          true,true);
         Background hintergrund = new Background(new BackgroundImage(
                 new Image(meinhintergrund.getAbsolutePath()),
                 BackgroundRepeat.NO_REPEAT,
@@ -137,11 +140,11 @@ public class SpielfeldGuiController
     }
 
     /**
-     * speichert den aktuellen Spielstand
+     * Speichert den aktuellen Spielstand
      * @param event Event durch das die Methode ausgeloest wird
      */
     @FXML
-    public void spielSpeichern(ActionEvent event)
+    public void spielSpeichern (ActionEvent event)
     {
         try
         {
@@ -153,13 +156,15 @@ public class SpielfeldGuiController
     }
 
     /**
-     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
+     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die
+     * Methode zugegriffen werden kann.
      * @param event Event durch welches die Methode ausgeloest wird.
      * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
-     * @throws IOException
+     * @throws IOException Wirft die Exception, welche durch das .load()
+     * erursacht werden kann weiter.
      */
     @Override
-    protected void wechselZu(ActionEvent event, String pfad) throws IOException
+    protected void wechselZu (ActionEvent event, String pfad) throws IOException
     {
         File f = new File(pfad);
         FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
@@ -170,11 +175,12 @@ public class SpielfeldGuiController
     }
 
     /**
-     * methode durch welche, ueber die MenueLeiste zum Hauptmenue gewechselt werden kann
+     * Methode durch welche, ueber die MenueLeiste zum Hauptmenue gewechselt
+     * werden kann
      * @param event Event durch welches die Methode ausgeloest wird.
      */
     @FXML
-    public void zurueckHauptmenue(ActionEvent event)
+    public void zurueckHauptmenue (ActionEvent event)
     {
         try
         {
@@ -185,9 +191,8 @@ public class SpielfeldGuiController
         }
     }
 
-
     /**
-     * ermöglicht das einstellen der Aufloesung in der MenueLeiste
+     * Ermöglicht das einstellen der Aufloesung in der MenueLeiste
      * @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override
@@ -198,5 +203,20 @@ public class SpielfeldGuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
+    }
+
+    /**
+     * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode
+     * zugegriffen werden kann.
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
+    @Override
+    public void wechselAufloesungHD (Event event)
+    {
+        super.setStage((Stage)menueLeiste.getScene().getWindow());
+        super.getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
+        super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
     }
 }

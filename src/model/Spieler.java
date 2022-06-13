@@ -227,5 +227,4 @@ public class Spieler extends KarteEinheit implements Spielbar
             SpielStandController.sterben(this);
         }
     }
-
 }
