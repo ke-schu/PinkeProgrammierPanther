@@ -15,7 +15,7 @@ public class EbeneController
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EbeneController()
+    private EbeneController ()
     {
     }
 
@@ -27,7 +27,7 @@ public class EbeneController
      * @param ebene Die Ebene, in welcher die Instanz der Klasse
      * SpielfigurEbene initialisiert werden soll.
      */
-    public static void initSpielerInEbene(SpielfigurEbene spielfigur,
+    public static void initSpielerInEbene (SpielfigurEbene spielfigur,
                                           Ebene ebene)
     {
         ebene.setSpielfigur(spielfigur);

@@ -7,6 +7,9 @@ import java.lang.reflect.Type;
 
 import static resources.Strings.*;
 
+/**
+ * Diese Klasse dient zum Serialisieren und Deserialisieren der Ebenen
+ */
 public class EbeneSerialisierung implements JsonDeserializer<Ebene>
 {
     private Gson meinGson = new Gson();
@@ -22,7 +25,7 @@ public class EbeneSerialisierung implements JsonDeserializer<Ebene>
      * gelesen werden kann..
      */
     @Override
-    public Ebene deserialize(JsonElement json, Type type,
+    public Ebene deserialize (JsonElement json, Type type,
                             JsonDeserializationContext context)
             throws JsonParseException
     {

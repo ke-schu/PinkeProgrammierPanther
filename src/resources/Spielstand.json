@@ -28,20 +28,20 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 2,
+      "x": 3,
       "y": 2
     },
     "schlafend": true,
     "zaehler": 0,
     "kopie": false,
     "id": 2,
-    "name": "Bandit",
+    "name": "Oberkommissar",
     "level": 1,
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerkeMusik": 2.2680412371133993,
-  "laustaerkeEffekte": 57.73195876288659,
+  "lautstaerkeMusik": 10.0,
+  "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }

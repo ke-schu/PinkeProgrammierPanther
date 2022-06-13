@@ -13,7 +13,7 @@ public class EffektController
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EffektController()
+    private EffektController ()
     {
     }
 
@@ -115,7 +115,7 @@ public class EffektController
      * @param ausloeser die Einheit, welche den Effekt ausloest.
      * @param feld das Spielfeld, auf dem gespielt wird.
      */
-    private static void zurueckWerfen(KarteEinheit ausloeser, SpielFeld feld)
+    private static void zurueckWerfen (KarteEinheit ausloeser, SpielFeld feld)
     {
         final int umkreis1 = 1;
         final int umkreis2 = 2;
@@ -183,7 +183,7 @@ public class EffektController
      * um 1
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      */
-    private static void sprint(KarteEinheit ausloeser)
+    private static void sprint (KarteEinheit ausloeser)
     {
         ausloeser.setBeweglichkeit(ausloeser.getBeweglichkeit()+1);
     }
@@ -194,7 +194,7 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param ziel Die Einheit, die angegriffen werden soll.
      */
-    private static void raubtier(KarteEinheit ausloeser, KarteEinheit ziel)
+    private static void raubtier (KarteEinheit ausloeser, KarteEinheit ziel)
     {
 
         if((ausloeser.getMacht() > ziel.getMacht()) && ausloeser.getZaehler() == 0)
@@ -209,7 +209,7 @@ public class EffektController
      * sofort nach dem ausspielen bewegen kann.
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      */
-    private static void eile(KarteEinheit ausloeser)
+    private static void eile (KarteEinheit ausloeser)
     {
         ausloeser.setSchlafend(false);
     }
@@ -220,7 +220,7 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
-    private static void kopie(KarteEinheit ausloeser, SpielFeld feld)
+    private static void kopie (KarteEinheit ausloeser, SpielFeld feld)
     {
         feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY(),ausloeser.kopieerstelen(ausloeser));
     }
@@ -234,12 +234,12 @@ public class EffektController
      * @param spielerDeck Das Deck des Players
      * @param masterDeck Das Deck des DungeonMaster
      */
-    private static void durchschneiden(KarteEinheit ausloeser,KarteEinheit ziel,
+    private static void durchschneiden (KarteEinheit ausloeser,KarteEinheit ziel,
                                        SpielFeld feld, KartenDeck spielerDeck,
                                        KartenDeck masterDeck)
     {
-        Position positonhinterziel = EinheitenController.positionhinterkarteberechnen(ausloeser, ziel, feld);
-        boolean imfeld =  EinheitenController.positioninnerhalbvonfeld(positonhinterziel,feld);
+        Position positonhinterziel = EinheitenController.positionHinterKarteBerechnen(ausloeser, ziel, feld);
+        boolean imfeld =  EinheitenController.positionInnerhalbVonFeld(positonhinterziel, feld);
         if(imfeld)
         {
             EinheitenController.einheitenAngreifenMitEinheiten(feld, spielerDeck,masterDeck,ausloeser,
@@ -253,7 +253,7 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param ziel Die Einheit, die angegriffen werden soll.
      */
-    private static void verschlingen(KarteEinheit ausloeser,KarteEinheit ziel)
+    private static void verschlingen (KarteEinheit ausloeser,KarteEinheit ziel)
     {
         ausloeser.heilen(ziel.getMacht());
     }
@@ -267,7 +267,7 @@ public class EffektController
      * @param spielerDeck
      * @param masterDeck
      */
-    private static void opfern(KarteEinheit ausloeser,KarteEinheit ziel,
+    private static void opfern (KarteEinheit ausloeser,KarteEinheit ziel,
                                SpielFeld feld, KartenDeck spielerDeck,
                                KartenDeck masterDeck)
     {
@@ -284,7 +284,7 @@ public class EffektController
      * @param ausloeser Die Einheit, die den Effekt ausloest.
      * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
-    private static void heldentat(KarteEinheit ausloeser,SpielFeld feld)
+    private static void heldentat (KarteEinheit ausloeser,SpielFeld feld)
     {
         for (int i = 0; i < feld.getZeilen(); i++)
         {

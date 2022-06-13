@@ -17,7 +17,7 @@ public class KartenDeckController
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private KartenDeckController()
+    private KartenDeckController ()
     {
     }
 
@@ -25,12 +25,18 @@ public class KartenDeckController
      * Methode um eine Instanz von der Klasse KartenDeck zu mischen.
      * @param deck Der Stack der gemischt werden soll.
      */
-    public static void mischen(KartenDeck deck)
+    public static void mischen (KartenDeck deck)
     {
         Collections.shuffle(deck, meinRandom);
     }
 
-    public static KartenDeck kopiereDeck(KartenDeck quelle, String pfad)
+    /**
+     *
+     * @param quelle Das Kartendeck, welches kopiert werden soll.
+     * @param pfad
+     * @return
+     */
+    public static KartenDeck kopiereDeck (KartenDeck quelle, String pfad)
     {
         File ziel = new File(pfad);
         KartenDeck kopie = (KartenDeck) quelle.clone();

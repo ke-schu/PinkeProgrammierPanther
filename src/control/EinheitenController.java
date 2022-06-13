@@ -15,7 +15,7 @@ public class EinheitenController
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private EinheitenController()
+    private EinheitenController ()
     {
     }
 
@@ -27,7 +27,7 @@ public class EinheitenController
      * @param zielY Integer, mit der Zielspalte der Bewegung.
      * @param einheit Einheit, die springen soll.
      */
-    public static void springen(SpielFeld spielfeld, int zielX, int zielY,
+    public static void springen (SpielFeld spielfeld, int zielX, int zielY,
                                 KarteEinheit einheit)
     {
         boolean zielErreichbarInX = false;
@@ -70,7 +70,7 @@ public class EinheitenController
      * @param ziel_y Integer mit der Zielspalte der Bewegung.
      * @param einheit Einheit die bewegt werden soll.
      */
-    public static void bewegen(SpielFeld spielfeld, int ziel_x, int ziel_y,
+    public static void bewegen (SpielFeld spielfeld, int ziel_x, int ziel_y,
                                KarteEinheit einheit)
     {
         boolean zielErreichbarInX = false;
@@ -104,7 +104,7 @@ public class EinheitenController
      * @param verteidiger die verteidigende Einheit
      * @return true, wenn sie in Reichweite ist.
      */
-    private static boolean einheitInReichweite(KarteEinheit angreifer,
+    private static boolean einheitInReichweite (KarteEinheit angreifer,
                                                KarteEinheit verteidiger)
     {
         boolean zielErreichbarInX = false;
@@ -135,7 +135,7 @@ public class EinheitenController
      * @param angreifer Einheit, welche angreift.
      * @param verteidiger Einheit, welche angegriffen wird.
      */
-    public static void einheitenAngreifenMitEinheiten(SpielFeld feld, KartenDeck spielerDeck,
+    public static void einheitenAngreifenMitEinheiten (SpielFeld feld, KartenDeck spielerDeck,
                                                       KartenDeck masterDeck, KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
@@ -160,8 +160,13 @@ public class EinheitenController
         }
     }
 
-
-    public static boolean pruefeObFeindlich(KarteEinheit angreifer, KarteEinheit verteidiger)
+    /**
+     * Diese Methode ueberprueft, ob die beiden uebergebenen Einheiten sich angreifen koennen.
+     * @param angreifer Die Einheit, die angreifen soll
+     * @param verteidiger Die Einheit, die angegriffen werden soll
+     * @return Der Rueckgabewert ist, ob die Einheiten sich angreifen koennen
+     */
+    public static boolean pruefeObFeindlich (KarteEinheit angreifer, KarteEinheit verteidiger)
     {
         if(angreifer.getFreundlich() != verteidiger.getFreundlich())
         {
@@ -170,12 +175,14 @@ public class EinheitenController
         return false;
     }
 
-    public static void brecheSchild(KarteEinheit verteidiger)
+    /**
+     * Diese Methode setzt den Schildwert der Einheit um eine Konstante tiefer
+     * @param verteidiger Die Einheit, dessen Schild gesenkt wird
+     */
+    public static void brecheSchild (KarteEinheit verteidiger)
     {
         verteidiger.setSchild(verteidiger.getSchild()-WERT_SCHILD);
     }
-
-
 
     /**
      * Mit dieser Methode kann eine Instanz der Klasse KarteZauber auf eine
@@ -210,39 +217,52 @@ public class EinheitenController
         }
     }
 
-    public static Position positionhinterkarteberechnen (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
+    /**
+     * Diese Methode berechnet die Position hinter einer anvisierten Karte
+     * @param ausloeser Die anvisierende Karte
+     * @param ziel Die anvisierte Karte
+     * @param feld Das Spielfeld auf dem gespielt wird
+     * @return Die Position hinter der anvisierten Karte
+     */
+    public static Position positionHinterKarteBerechnen (KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld)
     {
-        Position positionhinterkarte = new Position();
-        int xausloeser = ausloeser.getPositionX();
-        int yausloeser = ausloeser.getPositionY();
+        Position positionHinterKarte = new Position();
+        int xAusloeser = ausloeser.getPositionX();
+        int yAusloeser = ausloeser.getPositionY();
 
-        int xziel = ziel.getPositionX();
-        int yziel = ziel.getPositionY();
+        int xZiel = ziel.getPositionX();
+        int yZiel = ziel.getPositionY();
 
-        if (xausloeser == xziel)
+        if (xAusloeser == xZiel)
         {
-            positionhinterkarte.setX(xausloeser);
-            if(yausloeser>yziel)
-                positionhinterkarte.setY(yziel-1);
-            else if (yziel>yausloeser)
+            positionHinterKarte.setX(xAusloeser);
+            if(yAusloeser>yZiel)
+                positionHinterKarte.setY(yZiel-1);
+            else if (yZiel>yAusloeser)
             {
-                positionhinterkarte.setY(yziel+1);
+                positionHinterKarte.setY(yZiel+1);
             }
         }
-        if (yausloeser == yziel)
+        if (yAusloeser == yZiel)
         {
-            positionhinterkarte.setY(yausloeser);
-            if(xausloeser>xziel)
-                positionhinterkarte.setX(xziel-1);
-            else if (xziel>xausloeser)
+            positionHinterKarte.setY(yAusloeser);
+            if(xAusloeser>xZiel)
+                positionHinterKarte.setX(xZiel-1);
+            else if (xZiel>xAusloeser)
             {
-                positionhinterkarte.setX(xziel+1);
+                positionHinterKarte.setX(xZiel+1);
             }
         }
-        return positionhinterkarte;
+        return positionHinterKarte;
     }
 
-    public static boolean positioninnerhalbvonfeld(Position position, SpielFeld feld)
+    /**
+     * Diese Methode ueberprueft, ob eine Position innerhalb des vorhanden Spielfeldes liegt.
+     * @param position Die zu ueberpruefende Position
+     * @param feld Das Spielfeld auf dem gespielt wird
+     * @return Das Ergebnis, ob die Position innerhalb liegt oder nicht
+     */
+    public static boolean positionInnerhalbVonFeld (Position position, SpielFeld feld)
     {
         if((position.getX() < feld.getSpalten()) && (position.getY() < feld.getZeilen()))
         {
