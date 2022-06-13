@@ -18,11 +18,19 @@ public class ManaTank
         this.mana = spieler.getMana();
     }
 
+    /**
+     * Getter Methode um den Wert des Attributes mana zu erhalten
+     * @return gibt den Wert des Attributes mana wieder
+     */
     public int getMana()
     {
         return this.mana;
     }
 
+    /**
+     * Setter Methode um das Attribut mana zu setzen
+     * @param mana auf welchen das Attribut gesetzt werden soll
+     */
     public void setMana(int mana)
     {
         this.mana = mana;

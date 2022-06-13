@@ -16,8 +16,8 @@ public class KartenHand
     private Karte[] hand = null;
 
     /**
-     *
-     * @param spieler
+     * Konstruktor welcher zum Erstellen einer Kartenhand des Spielers genutzt wird.
+     * @param spieler für welchen die KartenHand erstellt wird.
      */
     public KartenHand (Spieler spieler)
     {
@@ -32,8 +32,8 @@ public class KartenHand
     }
 
     /**
-     *
-     * @param gegenspieler
+     * Konstruktor welcher zum Erstellen einer Kartenhand des Gegenspielers genutzt wird.
+     * @param gegenspieler für welchen die KartenHand erstellt wird.
      */
     public KartenHand (Gegenspieler gegenspieler)
     {

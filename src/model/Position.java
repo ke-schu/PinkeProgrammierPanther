@@ -27,6 +27,11 @@ public class Position
         this.y = y;
     }
 
+    /**
+     * Methode
+     * @param pos
+     * @return
+     */
     public boolean equals(Position pos)
     {
         return this.x == pos.getX() && this.y == pos.getY();
