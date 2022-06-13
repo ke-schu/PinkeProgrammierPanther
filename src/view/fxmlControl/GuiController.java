@@ -1,7 +1,7 @@
 package view.fxmlControl;
 
 import exceptions.JsonNichtLesbarException;
-import view.mp3Controller;
+import view.mp3.mp3Controller;
 import utility.SpielStandIO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

@@ -1,6 +1,6 @@
 package view.fxmlControl;
 
-import view.mp3Controller;
+import view.mp3.mp3Controller;
 import utility.SpielStandIO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

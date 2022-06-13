@@ -1,4 +1,4 @@
-package view;
+package view.mp3;
 
 import exceptions.JsonNichtLesbarException;
 import view.fxmlControl.GuiController;

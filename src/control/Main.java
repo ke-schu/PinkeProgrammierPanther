@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import utility.KonsolenIO;
-import view.mp3Controller;
+import view.mp3.mp3Controller;
 
 import java.io.File;
 import java.io.IOException;

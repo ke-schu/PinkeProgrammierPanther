@@ -7,7 +7,6 @@ module PinkeProgrammierPanther {
     requires javafx.swing;
     requires javafx.fxml;
     requires com.google.gson;
-    opens view;
     opens control;
     opens exceptions;
     opens utility;
@@ -18,4 +17,5 @@ module PinkeProgrammierPanther {
     opens control.test;
     opens view.components;
     opens view.fxmlControl;
+    opens view.mp3;
 }
