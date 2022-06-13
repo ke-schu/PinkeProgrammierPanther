@@ -24,12 +24,11 @@ import static gui.GuiKonstanten.*;
 /**
  * Klasse, welche alle Methoden der Einstellungs Szene enthaelt.
  */
-public class EinstellungenGuiController extends GuiController
-        implements Initializable
+public class EinstellungenGuiController extends GuiController implements Initializable
 {
     @FXML private Slider lautstaerkeSlider;
     @FXML private ComboBox FenstergroesseBox;
-    @FXML private String[] aufloesungsgroessen = {"1280x720", "1920x1080"};
+    @FXML private String[] aufloesungsgroessen = {AUFLOESUNGSGROESSENHD, AUFLOESUNGSGROESSENFULLHD};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -65,11 +64,11 @@ public class EinstellungenGuiController extends GuiController
     public void wechselFenstergroesse(Event event)
     {
 
-        if (FenstergroesseBox.getValue()== "1280x720")
+        if (FenstergroesseBox.getValue()== AUFLOESUNGSGROESSENHD)
         {
             wechselAufloesungHD(event);
         }
-        if (FenstergroesseBox.getValue() == "1920x1080")
+        if (FenstergroesseBox.getValue() == AUFLOESUNGSGROESSENFULLHD)
         {
             wechselAufloesungFullHD(event);
         }

@@ -5,11 +5,15 @@ import java.net.URL;
 
 public interface GuiKonstanten
 {
+    //Strings fuer die Oberflaeche
+    String SPIELTITEL = "DungeonDing";
+
     //Strings für Pfade
     String BILDER_PFAD = "src/gui/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
     File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
     String HAUPTMENUE_PFAD = "Hauptmenue.fxml";
+    String HAUPTMENUE_PFAD_START = "xml/Hauptmenue.fxml";
     String EINSTELLUNG_PFAD = "Einstellungen.fxml";
     String CHARAKTERAUSWAHL_PFAD = "Charakterauswahl.fxml";
     String SPIELEBENE_PFAD = "Spielebene.fxml";
@@ -18,13 +22,19 @@ public interface GuiKonstanten
 
 
     //Integer fuer die Aufloesung
-    int AUFLOESUNG_HOEHE_HD = 1280;
-    int AUFLOESUNG_BREITE_HD = 720;
-    int AUFLOESUNG_HOEHE_FULLHD = 1920;
-    int AUFLOESUNG_BREITE_FULLHD = 1080;
+    int AUFLOESUNG_HOEHE_HD = 720;
+    int AUFLOESUNG_BREITE_HD = 1280;
+    int AUFLOESUNG_HOEHE_FULLHD = 1080;
+    int AUFLOESUNG_BREITE_FULLHD = 1920;
+
+    //Strings fuer die Aufloesung
+    String AUFLOESUNGSGROESSENHD = "1280x720";
+    String AUFLOESUNGSGROESSENFULLHD = "1920x1080";
+
 
     //Werte für die Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
+    String HAUPTMENUE_MUSIK = "src/gui/mp3/fun-life-112188.mp3";
 
     //Konstanten fuer Texte der Hilfefenster
     String HILFE = "Hilfe";

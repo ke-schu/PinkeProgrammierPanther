@@ -7,19 +7,20 @@ import io.SpielStandIO;
 import javafx.fxml.Initializable;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import model.SpielStand;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static gui.GuiKonstanten.FAKTOR_FUER_LAUTSTAERKE;
+import static gui.GuiKonstanten.HAUPTMENUE_MUSIK;
 
 /**
  * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers zu dem Abspielen von MP3s.
  */
 public class mp3Controller implements Initializable
 {
-    private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString()));
+    private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
     private Media media;
 
     @Override
@@ -27,7 +28,7 @@ public class mp3Controller implements Initializable
     {
         try
         {
-            media = new Media(new File("src/gui/mp3/fun-life-112188.mp3").toURI().toString());
+            media = new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
             mediaplayer = new MediaPlayer(media);
             wechselLautstaerke(SpielStandIO.leseDatei().getLautstaerke());
         }
@@ -39,9 +40,15 @@ public class mp3Controller implements Initializable
 
     }
 
-    public static void test ()
+    public static void play()
     {
         mediaplayer.play();
+        mediaplayer.setAutoPlay(true);
+    }
+
+    public static void mute()
+    {
+        mediaplayer.setMute(true);
     }
 
     /**
