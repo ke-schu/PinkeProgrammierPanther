@@ -11,17 +11,24 @@ import java.io.File;
 
 import static resources.GuiKonstanten.*;
 
+/**
+ * Eine Karte ist im Spiel als VBox implementiert. Sie wird mithilfe
+ * dieser Klasse modelliert und naeher ausformuliert.
+ */
 public class KarteVBox extends VBox
 {
     private final static String STYLE_CLASS = "karte-vbox";
     private final static BackgroundSize
             AUTO_HINTERGRUND = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,true,true,true);
 
+    /**
+     * Konstruiert eine neue KarteVBox.
+     * @param karte die Karte, die dargestellt werden soll.
+     */
     public KarteVBox(Karte karte)
     {
         getStyleClass().add(STYLE_CLASS);
 
-        //Image bild = new Image("https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg");
         File meinBild = new File(BILDER_PFAD + karte.getName() + PNG_DATEI_ENDUNG);
         Background hintergrund = new Background(new BackgroundImage(
                 new Image(meinBild.getAbsolutePath()),
@@ -39,6 +46,10 @@ public class KarteVBox extends VBox
             einfuegenKarteZauber((KarteZauber) karte);
     }
 
+    /**
+     * Fuegt einige Labels fuer eine Karte Einheit in die Box ein.
+     * @param einheit die einzufuegende Einheit
+     */
     private void einfuegenKarteEinheit(KarteEinheit einheit)
     {
         this.getChildren().add(new Label("Mana: " + einheit.getManaKosten()));
@@ -46,16 +57,12 @@ public class KarteVBox extends VBox
         this.getChildren().add(new Label("HP: " + einheit.getLebenspunkte()));
     }
 
+
+    /**
+     * Fuegt einige Labels fuer eine Karte Zauber in die Box ein.
+     * @param zauber der einzufuegende Zauber
+     */
     private void einfuegenKarteZauber(KarteZauber zauber)
     {
     }
-
-   /* private String ersetzeUmlaute(String s)
-    {
-        s.replaceAll("ä", "ae");
-        s.replaceAll("ü", "ue");
-        s.replaceAll("ö", "oe");
-        s.replaceAll("ß", "ss");
-        return s;
-    }*/
 }

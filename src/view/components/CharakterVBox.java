@@ -46,6 +46,10 @@ public class CharakterVBox extends VBox
         initialisiere(c);
     }
 
+    /**
+     * Diese Methode designt und initialisiert die CharakterVBox.
+      * @param c der Charakter, welcher eingefügt werden soll.
+     */
     private void initialisiere(Charakter c)
     {
         pseudoClassStateChanged(

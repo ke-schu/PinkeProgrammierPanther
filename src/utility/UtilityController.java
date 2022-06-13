@@ -2,21 +2,33 @@ package utility;
 
 import java.util.Random;
 
-import static resources.Konstanten.SPIELFELD_GENERATOR_MAX;
-import static resources.Konstanten.SPIELFELD_GENERATOR_MIN;
-
+/**
+ * Enthaelt universal einsetzbare Methoden fuer das ganze Programm.
+ */
 public class UtilityController
 {
     /**
-     * stellt eine random Zahl im angegebenen Bereich zur verfügung
-     * @param bereichmin Minwert der erstellten Zahl
-     * @param bereichmax Maxwert der erstellten Zahl
-     * @return
+     * Stellt eine zufaellige Zahl im angegebenen Bereich zur Verfügung
+     * @param bereichMin Minwert der erstellten Zahl
+     * @param bereichMax Maxwert der erstellten Zahl
+     * @return die Zufallszahl
      */
-    public static int randomzahlmitbereich(int bereichmin, int bereichmax)
+    public static int randomZahlMitBereich(int bereichMin, int bereichMax)
     {
         Random ran = new Random();
-        int bereich = bereichmax- bereichmin;
-        return bereichmin + ran.nextInt(bereich + 1);
+        int bereich = bereichMax- bereichMin;
+        return bereichMin + ran.nextInt(bereich + 1);
+    }
+
+    /**
+     * Ersetzt ASCII-Charakter-Sequenzen mit ihren Umlauten.
+     * @param s der Eingabestring
+     */
+   private void ersetzeUmlaute(String s)
+    {
+        s.replaceAll("ae", "ä");
+        s.replaceAll("ue", "ü");
+        s.replaceAll("oe", "ö");
+        s.replaceAll("ss", "ß");
     }
 }

@@ -2,8 +2,6 @@ package model;
 
 import utility.UtilityController;
 
-import java.util.Random;
-
 import static resources.Konstanten.*;
 import static resources.Strings.*;
 
@@ -24,8 +22,8 @@ public class SpielFeld
      */
     public SpielFeld()
     {
-        this.spalten = UtilityController.randomzahlmitbereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_MAX);
-        this.zeilen = UtilityController.randomzahlmitbereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_ZEILEN_MAX);
+        this.spalten = UtilityController.randomZahlMitBereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_MAX);
+        this.zeilen = UtilityController.randomZahlMitBereich(SPIELFELD_GENERATOR_MIN, SPIELFELD_GENERATOR_ZEILEN_MAX);
         KarteEinheit[][] spielfeld = new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
