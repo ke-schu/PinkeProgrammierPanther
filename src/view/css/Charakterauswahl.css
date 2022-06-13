@@ -6,12 +6,12 @@
     -fx-padding: 8, 16, 8, 16;
     -fx-font-size: 14;
     -fx-border-radius: 6;
+    -fx-background-radius: 6;
 }
 
 .button:hover {
     -fx-background-color: "ffe3ff";
     -fx-text-fill: "000000";
-    -fx-background-radius: 6;
 }
 
 .button:disabled {
