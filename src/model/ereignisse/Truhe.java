@@ -30,8 +30,6 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        //KonsolenIO.ausgeben(this.getName());
-        //auswaehlen();
         if(!geleert)
         {
             if (isAuswahl())
