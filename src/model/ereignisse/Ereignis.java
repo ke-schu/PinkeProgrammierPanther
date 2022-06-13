@@ -73,25 +73,6 @@ public abstract class Ereignis
     }
 
     /**
-     * Diese Methode dient als Auswahl fuer den Spieler. Ueber eine
-     * Benutzereingabe, wird ausgewaehlt, ob das Ereignis ausgefuehrt werden
-     * soll oder nicht.
-     */
-    /*
-    public void auswaehlen()
-    {
-        //KonsolenIO.ausgeben(EINGABE_BOOLEAN);
-        //auswahl = KonsolenIO.eingabeBoolean();
-        SpielebeneGuiController.oeffneEreignis(this);
-    }
-     */
-
-    public String getKlasse ()
-    {
-        return klasse;
-    }
-
-    /**
      * Diese Methode ist die zentrale Methode der Ereignisse. Sie wird von
      * jeder Subklasse ueberlagert und bestimmt, was bei welchem Ereignis
      * ausgefuehrt wird.

@@ -205,6 +205,12 @@ public class SpielebeneGuiController
         popupStage.show();
     }
 
+    /**
+     * Diese Methode erkennt, welches Ereignis in der Spielebene angetroffen wurde und fuehrt die zugehoerige
+     * Methode aus
+     * @param ereignis das angetroffene Ereignis
+     * @param event
+     */
     public void ereignisGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
         if(ereignis instanceof Gegner)
@@ -258,6 +264,10 @@ public class SpielebeneGuiController
 
     public void haendlerGuiAusfuehren (Ereignis ereignis){}
 
+    /**
+     * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der GUI visualisiert wird
+     * @param ereignis Das Ereignis vom Typ Heiler
+     */
     public void heilerGuiAusfuehren (Ereignis ereignis)
     {
         int lebenVorher = spiel.getGold();
@@ -293,15 +303,28 @@ public class SpielebeneGuiController
         popupStage.setAlwaysOnTop(true);
         popupStage.show();
     }
+
+    /**
+     *  Diese Methode formuliert aus, wie das Ereignis "Schmied" in der GUI visualisiert wird
+     *  @param ereignis Das Ereignis vom Typ Schmied
+     */
     public void schmiedGuiAusfuehren (Ereignis ereignis){}
 
+    /**
+     *  Diese Methode formuliert aus, wie das Ereignis "Tempel" in der GUI visualisiert wird
+     *  @param ereignis Das Ereignis vom Typ Tempel
+     */
     public void tempelGuiAusfuehren (Ereignis ereignis){}
 
+    /**
+     *  Diese Methode formuliert aus, wie das Ereignis "Treppe" in der GUI visualisiert wird
+     *  @param ereignis Das Ereignis vom Typ Treppe
+     */
     public void treppeGuiAusfuehren (Ereignis ereignis){}
 
     /**
-     *
-     * @param ereignis
+     * Diese Methode formuliert aus, wie das Ereignis "Truhe" in der GUI visualisiert wird
+     * @param ereignis Das Ereignis vom Typ Truhe
      */
     public void truheGuiAusfuehren (Ereignis ereignis)
     {
@@ -339,7 +362,40 @@ public class SpielebeneGuiController
         popupStage.show();
     }
 
-    public void zufallsEreignisGuiAusfuehren (Ereignis ereignis){}
+    /**
+     *  Diese Methode formuliert aus, wie das Ereignis "ZufallsEreignis" in der GUI visualisiert wird
+     *  @param ereignis Das Ereignis vom Typ ZufallsEreignis
+     */
+    public void zufallsEreignisGuiAusfuehren (Ereignis ereignis)
+    {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(20);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene = new Scene(vbox, 400, 300);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        ereignisText.setText(ZUFALLS_EREIGNIS_AUSFUEHREN);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
+    }
 
     /**
      * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.

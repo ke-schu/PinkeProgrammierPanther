@@ -40,6 +40,12 @@ public interface Konstanten
     int ZE_MANA_ERHOEHUNG = 1;
     int ZE_MACHT_ERHOEHUNG = 1;
 
+    int ZE_1 = 1;
+    int ZE_2 = 2;
+    int ZE_3 = 3;
+    int ZE_4 = 4;
+    int ZE_5 = 5;
+
     // Konstanten fuer Talente
     double CHARME_FAKTOR = 0.9;
     int WERT_SCHILD = 1;

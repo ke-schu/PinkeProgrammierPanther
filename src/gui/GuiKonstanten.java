@@ -69,4 +69,5 @@ public interface GuiKonstanten
     String TRUHE_AUSFUEHREN_2 = " Gold gefunden! Wie cool.";
     String HEILER_AUSFUEHREN_1 = "Ich hab ";
     String HEILER_AUSFUEHREN_2 = " Lebenspunkte zurueckerhalten";
+    String ZUFALLS_EREIGNIS_AUSFUEHREN = "Zufallsereignis wurde ausgefuehrt.";
 }

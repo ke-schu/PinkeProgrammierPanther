@@ -17,6 +17,8 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
     //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;
     //Wert zur Bestimmung, welches Ereignis eintritt
+    private int ereignisnummer;
+    //Attribut zur Bestimmung, welches Ereignis ausgefuehrt wurde
 
     /**
      * Der Konstruktor erstellt ein Ereignis vom Typ ZufallsEreignis. Ein
@@ -85,29 +87,42 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
             // Wahrscheinlichkeit 1%
             if (wahrscheinlichkeit <= EIN_PROZENT)
             {
-
+                ereignisnummer = ZE_1;
             }
             // Wahrscheinlichkeit 9%
             else if (wahrscheinlichkeit <= ZEHN_PROZENT)
             {
                 spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht()+ZE_MACHT_ERHOEHUNG);
+                ereignisnummer = ZE_2;
             }
             // Wahrscheinlichkeit 10%
             else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
             {
                 spielStand.getSpieler().setMana(spielStand.getSpieler().getMana()+ZE_MANA_ERHOEHUNG);
+                ereignisnummer = ZE_3;
             }
             // Wahrscheinlichkeit 20%
             else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
             {
                 spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte()-ZE_SCHADEN);
+                ereignisnummer = ZE_4;
             }
             // Wahrscheinlichkeit 10%
             else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
             {
                 KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
+                ereignisnummer = ZE_5;
             }
             ausgefuehrt = true;
         }
+    }
+
+    /**
+     * Getter fuer die Nummer, welches Ereignis ausgefuehrt wurde
+     * @return Nummer des ausgefuehrten Ereignisses
+     */
+    public int getEreignisnummer ()
+    {
+        return ereignisnummer;
     }
 }
