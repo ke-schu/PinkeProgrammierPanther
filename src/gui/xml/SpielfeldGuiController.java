@@ -351,19 +351,19 @@ public class SpielfeldGuiController
     public void wechselAufloesungFullHD (Event event)
     {
         super.setStage((Stage)menueLeiste.getScene().getWindow());
-        super.getStage().setMinHeight(AUFLOESUNG_BREITE_FULLHD);
-        super.getStage().setMaxHeight(AUFLOESUNG_BREITE_FULLHD);
-        super.getStage().setMinWidth(AUFLOESUNG_HOEHE_FULLHD);
-        super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_FULLHD);
+        super.getStage().setMinHeight(AUFLOESUNG_HOEHE_FULLHD);
+        super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
+        super.getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
+        super.getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
     }
 
     @Override
     public void wechselAufloesungHD (Event event)
     {
         super.setStage((Stage)menueLeiste.getScene().getWindow());
-        super.getStage().setMinHeight(AUFLOESUNG_BREITE_HD);
-        super.getStage().setMaxHeight(AUFLOESUNG_BREITE_HD);
-        super.getStage().setMinWidth(AUFLOESUNG_HOEHE_HD);
-        super.getStage().setMaxWidth(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
+        super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
+        super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
     }
 }
