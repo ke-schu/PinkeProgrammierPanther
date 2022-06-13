@@ -35,7 +35,7 @@ public interface GuiKonstanten
     //Werte für die Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
     String HAUPTMENUE_MUSIK = "src/gui/mp3/fun-life-112188.mp3";
-    String KLICK_SOUND = "src/gui/mp3/Klick";
+    String KLICK_SOUND = "src/gui/mp3/Klick.wav";
 
     //Konstanten fuer Texte der Hilfefenster
     String HILFE = "Hilfe";

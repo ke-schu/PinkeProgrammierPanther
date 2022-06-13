@@ -12,8 +12,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.GuiKonstanten.FAKTOR_FUER_LAUTSTAERKE;
-import static gui.GuiKonstanten.HAUPTMENUE_MUSIK;
+import static gui.GuiKonstanten.*;
 
 /**
  * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers zu dem Abspielen von MP3s.
@@ -44,7 +43,7 @@ public class mp3Controller implements Initializable
     {
         mediaplayer.play();
         mediaplayer.setAutoPlay(true);
-        mediaplayer.setOnRepeat(mediaplayer.getOnPlaying());
+        mediaplayer.setCycleCount(mediaplayer.INDEFINITE);
 
     }
 
