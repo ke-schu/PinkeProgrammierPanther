@@ -1,6 +1,7 @@
 package gui.xml;
 
 import exceptions.JsonNichtLesbarException;
+import gui.mp3Controller;
 import io.SpielStandIO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -49,6 +50,7 @@ public class GuiController implements Initializable
      */
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
+        mp3Controller.spieleEffekt(KLICK_SOUND);
         FXMLLoader fxmlLoader = new FXMLLoader(GuiController.class.getResource(pfad));
         Scene scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

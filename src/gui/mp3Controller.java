@@ -19,37 +19,45 @@ import static gui.GuiKonstanten.*;
  */
 public class mp3Controller implements Initializable
 {
-    private static MediaPlayer mediaplayer = new MediaPlayer(new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
-    private Media media;
+    private static MediaPlayer hintergrundmusik = new MediaPlayer(new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
+    private static MediaPlayer effekt;
+    private static Media titel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        spieleHintergrundmusik();
+
+
+    }
+
+    public static void spieleHintergrundmusik()
+    {
         try
         {
-            media = new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
-            mediaplayer = new MediaPlayer(media);
+            titel = new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
+            hintergrundmusik = new MediaPlayer(titel);
             wechselLautstaerke(SpielStandIO.leseDatei().getLautstaerke());
         }
         catch (JsonNichtLesbarException e)
         {
-              KonsolenIO.ausgeben(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
-
+        hintergrundmusik.play();
+        hintergrundmusik.setAutoPlay(true);
+        hintergrundmusik.setCycleCount(hintergrundmusik.INDEFINITE);
 
     }
 
-    public static void play()
+    public static void spieleEffekt(String pfad)
     {
-        mediaplayer.play();
-        mediaplayer.setAutoPlay(true);
-        mediaplayer.setCycleCount(mediaplayer.INDEFINITE);
-
+        effekt = new MediaPlayer(new Media(new File(pfad).toURI().toString()));
+        effekt.play();
     }
 
     public static void mute()
     {
-        mediaplayer.setMute(true);
+        hintergrundmusik.setMute(true);
     }
 
     /**
@@ -58,7 +66,7 @@ public class mp3Controller implements Initializable
      */
     public static void wechselLautstaerke(double lautstaerke)
     {
-            mediaplayer.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
+            hintergrundmusik.setVolume(lautstaerke * FAKTOR_FUER_LAUTSTAERKE);
             GuiController.getSpiel().setLautstaerke(lautstaerke);
     }
 
