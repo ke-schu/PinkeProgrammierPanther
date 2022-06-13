@@ -31,6 +31,8 @@ public class ZauberEffektController
         }
     }
 
-    //private static void wurfspee
+    private static void wurfspeer()
+    {
 
+    }
 }
