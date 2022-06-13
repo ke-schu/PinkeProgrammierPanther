@@ -51,10 +51,8 @@ public class SpielfeldGuiController
     private KartenDeck spieldeck;
     private KartenHand kartenhand;
     private Spieler spieler;
-    private ObjectProperty<Position> spielerPosition =
-            new SimpleObjectProperty<>();
-    private DoubleProperty feldGroesse =
-            new SimpleDoubleProperty(100);
+    private final int FELDGROESSE = 80;
+    private final int KARTENHAND_GROESSE = 100;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -90,26 +88,15 @@ public class SpielfeldGuiController
                 for (int j = 0; j < spielfeld.getZeilen(); j++)
                 {
                     StackPane feld = new StackPane();
-
-                    feld.setPrefHeight(feldGroesse.get());
-                    feld.setPrefWidth(feldGroesse.get());
-
-                    feldGroesse.addListener((observableValue, number, t1) ->
-                    {
-                        feld.setPrefHeight(feldGroesse.get());
-                        feld.setPrefWidth(feldGroesse.get());
-                    });
-
-                    if(feld.getHeight() != feldGroesse.get() || feld.getWidth() != feldGroesse.get())
-                    {
-                        KonsolenIO.ausgeben("Achtung Feldgroesse geändert.");
-                    }
+                    feld.setPrefWidth(FELDGROESSE);
+                    feld.setPrefHeight(FELDGROESSE);
 
                     if(j == spielfeld.getZeilen()-1 && i == spielfeld.getSpalten()-1)
                     {
                         KarteVBox spielerKarteVBox = new KarteVBox(spieler);
                         feld.getChildren().add(spielerKarteVBox);
                     }
+
                     spielfeldGitter.add(feld, i, j);
                 }
             }
@@ -122,9 +109,15 @@ public class SpielfeldGuiController
 
     private void Karteinhandeinfuegen(int x)
     {
-            Karte aktuellekarte = kartenhand.getElement(x);
-            KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
-            kartenhandGitter.add(aktuellekartevbox,x,0);
+        StackPane feld = new StackPane();
+        feld.setPrefWidth(KARTENHAND_GROESSE);
+        feld.setPrefHeight(KARTENHAND_GROESSE);
+
+        Karte aktuellekarte = kartenhand.getElement(x);
+        KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
+        feld.getChildren().add(aktuellekartevbox);
+
+        kartenhandGitter.add(feld,x,0);
     }
 
     private void spielfeldhintergrundfestlegen()

@@ -16,16 +16,10 @@ public class KarteVBox extends VBox
     private final static String STYLE_CLASS = "karte-vbox";
     private final static BackgroundSize
             AUTO_HINTERGRUND = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,true,true,true);
-    private final int KARTEN_BREITE = 100;
-    private final int KARTEN_HOEHE = 100;
 
     public KarteVBox(Karte karte)
     {
         getStyleClass().add(STYLE_CLASS);
-        this.setMaxHeight(KARTEN_HOEHE);
-        this.setMaxWidth(KARTEN_BREITE);
-        this.setMinHeight(KARTEN_HOEHE);
-        this.setMinWidth(KARTEN_BREITE);
 
         //Image bild = new Image("https://cdn.pixabay.com/photo/2021/01/24/20/21/cloud-5946381_960_720.jpg");
         File meinBild = new File(BILDER_PFAD + karte.getName() + PNG_DATEI_ENDUNG);
