@@ -1,5 +1,8 @@
 .root {
     -fx-font-family: Calibri;
+    -fx-background-image: url(../bilder/HintergrundHauptmenue.png);
+    -fx-background-position: center center;
+    -fx-background-size: contain;
 }
 
 .button {

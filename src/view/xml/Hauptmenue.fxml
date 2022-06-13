@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/Hauptmenue.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.xmlControl.HauptmenueGuiController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -16,25 +15,16 @@
    <children>
       <VBox alignment="CENTER" spacing="20.0">
          <children>
-            <ImageView fitHeight="194.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../bilder/Logo.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="30.0" />
-               </VBox.margin>
-            </ImageView>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#weiterSpielen" prefHeight="40.0" prefWidth="150.0" text="Weiter" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuCharakterauswahl" prefHeight="40.0" prefWidth="150.0" text="Neues Spiel" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#oeffneHilfe" prefHeight="40.0" prefWidth="150.0" text="Hilfe" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuEinstellungen" prefHeight="40.0" prefWidth="150.0" text="Einstellungen" />
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#spielBeenden" prefHeight="40.0" prefWidth="150.0" text="Spiel beenden">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#spielBeenden" prefHeight="40.0" prefWidth="150.0" text="Spiel beenden" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuSpielfeld" prefHeight="40.0" prefWidth="150.0" text=" gehe zu Kamp" />
          </children>
-          <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuSpielfeld" prefHeight="40.0" prefWidth="150.0" text=" gehe zu Kamp" />
+          <padding>
+              <Insets bottom="0.0" left="0.0" right="0.0" top="100.0" />
+          </padding>
       </VBox>
    </children>
 </GridPane>
