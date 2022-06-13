@@ -54,7 +54,10 @@ public class CharakterAuswahlGuiController
             spiel = SpielStandIO.leseDatei();
             for (int i = 0; i < charakterStack.size(); i++)
             {
-                charaktere.getChildren().add(einfuegenCharakter(i));
+                Charakter meinChar = new Charakter(charakterStack.get(i));
+                CharakterVBox meineBox = new CharakterVBox(meinChar);
+                charaktere.getChildren().add(meineBox);
+                updateGewaehlt(meineBox, meinChar, i);
             }
         } catch (JsonNichtLesbarException e)
         {
@@ -63,6 +66,8 @@ public class CharakterAuswahlGuiController
 
         aktiverCharakter.addListener(
                 (observableValue, charakter, t1) -> kartenDeckSetzen());
+
+        gold.setText(GOLD_BESTAND + spiel.getGold());
     }
 
     private void kartenDeckSetzen()
@@ -89,44 +94,7 @@ public class CharakterAuswahlGuiController
         return new Label(charakter.getStartDeck().get(i).getName());
     }
 
-    private VBox einfuegenCharakter(int pos) throws JsonNichtLesbarException
-    {
-        Charakter meinCharakter = new Charakter(charakterStack.get(pos));
-        CharakterVBox v = new CharakterVBox();
-
-        BooleanProperty freigeschaltet = new SimpleBooleanProperty(meinCharakter.getFreigeschaltet());
-        updateFreigeschaltet(v, meinCharakter, freigeschaltet.get());
-        freigeschaltet.addListener((observableValue, aBoolean, t1) ->
-                        updateFreigeschaltet(v, meinCharakter, freigeschaltet.get()));
-
-        updateGewaehlt(v, meinCharakter, pos, freigeschaltet);
-
-        return v;
-    }
-
-    private void updateFreigeschaltet(CharakterVBox v,  Charakter c, boolean b)
-    {
-        v.getChildren().clear();
-
-        Label name = new Label(c.getName());
-        name.setId(STYLE_CHARAKTER_NAME);
-        v.getChildren().add(name);
-
-        v.setFreigeschaltet(b);
-        if(!b)
-        {
-            v.getChildren()
-             .add(new Label(String.format(CHARAKTER_KAUFEN, c.getFreischaltgebuehr())));
-        }
-        else
-        {
-            v.getChildren()
-             .add(new Label(SCHON_FREIGESCHALTET));
-        }
-        gold.setText(GOLD_BESTAND + spiel.getGold());
-    }
-
-    private void updateGewaehlt(CharakterVBox v,  Charakter c, int pos, BooleanProperty b)
+    private void updateGewaehlt(CharakterVBox v,  Charakter c, int pos)
     {
         ObjectProperty<Charakter> dieserCharakter =
                 new SimpleObjectProperty<>(c);
@@ -139,7 +107,7 @@ public class CharakterAuswahlGuiController
                                 }
                                 else
                                 {
-                                    if(kaufen(pos, b))
+                                    if(kaufen(v, pos))
                                     {
                                         aktiverCharakter.bind(dieserCharakter);
                                     }
@@ -150,12 +118,13 @@ public class CharakterAuswahlGuiController
                                              v.setGewaehlt(aktiverCharakter.get() == dieserCharakter.get()));
     }
 
-    private boolean kaufen(int pos, BooleanProperty freigeschaltet)
+    private boolean kaufen(CharakterVBox v, int pos)
     {
         try
         {
             SpielStandController.charakterKaufen(charakterStack, pos, spiel);
-            freigeschaltet.set(true);
+            gold.setText(GOLD_BESTAND + spiel.getGold());
+            v.setFreigeschaltet(true);
             return true;
         }
         catch (NichtGenugGoldException e)

@@ -3,7 +3,11 @@ package gui.components;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import model.Charakter;
+
+import static gui.GuiKonstanten.*;
 
 /**
  * Modelliert eine VBox mit eigenen Priority-Klassen um die Charaktere
@@ -20,7 +24,7 @@ public class CharakterVBox extends VBox
     /**
      * Konstruiert die CharakterVBox und fügt Listener für die benötigten Priority-Klassen hinzu.
      */
-    public CharakterVBox()
+    public CharakterVBox(Charakter c)
     {
         getStyleClass().add(STYLE_CLASS);
 
@@ -38,6 +42,32 @@ public class CharakterVBox extends VBox
         freigeschaltet.addListener(e -> {
             pseudoClassStateChanged(PseudoClass.getPseudoClass(PSEUDO_CLASS_FREIGESCHALTET), freigeschaltet.get());
         });
+
+        BooleanProperty freigeschaltet = new SimpleBooleanProperty(c.getFreigeschaltet());
+        updateFreigeschaltet(c, freigeschaltet.get());
+        freigeschaltet.addListener((observableValue, aBoolean, t1) ->
+                                           updateFreigeschaltet(c, freigeschaltet.get()));
+    }
+
+    private void updateFreigeschaltet(Charakter c, boolean b)
+    {
+        this.getChildren().clear();
+
+        Label name = new Label(c.getName());
+        name.setId(STYLE_CHARAKTER_NAME);
+        this.getChildren().add(name);
+
+        this.setFreigeschaltet(b);
+        if(!b)
+        {
+            this.getChildren()
+             .add(new Label(String.format(CHARAKTER_KAUFEN, c.getFreischaltgebuehr())));
+        }
+        else
+        {
+            this.getChildren()
+             .add(new Label(SCHON_FREIGESCHALTET));
+        }
     }
 
     /**
