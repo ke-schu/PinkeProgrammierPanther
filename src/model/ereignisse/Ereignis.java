@@ -1,11 +1,6 @@
 package model.ereignisse;
 
-import gui.xml.GuiController;
-import gui.xml.SpielebeneGuiController;
-import io.KonsolenIO;
 import model.SpielStand;
-
-import static resources.StringsEreignisse.EINGABE_BOOLEAN;
 
 /**
  * Diese Klasse legt fest, was jedes Ereignis gemeinsam hat. Ereignisse treten

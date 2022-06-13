@@ -1,7 +1,5 @@
 package model.ereignisse;
 
-import gui.xml.SpielebeneGuiController;
-import io.KonsolenIO;
 import model.SpielStand;
 
 import static resources.Konstanten.*;

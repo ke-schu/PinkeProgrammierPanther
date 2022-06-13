@@ -2,8 +2,8 @@ package control.test;
 
 import control.KartenDeckController;
 import exceptions.JsonNichtLesbarException;
-import io.KartenDeckIO;
-import io.KonsolenIO;
+import utility.KartenDeckIO;
+import utility.KonsolenIO;
 import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;

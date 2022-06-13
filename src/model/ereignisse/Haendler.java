@@ -2,12 +2,12 @@ package model.ereignisse;
 
 import control.TalentController;
 import exceptions.JsonNichtLesbarException;
-import io.KartenDeckIO;
-import io.KonsolenIO;
+import utility.KartenDeckIO;
+import utility.KonsolenIO;
 import model.KartenDeck;
 import model.SpielStand;
 
-import static io.KonsolenIO.eingabeInt;
+import static utility.KonsolenIO.eingabeInt;
 import static resources.Strings.*;
 
 /**

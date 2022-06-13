@@ -1,9 +1,9 @@
 package control.test;
 
 import exceptions.JsonNichtLesbarException;
-import io.CharakterIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import utility.CharakterIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import model.Charakter;
 import model.SpielStand;
 import model.Spieler;

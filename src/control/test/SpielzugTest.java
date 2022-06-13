@@ -4,9 +4,9 @@ import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import exceptions.JsonNichtLesbarException;
-import io.KartenDeckIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import utility.KartenDeckIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import model.*;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;

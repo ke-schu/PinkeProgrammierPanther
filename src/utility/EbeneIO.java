@@ -1,97 +1,98 @@
-package io;
+package utility;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import control.EbeneSerialisierung;
 import exceptions.JsonNichtLesbarException;
-import model.SpielStand;
+import model.Ebene;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileSystemNotFoundException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 import static resources.Strings.*;
 
 /**
- * Diese Klasse beinhaltet das Lesen und Schreiben von Spielstaenden aus bzw.
- * in Dateien.
+ * Diese Klasse beinhaltet das Lesen und Schreiben von Ebenen aus bzw. in
+ * Dateien.
  */
-public class SpielStandIO
+public class EbeneIO
 {
     private static Gson meinGson;
     private static GsonBuilder meinGsonBuilder = new GsonBuilder();
-    private final static File datei = new File(SPIELSTAND_PFAD);
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
      * dass keine Instanzen dieser Klasse gebildet werden.
      */
-    private SpielStandIO()
+    private EbeneIO()
     {
     }
 
     /**
-     * Serialisiert den Spielstand ins Json-Format.
-     * @param stand der Spielstand
+     * Serialisiert die Ebene ins Json-Format.
+     * @param ebene die Ebene
      * @return einen String im Json-Format
      */
-    private static String serialisieren(SpielStand stand)
+    private static String serialisieren(Ebene ebene)
     {
         meinGson = meinGsonBuilder.setPrettyPrinting().create();
-        return meinGson.toJson(stand);
+        return meinGson.toJson(ebene);
     }
 
     /**
-     * Schreibt einen Spielstand serialisiert in die Spielstand-Datei.
-     * @param stand der Spielstand
+     * Schreibt eine Ebene serialisiert in eine Datei.
+     * @param ebene die Ebene
+     * @param datei die Datei
      * @throws IOException wenn ein Fehler im Schreiben auftritt.
      */
-    public static void schreibeDatei(SpielStand stand) throws IOException
+    public static void schreibeDatei(Ebene ebene, File datei)
+            throws IOException
     {
         if (datei.createNewFile())
         {
-            KonsolenIO.ausgeben(SPIELSTAND_DATEI_ERSTELLT);
+            KonsolenIO.ausgeben(EBENE_DATEI_ERSTELLT);
         } else
         {
-            KonsolenIO.ausgeben(SPIELSTAND_DATEI_UEBERSCHRIEBEN);
+            KonsolenIO.ausgeben(EBENE_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
-        verfasser.write(serialisieren(stand));
+        verfasser.write(serialisieren(ebene));
         verfasser.close();
     }
 
     /**
-     * Deserialisiert einen im Json-Format vorliegenden String in einen
-     * Spielstand.
-     * @param jsonStand die Zeichenkette
-     * @return den Spielstand
+     * Deserialisiert einen im Json-Format vorliegenden String in eine Ebene.
+     * @param jsonEbene die Zeichenkette
+     * @return die Ebene
      * @throws JsonSyntaxException wenn die Formatierung nicht mit der
      * Json-Formatierung uebereinstimmt.
      */
-    private static SpielStand deserialisieren(String jsonStand)
+    private static Ebene deserialisieren(String jsonEbene)
             throws JsonSyntaxException
     {
+        EbeneSerialisierung meineSerialisierung = new EbeneSerialisierung();
+        meinGsonBuilder.registerTypeAdapter(Ebene.class, meineSerialisierung);
         meinGson = meinGsonBuilder.create();
-        return meinGson.fromJson(jsonStand, SpielStand.class);
+
+        return meinGson.fromJson(jsonEbene, Ebene.class);
     }
 
     /**
-     * Liest die Charaktere-Datei ein und gibt einen Stapel aus Charakteren
-     * deserialisiert zurueck.
-     * @return den Charakter-Stapel
+     * Liest eine Ebenen-Datei ein und gibt eine Ebene deserialisiert
+     * zurueck.
+     * @return die Ebene
      * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
      */
-    public static SpielStand leseDatei() throws JsonNichtLesbarException
+    public static Ebene leseDatei(File datei) throws JsonNichtLesbarException
     {
         try
         {
             Path path = Paths.get(datei.toURI());
             String content = Files.readString(path);
-            return new SpielStand(deserialisieren(content));
+            return deserialisieren(content);
         }
         catch (JsonSyntaxException | IOException | IllegalArgumentException |
                FileSystemNotFoundException ex)

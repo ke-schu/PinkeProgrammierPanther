@@ -1,6 +1,6 @@
 package control;
 
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.*;
 import resources.Effekte;
 

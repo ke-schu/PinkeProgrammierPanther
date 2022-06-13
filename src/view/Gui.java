@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 public class Gui extends Application
 {

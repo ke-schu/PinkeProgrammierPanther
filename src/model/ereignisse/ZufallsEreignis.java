@@ -1,7 +1,7 @@
 package model.ereignisse;
 
 import control.KartenController;
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.SpielStand;
 
 import static resources.Konstanten.*;

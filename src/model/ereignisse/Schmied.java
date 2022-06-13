@@ -3,10 +3,10 @@ package model.ereignisse;
 import control.KartenController;
 import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.SpielStand;
 
-import static io.KonsolenIO.eingabeInt;
+import static utility.KonsolenIO.eingabeInt;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Schmied ist ein Ereignis,

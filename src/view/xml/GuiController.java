@@ -1,8 +1,8 @@
-package gui.xml;
+package view.xml;
 
 import exceptions.JsonNichtLesbarException;
-import gui.mp3Controller;
-import io.SpielStandIO;
+import view.mp3Controller;
+import utility.SpielStandIO;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 /**
  * Klasse welche alle generellen Methoden enthaelt, die in den weiteren Controllern der GUI benutzt werden.

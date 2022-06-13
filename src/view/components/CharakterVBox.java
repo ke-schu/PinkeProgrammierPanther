@@ -1,4 +1,4 @@
-package gui.components;
+package view.components;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.Charakter;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 /**
  * Modelliert eine VBox mit eigenen Priority-Klassen um die Charaktere in der

@@ -1,4 +1,4 @@
-package gui.components;
+package view.components;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -9,7 +9,7 @@ import model.KarteZauber;
 
 import java.io.File;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 public class KarteVBox extends VBox
 {

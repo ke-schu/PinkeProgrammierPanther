@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.SpielStand;
 
 import static resources.StringsEreignisse.LEERER_RAUM_BESCHREIBUNG;

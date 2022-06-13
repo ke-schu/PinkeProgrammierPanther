@@ -1,9 +1,9 @@
-package gui;
+package view;
 
 import exceptions.JsonNichtLesbarException;
-import gui.xml.GuiController;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import view.xml.GuiController;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import javafx.fxml.Initializable;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -12,7 +12,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 /**
  * Diese Klasse dient zur Erstellung und Kontrolle eines Mediaplayers zu dem Abspielen von MP3s.

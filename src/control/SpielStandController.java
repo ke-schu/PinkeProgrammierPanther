@@ -1,10 +1,10 @@
 package control;
 
 import exceptions.NichtGenugGoldException;
-import io.CharakterIO;
-import io.KartenDeckIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import utility.CharakterIO;
+import utility.KartenDeckIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import model.Charakter;
 import model.KartenDeck;
 import model.SpielStand;

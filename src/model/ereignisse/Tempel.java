@@ -1,10 +1,10 @@
 package model.ereignisse;
 
 import control.TalentController;
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.SpielStand;
 
-import static io.KonsolenIO.eingabeInt;
+import static utility.KonsolenIO.eingabeInt;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Tempel ist ein Ereignis,

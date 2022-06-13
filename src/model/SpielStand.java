@@ -1,9 +1,8 @@
 package model;
 
 import exceptions.JsonNichtLesbarException;
-import io.EbeneIO;
-import io.KartenDeckIO;
-import io.SpielStandIO;
+import utility.EbeneIO;
+import utility.KartenDeckIO;
 
 import java.io.File;
 

@@ -7,14 +7,14 @@ module PinkeProgrammierPanther {
     requires javafx.swing;
     requires javafx.fxml;
     requires com.google.gson;
-    opens gui;
+    opens view;
     opens control;
     opens exceptions;
-    opens io;
+    opens utility;
     opens model;
     opens resources;
     opens model.ereignisse;
-    opens gui.xml;
+    opens view.xml;
     opens control.test;
-    opens gui.components;
+    opens view.components;
 }

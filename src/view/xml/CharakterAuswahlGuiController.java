@@ -1,15 +1,13 @@
-package gui.xml;
+package view.xml;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import exceptions.NichtGenugGoldException;
-import gui.components.CharakterVBox;
-import io.CharakterIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
-import javafx.beans.property.BooleanProperty;
+import view.components.CharakterVBox;
+import utility.CharakterIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,13 +20,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
-import model.SpielStand;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 /**
  * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.

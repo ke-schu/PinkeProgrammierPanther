@@ -1,7 +1,7 @@
 package model.ereignisse;
 
 import control.TalentController;
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.SpielStand;
 
 import static resources.Konstanten.HEILER_AUFWERTUNG_LEBENSPUNKTE;

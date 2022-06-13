@@ -1,11 +1,11 @@
-package gui.xml;
+package view.xml;
 
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import java.io.IOException;
 
-import static gui.GuiKonstanten.HILFE_HAUPTMENUE;
+import static view.GuiKonstanten.HILFE_HAUPTMENUE;
 
 /**
  * Klasse, welche alle Methoden der Hautpmenue Szene enthaelt.

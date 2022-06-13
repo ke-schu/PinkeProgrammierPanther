@@ -1,10 +1,9 @@
 package control.test;
 
-import control.EbeneController;
 import control.SpielfigurEbeneController;
-import io.EbeneIO;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import utility.EbeneIO;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import model.*;
 import model.ereignisse.*;
 import resources.Effekte;

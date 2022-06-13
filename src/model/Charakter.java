@@ -1,7 +1,7 @@
 package model;
 
 import exceptions.JsonNichtLesbarException;
-import io.KartenDeckIO;
+import utility.KartenDeckIO;
 
 import static resources.Strings.START_DECK_PFAD;
 import static resources.Strings.TRENNUNG;

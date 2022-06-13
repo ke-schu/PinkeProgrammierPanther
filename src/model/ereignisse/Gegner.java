@@ -1,6 +1,6 @@
 package model.ereignisse;
 
-import io.KonsolenIO;
+import utility.KonsolenIO;
 import model.Gegenspieler;
 import model.SpielFeld;
 import model.SpielStand;

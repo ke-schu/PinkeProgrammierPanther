@@ -1,10 +1,10 @@
-package gui.xml;
+package view.xml;
 
 import control.SpielfigurEbeneController;
 import exceptions.JsonNichtLesbarException;
-import gui.components.RaumPane;
-import io.KonsolenIO;
-import io.SpielStandIO;
+import view.components.RaumPane;
+import utility.KonsolenIO;
+import utility.SpielStandIO;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
@@ -25,13 +25,12 @@ import javafx.stage.Stage;
 import model.Ebene;
 import model.Position;
 import model.Raum;
-import model.SpielStand;
 import model.ereignisse.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.GuiKonstanten.*;
+import static view.GuiKonstanten.*;
 
 /**
  * Klasse, welche alle Methoden der Spielebene Szene enthaelt.
