@@ -83,6 +83,11 @@ public class KarteEinheit extends Karte
         this.kopie = true;
     }
 
+    /**
+     * Methode welche eine Kopie einer KarteEinheit erstellt, welche weniger Eigenschaften besitzt
+     * @param vorlage Vorlage aus welcher die Kopie erstellt wird
+     * @return Kopie welche erstellt wurde
+     */
     public KarteEinheit kopieerstelen(KarteEinheit vorlage)
     {
         KarteEinheit kopie = new KarteEinheit(vorlage);
@@ -310,17 +315,29 @@ public class KarteEinheit extends Karte
         this.schlafend = schlafend;
     }
 
+    /**
+     * Getter Methode um den Wert des Attributes zaehler zu erhalten
+     * @return gibt den Wert des Attributes zaehler wieder
+     */
     public int getZaehler ()
     {
         return zaehler;
     }
 
+    /**
+     * Setter Methode um das Attribut zaehler zu setzen
+     * @param zaehler auf welchen das Attribut gesetzt werden soll
+     */
     public void setZaehler (int zaehler)
     {
         this.zaehler = zaehler;
     }
 
 
+    /**
+     * Getter Methode um den Wert des Attributes kopie zu erhalten
+     * @return gibt den Wert des Attributes kopie wieder
+     */
     public boolean getKopie ()
     {
         return kopie;
@@ -385,6 +402,10 @@ public class KarteEinheit extends Karte
         this.init = init;
     }
 
+    /**
+     * heilt eine KarteEinheit um den angegebenen wert
+     * @param heilung wert um den Der wert Lebenspunkte erhoeht wird
+     */
     public void heilen(int heilung)
     {
         this.setLebenspunkte(this.getLebenspunkte()+heilung);
