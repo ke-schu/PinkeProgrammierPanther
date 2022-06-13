@@ -60,15 +60,11 @@ public class SpielfeldGuiController
         try
         {
             spielfeldhintergrundfestlegen();
-            spiel = SpielStandIO.leseDatei();
-            spieler = spiel.getSpieler();
-            spieldeck = spiel.getSpieldeckSpieler();
-            kartenhand = new KartenHand(spieler);
-            kartenhand.handZiehen(spieldeck);
+            erstellenspielfeldumgebung();
 
             Label spielerLabel = new Label();
             spielerLabel.setText(spiel.getSpieler().getName());
-            spielfeld = new SpielFeld();
+
 
             spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
 
@@ -101,10 +97,25 @@ public class SpielfeldGuiController
                 }
             }
         }
+
+    }
+
+    private void erstellenspielfeldumgebung()
+    {
+        try
+        {
+            spiel = SpielStandIO.leseDatei();
+            spieler = spiel.getSpieler();
+            spieldeck = spiel.getSpieldeckSpieler();
+            kartenhand = new KartenHand(spieler);
+            kartenhand.handZiehen(spieldeck);
+            spielfeld = new SpielFeld();
+        }
         catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
+
     }
 
     private void Karteinhandeinfuegen(int x)
