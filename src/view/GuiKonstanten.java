@@ -8,7 +8,7 @@ public interface GuiKonstanten
     String SPIELTITEL = "DungeonDing";
 
     //Strings für Pfade
-    String BILDER_PFAD = "src/gui/bilder/";
+    String BILDER_PFAD = "src/view/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
     File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
     String HAUPTMENUE_PFAD = "Hauptmenue.fxml";
@@ -33,8 +33,8 @@ public interface GuiKonstanten
 
     //Werte für die Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
-    String HAUPTMENUE_MUSIK = "src/gui/mp3/fun-life-112188.mp3";
-    String KLICK_SOUND = "src/gui/mp3/Klick.wav";
+    String HAUPTMENUE_MUSIK = "src/view/mp3/fun-life-112188.mp3";
+    String KLICK_SOUND = "src/view/mp3/Klick.wav";
 
     //Konstanten fuer Texte der Hilfefenster
     String HILFE = "Hilfe";
