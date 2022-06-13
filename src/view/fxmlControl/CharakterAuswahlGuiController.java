@@ -1,4 +1,4 @@
-package view.xmlControl;
+package view.fxmlControl;
 
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
