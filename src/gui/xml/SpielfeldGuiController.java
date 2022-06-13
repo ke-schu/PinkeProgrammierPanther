@@ -111,7 +111,6 @@ public class SpielfeldGuiController
 
     /**
      * methode welche die kartenhand visualisiert
-     * @param x stelle in der kartenhand an der Karte eingefügt werden soll
      */
     private void Karteinhandeinfuegen()
     {
