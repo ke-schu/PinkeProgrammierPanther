@@ -59,15 +59,8 @@ public class SpielfeldGuiController
     {
             spielfeldhintergrundfestlegen();
             erstellenspielfeldumgebung();
-
             Label spielerLabel = new Label();
             spielerLabel.setText(spiel.getSpieler().getName());
-
-
-            for (int i = 0; i < HANDGROESSE; i++)
-            {
-                Karteinhandeinfuegen(i);
-            }
 
             for (int i = 0; i < spielfeld.getZeilen(); i++)
             {
@@ -108,6 +101,7 @@ public class SpielfeldGuiController
             kartenhand.handZiehen(spieldeck);
             spielfeld = new SpielFeld();
             spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
+            Karteinhandeinfuegen();
         }
         catch (JsonNichtLesbarException e)
         {
@@ -120,17 +114,20 @@ public class SpielfeldGuiController
      * methode welche die kartenhand visualisiert
      * @param x stelle in der kartenhand an der Karte eingefügt werden soll
      */
-    private void Karteinhandeinfuegen(int x)
+    private void Karteinhandeinfuegen()
     {
-        StackPane feld = new StackPane();
-        feld.setPrefWidth(KARTENHAND_GROESSE);
-        feld.setPrefHeight(KARTENHAND_GROESSE);
+        for (int i = 0; i < HANDGROESSE; i++)
+        {
+            StackPane feld = new StackPane();
+            feld.setPrefWidth(KARTENHAND_GROESSE);
+            feld.setPrefHeight(KARTENHAND_GROESSE);
 
-        Karte aktuellekarte = kartenhand.getElement(x);
-        KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
-        feld.getChildren().add(aktuellekartevbox);
+            Karte aktuellekarte = kartenhand.getElement(i);
+            KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
+            feld.getChildren().add(aktuellekartevbox);
 
-        kartenhandGitter.add(feld,x,0);
+            kartenhandGitter.add(feld,i,0);
+        }
     }
 
     private void spielfeldhintergrundfestlegen()
