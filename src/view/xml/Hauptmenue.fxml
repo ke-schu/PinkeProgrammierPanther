@@ -22,9 +22,6 @@
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#spielBeenden" prefHeight="40.0" prefWidth="150.0" text="Spiel beenden" />
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuSpielfeld" prefHeight="40.0" prefWidth="150.0" text=" gehe zu Kamp" />
          </children>
-          <padding>
-              <Insets bottom="0.0" left="0.0" right="0.0" top="100.0" />
-          </padding>
       </VBox>
    </children>
 </GridPane>
