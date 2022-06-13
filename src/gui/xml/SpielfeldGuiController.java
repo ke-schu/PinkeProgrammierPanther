@@ -193,56 +193,6 @@ public class SpielfeldGuiController
     }
 
 
-
-    /**
-     * Diese Methode oeffnet ein Pop-Up Fenster auf der Spielebene, welches das Ereignis repraesentiert
-     * @param ereignis das zu oeffnende Ereignis
-     */
-    public void oeffneEreignis (Ereignis ereignis)
-    {
-
-        final Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(ereignis.getName());
-        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
-
-        VBox vbox = new VBox(20);
-        TextArea text = new TextArea();
-        text.setText(ereignis.getBeschreibung());
-        text.setWrapText(true);
-        text.setEditable(false);
-        vbox.getChildren().add(text);
-        Scene popupScene = new Scene(vbox, 700, 500);
-        Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
-        Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
-        annehmenButton.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent arg0)
-            {
-                ereignis.setAuswahl(true);
-                ereignisGuiAusfuehren(ereignis);
-                popupStage.close();
-            }
-        });
-        ablehnenButton.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override
-            public void handle(ActionEvent arg0)
-            {
-                ereignis.setAuswahl(false);
-                popupStage.close();
-            }
-        });
-        vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().add(annehmenButton);
-        vbox.getChildren().add(ablehnenButton);
-        popupStage.setScene(popupScene);
-        popupStage.setResizable(false);
-        popupStage.setAlwaysOnTop(true);
-        popupStage.show();
-    }
-
     @Override
     public void wechselAufloesungFullHD (Event event)
     {
