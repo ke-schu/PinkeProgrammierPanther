@@ -44,7 +44,7 @@ public class mp3Controller implements Initializable
     {
         mediaplayer.play();
         mediaplayer.setAutoPlay(true);
-        mediaplayer.setOnRepeat(mediaplayer.getOnEndOfMedia());
+        mediaplayer.setOnRepeat(mediaplayer.getOnPlaying());
 
     }
 
