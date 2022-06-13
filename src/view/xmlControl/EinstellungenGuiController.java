@@ -1,4 +1,4 @@
-package view.xml;
+package view.xmlControl;
 
 import view.mp3Controller;
 import utility.SpielStandIO;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static view.GuiKonstanten.*;
+import static resources.GuiKonstanten.*;
 
 
 /**

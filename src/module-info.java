@@ -17,4 +17,5 @@ module PinkeProgrammierPanther {
     opens view.xml;
     opens control.test;
     opens view.components;
+    opens view.xmlControl;
 }
