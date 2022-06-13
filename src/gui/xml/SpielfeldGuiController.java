@@ -54,6 +54,10 @@ public class SpielfeldGuiController
     private final int FELDGROESSE = 80;
     private final int KARTENHAND_GROESSE = 100;
 
+    /**
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
