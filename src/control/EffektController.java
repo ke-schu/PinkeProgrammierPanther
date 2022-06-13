@@ -33,6 +33,14 @@ public class EffektController
                 return;
         }
     }
+
+    /**
+     * Diese Methode erkennt, ob die Einheit einen Sterbeeffekt hat und falls ja, wird die zugehoerige
+     * Methode aufgerufen.
+     * @param ausloeser Die Einheit, die den Effekt ausloest
+     * @param meineffekt Der auszuloesende Effekt
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     */
     public static void sterbeneffektausloesen(KarteEinheit ausloeser,Effekte meineffekt, SpielFeld feld)
     {
         switch (meineffekt)
@@ -50,6 +58,17 @@ public class EffektController
                 return;
         }
     }
+
+    /**
+     * Diese Methode erkennt, ob die Einheit einen Angriffseffekt hat und falls ja, wird die zugehoerige
+     * Methode aufgerufen.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param ziel Die Einheit, die angegriffen werden soll.
+     * @param meineffekt Der auszuloesende Effekt
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     * @param spielerDeck Das Deck des Players
+     * @param masterDeck Das Deck des DungeonMaster
+     */
     public static void angriffeffektAusloesen(KarteEinheit ausloeser,KarteEinheit ziel,
                                               Effekte meineffekt, SpielFeld feld,
                                               KartenDeck spielerDeck,KartenDeck masterDeck)
@@ -70,6 +89,12 @@ public class EffektController
             }
     }
 
+    /**
+     * Diese Methode erkennt, ob die Einheit einen Starteffekt hat und falls ja, wird die zugehoerige
+     * Methode aufgerufen.
+     * @param ausloeser Die Einheit, die den Effekt ausloest
+     * @param meineffekt Der auszuloesende Effekt
+     */
     public static void starteffektausloesen(KarteEinheit ausloeser, Effekte meineffekt)
     {
         switch (meineffekt)
@@ -153,11 +178,22 @@ public class EffektController
         }
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Sprint" aus. Dieser Effekt erhoeht den Bewegungswert der Einheit
+     * um 1
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     */
     private static void sprint(KarteEinheit ausloeser)
     {
         ausloeser.setBeweglichkeit(ausloeser.getBeweglichkeit()+1);
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Raubtier" aus. Dieser Effekt laesst die Einheit zweimal angreifen
+     * sofern die Macht der Einheit hoeher ist, als die des Ziels und hoeher als 0.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param ziel Die Einheit, die angegriffen werden soll.
+     */
     private static void raubtier(KarteEinheit ausloeser, KarteEinheit ziel)
     {
 
@@ -168,15 +204,36 @@ public class EffektController
         }
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Eile" aus. Dieser Effekt sorgt, dafuer, dass die Einheit sich
+     * sofort nach dem ausspielen bewegen kann.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     */
     private static void eile(KarteEinheit ausloeser)
     {
         ausloeser.setSchlafend(false);
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Kopie" aus. Dieser Effekt erstellt eine Kopie von der ausloesenden
+     * Einheit, wenn sie stirbt.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     */
     private static void kopie(KarteEinheit ausloeser, SpielFeld feld)
     {
         feld.einheitEinsetzten(ausloeser.getPositionX(), ausloeser.getPositionY(),ausloeser.kopieerstelen(ausloeser));
     }
+
+    /**
+     * Diese Methode formuliert den Effekt "Durchschneiden" aus. Dieser Effekt ermoeglicht es ein Ziel hinter
+     * einer anderen Einheit anzugreifen.
+     * @param ausloeser Die Einheit, die den Effekt auslöst.
+     * @param ziel Die Einheit, die angegriffen werden soll.
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     * @param spielerDeck Das Deck des Players
+     * @param masterDeck Das Deck des DungeonMaster
+     */
     private static void durchschneiden(KarteEinheit ausloeser,KarteEinheit ziel,
                                        SpielFeld feld, KartenDeck spielerDeck,
                                        KartenDeck masterDeck)
@@ -190,11 +247,26 @@ public class EffektController
         }
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Verschlingen" aus. Dieser Effekt heilt den Ausloeser um den Wert,
+     * das Ziel als Macht besitzt.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param ziel Die Einheit, die angegriffen werden soll.
+     */
     private static void verschlingen(KarteEinheit ausloeser,KarteEinheit ziel)
     {
         ausloeser.heilen(ziel.getMacht());
     }
 
+    /**
+     * Diese Methode formuliert den Effekt "Opfern" aus. Die ausloesende Karte opfert sich selbst um einer
+     * anderen Einheit +1 Leben und Macht zu geben
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param ziel Die Einheit, die angegriffen werden soll.
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     * @param spielerDeck
+     * @param masterDeck
+     */
     private static void opfern(KarteEinheit ausloeser,KarteEinheit ziel,
                                SpielFeld feld, KartenDeck spielerDeck,
                                KartenDeck masterDeck)
@@ -205,6 +277,13 @@ public class EffektController
         RundenController.feldplatzAufraumen(feld, spielerDeck, masterDeck,
                 ausloeser.getPositionX(),ausloeser.getPositionY());
     }
+
+    /**
+     * Diese Methode formuliert den Effekt "Heldentat" aus. Dieser Effekt erhoeht die Macht des Helden wenn
+     * die ausloesende Einheit stirbt.
+     * @param ausloeser Die Einheit, die den Effekt ausloest.
+     * @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
+     */
     private static void heldentat(KarteEinheit ausloeser,SpielFeld feld)
     {
         for (int i = 0; i < feld.getZeilen(); i++)
