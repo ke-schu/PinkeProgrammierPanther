@@ -6,7 +6,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.BorderPane?>
@@ -42,26 +41,6 @@
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
-    <center>
-        <ScrollPane fx:id="scrollpane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <content>
-                <GridPane fx:id="spielfeldGitter" alignment="CENTER" hgap="10.0" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0">
-               <columnConstraints>
-                  <ColumnConstraints />
-                  <ColumnConstraints />
-                  <ColumnConstraints />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-               </rowConstraints></GridPane>
-            </content>
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-        </ScrollPane>
-    </center>
     <top>
         <MenuBar fx:id="menueLeiste" BorderPane.alignment="CENTER">
             <menus>
@@ -90,4 +69,18 @@
             </menus>
         </MenuBar>
     </top>
+   <center>
+          <GridPane fx:id="spielfeldGitter" alignment="CENTER" gridLinesVisible="true" hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </center>
 </BorderPane>

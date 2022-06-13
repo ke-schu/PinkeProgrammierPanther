@@ -1,7 +1,6 @@
 package gui.xml;
 
 import exceptions.JsonNichtLesbarException;
-import gui.components.FeldPane;
 import gui.components.KarteVBox;
 import io.KonsolenIO;
 import io.SpielStandIO;
@@ -44,8 +43,6 @@ public class SpielfeldGuiController
     GridPane kartenhandGitter;
     @FXML
     MenuBar menueLeiste;
-    @FXML
-    ScrollPane scrollpane;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
     private KartenHand kartenhand;
@@ -83,14 +80,22 @@ public class SpielfeldGuiController
 
             for (int i = 0; i < spielfeld.getSpalten(); i++)
             {
+                spielfeldGitter.addColumn(0);
                 for (int j = 0; j < spielfeld.getZeilen(); j++)
                 {
-                    spielerEinfuegen(i, j);
+                    StackPane feld = new StackPane();
+                    feld.setPrefHeight(100);
+                    feld.setPrefWidth(100);
+                    if(j == spielfeld.getZeilen()-1 && i == spielfeld.getSpalten()-1)
+                    {
+                        KarteVBox spielerKarteVBox = new KarteVBox(spieler);
+                        feld.getChildren().add(spielerKarteVBox);
+                    }
+                    spielfeldGitter.add(feld, i, j);
                 }
-                spielfeldGitter.addColumn(0);
             }
-           // spielerPosition.set(ebene.getSpielfigur().getPosition());
-        } catch (JsonNichtLesbarException e)
+        }
+        catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
@@ -113,28 +118,7 @@ public class SpielfeldGuiController
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.DEFAULT,
                 backroundsize));
-        scrollpane.setBackground(hintergrund);
-    }
-
-
-
-
-    private void spielerEinfuegen(int x, int y)
-    {
-        KarteEinheit aktuellesfeld = spielfeld.getSpielfeldplatz(x, y);
-        FeldPane feld = new FeldPane();
-        KarteVBox spielerkartevbox = new KarteVBox(spieler);
-
-        if (aktuellesfeld == null)
-        {
-            feld.setkeineKarte(true);
-        }
-        else
-        {
-            feld.getChildren()
-                    .add(spielerkartevbox);
-        }
-        spielfeldGitter.add(feld, x, y);
+        spielfeldGitter.setBackground(hintergrund);
     }
 
     @FXML

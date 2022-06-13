@@ -19,28 +19,6 @@
     -fx-text-fill: "4f504f";
 }
 
-.feld-pane {
-    /*-fx-background-color: "6e1f00";*/
-    -fx-min-height: 100;
-    -fx-min-width: 100;
-    -fx-alignment: center;
-
-}
-
-.feld-pane:hover {
-    -fx-background-color: "87CEEB";
-}
-
-.feld-pane:keinekarte {
-    -fx-border-width: 2;
-    -fx-border-color: "000000";
-    /* -fx-background-color: "b9b9b9";*/
-}
-
-.feld-pane:karte {
-    /*-fx-background-color: red;*/
-}
-
 .karte-vbox {
     -fx-border-width: 2;
     -fx-border-color: "000000";
