@@ -11,12 +11,12 @@ public interface GuiKonstanten
     String BILDER_PFAD = "src/view/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
     File ICON = new File(BILDER_PFAD + "Logo" + PNG_DATEI_ENDUNG);
-    String XML_PFADE = "src/view/xml/";
-    String HAUPTMENUE_PFAD = XML_PFADE + "Hauptmenue.fxml";
-    String EINSTELLUNG_PFAD = XML_PFADE + "Einstellungen.fxml";
-    String CHARAKTERAUSWAHL_PFAD = XML_PFADE +"Charakterauswahl.fxml";
-    String SPIELEBENE_PFAD = XML_PFADE + "Spielebene.fxml";
-    String SPIELFELD_PFAD = XML_PFADE +"Spielfeld.fxml";
+    String FXML_PFADE = "src/view/fxml/";
+    String HAUPTMENUE_PFAD = FXML_PFADE + "Hauptmenue.fxml";
+    String EINSTELLUNG_PFAD = FXML_PFADE + "Einstellungen.fxml";
+    String CHARAKTERAUSWAHL_PFAD = FXML_PFADE +"Charakterauswahl.fxml";
+    String SPIELEBENE_PFAD = FXML_PFADE + "Spielebene.fxml";
+    String SPIELFELD_PFAD = FXML_PFADE +"Spielfeld.fxml";
 
     //Integer fuer die Aufloesung
     int AUFLOESUNG_HOEHE_HD = 720;

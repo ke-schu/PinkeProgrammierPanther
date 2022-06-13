@@ -14,7 +14,7 @@ module PinkeProgrammierPanther {
     opens model;
     opens resources;
     opens model.ereignisse;
-    opens view.xml;
+    opens view.fxml;
     opens control.test;
     opens view.components;
     opens view.xmlControl;

@@ -40,7 +40,8 @@
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerke": 10.0,
+  "lautstaerkeMusik": 2.7978663384110343,
+  "laustaerkeEffekte": 100.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }
