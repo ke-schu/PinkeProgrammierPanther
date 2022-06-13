@@ -193,6 +193,10 @@ public class SpielfeldGuiController
     }
 
 
+    /**
+     * ermöglicht das einstellen der Aufloesung in der MenueLeiste
+     * @param event ActionEvent, welches diese Methode ausloest.
+     */
     @Override
     public void wechselAufloesungFullHD (Event event)
     {
@@ -201,15 +205,5 @@ public class SpielfeldGuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_FULLHD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_FULLHD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_FULLHD);
-    }
-
-    @Override
-    public void wechselAufloesungHD (Event event)
-    {
-        super.setStage((Stage)menueLeiste.getScene().getWindow());
-        super.getStage().setMinHeight(AUFLOESUNG_HOEHE_HD);
-        super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
-        super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
-        super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
     }
 }
