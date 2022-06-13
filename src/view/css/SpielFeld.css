@@ -26,5 +26,15 @@
 }
 
 .karte-vbox Label {
-    -fx-text-fill: white;
+    -fx-text-fill:rgba(201, 76, 76, 0.3);
+}
+.karte-vbox Label:hover
+{
+    -fx-text-fill:black;
+}
+
+.karte-vbox:hover {
+    -fx-background-color: white;
+
+
 }
