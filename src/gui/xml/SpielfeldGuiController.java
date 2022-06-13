@@ -64,8 +64,6 @@ public class SpielfeldGuiController
             spielerLabel.setText(spiel.getSpieler().getName());
 
 
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
-
             for (int i = 0; i < HANDGROESSE; i++)
             {
                 Karteinhandeinfuegen(i);
@@ -96,6 +94,9 @@ public class SpielfeldGuiController
             }
     }
 
+    /**
+     * Methode welche die für den kampf benötigten objekte4 erstellt
+     */
     private void erstellenspielfeldumgebung()
     {
         try
@@ -106,6 +107,7 @@ public class SpielfeldGuiController
             kartenhand = new KartenHand(spieler);
             kartenhand.handZiehen(spieldeck);
             spielfeld = new SpielFeld();
+            spielfeld.einheitEinsetzten(spielfeld.getSpalten()-1, spielfeld.getZeilen()-1, spieler);
         }
         catch (JsonNichtLesbarException e)
         {
@@ -114,6 +116,10 @@ public class SpielfeldGuiController
 
     }
 
+    /**
+     * methode welche die kartenhand visualisiert
+     * @param x stelle in der kartenhand an der Karte eingefügt werden soll
+     */
     private void Karteinhandeinfuegen(int x)
     {
         StackPane feld = new StackPane();
