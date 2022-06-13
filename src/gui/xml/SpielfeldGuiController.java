@@ -81,7 +81,6 @@ public class SpielfeldGuiController
                         KarteVBox spielerKarteVBox = new KarteVBox(spieler);
                         feld.getChildren().add(spielerKarteVBox);
                     }
-
                     spielfeldGitter.add(feld, i, j);
                 }
             }
@@ -130,6 +129,9 @@ public class SpielfeldGuiController
         }
     }
 
+    /**
+     * legt das Hintergrundbild des Spielfeldes fest
+     */
     private void spielfeldhintergrundfestlegen()
     {
         File meinhintergrund = new File(BILDER_PFAD + "Spielplatz" + PNG_DATEI_ENDUNG);
@@ -143,6 +145,10 @@ public class SpielfeldGuiController
         spielfeldGitter.setBackground(hintergrund);
     }
 
+    /**
+     * speichert den aktuellen Spielstand
+     * @param event Event durch das die Methode ausgeloest wird
+     */
     @FXML
     public void spielSpeichern(ActionEvent event)
     {
@@ -155,6 +161,12 @@ public class SpielfeldGuiController
         }
     }
 
+    /**
+     * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
+     * @param event Event durch welches die Methode ausgeloest wird.
+     * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
+     * @throws IOException
+     */
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
     {
@@ -165,6 +177,10 @@ public class SpielfeldGuiController
         super.getStage().show();
     }
 
+    /**
+     * methode durch welche, ueber die MenueLeiste zum Hauptmenue gewechselt werden kann
+     * @param event Event durch welches die Methode ausgeloest wird.
+     */
     @FXML
     public void zurueckHauptmenue(ActionEvent event)
     {
