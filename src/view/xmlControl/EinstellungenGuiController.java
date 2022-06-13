@@ -28,6 +28,11 @@ public class EinstellungenGuiController extends GuiController implements Initial
     @FXML private ComboBox FenstergroesseBox;
     @FXML private String[] aufloesungsgroessen = {AUFLOESUNGSGROESSENHD, AUFLOESUNGSGROESSENFULLHD};
 
+    /**
+     * Wird aufgerufen, um diesen Controller zu initialisieren.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {

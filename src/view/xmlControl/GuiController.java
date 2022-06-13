@@ -42,6 +42,11 @@ public class GuiController implements Initializable
 
     protected static SpielStand spiel;
 
+    /**
+     * Wird aufgerufen, um diesen Controller zu initialisieren.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {

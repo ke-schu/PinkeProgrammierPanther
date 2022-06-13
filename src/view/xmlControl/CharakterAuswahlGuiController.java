@@ -42,6 +42,11 @@ public class CharakterAuswahlGuiController
     ObjectProperty<Charakter> aktiverCharakter = new SimpleObjectProperty<>();
     private Stack<Charakter> charakterStack;
 
+    /**
+     * Wird aufgerufen, um diesen Controller zu initialisieren.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -141,7 +146,7 @@ public class CharakterAuswahlGuiController
         }
         catch (IOException e)
         {
-            System.out.println(e.getMessage());
+            KonsolenIO.ausgeben(e.getMessage());
         }
     }
 

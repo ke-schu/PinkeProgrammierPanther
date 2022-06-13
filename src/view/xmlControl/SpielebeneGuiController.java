@@ -50,6 +50,11 @@ public class SpielebeneGuiController
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
 
+    /**
+     * Wird aufgerufen, um diesen Controller zu initialisieren.
+     * @param url Der Standort, der zum Auflösen relativer Pfade für das Root-Objekt verwendet wird.
+     * @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten Ressourcen.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -131,7 +136,7 @@ public class SpielebeneGuiController
      * Ueberlagern der Methode wechselZu damit durch die MenueLeiste auf die Methode zugegriffen werden kann.
      * @param event Event durch welches die Methode ausgeloest wird.
      * @param pfad String mit dem Pfad der .fxml Datei welche geladen werden soll.
-     * @throws IOException
+     * @throws IOException wenn die FXML nicht geladen werden kann.
      */
     @Override
     protected void wechselZu(ActionEvent event, String pfad) throws IOException
@@ -260,7 +265,7 @@ public class SpielebeneGuiController
         }
         catch (IOException e)
         {
-            System.out.println("Zum Spielfeld wechseln hat nicht geklappt");
+            KonsolenIO.ausgeben("Zum Spielfeld wechseln hat nicht geklappt");
         }
     }
 
