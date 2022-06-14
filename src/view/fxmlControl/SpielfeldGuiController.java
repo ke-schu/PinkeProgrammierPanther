@@ -52,8 +52,6 @@ public class SpielfeldGuiController extends GuiController
     {
         spielfeldhintergrundfestlegen();
         erstellenspielfeldumgebung();
-        Label spielerLabel = new Label();
-        spielerLabel.setText(spiel.getSpieler().getName());
 
         for (int i = 0; i < spielfeld.getZeilen(); i++)
         {
