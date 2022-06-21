@@ -19,7 +19,7 @@
     "maxleben": 0,
     "typ": "FERNKAEMPFER",
     "macht": 11,
-    "lebenspunkte": 3,
+    "lebenspunkte": 1,
     "manaKosten": 0,
     "beweglichkeit": 1,
     "reichweite": 1,
@@ -29,19 +29,19 @@
     "effektZwei": "ZURUECKWERFEN",
     "position": {
       "x": 5,
-      "y": 4
+      "y": 3
     },
     "schlafend": true,
     "zaehler": 0,
     "kopie": false,
     "id": 2,
-    "name": "Oberkommissar",
+    "name": "Bandit",
     "level": 1,
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerkeMusik": 8.740424859827844,
-  "laustaerkeEffekte": 45.44973544973545,
+  "lautstaerkeMusik": 10.0,
+  "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }

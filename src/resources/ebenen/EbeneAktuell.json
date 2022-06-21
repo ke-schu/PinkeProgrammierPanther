@@ -131,7 +131,7 @@
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Gegner"
         }
       }
@@ -270,7 +270,7 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 7,
+      "x": 8,
       "y": 0
     }
   }

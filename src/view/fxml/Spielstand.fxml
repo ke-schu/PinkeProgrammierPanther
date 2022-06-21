@@ -7,10 +7,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielstandGuiController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="48.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="412.0" layoutY="47.0" mnemonicParsing="false" text="Deck ansehen" />
+      <ImageView fx:id="deckBild" fitHeight="150.0" fitWidth="150.0" layoutX="48.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="476.0" layoutY="47.0" mnemonicParsing="false" text="Deck ansehen" />
       <Label layoutX="234.0" layoutY="51.0" prefHeight="17.0" prefWidth="62.0" text="Deckname:" />
-      <Label fx:id="decknameLabel" layoutX="315.0" layoutY="51.0" prefHeight="17.0" prefWidth="90.0" />
+      <Label fx:id="decknameLabel" layoutX="315.0" layoutY="51.0" prefHeight="17.0" prefWidth="142.0" />
       <Label layoutX="234.0" layoutY="76.0" prefHeight="17.0" prefWidth="62.0" text="Level:" />
       <Label layoutX="234.0" layoutY="102.0" prefHeight="17.0" prefWidth="62.0" text="Gold:" />
       <Button layoutX="245.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Talente ansehen" />
