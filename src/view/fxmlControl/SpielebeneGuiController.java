@@ -25,6 +25,7 @@ import model.Ebene;
 import model.Position;
 import model.Raum;
 import model.ereignisse.*;
+import utility.EbeneIO;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
 import view.components.RaumPane;
@@ -35,6 +36,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static resources.KonstantenGUI.*;
+import static resources.Strings.AKTUELLE_EBENE_PFAD;
 import static resources.StringsGUI.*;
 
 /**
@@ -46,6 +48,7 @@ public class SpielebeneGuiController extends GuiController
     @FXML GridPane spielebenenGitter;
     @FXML Label spielerLabel;
     @FXML MenuBar menueLeiste;
+    Ebene spielEbene;
     private ObjectProperty<Position> spielerPosition =
             new SimpleObjectProperty<>();
 
@@ -64,22 +67,22 @@ public class SpielebeneGuiController extends GuiController
         {
             spiel = SpielStandIO.leseDatei();
             spielerLabel.setText(spiel.getSpieler().getName());
-            Ebene ebene = spiel.getAktuelleEbene();
+            spielEbene = spiel.getAktuelleEbene();
 
-            for (int i = 0; i < ebene.getEbenenZeile(); i++)
+            for (int i = 0; i < spielEbene.getEbenenZeile(); i++)
             {
                 spielebenenGitter.addRow(0);
             }
 
-            for (int i = 0; i < ebene.getEbenenSpalte(); i++)
+            for (int i = 0; i < spielEbene.getEbenenSpalte(); i++)
             {
                 spielebenenGitter.addColumn(0);
-                for (int j = 0; j < ebene.getEbenenZeile(); j++)
+                for (int j = 0; j < spielEbene.getEbenenZeile(); j++)
                 {
-                    initialisiereRaum(ebene, i, j);
+                    initialisiereRaum(spielEbene, i, j);
                 }
             }
-            spielerPosition.set(ebene.getSpielfigur().getPosition());
+            spielerPosition.set(spielEbene.getSpielfigur().getPosition());
         }
         catch (JsonNichtLesbarException e)
         {
@@ -139,6 +142,7 @@ public class SpielebeneGuiController extends GuiController
         try
         {
             SpielStandIO.schreibeDatei(spiel);
+            EbeneIO.schreibeDatei(spielEbene, new File(AKTUELLE_EBENE_PFAD));
         }
         catch (IOException e)
         {

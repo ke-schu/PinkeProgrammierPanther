@@ -1,5 +1,5 @@
 {
-  "gold": 158,
+  "gold": 183,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -19,7 +19,7 @@
     "maxleben": 0,
     "typ": "FERNKAEMPFER",
     "macht": 11,
-    "lebenspunkte": 1,
+    "lebenspunkte": 3,
     "manaKosten": 0,
     "beweglichkeit": 1,
     "reichweite": 1,

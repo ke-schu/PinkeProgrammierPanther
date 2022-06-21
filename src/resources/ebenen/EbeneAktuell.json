@@ -12,18 +12,18 @@
           "interaktionsZaehler": 0,
           "name": "Die Nachbarschaft.",
           "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Tempel"
         }
       },
       {
         "ereignis": {
-          "gratisInteraktionen": 1,
+          "gratisInteraktionen": 0,
           "kosten": 20,
-          "interaktionsZaehler": 0,
+          "interaktionsZaehler": 1,
           "name": "Mutti.",
           "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Heiler"
         }
       },
@@ -31,19 +31,20 @@
         "ereignis": {
           "ausgefuehrt": false,
           "wahrscheinlichkeit": 0.0,
+          "ereignisnummer": 0,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.ZufallsEreignis"
         }
       },
       {
         "ereignis": {
-          "geleert": false,
-          "wahrscheinlichkeit": 0.0,
+          "geleert": true,
+          "wahrscheinlichkeit": 19.563994646346583,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Truhe"
         }
       },
@@ -66,12 +67,13 @@
               "y": 0
             },
             "schlafend": true,
-            "freundlich": false,
             "zaehler": 0,
+            "kopie": false,
             "id": 0,
             "name": "Gegner",
             "level": 10,
-            "klasse": "model.Gegenspieler"
+            "klasse": "model.Gegenspieler",
+            "freundlich": false
           },
           "spielfeld": {
             "spielfeld": [
@@ -146,7 +148,7 @@
           "interaktionsZaehler": 0,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Schmied"
         }
       },
@@ -174,7 +176,7 @@
           "interaktionsZaehler": 0,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Haendler"
         }
       },
@@ -192,7 +194,7 @@
         "ereignis": {
           "name": "Leere Straße.",
           "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.LeererRaum"
         }
       },
@@ -268,8 +270,8 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 4,
-      "y": 4
+      "x": 7,
+      "y": 0
     }
   }
 }
