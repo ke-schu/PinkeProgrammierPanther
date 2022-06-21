@@ -273,10 +273,9 @@ public class EffektController
      * @param spielerDeck Das Deck des Players.
      * @param masterDeck  Das Deck des DungeonMaster.
      */
-    private static void durchschneiden(KarteEinheit ausloeser,
-                                       KarteEinheit ziel, SpielFeld feld,
-                                       KartenDeck spielerDeck,
-                                       KartenDeck masterDeck)
+    private static void durchschneiden(
+            KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld,
+            KartenDeck spielerDeck, KartenDeck masterDeck)
     {
         Position positonhinterziel =
                 EinheitenController.positionHinterKarteBerechnen(ausloeser,
@@ -286,13 +285,10 @@ public class EffektController
                                                              feld);
         if (imfeld)
         {
-            EinheitenController.einheitenAngreifenMitEinheiten(feld,
-                                                               spielerDeck,
-                                                               masterDeck,
-                                                               ausloeser,
-                                                               feld.getSpielfeldplatz(
-                                                                       positonhinterziel.getX(),
-                                                                       positonhinterziel.getY()));
+            EinheitenController.einheitenAngreifenMitEinheiten(
+                    feld, spielerDeck, masterDeck, ausloeser,
+                    feld.getSpielfeldplatz(positonhinterziel.getX(),
+                                           positonhinterziel.getY()));
         }
     }
 

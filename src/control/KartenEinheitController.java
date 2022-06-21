@@ -47,10 +47,12 @@ public class KartenEinheitController
                 spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meineKarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(((KarteEinheit) meineKarte).getManaKosten());
-                EffektController.startEffektAusloesen((KarteEinheit) meineKarte,
-                                                      ((KarteEinheit) meineKarte).getEffektEins());
-                EffektController.startEffektAusloesen((KarteEinheit) meineKarte,
-                                                      ((KarteEinheit) meineKarte).getEffektZwei());
+                EffektController.startEffektAusloesen(
+                        (KarteEinheit) meineKarte,
+                        ((KarteEinheit) meineKarte).getEffektEins());
+                EffektController.startEffektAusloesen(
+                        (KarteEinheit) meineKarte,
+                        ((KarteEinheit) meineKarte).getEffektZwei());
             }
         }
     }

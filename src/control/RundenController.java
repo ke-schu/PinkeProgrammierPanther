@@ -86,14 +86,12 @@ public class RundenController
         {
             sterbendeEinheit.initialisieren();
             feld.einheitLoeschen(feldspalte, feldzeile);
-            EffektController.sterbenEffektAusloesen(sterbendeEinheit,
-                                                    sterbendeEinheit.getEffektEins(),
-                                                    feld);
-            EffektController.sterbenEffektAusloesen(sterbendeEinheit,
-                                                    sterbendeEinheit.getEffektZwei(),
-                                                    feld);
-            KartenController.karteInDeckEinordnen(sterbendeEinheit, spielerDeck,
-                                                  masterDeck);
+            EffektController.sterbenEffektAusloesen(
+                    sterbendeEinheit, sterbendeEinheit.getEffektEins(), feld);
+            EffektController.sterbenEffektAusloesen(
+                    sterbendeEinheit, sterbendeEinheit.getEffektZwei(), feld);
+            KartenController.karteInDeckEinordnen(
+                    sterbendeEinheit, spielerDeck, masterDeck);
         }
     }
 
