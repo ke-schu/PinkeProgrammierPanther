@@ -5,6 +5,7 @@ import java.io.File;
 public interface StringsGUI
 {
     String SPIELTITEL = "DungeonDing";
+    String SPIELSTAND = "Spielstand";
 
     //  Pfade
     String BILDER_PFAD = "src/view/bilder/";
@@ -21,6 +22,7 @@ public interface StringsGUI
     String CHARAKTERAUSWAHL_PFAD = FXML_PFADE + "Charakterauswahl.fxml";
     String SPIELEBENE_PFAD = FXML_PFADE + "Spielebene.fxml";
     String SPIELFELD_PFAD = FXML_PFADE + "Spielfeld.fxml";
+    String SPIELSTAND_PFAD = FXML_PFADE + "Spielstand.fxml";
 
     //  Aufloesung
     String AUFLOESUNG_GROESSE_HD = "1280x720";

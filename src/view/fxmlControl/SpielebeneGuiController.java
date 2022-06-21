@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -491,5 +492,20 @@ public class SpielebeneGuiController extends GuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
+    }
+
+    public void spielstandAnzeigen(Event event) throws IOException
+    {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(SPIELSTAND);
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        File f = new File(SPIELSTAND_PFAD);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
+        Scene popupScene = new Scene(fxmlLoader.load());
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
     }
 }
