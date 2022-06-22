@@ -1,6 +1,5 @@
 package utility;
 
-import model.Ebene;
 import model.KartenDeck;
 import resources.Strings;
 
@@ -8,14 +7,14 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client<E> extends NetzwerkIO<E>
+public class Client<T> extends NetzwerkIO<T>
 {
     String server;
     Socket linkZumServer;
 
-    public Client(String serverURL, int serverPort)
+    public Client(String serverURL, int serverPort, Class<T> typ)
     {
-        super(serverPort);
+        super(serverPort, typ);
         server = serverURL;
     }
 
@@ -73,7 +72,7 @@ public class Client<E> extends NetzwerkIO<E>
 
     public static void main(String[] args)
     {
-        Client<KartenDeck> c = new Client("localhost", 8000);
+        Client<KartenDeck> c = new Client("localhost", 8000, KartenDeck.class);
         c.verbinde();
         try
         {

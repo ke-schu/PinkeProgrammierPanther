@@ -1,21 +1,22 @@
 package utility;
 
 import java.io.*;
-import java.lang.reflect.Type;
 
 public abstract class NetzwerkIO<T>
 {
     boolean verbunden;
-    int port;
-    JsonIO meinJsonIO;
+    final int port;
+    Serialisierung serialisierung;
     DataInputStream empfang;
     DataOutputStream versand;
+    final Class<T> classType;
 
-    public NetzwerkIO(int port)
+    public NetzwerkIO(int port, Class<T> typ)
     {
-        meinJsonIO = new JsonIO<T>();
+        serialisierung = new Serialisierung<T>();
         this.port = port;
         this.verbunden = false;
+        this.classType = typ;
     }
 
     public abstract void verbinde();
@@ -23,7 +24,7 @@ public abstract class NetzwerkIO<T>
 
     public void schreibeDatei(T nachricht) throws IOException
     {
-        String jsonNachricht = meinJsonIO.serialisieren(nachricht);
+        String jsonNachricht = serialisierung.serialisieren(nachricht);
 
         if(!verbunden)
         {
@@ -36,13 +37,9 @@ public abstract class NetzwerkIO<T>
             out.write(jsonNachricht);
             out.flush();
         }
-        else
-        {
-
-        }
     }
 
-    public T leseDatei(Type typ) throws IOException
+    public T leseDatei() throws IOException
     {
         if(!verbunden)
         {
@@ -51,14 +48,12 @@ public abstract class NetzwerkIO<T>
 
         BufferedReader r = new BufferedReader(new InputStreamReader(empfang));
         StringBuilder sb = new StringBuilder();
-
         String zeile;
         while ((zeile = r.readLine()) != null)
         {
             sb.append(zeile);
         }
 
-        T nachricht = (T) meinJsonIO.deserialisieren(sb.toString(), typ);
-        return nachricht;
+        return (T) serialisierung.deserialisieren(sb.toString(), classType);
     }
 }
