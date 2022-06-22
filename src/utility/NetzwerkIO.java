@@ -22,7 +22,7 @@ public abstract class NetzwerkIO<T>
     public abstract void verbinde();
     public abstract void trenne();
 
-    public void schreibeDatei(T nachricht) throws IOException
+    public void senden(T nachricht) throws IOException
     {
         String jsonNachricht = serialisierung.serialisieren(nachricht);
 
@@ -33,13 +33,15 @@ public abstract class NetzwerkIO<T>
 
         if(nachricht != null)
         {
-            Writer out = new BufferedWriter(new OutputStreamWriter(versand));
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(versand));
             out.write(jsonNachricht);
             out.flush();
         }
+        KonsolenIO.ausgeben("Nachricht gesendet.");
+        trenne();
     }
 
-    public T leseDatei() throws IOException
+    public T empfangen() throws IOException
     {
         if(!verbunden)
         {
@@ -53,7 +55,8 @@ public abstract class NetzwerkIO<T>
         {
             sb.append(zeile);
         }
-
+        r.close();
+        trenne();
         return (T) serialisierung.deserialisieren(sb.toString(), classType);
     }
 }

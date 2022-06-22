@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class Client<T> extends NetzwerkIO<T>
 {
     String server;
-    Socket linkZumServer;
+    Socket serverVerbindung;
 
     public Client(String serverURL, int serverPort, Class<T> typ)
     {
@@ -20,46 +20,38 @@ public class Client<T> extends NetzwerkIO<T>
 
     @Override public void verbinde()
     {
-        while(!verbunden)
+        try
         {
-            try
-            {
-                linkZumServer = new Socket(server, port);
-                KonsolenIO.ausgeben("[Client] Verbunden mit "
-                                   + linkZumServer.getInetAddress()
-                                   + ":"
-                                   + linkZumServer.getPort());
-                versand = new DataOutputStream(linkZumServer.getOutputStream());
-                empfang = new DataInputStream(linkZumServer.getInputStream());
-                verbunden = true;
-                break;
-            }
-            catch (UnknownHostException e)
-            {
-                e.printStackTrace();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
+            serverVerbindung = new Socket(server, port);
+            KonsolenIO.ausgeben("[Client] Verbunden mit "
+                                + serverVerbindung.getInetAddress()
+                                + ":"
+                                + serverVerbindung.getPort());
+            versand = new DataOutputStream(new BufferedOutputStream(
+                    serverVerbindung.getOutputStream()));
+            empfang = new DataInputStream(new BufferedInputStream(
+                    serverVerbindung.getInputStream()));
+            verbunden = true;
+        }
+        catch (UnknownHostException e)
+        {
+            e.printStackTrace();
             trenne();
-            try
-            {
-                Thread.sleep(10000);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            trenne();
         }
     }
 
     @Override public void trenne()
     {
+        if(!verbunden)
+            return;
         try
         {
-            linkZumServer.close();
+            serverVerbindung.close();
             versand.close();
             empfang.close();
         }
@@ -68,17 +60,19 @@ public class Client<T> extends NetzwerkIO<T>
             e.printStackTrace();
         }
         verbunden = false;
+        KonsolenIO.ausgeben("[Client] Verbindung getrennt!");
     }
 
     public static void main(String[] args)
     {
         Client<KartenDeck> c = new Client("localhost", 8000, KartenDeck.class);
-        c.verbinde();
         try
         {
-            c.schreibeDatei(KartenDeckIO.leseDatei(Strings.SPIEL_DECK_SPIELER_PFAD));
+            c.senden(KartenDeckIO.leseDatei(Strings.SPIEL_DECK_SPIELER_PFAD));
+            Thread.sleep(1000);
+            KonsolenIO.ausgeben(c.empfangen().getDeckBezeichnung());
         }
-        catch (IOException e)
+        catch (IOException | InterruptedException e)
         {
             e.printStackTrace();
         }

@@ -1,6 +1,7 @@
 package utility;
 
 import model.KartenDeck;
+import resources.Strings;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -10,7 +11,7 @@ import java.net.UnknownHostException;
 public class Server<T> extends NetzwerkIO<T>
 {
     ServerSocket serverSocket;
-    Socket linkZumClient;
+    Socket clientVerbindung;
 
     public Server(int serverPort, Class<T> typ)
     {
@@ -19,48 +20,40 @@ public class Server<T> extends NetzwerkIO<T>
 
     @Override public void verbinde()
     {
-        while(!verbunden)
+        try
         {
-            try
-            {
-                serverSocket = new ServerSocket(port);
-                KonsolenIO.ausgeben("[Server] Warte auf Verbindung...");
-                linkZumClient = serverSocket.accept();
-                KonsolenIO.ausgeben("[Server] Verbunden mit "
-                                    + linkZumClient.getInetAddress()
-                                    + ":"
-                                    + linkZumClient.getPort());
-                empfang = new DataInputStream(linkZumClient.getInputStream());
-                versand = new DataOutputStream(linkZumClient.getOutputStream());
-                verbunden = true;
-                break;
-            }
-            catch (UnknownHostException e)
-            {
-                e.printStackTrace();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
+            serverSocket = new ServerSocket(port);
+            KonsolenIO.ausgeben("[Server] Warte auf Verbindung...");
+            clientVerbindung = serverSocket.accept();
+            KonsolenIO.ausgeben("[Server] Verbunden mit "
+                                + clientVerbindung.getInetAddress()
+                                + ":"
+                                + clientVerbindung.getPort());
+            empfang = new DataInputStream(new BufferedInputStream(
+                    clientVerbindung.getInputStream()));
+            versand = new DataOutputStream(new BufferedOutputStream(
+                    clientVerbindung.getOutputStream()));
+            verbunden = true;
+        }
+        catch (UnknownHostException e)
+        {
+            e.printStackTrace();
             trenne();
-            try
-            {
-                Thread.sleep(10000);
-            }
-            catch (InterruptedException e)
-            {
-                e.printStackTrace();
-            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            trenne();
         }
     }
 
     @Override public void trenne()
     {
+        if(!verbunden)
+            return;
         try
         {
-            linkZumClient.close();
+            clientVerbindung.close();
             versand.close();
             empfang.close();
             serverSocket.close();
@@ -70,20 +63,23 @@ public class Server<T> extends NetzwerkIO<T>
             e.printStackTrace();
         }
         verbunden = false;
+        KonsolenIO.ausgeben("[Server] Verbindung getrennt!");
     }
 
     public static void main(String[] args)
     {
         Server<KartenDeck> s = new Server(8000, KartenDeck.class);
-        s.verbinde();
-        try
+        while(true)
         {
-            KonsolenIO.ausgeben(s.leseDatei().getDeckBezeichnung());
+            try
+            {
+                KonsolenIO.ausgeben(s.empfangen().getDeckBezeichnung());
+                s.senden(KartenDeckIO.leseDatei(Strings.SPIEL_DECK_GEGNER_PFAD));
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
         }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        s.trenne();
     }
 }
