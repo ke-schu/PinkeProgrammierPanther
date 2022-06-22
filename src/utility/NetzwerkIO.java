@@ -1,16 +1,19 @@
 package utility;
 
 import java.io.*;
+import java.lang.reflect.Type;
 
 public abstract class NetzwerkIO<T>
 {
     boolean verbunden;
     int port;
-    ObjectInputStream empfang;
-    ObjectOutputStream versand;
+    JsonIO meinJsonIO;
+    DataInputStream empfang;
+    DataOutputStream versand;
 
     public NetzwerkIO(int port)
     {
+        meinJsonIO = new JsonIO<T>();
         this.port = port;
         this.verbunden = false;
     }
@@ -20,6 +23,8 @@ public abstract class NetzwerkIO<T>
 
     public void schreibeDatei(T nachricht) throws IOException
     {
+        String jsonNachricht = meinJsonIO.serialisieren(nachricht);
+
         if(!verbunden)
         {
             verbinde();
@@ -27,8 +32,9 @@ public abstract class NetzwerkIO<T>
 
         if(nachricht != null)
         {
-            versand.writeObject(nachricht);
-            versand.flush();
+            Writer out = new BufferedWriter(new OutputStreamWriter(versand));
+            out.write(jsonNachricht);
+            out.flush();
         }
         else
         {
@@ -36,22 +42,23 @@ public abstract class NetzwerkIO<T>
         }
     }
 
-    public T leseDatei() throws IOException
+    public T leseDatei(Type typ) throws IOException
     {
         if(!verbunden)
         {
             verbinde();
         }
 
-        try
+        BufferedReader r = new BufferedReader(new InputStreamReader(empfang));
+        StringBuilder sb = new StringBuilder();
+
+        String zeile;
+        while ((zeile = r.readLine()) != null)
         {
-            T nachricht = (T) empfang.readObject();
-            return nachricht;
+            sb.append(zeile);
         }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-            return null;
-        }
+
+        T nachricht = (T) meinJsonIO.deserialisieren(sb.toString(), typ);
+        return nachricht;
     }
 }

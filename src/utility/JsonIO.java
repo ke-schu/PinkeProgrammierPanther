@@ -9,6 +9,9 @@ import control.KartenDeckSerialisierung;
 import model.Ebene;
 import model.KartenDeck;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 public class JsonIO<T>
 {
     private Gson meinGson;
@@ -19,10 +22,10 @@ public class JsonIO<T>
     public JsonIO()
     {
         meinGsonBuilder = new GsonBuilder();
-        kartenDeckSerialisierung = new KartenDeckSerialisierung();
-        ebeneSerialisierung = new EbeneSerialisierung();
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class, kartenDeckSerialisierung);
-        meinGsonBuilder.registerTypeAdapter(Ebene.class, ebeneSerialisierung);
+        meinGsonBuilder.registerTypeAdapter(KartenDeck.class,
+                                            new KartenDeckSerialisierung());
+        meinGsonBuilder.registerTypeAdapter(Ebene.class,
+                                            new EbeneSerialisierung());
     }
 
     public String serialisieren(T element)
@@ -32,9 +35,10 @@ public class JsonIO<T>
         return meinGson.toJson(element);
     }
 
-    public T deserialisieren(String jsonString) throws JsonSyntaxException
+    public T deserialisieren(String jsonString, Type typ) throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
-        return meinGson.fromJson(jsonString, new TypeToken<T>(){}.getType());
+        return (T) meinGson.fromJson(jsonString, typ);
     }
 }
+

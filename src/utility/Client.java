@@ -1,6 +1,7 @@
 package utility;
 
 import model.Ebene;
+import model.KartenDeck;
 import resources.Strings;
 
 import java.io.*;
@@ -29,8 +30,8 @@ public class Client<E> extends NetzwerkIO<E>
                                    + linkZumServer.getInetAddress()
                                    + ":"
                                    + linkZumServer.getPort());
-                versand = new ObjectOutputStream(linkZumServer.getOutputStream());
-                empfang = new ObjectInputStream(linkZumServer.getInputStream());
+                versand = new DataOutputStream(linkZumServer.getOutputStream());
+                empfang = new DataInputStream(linkZumServer.getInputStream());
                 verbunden = true;
                 break;
             }
@@ -72,12 +73,11 @@ public class Client<E> extends NetzwerkIO<E>
 
     public static void main(String[] args)
     {
-        Client<Ebene> c = new Client("localhost", 8000);
+        Client<KartenDeck> c = new Client("localhost", 8000);
         c.verbinde();
         try
         {
-            c.schreibeDatei(EbeneIO.leseDatei(new File(
-                    Strings.AKTUELLE_EBENE_PFAD)));
+            c.schreibeDatei(KartenDeckIO.leseDatei(Strings.SPIEL_DECK_SPIELER_PFAD));
         }
         catch (IOException e)
         {

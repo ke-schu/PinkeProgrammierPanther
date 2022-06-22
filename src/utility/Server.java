@@ -1,8 +1,11 @@
 package utility;
 
+import com.google.gson.reflect.TypeToken;
 import model.Ebene;
+import model.KartenDeck;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -30,8 +33,8 @@ public class Server<E> extends NetzwerkIO<E>
                                     + linkZumClient.getInetAddress()
                                     + ":"
                                     + linkZumClient.getPort());
-                empfang = new ObjectInputStream(linkZumClient.getInputStream());
-                versand = new ObjectOutputStream(linkZumClient.getOutputStream());
+                empfang = new DataInputStream(linkZumClient.getInputStream());
+                versand = new DataOutputStream(linkZumClient.getOutputStream());
                 verbunden = true;
                 break;
             }
@@ -74,11 +77,12 @@ public class Server<E> extends NetzwerkIO<E>
 
     public static void main(String[] args)
     {
-        Server<Ebene> s = new Server(8000);
+        Server<KartenDeck> s = new Server(8000);
         s.verbinde();
+        Type klassenTyp = new TypeToken<KartenDeck>() {}.getType();
         try
         {
-            KonsolenIO.ausgeben(s.leseDatei());
+            KonsolenIO.ausgeben(s.leseDatei(klassenTyp).getDeckBezeichnung());
         }
         catch (IOException e)
         {
