@@ -2,7 +2,7 @@ package utility;
 
 import java.io.*;
 
-public abstract class NetzwerkIO<E>
+public abstract class NetzwerkIO<T>
 {
     boolean verbunden;
     int port;
@@ -18,37 +18,40 @@ public abstract class NetzwerkIO<E>
     public abstract void verbinde();
     public abstract void trenne();
 
-    public void schreibeDatei(E element) throws IOException
+    public void schreibeDatei(T nachricht) throws IOException
     {
         if(!verbunden)
         {
             verbinde();
         }
 
-        ObjectOutputStream dos = new ObjectOutputStream(versand);
-
-        if(element != null)
+        if(nachricht != null)
         {
-
+            versand.writeObject(nachricht);
+            versand.flush();
         }
         else
         {
 
         }
-
-        dos.flush();
-        dos.close();
-        trenne();
     }
 
-    public E leseDatei() throws IOException
+    public T leseDatei() throws IOException
     {
         if(!verbunden)
         {
             verbinde();
         }
 
-        ObjectInputStream dis = new ObjectInputStream(empfang);
-        return null;
+        try
+        {
+            T nachricht = (T) empfang.readObject();
+            return nachricht;
+        }
+        catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -1,10 +1,13 @@
 package utility;
 
+import model.Ebene;
+import resources.Strings;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Client extends NetzwerkIO
+public class Client<E> extends NetzwerkIO<E>
 {
     String server;
     Socket linkZumServer;
@@ -26,8 +29,8 @@ public class Client extends NetzwerkIO
                                    + linkZumServer.getInetAddress()
                                    + ":"
                                    + linkZumServer.getPort());
-                empfang = new ObjectInputStream(new BufferedInputStream(linkZumServer.getInputStream()));
-                versand = new ObjectOutputStream(new BufferedOutputStream(linkZumServer.getOutputStream()));
+                versand = new ObjectOutputStream(linkZumServer.getOutputStream());
+                empfang = new ObjectInputStream(linkZumServer.getInputStream());
                 verbunden = true;
                 break;
             }
@@ -65,5 +68,21 @@ public class Client extends NetzwerkIO
             e.printStackTrace();
         }
         verbunden = false;
+    }
+
+    public static void main(String[] args)
+    {
+        Client<Ebene> c = new Client("localhost", 8000);
+        c.verbinde();
+        try
+        {
+            c.schreibeDatei(EbeneIO.leseDatei(new File(
+                    Strings.AKTUELLE_EBENE_PFAD)));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        c.trenne();
     }
 }
