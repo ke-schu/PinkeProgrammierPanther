@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.*;
 import utility.KonsolenIO;
@@ -24,8 +25,7 @@ import java.util.ResourceBundle;
 
 import static resources.Konstanten.HANDGROESSE;
 import static resources.KonstantenGUI.*;
-import static resources.StringsGUI.BILDER_PFAD;
-import static resources.StringsGUI.PNG_DATEI_ENDUNG;
+import static resources.StringsGUI.*;
 
 public class SpielfeldGuiController extends GuiController
         implements Initializable
@@ -221,5 +221,25 @@ public class SpielfeldGuiController extends GuiController
         super.getStage().setMaxHeight(AUFLOESUNG_HOEHE_HD);
         super.getStage().setMinWidth(AUFLOESUNG_BREITE_HD);
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
+    }
+
+    /**
+     * Methode um das Spielstandfenster aufzurufen
+     * @param event Event durch welches die Methode ausgelöst wird.
+     * @throws IOException Kann beim .load() des fxmlLoaders geworfen werden.
+     */
+    public void spielstandAnzeigen(Event event) throws IOException
+    {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(SPIELSTAND);
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        File f = new File(SPIELSTAND_PFAD);
+        FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
+        Scene popupScene = new Scene(fxmlLoader.load());
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
     }
 }

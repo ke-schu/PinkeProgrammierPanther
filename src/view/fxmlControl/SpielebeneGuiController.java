@@ -572,6 +572,11 @@ public class SpielebeneGuiController extends GuiController
         super.getStage().setMaxWidth(AUFLOESUNG_BREITE_HD);
     }
 
+    /**
+     * Methode um das Spielstandfenster aufzurufen
+     * @param event Event durch welches die Methode ausgelöst wird.
+     * @throws IOException Kann beim .load() des fxmlLoaders geworfen werden.
+     */
     public void spielstandAnzeigen(Event event) throws IOException
     {
         final Stage popupStage = new Stage();
