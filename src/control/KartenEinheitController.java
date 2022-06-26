@@ -72,9 +72,8 @@ public class KartenEinheitController
             held.startWerteSpeichern();
             positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
                           SPIELER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(SPIELER_KAMPFFELD_STARTPOSITION_X,
-                                        SPIELER_KAMPFFELD_STARTPOSITION_Y,
-                                        held);
+            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
+                    spielfeld.getZeilen() - 1, held);
         }
         else
         {

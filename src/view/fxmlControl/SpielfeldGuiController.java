@@ -1,18 +1,23 @@
 package view.fxmlControl;
-
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import control.KartenEinheitController;
 import exceptions.JsonNichtLesbarException;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.geometry.Insets;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
+import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 import model.*;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
@@ -33,6 +38,8 @@ public class SpielfeldGuiController extends GuiController
     @FXML GridPane spielfeldGitter;
     @FXML GridPane kartenhandGitter;
     @FXML MenuBar menueLeiste;
+    StackPane targetPane;
+    StackPane sourchePane;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
     private KartenHand kartenhand;
@@ -66,16 +73,25 @@ public class SpielfeldGuiController extends GuiController
                 StackPane feld = new StackPane();
                 feld.setPrefWidth(FELDGROESSE);
                 feld.setPrefHeight(FELDGROESSE);
+                draganddroptarget(feld);
+                targetPane = feld;
 
                 if (j == spielfeld.getZeilen() - 1 &&
                     i == spielfeld.getSpalten() - 1)
                 {
+                    KartenEinheitController.beschwoerenHelden(spieler,spielfeld);
                     KarteVBox spielerKarteVBox = new KarteVBox(spieler);
+                    KonsolenIO.ausgeben(spielfeld.toString());
                     feld.getChildren().add(spielerKarteVBox);
                 }
                 spielfeldGitter.add(feld, i, j);
             }
         }
+    }
+
+    private void einheitBeschwören(StackPane feld)
+    {
+
     }
 
     /**
@@ -91,8 +107,6 @@ public class SpielfeldGuiController extends GuiController
             kartenhand = new KartenHand(spieler);
             kartenhand.handZiehen(spieldeck);
             spielfeld = new SpielFeld();
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
-                                        spielfeld.getZeilen() - 1, spieler);
             Karteinhandeinfuegen();
         }
         catch (JsonNichtLesbarException e)
@@ -100,6 +114,83 @@ public class SpielfeldGuiController extends GuiController
             KonsolenIO.ausgeben(e.getMessage());
         }
 
+    }
+
+    public void draganddropsource (StackPane feld)
+    {
+        feld.setOnMousePressed(new EventHandler <MouseEvent>()
+        {
+            public void handle(MouseEvent event)
+            {
+                feld.setMouseTransparent(true);
+                //writelog("Event on Source: mouse pressed");
+                event.setDragDetect(true);
+            }
+        });
+
+        feld.setOnMouseReleased(new EventHandler <MouseEvent>()
+        {
+            public void handle(MouseEvent event)
+            {
+                feld.setMouseTransparent(false);
+                //writelog("Event on Source: mouse released");
+            }
+        });
+
+        feld.setOnMouseDragged(new EventHandler <MouseEvent>()
+        {
+            public void handle(MouseEvent event)
+            {
+                //writelog("Event on Source: mouse dragged");
+                event.setDragDetect(false);
+            }
+        });
+
+        feld.setOnDragDetected(new EventHandler <MouseEvent>()
+        {
+            public void handle(MouseEvent event)
+            {
+                feld.startFullDrag();
+                //writelog("Event on Source: drag detected");
+            }
+        });
+    }
+
+    public void draganddroptarget (StackPane feld)
+    {
+        feld.setOnMouseDragEntered(new EventHandler <MouseDragEvent>()
+        {
+            public void handle(MouseDragEvent event)
+            {
+                //writelog("Event on Target: mouse dragged");
+            }
+        });
+
+        feld.setOnMouseDragOver(new EventHandler <MouseDragEvent>()
+        {
+            public void handle(MouseDragEvent event)
+            {
+                //writelog("Event on Target: mouse drag over");
+            }
+        });
+
+        feld.setOnMouseDragReleased(new EventHandler <MouseDragEvent>()
+        {
+            public void handle(MouseDragEvent event)
+            {
+                feld.getChildren().add(sourchePane);
+                System.out.println("Fickt euch");
+                //writelog("Event on Target: mouse drag released");
+            }
+        });
+
+        feld.setOnMouseDragExited(new EventHandler <MouseDragEvent>()
+        {
+            public void handle(MouseDragEvent event)
+            {
+                //writelog("Event on Target: mouse drag exited");
+            }
+        });
     }
 
     /**
@@ -116,7 +207,8 @@ public class SpielfeldGuiController extends GuiController
             Karte aktuellekarte = kartenhand.getElement(i);
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
-
+            draganddropsource(feld);
+            sourchePane = feld;
             kartenhandGitter.add(feld, i, 0);
         }
     }
