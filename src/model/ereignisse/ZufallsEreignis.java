@@ -13,8 +13,6 @@ import static resources.Konstanten.*;
  */
 public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
-    protected boolean ausgefuehrt = false;
-    //Variable, ob das Ereignis ausgefuehrt wurde
     protected double wahrscheinlichkeit;
     //Wert zur Bestimmung, welches Ereignis eintritt
     private int ereignisnummer;
@@ -30,34 +28,9 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      * @param ausgefuehrt:  Die Wahl des Spielers, ob er das Ereignis annimmt
      *                      oder ablehnt.
      */
-    public ZufallsEreignis(String name, String beschreibung,
-                           boolean ausgefuehrt)
+    public ZufallsEreignis(String name, String beschreibung)
     {
         super(name, beschreibung);
-        this.ausgefuehrt = ausgefuehrt;
-    }
-
-    /**
-     * Diese Methode dient als Getter um zu ueberpruefen, ob ein Ereignis
-     * ausgefuehrt wurde.
-     *
-     * @return Es wird zurueckgegeben, ob das Ereignis ausgefuehrt wurde.
-     */
-    public boolean isAusgefuehrt()
-    {
-        return ausgefuehrt;
-    }
-
-    /**
-     * Diese Methode dient als Setter um darzustellen, ob ein Ereignis
-     * ausgefuehrt wurde oder nicht.
-     *
-     * @param ausgefuehrt: Die Wahl des Spielers, ob er das Ereignis annimmt
-     *                     oder ablehnt.
-     */
-    public void setAusgefuehrt(boolean ausgefuehrt)
-    {
-        this.ausgefuehrt = ausgefuehrt;
     }
 
     /**
@@ -83,47 +56,42 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        KonsolenIO.ausgeben(this.getName());
-        //auswaehlen();
-        if (isAuswahl())
+        if(!ausgefuehrt)
         {
-            wahrscheinlichkeit = generiereWahrscheinlichkeit();
-            // Wahrscheinlichkeit 1Prozent
-            if (wahrscheinlichkeit <= EIN_PROZENT)
+            if (isAuswahl())
             {
-                ereignisnummer = ZE_1;
+                wahrscheinlichkeit = generiereWahrscheinlichkeit();
+                // Wahrscheinlichkeit 1Prozent
+                if (wahrscheinlichkeit <= EIN_PROZENT)
+                {
+                    ereignisnummer = ZE_1;
+                }
+                // Wahrscheinlichkeit 9Prozent
+                else if (wahrscheinlichkeit <= ZEHN_PROZENT)
+                {
+                    spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht() + ZE_MACHT_ERHOEHUNG);
+                    ereignisnummer = ZE_2;
+                }
+                // Wahrscheinlichkeit 10Prozent
+                else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
+                {
+                    spielStand.getSpieler().setMana(spielStand.getSpieler().getMana() + ZE_MANA_ERHOEHUNG);
+                    ereignisnummer = ZE_3;
+                }
+                // Wahrscheinlichkeit 20Prozent
+                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
+                {
+                    spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() - ZE_SCHADEN);
+                    ereignisnummer = ZE_4;
+                }
+                // Wahrscheinlichkeit 10Prozent
+                else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
+                {
+                    KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
+                    ereignisnummer = ZE_5;
+                }
+                ausgefuehrt = true;
             }
-            // Wahrscheinlichkeit 9Prozent
-            else if (wahrscheinlichkeit <= ZEHN_PROZENT)
-            {
-                spielStand.getSpieler().setMacht(
-                        spielStand.getSpieler().getMacht() +
-                        ZE_MACHT_ERHOEHUNG);
-                ereignisnummer = ZE_2;
-            }
-            // Wahrscheinlichkeit 10Prozent
-            else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
-            {
-                spielStand.getSpieler().setMana(
-                        spielStand.getSpieler().getMana() + ZE_MANA_ERHOEHUNG);
-                ereignisnummer = ZE_3;
-            }
-            // Wahrscheinlichkeit 20Prozent
-            else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
-            {
-                spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() - ZE_SCHADEN);
-                ereignisnummer = ZE_4;
-            }
-            // Wahrscheinlichkeit 10Prozent
-            else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
-            {
-                KartenController.karteVerbessern(
-                        spielStand.getSpieldeckSpieler()
-                                  .get(KonsolenIO.eingabeInt()));
-                ereignisnummer = ZE_5;
-            }
-            ausgefuehrt = true;
         }
     }
 

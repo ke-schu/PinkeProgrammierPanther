@@ -70,8 +70,7 @@ public class EbenenErstellung
                 meinRaum[ZAHL_2][ZAHL_6] = boss1;
 
                 ZufallsEreignis ze = new ZufallsEreignis(ZUFALLS_EREIGNIS_NAME,
-                                                         ZUFALLS_EREIGNIS_BESCHREIBUNG,
-                                                         false);
+                                                         ZUFALLS_EREIGNIS_BESCHREIBUNG);
                 Raum RaumMitZufallsEreignis = new Raum(ze);
                 meinRaum[ZAHL_3][ZAHL_3] = RaumMitZufallsEreignis;
 

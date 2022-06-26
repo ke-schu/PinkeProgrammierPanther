@@ -12,8 +12,9 @@
           "interaktionsZaehler": 0,
           "name": "Die Nachbarschaft.",
           "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Tempel"
+          "auswahl": false,
+          "klasse": "model.ereignisse.Tempel",
+          "ausgefuehrt": false
         }
       },
       {
@@ -23,29 +24,30 @@
           "interaktionsZaehler": 1,
           "name": "Mutti.",
           "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Heiler"
+          "auswahl": false,
+          "klasse": "model.ereignisse.Heiler",
+          "ausgefuehrt": false
         }
       },
       {
         "ereignis": {
-          "ausgefuehrt": false,
           "wahrscheinlichkeit": 0.0,
           "ereignisnummer": 0,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
           "auswahl": true,
-          "klasse": "model.ereignisse.ZufallsEreignis"
+          "klasse": "model.ereignisse.ZufallsEreignis",
+          "ausgefuehrt": false
         }
       },
       {
         "ereignis": {
-          "geleert": true,
-          "wahrscheinlichkeit": 19.563994646346583,
+          "wahrscheinlichkeit": 43.100906453671165,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
           "auswahl": true,
-          "klasse": "model.ereignisse.Truhe"
+          "klasse": "model.ereignisse.Truhe",
+          "ausgefuehrt": true
         }
       },
       {
@@ -131,8 +133,9 @@
           },
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Gegner"
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner",
+          "ausgefuehrt": false
         }
       }
     ],
@@ -149,7 +152,8 @@
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
           "auswahl": true,
-          "klasse": "model.ereignisse.Schmied"
+          "klasse": "model.ereignisse.Schmied",
+          "ausgefuehrt": false
         }
       },
       null,
@@ -160,7 +164,8 @@
           "name": "Die Bushaltestelle.",
           "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
           "auswahl": false,
-          "klasse": "model.ereignisse.Treppe"
+          "klasse": "model.ereignisse.Treppe",
+          "ausgefuehrt": false
         }
       }
     ],
@@ -177,7 +182,8 @@
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
           "auswahl": true,
-          "klasse": "model.ereignisse.Haendler"
+          "klasse": "model.ereignisse.Haendler",
+          "ausgefuehrt": false
         }
       },
       null,
@@ -195,7 +201,8 @@
           "name": "Leere Straße.",
           "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
           "auswahl": true,
-          "klasse": "model.ereignisse.LeererRaum"
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
         }
       },
       null,
@@ -213,7 +220,8 @@
           "name": "Startpunkt.",
           "beschreibung": "Hier bin ich ausgestiegen, ich sollte mich in der Gegend mal umsehen.",
           "auswahl": false,
-          "klasse": "model.ereignisse.LeererRaum"
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
         }
       },
       null,
@@ -270,7 +278,7 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 8,
+      "x": 6,
       "y": 0
     }
   }

@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "DasDeckDerGang",
+  "bezeichnung": "DasDeckDerPolizei",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -20,7 +20,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 0,
-      "name": "Böser Nachbar",
+      "name": "Polizist",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -44,7 +44,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 1,
-      "name": "Genervter Nachbar",
+      "name": "Pastor",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -68,7 +68,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 2,
-      "name": "Eismann",
+      "name": "Postbote",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -92,7 +92,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 3,
-      "name": "Nachbarsjunge",
+      "name": "Katze",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -116,7 +116,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 4,
-      "name": "Rüdiger",
+      "name": "Verkäufer",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -140,7 +140,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 5,
-      "name": "Streuner",
+      "name": "Bäcker",
       "level": 40,
       "klasse": "model.KarteEinheit",
       "freundlich": false

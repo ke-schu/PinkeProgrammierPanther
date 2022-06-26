@@ -17,6 +17,9 @@ public abstract class Ereignis
     //Abfrage ob der Spieler, dass Ereignis ausfuehrt (Kampf ablehnen etc.)
     private String klasse = this.getClass().getCanonicalName();
 
+    protected boolean ausgefuehrt = false;
+    //Abfrage, ob das Ereignis bereits ausgefuehrt wurde, falls relevant
+
     /**
      * Der Konstruktor von Ereignis.
      *
@@ -60,6 +63,16 @@ public abstract class Ereignis
     public boolean isAuswahl()
     {
         return auswahl;
+    }
+
+    public boolean isAusgefuehrt ()
+    {
+        return ausgefuehrt;
+    }
+
+    public void setAusgefuehrt (boolean ausgefuehrt)
+    {
+        this.ausgefuehrt = ausgefuehrt;
     }
 
     /**

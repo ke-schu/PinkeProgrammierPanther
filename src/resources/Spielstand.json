@@ -1,5 +1,5 @@
 {
-  "gold": 183,
+  "gold": 188,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -28,14 +28,14 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 5,
-      "y": 3
+      "x": 3,
+      "y": 2
     },
     "schlafend": true,
     "zaehler": 0,
     "kopie": false,
     "id": 2,
-    "name": "Bandit",
+    "name": "Oberkommissar",
     "level": 1,
     "klasse": "model.Spieler",
     "freundlich": true

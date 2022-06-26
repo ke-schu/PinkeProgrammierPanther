@@ -64,8 +64,8 @@ public class EbeneTest
         Heiler heiler = new Heiler(HEILER_NAME, HEILER_BESCHREIBUNG);
         ZufallsEreignis zufallsEreignis =
                 new ZufallsEreignis(ZUFALLS_EREIGNIS_NAME,
-                                    ZUFALLS_EREIGNIS_BESCHREIBUNG, false);
-        Truhe truhe = new Truhe(TRUHE_NAME, TRUHE_BESCHREIBUNG, false);
+                                    ZUFALLS_EREIGNIS_BESCHREIBUNG);
+        Truhe truhe = new Truhe(TRUHE_NAME, TRUHE_BESCHREIBUNG);
         Gegner gegner = new Gegner(GEGNER_NAME, GEGNER_BESCHREIBUNG,
                                    erstelleGegenspieler(), new SpielFeld());
         Treppe treppe = new Treppe(TREPPE_NAME, TREPPE_BESCHREIBUNG);

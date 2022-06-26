@@ -84,7 +84,6 @@ public class Haendler extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        //auswaehlen();
         if (isAuswahl())
         {
             int indexKarte;

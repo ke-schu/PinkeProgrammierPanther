@@ -1,7 +1,11 @@
 package model.ereignisse;
 
+import exceptions.JsonNichtLesbarException;
 import model.SpielStand;
+import utility.EbeneIO;
 import utility.KonsolenIO;
+
+import java.io.File;
 
 /**
  * Diese Klasse ist eine Subklasse von Ereignis. Eine Treppe ist nur als
@@ -31,8 +35,17 @@ public class Treppe extends Ereignis
      *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren (SpielStand spielStand)
     {
-        KonsolenIO.ausgeben(this.getName());
+        /*
+        try
+        {
+            EbeneIO.leseDatei();
+        }
+        catch (JsonNichtLesbarException e)
+        {
+            e.getMessage();
+        }
+         */
     }
 }

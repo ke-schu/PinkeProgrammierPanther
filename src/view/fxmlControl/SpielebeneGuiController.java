@@ -124,9 +124,10 @@ public class SpielebeneGuiController extends GuiController
                                                                          spiel))
                                    {
                                        spielerPosition.bind(aktuellePosition);
-                                       oeffneEreignis(
-                                               ebene.getRaumAnPosition(x, y)
-                                                    .getEreignis());
+                                       if (!ebene.getRaumAnPosition(x, y).getEreignis().isAusgefuehrt())
+                                       {
+                                           oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
+                                       }
                                    }
                                });
         spielebenenGitter.add(raum, x, y);
@@ -274,10 +275,7 @@ public class SpielebeneGuiController extends GuiController
         }
         else if (ereignis instanceof Truhe)
         {
-            if (!((Truhe) ereignis).isGeleert())
-            {
                 truheGuiAusfuehren(ereignis);
-            }
         }
         else if (ereignis instanceof ZufallsEreignis)
         {
@@ -309,6 +307,32 @@ public class SpielebeneGuiController extends GuiController
      */
     public void haendlerGuiAusfuehren(Ereignis ereignis)
     {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(POPUP_VBOX);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene =
+                new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
     }
 
     /**
@@ -319,9 +343,9 @@ public class SpielebeneGuiController extends GuiController
      */
     public void heilerGuiAusfuehren(Ereignis ereignis)
     {
-        int lebenVorher = spiel.getGold();
+        int lebenVorher = spiel.getSpieler().getLebenspunkte();
         ereignis.ausfuehren(spiel);
-        int lebenNachher = spiel.getGold();
+        int lebenNachher = spiel.getSpieler().getLebenspunkte();
         int lebenErhalten = lebenNachher - lebenVorher;
 
         final Stage popupStage = new Stage();
@@ -362,7 +386,34 @@ public class SpielebeneGuiController extends GuiController
      */
     public void schmiedGuiAusfuehren(Ereignis ereignis)
     {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(POPUP_VBOX);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene =
+                new Scene(vbox, 600, 600);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
     }
+
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Tempel" in der
@@ -372,6 +423,32 @@ public class SpielebeneGuiController extends GuiController
      */
     public void tempelGuiAusfuehren(Ereignis ereignis)
     {
+        final Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle(ereignis.getName());
+        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+
+        VBox vbox = new VBox(POPUP_VBOX);
+        TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene =
+                new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
+        Button gehenButton = new Button(EREIGNIS_GEHEN);
+        gehenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override public void handle(ActionEvent arg0)
+            {
+                popupStage.close();
+            }
+        });
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+        vbox.getChildren().add(gehenButton);
+        popupStage.setScene(popupScene);
+        popupStage.setResizable(false);
+        popupStage.setAlwaysOnTop(true);
+        popupStage.show();
     }
 
     /**
@@ -382,6 +459,7 @@ public class SpielebeneGuiController extends GuiController
      */
     public void treppeGuiAusfuehren(Ereignis ereignis)
     {
+        ereignis.ausfuehren(spiel);
     }
 
     /**
@@ -439,6 +517,7 @@ public class SpielebeneGuiController extends GuiController
         popupStage.initModality(Modality.APPLICATION_MODAL);
         popupStage.setTitle(ereignis.getName());
         popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        ereignis.ausfuehren(spiel);
 
         VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
@@ -447,7 +526,6 @@ public class SpielebeneGuiController extends GuiController
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
-        ereignisText.setText(ZUFALLS_EREIGNIS_AUSFUEHREN);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override public void handle(ActionEvent arg0)

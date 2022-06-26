@@ -6,7 +6,6 @@ import static resources.Konstanten.*;
 
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
-    protected boolean geleert = false;
     protected double wahrscheinlichkeit;
 
     /**
@@ -18,10 +17,9 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      * @param geoeffnet:    Der Zustand der Truhe, ob sie geoeffnet ist.
      */
-    public Truhe(String name, String beschreibung, boolean geoeffnet)
+    public Truhe(String name, String beschreibung)
     {
         super(name, beschreibung);
-        this.geleert = geoeffnet;
     }
 
     /**
@@ -31,7 +29,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        if (!geleert)
+        if (!ausgefuehrt)
         {
             if (isAuswahl())
             {
@@ -61,7 +59,7 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
                     spielStand.setGold(
                             spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_FUENF);
                 }
-                geleert = true;
+                ausgefuehrt = true;
             }
         }
     }
@@ -77,26 +75,5 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
     {
         wahrscheinlichkeit = Math.random() * WAHRSCHEINLICHKEIT_MAX;
         return wahrscheinlichkeit;
-    }
-
-    /**
-     * Gibt wieder, ob eine Truhe geleert ist.
-     *
-     * @return ob die Truhe geleert ist.
-     */
-    public boolean isGeleert()
-    {
-        return geleert;
-    }
-
-    /**
-     * Setze das Attribut geleert auf den uebergebenen boolean Wert.
-     *
-     * @param geleert boolean, welches in das Attribut geleert gesetzt werden
-     *                soll.
-     */
-    public void setGeleert(boolean geleert)
-    {
-        this.geleert = geleert;
     }
 }
