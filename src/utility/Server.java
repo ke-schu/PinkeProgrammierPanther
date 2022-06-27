@@ -3,7 +3,6 @@ package utility;
 import java.io.*;
 import java.net.BindException;
 import java.net.ServerSocket;
-import java.net.SocketException;
 
 public class Server<T> extends NetzwerkIO<T>
 {
@@ -42,6 +41,6 @@ public class Server<T> extends NetzwerkIO<T>
 
     public static void main(String[] args)
     {
-        new Server<String>(8000, String.class);
+        Server<String> meinServer = new Server(8000, String.class);
     }
 }

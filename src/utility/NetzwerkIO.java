@@ -1,8 +1,11 @@
 package utility;
 
+import com.google.gson.stream.JsonReader;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+
 import java.io.*;
 import java.net.Socket;
-import java.net.SocketException;
 
 public abstract class NetzwerkIO<T>
 {
@@ -63,19 +66,9 @@ public abstract class NetzwerkIO<T>
         infoOut.println("Nachricht gesendet.");
     }
 
-    public void empfangen()
+    private void empfangen()
     {
-        try
-        {
-            String zeile;
-            while (netIn != null && (zeile = netIn.readLine()) != null)
-            {
-                infoOut.println(zeile);
-            }
-        }
-        catch (IOException e)
-        {
-            infoOut.println("Fehler beim Empfangen!");;
-        }
+        JsonReader reader = new JsonReader(netIn);
+        infoOut.println(serialisierung.deserialisieren(reader, classType));
     }
 }
