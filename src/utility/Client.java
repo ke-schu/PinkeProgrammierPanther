@@ -1,81 +1,51 @@
 package utility;
 
+import exceptions.JsonNichtLesbarException;
 import model.KartenDeck;
-import resources.Strings;
 
 import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
+
+import static resources.Strings.SPIEL_DECK_GEGNER_PFAD;
 
 public class Client<T> extends NetzwerkIO<T>
 {
-    String server;
-    Socket serverVerbindung;
-
-    public Client(String serverURL, int serverPort, Class<T> typ)
+    public Client(String hostname, int port, Class<T> typ)
     {
-        super(serverPort, typ);
-        server = serverURL;
-    }
-
-    @Override public void verbinde()
-    {
+        super(typ);
         try
         {
-            serverVerbindung = new Socket(server, port);
-            KonsolenIO.ausgeben("[Client] Verbunden mit "
-                                + serverVerbindung.getInetAddress()
-                                + ":"
-                                + serverVerbindung.getPort());
-            versand = new DataOutputStream(new BufferedOutputStream(
-                    serverVerbindung.getOutputStream()));
-            empfang = new DataInputStream(new BufferedInputStream(
-                    serverVerbindung.getInputStream()));
+            socket = new Socket(hostname, port);
+            socket.setSoTimeout(0);
             verbunden = true;
-        }
-        catch (UnknownHostException e)
-        {
-            e.printStackTrace();
-            trenne();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-            trenne();
-        }
-    }
 
-    @Override public void trenne()
-    {
-        if(!verbunden)
-            return;
-        try
-        {
-            serverVerbindung.close();
-            versand.close();
-            empfang.close();
+            netIn = new BufferedReader(
+                    new InputStreamReader(socket.getInputStream()));
+            netOut = new PrintWriter(
+                    new OutputStreamWriter(socket.getOutputStream()));
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            beenden();
         }
-        verbunden = false;
-        KonsolenIO.ausgeben("[Client] Verbindung getrennt!");
     }
 
     public static void main(String[] args)
     {
-        Client<KartenDeck> c = new Client("localhost", 8000, KartenDeck.class);
+        Client<KartenDeck> meinClient = new Client("localhost", PORT, KartenDeck.class);
         try
         {
-            c.senden(KartenDeckIO.leseDatei(Strings.SPIEL_DECK_SPIELER_PFAD));
-            Thread.sleep(1000);
-            KonsolenIO.ausgeben(c.empfangen().getDeckBezeichnung());
+            meinClient.senden(KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD));
         }
-        catch (IOException | InterruptedException e)
+        catch (JsonNichtLesbarException e)
         {
             e.printStackTrace();
         }
-        c.trenne();
+        meinClient.postEingangProperty().addListener(
+                (observableValue, s, t1) ->
+                {
+                    KonsolenIO.ausgeben(meinClient.getPostEingang().getDeckBezeichnung());
+                });
+        meinClient.starteInputThread();
     }
 }
