@@ -8,7 +8,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielstandGuiController">
    <children>
       <ImageView fx:id="deckBild" fitHeight="150.0" fitWidth="150.0" layoutX="48.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="476.0" layoutY="47.0" mnemonicParsing="false" text="Deck ansehen" />
+      <Button layoutX="476.0" layoutY="47.0" mnemonicParsing="false" onAction="#kartenDeckAnzeigen" text="Deck ansehen" />
       <Label layoutX="234.0" layoutY="51.0" prefHeight="17.0" prefWidth="62.0" text="Deckname:" />
       <Label fx:id="decknameLabel" layoutX="315.0" layoutY="51.0" prefHeight="17.0" prefWidth="142.0" />
       <Label layoutX="234.0" layoutY="76.0" prefHeight="17.0" prefWidth="62.0" text="Level:" />
