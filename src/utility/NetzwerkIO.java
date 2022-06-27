@@ -1,62 +1,81 @@
 package utility;
 
 import java.io.*;
+import java.net.Socket;
+import java.net.SocketException;
 
 public abstract class NetzwerkIO<T>
 {
-    boolean verbunden;
-    final int port;
+    protected BufferedReader netIn = null;
+    protected PrintWriter netOut = null;
+    boolean verbunden = false;
+    PrintStream infoOut = System.out;
     Serialisierung serialisierung;
-    DataInputStream empfang;
-    DataOutputStream versand;
     final Class<T> classType;
+    Socket socket = null;
 
-    public NetzwerkIO(int port, Class<T> typ)
+    public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
-        this.port = port;
-        this.verbunden = false;
         this.classType = typ;
     }
 
-    public abstract void verbinde();
-    public abstract void trenne();
+    class InputThread extends Thread
+    {
+        public void run()
+        {
+            while (verbunden)
+            {
+                try
+                {
+                    this.sleep(10);
+                    empfangen();
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
 
-    public void senden(T nachricht) throws IOException
+            try
+            {
+                netIn.close();;
+                netOut.close();
+                socket.close();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void senden(T nachricht)
     {
         String jsonNachricht = serialisierung.serialisieren(nachricht);
 
-        if(!verbunden)
-        {
-            verbinde();
-        }
-
         if(nachricht != null)
         {
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(versand));
-            out.write(jsonNachricht);
-            out.flush();
+            netOut.println(jsonNachricht);
+            netOut.flush();
         }
-        KonsolenIO.ausgeben("Nachricht gesendet.");
-        trenne();
+
+        infoOut.println("Nachricht gesendet.");
     }
 
-    public T empfangen() throws IOException
+    public void empfangen()
     {
-        if(!verbunden)
+        try
         {
-            verbinde();
+            String zeile;
+            while (netIn != null && (zeile = netIn.readLine()) != null)
+            {
+                infoOut.println(zeile);
+            }
         }
-
-        BufferedReader r = new BufferedReader(new InputStreamReader(empfang));
-        StringBuilder sb = new StringBuilder();
-        String zeile;
-        while ((zeile = r.readLine()) != null)
+        catch (IOException e)
         {
-            sb.append(zeile);
+            infoOut.println("Fehler beim Empfangen!");;
         }
-        r.close();
-        trenne();
-        return (T) serialisierung.deserialisieren(sb.toString(), classType);
     }
 }
