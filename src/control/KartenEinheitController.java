@@ -31,11 +31,11 @@ public class KartenEinheitController
      * @param y            Spalte im spielfeld
      * @param tank         zu Verfuegung stehende Mana-Reserve
      */
-    public static void beschwoeren(KartenHand kartenhand, int positionhand,
+    public static boolean  beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
                                    ManaTank tank)
     {
-        if ((spielfeld.getSpielfeld()[x][y] == null) &&
+        if ((spielfeld.getSpielfeldplatz(x, y) == null) &&
             (freundBenachbart(x, y, spielfeld)))
         {
             Karte meineKarte = kartenhand.getElement(positionhand);
@@ -53,9 +53,26 @@ public class KartenEinheitController
                 EffektController.startEffektAusloesen(
                         (KarteEinheit) meineKarte,
                         ((KarteEinheit) meineKarte).getEffektZwei());
+
+                return beschwoerungerfolgreich(spielfeld,meineKarte, x, y);
             }
         }
+        System.out.println("beschwörung hat nicht geklappt du lappen");
+        return false;
     }
+
+    public static boolean beschwoerungerfolgreich(SpielFeld spielfeld, Karte aktuellekarte,int feldspaltenindex,
+                                                 int feldzeilenindex)
+    {
+        Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
+        if (karteaufspielfeld == aktuellekarte)
+        {
+            System.out.println("beschwörung hat geklappt du lappen");
+            return true;
+        }
+        return false;
+    }
+
 
 
     /**
@@ -151,6 +168,14 @@ public class KartenEinheitController
             {
                 freundlich = true;
             }
+        }
+        if(freundlich == true)
+        {
+            System.out.println("ja hier ist ein nachbar");
+        }
+        else
+        {
+            System.out.println("nein hier ist kein nachbar");
         }
         return freundlich;
     }

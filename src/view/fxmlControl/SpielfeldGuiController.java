@@ -1,7 +1,5 @@
 package view.fxmlControl;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import control.KartenEinheitController;
@@ -11,13 +9,10 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
-import javafx.scene.paint.Color;
 import model.*;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
@@ -38,12 +33,14 @@ public class SpielfeldGuiController extends GuiController
     @FXML GridPane spielfeldGitter;
     @FXML GridPane kartenhandGitter;
     @FXML MenuBar menueLeiste;
-    StackPane targetPane;
-    StackPane sourchePane;
+    private StackPane sourcePaneFeld;
+    private StackPane sourcePaneHand;
     private SpielFeld spielfeld;
     private KartenDeck spieldeck;
     private KartenHand kartenhand;
     private Spieler spieler;
+
+    private ManaTank manaTankSpieler;
     private final int FELDGROESSE = 80;
     private final int KARTENHAND_GROESSE = 100;
 
@@ -74,10 +71,12 @@ public class SpielfeldGuiController extends GuiController
                 feld.setPrefWidth(FELDGROESSE);
                 feld.setPrefHeight(FELDGROESSE);
                 draganddroptarget(feld);
-                targetPane = feld;
+                draganddropsource(feld, true);
+                //targetPane = feld;
 
-                if (j == spielfeld.getZeilen() - 1 &&
-                    i == spielfeld.getSpalten() - 1)
+                if
+                (j == spielfeld.getZeilen() - 1 &&
+                 i == spielfeld.getSpalten() - 1)
                 {
                     KartenEinheitController.beschwoerenHelden(spieler,spielfeld);
                     KarteVBox spielerKarteVBox = new KarteVBox(spieler);
@@ -107,6 +106,7 @@ public class SpielfeldGuiController extends GuiController
             kartenhand = new KartenHand(spieler);
             kartenhand.handZiehen(spieldeck);
             spielfeld = new SpielFeld();
+            manaTankSpieler = new ManaTank(spieler);
             Karteinhandeinfuegen();
         }
         catch (JsonNichtLesbarException e)
@@ -116,80 +116,64 @@ public class SpielfeldGuiController extends GuiController
 
     }
 
-    public void draganddropsource (StackPane feld)
+    public void draganddropsource (StackPane feld, boolean spielfeld)
     {
-        feld.setOnMousePressed(new EventHandler <MouseEvent>()
+        feld.setOnMousePressed(event ->
         {
-            public void handle(MouseEvent event)
+            feld.setMouseTransparent(true);
+            event.setDragDetect(true);
+            if (spielfeld == true)
             {
-                feld.setMouseTransparent(true);
-                //writelog("Event on Source: mouse pressed");
-                event.setDragDetect(true);
+                sourcePaneFeld = feld;
             }
+            else if (spielfeld == false)
+            {
+                sourcePaneHand = feld;
+            }
+
         });
 
-        feld.setOnMouseReleased(new EventHandler <MouseEvent>()
-        {
-            public void handle(MouseEvent event)
-            {
-                feld.setMouseTransparent(false);
-                //writelog("Event on Source: mouse released");
-            }
-        });
+        feld.setOnMouseReleased(event -> feld.setMouseTransparent(false));
 
-        feld.setOnMouseDragged(new EventHandler <MouseEvent>()
-        {
-            public void handle(MouseEvent event)
-            {
-                //writelog("Event on Source: mouse dragged");
-                event.setDragDetect(false);
-            }
-        });
+        feld.setOnMouseDragged(event -> event.setDragDetect(false));
 
-        feld.setOnDragDetected(new EventHandler <MouseEvent>()
-        {
-            public void handle(MouseEvent event)
-            {
-                feld.startFullDrag();
-                //writelog("Event on Source: drag detected");
-            }
-        });
+        feld.setOnDragDetected(event -> feld.startFullDrag());
     }
 
-    public void draganddroptarget (StackPane feld)
+    public void draganddroptarget (StackPane targetfeld)
     {
-        feld.setOnMouseDragEntered(new EventHandler <MouseDragEvent>()
+        targetfeld.setOnMouseDragEntered(event ->
         {
-            public void handle(MouseDragEvent event)
-            {
-                //writelog("Event on Target: mouse dragged");
-            }
         });
 
-        feld.setOnMouseDragOver(new EventHandler <MouseDragEvent>()
+        targetfeld.setOnMouseDragOver(event ->
         {
-            public void handle(MouseDragEvent event)
-            {
-                //writelog("Event on Target: mouse drag over");
-            }
         });
 
-        feld.setOnMouseDragReleased(new EventHandler <MouseDragEvent>()
+        targetfeld.setOnMouseDragReleased(event ->
         {
-            public void handle(MouseDragEvent event)
+            int feldspaltenindex =spielfeldGitter.getColumnIndex(targetfeld);
+            System.out.println("ich bin der Spaltenindex " + feldspaltenindex);
+            int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
+            System.out.println("ich bin der Spaltenindex " + feldzeilenindex);
+            int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
+            Karte aktuellekarte = kartenhand.getElement(handindex);
+            boolean erfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
+                                                spielfeld, feldspaltenindex,
+                                                feldzeilenindex, manaTankSpieler);
+            if (erfolgreich)
             {
-                feld.getChildren().add(sourchePane);
-                System.out.println("Fickt euch");
-                //writelog("Event on Target: mouse drag released");
+                kartenhandGitter.getChildren().remove(sourcePaneHand);
+                KarteVBox KarteVBox = new KarteVBox(aktuellekarte);
+                KonsolenIO.ausgeben(spielfeld.toString());
+                targetfeld.getChildren().add(KarteVBox);
             }
+
+            System.out.println("Fickt mein leben");
         });
 
-        feld.setOnMouseDragExited(new EventHandler <MouseDragEvent>()
+        targetfeld.setOnMouseDragExited(event ->
         {
-            public void handle(MouseDragEvent event)
-            {
-                //writelog("Event on Target: mouse drag exited");
-            }
         });
     }
 
@@ -207,8 +191,8 @@ public class SpielfeldGuiController extends GuiController
             Karte aktuellekarte = kartenhand.getElement(i);
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
-            draganddropsource(feld);
-            sourchePane = feld;
+            draganddropsource(feld, false);
+            //sourcePaneFeld = feld;
             kartenhandGitter.add(feld, i, 0);
         }
     }
