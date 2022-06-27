@@ -1,23 +1,29 @@
 package utility;
 
+import exceptions.JsonNichtLesbarException;
+import model.KartenDeck;
+
 import java.io.*;
 import java.net.BindException;
 import java.net.ServerSocket;
 
+import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
+
 public class Server<T> extends NetzwerkIO<T>
 {
-    private static int nbConnections = 1;
-    ServerSocket server = null;
+    private final static int MAX_WARTENDE_VERBINDUNGEN = 1;
+    private ServerSocket server = null;
 
     public Server(int port, Class<T> typ)
     {
         super(typ);
         try
         {
-            server = new ServerSocket(port, nbConnections);
+            server = new ServerSocket(port, MAX_WARTENDE_VERBINDUNGEN);
             infoOut.println("Warte auf Verbindung auf Port: " + port);
 
             socket = server.accept();
+            socket.setSoTimeout(0);
             infoOut.println("Verbunden zu " + socket.getInetAddress());
             verbunden = true;
 
@@ -28,22 +34,29 @@ public class Server<T> extends NetzwerkIO<T>
         }
         catch (BindException e)
         {
+            beenden();
             infoOut.println("Server läuft bereits auf Port " + port);
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            beenden();
         }
     }
 
     public static void main(String[] args)
     {
-        Server<String> meinServer = new Server(8000, String.class);
-        meinServer.objProperty().addListener(
+        Server<KartenDeck> meinServer = new Server(PORT, KartenDeck.class);
+        meinServer.postEingangProperty().addListener(
                 (observableValue, s, t1) ->
                 {
-                    KonsolenIO.ausgeben(meinServer.getObj());
-                    meinServer.senden("hey, hier ist der Server");
+                    KonsolenIO.ausgeben(meinServer.getPostEingang().getDeckBezeichnung());
+                    try
+                    {
+                        meinServer.senden(KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD));
+                    } catch (JsonNichtLesbarException e)
+                    {
+                        e.printStackTrace();
+                    }
                 });
         meinServer.starteInputThread();
     }

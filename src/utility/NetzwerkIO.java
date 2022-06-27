@@ -1,5 +1,6 @@
 package utility;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -9,20 +10,21 @@ import java.net.Socket;
 
 public abstract class NetzwerkIO<T>
 {
+    protected final static int PORT = 8000;
     protected BufferedReader netIn = null;
     protected PrintWriter netOut = null;
-    boolean verbunden = false;
-    PrintStream infoOut = System.out;
-    Serialisierung serialisierung;
-    final Class<T> classType;
-    Socket socket = null;
-    private ObjectProperty<T> obj;
+    protected boolean verbunden = false;
+    protected final PrintStream infoOut = System.out;
+    protected final Class<T> classType;
+    protected Socket socket = null;
+    private final Serialisierung serialisierung;
+    private ObjectProperty<T> postEingang;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
-        obj = new SimpleObjectProperty();
+        postEingang = new SimpleObjectProperty();
     }
 
     class InputThread extends Thread
@@ -31,29 +33,27 @@ public abstract class NetzwerkIO<T>
         {
             while(verbunden)
             {
-                empfangen();
-            }
-
-            try
-            {
-                netIn.close();;
-                netOut.close();
-                socket.close();
-            }
-            catch(IOException e)
-            {
-                e.printStackTrace();
+                if(socket.isClosed())
+                    beenden();
+                else
+                    empfangen();
             }
         }
 
         public void empfangen()
         {
             JsonReader reader = new JsonReader(netIn);
-            T objekt = (T) serialisierung.deserialisieren(reader, classType);
-
-            if(objekt != null)
+            try
             {
-                obj.set(objekt);
+                T objekt = (T) serialisierung.deserialisieren(reader, classType);
+                if(objekt != null)
+                {
+                    postEingang.set(objekt);
+                }
+            }
+            catch(JsonSyntaxException e)
+            {
+                beenden();
             }
         }
     }
@@ -67,6 +67,7 @@ public abstract class NetzwerkIO<T>
     {
         try
         {
+            verbunden = false;
             netIn.close();
             netOut.close();
             socket.close();
@@ -75,6 +76,7 @@ public abstract class NetzwerkIO<T>
         {
             e.printStackTrace();
         }
+        infoOut.println("Verbindung getrennt.");
     }
 
     public void senden(T nachricht)
@@ -90,13 +92,13 @@ public abstract class NetzwerkIO<T>
         infoOut.println("Nachricht gesendet.");
     }
 
-    public Object getObj()
+    public T getPostEingang()
     {
-        return obj.get();
+        return postEingang.get();
     }
 
-    public ObjectProperty<T> objProperty()
+    public ObjectProperty<T> postEingangProperty()
     {
-        return obj;
+        return postEingang;
     }
 }
