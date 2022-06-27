@@ -18,34 +18,22 @@ public class Client<T> extends NetzwerkIO<T>
                     new InputStreamReader(socket.getInputStream()));
             netOut = new PrintWriter(
                     new OutputStreamWriter(socket.getOutputStream()));
-
-            new InputThread().start();
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        }/*
-        finally
-        {
-            try
-            {
-                if(netIn != null)
-                    netIn.close();
-                if(netOut != null)
-                    netOut.close();
-                if(socket != null)
-                    socket.close();
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-        }*/
+        }
     }
 
     public static void main(String[] args)
     {
-        Client<String> c = new Client("localhost", 8000, String.class);
-        c.senden("Test");
+        Client<String> meinClient = new Client("localhost", 8000, String.class);
+        meinClient.senden("Hallo, ich bin der Client");
+        meinClient.objProperty().addListener(
+                (observableValue, s, t1) ->
+                {
+                    KonsolenIO.ausgeben(meinClient.getObj());
+                });
+        meinClient.starteInputThread();
     }
 }

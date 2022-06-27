@@ -16,28 +16,22 @@ public abstract class NetzwerkIO<T>
     Serialisierung serialisierung;
     final Class<T> classType;
     Socket socket = null;
+    private ObjectProperty<T> obj;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
+        obj = new SimpleObjectProperty();
     }
 
     class InputThread extends Thread
     {
         public void run()
         {
-            while (verbunden)
+            while(verbunden)
             {
-                try
-                {
-                    this.sleep(10);
-                    empfangen();
-                }
-                catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }
+                empfangen();
             }
 
             try
@@ -46,10 +40,40 @@ public abstract class NetzwerkIO<T>
                 netOut.close();
                 socket.close();
             }
-            catch (IOException e)
+            catch(IOException e)
             {
                 e.printStackTrace();
             }
+        }
+
+        public void empfangen()
+        {
+            JsonReader reader = new JsonReader(netIn);
+            T objekt = (T) serialisierung.deserialisieren(reader, classType);
+
+            if(objekt != null)
+            {
+                obj.set(objekt);
+            }
+        }
+    }
+
+    public void starteInputThread()
+    {
+        new InputThread().start();
+    }
+
+    public void beenden()
+    {
+        try
+        {
+            netIn.close();
+            netOut.close();
+            socket.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -66,9 +90,13 @@ public abstract class NetzwerkIO<T>
         infoOut.println("Nachricht gesendet.");
     }
 
-    private void empfangen()
+    public Object getObj()
     {
-        JsonReader reader = new JsonReader(netIn);
-        infoOut.println(serialisierung.deserialisieren(reader, classType));
+        return obj.get();
+    }
+
+    public ObjectProperty<T> objProperty()
+    {
+        return obj;
     }
 }

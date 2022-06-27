@@ -15,19 +15,16 @@ public class Server<T> extends NetzwerkIO<T>
         try
         {
             server = new ServerSocket(port, nbConnections);
-            while(true)
-            {
-                infoOut.println("Warte auf Verbindung auf Port: " + port);
+            infoOut.println("Warte auf Verbindung auf Port: " + port);
 
-                socket = server.accept();
-                infoOut.println("Verbunden zu " + socket.getInetAddress());
-                verbunden = true;
+            socket = server.accept();
+            infoOut.println("Verbunden zu " + socket.getInetAddress());
+            verbunden = true;
 
-                netIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                netOut = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-
-                new InputThread().start();
-            }
+            netIn = new BufferedReader(
+                    new InputStreamReader(socket.getInputStream()));
+            netOut = new PrintWriter(
+                    new OutputStreamWriter(socket.getOutputStream()));
         }
         catch (BindException e)
         {
@@ -42,5 +39,12 @@ public class Server<T> extends NetzwerkIO<T>
     public static void main(String[] args)
     {
         Server<String> meinServer = new Server(8000, String.class);
+        meinServer.objProperty().addListener(
+                (observableValue, s, t1) ->
+                {
+                    KonsolenIO.ausgeben(meinServer.getObj());
+                    meinServer.senden("hey, hier ist der Server");
+                });
+        meinServer.starteInputThread();
     }
 }
