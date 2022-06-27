@@ -3,6 +3,7 @@ package utility;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.stream.JsonReader;
 import control.EbeneSerialisierung;
 import control.KartenDeckSerialisierung;
 import model.Ebene;
@@ -35,6 +36,12 @@ public class Serialisierung<T>
     {
         meinGson = meinGsonBuilder.create();
         return (T) meinGson.fromJson(jsonString, typ);
+    }
+
+    public T deserialisieren(JsonReader reader, Type typ) throws JsonSyntaxException
+    {
+        meinGson = meinGsonBuilder.create();
+        return (T) meinGson.fromJson(reader, typ);
     }
 }
 
