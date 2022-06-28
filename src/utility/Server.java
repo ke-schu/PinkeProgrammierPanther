@@ -39,6 +39,7 @@ public class Server<T> extends NetzwerkIO<T>
         }
         catch (IOException e)
         {
+            infoOut.println("Fehler:" + e.getMessage());
             beenden();
         }
     }

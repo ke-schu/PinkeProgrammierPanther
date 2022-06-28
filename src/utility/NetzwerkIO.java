@@ -31,13 +31,11 @@ public abstract class NetzwerkIO<T>
     {
         public void run()
         {
-            while(verbunden)
+            while(verbunden && socket.isConnected())
             {
-                if(socket.isClosed())
-                    beenden();
-                else
-                    empfangen();
+                empfangen();
             }
+            beenden();
         }
 
         public void empfangen()
