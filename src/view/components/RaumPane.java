@@ -27,6 +27,9 @@ public class RaumPane extends StackPane
         stackPane.setMaxWidth(15);
         stackPane.setPrefHeight(this.getHeight());
         this.getChildren().add(stackPane);*/
+        Label meinLabel = new Label();
+        meinLabel.setWrapText(true);
+        meinLabel.setTextAlignment(TextAlignment.CENTER);
 
         beinhaltetSpieler = new SimpleBooleanProperty(false);
         beinhaltetSpieler.addListener(e ->
@@ -35,6 +38,9 @@ public class RaumPane extends StackPane
                                                   PseudoClass.getPseudoClass(
                                                           PSEUDO_CLASS_BEINHALTET_SPIELER),
                                                   beinhaltetSpieler.get());
+                                          if(beinhaltetSpieler.get())
+                                              meinLabel.setOpacity(0);
+                                          else meinLabel.setOpacity(1);
                                       });
 
         nichtig = new SimpleBooleanProperty(false);
@@ -46,18 +52,15 @@ public class RaumPane extends StackPane
                                         nichtig.get());
                             });
 
-        StackPane zimmer = new StackPane();
-        zimmer.setId("zimmer");
-
         if (raum == null || raum.getEreignis() == null)
         {
             this.setNichtig(true);
         }
         else
         {
-            Label meinLabel = new Label(raum.getEreignis().getName());
-            meinLabel.setWrapText(true);
-            meinLabel.setTextAlignment(TextAlignment.CENTER);
+            StackPane zimmer = new StackPane();
+            zimmer.setId("zimmer");
+            meinLabel.setText(raum.getEreignis().getName());
             zimmer.getChildren().add(meinLabel);
             this.getChildren().add(zimmer);
         }

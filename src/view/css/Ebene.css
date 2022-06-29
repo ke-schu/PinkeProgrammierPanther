@@ -43,10 +43,10 @@
 
 .raum-pane {
     -fx-alignment: center;
-    -fx-border-width: 15 15 0 0;
+    -fx-border-width: 0 20 20 0;
     -fx-border-color: #2e4c4c;
     -fx-background-radius: 10 10 10 10;
-    -fx-background-insets: 20 20 5 5;
+    -fx-background-insets: 5 25 25 5;
 }
 
 .raum-pane:hover {
@@ -57,6 +57,9 @@
     -fx-opacity: 0;
 }
 
-.raum-pane:spieler {
-    -fx-background-color: #acce22;
+.raum-pane:spieler #zimmer {
+    -fx-background-image: url(../bilder/Spielfigur.png);
+    -fx-background-size: 30;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
