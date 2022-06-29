@@ -102,16 +102,8 @@ public class SpielebeneGuiController extends GuiController
     private void initialisiereRaum(Ebene ebene, int x, int y)
     {
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
-        RaumPane raum = new RaumPane();
-        if (aktuellerRaum == null || aktuellerRaum.getEreignis() == null)
-        {
-            raum.setNichtig(true);
-        }
-        else
-        {
-            raum.getChildren()
-                .add(new Label(aktuellerRaum.getEreignis().getName()));
-        }
+        RaumPane raum = new RaumPane(aktuellerRaum);
+
         ObjectProperty<Position> aktuellePosition =
                 new SimpleObjectProperty<>(new Position(x, y));
         spielerPosition.addListener(

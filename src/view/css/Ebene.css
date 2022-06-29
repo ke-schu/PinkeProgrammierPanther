@@ -1,3 +1,20 @@
+.root {
+    -fx-background-image: url(../bilder/Ebene.png);
+    -fx-background-size: cover;
+}
+
+.root .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.root .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+#spielebenenGitter {
+    -fx-background-color: transparent;
+}
+
 .button {
     -fx-background-color: white;
     -fx-text-fill: "000000";
@@ -19,15 +36,21 @@
     -fx-text-fill: "4f504f";
 }
 
+.raum-pane #zimmer {
+    -fx-pref-height: 80;
+    -fx-pref-width: 80;
+}
+
 .raum-pane {
-    -fx-background-color: "91E0FF";
-    -fx-min-height: 80;
-    -fx-min-width: 80;
     -fx-alignment: center;
+    -fx-border-width: 15 15 0 0;
+    -fx-border-color: #2e4c4c;
+    -fx-background-radius: 10 10 10 10;
+    -fx-background-insets: 20 20 5 5;
 }
 
 .raum-pane:hover {
-    -fx-background-color: "87CEEB";
+    -fx-background-color: #f0c723;
 }
 
 .raum-pane:nichtig {
@@ -35,5 +58,5 @@
 }
 
 .raum-pane:spieler {
-    -fx-background-color: red;
+    -fx-background-color: #acce22;
 }
