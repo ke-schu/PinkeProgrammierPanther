@@ -66,4 +66,5 @@ public interface Strings
     String KARTEN_DECK_ZU_KLEIN_INFO =
             "Das Kartendeck enthält zu wenige Karten für die Operation.";
     String NICHT_GENUG_GOLD_INFO = "Du hast nicht genug Gold.";
+    String KARTE_BILD_NICHT_GEFUNDEN_INFO = "Das Bild der Karte \"%s\" konnte nicht gefunden werden!";
 }
