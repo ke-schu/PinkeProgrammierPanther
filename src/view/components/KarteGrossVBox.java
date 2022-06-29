@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import model.Karte;
+import model.KarteEinheit;
 
 import java.io.File;
 
@@ -19,7 +20,7 @@ public class KarteGrossVBox extends VBox
     {
         alignmentProperty().set(Pos.CENTER);
         Label name = new Label();
-        name.setText(karte.getName());
+        name.setText("Name: " + karte.getName());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + karte.getName() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
@@ -28,8 +29,29 @@ public class KarteGrossVBox extends VBox
         Image b = new Image(charakterbild.getAbsolutePath());
         bild.setImage(b);
         this.getChildren().add(bild);
-        this.getChildren().add(new Label(Integer.toString(karte.getLevel())));
+        this.getChildren().add(new Label("Level: " + Integer.toString(karte.getLevel())));
+        if (testeKarteEinheit(karte))
+        {
+            KarteEinheit ekarte = (KarteEinheit)karte;
+            this.getChildren().add(new Label("LP: "+ Integer.toString(ekarte.getLebenspunkte())));
+            this.getChildren().add(new Label("Reichweite: " + Integer.toString(ekarte.getReichweite())));
+            this.getChildren().add(new Label("Macht: " + Integer.toString(ekarte.getMacht())));
+            this.getChildren().add(new Label("Verteidigung: " + Integer.toString(ekarte.getVerteidigung())));
+            this.getChildren().add(new Label("Schild: " + Integer.toString(ekarte.getSchild())));
+            this.getChildren().add(new Label("Mana: " + Integer.toString(ekarte.getManaKosten())));
+        }
+    }
 
+    public boolean testeKarteEinheit (Karte karte)
+    {
+        if(karte.getClass() == KarteEinheit.class)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

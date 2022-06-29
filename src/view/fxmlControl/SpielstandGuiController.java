@@ -2,10 +2,15 @@ package view.fxmlControl;
 
 import exceptions.JsonNichtLesbarException;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -59,23 +64,39 @@ public class SpielstandGuiController extends GuiController implements
     {
         int k = spiel.getSpieldeckSpieler().size();
         int h = 0;
+
         Stage spielstandPopUp = (Stage)((Node) event.getSource()).getScene().getWindow();
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
+        //pane.getStylesheets().add("src/view/css/Spielstand.css");
         spane.setContent(pane);
 
             for (int i=0; i < 2 && h < k; i++)
             {
-                for (int j = 0;  j < 5 && h < k; j++)
+                for (int j = 0; j < 5 && h < k; j++)
                 {
-                    pane.add(new KarteGrossVBox(spiel.getSpieldeckSpieler().get(h)),j,i);
+                    Node karte = new KarteGrossVBox(spiel.getSpieldeckSpieler().get(h));
+                    pane.add((karte), j, i);
+                    pane.setHalignment(karte, HPos.CENTER);
+                    pane.setValignment(karte, VPos.CENTER);
                     h++;
                 }
             }
 
+        int zeilenAnzahl = pane.getRowCount();
+        Button schliessenButton = new Button();
+        schliessenButton.setText("Schließen");
+        schliessenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+        @Override public void handle(ActionEvent arg0)
+        {
+            spielstandPopUp.close();
+        }
+        });
+        pane.add(schliessenButton,2,zeilenAnzahl +1 );
+        pane.setHalignment(schliessenButton,HPos.CENTER);
         Scene sc = new Scene(spane);
         spielstandPopUp.setScene(sc);
         spielstandPopUp.show();
-
     }
 }
