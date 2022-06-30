@@ -13,7 +13,7 @@
       "SCHUTZENGEL",
       null
     ],
-    "mana": 15,
+    "mana": 1,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
     "maxleben": 0,
@@ -28,19 +28,10 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 6,
-      "y": 4
+      "x": 3,
+      "y": 2
     },
     "schlafend": true,
-    "init": {
-      "macht": 11,
-      "lebenspunkte": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "schlafend": true
-    },
     "zaehler": 0,
     "kopie": false,
     "id": 2,

@@ -309,7 +309,7 @@ public class SpielebeneGuiController extends GuiController
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
         Scene popupScene =
-                new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
+                new Scene(vbox, 600, 600);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -349,6 +349,7 @@ public class SpielebeneGuiController extends GuiController
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
+        ereignisText.setText(HAENDLER_AUSFUEHREN);
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
@@ -387,8 +388,14 @@ public class SpielebeneGuiController extends GuiController
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
+        ereignisText.setText(SCHMIED_AUSFUEHREN);
         Scene popupScene =
                 new Scene(vbox, 600, 600);
+        for (int i = 0; i < spiel.getSpieldeckSpieler().size() ; i++)
+        {
+            vbox.getChildren().add(new Button(
+                    spiel.getSpieldeckSpieler().get(i).getName()));
+        }
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -426,6 +433,11 @@ public class SpielebeneGuiController extends GuiController
         ereignisText.setEditable(false);
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
+        for (int i = 0; i < spiel.getSpieldeckSpieler().size() ; i++)
+        {
+            vbox.getChildren().add(new Button(
+                    spiel.getSpieldeckSpieler().get(i).getName()));
+        }
         Button gehenButton = new Button(EREIGNIS_GEHEN);
         gehenButton.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -476,6 +488,7 @@ public class SpielebeneGuiController extends GuiController
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
+        ereignisText.setText(TEMPEL_AUSFUEHREN);
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
@@ -490,6 +503,11 @@ public class SpielebeneGuiController extends GuiController
         });
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(ereignisText);
+        for (int i = 0; i < spiel.getSpieldeckSpieler().size() ; i++)
+        {
+            vbox.getChildren().add(new Button(
+                    spiel.getSpieldeckSpieler().get(i).getName()));
+        }
         vbox.getChildren().add(gehenButton);
         popupStage.setScene(popupScene);
         popupStage.setResizable(false);

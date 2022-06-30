@@ -40,7 +40,9 @@ public interface StringsGUI
     String TRUHE_AUSFUEHREN_2 = " Gold gefunden! Wie cool.";
     String HEILER_AUSFUEHREN_1 = "Ich hab ";
     String HEILER_AUSFUEHREN_2 = " Lebenspunkte zurueckerhalten";
-    String ZUFALLS_EREIGNIS_AUSFUEHREN = "Zufallsereignis wurde ausgefuehrt.";
+    String TEMPEL_AUSFUEHREN = "Wähle die Karte, welche aus deinem Deck entfernt werden soll.";
+    String SCHMIED_AUSFUEHREN = "Wähle die Karte, welche verbessert werden soll";
+    String HAENDLER_AUSFUEHREN = "Wähle die Karte, welche du deinem Deck hinzufügen willst";
 
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =
