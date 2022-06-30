@@ -157,14 +157,18 @@ public class SpielfeldGuiController extends GuiController
             int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
             System.out.println("ich bin der Spaltenindex " + feldzeilenindex);
             int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
-            Karte aktuellekarte = kartenhand.getElement(handindex);
+            Karte aktuellekarteaushand = kartenhand.getElement(handindex);
+            Karte aktuellekarteausfeld = spielfeld.getSpielfeldplatz(feldspaltenindex, feldzeilenindex);
+
+
+
             boolean erfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
                                                 spielfeld, feldspaltenindex,
                                                 feldzeilenindex, manaTankSpieler);
             if (erfolgreich)
             {
                 kartenhandGitter.getChildren().remove(sourcePaneHand);
-                KarteVBox KarteVBox = new KarteVBox(aktuellekarte);
+                KarteVBox KarteVBox = new KarteVBox(aktuellekarteaushand);
                 KonsolenIO.ausgeben(spielfeld.toString());
                 targetfeld.getChildren().add(KarteVBox);
             }
