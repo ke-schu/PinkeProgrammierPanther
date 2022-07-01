@@ -1,4 +1,5 @@
 package view.fxmlControl;
+import control.EinheitenController;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -158,19 +159,33 @@ public class SpielfeldGuiController extends GuiController
             System.out.println("ich bin der Spaltenindex " + feldzeilenindex);
             int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
             Karte aktuellekarteaushand = kartenhand.getElement(handindex);
-            Karte aktuellekarteausfeld = spielfeld.getSpielfeldplatz(feldspaltenindex, feldzeilenindex);
 
+            //problem mit Nullpointerexception muss noch gelöst werden, abfargen mit if sourchepane null
+            if(sourcePaneFeld != null)
+            {
+                int feldspaltenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
+                int feldzeilenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
+                KarteEinheit aktuellekarteausfeld = spielfeld.getSpielfeldplatz(feldspaltenindexmove, feldzeilenindexmove);
+                Boolean bewegenerfolgreich = EinheitenController.bewegen(spielfeld, feldspaltenindex,
+                        feldzeilenindex, aktuellekarteausfeld);
+                if (bewegenerfolgreich)
+                {
+                    spielfeldGitter.getChildren().remove(sourcePaneFeld);
+                    KarteVBox kartemoveVBox = new KarteVBox(aktuellekarteausfeld);
+                    KonsolenIO.ausgeben(spielfeld.toString());
+                    targetfeld.getChildren().add(kartemoveVBox);
+                }
+            }
 
-
-            boolean erfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
+            boolean beschwoerungerfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
                                                 spielfeld, feldspaltenindex,
                                                 feldzeilenindex, manaTankSpieler);
-            if (erfolgreich)
+            if (beschwoerungerfolgreich)
             {
                 kartenhandGitter.getChildren().remove(sourcePaneHand);
-                KarteVBox KarteVBox = new KarteVBox(aktuellekarteaushand);
+                KarteVBox karteVBox = new KarteVBox(aktuellekarteaushand);
                 KonsolenIO.ausgeben(spielfeld.toString());
-                targetfeld.getChildren().add(KarteVBox);
+                targetfeld.getChildren().add(karteVBox);
             }
 
             System.out.println("Fickt mein leben");

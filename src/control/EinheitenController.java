@@ -71,32 +71,39 @@ public class EinheitenController
      * @param ziel_y    Integer mit der Zielspalte der Bewegung.
      * @param einheit   Einheit die bewegt werden soll.
      */
-    public static void bewegen(SpielFeld spielfeld, int ziel_x, int ziel_y,
+    public static boolean bewegen(SpielFeld spielfeld, int ziel_x, int ziel_y,
                                KarteEinheit einheit)
     {
-        boolean zielErreichbarInX = false;
-        boolean zielErreichbarInY = false;
-        final int startX = einheit.getPositionX();
-        final int startY = einheit.getPositionY();
-        final int umkreis = 1;
-
-        if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
-            (einheit.getBeweglichkeit() > 0))
+        if(einheit != null)
         {
-            zielErreichbarInX = (ziel_x == startX + umkreis) ||
-                                (ziel_x == startX - umkreis);
-            zielErreichbarInY = (ziel_y == startY + umkreis) ||
-                                (ziel_y == startY - umkreis);
+            boolean zielErreichbarInX = false;
+            boolean zielErreichbarInY = false;
+            final int startX = einheit.getPositionX();
+            final int startY = einheit.getPositionY();
+            final int umkreis = 1;
 
-            if ((zielErreichbarInX || zielErreichbarInY) &&
-                !(zielErreichbarInX && zielErreichbarInY))
+            if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
+                (einheit.getBeweglichkeit() > 0))
             {
-                spielfeld.einheitEinsetzten(ziel_x, ziel_y, einheit);
-                einheit.setPosition(ziel_x, ziel_y);
-                spielfeld.einheitEinsetzten(startX, startY, null);
-                einheit.setBeweglichkeit(einheit.getBeweglichkeit() - 1);
+                zielErreichbarInX = (ziel_x == startX + umkreis) ||
+                                    (ziel_x == startX - umkreis);
+                zielErreichbarInY = (ziel_y == startY + umkreis) ||
+                                    (ziel_y == startY - umkreis);
+
+                if ((zielErreichbarInX || zielErreichbarInY) &&
+                    !(zielErreichbarInX && zielErreichbarInY))
+                {
+                    spielfeld.einheitEinsetzten(ziel_x, ziel_y, einheit);
+                    einheit.setPosition(ziel_x, ziel_y);
+                    spielfeld.einheitEinsetzten(startX, startY, null);
+                    einheit.setBeweglichkeit(einheit.getBeweglichkeit() - 1);
+                }
             }
+
+            return KartenEinheitController.moveerfolgreich(spielfeld, einheit, ziel_x , ziel_y);
         }
+        System.out.println("Bewegen war nicht erfolgreich");
+        return false;
     }
 
     /**

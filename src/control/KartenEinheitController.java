@@ -54,15 +54,15 @@ public class KartenEinheitController
                         (KarteEinheit) meineKarte,
                         ((KarteEinheit) meineKarte).getEffektZwei());
 
-                return beschwoerungerfolgreich(spielfeld,meineKarte, x, y);
+                return moveerfolgreich(spielfeld,meineKarte, x, y);
             }
         }
         System.out.println("beschwörung hat nicht geklappt du lappen");
         return false;
     }
 
-    public static boolean beschwoerungerfolgreich(SpielFeld spielfeld, Karte aktuellekarte,int feldspaltenindex,
-                                                 int feldzeilenindex)
+    public static boolean moveerfolgreich (SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
+                                           int feldzeilenindex)
     {
         Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
         if (karteaufspielfeld == aktuellekarte)
