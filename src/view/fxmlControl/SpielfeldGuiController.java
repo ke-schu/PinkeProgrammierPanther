@@ -1,5 +1,6 @@
 package view.fxmlControl;
 import control.EinheitenController;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -31,17 +32,17 @@ import static resources.StringsGUI.*;
 public class SpielfeldGuiController extends GuiController
         implements Initializable
 {
-    @FXML GridPane spielfeldGitter;
-    @FXML GridPane kartenhandGitter;
+    @FXML  GridPane spielfeldGitter;
+    @FXML  GridPane kartenhandGitter;
     @FXML MenuBar menueLeiste;
-    private StackPane sourcePaneFeld;
-    private StackPane sourcePaneHand;
-    private SpielFeld spielfeld;
-    private KartenDeck spieldeck;
-    private KartenHand kartenhand;
-    private Spieler spieler;
+    private   StackPane sourcePaneFeld;
+    private   StackPane sourcePaneHand;
+    private  SpielFeld spielfeld;
+    private  KartenDeck spieldeck;
+    private  KartenHand kartenhand;
+    private  Spieler spieler;
 
-    private ManaTank manaTankSpieler;
+    private  ManaTank manaTankSpieler;
     private final int FELDGROESSE = 80;
     private final int KARTENHAND_GROESSE = 100;
 
@@ -68,12 +69,12 @@ public class SpielfeldGuiController extends GuiController
             spielfeldGitter.addColumn(0);
             for (int j = 0; j < spielfeld.getZeilen(); j++)
             {
-                StackPane feld = new StackPane();
+                /*StackPane feld = new StackPane();
                 feld.setPrefWidth(FELDGROESSE);
                 feld.setPrefHeight(FELDGROESSE);
                 draganddroptarget(feld);
-                draganddropsource(feld, true);
-                //targetPane = feld;
+                draganddropsource(feld, true);*/
+                StackPane feld = felderstellen();
 
                 if
                 (j == spielfeld.getZeilen() - 1 &&
@@ -87,6 +88,16 @@ public class SpielfeldGuiController extends GuiController
                 spielfeldGitter.add(feld, i, j);
             }
         }
+    }
+
+    private StackPane felderstellen()
+    {
+        StackPane feld = new StackPane();
+        feld.setPrefWidth(FELDGROESSE);
+        feld.setPrefHeight(FELDGROESSE);
+        draganddroptarget(feld);
+        draganddropsource(feld, true);
+        return feld;
     }
 
     private void einheitBeschwören(StackPane feld)
@@ -116,11 +127,12 @@ public class SpielfeldGuiController extends GuiController
         }
 
     }
-
+    //Werte von sorchpane feld und hand beim bewegen im debugger angucken
     public void draganddropsource (StackPane feld, boolean spielfeld)
     {
         feld.setOnMousePressed(event ->
         {
+            System.out.println("maus wurde geklickt");
             feld.setMouseTransparent(true);
             event.setDragDetect(true);
             if (spielfeld == true)
@@ -150,45 +162,67 @@ public class SpielfeldGuiController extends GuiController
         targetfeld.setOnMouseDragOver(event ->
         {
         });
-
+        // karten lassen sich nicht auf feld bewegen oder beschwören auf dem zuvor eine andere karte war
         targetfeld.setOnMouseDragReleased(event ->
         {
+            System.out.println("maus wurde losgelassen");
             int feldspaltenindex =spielfeldGitter.getColumnIndex(targetfeld);
             System.out.println("ich bin der Spaltenindex " + feldspaltenindex);
             int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
             System.out.println("ich bin der Spaltenindex " + feldzeilenindex);
-            int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
-            Karte aktuellekarteaushand = kartenhand.getElement(handindex);
 
-            //problem mit Nullpointerexception muss noch gelöst werden, abfargen mit if sourchepane null
+
+
+            //problem mit Spielerkarte bewegung klappt noch nicht
             if(sourcePaneFeld != null)
             {
-                int feldspaltenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
-                int feldzeilenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
+                System.out.println("Ich wurde wenigstens erkannt");
+                Integer feldspaltenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
+                System.out.println("feldspaltenindex" + feldspaltenindexmove);
+                Integer feldzeilenindexmove =spielfeldGitter.getRowIndex(sourcePaneFeld);
+                System.out.println("feldzeilenindex" + feldspaltenindexmove);
                 KarteEinheit aktuellekarteausfeld = spielfeld.getSpielfeldplatz(feldspaltenindexmove, feldzeilenindexmove);
+                if (aktuellekarteausfeld == null)
+                {
+                    System.out.println("die angewaehlte karte ist null");
+                }
                 Boolean bewegenerfolgreich = EinheitenController.bewegen(spielfeld, feldspaltenindex,
                         feldzeilenindex, aktuellekarteausfeld);
                 if (bewegenerfolgreich)
                 {
+                    System.out.println("beewegung war erfolgreich");
+                    System.out.println(spielfeld);
                     spielfeldGitter.getChildren().remove(sourcePaneFeld);
+                    spielfeldGitter.add(felderstellen(),feldspaltenindexmove,feldzeilenindexmove);
+
                     KarteVBox kartemoveVBox = new KarteVBox(aktuellekarteausfeld);
                     KonsolenIO.ausgeben(spielfeld.toString());
                     targetfeld.getChildren().add(kartemoveVBox);
+                    sourcePaneFeld = null;
                 }
             }
 
-            boolean beschwoerungerfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
-                                                spielfeld, feldspaltenindex,
-                                                feldzeilenindex, manaTankSpieler);
-            if (beschwoerungerfolgreich)
+            if(sourcePaneHand != null)
             {
-                kartenhandGitter.getChildren().remove(sourcePaneHand);
-                KarteVBox karteVBox = new KarteVBox(aktuellekarteaushand);
-                KonsolenIO.ausgeben(spielfeld.toString());
-                targetfeld.getChildren().add(karteVBox);
+                int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
+                Karte aktuellekarteaushand = kartenhand.getElement(handindex);
+
+                boolean beschwoerungerfolgreich = KartenEinheitController.beschwoeren(kartenhand, handindex,
+                        spielfeld, feldspaltenindex,
+                        feldzeilenindex, manaTankSpieler);
+                if (beschwoerungerfolgreich)
+                {
+
+                    kartenhandGitter.getChildren().remove(sourcePaneHand);
+                    KarteVBox karteVBox = new KarteVBox(aktuellekarteaushand);
+                    KonsolenIO.ausgeben(spielfeld.toString());
+                    targetfeld.getChildren().add(karteVBox);
+                    sourcePaneHand = null;
+                }
             }
 
-            System.out.println("Fickt mein leben");
+
+
         });
 
         targetfeld.setOnMouseDragExited(event ->
