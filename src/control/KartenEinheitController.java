@@ -31,7 +31,7 @@ public class KartenEinheitController
      * @param y            Spalte im spielfeld
      * @param tank         zu Verfuegung stehende Mana-Reserve
      */
-    public static boolean  beschwoeren(KartenHand kartenhand, int positionhand,
+    public static ManaTank  beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
                                    ManaTank tank)
     {
@@ -54,11 +54,11 @@ public class KartenEinheitController
                         (KarteEinheit) meineKarte,
                         ((KarteEinheit) meineKarte).getEffektZwei());
 
-                return moveerfolgreich(spielfeld,meineKarte, x, y);
+                return tank;
             }
         }
-        System.out.println("beschwörung hat nicht geklappt du lappen");
-        return false;
+        System.out.println("beschwörung hat nicht geklappt");
+        return tank;
     }
 
     public static boolean moveerfolgreich (SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
