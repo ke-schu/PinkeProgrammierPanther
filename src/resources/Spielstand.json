@@ -1,5 +1,5 @@
 {
-  "gold": 193,
+  "gold": 10,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -40,6 +40,32 @@
     "klasse": "model.Spieler",
     "freundlich": true
   },
+  "gegenSpieler": {
+    "mana": 5,
+    "typ": "FERNKAEMPFER",
+    "macht": 1,
+    "lebenspunkte": 2,
+    "manaKosten": 0,
+    "beweglichkeit": 3,
+    "reichweite": 4,
+    "schild": 5,
+    "verteidigung": 6,
+    "effektEins": "ZURUECKWERFEN",
+    "effektZwei": "DURCHSCHNEIDEN",
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "schlafend": true,
+    "zaehler": 0,
+    "kopie": false,
+    "id": 2,
+    "name": "Dieter",
+    "level": 1,
+    "klasse": "model.Gegenspieler",
+    "freundlich": false
+  },
+  "aktuelleEbeneNummer": 0,
   "lautstaerkeMusik": 10.0,
   "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,

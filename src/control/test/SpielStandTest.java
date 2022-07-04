@@ -1,10 +1,7 @@
 package control.test;
 
 import exceptions.JsonNichtLesbarException;
-import model.Charakter;
-import model.SpielStand;
-import model.Spieler;
-import model.Waffe;
+import model.*;
 import resources.*;
 import utility.CharakterIO;
 import utility.KonsolenIO;
@@ -121,12 +118,29 @@ public class SpielStandTest
         try
         {
             SpielStand meinSpielStand =
-                    new SpielStand(ZAHL_10, leseCharakter());
+                    new SpielStand(ZAHL_10, leseCharakter(), erstelleGegenSpieler());
             SpielStandIO.schreibeDatei(meinSpielStand);
         }
         catch (IOException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
+    }
+
+    private static Gegenspieler erstelleGegenSpieler()
+    {
+        return new Gegenspieler(
+                "Dieter",
+                1,
+                Einheiten.FERNKAEMPFER,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                Effekte.ZURUECKWERFEN,
+                Effekte.DURCHSCHNEIDEN,
+                5);
     }
 }

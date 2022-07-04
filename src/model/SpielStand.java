@@ -15,9 +15,11 @@ public class SpielStand
 {
     private int gold;
     private Spieler spieler;
+    private Gegenspieler gegenSpieler;
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
     private transient Ebene aktuelleEbene;
+    private int aktuelleEbeneNummer;
     private double lautstaerkeMusik = 10;
     private double laustaerkeEffekte = 10;
     private int aufloesungX = 1280;
@@ -31,10 +33,11 @@ public class SpielStand
      * @throws JsonNichtLesbarException wenn die Kartendecks des Spielers
      *                                  oder des Gegners Fehler enthalten.
      */
-    public SpielStand(int gold, Spieler spieler) throws JsonNichtLesbarException
+    public SpielStand(int gold, Spieler spieler, Gegenspieler gegenSpieler) throws JsonNichtLesbarException
     {
         this.gold             = gold;
         this.spieler          = spieler;
+        this.gegenSpieler     = gegenSpieler;
         this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner  = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
         this.aktuelleEbene    =
@@ -52,9 +55,10 @@ public class SpielStand
      */
     public SpielStand(SpielStand stand) throws JsonNichtLesbarException
     {
-        this(stand.getGold(), stand.getSpieler());
+        this(stand.getGold(), stand.getSpieler(), stand.getGegenSpieler());
         this.lautstaerkeMusik  = stand.getLautstaerkeMusik();
         this.laustaerkeEffekte = stand.getLaustaerkeEffekte();
+        this.aktuelleEbeneNummer = stand.getAktuelleEbeneNummer();
         this.spieldeckSpieler  =
                 KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
         this.spieldeckGegner   = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
@@ -110,6 +114,26 @@ public class SpielStand
     public void setSpieler(Spieler spieler)
     {
         this.spieler = spieler;
+    }
+
+    public Gegenspieler getGegenSpieler()
+    {
+        return gegenSpieler;
+    }
+
+    public void setGegenSpieler(Gegenspieler gegenSpieler)
+    {
+        this.gegenSpieler = gegenSpieler;
+    }
+
+    public int getAktuelleEbeneNummer()
+    {
+        return aktuelleEbeneNummer;
+    }
+
+    public void setAktuelleEbeneNummer(int aktuelleEbeneNummer)
+    {
+        this.aktuelleEbeneNummer = aktuelleEbeneNummer;
     }
 
     /**

@@ -47,7 +47,7 @@ public class SpielStandController
         try
         {
             SpielStand neuerSpielStand =
-                    new SpielStand(spiel.getGold(), charakter.getSpieler());
+                    new SpielStand(spiel.getGold(), charakter.getSpieler(), spiel.getGegenSpieler());
             SpielStandIO.schreibeDatei(neuerSpielStand);
             KartenDeck spielDeck =
                     KartenDeckController.kopiereDeck(charakter.getStartDeck(),
