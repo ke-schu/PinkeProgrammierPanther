@@ -1,9 +1,17 @@
 package control;
 
+import exceptions.JsonNichtLesbarException;
 import model.Ebene;
 import model.SpielfigurEbene;
+import utility.EbeneIO;
+import utility.KonsolenIO;
+
+import java.io.File;
+import java.io.IOException;
 
 import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION;
+import static resources.Strings.AKTUELLE_EBENE_PFAD;
+import static resources.Strings.EBENE_EINS_PFAD;
 
 /**
  * Diese Klasse enthaelt Methoden, um mit Instanzen der Klasse Ebene zu
@@ -33,5 +41,13 @@ public class EbeneController
     {
         ebene.setSpielfigur(spielfigur);
         spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION);
+    }
+
+    public static void ueberschreibeAktuelleEbene(String pfad) throws IOException
+    {
+        File ebenePfad = new File(pfad);
+        Ebene ebeneEins = EbeneIO.leseDatei(ebenePfad);
+        EbeneIO.schreibeDatei(ebeneEins, new File(AKTUELLE_EBENE_PFAD));
+        KonsolenIO.ausgeben("Die aktuelle Ebene wurde mit " + ebenePfad.getName() + " überschrieben.");
     }
 }

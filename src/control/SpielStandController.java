@@ -15,6 +15,7 @@ import java.util.Stack;
 
 import static resources.Artefakte.SCHUTZENGEL;
 import static resources.Konstanten.SCHUTZENGEL_ANTEIL_MAXLEBEN;
+import static resources.Strings.EBENE_EINS_PFAD;
 import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 
 /**
@@ -52,10 +53,11 @@ public class SpielStandController
                     KartenDeckController.kopiereDeck(charakter.getStartDeck(),
                                                      SPIEL_DECK_SPIELER_PFAD);
             KartenDeckIO.schreibeDatei(spielDeck);
+            EbeneController.ueberschreibeAktuelleEbene(EBENE_EINS_PFAD);
         }
         catch (IOException e)
         {
-            KonsolenIO.ausgeben(e.getMessage());
+            KonsolenIO.ausgeben("Fehler: " + e.getMessage());
         }
     }
 

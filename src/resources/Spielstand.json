@@ -1,5 +1,5 @@
 {
-  "gold": 188,
+  "gold": 193,
   "spieler": {
     "waffe": {
       "name": "meineWaffe",
@@ -13,7 +13,7 @@
       "SCHUTZENGEL",
       null
     ],
-    "mana": 20,
+    "mana": 1,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
     "maxleben": 0,
@@ -40,7 +40,7 @@
     "klasse": "model.Spieler",
     "freundlich": true
   },
-  "lautstaerkeMusik": 0.0,
+  "lautstaerkeMusik": 10.0,
   "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,
   "aufloesungY": 720

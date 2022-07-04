@@ -1,5 +1,6 @@
 package view.fxmlControl;
 
+import control.EbeneController;
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import exceptions.NichtGenugGoldException;
@@ -16,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
 import utility.CharakterIO;
+import utility.EbeneIO;
 import utility.KonsolenIO;
 import utility.SpielStandIO;
 import view.components.CharakterVBox;
@@ -25,6 +27,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
+import static resources.Strings.EBENE_EINS_PFAD;
 import static resources.StringsGUI.GOLD_BESTAND;
 import static resources.StringsGUI.HILFE_CHARAKTERAUSWAHL;
 
