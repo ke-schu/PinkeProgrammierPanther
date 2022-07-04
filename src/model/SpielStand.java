@@ -19,7 +19,7 @@ public class SpielStand
     private transient KartenDeck spieldeckSpieler;
     private transient KartenDeck spieldeckGegner;
     private transient Ebene aktuelleEbene;
-    private int aktuelleEbeneNummer;
+    private int aktuelleEbeneNummer = 1;
     private double lautstaerkeMusik = 10;
     private double laustaerkeEffekte = 10;
     private int aufloesungX = 1280;
