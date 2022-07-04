@@ -1,7 +1,9 @@
 package view.fxmlControl;
 import control.EinheitenController;
-import javafx.scene.Node;
+import control.RundenController;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -33,19 +35,26 @@ import static resources.StringsGUI.*;
 public class SpielfeldGuiController extends GuiController
         implements Initializable
 {
-    @FXML  GridPane spielfeldGitter;
-    @FXML  GridPane kartenhandGitter;
-
+    @FXML GridPane spielfeldGitter;
+    @FXML GridPane kartenhandGitter;
+    @FXML Button zugbeendenbutton;
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
     private   StackPane sourcePaneFeld;
     private   StackPane sourcePaneHand;
     private  SpielFeld spielfeld;
-    private  KartenDeck spieldeck;
-    private  KartenHand kartenhand;
+    private  KartenDeck spielerDeck;
+    private KartenDeck gegenspielerDeck;
+    private  KartenHand kartenhandSpieler;
+    private  KartenHand kartenhandGegenspieler;
     private  Spieler spieler;
+    private Gegenspieler gegenspieler;
     private  ManaTank manaTankSpieler;
-    private double manaMaximum;
+
+    private  ManaTank manaTankGegenspieler;
+
+    private double manaMaximumGegenspieler;
+    private double manaMaximumSpieler;
     private final int FELDGROESSE = 80;
     private final int KARTENHAND_GROESSE = 100;
 
@@ -89,6 +98,7 @@ public class SpielfeldGuiController extends GuiController
                     feld.getChildren().add(spielerKarteVBox);
                 }
                 spielfeldGitter.add(feld, i, j);
+                zugbeenden();
             }
         }
     }
@@ -111,16 +121,26 @@ public class SpielfeldGuiController extends GuiController
         try
         {
             spiel      = SpielStandIO.leseDatei();
+
             spieler    = spiel.getSpieler();
-            spieldeck  = spiel.getSpieldeckSpieler();
-            kartenhand = new KartenHand(spieler);
-            kartenhand.handZiehen(spieldeck);
+            spielerDeck = spiel.getSpieldeckSpieler();
+
+            gegenspieler = spiel.getGegenSpieler();
+            gegenspielerDeck = spiel.getSpieldeckGegner();
+
+            kartenhandSpieler = new KartenHand(spieler);
+            kartenhandSpieler.handZiehen(spielerDeck);
+
+            kartenhandGegenspieler = new KartenHand(gegenspieler);
+            kartenhandGegenspieler.handZiehen(gegenspielerDeck);
+
             spielfeld = new SpielFeld();
             manaTankSpieler = new ManaTank(spieler);
+            manaTankGegenspieler = new ManaTank(gegenspieler);
 
             Manabar.setStyle("-fx-accent: blue;");
-            manaMaximum = manaTankSpieler.getMana();
-            double manaWert = manaMaximum/manaMaximum;
+            manaMaximumSpieler = manaTankSpieler.getMana();
+            double manaWert = manaMaximumSpieler / manaMaximumSpieler;
             Manabar.setProgress(manaWert);
             Karteinhandeinfuegen();
         }
@@ -183,6 +203,22 @@ public class SpielfeldGuiController extends GuiController
         {
         });
     }
+    //in methde verpacken in initilazie aufrufen
+    public void zugbeenden()
+    {
+        zugbeendenbutton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override public void handle(ActionEvent arg0)
+            {
+                boolean dran = RundenController.getFreundlich();
+                RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+                int zugzähler = RundenController.getZugZaehler();
+                System.out.println("spieler ist dran: " + dran);
+                System.out.println("wir sind in zug: " + zugzähler);
+            }
+        });
+    }
+
 
     private void einheitBewegen(StackPane targetfeld)
     {
@@ -214,10 +250,10 @@ public class SpielfeldGuiController extends GuiController
         int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
 
         int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
-        Karte aktuellekarteaushand = kartenhand.getElement(handindex);
+        Karte aktuellekarteaushand = kartenhandSpieler.getElement(handindex);
 
-         Karte karteaushand = kartenhand.getElement(handindex);
-        manaTankSpieler = KartenEinheitController.beschwoeren(kartenhand, handindex,
+         Karte karteaushand = kartenhandSpieler.getElement(handindex);
+        manaTankSpieler = KartenEinheitController.beschwoeren(kartenhandSpieler, handindex,
                 spielfeld, feldspaltenindex,
                 feldzeilenindex, manaTankSpieler);
         if (KartenEinheitController.moveerfolgreich(spielfeld, karteaushand,feldspaltenindex, feldzeilenindex))
@@ -228,7 +264,7 @@ public class SpielfeldGuiController extends GuiController
             targetfeld.getChildren().add(karteVBox);
             sourcePaneHand = null;
             double manaWert = manaTankSpieler.getMana();
-            double barwert = manaWert/manaMaximum;
+            double barwert = manaWert / manaMaximumSpieler;
             Manabar.setProgress(barwert);
         }
     }
@@ -244,7 +280,7 @@ public class SpielfeldGuiController extends GuiController
             feld.setPrefWidth(KARTENHAND_GROESSE);
             feld.setPrefHeight(KARTENHAND_GROESSE);
 
-            Karte aktuellekarte = kartenhand.getElement(i);
+            Karte aktuellekarte = kartenhandSpieler.getElement(i);
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
             draganddropsource(feld, false);

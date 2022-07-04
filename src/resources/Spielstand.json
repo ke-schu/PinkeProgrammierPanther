@@ -13,7 +13,7 @@
       "SCHUTZENGEL",
       null
     ],
-    "mana": 1,
+    "mana": 20,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
     "maxleben": 0,
@@ -21,17 +21,26 @@
     "macht": 11,
     "lebenspunkte": 1,
     "manaKosten": 0,
-    "beweglichkeit": 1,
+    "beweglichkeit": 0,
     "reichweite": 1,
     "schild": 1,
     "verteidigung": 1,
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 3,
-      "y": 2
+      "x": 5,
+      "y": 4
     },
     "schlafend": true,
+    "init": {
+      "macht": 11,
+      "lebenspunkte": 1,
+      "beweglichkeit": 0,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "schlafend": true
+    },
     "zaehler": 0,
     "kopie": false,
     "id": 2,
@@ -66,7 +75,7 @@
     "freundlich": false
   },
   "aktuelleEbeneNummer": 0,
-  "lautstaerkeMusik": 10.0,
+  "lautstaerkeMusik": 0.0,
   "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,
   "aufloesungY": 720

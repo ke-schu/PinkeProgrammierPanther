@@ -32,7 +32,7 @@ public class RundenController
     public static void zugBeenden(SpielFeld feld, KartenDeck spielerDeck,
                                   KartenDeck masterDeck)
     {
-        zugZaehler = zugZaehler++;
+        zugZaehler++;
 
         feldAufraeumen(feld, spielerDeck, masterDeck);
         beweglichkeitAuffrischen(feld);
@@ -181,7 +181,7 @@ public class RundenController
      *
      * @return true oder false.
      */
-    public static boolean isFreundlich()
+    public static boolean getFreundlich()
     {
         return freundlich;
     }
