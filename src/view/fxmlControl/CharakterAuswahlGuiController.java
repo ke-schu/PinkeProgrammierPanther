@@ -27,7 +27,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
-import static resources.Strings.EBENE_EINS_PFAD;
 import static resources.StringsGUI.GOLD_BESTAND;
 import static resources.StringsGUI.HILFE_CHARAKTERAUSWAHL;
 

@@ -10,8 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION;
-import static resources.Strings.AKTUELLE_EBENE_PFAD;
-import static resources.Strings.EBENE_EINS_PFAD;
+import static resources.Strings.*;
 
 /**
  * Diese Klasse enthaelt Methoden, um mit Instanzen der Klasse Ebene zu
@@ -43,9 +42,9 @@ public class EbeneController
         spielfigur.setPosition(SPIELFIGUR_EBENE_STARTPOSITION);
     }
 
-    public static void ueberschreibeAktuelleEbene(String pfad) throws IOException
+    public static void ueberschreibeAktuelleEbene(int EbeneNummer) throws IOException
     {
-        File ebenePfad = new File(pfad);
+        File ebenePfad = new File(String.format(EBENEN_PFAD, EbeneNummer));
         Ebene ebeneEins = EbeneIO.leseDatei(ebenePfad);
         EbeneIO.schreibeDatei(ebeneEins, new File(AKTUELLE_EBENE_PFAD));
         KonsolenIO.ausgeben("Die aktuelle Ebene wurde mit " + ebenePfad.getName() + " überschrieben.");

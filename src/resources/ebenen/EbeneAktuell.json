@@ -31,23 +31,23 @@
       },
       {
         "ereignis": {
-          "wahrscheinlichkeit": 94.98234297962264,
+          "wahrscheinlichkeit": 0.0,
           "ereignisnummer": 0,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
           "auswahl": true,
           "klasse": "model.ereignisse.ZufallsEreignis",
-          "ausgefuehrt": true
+          "ausgefuehrt": false
         }
       },
       {
         "ereignis": {
-          "wahrscheinlichkeit": 83.61336120730037,
+          "wahrscheinlichkeit": 43.100906453671165,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
           "auswahl": true,
           "klasse": "model.ereignisse.Truhe",
-          "ausgefuehrt": true
+          "ausgefuehrt": false
         }
       },
       {
@@ -278,7 +278,7 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 7,
+      "x": 5,
       "y": 0
     }
   }
