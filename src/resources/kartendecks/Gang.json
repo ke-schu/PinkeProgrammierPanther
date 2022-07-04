@@ -19,7 +19,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 0,
-      "name": "Böser Nachbar",
+      "name": "Boeser Nachbar",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
@@ -107,7 +107,7 @@
       "schlafend": true,
       "freundlich": false,
       "id": 4,
-      "name": "Rüdiger",
+      "name": "Ruediger",
       "level": 40,
       "klasse": "model.KarteEinheit"
     },
