@@ -1,11 +1,15 @@
 package model.ereignisse;
 
+import control.EbeneController;
 import exceptions.JsonNichtLesbarException;
 import model.SpielStand;
+import resources.Strings;
 import utility.EbeneIO;
 import utility.KonsolenIO;
+import view.fxmlControl.SpielebeneGuiController;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Diese Klasse ist eine Subklasse von Ereignis. Eine Treppe ist nur als
@@ -37,15 +41,14 @@ public class Treppe extends Ereignis
      */
     public void ausfuehren (SpielStand spielStand)
     {
-        /*
         try
         {
-            EbeneIO.leseDatei();
+            EbeneController.ueberschreibeAktuelleEbene(spielStand.getAktuelleEbeneNummer()+1);
+            spielStand.setAktuelleEbeneNummer(spielStand.getAktuelleEbeneNummer()+1);
         }
-        catch (JsonNichtLesbarException e)
+        catch(IOException e)
         {
             e.getMessage();
         }
-         */
     }
 }

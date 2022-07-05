@@ -4,7 +4,10 @@ import control.KartenController;
 import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
 import model.SpielStand;
+import utility.KartenDeckIO;
 import utility.KonsolenIO;
+
+import java.io.IOException;
 
 import static utility.KonsolenIO.eingabeInt;
 
@@ -40,7 +43,6 @@ public class Schmied extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        //auswaehlen();
         if (isAuswahl())
         {
             int indexKarte = eingabeInt();
@@ -65,6 +67,14 @@ public class Schmied extends Mensch
             catch (KarteNichtVerbessertException ausnahme)
             {
                 KonsolenIO.ausgeben(ausnahme.getMessage());
+            }
+            try
+            {
+                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+            }
+            catch (IOException e)
+            {
+                e.getMessage();
             }
         }
     }

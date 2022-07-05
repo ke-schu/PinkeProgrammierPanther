@@ -5,28 +5,50 @@
       null,
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      null,
+      {
+        "ereignis": {
+          "gratisInteraktionen": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "name": "Die Nachbarschaft.",
+          "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Tempel",
+          "ausgefuehrt": false
+        }
+      },
+      {
+        "ereignis": {
+          "gratisInteraktionen": 0,
+          "kosten": 20,
+          "interaktionsZaehler": 1,
+          "name": "Mutti.",
+          "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Heiler",
+          "ausgefuehrt": false
+        }
+      },
+      {
+        "ereignis": {
+          "wahrscheinlichkeit": 0.0,
+          "ereignisnummer": 0,
+          "name": "Zufaelliges Ereignis.",
+          "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
+          "auswahl": true,
+          "klasse": "model.ereignisse.ZufallsEreignis",
+          "ausgefuehrt": false
+        }
+      },
+      {
+        "ereignis": {
+          "name": "Leere Straße.",
+          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
+          "auswahl": true,
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
+        }
+      },
       {
         "ereignis": {
           "gegenspieler": {
@@ -34,10 +56,10 @@
             "typ": "FERNKAEMPFER",
             "macht": 1,
             "lebenspunkte": 1,
-            "manaKosten": 1,
+            "manaKosten": 0,
             "beweglichkeit": 1,
             "reichweite": 1,
-            "schild": 0,
+            "schild": 1,
             "verteidigung": 1,
             "effektEins": "LETZTEWORTE",
             "effektZwei": "ZURUECKWERFEN",
@@ -46,91 +68,13 @@
               "y": 0
             },
             "schlafend": true,
-            "freundlich": false,
+            "zaehler": 0,
+            "kopie": false,
             "id": 0,
-            "name": "Test_Gegner",
+            "name": "Gegner",
             "level": 10,
-            "klasse": "model.Gegenspieler"
-          },
-          "spielfeld": {
-            "spielfeld": [
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null,
-                null
-              ]
-            ],
-            "feldZeile": 6,
-            "feldSpalte": 5
-          },
-          "name": "Gegner",
-          "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Gegner"
-        }
-      },
-      null,
-      {
-        "ereignis": {
-          "gegenspieler": {
-            "mana": 10,
-            "typ": "FERNKAEMPFER",
-            "macht": 1,
-            "lebenspunkte": 1,
-            "manaKosten": 1,
-            "beweglichkeit": 1,
-            "reichweite": 1,
-            "schild": 0,
-            "verteidigung": 1,
-            "effektEins": "LETZTEWORTE",
-            "effektZwei": "ZURUECKWERFEN",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "schlafend": true,
-            "freundlich": false,
-            "id": 2,
-            "name": "Test_Gegner",
-            "level": 10,
-            "klasse": "model.Gegenspieler"
+            "klasse": "model.Gegenspieler",
+            "freundlich": false
           },
           "spielfeld": {
             "spielfeld": [
@@ -183,140 +127,64 @@
                 null
               ]
             ],
-            "feldZeile": 6,
-            "feldSpalte": 6
+            "zeilen": 6,
+            "spalten": 6
           },
-          "name": "Boss 1",
-          "beschreibung": "Das ist Boss 1",
+          "name": "Gegner.",
+          "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "auswahl": false,
-          "klasse": "model.ereignisse.Gegner"
+          "klasse": "model.ereignisse.Gegner",
+          "ausgefuehrt": false
         }
-      },
-      {
-        "ereignis": {
-          "name": "Treppe 1",
-          "beschreibung": "Ne Menge Stufen",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Treppe"
-        }
-      },
-      null
-    ],
-    [
-      null,
-      null,
-      null,
-      {
-        "ereignis": {
-          "ausgefuehrt": false,
-          "wahrscheinlichkeit": 14.848890239960276,
-          "name": "Zufaelliger Zufall",
-          "beschreibung": "Achtung, das ist ein Zufall!",
-          "auswahl": false,
-          "klasse": "model.ereignisse.ZufallsEreignis"
-        }
-      },
-      {},
-      {
-        "ereignis": {
-          "gegenspieler": {
-            "mana": 10,
-            "typ": "FERNKAEMPFER",
-            "macht": 1,
-            "lebenspunkte": 1,
-            "manaKosten": 1,
-            "beweglichkeit": 1,
-            "reichweite": 1,
-            "schild": 0,
-            "verteidigung": 1,
-            "effektEins": "LETZTEWORTE",
-            "effektZwei": "ZURUECKWERFEN",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "schlafend": true,
-            "freundlich": false,
-            "id": 1,
-            "name": "Test_Gegner",
-            "level": 10,
-            "klasse": "model.Gegenspieler"
-          },
-          "spielfeld": {
-            "spielfeld": [
-              [
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null
-              ],
-              [
-                null,
-                null,
-                null,
-                null
-              ]
-            ],
-            "feldZeile": 5,
-            "feldSpalte": 4
-          },
-          "name": "Gegner",
-          "beschreibung": "Hallo, ich bin ein Gegner!",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Gegner"
-        }
-      },
-      {},
-      null,
-      null
+      }
     ],
     [
       null,
       null,
       null,
       null,
-      {},
-      null,
       {
         "ereignis": {
-          "haendlerDeck": [],
-          "gratisInteraktion": 1,
+          "gratisInteraktionen": 1,
           "kosten": 20,
           "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Josef",
-          "beschreibung": "Mehr als nur Staubsauger.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Haendler"
+          "name": "Die Schule.",
+          "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
+          "auswahl": true,
+          "klasse": "model.ereignisse.Schmied",
+          "ausgefuehrt": false
         }
       },
       null,
-      null
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Die Bushaltestelle.",
+          "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Treppe",
+          "ausgefuehrt": false
+        }
+      }
     ],
     [
       null,
       null,
       null,
       null,
-      {},
+      {
+        "ereignis": {
+          "gratisInteraktionen": 1,
+          "kosten": 20,
+          "interaktionsZaehler": 0,
+          "name": "Der Spielplatz.",
+          "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
+          "auswahl": true,
+          "klasse": "model.ereignisse.Haendler",
+          "ausgefuehrt": false
+        }
+      },
       null,
       null,
       null,
@@ -329,16 +197,63 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktion": 1,
-          "kosten": 20,
-          "interaktionsZaehler": 0,
-          "KEINE_GRATIS_INTERAKTION": 0,
-          "name": "Bernhard",
-          "beschreibung": "Hoere mal wer da haemmert!",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Schmied"
+          "wahrscheinlichkeit": 43.100906453671165,
+          "name": "Truhe.",
+          "beschreibung": "Eine Truhe, was da wohl drin ist?",
+          "auswahl": true,
+          "klasse": "model.ereignisse.Truhe",
+          "ausgefuehrt": false
         }
       },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Startpunkt.",
+          "beschreibung": "Hier bin ich ausgestiegen, ich sollte mich in der Gegend mal umsehen.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
+        }
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "ereignis": {
+          "name": "Leere Straße.",
+          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
+          "auswahl": true,
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
+        }
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
@@ -368,5 +283,11 @@
     ]
   ],
   "ebenenSpalte": 9,
-  "ebenenZeile": 9
+  "ebenenZeile": 9,
+  "spielfigur": {
+    "position": {
+      "x": 4,
+      "y": 4
+    }
+  }
 }

@@ -7,6 +7,8 @@ import model.SpielStand;
 import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
+import java.io.IOException;
+
 import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
 import static utility.KonsolenIO.eingabeInt;
 
@@ -114,6 +116,14 @@ public class Haendler extends Mensch
                 haendlerDeck.remove(indexKarte);
                 interaktionsZaehler++;
                 kostenErhoehen();
+            }
+            try
+            {
+                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+            }
+            catch (IOException e)
+            {
+                e.getMessage();
             }
         }
     }

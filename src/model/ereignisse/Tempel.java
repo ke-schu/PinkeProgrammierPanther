@@ -2,7 +2,10 @@ package model.ereignisse;
 
 import control.TalentController;
 import model.SpielStand;
+import utility.KartenDeckIO;
 import utility.KonsolenIO;
+
+import java.io.IOException;
 
 import static utility.KonsolenIO.eingabeInt;
 
@@ -37,7 +40,6 @@ public class Tempel extends Mensch
     public void ausfuehren(SpielStand spielStand)
     {
         KonsolenIO.ausgeben(this.getName());
-        //auswaehlen();
         if (isAuswahl())
         {
             int indexKarte = eingabeInt();
@@ -53,6 +55,14 @@ public class Tempel extends Mensch
                 spielStand.getSpieldeckSpieler().remove(indexKarte);
                 interaktionsZaehler++;
                 kostenErhoehen();
+            }
+            try
+            {
+                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+            }
+            catch (IOException e)
+            {
+                e.getMessage();
             }
         }
     }
