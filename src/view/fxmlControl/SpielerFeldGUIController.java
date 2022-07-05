@@ -4,7 +4,7 @@ import control.KartenEinheitController;
 import control.RundenController;
 import control.Spielstatus;
 import exceptions.JsonNichtLesbarException;
-import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.layout.StackPane;
 import model.*;
 import utility.KonsolenIO;
@@ -15,7 +15,6 @@ import view.components.KarteVBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static java.lang.Thread.sleep;
 import static resources.Konstanten.*;
 
 public class SpielerFeldGUIController extends FeldGuiController
@@ -28,11 +27,6 @@ public class SpielerFeldGUIController extends FeldGuiController
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
 
-
-        /*hintergrundFestlegen();
-        erstelleSpielfeldUmgebung();
-        initNetzwerk();
-        initZugBeendenButton();*/
         if(RundenController.getzugZaehler()== 0)
         {
             for (int i = 0; i < spielfeld.getZeilen(); i++)
@@ -62,6 +56,9 @@ public class SpielerFeldGUIController extends FeldGuiController
             }
         }
 
+        empfangenerSpielstatus = new SimpleObjectProperty<>();
+        empfangenerSpielstatus.addListener(
+                (observableValue, spielstatus, t1) -> aktualisiereGUI());
     }
 
     public void initNetzwerk ()

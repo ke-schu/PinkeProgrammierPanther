@@ -3,6 +3,7 @@ package view.fxmlControl;
 import control.EinheitenController;
 import control.RundenController;
 import control.Spielstatus;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -43,6 +44,7 @@ public abstract class FeldGuiController extends GuiController
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
+    protected ObjectProperty<Spielstatus> empfangenerSpielstatus;
     protected StackPane sourcePaneFeld;
     protected StackPane sourcePaneHand;
     protected SpielFeld spielfeld;
@@ -66,6 +68,8 @@ public abstract class FeldGuiController extends GuiController
 
     protected void aktualisiereSpielStatus()
     {
+        empfangenerSpielstatus.set(SpielstatusKommunikation.getEmpfangenesPaket());
+
         spielfeld = SpielstatusKommunikation.getEmpfangenesPaket().getSpielfeld();
         System.out.println(spielfeld);
 
@@ -76,8 +80,10 @@ public abstract class FeldGuiController extends GuiController
         gegenspielerDeck = SpielstatusKommunikation.getEmpfangenesPaket().getGegenspielerDeck();
 
         RundenController.setzugZaehler(SpielstatusKommunikation.getEmpfangenesPaket().getZugzaehler());
+    }
 
-
+    protected void aktualisiereGUI()
+    {
         for (int i = 0; i < spielfeld.getZeilen(); i++)
         {
             spielfeldGitter.addRow(0);
@@ -210,6 +216,7 @@ public abstract class FeldGuiController extends GuiController
                         spielfeld, spielerDeck,
                         gegenspielerDeck,  RundenController.getzugZaehler()));
 
+                SpielstatusKommunikation.erstelleNeuenInputThread();
                 SpielstatusKommunikation.getInputThread().start();
                 try
                 {

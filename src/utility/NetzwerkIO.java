@@ -2,9 +2,6 @@ package utility;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
-import javafx.application.Platform;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.*;
 import java.net.Socket;
@@ -27,31 +24,34 @@ public abstract class NetzwerkIO<T>
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
-        inputThread = new Thread(new Runnable() {
-            public void run()
+        inputThread = new InputThread();
+    }
+
+    class InputThread extends Thread
+    {
+        public void run()
+        {
+            empfangen();
+            beenden();
+        }
+
+        public void empfangen()
+        {
+            JsonReader reader = new JsonReader(netIn);
+            try
             {
-                empfangen();
+                T objekt = (T) serialisierung.deserialisieren(reader, classType);
+                while(objekt == null)
+                {
+                    sleep(100);
+                }
+                empfangenesPaket = objekt;
+            }
+            catch(JsonSyntaxException | InterruptedException e)
+            {
                 beenden();
             }
-
-            public void empfangen()
-            {
-                JsonReader reader = new JsonReader(netIn);
-                try
-                {
-                    T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                    while(objekt == null)
-                    {
-                        sleep(100);
-                    }
-                    empfangenesPaket = objekt;
-                }
-                catch(JsonSyntaxException | InterruptedException e)
-                {
-                    beenden();
-                }
-            }
-        });
+        }
     }
 
     public void beenden()
@@ -81,6 +81,11 @@ public abstract class NetzwerkIO<T>
         }
 
         infoOut.println("Nachricht gesendet.");
+    }
+
+    public void erstelleNeuenInputThread()
+    {
+        inputThread = new InputThread();
     }
 
     public Thread getInputThread()

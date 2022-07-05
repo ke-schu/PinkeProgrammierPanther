@@ -1,6 +1,9 @@
 package view.fxmlControl;
 
 import control.Spielstatus;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import model.*;
 import utility.Client;
 
@@ -15,11 +18,16 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
+        empfangenerSpielstatus = new SimpleObjectProperty<>();
+
         initNetzwerk();
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
+        aktualisiereGUI();
 
+        empfangenerSpielstatus.addListener(
+                (observableValue, spielstatus, t1) -> aktualisiereGUI());
     }
 
     @Override
