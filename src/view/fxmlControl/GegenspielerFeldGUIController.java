@@ -9,6 +9,7 @@ import utility.KonsolenIO;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Thread.sleep;
 import static resources.Konstanten.*;
 
 public class GegenspielerFeldGUIController extends FeldGuiController
@@ -48,12 +49,23 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                 (observableValue, s, t1) -> aktualisiereSpielStatus());
 
         SpielstatusKommunikation.getInputThread().start();
+
+        while(spieler == null)
+        {
+            try
+            {
+                sleep(100);
+            } catch (InterruptedException e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void erstelleSpielfeldUmgebung()
     {
-        kartenhandSpieler = new KartenHand((Spieler) spieler);
+        kartenhandSpieler = new KartenHand((Gegenspieler) spieler);
         kartenhandSpieler.handZiehen(spielerDeck);
 
         manaTankSpieler = new ManaTank(spieler);
