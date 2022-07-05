@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/SpielFeld.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielerFeldGUIController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/SpielFeld.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.GegenspielerFeldGUIController">
     <bottom>
         <HBox alignment="CENTER_LEFT" prefHeight="81.0" prefWidth="1263.0" spacing="20.0" BorderPane.alignment="CENTER">
             <padding>
@@ -34,7 +34,7 @@
                         <RowConstraints />
                     </rowConstraints>
                 </GridPane>
-                <Button fx:id="zugbeendenbutton" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Zug beenden" />
+                <Button fx:id="zugBeendenButton" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Zug beenden" />
             </children>
         </HBox>
     </bottom>
