@@ -1,4 +1,5 @@
 package view.fxmlControl;
+
 import control.EinheitenController;
 import control.RundenController;
 import control.Spielstatus;
@@ -9,7 +10,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import control.KartenEinheitController;
-import exceptions.JsonNichtLesbarException;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -27,8 +27,6 @@ import view.components.KarteVBox;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import static resources.Konstanten.HANDGROESSE;
 import static resources.KonstantenGUI.*;
@@ -39,7 +37,7 @@ public abstract class FeldGuiController extends GuiController
 {
     @FXML GridPane spielfeldGitter;
     @FXML GridPane kartenhandGitter;
-    @FXML Button zugbeendenbutton;
+    @FXML Button zugBeendenButton;
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
@@ -81,15 +79,16 @@ public abstract class FeldGuiController extends GuiController
     protected StackPane feldErstellen ()
     {
         StackPane feld = new StackPane();
-        feld.setPrefWidth(FELDGROESSE);
-        feld.setPrefHeight(FELDGROESSE);
-        draganddroptarget(feld);
-        draganddropsource(feld, true);
+        feld.setPrefWidth(FELD_GROESSE);
+        feld.setPrefHeight(FELD_GROESSE);
+        dragAndDropTarget(feld);
+        dragAndDropSource(feld, true);
         return feld;
     }
 
     public void dragAndDropSource (StackPane feld, boolean spielfeld)
     {
+        //Werte von sorchpane feld und hand beim bewegen im debugger angucken
         feld.setOnMousePressed(event ->
         {
             System.out.println("maus wurde geklickt");
@@ -113,7 +112,7 @@ public abstract class FeldGuiController extends GuiController
         feld.setOnDragDetected(event -> feld.startFullDrag());
     }
 
-    public void draganddroptarget (StackPane targetfeld)
+    public void dragAndDropTarget (StackPane targetfeld)
     {
         targetfeld.setOnMouseDragEntered(event ->
         {
@@ -143,7 +142,7 @@ public abstract class FeldGuiController extends GuiController
 
     public void initZugBeendenButton ()
     {
-        zugbeendenbutton.setOnAction(new EventHandler<ActionEvent>()
+        zugBeendenButton.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override public void handle(ActionEvent arg0)
             {
@@ -179,7 +178,7 @@ public abstract class FeldGuiController extends GuiController
         {
             System.out.println(spielfeld);
             spielfeldGitter.getChildren().remove(sourcePaneFeld);
-            spielfeldGitter.add(felderstellen(),feldspaltenindexmove,feldzeilenindexmove);
+            spielfeldGitter.add(feldErstellen(),feldspaltenindexmove,feldzeilenindexmove);
 
             KarteVBox kartemoveVBox = new KarteVBox(aktuellekarteausfeld);
             KonsolenIO.ausgeben(spielfeld.toString());
@@ -226,7 +225,7 @@ public abstract class FeldGuiController extends GuiController
             Karte aktuellekarte = kartenhandSpieler.getElement(i);
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
-            draganddropsource(feld, false);
+            dragAndDropSource(feld, false);
             //sourcePaneFeld = feld;
             kartenhandGitter.add(feld, i, 0);
         }

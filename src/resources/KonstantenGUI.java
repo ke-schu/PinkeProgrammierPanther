@@ -23,16 +23,20 @@ public interface KonstantenGUI
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
 
     //  Hilfefenster
-    Integer VBOX_20 = 20;
-    Integer POPUP_BREITE = 300;
-    Integer POPUP_HOEHE = 400;
+    int VBOX_20 = 20;
+    int POPUP_BREITE = 300;
+    int POPUP_HOEHE = 400;
+
+    //  Spielfeld
+    int FELD_GROESSE = 80;
+    int KARTENHAND_GROESSE = 100;
 
     //  Ereignisse
-    Integer POPUP_VBOX = 20;
-    Integer POPUP_VBOX_BREITE1 = 400;
-    Integer POPUP_VBOX_HOEHE1 = 300;
-    Integer POPUP_VBOX_BREITE2 = 700;
-    Integer POPUP_VBOX_HOEHE2 = 500;
+    int POPUP_VBOX = 20;
+    int POPUP_VBOX_BREITE1 = 400;
+    int POPUP_VBOX_HOEHE1 = 300;
+    int POPUP_VBOX_BREITE2 = 700;
+    int POPUP_VBOX_HOEHE2 = 500;
 
     BackgroundSize AUTO_HINTERGRUND =
             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,

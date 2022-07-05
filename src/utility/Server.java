@@ -2,6 +2,7 @@ package utility;
 
 import exceptions.JsonNichtLesbarException;
 import model.KartenDeck;
+import resources.Konstanten;
 
 import java.io.*;
 import java.net.BindException;
@@ -46,7 +47,7 @@ public class Server<T> extends NetzwerkIO<T>
 
     public static void main(String[] args)
     {
-        Server<KartenDeck> meinServer = new Server(PORT, KartenDeck.class);
+        Server<KartenDeck> meinServer = new Server(Konstanten.TEST_PORT, KartenDeck.class);
         meinServer.postEingangProperty().addListener(
                 (observableValue, s, t1) ->
                 {
@@ -59,6 +60,6 @@ public class Server<T> extends NetzwerkIO<T>
                         e.printStackTrace();
                     }
                 });
-        meinServer.starteInputThread();
+        meinServer.getInputThread().run();
     }
 }

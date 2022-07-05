@@ -10,7 +10,6 @@ import java.net.Socket;
 
 public abstract class NetzwerkIO<T>
 {
-    protected final static int PORT = 8000;
     protected BufferedReader netIn = null;
     protected PrintWriter netOut = null;
     protected boolean verbunden = false;
@@ -19,46 +18,40 @@ public abstract class NetzwerkIO<T>
     protected Socket socket = null;
     private final Serialisierung serialisierung;
     private ObjectProperty<T> postEingang;
+    private Runnable inputThread;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
         postEingang = new SimpleObjectProperty();
-    }
-
-    class InputThread extends Thread
-    {
-        public void run()
-        {
-            while(verbunden && socket.isConnected())
+        inputThread = new Runnable() {
+            public void run()
             {
-                empfangen();
-            }
-            beenden();
-        }
-
-        public void empfangen()
-        {
-            JsonReader reader = new JsonReader(netIn);
-            try
-            {
-                T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                if(objekt != null)
+                while(verbunden && socket.isConnected())
                 {
-                    postEingang.set(objekt);
+                    empfangen();
                 }
-            }
-            catch(JsonSyntaxException e)
-            {
                 beenden();
             }
-        }
-    }
 
-    public void starteInputThread()
-    {
-        new InputThread().start();
+            public void empfangen()
+            {
+                JsonReader reader = new JsonReader(netIn);
+                try
+                {
+                    T objekt = (T) serialisierung.deserialisieren(reader, classType);
+                    if(objekt != null)
+                    {
+                        postEingang.set(objekt);
+                    }
+                }
+                catch(JsonSyntaxException e)
+                {
+                    beenden();
+                }
+            }
+        };
     }
 
     public void beenden()
@@ -98,5 +91,10 @@ public abstract class NetzwerkIO<T>
     public ObjectProperty<T> postEingangProperty()
     {
         return postEingang;
+    }
+
+    public Runnable getInputThread()
+    {
+        return inputThread;
     }
 }

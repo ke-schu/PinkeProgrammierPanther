@@ -136,7 +136,7 @@ public class GuiController implements Initializable
      * Methode mit der zu der Hauptmenue Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
     @FXML public void wechselZuHauptmenue(ActionEvent event) throws IOException
@@ -148,7 +148,7 @@ public class GuiController implements Initializable
      * Methode mit der zu der Einstellung Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
     @FXML public void wechselZuEinstellungen(ActionEvent event)
@@ -161,7 +161,7 @@ public class GuiController implements Initializable
      * Methode mit der zu der Charakterauswahl Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
     @FXML public void wechselZuCharakterauswahl(ActionEvent event)
@@ -174,7 +174,7 @@ public class GuiController implements Initializable
      * Methode mit der zu der SpielEbene Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
     @FXML public void wechselZuSpielEbene(ActionEvent event) throws IOException
@@ -183,22 +183,34 @@ public class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Spielfeld Scene gewechselt wird.
+     * Methode mit der zu der Spieler-Feld-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
-    @FXML public void wechselZuSpielfeld(ActionEvent event) throws IOException
+    @FXML public void wechselZuSpielerFeld (ActionEvent event) throws IOException
     {
-        wechselZu(event, SPIELFELD_PFAD);
+        wechselZu(event, SPIELER_FELD_PFAD);
+    }
+
+    /**
+     * Methode mit der zu der Gegenspieler-Feld-Scene gewechselt wird.
+     *
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechselZu
+     *                     ausgeloest werden.
+     */
+    @FXML public void wechselZuGegenspielerFeld (ActionEvent event) throws IOException
+    {
+        wechselZu(event, GEGENSPIELER_FELD_PFAD);
     }
 
     /**
      * Methode mit der zu der Spielstand Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechelZu
+     * @throws IOException durch den Aufruf der Methode wechselZu
      *                     ausgeloest werden.
      */
     @FXML public void wechelZuSpielstand(ActionEvent event) throws IOException

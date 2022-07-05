@@ -21,7 +21,8 @@ public interface StringsGUI
     String EINSTELLUNG_PFAD = FXML_PFADE + "Einstellungen.fxml";
     String CHARAKTERAUSWAHL_PFAD = FXML_PFADE + "Charakterauswahl.fxml";
     String SPIELEBENE_PFAD = FXML_PFADE + "Spielebene.fxml";
-    String SPIELFELD_PFAD = FXML_PFADE + "Spielfeld.fxml";
+    String SPIELER_FELD_PFAD = FXML_PFADE + "Spielfeld.fxml";
+    String GEGENSPIELER_FELD_PFAD = FXML_PFADE + "Gegenspielerfeld.fxml";
     String SPIELSTAND_PFAD = FXML_PFADE + "Spielstand.fxml";
 
     //  Aufloesung
