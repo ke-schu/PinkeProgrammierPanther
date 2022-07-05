@@ -66,16 +66,16 @@ public abstract class FeldGuiController extends GuiController
 
     protected void aktualisiereSpielStatus()
     {
-        spielfeld = SpielstatusKommunikation.getPostEingang().getSpielfeld();
+        spielfeld = SpielstatusKommunikation.getEmpfangenesPaket().getSpielfeld();
         System.out.println(spielfeld);
 
-        spieler = SpielstatusKommunikation.getPostEingang().getSpieler();
-        gegenspieler = SpielstatusKommunikation.getPostEingang().getGegenspieler();
+        spieler = SpielstatusKommunikation.getEmpfangenesPaket().getSpieler();
+        gegenspieler = SpielstatusKommunikation.getEmpfangenesPaket().getGegenspieler();
 
-        spielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
-        gegenspielerDeck = SpielstatusKommunikation.getPostEingang().getGegenspielerDeck();
+        spielerDeck = SpielstatusKommunikation.getEmpfangenesPaket().getSpielerDeck();
+        gegenspielerDeck = SpielstatusKommunikation.getEmpfangenesPaket().getGegenspielerDeck();
 
-        RundenController.setzugZaehler(SpielstatusKommunikation.getPostEingang().getZugzaehler());
+        RundenController.setzugZaehler(SpielstatusKommunikation.getEmpfangenesPaket().getZugzaehler());
 
 
         for (int i = 0; i < spielfeld.getZeilen(); i++)
@@ -205,12 +205,20 @@ public abstract class FeldGuiController extends GuiController
                     aktuellekartenhand.handZiehen(gegenspielerDeck);
                 }
 
-
-
                 SpielstatusKommunikation.senden(new Spielstatus(
                         spieler,gegenspieler,
                         spielfeld, spielerDeck,
                         gegenspielerDeck,  RundenController.getzugZaehler()));
+
+                SpielstatusKommunikation.getInputThread().start();
+                try
+                {
+                    SpielstatusKommunikation.getInputThread().join();
+                } catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                aktualisiereSpielStatus();
 
                 KonsolenIO.ausgeben("spieler ist dran:");
                 KonsolenIO.ausgeben("wir sind in zug: ");

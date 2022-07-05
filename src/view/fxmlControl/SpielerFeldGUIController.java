@@ -4,6 +4,7 @@ import control.KartenEinheitController;
 import control.RundenController;
 import control.Spielstatus;
 import exceptions.JsonNichtLesbarException;
+import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
 import model.*;
 import utility.KonsolenIO;
@@ -14,6 +15,7 @@ import view.components.KarteVBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Thread.sleep;
 import static resources.Konstanten.*;
 
 public class SpielerFeldGUIController extends FeldGuiController
@@ -65,14 +67,6 @@ public class SpielerFeldGUIController extends FeldGuiController
     public void initNetzwerk ()
     {
         SpielstatusKommunikation = new Server(SPIELSTATUS_PORT, Spielstatus.class);
-
-        SpielstatusKommunikation.postEingangProperty().addListener(
-                (observableValue, s, t1) -> aktualisiereSpielStatus());
-
-        SpielstatusKommunikation.getInputThread().start();
-        /* schicken und mit methode regeln welche guckt ob es die erste runde ist
-        Server<Gegenspieler> SpielerServer = new Server(SPIELER_PORT, Gegenspieler.class);
-        SpielerServer.senden((Gegenspieler) gegenspieler);*/
     }
 
     @Override

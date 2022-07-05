@@ -2,11 +2,14 @@ package utility;
 
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.*;
 import java.net.Socket;
+
+import static java.lang.Thread.sleep;
 
 public abstract class NetzwerkIO<T>
 {
@@ -17,21 +20,17 @@ public abstract class NetzwerkIO<T>
     protected final Class<T> classType;
     protected Socket socket = null;
     private final Serialisierung serialisierung;
-    private ObjectProperty<T> postEingang;
     private Thread inputThread;
+    private T empfangenesPaket;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
-        postEingang = new SimpleObjectProperty();
         inputThread = new Thread(new Runnable() {
             public void run()
             {
-                while(verbunden && socket.isConnected())
-                {
-                    empfangen();
-                }
+                empfangen();
                 beenden();
             }
 
@@ -41,12 +40,13 @@ public abstract class NetzwerkIO<T>
                 try
                 {
                     T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                    if(objekt != null)
+                    while(objekt == null)
                     {
-                        postEingang.set(objekt);
+                        sleep(100);
                     }
+                    empfangenesPaket = objekt;
                 }
-                catch(JsonSyntaxException e)
+                catch(JsonSyntaxException | InterruptedException e)
                 {
                     beenden();
                 }
@@ -83,18 +83,18 @@ public abstract class NetzwerkIO<T>
         infoOut.println("Nachricht gesendet.");
     }
 
-    public T getPostEingang()
-    {
-        return postEingang.get();
-    }
-
-    public ObjectProperty<T> postEingangProperty()
-    {
-        return postEingang;
-    }
-
     public Thread getInputThread()
     {
         return inputThread;
+    }
+
+    public boolean isVerbunden()
+    {
+        return verbunden;
+    }
+
+    public T getEmpfangenesPaket()
+    {
+        return empfangenesPaket;
     }
 }

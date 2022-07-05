@@ -29,10 +29,15 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         SpielstatusKommunikation = new Client(hostname, SPIELSTATUS_PORT,
                 Spielstatus.class);
 
-        SpielstatusKommunikation.postEingangProperty().addListener(
-                (observableValue, s, t1) -> aktualisiereSpielStatus());
-
         SpielstatusKommunikation.getInputThread().start();
+        try
+        {
+            SpielstatusKommunikation.getInputThread().join();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        aktualisiereSpielStatus();
 
         while(spieler == null)
         {
