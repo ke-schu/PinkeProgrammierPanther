@@ -24,6 +24,8 @@ import static resources.StringsGUI.*;
  */
 public class Main extends Application
 {
+    private static String seitentitelZusatz;
+
     /**
      * Diese main-Methode wird beim Start des Programms aufgerufen.
      *
@@ -31,6 +33,7 @@ public class Main extends Application
      */
     public static void main(String[] args)
     {
+        seitentitelZusatz = args[0];
         launch();
     }
 
@@ -72,7 +75,7 @@ public class Main extends Application
         {
             FXMLLoader fxmlLoader = new FXMLLoader(f.toURI().toURL());
             Scene scene = new Scene(fxmlLoader.load());
-            stage.setTitle(SPIELTITEL);
+            stage.setTitle(SPIELTITEL + " - " + seitentitelZusatz);
             stage.setScene(scene);
             // Setze Aufloesung beim Starten
             stage.setMaxHeight(AUFLOESUNG_HOEHE_HD);

@@ -5,6 +5,7 @@ import javafx.scene.layout.StackPane;
 import model.*;
 import utility.Client;
 import utility.KonsolenIO;
+import view.components.KarteVBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,6 +34,12 @@ public class GegenspielerFeldGUIController extends FeldGuiController
             for (int j = 0; j < spielfeld.getZeilen(); j++)
             {
                 StackPane feld = feldErstellen();
+                if(spielfeld.getSpielfeldplatz(i,j) != null)
+                {
+                    KarteVBox
+                            karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i, j));
+                    feld.getChildren().add(karteVBox);
+                }
                 spielfeldGitter.add(feld, i, j);
             }
         }

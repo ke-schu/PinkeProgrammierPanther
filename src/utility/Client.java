@@ -31,24 +31,4 @@ public class Client<T> extends NetzwerkIO<T>
             beenden();
         }
     }
-
-    public static void main(String[] args)
-    {
-        Client<KartenDeck> meinClient = new Client("localhost",
-                Konstanten.TEST_PORT, KartenDeck.class);
-        try
-        {
-            meinClient.senden(KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD));
-        }
-        catch (JsonNichtLesbarException e)
-        {
-            e.printStackTrace();
-        }
-        meinClient.postEingangProperty().addListener(
-                (observableValue, s, t1) ->
-                {
-                    KonsolenIO.ausgeben(meinClient.getPostEingang().getDeckBezeichnung());
-                });
-        meinClient.getInputThread().start();
-    }
 }

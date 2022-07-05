@@ -63,7 +63,7 @@ public abstract class FeldGuiController extends GuiController
     /**
      * Initialisiert die Kommunikation übers Netzwerk
      */
-    public abstract void initNetzwerk ();
+    public abstract void initNetzwerk();
 
     protected void aktualisiereSpielStatus()
     {
@@ -77,7 +77,7 @@ public abstract class FeldGuiController extends GuiController
 
         zugZaehler = SpielstatusKommunikation.getPostEingang().getZugzaehler();
 
-        if (zugZaehler > 0)
+        if (zugZaehler > 1)
         {
             for (int i = 0; i < spielfeld.getSpalten(); i++)
             {

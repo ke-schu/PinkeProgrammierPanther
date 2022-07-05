@@ -38,7 +38,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                 StackPane feld = feldErstellen();
                 if(j == 0 && i == 0)
                 {
-                    heldEinsetzen((Gegenspieler)gegenspieler, feld );
+                    heldEinsetzen((Gegenspieler)gegenspieler, feld);
                 }
 
                 if

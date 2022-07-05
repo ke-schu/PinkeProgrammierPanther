@@ -44,22 +44,4 @@ public class Server<T> extends NetzwerkIO<T>
             beenden();
         }
     }
-
-    public static void main(String[] args)
-    {
-        Server<KartenDeck> meinServer = new Server(Konstanten.TEST_PORT, KartenDeck.class);
-        meinServer.postEingangProperty().addListener(
-                (observableValue, s, t1) ->
-                {
-                    KonsolenIO.ausgeben(meinServer.getPostEingang().getDeckBezeichnung());
-                    try
-                    {
-                        meinServer.senden(KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD));
-                    } catch (JsonNichtLesbarException e)
-                    {
-                        e.printStackTrace();
-                    }
-                });
-        meinServer.getInputThread().start();
-    }
 }
