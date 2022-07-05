@@ -22,7 +22,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     {
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
-        initNetzwerk();
+        //initNetzwerk();
         initZugBeendenButton();
 
         for (int i = 0; i < spielfeld.getZeilen(); i++)

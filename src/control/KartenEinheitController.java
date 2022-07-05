@@ -87,22 +87,21 @@ public class KartenEinheitController
         if (held.getFreundlich())
         {
             held.startWerteSpeichern();
-            positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
-                          SPIELER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
-                    spielfeld.getZeilen() - 1, held);
+
+            int spaltenindex = spielfeld.getSpalten() - 1;
+            int zeilenindex = spielfeld.getZeilen() - 1;
+
+            positionGeben(held, spaltenindex,
+                    zeilenindex);
+
+            spielfeld.einheitEinsetzten(spaltenindex,
+                    zeilenindex, held);
         }
         else
         {
             held.startWerteSpeichern();
-            positionGeben(held, spielfeld.getSpalten() -
-                                GEGNER_KAMPFFELD_STARTPOSITION_X,
-                          spielfeld.getZeilen() -
-                          GEGNER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(
-                    spielfeld.getSpalten() - GEGNER_KAMPFFELD_STARTPOSITION_X,
-                    spielfeld.getZeilen() - GEGNER_KAMPFFELD_STARTPOSITION_Y,
-                    held);
+            positionGeben(held, 0,0);
+            spielfeld.einheitEinsetzten(0,0,held);
         }
     }
 
