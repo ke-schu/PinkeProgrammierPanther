@@ -3,7 +3,9 @@ package view.fxmlControl;
 import control.EinheitenController;
 import control.RundenController;
 import control.Spielstatus;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -70,10 +72,35 @@ public abstract class FeldGuiController extends GuiController
         gegenspieler = SpielstatusKommunikation.getPostEingang().getSpieler();
         spieler = SpielstatusKommunikation.getPostEingang().getGegenspieler();
 
-        spielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
         gegenspielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
+        spielerDeck = SpielstatusKommunikation.getPostEingang().getGegenspielerDeck();
 
         zugZaehler = SpielstatusKommunikation.getPostEingang().getZugzaehler();
+
+        if (zugZaehler > 0)
+        {
+            for (int i = 0; i < spielfeld.getSpalten(); i++)
+            {
+                for (int j = 0; j < spielfeld.getZeilen(); j++)
+                {
+                    /*Node meinenode = getNodeByRowColumnIndex(i, j,spielfeldGitter);
+                    if(meinenode != null)
+                    {
+                        spielfeldGitter.getChildren().remove(meinenode);
+                    }*/
+                    removeNodeByRowColumnIndex(i,j,spielfeldGitter);
+
+                    StackPane feld = feldErstellen();
+                    if(spielfeld.getSpielfeldplatz(i,j) != null)
+                    {
+                        KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
+                        feld.getChildren().add(karteVBox);
+                    }
+                    spielfeldGitter.add(feld, i, j);
+                }
+            }
+        }
+
     }
 
     protected StackPane feldErstellen ()
@@ -147,6 +174,7 @@ public abstract class FeldGuiController extends GuiController
             @Override public void handle(ActionEvent arg0)
             {
                 RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+                zugZaehler++;
                 kartenhandSpieler.handAblegen(spielerDeck);
                 kartenhandSpieler.handZiehen(spielerDeck);
 
