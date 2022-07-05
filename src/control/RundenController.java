@@ -11,8 +11,13 @@ import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
  */
 public class RundenController
 {
-    private static int zugZaehler = 1;
-    private static boolean freundlich = true;
+    public static boolean isDran ()
+    {
+        return dran;
+    }
+
+    private static int zugZaehler = 0;
+    private static boolean dran = true;
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
@@ -128,11 +133,11 @@ public class RundenController
     {
         if (zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0)
         {
-            freundlich = true;
+            dran = true;
         }
         else
         {
-            freundlich = false;
+            dran = false;
         }
     }
 
@@ -161,7 +166,7 @@ public class RundenController
      *
      * @return Wert des Zuges.
      */
-    public static int getZugZaehler()
+    public static int getzugZaehler()
     {
         return zugZaehler;
     }
@@ -171,9 +176,14 @@ public class RundenController
      *
      * @param zugZaehler Wert des Zuges.
      */
-    public static void setZugZaehler(int zugZaehler)
+    public static void setzugZaehler(int zugZaehler)
     {
         RundenController.zugZaehler = zugZaehler;
+    }
+
+    public static void zughochzaehlen()
+    {
+        zugZaehler++;
     }
 
     /**
@@ -181,19 +191,19 @@ public class RundenController
      *
      * @return true oder false.
      */
-    public static boolean getFreundlich()
+    public static boolean getDran()
     {
-        return freundlich;
+        return dran;
     }
 
     /**
      * Setzt den Wahrheitswert freundlich.
      *
-     * @param freundlich true oder false.
+     * @param dran true oder false.
      */
-    public static void setFreundlich(boolean freundlich)
+    public static void setDran(boolean dran)
     {
-        RundenController.freundlich = freundlich;
+        RundenController.dran = dran;
     }
 }
 

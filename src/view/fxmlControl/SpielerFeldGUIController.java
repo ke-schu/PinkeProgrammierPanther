@@ -1,6 +1,7 @@
 package view.fxmlControl;
 
 import control.KartenEinheitController;
+import control.RundenController;
 import control.Spielstatus;
 import exceptions.JsonNichtLesbarException;
 import javafx.scene.layout.StackPane;
@@ -20,36 +21,45 @@ public class SpielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
+        initNetzwerk();
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
-        initNetzwerk();
         initZugBeendenButton();
 
-        for (int i = 0; i < spielfeld.getZeilen(); i++)
-        {
-            spielfeldGitter.addRow(0);
-        }
 
-        for (int i = 0; i < spielfeld.getSpalten(); i++)
+        /*hintergrundFestlegen();
+        erstelleSpielfeldUmgebung();
+        initNetzwerk();
+        initZugBeendenButton();*/
+        if(RundenController.getzugZaehler()== 0)
         {
-            spielfeldGitter.addColumn(0);
-            for (int j = 0; j < spielfeld.getZeilen(); j++)
+            for (int i = 0; i < spielfeld.getZeilen(); i++)
             {
-                StackPane feld = feldErstellen();
-                if(j == 0 && i == 0)
-                {
-                    heldEinsetzen((Gegenspieler)gegenspieler, feld);
-                }
+                spielfeldGitter.addRow(0);
+            }
 
-                if
-                (j == spielfeld.getZeilen() - 1 &&
-                 i == spielfeld.getSpalten() - 1)
+            for (int i = 0; i < spielfeld.getSpalten(); i++)
+            {
+                spielfeldGitter.addColumn(0);
+                for (int j = 0; j < spielfeld.getZeilen(); j++)
                 {
-                    heldEinsetzen((Spieler)spieler, feld);
+                    StackPane feld = feldErstellen();
+                    if(j == 0 && i == 0)
+                    {
+                        heldEinsetzen(gegenspieler, feld );
+                    }
+
+                    if
+                    (j == spielfeld.getZeilen() - 1 &&
+                     i == spielfeld.getSpalten() - 1)
+                    {
+                        heldEinsetzen(spieler, feld);
+                    }
+                    spielfeldGitter.add(feld, i, j);
                 }
-                spielfeldGitter.add(feld, i, j);
             }
         }
+
     }
 
     public void initNetzwerk ()
@@ -78,19 +88,18 @@ public class SpielerFeldGUIController extends FeldGuiController
             gegenspieler = spiel.getGegenSpieler();
             gegenspielerDeck = spiel.getSpieldeckGegner();
 
-            kartenhandSpieler = new KartenHand((Spieler)spieler);
-            kartenhandSpieler.handZiehen(spielerDeck);
+            aktuellekartenhand = new KartenHand(spieler);
+            aktuellekartenhand.handZiehen(spielerDeck);
 
             spielfeld = new SpielFeld();
-            manaTankSpieler = new ManaTank(spieler);
+            aktuellermanaTank = new ManaTank(spieler);
 
-            KartenEinheitController.beschwoerenHelden((Spieler) spieler,spielfeld);
-            KartenEinheitController.beschwoerenHelden(
-                    (Gegenspieler)gegenspieler,spielfeld);
+            KartenEinheitController.beschwoerenHelden(spieler,spielfeld);
+            KartenEinheitController.beschwoerenHelden(gegenspieler,spielfeld);
 
             Manabar.setStyle("-fx-accent: blue ;");
-            manaMaximumSpieler = manaTankSpieler.getMana();
-            double manaWert = manaMaximumSpieler / manaTankSpieler.getMana();
+            altuellesmanaMaximum = aktuellermanaTank.getMana();
+            double manaWert = altuellesmanaMaximum / aktuellermanaTank.getMana();
             Manabar.setProgress(manaWert);
             karteInHandEinfuegen();
         }

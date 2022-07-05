@@ -1,11 +1,8 @@
 package view.fxmlControl;
 
 import control.Spielstatus;
-import javafx.scene.layout.StackPane;
 import model.*;
 import utility.Client;
-import utility.KonsolenIO;
-import view.components.KarteVBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,26 +20,6 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
 
-        for (int i = 0; i < spielfeld.getZeilen(); i++)
-        {
-            spielfeldGitter.addRow(0);
-        }
-
-        for (int i = 0; i < spielfeld.getSpalten(); i++)
-        {
-            spielfeldGitter.addColumn(0);
-            for (int j = 0; j < spielfeld.getZeilen(); j++)
-            {
-                StackPane feld = feldErstellen();
-                if(spielfeld.getSpielfeldplatz(i,j) != null)
-                {
-                    KarteVBox
-                            karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i, j));
-                    feld.getChildren().add(karteVBox);
-                }
-                spielfeldGitter.add(feld, i, j);
-            }
-        }
     }
 
     @Override
@@ -72,14 +49,15 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @Override
     public void erstelleSpielfeldUmgebung()
     {
-        kartenhandSpieler = new KartenHand((Gegenspieler) spieler);
-        kartenhandSpieler.handZiehen(spielerDeck);
+        aktuellekartenhand = new KartenHand(gegenspieler);
+            aktuellekartenhand.handZiehen(gegenspielerDeck);
 
-        manaTankSpieler = new ManaTank(spieler);
-        Manabar.setStyle("-fx-accent: blue;");
-        manaMaximumSpieler = manaTankSpieler.getMana();
-        double manaWert = manaMaximumSpieler / manaTankSpieler.getMana();
-        Manabar.setProgress(manaWert);
-        karteInHandEinfuegen();
+        aktuellermanaTank = new ManaTank(gegenspieler);
+            Manabar.setStyle("-fx-accent: blue;");
+        altuellesmanaMaximum = aktuellermanaTank.getMana();
+            double manaWert = altuellesmanaMaximum / aktuellermanaTank.getMana();
+            Manabar.setProgress(manaWert);
+            karteInHandEinfuegen();
+
     }
 }

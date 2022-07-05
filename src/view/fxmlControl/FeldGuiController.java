@@ -48,12 +48,11 @@ public abstract class FeldGuiController extends GuiController
     protected SpielFeld spielfeld;
     protected KartenDeck spielerDeck;
     protected KartenDeck gegenspielerDeck;
-    protected KartenHand kartenhandSpieler;
-    protected Spielbar spieler;
-    protected Spielbar gegenspieler;
-    protected ManaTank manaTankSpieler;
-    protected int zugZaehler = 0;
-    protected double manaMaximumSpieler;
+    protected KartenHand aktuellekartenhand;
+    protected Spieler spieler;
+    protected Gegenspieler gegenspieler;
+    protected ManaTank aktuellermanaTank;
+    protected double altuellesmanaMaximum;
 
     /**
      * Methode, welche die für den Kampf benötigten Objekte erstellt
@@ -63,55 +62,49 @@ public abstract class FeldGuiController extends GuiController
     /**
      * Initialisiert die Kommunikation übers Netzwerk
      */
-    public abstract void initNetzwerk();
+    public abstract void initNetzwerk ();
 
     protected void aktualisiereSpielStatus()
     {
         spielfeld = SpielstatusKommunikation.getPostEingang().getSpielfeld();
+        System.out.println(spielfeld);
 
-        gegenspieler = SpielstatusKommunikation.getPostEingang().getSpieler();
-        spieler = SpielstatusKommunikation.getPostEingang().getGegenspieler();
+        spieler = SpielstatusKommunikation.getPostEingang().getSpieler();
+        gegenspieler = SpielstatusKommunikation.getPostEingang().getGegenspieler();
 
-        gegenspielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
-        spielerDeck = SpielstatusKommunikation.getPostEingang().getGegenspielerDeck();
+        spielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
+        gegenspielerDeck = SpielstatusKommunikation.getPostEingang().getGegenspielerDeck();
 
-        zugZaehler = SpielstatusKommunikation.getPostEingang().getZugzaehler();
+        RundenController.setzugZaehler(SpielstatusKommunikation.getPostEingang().getZugzaehler());
 
-        if (zugZaehler > 1)
+
+        for (int i = 0; i < spielfeld.getZeilen(); i++)
         {
-            for (int i = 0; i < spielfeld.getSpalten(); i++)
+            spielfeldGitter.addRow(0);
+        }
+        for (int i = 0; i < spielfeld.getSpalten(); i++)
+        {
+            spielfeldGitter.addColumn(0);
+            for (int j = 0; j < spielfeld.getZeilen(); j++)
             {
-                for (int j = 0; j < spielfeld.getZeilen(); j++)
+                StackPane feld = feldErstellen();
+                if(spielfeld.getSpielfeldplatz(i,j) != null)
                 {
-                    /*Node meinenode = getNodeByRowColumnIndex(i, j,spielfeldGitter);
-                    if(meinenode != null)
-                    {
-                        spielfeldGitter.getChildren().remove(meinenode);
-                    }*/
-                    removeNodeByRowColumnIndex(i,j,spielfeldGitter);
-
-                    StackPane feld = feldErstellen();
-                    if(spielfeld.getSpielfeldplatz(i,j) != null)
-                    {
-                        KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
-                        feld.getChildren().add(karteVBox);
-                    }
-                    spielfeldGitter.add(feld, i, j);
+                    KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
+                    feld.getChildren().add(karteVBox);
                 }
+                spielfeldGitter.add(feld, i, j);
+                System.out.println("hellouda");
             }
         }
-
     }
 
-    public void removeNodeByRowColumnIndex(final int row,final int column,GridPane gridPane)
+    public void removeNodeByRowColumnIndex(GridPane gridPane)
     {
         ObservableList<Node> childrens = gridPane.getChildren();
         for(Node node : childrens)
         {
-            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column)
-            {
                 gridPane.getChildren().remove(node);
-            }
         }
     }
 
@@ -174,7 +167,6 @@ public abstract class FeldGuiController extends GuiController
         targetfeld.setOnMouseDragOver(event ->
         {
         });
-        // karten lassen sich nicht auf feld bewegen oder beschwören auf dem zuvor eine andere karte war
         targetfeld.setOnMouseDragReleased(event ->
         {
             if(sourcePaneFeld != null)
@@ -200,20 +192,32 @@ public abstract class FeldGuiController extends GuiController
             @Override public void handle(ActionEvent arg0)
             {
                 RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
-                zugZaehler++;
-                kartenhandSpieler.handAblegen(spielerDeck);
-                kartenhandSpieler.handZiehen(spielerDeck);
+                System.out.println(RundenController.getzugZaehler());
+
+                if(RundenController.getDran())
+                {
+                    aktuellekartenhand.handAblegen(spielerDeck);
+                    aktuellekartenhand.handZiehen(spielerDeck);
+                }
+                else
+                {
+                    aktuellekartenhand.handAblegen(gegenspielerDeck);
+                    aktuellekartenhand.handZiehen(gegenspielerDeck);
+                }
+
+
 
                 SpielstatusKommunikation.senden(new Spielstatus(
-                        (Spieler) spieler, (Gegenspieler) gegenspieler,
+                        spieler,gegenspieler,
                         spielfeld, spielerDeck,
-                        gegenspielerDeck, zugZaehler));
+                        gegenspielerDeck,  RundenController.getzugZaehler()));
 
                 KonsolenIO.ausgeben("spieler ist dran:");
-                KonsolenIO.ausgeben("wir sind in zug: " + zugZaehler);
+                KonsolenIO.ausgeben("wir sind in zug: ");
             }
         });
     }
+
 
 
     protected void einheitBewegen(StackPane targetfeld)
@@ -246,12 +250,20 @@ public abstract class FeldGuiController extends GuiController
         int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
 
         int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
-        Karte aktuellekarteaushand = kartenhandSpieler.getElement(handindex);
 
-         Karte karteaushand = kartenhandSpieler.getElement(handindex);
-        manaTankSpieler = KartenEinheitController.beschwoeren(kartenhandSpieler, handindex,
-                spielfeld, feldspaltenindex,
-                feldzeilenindex, manaTankSpieler);
+        //aktuelle kartenhand
+        Karte aktuellekarteaushand = aktuellekartenhand.getElement(handindex);
+
+         Karte karteaushand = aktuellekartenhand.getElement(handindex);
+
+             aktuellermanaTank = KartenEinheitController.beschwoeren(aktuellekartenhand, handindex,
+                                                                     spielfeld, feldspaltenindex,
+                                                                     feldzeilenindex,
+                     aktuellermanaTank);
+
+
+
+
         if (KartenEinheitController.moveerfolgreich(spielfeld, karteaushand,feldspaltenindex, feldzeilenindex))
         {
             kartenhandGitter.getChildren().remove(sourcePaneHand);
@@ -259,8 +271,8 @@ public abstract class FeldGuiController extends GuiController
             KonsolenIO.ausgeben(spielfeld.toString());
             targetfeld.getChildren().add(karteVBox);
             sourcePaneHand = null;
-            double manaWert = manaTankSpieler.getMana();
-            double barwert = manaWert / manaMaximumSpieler;
+            double manaWert = aktuellermanaTank.getMana();
+            double barwert = manaWert / altuellesmanaMaximum;
             Manabar.setProgress(barwert);
         }
     }
@@ -276,7 +288,7 @@ public abstract class FeldGuiController extends GuiController
             feld.setPrefWidth(KARTENHAND_GROESSE);
             feld.setPrefHeight(KARTENHAND_GROESSE);
 
-            Karte aktuellekarte = kartenhandSpieler.getElement(i);
+            Karte aktuellekarte = aktuellekartenhand.getElement(i);
             KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
             feld.getChildren().add(aktuellekartevbox);
             dragAndDropSource(feld, false);
