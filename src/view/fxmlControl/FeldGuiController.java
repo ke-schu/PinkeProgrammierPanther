@@ -103,6 +103,32 @@ public abstract class FeldGuiController extends GuiController
 
     }
 
+    public void removeNodeByRowColumnIndex(final int row,final int column,GridPane gridPane)
+    {
+        ObservableList<Node> childrens = gridPane.getChildren();
+        for(Node node : childrens)
+        {
+            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column)
+            {
+                gridPane.getChildren().remove(node);
+            }
+        }
+    }
+
+    public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
+        Node result = null;
+        ObservableList<Node> childrens = gridPane.getChildren();
+
+        for (Node node : childrens) {
+            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
+                result = node;
+                break;
+            }
+        }
+
+        return result;
+    }
+
     protected StackPane feldErstellen ()
     {
         StackPane feld = new StackPane();
