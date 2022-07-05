@@ -49,6 +49,6 @@ public class Client<T> extends NetzwerkIO<T>
                 {
                     KonsolenIO.ausgeben(meinClient.getPostEingang().getDeckBezeichnung());
                 });
-        meinClient.getInputThread().run();
+        meinClient.getInputThread().start();
     }
 }

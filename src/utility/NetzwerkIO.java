@@ -18,14 +18,14 @@ public abstract class NetzwerkIO<T>
     protected Socket socket = null;
     private final Serialisierung serialisierung;
     private ObjectProperty<T> postEingang;
-    private Runnable inputThread;
+    private Thread inputThread;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
         postEingang = new SimpleObjectProperty();
-        inputThread = new Runnable() {
+        inputThread = new Thread(new Runnable() {
             public void run()
             {
                 while(verbunden && socket.isConnected())
@@ -51,7 +51,7 @@ public abstract class NetzwerkIO<T>
                     beenden();
                 }
             }
-        };
+        });
     }
 
     public void beenden()
@@ -93,7 +93,7 @@ public abstract class NetzwerkIO<T>
         return postEingang;
     }
 
-    public Runnable getInputThread()
+    public Thread getInputThread()
     {
         return inputThread;
     }

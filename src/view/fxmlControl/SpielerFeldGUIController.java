@@ -59,7 +59,7 @@ public class SpielerFeldGUIController extends FeldGuiController
         SpielstatusKommunikation.postEingangProperty().addListener(
                 (observableValue, s, t1) -> aktualisiereSpielStatus());
 
-        SpielstatusKommunikation.getInputThread().run();
+        SpielstatusKommunikation.getInputThread().start();
         /* schicken und mit methode regeln welche guckt ob es die erste runde ist
         Server<Gegenspieler> SpielerServer = new Server(SPIELER_PORT, Gegenspieler.class);
         SpielerServer.senden((Gegenspieler) gegenspieler);*/

@@ -47,19 +47,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         SpielstatusKommunikation.postEingangProperty().addListener(
                 (observableValue, s, t1) -> aktualisiereSpielStatus());
 
-        SpielstatusKommunikation.getInputThread().run();
-
-        while(!SpielstatusKommunikation.postEingangProperty().isBound())
-        {
-            try
-            {
-                Thread.currentThread().sleep(100);
-            }
-            catch (InterruptedException ex)
-            {
-                ex.printStackTrace();
-            }
-        }
+        SpielstatusKommunikation.getInputThread().start();
     }
 
     @Override

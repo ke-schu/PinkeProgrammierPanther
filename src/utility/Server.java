@@ -60,6 +60,6 @@ public class Server<T> extends NetzwerkIO<T>
                         e.printStackTrace();
                     }
                 });
-        meinServer.getInputThread().run();
+        meinServer.getInputThread().start();
     }
 }
