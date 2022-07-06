@@ -25,13 +25,14 @@ public class SpielerFeldGUIController extends FeldGuiController
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
+        spielfeldguiaktualisieren();
 
 
         /*hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
         initNetzwerk();
         initZugBeendenButton();*/
-        if(RundenController.getzugZaehler()== 0)
+        /*if(RundenController.getzugZaehler()== 0)
         {
             for (int i = 0; i < spielfeld.getZeilen(); i++)
             {
@@ -58,7 +59,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                     spielfeldGitter.add(feld, i, j);
                 }
             }
-        }
+        }*/
 
     }
 

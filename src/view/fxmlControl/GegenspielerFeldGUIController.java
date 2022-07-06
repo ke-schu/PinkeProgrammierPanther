@@ -19,6 +19,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
+        spielfeldguiaktualisieren();
 
     }
 

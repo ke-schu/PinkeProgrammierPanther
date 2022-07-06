@@ -3,6 +3,7 @@ package view.fxmlControl;
 import control.EinheitenController;
 import control.RundenController;
 import control.Spielstatus;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -29,6 +30,8 @@ import view.components.KarteVBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static resources.Konstanten.HANDGROESSE;
 import static resources.KonstantenGUI.*;
@@ -77,27 +80,43 @@ public abstract class FeldGuiController extends GuiController
 
         RundenController.setzugZaehler(SpielstatusKommunikation.getPostEingang().getZugzaehler());
 
-
-        for (int i = 0; i < spielfeld.getZeilen(); i++)
-        {
-            spielfeldGitter.addRow(0);
-        }
-        for (int i = 0; i < spielfeld.getSpalten(); i++)
-        {
-            spielfeldGitter.addColumn(0);
-            for (int j = 0; j < spielfeld.getZeilen(); j++)
-            {
-                StackPane feld = feldErstellen();
-                if(spielfeld.getSpielfeldplatz(i,j) != null)
-                {
-                    KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
-                    feld.getChildren().add(karteVBox);
-                }
-                spielfeldGitter.add(feld, i, j);
-                System.out.println("hellouda");
-            }
-        }
     }
+
+    protected void spielfeldguiaktualisieren()
+    {
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    public void run() {
+                        for (int i = 0; i < spielfeld.getZeilen(); i++)
+                        {
+                            spielfeldGitter.addRow(0);
+                        }
+                        for (int i = 0; i < spielfeld.getSpalten(); i++)
+                        {
+                            spielfeldGitter.addColumn(0);
+                            for (int j = 0; j < spielfeld.getZeilen(); j++)
+                            {
+                                StackPane feld = feldErstellen();
+                                if(spielfeld.getSpielfeldplatz(i,j) != null)
+                                {
+                                    KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
+                                    feld.getChildren().add(karteVBox);
+                                }
+                                spielfeldGitter.add(feld, i, j);
+                                System.out.println("hellouda");
+                            }
+                        }
+                    }
+                });
+            }
+        }, 300, 1000);
+
+
+    }
+
 
     public void removeNodeByRowColumnIndex(GridPane gridPane)
     {
