@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import model.Ebene;
 import model.Position;
 import model.Raum;
+import model.SpielfigurEbene;
 import model.ereignisse.*;
 import utility.EbeneIO;
 import utility.KonsolenIO;
@@ -60,6 +61,11 @@ public class SpielebeneGuiController extends GuiController
      */
     @Override public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        initialisiereEbene();
+    }
+
+    private void initialisiereEbene()
+    {
         try
         {
             spiel = SpielStandIO.leseDatei();
@@ -79,6 +85,10 @@ public class SpielebeneGuiController extends GuiController
                     initialisiereRaum(spielEbene, i, j);
                 }
             }
+            /*
+            sorgt für Fehler beim Laden der nächsten Ebene, die Spielfigur wird, ab dem Betreten
+            des zweiten Raumes visualisiert. Bin dran.
+            */
             spielerPosition.set(spielEbene.getSpielfigur().getPosition());
         }
         catch (JsonNichtLesbarException e)
@@ -111,11 +121,12 @@ public class SpielebeneGuiController extends GuiController
                                                                          x, y,
                                                                          spiel))
                                    {
-                                       spielerPosition.bind(aktuellePosition);
+                                       spielerPosition.bindBidirectional(aktuellePosition);
                                        if (!ebene.getRaumAnPosition(x, y).getEreignis().isAusgefuehrt())
                                        {
                                            oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
                                        }
+                                       spielerPosition.unbindBidirectional(aktuellePosition);
                                    }
                                });
         spielebenenGitter.add(raum, x, y);
@@ -379,7 +390,6 @@ public class SpielebeneGuiController extends GuiController
             vbox.getChildren().add(new Button(
                     spiel.getSpieldeckSpieler().get(i).getName()));
         }
-        Button gehenButton = new Button(EREIGNIS_GEHEN);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(ereignisText);
         ereignisVerlassen(popupStage, vbox);
@@ -433,7 +443,7 @@ public class SpielebeneGuiController extends GuiController
     public void treppeGuiAusfuehren(Ereignis ereignis)
     {
         ereignis.ausfuehren(spiel);
-        //initialize();
+        initialisiereEbene();
     }
 
     /**
@@ -458,12 +468,12 @@ public class SpielebeneGuiController extends GuiController
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
-        ereignisText.setText(TEMPEL_AUSFUEHREN);
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         ereignisText.setText(
                 TRUHE_AUSFUEHREN_1 + goldGefunden + TRUHE_AUSFUEHREN_2);
         vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
         ereignisVerlassen(popupStage, vbox);
         popupStage.setScene(popupScene);
         popupStage.setResizable(false);
