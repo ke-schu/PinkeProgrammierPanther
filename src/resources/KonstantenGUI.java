@@ -28,7 +28,6 @@ public interface KonstantenGUI
     int POPUP_HOEHE = 400;
 
     //  Spielfeld
-    int FELD_GROESSE = 80;
     int KARTENHAND_GROESSE = 100;
 
     //  Ereignisse

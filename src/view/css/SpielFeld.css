@@ -13,6 +13,13 @@
     -fx-font-size: 24;
 }
 
+#feld {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-pref-width: 80;
+    -fx-pref-height: 80;
+}
+
 .button {
     -fx-background-color: white;
     -fx-text-fill: "000000";

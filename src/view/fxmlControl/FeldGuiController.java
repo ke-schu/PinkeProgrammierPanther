@@ -116,8 +116,7 @@ public abstract class FeldGuiController extends GuiController
     protected StackPane feldErstellen ()
     {
         StackPane feld = new StackPane();
-        feld.setPrefWidth(FELD_GROESSE);
-        feld.setPrefHeight(FELD_GROESSE);
+        feld.setId("feld");
         dragAndDropTarget(feld);
         dragAndDropSource(feld, true);
         return feld;
