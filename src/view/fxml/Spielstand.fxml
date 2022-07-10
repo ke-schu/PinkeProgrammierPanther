@@ -5,18 +5,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielstandGuiController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/Spielstand.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielstandGuiController">
    <children>
-      <ImageView fx:id="deckBild" fitHeight="150.0" fitWidth="150.0" layoutX="48.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="476.0" layoutY="47.0" mnemonicParsing="false" onAction="#kartenDeckAnzeigen" text="Deck ansehen" />
-      <Label layoutX="234.0" layoutY="51.0" prefHeight="17.0" prefWidth="62.0" text="Deckname:" />
-      <Label fx:id="decknameLabel" layoutX="315.0" layoutY="51.0" prefHeight="17.0" prefWidth="142.0" />
-      <Label layoutX="234.0" layoutY="76.0" prefHeight="17.0" prefWidth="62.0" text="Level:" />
-      <Label layoutX="234.0" layoutY="102.0" prefHeight="17.0" prefWidth="62.0" text="Gold:" />
-      <Button layoutX="245.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Talente ansehen" />
-      <Button layoutX="244.0" layoutY="245.0" mnemonicParsing="false" text="Artefakte ansehen" />
-      <Button layoutX="267.0" layoutY="327.0" mnemonicParsing="false" onAction="#schliesseSpielstand" text="Schließen" />
-      <Label fx:id="levelLabel" layoutX="315.0" layoutY="76.0" prefHeight="17.0" prefWidth="52.0" />
-      <Label fx:id="goldLabel" layoutX="315.0" layoutY="102.0" prefHeight="17.0" prefWidth="52.0" />
+      <ImageView fx:id="deckBild" fitHeight="117.0" fitWidth="112.0" layoutX="58.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="372.0" layoutY="111.0" mnemonicParsing="false" onAction="#kartenDeckAnzeigen" text="Deck ansehen" />
+      <Label layoutX="353.0" layoutY="60.0" prefHeight="17.0" prefWidth="62.0" text="Deckname:" />
+      <Label fx:id="decknameLabel" layoutX="353.0" layoutY="77.0" prefHeight="17.0" prefWidth="142.0" />
+      <Label layoutX="180.0" layoutY="68.0" prefHeight="17.0" prefWidth="62.0" text="Level:" />
+      <Label layoutX="180.0" layoutY="94.0" prefHeight="17.0" prefWidth="62.0" text="Gold:" />
+      <Button layoutX="62.0" layoutY="200.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" text="Talente ansehen" />
+      <Button layoutX="59.0" layoutY="238.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="130.0" text="Artefakte ansehen" />
+      <Button layoutX="386.0" layoutY="238.0" mnemonicParsing="false" onAction="#schliesseSpielstand" text="Schließen" />
+      <Label fx:id="levelLabel" layoutX="216.0" layoutY="69.0" prefHeight="17.0" prefWidth="52.0" />
+      <Label fx:id="goldLabel" layoutX="216.0" layoutY="94.0" prefHeight="17.0" prefWidth="52.0" />
    </children>
 </AnchorPane>

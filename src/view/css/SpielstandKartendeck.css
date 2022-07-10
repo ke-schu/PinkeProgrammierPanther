@@ -1,10 +1,5 @@
-.root {
-    -fx-background-color: #f5ca89;
-    -fx-background-image: url(../bilder/Buch.jpg);
-    -fx-background-size: cover;
-}
 .button {
-    -fx-background-color:#f5ca89;
+    -fx-background-color: white;
     -fx-text-fill: "000000";
     -fx-border-color: "000000";
     -fx-border-width: 1;
@@ -18,3 +13,13 @@
     -fx-background-color: "ffe3ff";
     -fx-text-fill: "000000";
 }
+
+.karte-vbox-gross {
+    -fx-background-color: #E0E0E0;
+    -fx-border-width: 3;
+    -fx-border-color: black ;
+    -fx-alignment: center;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
