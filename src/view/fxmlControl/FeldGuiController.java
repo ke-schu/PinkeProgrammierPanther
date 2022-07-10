@@ -211,7 +211,6 @@ public abstract class FeldGuiController extends GuiController
                 spielfeld, zielSpaltenIndex,
                 zielZeilenIndex, aktuelleKarteAusFeld))
         {
-            System.out.println(spielfeld);
             spielfeldGitter.getChildren().remove(quellePaneFeld);
             spielfeldGitter.add(feldErstellen(),quelleSpaltenIndex,quelleZeilenIndex);
 
@@ -219,6 +218,11 @@ public abstract class FeldGuiController extends GuiController
             KonsolenIO.ausgeben(spielfeld.toString());
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
+
+            SpielstatusKommunikation.senden(new Spielstatus(
+                    spieler,gegenspieler,
+                    spielfeld, spielerDeck,
+                    gegenspielerDeck,  RundenController.getZugZaehler()));
         }
     }
     protected void einheitBeschwoeren(StackPane zielFeld)
@@ -242,12 +246,15 @@ public abstract class FeldGuiController extends GuiController
         {
             kartenhandGitter.getChildren().remove(quellePaneHand);
             KarteVBox karteVBox = new KarteVBox(aktuelleKarteAusHand);
-            KonsolenIO.ausgeben(spielfeld.toString());
             zielFeld.getChildren().add(karteVBox);
             quellePaneHand = null;
             double manaWert = manaTank.getMana();
             double barWert = manaWert / manaMaximum;
             Manabar.setProgress(barWert);
+            SpielstatusKommunikation.senden(new Spielstatus(
+                    spieler,gegenspieler,
+                    spielfeld, spielerDeck,
+                    gegenspielerDeck,  RundenController.getZugZaehler()));
         }
     }
 
