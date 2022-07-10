@@ -219,10 +219,13 @@ public abstract class FeldGuiController extends GuiController
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
 
-            SpielstatusKommunikation.senden(new Spielstatus(
-                    spieler,gegenspieler,
-                    spielfeld, spielerDeck,
-                    gegenspielerDeck,  RundenController.getZugZaehler()));
+            if(SpielstatusKommunikation != null)
+            {
+                SpielstatusKommunikation.senden(new Spielstatus(
+                        spieler,gegenspieler,
+                        spielfeld, spielerDeck,
+                        gegenspielerDeck,  RundenController.getZugZaehler()));
+            }
         }
     }
     protected void einheitBeschwoeren(StackPane zielFeld)
@@ -251,10 +254,14 @@ public abstract class FeldGuiController extends GuiController
             double manaWert = manaTank.getMana();
             double barWert = manaWert / manaMaximum;
             Manabar.setProgress(barWert);
-            SpielstatusKommunikation.senden(new Spielstatus(
-                    spieler,gegenspieler,
-                    spielfeld, spielerDeck,
-                    gegenspielerDeck,  RundenController.getZugZaehler()));
+
+            if(SpielstatusKommunikation != null)
+            {
+                SpielstatusKommunikation.senden(new Spielstatus(
+                        spieler,gegenspieler,
+                        spielfeld, spielerDeck,
+                        gegenspielerDeck,  RundenController.getZugZaehler()));
+            }
         }
     }
 
