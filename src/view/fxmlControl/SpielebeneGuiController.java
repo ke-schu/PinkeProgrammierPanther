@@ -35,6 +35,7 @@ import java.util.ResourceBundle;
 
 import static resources.KonstantenGUI.*;
 import static resources.Strings.AKTUELLE_EBENE_PFAD;
+import static resources.Strings.EBENEN_PFAD;
 import static resources.StringsGUI.*;
 
 /**
@@ -64,6 +65,9 @@ public class SpielebeneGuiController extends GuiController
         initialisiereEbene();
     }
 
+    /**
+     * Methode zum initialisieren der Ebene
+     */
     private void initialisiereEbene()
     {
         try
@@ -85,10 +89,6 @@ public class SpielebeneGuiController extends GuiController
                     initialisiereRaum(spielEbene, i, j);
                 }
             }
-            /*
-            sorgt für Fehler beim Laden der nächsten Ebene, die Spielfigur wird, ab dem Betreten
-            des zweiten Raumes visualisiert. Bin dran.
-            */
             spielerPosition.set(spielEbene.getSpielfigur().getPosition());
         }
         catch (JsonNichtLesbarException e)
@@ -109,7 +109,6 @@ public class SpielebeneGuiController extends GuiController
     {
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
         RaumPane raum = new RaumPane(aktuellerRaum);
-
         ObjectProperty<Position> aktuellePosition =
                 new SimpleObjectProperty<>(new Position(x, y));
         spielerPosition.addListener(
@@ -443,6 +442,7 @@ public class SpielebeneGuiController extends GuiController
     public void treppeGuiAusfuehren(Ereignis ereignis)
     {
         ereignis.ausfuehren(spiel);
+        spielebenenGitter.getChildren().clear();
         initialisiereEbene();
     }
 

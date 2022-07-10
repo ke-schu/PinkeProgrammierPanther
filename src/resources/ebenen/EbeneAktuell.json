@@ -42,10 +42,11 @@
       },
       {
         "ereignis": {
-          "name": "Leere Straße.",
-          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
+          "wahrscheinlichkeit": 43.100906453671165,
+          "name": "Truhe.",
+          "beschreibung": "Eine Truhe, was da wohl drin ist?",
           "auswahl": true,
-          "klasse": "model.ereignisse.LeererRaum",
+          "klasse": "model.ereignisse.Truhe",
           "ausgefuehrt": false
         }
       },
@@ -197,11 +198,10 @@
       null,
       {
         "ereignis": {
-          "wahrscheinlichkeit": 43.100906453671165,
-          "name": "Truhe.",
-          "beschreibung": "Eine Truhe, was da wohl drin ist?",
+          "name": "Leere Straße.",
+          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
           "auswahl": true,
-          "klasse": "model.ereignisse.Truhe",
+          "klasse": "model.ereignisse.LeererRaum",
           "ausgefuehrt": false
         }
       },
@@ -234,15 +234,7 @@
       null,
       null,
       null,
-      {
-        "ereignis": {
-          "name": "Leere Straße.",
-          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.LeererRaum",
-          "ausgefuehrt": false
-        }
-      },
+      null,
       null,
       null,
       null,

@@ -236,10 +236,10 @@
       null,
       {
         "ereignis": {
-          "name": "Leere Straße.",
-          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.LeererRaum",
+          "name": "Die Bushaltestelle.",
+          "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Treppe",
           "ausgefuehrt": false
         }
       },

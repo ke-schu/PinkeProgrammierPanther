@@ -6,6 +6,7 @@ import model.SpielStand;
 import resources.Strings;
 import utility.EbeneIO;
 import utility.KonsolenIO;
+import utility.SpielStandIO;
 import view.fxmlControl.SpielebeneGuiController;
 
 import java.io.File;
@@ -43,8 +44,9 @@ public class Treppe extends Ereignis
     {
         try
         {
-            EbeneController.ueberschreibeAktuelleEbene(spielStand.getAktuelleEbeneNummer()+1);
             spielStand.setAktuelleEbeneNummer(spielStand.getAktuelleEbeneNummer()+1);
+            SpielStandIO.schreibeDatei(spielStand);
+            EbeneController.ueberschreibeAktuelleEbene(spielStand.getAktuelleEbeneNummer());
         }
         catch(IOException e)
         {
