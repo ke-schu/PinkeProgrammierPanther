@@ -39,6 +39,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         {
                             updateSpielStatus(SpielstatusKommunikation.getObjekt());
                             SpielstatusKommunikation.getInputService().restart();
+                            updateSpielBackend();
                         }
                     });
 
@@ -51,11 +52,11 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                             updateSpielStatus(
                                     SpielstatusKommunikation.getInputService().getValue());
                             SpielstatusKommunikation.getInputService().restart();
+                            updateSpielBackend();
                         }
                     });
 
             SpielstatusKommunikation.getInputService().start();
-            updateSpielBackend();
             return null;
         }
     }
