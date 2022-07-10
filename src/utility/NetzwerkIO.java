@@ -4,6 +4,10 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 
 import java.io.*;
 import java.net.Socket;
@@ -17,41 +21,38 @@ public abstract class NetzwerkIO<T>
     protected final Class<T> classType;
     protected Socket socket = null;
     private final Serialisierung serialisierung;
-    private ObjectProperty<T> postEingang;
-    private Thread inputThread;
+    private ObjectProperty objekt = new SimpleObjectProperty(this, "objekt");
+    private Service<T> inputService;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
-        postEingang = new SimpleObjectProperty();
-        inputThread = new Thread(new Runnable() {
-            public void run()
+        inputService = new Service()
+        {
+            @Override protected Task<T> createTask()
             {
-                while(verbunden && socket.isConnected())
+                return new Task()
                 {
-                    empfangen();
-                }
-                beenden();
-            }
-
-            public void empfangen()
-            {
-                JsonReader reader = new JsonReader(netIn);
-                try
-                {
-                    T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                    if(objekt != null)
+                    @Override protected T call()
                     {
-                        postEingang.set(objekt);
+                        JsonReader reader = new JsonReader(netIn);
+
+                        while(verbunden && socket.isConnected())
+                        {
+                            T objekt = (T) serialisierung.deserialisieren(reader, classType);
+                            if(objekt != null)
+                            {
+                                succeeded();
+                                return objekt;
+                            }
+                        }
+                        beenden();
+                        return null;
                     }
-                }
-                catch(JsonSyntaxException e)
-                {
-                    beenden();
-                }
+                };
             }
-        });
+        };
     }
 
     public void beenden()
@@ -83,18 +84,18 @@ public abstract class NetzwerkIO<T>
         infoOut.println("Nachricht gesendet.");
     }
 
-    public T getPostEingang()
+    public Service<T> getInputService()
     {
-        return postEingang.get();
+        return inputService;
     }
 
-    public ObjectProperty<T> postEingangProperty()
+    public T getObjekt()
     {
-        return postEingang;
+        return (T) objekt.get();
     }
 
-    public Thread getInputThread()
+    public ObjectProperty objektProperty()
     {
-        return inputThread;
+        return objekt;
     }
 }

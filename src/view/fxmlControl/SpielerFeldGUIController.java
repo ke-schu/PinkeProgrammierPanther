@@ -4,6 +4,12 @@ import control.KartenEinheitController;
 import control.RundenController;
 import control.Spielstatus;
 import exceptions.JsonNichtLesbarException;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.scene.layout.StackPane;
 import model.*;
 import utility.KonsolenIO;
@@ -21,58 +27,53 @@ public class SpielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
-        initNetzwerk();
         hintergrundFestlegen();
         erstelleSpielfeldUmgebung();
         initZugBeendenButton();
-
-
-        /*hintergrundFestlegen();
-        erstelleSpielfeldUmgebung();
-        initNetzwerk();
-        initZugBeendenButton();*/
-        if(RundenController.getzugZaehler()== 0)
-        {
-            for (int i = 0; i < spielfeld.getZeilen(); i++)
-            {
-                spielfeldGitter.addRow(0);
-            }
-
-            for (int i = 0; i < spielfeld.getSpalten(); i++)
-            {
-                spielfeldGitter.addColumn(0);
-                for (int j = 0; j < spielfeld.getZeilen(); j++)
-                {
-                    StackPane feld = feldErstellen();
-                    if(j == 0 && i == 0)
-                    {
-                        heldEinsetzen(gegenspieler, feld );
-                    }
-
-                    if
-                    (j == spielfeld.getZeilen() - 1 &&
-                     i == spielfeld.getSpalten() - 1)
-                    {
-                        heldEinsetzen(spieler, feld);
-                    }
-                    spielfeldGitter.add(feld, i, j);
-                }
-            }
-        }
-
+        ladeSpielfeld(spielfeld, true);
+        new Thread(new NetzwerkTask()).start();
     }
 
-    public void initNetzwerk ()
+    private class NetzwerkTask extends Task
     {
-        SpielstatusKommunikation = new Server(SPIELSTATUS_PORT, Spielstatus.class);
+        @Override protected Void call() throws Exception
+        {
+            SpielstatusKommunikation =
+                    new Server(SPIELSTATUS_PORT, Spielstatus.class);
 
-        SpielstatusKommunikation.postEingangProperty().addListener(
-                (observableValue, s, t1) -> aktualisiereSpielStatus());
+            SpielstatusKommunikation.senden(new Spielstatus(
+                    spieler, gegenspieler,
+                    spielfeld, spielerDeck,
+                    gegenspielerDeck,
+                    RundenController.getzugZaehler()));
 
-        SpielstatusKommunikation.getInputThread().start();
-        /* schicken und mit methode regeln welche guckt ob es die erste runde ist
-        Server<Gegenspieler> SpielerServer = new Server(SPIELER_PORT, Gegenspieler.class);
-        SpielerServer.senden((Gegenspieler) gegenspieler);*/
+            SpielstatusKommunikation.objektProperty().addListener(
+                    new ChangeListener()
+                    {
+                        @Override
+                        public void changed(ObservableValue observableValue,
+                                            Object o, Object t1)
+                        {
+                            aktualisiereSpielStatus(SpielstatusKommunikation.getObjekt());
+                            SpielstatusKommunikation.getInputService().restart();
+                        }
+                    });
+
+            SpielstatusKommunikation.getInputService().setOnSucceeded(
+                new EventHandler<WorkerStateEvent>()
+                {
+                    @Override public void handle(
+                            WorkerStateEvent workerStateEvent)
+                    {
+                        aktualisiereSpielStatus(
+                                SpielstatusKommunikation.getInputService().getValue());
+                        SpielstatusKommunikation.getInputService().restart();
+                    }
+                });
+
+            SpielstatusKommunikation.getInputService().start();
+            return null;
+        }
     }
 
     @Override
@@ -107,12 +108,6 @@ public class SpielerFeldGUIController extends FeldGuiController
         {
             KonsolenIO.ausgeben(e.getMessage());
         }
-    }
-
-    private static void heldEinsetzen(Karte held, StackPane feld)
-    {
-        KarteVBox gegenspielerKarteVBox = new KarteVBox(held);
-        feld.getChildren().add(gegenspielerKarteVBox);
     }
 }
 

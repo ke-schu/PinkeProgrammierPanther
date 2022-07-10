@@ -59,24 +59,24 @@ public abstract class FeldGuiController extends GuiController
      */
     public abstract void erstelleSpielfeldUmgebung();
 
-    /**
-     * Initialisiert die Kommunikation übers Netzwerk
-     */
-    public abstract void initNetzwerk ();
-
-    protected void aktualisiereSpielStatus()
+    protected void aktualisiereSpielStatus(Spielstatus status)
     {
-        spielfeld = SpielstatusKommunikation.getPostEingang().getSpielfeld();
-        System.out.println(spielfeld);
+        spielfeld = status.getSpielfeld();
+        //System.out.println(spielfeld);
 
-        spieler = SpielstatusKommunikation.getPostEingang().getSpieler();
-        gegenspieler = SpielstatusKommunikation.getPostEingang().getGegenspieler();
+        spieler = status.getSpieler();
+        gegenspieler = status.getGegenspieler();
 
-        spielerDeck = SpielstatusKommunikation.getPostEingang().getSpielerDeck();
-        gegenspielerDeck = SpielstatusKommunikation.getPostEingang().getGegenspielerDeck();
+        spielerDeck = status.getSpielerDeck();
+        gegenspielerDeck = status.getGegenspielerDeck();
 
-        RundenController.setzugZaehler(SpielstatusKommunikation.getPostEingang().getZugzaehler());
+        RundenController.setzugZaehler(status.getZugzaehler());
+        ladeSpielfeld(spielfeld, false);
+    }
 
+    protected void ladeSpielfeld(SpielFeld spielfeld, boolean initFirstTime)
+    {
+        spielfeldGitter.getChildren().clear();
 
         for (int i = 0; i < spielfeld.getZeilen(); i++)
         {
@@ -93,10 +93,26 @@ public abstract class FeldGuiController extends GuiController
                     KarteVBox karteVBox = new KarteVBox(spielfeld.getSpielfeldplatz(i,j));
                     feld.getChildren().add(karteVBox);
                 }
+                if(j == 0 && i == 0 && initFirstTime)
+                {
+                    heldEinsetzen(gegenspieler, feld );
+                }
+
+                if
+                (j == spielfeld.getZeilen() - 1 &&
+                 i == spielfeld.getSpalten() - 1 && initFirstTime)
+                {
+                    heldEinsetzen(spieler, feld);
+                }
                 spielfeldGitter.add(feld, i, j);
-                System.out.println("hellouda");
             }
         }
+    }
+
+    private static void heldEinsetzen(Karte held, StackPane feld)
+    {
+        KarteVBox gegenspielerKarteVBox = new KarteVBox(held);
+        feld.getChildren().add(gegenspielerKarteVBox);
     }
 
     public void removeNodeByRowColumnIndex(GridPane gridPane)
@@ -204,8 +220,6 @@ public abstract class FeldGuiController extends GuiController
                     aktuellekartenhand.handAblegen(gegenspielerDeck);
                     aktuellekartenhand.handZiehen(gegenspielerDeck);
                 }
-
-
 
                 SpielstatusKommunikation.senden(new Spielstatus(
                         spieler,gegenspieler,
