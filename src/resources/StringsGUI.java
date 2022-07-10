@@ -4,7 +4,7 @@ import java.io.File;
 
 public interface StringsGUI
 {
-    String SPIELTITEL = "DungeonDing";
+    String SPIELTITEL = "AbenteuerStadt";
     String SPIELSTAND = "Spielstand";
 
     //  Pfade
@@ -50,12 +50,24 @@ public interface StringsGUI
 
     //  CSS
     String STYLE_CLASS_CHARAKTER = "charakter-vbox";
+    String STYLE_CLASS_KARTEGROSS = "karte-vbox-gross";
     String PSEUDO_CLASS_GEWAEHLT = "ausgewaehlt";
     String PSEUDO_CLASS_FREIGESCHALTET = "nicht-freigeschaltet";
     String STYLE_CLASS_KARTE = "karte-vbox";
     String STYLE_CLASS_RAUM = "raum-pane";
     String PSEUDO_CLASS_BEINHALTET_SPIELER = "spieler";
     String PSEUDO_CLASS_NICHTIG = "nichtig";
+
+    // Strings der KarteGrossVBox
+
+    String LEVEL_STAT = "Level: ";
+    String LP_STAT = "LP: ";
+    String REICHWEITE_STAT = "Reichweite: ";
+    String MACHT_STAT = "Macht: ";
+    String VERTEIDIGUNG_STAT = "Verteidigung: ";
+    String SCHILD_STAT = "Schild: ";
+    String MANA_STAT = "Mana: ";
+
 
     //  Hilfe
     String HILFE_HAUPTMENUE =

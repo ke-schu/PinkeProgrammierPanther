@@ -10,35 +10,36 @@ import model.KarteEinheit;
 
 import java.io.File;
 
-import static resources.StringsGUI.BILDER_PFAD;
-import static resources.StringsGUI.PNG_DATEI_ENDUNG;
+import static resources.KonstantenGUI.*;
+import static resources.StringsGUI.*;
 
 public class KarteGrossVBox extends VBox
 {
 
     public KarteGrossVBox(Karte karte)
     {
+        getStyleClass().add(STYLE_CLASS_KARTEGROSS);
         alignmentProperty().set(Pos.CENTER);
         Label name = new Label();
-        name.setText("Name: " + karte.getName());
+        name.setText(karte.getName());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + karte.getName() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
-        bild.setFitHeight(300);
-        bild.setFitWidth(200);
+        bild.setFitHeight(KARTE_GROSS_VBOX_BILD_HOEHE);
+        bild.setFitWidth(KARTE_GROSS_VBOX_BILD_BREITE);
         Image b = new Image(charakterbild.getAbsolutePath());
         bild.setImage(b);
         this.getChildren().add(bild);
-        this.getChildren().add(new Label("Level: " + Integer.toString(karte.getLevel())));
+        this.getChildren().add(new Label(LEVEL_STAT + Integer.toString(karte.getLevel())));
         if (testeKarteEinheit(karte))
         {
             KarteEinheit ekarte = (KarteEinheit)karte;
-            this.getChildren().add(new Label("LP: "+ Integer.toString(ekarte.getLebenspunkte())));
-            this.getChildren().add(new Label("Reichweite: " + Integer.toString(ekarte.getReichweite())));
-            this.getChildren().add(new Label("Macht: " + Integer.toString(ekarte.getMacht())));
-            this.getChildren().add(new Label("Verteidigung: " + Integer.toString(ekarte.getVerteidigung())));
-            this.getChildren().add(new Label("Schild: " + Integer.toString(ekarte.getSchild())));
-            this.getChildren().add(new Label("Mana: " + Integer.toString(ekarte.getManaKosten())));
+            this.getChildren().add(new Label(LP_STAT+ Integer.toString(ekarte.getLebenspunkte())));
+            this.getChildren().add(new Label(REICHWEITE_STAT + Integer.toString(ekarte.getReichweite())));
+            this.getChildren().add(new Label(MACHT_STAT + Integer.toString(ekarte.getMacht())));
+            this.getChildren().add(new Label(VERTEIDIGUNG_STAT + Integer.toString(ekarte.getVerteidigung())));
+            this.getChildren().add(new Label(SCHILD_STAT + Integer.toString(ekarte.getSchild())));
+            this.getChildren().add(new Label(MANA_STAT + Integer.toString(ekarte.getManaKosten())));
         }
     }
 

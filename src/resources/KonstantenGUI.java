@@ -22,6 +22,11 @@ public interface KonstantenGUI
     //  Sound Einstellungen
     double FAKTOR_FUER_LAUTSTAERKE = 0.01;
 
+    // Components
+    int KARTE_GROSS_VBOX_BILD_HOEHE = 300;
+    int KARTE_GROSS_VBOX_BILD_BREITE = 200;
+
+
     //  Hilfefenster
     Integer VBOX_20 = 20;
     Integer POPUP_BREITE = 300;

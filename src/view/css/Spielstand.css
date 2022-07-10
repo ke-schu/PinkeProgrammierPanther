@@ -1,20 +1,9 @@
 .root {
-    -fx-base: #bfe7ff;
-    -fx-accent: #0096c9 ;
-    -fx-default-button: #abd8ed ;
-    -fx-focus-color: #039ed3;
-    -fx-faint-focus-color: #039ed322;
-    -fx-focused-text-base-color : ladder(
-            -fx-selection-bar,
-            -fx-light-text-color 45%,
-            -fx-dark-text-color 46%,
-            -fx-dark-text-color 59%,
-            -fx-mid-text-color 60%
-    );
+    -fx-base: white;
 }
 
 .button {
-    -fx-background-color: orange;
+    -fx-background-color: white;
     -fx-text-fill: "000000";
     -fx-border-color: "000000";
     -fx-border-width: 1;
@@ -24,9 +13,12 @@
     -fx-background-radius: 6;
 }
 
-.vbox {
-    -fx-border-color: #2e8b57;
-    -fx-border-width: 2px;
-    -fx-padding: 10;
-    -fx-spacing: 8;
+.karte-vbox-gross {
+    -fx-background-color: #E0E0E0;
+    -fx-border-width: 3;
+    -fx-border-color: black ;
+    -fx-alignment: center;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
 }
+
