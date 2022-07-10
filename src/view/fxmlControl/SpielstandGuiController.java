@@ -26,9 +26,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
-import static resources.StringsGUI.BILDER_PFAD;
-import static resources.StringsGUI.PNG_DATEI_ENDUNG;
+import static resources.Strings.*;
+import static resources.StringsGUI.*;
 
 public class SpielstandGuiController extends GuiController implements
                                                            Initializable
@@ -54,12 +53,20 @@ public class SpielstandGuiController extends GuiController implements
         }
     }
 
+    /**
+     * Methode um das Popup des Spielstandes zu schliessen.
+     * @param event Event, welche diese Methode ausloest.
+     */
     @FXML public void schliesseSpielstand(ActionEvent event)
     {
         Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
         spielstandPopUp.close();
     }
 
+    /**
+     * Methode um das Spielerdeck in einem Fenster anzuzeigen.
+     * @param event Event, welche diese Methode ausloest.
+     */
     public void kartenDeckAnzeigen(ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
@@ -85,7 +92,7 @@ public class SpielstandGuiController extends GuiController implements
 
         int zeilenAnzahl = pane.getRowCount();
         Button schliessenButton = new Button();
-        schliessenButton.setText("Schließen");
+        schliessenButton.setText(POPUP_BUTTON_SCHLIESSEN);
         schliessenButton.setOnAction(new EventHandler<ActionEvent>()
         {
         @Override public void handle(ActionEvent arg0)

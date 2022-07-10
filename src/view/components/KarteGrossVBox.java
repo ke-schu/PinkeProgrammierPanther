@@ -7,15 +7,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import model.Karte;
 import model.KarteEinheit;
-
 import java.io.File;
 
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
+/**
+ * Diese Klasse beinhaltet eine eigene VBox um die
+ * Karten in grosser Darstellung anzuzeigen
+ */
 public class KarteGrossVBox extends VBox
 {
-
+    //Wird noch weiter Modularisiert
+    /**
+     * Konstruktor der mit der uebergebenen Instanz der Klasse Karte eine ausfuehrliche VBox fuellt.
+     * @param karte Instanz der Klasse Karte mit welcher die VBox gefuellt werden soll.
+     */
     public KarteGrossVBox(Karte karte)
     {
         getStyleClass().add(STYLE_CLASS_KARTEGROSS);
@@ -43,6 +50,11 @@ public class KarteGrossVBox extends VBox
         }
     }
 
+    /**
+     * Testet ob die uebergebene Karte der Klasse Einheit oder Zauber zugerhoerig ist.
+     * @param karte Instanz der Klasse Karte, welche geprüft werden soll.
+     * @return gibt ein boolschen Wert zurueck, der angibt zu welcher Klasse die Karte gehört.
+     */
     public boolean testeKarteEinheit (Karte karte)
     {
         if(karte.getClass() == KarteEinheit.class)
