@@ -1,14 +1,8 @@
 package utility;
 
-import exceptions.JsonNichtLesbarException;
-import model.KartenDeck;
-import resources.Konstanten;
-
 import java.io.*;
 import java.net.BindException;
 import java.net.ServerSocket;
-
-import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 
 public class Server<T> extends NetzwerkIO<T>
 {
@@ -21,11 +15,11 @@ public class Server<T> extends NetzwerkIO<T>
         try
         {
             server = new ServerSocket(port, MAX_WARTENDE_VERBINDUNGEN);
-            infoOut.println("Warte auf Verbindung auf Port: " + port);
+            KonsolenIO.ausgeben("Warte auf Verbindung auf Port: " + port);
 
             socket = server.accept();
             socket.setSoTimeout(0);
-            infoOut.println("Verbunden zu " + socket.getInetAddress());
+            KonsolenIO.ausgeben("Verbunden zu " + socket.getInetAddress());
             verbunden = true;
 
             netIn = new BufferedReader(
@@ -36,11 +30,11 @@ public class Server<T> extends NetzwerkIO<T>
         catch (BindException e)
         {
             beenden();
-            infoOut.println("Server läuft bereits auf Port " + port);
+            KonsolenIO.ausgeben("Server läuft bereits auf Port " + port);
         }
         catch (IOException e)
         {
-            infoOut.println("Fehler:" + e.getMessage());
+            KonsolenIO.ausgeben("Fehler:" + e.getMessage());
             beenden();
         }
     }

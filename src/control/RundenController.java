@@ -11,13 +11,7 @@ import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
  */
 public class RundenController
 {
-    public static boolean isDran ()
-    {
-        return dran;
-    }
-
     private static int zugZaehler = 0;
-    private static boolean dran = true;
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
@@ -42,7 +36,6 @@ public class RundenController
         feldAufraeumen(feld, spielerDeck, masterDeck);
         beweglichkeitAuffrischen(feld);
         aufwecken(feld);
-        bestimmenWerDranIst();
     }
 
     /**
@@ -127,21 +120,6 @@ public class RundenController
     }
 
     /**
-     * Diese Methode bestimmt, welcher Spieler am Zug ist.
-     */
-    public static void bestimmenWerDranIst()
-    {
-        if (zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0)
-        {
-            dran = true;
-        }
-        else
-        {
-            dran = false;
-        }
-    }
-
-    /**
      * Diese Methode sorgt dafuer, dass die Einheiten einsatzbereit werden.
      *
      * @param feld weckt die Karten nach jedem Zug auf sodas sie im naechsten
@@ -193,17 +171,7 @@ public class RundenController
      */
     public static boolean getDran()
     {
-        return dran;
-    }
-
-    /**
-     * Setzt den Wahrheitswert freundlich.
-     *
-     * @param dran true oder false.
-     */
-    public static void setDran(boolean dran)
-    {
-        RundenController.dran = dran;
+        return zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0;
     }
 }
 

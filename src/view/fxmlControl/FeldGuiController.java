@@ -36,9 +36,9 @@ public abstract class FeldGuiController extends GuiController
 {
     @FXML GridPane spielfeldGitter;
     @FXML GridPane kartenhandGitter;
-    @FXML Button zugBeendenButton;
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
+    @FXML StackPane warten;
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
     protected StackPane quellePaneFeld;
     protected StackPane quellePaneHand;
@@ -103,6 +103,8 @@ public abstract class FeldGuiController extends GuiController
                 spielfeldGitter.add(feld, i, j);
             }
         }
+
+        warten.setVisible(!RundenController.getDran());
     }
 
     private static void heldEinsetzen(Karte held, StackPane feld)
@@ -125,6 +127,7 @@ public abstract class FeldGuiController extends GuiController
     public void zugBeenden()
     {
         RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+        warten.setVisible(!RundenController.getDran());
 
         if(RundenController.getDran())
         {
@@ -150,7 +153,6 @@ public abstract class FeldGuiController extends GuiController
     {
         feld.setOnMousePressed(event ->
         {
-            System.out.println("maus wurde geklickt");
             feld.setMouseTransparent(true);
             event.setDragDetect(true);
             if (spielfeld == true)
@@ -215,7 +217,6 @@ public abstract class FeldGuiController extends GuiController
             spielfeldGitter.add(feldErstellen(),quelleSpaltenIndex,quelleZeilenIndex);
 
             KarteVBox zielVBox = new KarteVBox(aktuelleKarteAusFeld);
-            KonsolenIO.ausgeben(spielfeld.toString());
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
 

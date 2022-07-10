@@ -1,6 +1,7 @@
 package control;
 
 import model.*;
+import utility.KonsolenIO;
 
 /**
  * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
@@ -29,7 +30,7 @@ public class KartenEinheitController
      * @param y            Spalte im spielfeld
      * @param tank         zu Verfuegung stehende Mana-Reserve
      */
-    public static ManaTank  beschwoeren(KartenHand kartenhand, int positionhand,
+    public static ManaTank beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
                                    ManaTank tank)
     {
@@ -55,17 +56,16 @@ public class KartenEinheitController
                 return tank;
             }
         }
-        System.out.println("beschwörung hat nicht geklappt");
+        KonsolenIO.ausgeben("Beschwörung hat nicht geklappt!");
         return tank;
     }
 
     public static boolean bewegenErfolgreich(SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
                                              int feldzeilenindex)
     {
-        Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
-        if (karteaufspielfeld == aktuellekarte)
+        Karte karteAufSpielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
+        if (karteAufSpielfeld == aktuellekarte)
         {
-            System.out.println("beschwörung hat geklappt du lappen");
             return true;
         }
         return false;

@@ -1,6 +1,16 @@
 .root {
     -fx-background-image: url(../bilder/Spielplatz.png);
     -fx-background-size: cover;
+    -fx-font-family: Calibri;
+}
+
+#warten {
+    -fx-background-color: rgba(204, 204, 204, 0.7);
+    -fx-background-radius: 15;
+}
+
+#warten Label {
+    -fx-font-size: 24;
 }
 
 .button {

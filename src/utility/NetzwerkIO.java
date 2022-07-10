@@ -1,13 +1,10 @@
 package utility;
 
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
 
 import java.io.*;
 import java.net.Socket;
@@ -17,17 +14,18 @@ public abstract class NetzwerkIO<T>
     protected BufferedReader netIn = null;
     protected PrintWriter netOut = null;
     protected boolean verbunden = false;
-    protected final PrintStream infoOut = System.out;
     protected final Class<T> classType;
     protected Socket socket = null;
     private final Serialisierung serialisierung;
-    private ObjectProperty objekt = new SimpleObjectProperty(this, "objekt");
+    private ObjectProperty objekt;
     private Service<T> inputService;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
+        objekt = new SimpleObjectProperty(this, classType.getName());
+
         inputService = new Service()
         {
             @Override protected Task<T> createTask()
@@ -38,7 +36,7 @@ public abstract class NetzwerkIO<T>
                     {
                         JsonReader reader = new JsonReader(netIn);
 
-                        while(verbunden && socket.isConnected())
+                        while(verbunden)
                         {
                             T objekt = (T) serialisierung.deserialisieren(reader, classType);
                             if(objekt != null)
@@ -46,8 +44,8 @@ public abstract class NetzwerkIO<T>
                                 succeeded();
                                 return objekt;
                             }
+                            verbunden = socket.isConnected();
                         }
-                        beenden();
                         return null;
                     }
                 };
@@ -68,7 +66,7 @@ public abstract class NetzwerkIO<T>
         {
             e.printStackTrace();
         }
-        infoOut.println("Verbindung getrennt.");
+        KonsolenIO.ausgeben("Verbindung getrennt.");
     }
 
     public void senden(T nachricht)
@@ -81,7 +79,7 @@ public abstract class NetzwerkIO<T>
             netOut.flush();
         }
 
-        infoOut.println("Nachricht gesendet.");
+        KonsolenIO.ausgeben("Nachricht gesendet.");
     }
 
     public Service<T> getInputService()
