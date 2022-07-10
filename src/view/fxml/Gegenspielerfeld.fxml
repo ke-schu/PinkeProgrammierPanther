@@ -34,7 +34,7 @@
                         <RowConstraints />
                     </rowConstraints>
                 </GridPane>
-                <Button fx:id="zugBeendenButton" mnemonicParsing="false" onAction="#zugBeenden" prefHeight="60.0" prefWidth="200.0" text="Zug beenden" />
+                <Button mnemonicParsing="false" onAction="#zugBeenden" prefHeight="60.0" prefWidth="200.0" text="Zug beenden" />
             </children>
         </HBox>
     </bottom>
