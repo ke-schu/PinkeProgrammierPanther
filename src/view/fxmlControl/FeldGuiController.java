@@ -3,9 +3,6 @@ package view.fxmlControl;
 import control.EinheitenController;
 import control.RundenController;
 import control.Spielstatus;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -43,26 +40,25 @@ public abstract class FeldGuiController extends GuiController
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
-    protected StackPane sourcePaneFeld;
-    protected StackPane sourcePaneHand;
+    protected StackPane quellePaneFeld;
+    protected StackPane quellePaneHand;
     protected SpielFeld spielfeld;
     protected KartenDeck spielerDeck;
     protected KartenDeck gegenspielerDeck;
-    protected KartenHand aktuellekartenhand;
+    protected KartenHand kartenHand;
     protected Spieler spieler;
     protected Gegenspieler gegenspieler;
-    protected ManaTank aktuellermanaTank;
-    protected double altuellesmanaMaximum;
+    protected ManaTank manaTank;
+    protected double manaMaximum;
 
     /**
      * Methode, welche die für den Kampf benötigten Objekte erstellt
      */
-    public abstract void erstelleSpielfeldUmgebung();
+    public abstract void updateSpielBackend();
 
-    protected void aktualisiereSpielStatus(Spielstatus status)
+    protected void updateSpielStatus(Spielstatus status)
     {
         spielfeld = status.getSpielfeld();
-        //System.out.println(spielfeld);
 
         spieler = status.getSpieler();
         gegenspieler = status.getGegenspieler();
@@ -70,7 +66,7 @@ public abstract class FeldGuiController extends GuiController
         spielerDeck = status.getSpielerDeck();
         gegenspielerDeck = status.getGegenspielerDeck();
 
-        RundenController.setzugZaehler(status.getZugzaehler());
+        RundenController.setZugZaehler(status.getZugzaehler());
         ladeSpielfeld(spielfeld, false);
     }
 
@@ -115,29 +111,6 @@ public abstract class FeldGuiController extends GuiController
         feld.getChildren().add(gegenspielerKarteVBox);
     }
 
-    public void removeNodeByRowColumnIndex(GridPane gridPane)
-    {
-        ObservableList<Node> childrens = gridPane.getChildren();
-        for(Node node : childrens)
-        {
-                gridPane.getChildren().remove(node);
-        }
-    }
-
-    public Node getNodeByRowColumnIndex (final int row, final int column, GridPane gridPane) {
-        Node result = null;
-        ObservableList<Node> childrens = gridPane.getChildren();
-
-        for (Node node : childrens) {
-            if(gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
-                result = node;
-                break;
-            }
-        }
-
-        return result;
-    }
-
     protected StackPane feldErstellen ()
     {
         StackPane feld = new StackPane();
@@ -148,9 +121,33 @@ public abstract class FeldGuiController extends GuiController
         return feld;
     }
 
+    @FXML
+    public void zugBeenden()
+    {
+        RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+
+        if(RundenController.getDran())
+        {
+            kartenHand.handAblegen(spielerDeck);
+            kartenHand.handZiehen(spielerDeck);
+        }
+        else
+        {
+            kartenHand.handAblegen(gegenspielerDeck);
+            kartenHand.handZiehen(gegenspielerDeck);
+        }
+
+        SpielstatusKommunikation.senden(new Spielstatus(
+                spieler,gegenspieler,
+                spielfeld, spielerDeck,
+                gegenspielerDeck,  RundenController.getZugZaehler()));
+
+        KonsolenIO.ausgeben("Wir sind in Zug: "
+                            + RundenController.getZugZaehler());
+    }
+
     public void dragAndDropSource (StackPane feld, boolean spielfeld)
     {
-        //Werte von sorchpane feld und hand beim bewegen im debugger angucken
         feld.setOnMousePressed(event ->
         {
             System.out.println("maus wurde geklickt");
@@ -158,11 +155,11 @@ public abstract class FeldGuiController extends GuiController
             event.setDragDetect(true);
             if (spielfeld == true)
             {
-                sourcePaneFeld = feld;
+                quellePaneFeld = feld;
             }
             else if (spielfeld == false)
             {
-                sourcePaneHand = feld;
+                quellePaneHand = feld;
             }
 
         });
@@ -174,120 +171,83 @@ public abstract class FeldGuiController extends GuiController
         feld.setOnDragDetected(event -> feld.startFullDrag());
     }
 
-    public void dragAndDropTarget (StackPane targetfeld)
+    public void dragAndDropTarget (StackPane zielFeld)
     {
-        targetfeld.setOnMouseDragEntered(event ->
+        zielFeld.setOnMouseDragEntered(event ->
         {
         });
 
-        targetfeld.setOnMouseDragOver(event ->
+        zielFeld.setOnMouseDragOver(event ->
         {
         });
-        targetfeld.setOnMouseDragReleased(event ->
+        zielFeld.setOnMouseDragReleased(event ->
         {
-            if(sourcePaneFeld != null)
+            if(quellePaneFeld != null)
             {
-                einheitBewegen(targetfeld);
+                einheitBewegen(zielFeld);
             }
 
-            if(sourcePaneHand != null)
+            if(quellePaneHand != null)
             {
-                einheitBeschwoeren(targetfeld);
+                einheitBeschwoeren(zielFeld);
             }
         });
 
-        targetfeld.setOnMouseDragExited(event ->
+        zielFeld.setOnMouseDragExited(event ->
         {
         });
     }
 
-    public void initZugBeendenButton ()
+    protected void einheitBewegen(StackPane zielFeld)
     {
-        zugBeendenButton.setOnAction(new EventHandler<ActionEvent>()
-        {
-            @Override public void handle(ActionEvent arg0)
-            {
-                RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
-                System.out.println(RundenController.getzugZaehler());
+        int zielSpaltenIndex = spielfeldGitter.getColumnIndex(zielFeld);
+        int zielZeilenIndex = spielfeldGitter.getRowIndex(zielFeld);
+        int quelleSpaltenIndex = spielfeldGitter.getColumnIndex(quellePaneFeld);
+        int quelleZeilenIndex = spielfeldGitter.getRowIndex(quellePaneFeld);
 
-                if(RundenController.getDran())
-                {
-                    aktuellekartenhand.handAblegen(spielerDeck);
-                    aktuellekartenhand.handZiehen(spielerDeck);
-                }
-                else
-                {
-                    aktuellekartenhand.handAblegen(gegenspielerDeck);
-                    aktuellekartenhand.handZiehen(gegenspielerDeck);
-                }
+        KarteEinheit aktuelleKarteAusFeld = spielfeld.getSpielfeldplatz(quelleSpaltenIndex, quelleZeilenIndex);
 
-                SpielstatusKommunikation.senden(new Spielstatus(
-                        spieler,gegenspieler,
-                        spielfeld, spielerDeck,
-                        gegenspielerDeck,  RundenController.getzugZaehler()));
-
-                KonsolenIO.ausgeben("spieler ist dran:");
-                KonsolenIO.ausgeben("wir sind in zug: ");
-            }
-        });
-    }
-
-
-
-    protected void einheitBewegen(StackPane targetfeld)
-    {
-        int feldspaltenindex =spielfeldGitter.getColumnIndex(targetfeld);
-        int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
-
-        Integer feldspaltenindexmove =spielfeldGitter.getColumnIndex(sourcePaneFeld);
-        Integer feldzeilenindexmove =spielfeldGitter.getRowIndex(sourcePaneFeld);
-
-        KarteEinheit aktuellekarteausfeld = spielfeld.getSpielfeldplatz(feldspaltenindexmove, feldzeilenindexmove);
-
-        Boolean bewegenerfolgreich = EinheitenController.bewegen(spielfeld, feldspaltenindex,
-                feldzeilenindex, aktuellekarteausfeld);
-        if (bewegenerfolgreich)
+        if (EinheitenController.bewegen(
+                spielfeld, zielSpaltenIndex,
+                zielZeilenIndex, aktuelleKarteAusFeld))
         {
             System.out.println(spielfeld);
-            spielfeldGitter.getChildren().remove(sourcePaneFeld);
-            spielfeldGitter.add(feldErstellen(),feldspaltenindexmove,feldzeilenindexmove);
+            spielfeldGitter.getChildren().remove(quellePaneFeld);
+            spielfeldGitter.add(feldErstellen(),quelleSpaltenIndex,quelleZeilenIndex);
 
-            KarteVBox kartemoveVBox = new KarteVBox(aktuellekarteausfeld);
+            KarteVBox zielVBox = new KarteVBox(aktuelleKarteAusFeld);
             KonsolenIO.ausgeben(spielfeld.toString());
-            targetfeld.getChildren().add(kartemoveVBox);
-            sourcePaneFeld = null;
+            zielFeld.getChildren().add(zielVBox);
+            quellePaneFeld = null;
         }
     }
-    protected void einheitBeschwoeren(StackPane targetfeld)
+    protected void einheitBeschwoeren(StackPane zielFeld)
     {
-        int feldspaltenindex =spielfeldGitter.getColumnIndex(targetfeld);
-        int feldzeilenindex =spielfeldGitter.getRowIndex(targetfeld);
+        int zielSpaltenIndex = spielfeldGitter.getColumnIndex(zielFeld);
+        int zielZeilenIndex = spielfeldGitter.getRowIndex(zielFeld);
 
-        int handindex = kartenhandGitter.getColumnIndex(sourcePaneHand);
+        int handIndex = kartenhandGitter.getColumnIndex(quellePaneHand);
 
-        //aktuelle kartenhand
-        Karte aktuellekarteaushand = aktuellekartenhand.getElement(handindex);
+        Karte aktuelleKarteAusHand = kartenHand.getElement(handIndex);
+        Karte karteAusHand = kartenHand.getElement(handIndex);
 
-         Karte karteaushand = aktuellekartenhand.getElement(handindex);
+        manaTank = KartenEinheitController.beschwoeren(
+                     kartenHand, handIndex,
+                     spielfeld, zielSpaltenIndex,
+                     zielZeilenIndex,
+                     manaTank);
 
-             aktuellermanaTank = KartenEinheitController.beschwoeren(aktuellekartenhand, handindex,
-                                                                     spielfeld, feldspaltenindex,
-                                                                     feldzeilenindex,
-                     aktuellermanaTank);
-
-
-
-
-        if (KartenEinheitController.moveerfolgreich(spielfeld, karteaushand,feldspaltenindex, feldzeilenindex))
+        if (KartenEinheitController.bewegenErfolgreich(
+                spielfeld, karteAusHand, zielSpaltenIndex, zielZeilenIndex))
         {
-            kartenhandGitter.getChildren().remove(sourcePaneHand);
-            KarteVBox karteVBox = new KarteVBox(aktuellekarteaushand);
+            kartenhandGitter.getChildren().remove(quellePaneHand);
+            KarteVBox karteVBox = new KarteVBox(aktuelleKarteAusHand);
             KonsolenIO.ausgeben(spielfeld.toString());
-            targetfeld.getChildren().add(karteVBox);
-            sourcePaneHand = null;
-            double manaWert = aktuellermanaTank.getMana();
-            double barwert = manaWert / altuellesmanaMaximum;
-            Manabar.setProgress(barwert);
+            zielFeld.getChildren().add(karteVBox);
+            quellePaneHand = null;
+            double manaWert = manaTank.getMana();
+            double barWert = manaWert / manaMaximum;
+            Manabar.setProgress(barWert);
         }
     }
 
@@ -302,30 +262,13 @@ public abstract class FeldGuiController extends GuiController
             feld.setPrefWidth(KARTENHAND_GROESSE);
             feld.setPrefHeight(KARTENHAND_GROESSE);
 
-            Karte aktuellekarte = aktuellekartenhand.getElement(i);
-            KarteVBox aktuellekartevbox = new KarteVBox(aktuellekarte);
-            feld.getChildren().add(aktuellekartevbox);
+            KarteVBox karteVBox =
+                    new KarteVBox(kartenHand.getElement(i));
+            feld.getChildren().add(karteVBox);
+
             dragAndDropSource(feld, false);
-            //sourcePaneFeld = feld;
             kartenhandGitter.add(feld, i, 0);
         }
-    }
-
-    /**
-     * Legt das Hintergrundbild des Spielfeldes fest
-     */
-    protected void hintergrundFestlegen ()
-    {
-        File meinhintergrund =
-                new File(BILDER_PFAD + "Spielplatz" + PNG_DATEI_ENDUNG);
-        BackgroundSize backroundsize =
-                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO,
-                                   true, true, true, true);
-        Background hintergrund = new Background(new BackgroundImage(
-                new Image(meinhintergrund.getAbsolutePath()),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
-                BackgroundPosition.DEFAULT, backroundsize));
-        spielfeldGitter.setBackground(hintergrund);
     }
 
     /**

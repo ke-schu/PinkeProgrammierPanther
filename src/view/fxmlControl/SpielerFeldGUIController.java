@@ -6,16 +6,13 @@ import control.Spielstatus;
 import exceptions.JsonNichtLesbarException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
-import javafx.scene.layout.StackPane;
 import model.*;
 import utility.KonsolenIO;
 import utility.Server;
 import utility.SpielStandIO;
-import view.components.KarteVBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,9 +24,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
-        hintergrundFestlegen();
-        erstelleSpielfeldUmgebung();
-        initZugBeendenButton();
+        updateSpielBackend();
         ladeSpielfeld(spielfeld, true);
         new Thread(new NetzwerkTask()).start();
     }
@@ -45,7 +40,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                     spieler, gegenspieler,
                     spielfeld, spielerDeck,
                     gegenspielerDeck,
-                    RundenController.getzugZaehler()));
+                    RundenController.getZugZaehler()));
 
             SpielstatusKommunikation.objektProperty().addListener(
                     new ChangeListener()
@@ -54,7 +49,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                         public void changed(ObservableValue observableValue,
                                             Object o, Object t1)
                         {
-                            aktualisiereSpielStatus(SpielstatusKommunikation.getObjekt());
+                            updateSpielStatus(SpielstatusKommunikation.getObjekt());
                             SpielstatusKommunikation.getInputService().restart();
                         }
                     });
@@ -65,7 +60,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                     @Override public void handle(
                             WorkerStateEvent workerStateEvent)
                     {
-                        aktualisiereSpielStatus(
+                        updateSpielStatus(
                                 SpielstatusKommunikation.getInputService().getValue());
                         SpielstatusKommunikation.getInputService().restart();
                     }
@@ -77,7 +72,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     }
 
     @Override
-    public void erstelleSpielfeldUmgebung ()
+    public void updateSpielBackend()
     {
         try
         {
@@ -89,18 +84,18 @@ public class SpielerFeldGUIController extends FeldGuiController
             gegenspieler = spiel.getGegenSpieler();
             gegenspielerDeck = spiel.getSpieldeckGegner();
 
-            aktuellekartenhand = new KartenHand(spieler);
-            aktuellekartenhand.handZiehen(spielerDeck);
+            kartenHand = new KartenHand(spieler);
+            kartenHand.handZiehen(spielerDeck);
 
             spielfeld = new SpielFeld();
-            aktuellermanaTank = new ManaTank(spieler);
+            manaTank = new ManaTank(spieler);
 
             KartenEinheitController.beschwoerenHelden(spieler,spielfeld);
             KartenEinheitController.beschwoerenHelden(gegenspieler,spielfeld);
 
             Manabar.setStyle("-fx-accent: blue ;");
-            altuellesmanaMaximum = aktuellermanaTank.getMana();
-            double manaWert = altuellesmanaMaximum / aktuellermanaTank.getMana();
+            manaMaximum = manaTank.getMana();
+            double manaWert = manaMaximum / manaTank.getMana();
             Manabar.setProgress(manaWert);
             karteInHandEinfuegen();
         }

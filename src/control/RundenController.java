@@ -166,7 +166,7 @@ public class RundenController
      *
      * @return Wert des Zuges.
      */
-    public static int getzugZaehler()
+    public static int getZugZaehler()
     {
         return zugZaehler;
     }
@@ -176,7 +176,7 @@ public class RundenController
      *
      * @param zugZaehler Wert des Zuges.
      */
-    public static void setzugZaehler(int zugZaehler)
+    public static void setZugZaehler(int zugZaehler)
     {
         RundenController.zugZaehler = zugZaehler;
     }

@@ -2,8 +2,6 @@ package control;
 
 import model.*;
 
-import static resources.Konstanten.*;
-
 /**
  * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
  * Einheiten.
@@ -61,8 +59,8 @@ public class KartenEinheitController
         return tank;
     }
 
-    public static boolean moveerfolgreich (SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
-                                           int feldzeilenindex)
+    public static boolean bewegenErfolgreich(SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
+                                             int feldzeilenindex)
     {
         Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
         if (karteaufspielfeld == aktuellekarte)

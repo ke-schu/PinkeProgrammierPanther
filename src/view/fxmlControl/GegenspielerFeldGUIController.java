@@ -1,10 +1,8 @@
 package view.fxmlControl;
 
-import control.RundenController;
 import control.Spielstatus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
@@ -22,8 +20,6 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         new Thread(new NetzwerkTask()).start();
-        hintergrundFestlegen();
-        initZugBeendenButton();
     }
 
     private class NetzwerkTask extends Task
@@ -41,7 +37,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         public void changed(ObservableValue observableValue,
                                             Object o, Object t1)
                         {
-                            aktualisiereSpielStatus(SpielstatusKommunikation.getObjekt());
+                            updateSpielStatus(SpielstatusKommunikation.getObjekt());
                             SpielstatusKommunikation.getInputService().restart();
                         }
                     });
@@ -52,28 +48,28 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         @Override public void handle(
                                 WorkerStateEvent workerStateEvent)
                         {
-                            aktualisiereSpielStatus(
+                            updateSpielStatus(
                                     SpielstatusKommunikation.getInputService().getValue());
                             SpielstatusKommunikation.getInputService().restart();
                         }
                     });
 
             SpielstatusKommunikation.getInputService().start();
-            erstelleSpielfeldUmgebung();
+            updateSpielBackend();
             return null;
         }
     }
 
     @Override
-    public void erstelleSpielfeldUmgebung()
+    public void updateSpielBackend()
     {
-        aktuellekartenhand = new KartenHand(gegenspieler);
-            aktuellekartenhand.handZiehen(gegenspielerDeck);
+        kartenHand = new KartenHand(gegenspieler);
+            kartenHand.handZiehen(gegenspielerDeck);
 
-        aktuellermanaTank = new ManaTank(gegenspieler);
+        manaTank = new ManaTank(gegenspieler);
             Manabar.setStyle("-fx-accent: blue;");
-        altuellesmanaMaximum = aktuellermanaTank.getMana();
-            double manaWert = altuellesmanaMaximum / aktuellermanaTank.getMana();
+        manaMaximum = manaTank.getMana();
+            double manaWert = manaMaximum / manaTank.getMana();
             Manabar.setProgress(manaWert);
             karteInHandEinfuegen();
 
