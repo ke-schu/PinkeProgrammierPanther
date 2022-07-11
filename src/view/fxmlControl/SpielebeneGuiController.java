@@ -289,7 +289,7 @@ public class SpielebeneGuiController extends GuiController
     {
         try
         {
-            wechselZuSpielfeld(event);
+            wechselZuSpielerFeld(event);
         }
         catch (IOException e)
         {

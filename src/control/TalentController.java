@@ -37,6 +37,11 @@ public class TalentController
      */
     public static boolean grosseHand(Spieler spieler)
     {
-        return spieler.getTalente().contains(GROSSE_HAND);
+        if(spieler instanceof Spieler)
+        {
+            return spieler.getTalente().contains(GROSSE_HAND);
+        }
+        return false;
+
     }
 }

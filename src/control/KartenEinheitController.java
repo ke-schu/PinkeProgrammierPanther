@@ -1,8 +1,7 @@
 package control;
 
 import model.*;
-
-import static resources.Konstanten.*;
+import utility.KonsolenIO;
 
 /**
  * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
@@ -31,7 +30,7 @@ public class KartenEinheitController
      * @param y            Spalte im spielfeld
      * @param tank         zu Verfuegung stehende Mana-Reserve
      */
-    public static ManaTank  beschwoeren(KartenHand kartenhand, int positionhand,
+    public static ManaTank beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
                                    ManaTank tank)
     {
@@ -57,17 +56,16 @@ public class KartenEinheitController
                 return tank;
             }
         }
-        System.out.println("beschwörung hat nicht geklappt");
+        KonsolenIO.ausgeben("Beschwörung hat nicht geklappt!");
         return tank;
     }
 
-    public static boolean moveerfolgreich (SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
-                                           int feldzeilenindex)
+    public static boolean bewegenErfolgreich(SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
+                                             int feldzeilenindex)
     {
-        Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
-        if (karteaufspielfeld == aktuellekarte)
+        Karte karteAufSpielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
+        if (karteAufSpielfeld == aktuellekarte)
         {
-            System.out.println("beschwörung hat geklappt du lappen");
             return true;
         }
         return false;
@@ -87,22 +85,21 @@ public class KartenEinheitController
         if (held.getFreundlich())
         {
             held.startWerteSpeichern();
-            positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
-                          SPIELER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
-                    spielfeld.getZeilen() - 1, held);
+
+            int spaltenindex = spielfeld.getSpalten() - 1;
+            int zeilenindex = spielfeld.getZeilen() - 1;
+
+            positionGeben(held, spaltenindex,
+                    zeilenindex);
+
+            spielfeld.einheitEinsetzten(spaltenindex,
+                    zeilenindex, held);
         }
         else
         {
             held.startWerteSpeichern();
-            positionGeben(held, spielfeld.getSpalten() -
-                                GEGNER_KAMPFFELD_STARTPOSITION_X,
-                          spielfeld.getZeilen() -
-                          GEGNER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(
-                    spielfeld.getSpalten() - GEGNER_KAMPFFELD_STARTPOSITION_X,
-                    spielfeld.getZeilen() - GEGNER_KAMPFFELD_STARTPOSITION_Y,
-                    held);
+            positionGeben(held, 0,0);
+            spielfeld.einheitEinsetzten(0,0,held);
         }
     }
 

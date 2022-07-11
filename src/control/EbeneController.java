@@ -1,6 +1,5 @@
 package control;
 
-import exceptions.JsonNichtLesbarException;
 import model.Ebene;
 import model.SpielfigurEbene;
 import utility.EbeneIO;

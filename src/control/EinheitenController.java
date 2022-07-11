@@ -100,7 +100,7 @@ public class EinheitenController
                 }
             }
 
-            return KartenEinheitController.moveerfolgreich(spielfeld, einheit, ziel_x , ziel_y);
+            return KartenEinheitController.bewegenErfolgreich(spielfeld, einheit, ziel_x , ziel_y);
         }
         System.out.println("Bewegen war nicht erfolgreich");
         return false;
