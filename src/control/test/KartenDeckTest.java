@@ -6,7 +6,6 @@ import model.KarteEinheit;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.File;
@@ -14,6 +13,7 @@ import java.io.IOException;
 
 import static control.test.TestKonstanten.*;
 import static control.test.TestZahlen.ZAHL_1;
+import static resources.Konstanten.kartenDeckIO;
 
 /**
  * Enthaelt Methoden zum Testen von Kartendecks
@@ -57,7 +57,7 @@ public class KartenDeckTest
 
         try
         {
-            KartenDeckIO.schreibeDatei(meinDeck);
+            kartenDeckIO.schreibeDatei(meinDeck);
         }
         catch (IOException e)
         {
@@ -73,7 +73,7 @@ public class KartenDeckTest
     {
         try
         {
-            KartenDeck meinDeck = KartenDeckIO.leseDatei(TESTPFAD_KARTENDECK);
+            KartenDeck meinDeck = kartenDeckIO.leseKartenDeck(TESTPFAD_KARTENDECK);
             KonsolenIO.ausgeben(meinDeck);
             KartenDeckController.mischen(meinDeck);
             KonsolenIO.ausgeben(meinDeck);

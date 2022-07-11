@@ -5,13 +5,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 import view.fxmlControl.GuiController;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.FAKTOR_FUER_LAUTSTAERKE;
 import static resources.StringsGUI.HAUPTMENUE_MUSIK;
 
@@ -39,7 +39,7 @@ public class mp3Controller implements Initializable
                     new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
             hintergrundmusik = new MediaPlayer(titel);
             wechselLautstaerkeMusik(
-                    SpielStandIO.leseDatei().getLautstaerkeMusik());
+                    spielStandIO.leseSpielstand().getLautstaerkeMusik());
         }
         catch (JsonNichtLesbarException e)
         {
@@ -64,7 +64,7 @@ public class mp3Controller implements Initializable
             soundEffekt = new Media(new File(pfad).toURI().toString());
             effekt      = new MediaPlayer(soundEffekt);
             wechselLautstaerkeEffekte(
-                    SpielStandIO.leseDatei().getLaustaerkeEffekte());
+                    spielStandIO.leseSpielstand().getLaustaerkeEffekte());
         }
         catch (JsonNichtLesbarException e)
         {

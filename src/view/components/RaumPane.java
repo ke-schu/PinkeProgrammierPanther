@@ -3,15 +3,11 @@ package view.components;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.css.PseudoClass;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.TextAlignment;
 import model.Raum;
 
-import static resources.KonstantenGUI.SCHWARZ;
 import static resources.StringsGUI.*;
 
 public class RaumPane extends StackPane

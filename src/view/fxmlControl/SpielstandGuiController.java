@@ -6,7 +6,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -18,15 +17,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.SpielStand;
-import utility.KartenDeckIO;
-import utility.SpielStandIO;
 import view.components.KarteGrossVBox;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.Strings.*;
+import static resources.Konstanten.kartenDeckIO;
+import static resources.Konstanten.spielStandIO;
+import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 import static resources.StringsGUI.*;
 
 public class SpielstandGuiController extends GuiController implements
@@ -40,10 +39,10 @@ public class SpielstandGuiController extends GuiController implements
     {
         try
         {
-            SpielStand spielstand = SpielStandIO.leseDatei();
+            SpielStand spielstand = spielStandIO.leseSpielstand();
             this.goldLabel.setText(Integer.toString(spielstand.getGold()));
             this.levelLabel.setText(Integer.toString(spielstand.getSpieler().getLevel()));
-            this.decknameLabel.setText(KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
+            this.decknameLabel.setText(kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
             File charakterbild = new File(BILDER_PFAD + spielstand.getSpieler().getName() + PNG_DATEI_ENDUNG);
             this.deckBild.setImage(new Image(charakterbild.getAbsolutePath()));
         }

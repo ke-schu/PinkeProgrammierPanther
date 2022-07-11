@@ -1,17 +1,22 @@
 package resources;
 
-import model.Position;
+import com.google.gson.reflect.TypeToken;
+import model.*;
+import utility.JsonIO;
+
+import java.util.Stack;
 
 /**
  * Hier werden finale, numerische Werte fuer das Spiel gesammelt.
  */
 public interface Konstanten
 {
-    int TEST_PORT = 8000;
+    JsonIO<Ebene> ebeneIO = new JsonIO(Ebene.class);
+    JsonIO<Stack<Charakter>> charakterIO = new JsonIO(new TypeToken<Stack<Charakter>>() {}.getType());
+    JsonIO<KartenDeck> kartenDeckIO = new JsonIO(KartenDeck.class);
+    JsonIO<SpielStand> spielStandIO = new JsonIO(SpielStand.class);
+
     int SPIELSTATUS_PORT = 8000;
-    int SPIELER_PORT = 8001;
-    int KARTENDECK_SPIELER_PORT = 8002;
-    int KARTENDECK_GEGENSPIELER_PORT = 8003;
     int HANDGROESSE = 5;
     int LEVEL_SUMMAND_SPIELER = 1;
     int START_EBENE = 1;
@@ -28,11 +33,6 @@ public interface Konstanten
 
     int HEILER_AUFWERTUNG_LEBENSPUNKTE = 2;
     int SPIELER_WECHSEL_NACH_ZUEGEN = 2;
-
-    int SPIELER_KAMPFFELD_STARTPOSITION_X = 0;
-    int SPIELER_KAMPFFELD_STARTPOSITION_Y = 0;
-    int GEGNER_KAMPFFELD_STARTPOSITION_X = 1;
-    int GEGNER_KAMPFFELD_STARTPOSITION_Y = 1;
 
     // Konstanten, welche beim Ereignis Truhe verwendet werden
     int TRUHE_GOLD_ERHOEHUNG_EINS = 100;

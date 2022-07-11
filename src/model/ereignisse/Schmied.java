@@ -3,12 +3,13 @@ package model.ereignisse;
 import control.KartenController;
 import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
+import model.Karte;
 import model.SpielStand;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
+import static resources.Konstanten.kartenDeckIO;
 import static utility.KonsolenIO.eingabeInt;
 
 /**
@@ -20,46 +21,40 @@ import static utility.KonsolenIO.eingabeInt;
 public class Schmied extends Mensch
 {
     /**
-     * Der Konstruktor erstellt ein Ereignis vom Typ Schmied. Schmiede sind
-     * Ereignisse, die es dem Spieler ermoeglichen Karten aufzuwerten um sie
-     * zu verstaerken.
+     * Der Konstruktor erstellt ein Ereignis vom Typ Schmied. Schmiede sind Ereignisse, die es dem Spieler ermoeglichen
+     * Karten aufzuwerten um sie zu verstaerken.
      *
-     * @param name:         Der Name des Ereignisses.
+     * @param name: Der Name des Ereignisses.
      * @param beschreibung: Die Beschreibung fuer den Spieler.
      */
-    public Schmied(String name, String beschreibung)
+    public Schmied (String name, String beschreibung)
     {
         super(name, beschreibung);
     }
 
     /**
-     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis".
-     * Der Haendler prueft ob die Interaktion eine Bezahlung erfordert. Je
-     * nach Resultat wird entweder kostenlos eine Karte aufgewertet oder
-     * vorher die Zahlung durchgefuehrt.
+     * Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Der Haendler prueft ob die Interaktion eine
+     * Bezahlung erfordert. Je nach Resultat wird entweder kostenlos eine Karte aufgewertet oder vorher die Zahlung
+     * durchgefuehrt.
      *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren (SpielStand spielStand)
     {
-        KonsolenIO.ausgeben(this.getName());
         if (isAuswahl())
         {
-            int indexKarte = eingabeInt();
             try
             {
                 if (pruefeGratisInteraktion())
                 {
-                    KartenController.karteVerbessern(
-                            spielStand.getSpieldeckSpieler().get(indexKarte));
+                    //KartenController.karteVerbessern();
                     gratisInteraktionen--;
                 }
                 else
                 {
                     TalentController.charme(spielStand.getSpieler(), this);
                     spielStand.setGold(spielStand.getGold() - this.getKosten());
-                    KartenController.karteVerbessern(
-                            spielStand.getSpieldeckSpieler().get(indexKarte));
+                    //KartenController.karteVerbessern();
                     interaktionsZaehler++;
                     kostenErhoehen();
                 }
@@ -70,7 +65,42 @@ public class Schmied extends Mensch
             }
             try
             {
-                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+            }
+            catch (IOException e)
+            {
+                e.getMessage();
+            }
+        }
+    }
+
+    public void ausfuehren (SpielStand spielStand, Karte karte)
+    {
+        if (isAuswahl())
+        {
+            try
+            {
+                if (pruefeGratisInteraktion())
+                {
+                    KartenController.karteVerbessern(karte);
+                    gratisInteraktionen--;
+                }
+                else
+                {
+                    TalentController.charme(spielStand.getSpieler(), this);
+                    spielStand.setGold(spielStand.getGold() - this.getKosten());
+                    KartenController.karteVerbessern(karte);
+                    interaktionsZaehler++;
+                    kostenErhoehen();
+                }
+            }
+            catch (KarteNichtVerbessertException ausnahme)
+            {
+                KonsolenIO.ausgeben(ausnahme.getMessage());
+            }
+            try
+            {
+                kartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {

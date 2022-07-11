@@ -1,13 +1,10 @@
 package control.test;
 
-import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import exceptions.JsonNichtLesbarException;
 import model.*;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 
 import static control.EinheitenController.einheitenAngreifenMitEinheiten;
 import static control.KartenEinheitController.beschwoerenHelden;
@@ -16,6 +13,8 @@ import static control.test.TestZahlen.*;
 import static resources.Effekte.LETZTEWORTE;
 import static resources.Effekte.ZURUECKWERFEN;
 import static resources.Einheiten.FERNKAEMPFER;
+import static resources.Konstanten.kartenDeckIO;
+import static resources.Konstanten.spielStandIO;
 import static resources.Strings.*;
 
 /**
@@ -85,10 +84,10 @@ public class SpielzugTest
         try
         {
             //Erstellen 2er Spieldecks
-            meindeck   = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-            masterdeck = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
+            meindeck   = kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD);
+            masterdeck = kartenDeckIO.leseKartenDeck(SPIEL_DECK_GEGNER_PFAD);
             KonsolenIO.ausgeben(meindeck.toString());
-            spieler = SpielStandIO.leseDatei().getSpieler();
+            spieler = spielStandIO.leseSpielstand().getSpieler();
         }
         catch (JsonNichtLesbarException e)
         {

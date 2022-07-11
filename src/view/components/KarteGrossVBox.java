@@ -7,9 +7,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import model.Karte;
 import model.KarteEinheit;
+
 import java.io.File;
 
-import static resources.KonstantenGUI.*;
+import static resources.KonstantenGUI.KARTE_GROSS_VBOX_BILD_BREITE;
+import static resources.KonstantenGUI.KARTE_GROSS_VBOX_BILD_HOEHE;
 import static resources.StringsGUI.*;
 
 /**

@@ -5,14 +5,13 @@ import model.*;
 import model.ereignisse.*;
 import resources.Effekte;
 import resources.Einheiten;
-import utility.EbeneIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 
-import java.io.File;
 import java.io.IOException;
 
 import static control.test.TestZahlen.*;
+import static resources.Konstanten.ebeneIO;
+import static resources.Konstanten.spielStandIO;
 import static resources.Strings.EBENE_TEST_PFAD;
 import static resources.StringsEreignisse.*;
 import static resources.StringsGegner.GENERISCHER_GEGNER_NAME;
@@ -98,9 +97,9 @@ public class EbeneTest
 
         try
         {
-            EbeneIO.schreibeDatei(testEbene1, new File(EBENE_TEST_PFAD));
-            Ebene testEbene2 = EbeneIO.leseDatei(new File(EBENE_TEST_PFAD));
-            SpielStand spielStand = SpielStandIO.leseDatei();
+            ebeneIO.schreibeDatei(testEbene1, EBENE_TEST_PFAD);
+            Ebene testEbene2 = ebeneIO.leseDatei(EBENE_TEST_PFAD);
+            SpielStand spielStand = spielStandIO.leseSpielstand();
 
             KonsolenIO.ausgeben(testEbene2.toString());
             KonsolenIO.ausgeben(testEbene2.getSpielfigur());

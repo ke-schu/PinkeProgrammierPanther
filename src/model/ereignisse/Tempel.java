@@ -1,12 +1,13 @@
 package model.ereignisse;
 
 import control.TalentController;
+import model.Karte;
 import model.SpielStand;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
+import static resources.Konstanten.kartenDeckIO;
 import static utility.KonsolenIO.eingabeInt;
 
 /**
@@ -37,28 +38,26 @@ public class Tempel extends Mensch
      *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren (SpielStand spielStand, Karte karte)
     {
-        KonsolenIO.ausgeben(this.getName());
         if (isAuswahl())
         {
-            int indexKarte = eingabeInt();
             if (pruefeGratisInteraktion())
             {
-                spielStand.getSpieldeckSpieler().remove(indexKarte);
+                spielStand.getSpieldeckSpieler().remove(karte);
                 gratisInteraktionen--;
             }
             else
             {
                 TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
-                spielStand.getSpieldeckSpieler().remove(indexKarte);
+                spielStand.getSpieldeckSpieler().remove(karte);
                 interaktionsZaehler++;
                 kostenErhoehen();
             }
             try
             {
-                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {

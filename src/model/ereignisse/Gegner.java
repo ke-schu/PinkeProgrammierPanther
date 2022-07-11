@@ -3,7 +3,6 @@ package model.ereignisse;
 import model.Gegenspieler;
 import model.SpielFeld;
 import model.SpielStand;
-import utility.KonsolenIO;
 
 /**
  * Diese Klasse ist eine Subklasse von Ereignis. Ein Gegner ist ein Ereignis,

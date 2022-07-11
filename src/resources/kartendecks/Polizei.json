@@ -21,7 +21,7 @@
       "kopie": false,
       "id": 0,
       "name": "Polizist",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     },
@@ -45,7 +45,7 @@
       "kopie": false,
       "id": 1,
       "name": "Pastor",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     },
@@ -69,7 +69,7 @@
       "kopie": false,
       "id": 2,
       "name": "Postbote",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     },
@@ -93,7 +93,7 @@
       "kopie": false,
       "id": 3,
       "name": "Katze",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     },
@@ -117,7 +117,7 @@
       "kopie": false,
       "id": 4,
       "name": "Verkaeufer",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     },
@@ -141,7 +141,7 @@
       "kopie": false,
       "id": 5,
       "name": "Baecker",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
     }

@@ -4,7 +4,6 @@ import exceptions.KartenDeckZuKleinException;
 
 import java.util.Arrays;
 
-import static control.TalentController.grosseHand;
 import static resources.Konstanten.HANDGROESSE;
 
 /**

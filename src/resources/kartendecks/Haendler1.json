@@ -1,5 +1,5 @@
 {
-  "bezeichnung": "IchBinDasSpieldeck",
+  "bezeichnung": "DasDeckDesHaendler",
   "karten": [
     {
       "typ": "NAHKAEMPFER",
@@ -17,16 +17,18 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 0,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Polizist",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 4,
+      "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -39,16 +41,18 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 1,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Pastor",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 2,
+      "lebenspunkte": 9,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -61,16 +65,18 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 2,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Postbote",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 8,
+      "lebenspunkte": 1,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -83,16 +89,18 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 3,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Katze",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 5,
+      "lebenspunkte": 2,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -105,16 +113,18 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 4,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Verkaeufer",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 2,
+      "lebenspunkte": 2,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -127,11 +137,13 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "zaehler": 0,
+      "kopie": false,
       "id": 5,
-      "name": "HarryPotter",
-      "level": 40,
-      "klasse": "model.KarteEinheit"
+      "name": "Baecker",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     }
   ]
 }
