@@ -26,6 +26,8 @@ public interface KonstantenGUI
     int KARTE_GROSS_VBOX_BILD_HOEHE = 300;
     int KARTE_GROSS_VBOX_BILD_BREITE = 200;
 
+    // Spielstand Kartendeckanzeige
+    int SPALTENAHNZAHL_KARTENDECK_ANZEIGE = 5;
 
     //  Hilfefenster
     int VBOX_20 = 20;

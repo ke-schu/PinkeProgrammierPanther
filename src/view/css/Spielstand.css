@@ -1,6 +1,6 @@
 .root {
-    -fx-background-color: #f5ca89;
-    -fx-background-image: url(../bilder/Buch.jpg);
+    -fx-background-color: #ffe894;
+    -fx-background-image: url(../bilder/Buch.png);
     -fx-background-size: cover;
 }
 .button {

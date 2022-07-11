@@ -15,6 +15,7 @@ public interface StringsGUI
     String HAUPTMENUE_MUSIK = "src/view/mp3/fun-life-112188.mp3";
     String KLICK_SOUND = "src/view/mp3/Klick.wav";
 
+
     //  FXML Pfade
     String FXML_PFADE = "src/view/fxml/";
     String HAUPTMENUE_PFAD = FXML_PFADE + "Hauptmenue.fxml";
@@ -24,6 +25,12 @@ public interface StringsGUI
     String SPIELER_FELD_PFAD = FXML_PFADE + "Spielfeld.fxml";
     String GEGENSPIELER_FELD_PFAD = FXML_PFADE + "Gegenspielerfeld.fxml";
     String SPIELSTAND_PFAD = FXML_PFADE + "Spielstand.fxml";
+
+    // CSS Pfade
+
+    String SPIELSTAND_KARTENDECK_CSS_PFAD = "/view/css/SpielstandKartendeck.css";
+    String SPIELSTAND_ARTEFAKTE_TALENTE_CSS_PFAD = "/view/css/SpielstandArtefakteTalente.css";
+
 
     //  Aufloesung
     String AUFLOESUNG_GROESSE_HD = "1280x720";
@@ -50,6 +57,7 @@ public interface StringsGUI
             "Zum Spielfeld wechseln hat nicht geklappt.";
 
     //  CSS
+    String STYLE_CLASS_ARTEFAKTE_TALENTE = "artefakte-talente-vbox";
     String STYLE_CLASS_CHARAKTER = "charakter-vbox";
     String STYLE_CLASS_KARTEGROSS = "karte-vbox-gross";
     String PSEUDO_CLASS_GEWAEHLT = "ausgewaehlt";

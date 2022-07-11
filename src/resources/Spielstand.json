@@ -6,8 +6,8 @@
       "angriffsPunkte": 10
     },
     "talente": [
-      null,
-      null
+      "CHARME",
+      "GROSSE_HAND"
     ],
     "artefakte": [
       "SCHUTZENGEL",
@@ -66,8 +66,8 @@
     "freundlich": false
   },
   "aktuelleEbeneNummer": 1,
-  "lautstaerkeMusik": 10.0,
-  "laustaerkeEffekte": 10.0,
+  "lautstaerkeMusik": 0.0,
+  "laustaerkeEffekte": 0.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }
