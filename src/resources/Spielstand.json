@@ -72,7 +72,7 @@
     "name": "Dieter",
     "level": 1,
     "klasse": "model.Gegenspieler",
-    "freundlich": false
+    "freundlich":false
   },
   "aktuelleEbeneNummer": 0,
   "lautstaerkeMusik": 0.0,
