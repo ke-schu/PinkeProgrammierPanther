@@ -128,6 +128,7 @@ public class KartenEinheitController
      * @param spielfeld Spielfeld in dem gesucht wird
      * @return boolean ob befreundetet karten in der umgebung ist
      */
+    //methode m arsch barucht karte zum beschwören
     public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld)
     {
         boolean freundlich = false;

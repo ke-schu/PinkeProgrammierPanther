@@ -19,6 +19,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
+        binSpieler = false;
         new Thread(new NetzwerkTask()).start();
     }
 

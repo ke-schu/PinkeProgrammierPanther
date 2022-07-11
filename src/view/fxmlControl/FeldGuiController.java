@@ -51,6 +51,8 @@ public abstract class FeldGuiController extends GuiController
     protected ManaTank manaTank;
     protected double manaMaximum;
 
+    protected boolean binSpieler;
+
     /**
      * Methode, welche die für den Kampf benötigten Objekte erstellt
      */
@@ -103,8 +105,8 @@ public abstract class FeldGuiController extends GuiController
                 spielfeldGitter.add(feld, i, j);
             }
         }
-
-        warten.setVisible(!RundenController.getDran());
+        System.out.println(spielfeld);
+        warten.setVisible(!(RundenController.getDran() == binSpieler));
     }
 
     private static void heldEinsetzen(Karte held, StackPane feld)
@@ -146,6 +148,7 @@ public abstract class FeldGuiController extends GuiController
 
         KonsolenIO.ausgeben("Wir sind in Zug: "
                             + RundenController.getZugZaehler());
+        warten.setVisible(!(RundenController.getDran() == binSpieler));
     }
 
     public void dragAndDropSource (StackPane feld, boolean spielfeld)
@@ -207,7 +210,7 @@ public abstract class FeldGuiController extends GuiController
 
         KarteEinheit aktuelleKarteAusFeld = spielfeld.getSpielfeldplatz(quelleSpaltenIndex, quelleZeilenIndex);
 
-        if (EinheitenController.bewegen(
+        if (EinheitenController.bewegen(binSpieler,
                 spielfeld, zielSpaltenIndex,
                 zielZeilenIndex, aktuelleKarteAusFeld))
         {
@@ -388,4 +391,5 @@ public abstract class FeldGuiController extends GuiController
         popupStage.setAlwaysOnTop(true);
         popupStage.show();
     }
+
 }

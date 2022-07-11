@@ -1,6 +1,7 @@
 package control;
 
 import model.*;
+import view.fxmlControl.FeldGuiController;
 
 import static resources.Konstanten.WERT_SCHILD;
 
@@ -71,7 +72,7 @@ public class EinheitenController
      * @param ziel_y    Integer mit der Zielspalte der Bewegung.
      * @param einheit   Einheit die bewegt werden soll.
      */
-    public static boolean bewegen(SpielFeld spielfeld, int ziel_x, int ziel_y,
+    public static boolean bewegen(boolean istspieler,SpielFeld spielfeld, int ziel_x, int ziel_y,
                                KarteEinheit einheit)
     {
         if(einheit != null)
@@ -83,7 +84,8 @@ public class EinheitenController
             final int umkreis = 1;
 
             if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
-                (einheit.getBeweglichkeit() > 0))
+                (einheit.getBeweglichkeit() > 0) && ((RundenController.getDran() == istspieler)
+                                                     &&(einheit.getFreundlich()==istspieler)))
             {
                 zielErreichbarInX = (ziel_x == startX + umkreis) ||
                                     (ziel_x == startX - umkreis);

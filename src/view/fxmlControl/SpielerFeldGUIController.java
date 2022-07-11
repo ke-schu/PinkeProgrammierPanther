@@ -24,6 +24,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
+        binSpieler = true;
         updateSpielBackend();
         ladeSpielfeld(spielfeld, true);
         new Thread(new NetzwerkTask()).start();
