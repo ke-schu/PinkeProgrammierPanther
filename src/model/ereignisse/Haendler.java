@@ -2,10 +2,13 @@ package model.ereignisse;
 
 import control.TalentController;
 import exceptions.JsonNichtLesbarException;
+import model.Ebene;
+import model.Karte;
 import model.KartenDeck;
 import model.SpielStand;
 import utility.KonsolenIO;
 
+import java.io.File;
 import java.io.IOException;
 
 import static resources.Konstanten.kartenDeckIO;
@@ -83,12 +86,10 @@ public class Haendler extends Mensch
      *
      * @param spielStand der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren (SpielStand spielStand, Karte karte)
     {
-        KonsolenIO.ausgeben(this.getName());
         if (isAuswahl())
         {
-            int indexKarte;
             try
             {
                 this.setHaendlerDeck(
@@ -99,12 +100,11 @@ public class Haendler extends Mensch
                 KonsolenIO.ausgeben(e.getMessage());
             }
 
-            indexKarte = eingabeInt();
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieldeckSpieler()
-                          .push(haendlerDeck.get(indexKarte));
-                haendlerDeck.remove(indexKarte);
+                          .push(karte);
+                haendlerDeck.remove(karte);
                 gratisInteraktionen--;
             }
             else
@@ -112,8 +112,8 @@ public class Haendler extends Mensch
                 TalentController.charme(spielStand.getSpieler(), this);
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler()
-                          .push(haendlerDeck.get(indexKarte));
-                haendlerDeck.remove(indexKarte);
+                          .push(karte);
+                haendlerDeck.remove(karte);
                 interaktionsZaehler++;
                 kostenErhoehen();
             }
@@ -126,5 +126,10 @@ public class Haendler extends Mensch
                 e.getMessage();
             }
         }
+    }
+
+    public void verbessereHaendlerDeck()
+    {
+
     }
 }

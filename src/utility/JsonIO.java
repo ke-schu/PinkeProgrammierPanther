@@ -16,8 +16,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Stack;
 
-import static resources.Strings.CHARAKTER_PFAD;
-import static resources.Strings.SPIELSTAND_PFAD;
+import static resources.Strings.*;
+import static resources.StringsGUI.SPIELSTAND_PFAD;
 
 /**
  * Diese Klasse beinhaltet das Lesen und Schreiben von JSON Dateien.
@@ -50,7 +50,7 @@ public class JsonIO<T>
 
     public void schreibeDatei(SpielStand spielStand) throws IOException
     {
-        schreibeDatei((T) spielStand, SPIELSTAND_PFAD);
+        schreibeDatei((T) spielStand, JSON_SPIELSTAND_PFAD);
     }
 
     public void schreibeDatei(Stack<Charakter> charaktere) throws IOException
@@ -86,7 +86,7 @@ public class JsonIO<T>
 
     public SpielStand leseSpielstand() throws JsonNichtLesbarException
     {
-        return new SpielStand((SpielStand) leseDatei(SPIELSTAND_PFAD));
+        return new SpielStand((SpielStand) leseDatei(JSON_SPIELSTAND_PFAD));
     }
 
     public KartenDeck leseKartenDeck(String pfad) throws JsonNichtLesbarException
