@@ -75,10 +75,10 @@ public class SpielstandGuiController extends GuiController implements
         Stage spielstandPopUp = (Stage)((Node) event.getSource()).getScene().getWindow();
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
-        spane.getStylesheets().add(SpielstandGuiController.class.getResource("/view/css/Spielstand.css").toExternalForm());
+        spane.getStylesheets().add(SpielstandGuiController.class.getResource("/view/css/SpielstandKartendeck.css").toExternalForm());
         spane.setContent(pane);
 
-            for (int i=0; i < 2 && h < k; i++)
+            for (int i=0; h < k; i++)
             {
                 for (int j = 0; j < 5 && h < k; j++)
                 {
