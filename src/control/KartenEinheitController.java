@@ -35,7 +35,7 @@ public class KartenEinheitController
                                    ManaTank tank)
     {
         if ((spielfeld.getSpielfeldplatz(x, y) == null) &&
-            (freundBenachbart(x, y, spielfeld)))
+            (freundBenachbart(x, y, spielfeld, kartenhand.getElement(positionhand))))
         {
             Karte meineKarte = kartenhand.getElement(positionhand);
             if (meineKarte instanceof KarteEinheit &&
@@ -129,9 +129,9 @@ public class KartenEinheitController
      * @return boolean ob befreundetet karten in der umgebung ist
      */
     //methode m arsch barucht karte zum beschwören
-    public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld)
+    public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld,Karte zubeschwoeren )
     {
-        boolean freundlich = false;
+        boolean befreundet = false;
         final int umkreis = 1;
 
         KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y - umkreis);
@@ -141,33 +141,33 @@ public class KartenEinheitController
 
         if (oben != null)
         {
-            if (oben.getFreundlich())
+            if (oben.getFreundlich() ==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (unten != null)
         {
-            if (unten.getFreundlich())
+            if (unten.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (links != null)
         {
-            if (links.getFreundlich())
+            if (links.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (rechts != null)
         {
-            if (rechts.getFreundlich())
+            if (rechts.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
-        if(freundlich == true)
+        if(befreundet == true)
         {
             System.out.println("ja hier ist ein nachbar");
         }
@@ -175,7 +175,7 @@ public class KartenEinheitController
         {
             System.out.println("nein hier ist kein nachbar");
         }
-        return freundlich;
+        return befreundet;
     }
 }
 
