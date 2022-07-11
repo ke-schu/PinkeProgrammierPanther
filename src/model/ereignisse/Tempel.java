@@ -2,11 +2,11 @@ package model.ereignisse;
 
 import control.TalentController;
 import model.SpielStand;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
+import static resources.Konstanten.kartenDeckIO;
 import static utility.KonsolenIO.eingabeInt;
 
 /**
@@ -58,7 +58,7 @@ public class Tempel extends Mensch
             }
             try
             {
-                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeKartenDeck(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {

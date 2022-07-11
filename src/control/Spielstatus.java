@@ -1,6 +1,9 @@
 package control;
 
-import model.*;
+import model.Gegenspieler;
+import model.KartenDeck;
+import model.SpielFeld;
+import model.Spieler;
 
 public class Spielstatus
 {

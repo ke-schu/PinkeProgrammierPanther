@@ -4,11 +4,11 @@ import control.TalentController;
 import exceptions.JsonNichtLesbarException;
 import model.KartenDeck;
 import model.SpielStand;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
+import static resources.Konstanten.kartenDeckIO;
 import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
 import static utility.KonsolenIO.eingabeInt;
 
@@ -92,7 +92,7 @@ public class Haendler extends Mensch
             try
             {
                 this.setHaendlerDeck(
-                        KartenDeckIO.leseDatei(HAENDLER_DECK_EINS_PFAD));
+                        kartenDeckIO.leseKartenDeck(HAENDLER_DECK_EINS_PFAD));
             }
             catch (JsonNichtLesbarException e)
             {
@@ -119,7 +119,7 @@ public class Haendler extends Mensch
             }
             try
             {
-                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeKartenDeck(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {

@@ -1,8 +1,8 @@
 package model;
 
 import exceptions.JsonNichtLesbarException;
-import utility.KartenDeckIO;
 
+import static resources.Konstanten.kartenDeckIO;
 import static resources.Strings.START_DECK_PFAD;
 import static resources.Strings.TRENNUNG;
 
@@ -38,7 +38,7 @@ public class Charakter
         this.spieler           = spieler;
         this.freigeschaltet    = freigeschaltet;
         this.startDeck         =
-                KartenDeckIO.leseDatei(String.format(START_DECK_PFAD, name));
+                kartenDeckIO.leseKartenDeck(String.format(START_DECK_PFAD, name));
     }
 
     /**
@@ -55,7 +55,7 @@ public class Charakter
         this.freischaltgebuehr = charakter.getFreischaltgebuehr();
         this.spieler           = charakter.getSpieler();
         this.freigeschaltet    = charakter.getFreigeschaltet();
-        this.startDeck         = KartenDeckIO.leseDatei(
+        this.startDeck         = kartenDeckIO.leseKartenDeck(
                 String.format(START_DECK_PFAD, charakter.getName()));
     }
 

@@ -20,7 +20,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.SpielStand;
-import utility.SpielStandIO;
 import view.mp3.mp3Controller;
 
 import java.io.File;
@@ -28,6 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
@@ -57,7 +57,7 @@ public class GuiController implements Initializable
     {
         try
         {
-            spiel = SpielStandIO.leseDatei();
+            spiel = spielStandIO.leseSpielstand();
         }
         catch (JsonNichtLesbarException e)
         {

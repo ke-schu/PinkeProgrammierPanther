@@ -1,7 +1,6 @@
 package control;
 
 import model.*;
-import view.fxmlControl.FeldGuiController;
 
 import static resources.Konstanten.WERT_SCHILD;
 

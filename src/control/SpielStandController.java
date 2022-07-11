@@ -5,17 +5,13 @@ import model.Charakter;
 import model.KartenDeck;
 import model.SpielStand;
 import model.Spieler;
-import utility.CharakterIO;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 
 import java.io.IOException;
 import java.util.Stack;
 
 import static resources.Artefakte.SCHUTZENGEL;
-import static resources.Konstanten.SCHUTZENGEL_ANTEIL_MAXLEBEN;
-import static resources.Konstanten.START_EBENE;
+import static resources.Konstanten.*;
 import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 
 /**
@@ -48,11 +44,11 @@ public class SpielStandController
         {
             SpielStand neuerSpielStand =
                     new SpielStand(spiel.getGold(), charakter.getSpieler(), spiel.getGegenSpieler());
-            SpielStandIO.schreibeDatei(neuerSpielStand);
+            spielStandIO.schreibeDatei(neuerSpielStand);
             KartenDeck spielDeck =
                     KartenDeckController.kopiereDeck(charakter.getStartDeck(),
                                                      SPIEL_DECK_SPIELER_PFAD);
-            KartenDeckIO.schreibeDatei(spielDeck);
+            kartenDeckIO.schreibeKartenDeck(spielDeck);
             EbeneController.ueberschreibeAktuelleEbene(START_EBENE);
         }
         catch (IOException e)
@@ -82,8 +78,8 @@ public class SpielStandController
             charakter.setFreigeschaltet(true);
             try
             {
-                CharakterIO.schreibeDatei(charakterStack);
-                SpielStandIO.schreibeDatei(spiel);
+                charakterIO.schreibeDatei(charakterStack);
+                spielStandIO.schreibeDatei(spiel);
             }
             catch (IOException e)
             {

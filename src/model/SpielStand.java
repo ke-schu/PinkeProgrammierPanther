@@ -1,11 +1,9 @@
 package model;
 
 import exceptions.JsonNichtLesbarException;
-import utility.EbeneIO;
-import utility.KartenDeckIO;
 
-import java.io.File;
-
+import static resources.Konstanten.ebeneIO;
+import static resources.Konstanten.kartenDeckIO;
 import static resources.Strings.*;
 
 /**
@@ -38,10 +36,9 @@ public class SpielStand
         this.gold             = gold;
         this.spieler          = spieler;
         this.gegenSpieler     = gegenSpieler;
-        this.spieldeckSpieler = KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeckGegner  = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
-        this.aktuelleEbene    =
-                EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
+        this.spieldeckSpieler = kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeckGegner  = kartenDeckIO.leseKartenDeck(SPIEL_DECK_GEGNER_PFAD);
+        this.aktuelleEbene    = ebeneIO.leseDatei(AKTUELLE_EBENE_PFAD);
     }
 
     /**
@@ -60,10 +57,9 @@ public class SpielStand
         this.laustaerkeEffekte = stand.getLaustaerkeEffekte();
         this.aktuelleEbeneNummer = stand.getAktuelleEbeneNummer();
         this.spieldeckSpieler  =
-                KartenDeckIO.leseDatei(SPIEL_DECK_SPIELER_PFAD);
-        this.spieldeckGegner   = KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD);
-        this.aktuelleEbene     =
-                EbeneIO.leseDatei(new File(AKTUELLE_EBENE_PFAD));
+                kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD);
+        this.spieldeckGegner   = kartenDeckIO.leseKartenDeck(SPIEL_DECK_GEGNER_PFAD);
+        this.aktuelleEbene     = ebeneIO.leseDatei(AKTUELLE_EBENE_PFAD);
     }
 
     /**

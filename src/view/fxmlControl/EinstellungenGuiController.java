@@ -8,13 +8,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Slider;
-import utility.SpielStandIO;
 import view.mp3.mp3Controller;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static resources.Konstanten.spielStandIO;
 import static resources.StringsGUI.*;
 
 
@@ -112,6 +112,6 @@ public class EinstellungenGuiController extends GuiController
         wechselZu(event, HAUPTMENUE_PFAD);
         spiel.setLautstaerkeMusik(lautstaerkeMusikSlider.getValue());
         spiel.setLaustaerkeEffekte(lautstaerkeEffektSlider.getValue());
-        SpielStandIO.schreibeDatei(spiel);
+        spielStandIO.schreibeDatei(spiel);
     }
 }

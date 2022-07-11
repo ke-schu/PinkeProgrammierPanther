@@ -2,7 +2,6 @@ package model.ereignisse;
 
 import control.TalentController;
 import model.SpielStand;
-import utility.KonsolenIO;
 
 import static resources.Konstanten.HEILER_AUFWERTUNG_LEBENSPUNKTE;
 

@@ -3,9 +3,7 @@ package control.test;
 import exceptions.JsonNichtLesbarException;
 import model.*;
 import resources.*;
-import utility.CharakterIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -13,6 +11,8 @@ import java.util.Stack;
 import static control.test.TestKonstanten.*;
 import static control.test.TestZahlen.*;
 import static resources.Artefakte.SCHUTZENGEL;
+import static resources.Konstanten.charakterIO;
+import static resources.Konstanten.spielStandIO;
 import static resources.Talente.CHARME;
 
 /**
@@ -63,30 +63,12 @@ public class SpielStandTest
             Stack<Charakter> meinCharakterStack = new Stack<>();
             meinCharakterStack.push(charakter);
             meinCharakterStack.push(charakter);
-            CharakterIO.schreibeDatei(meinCharakterStack);
+            charakterIO.schreibeDatei(meinCharakterStack);
         }
         catch (IOException ausnahme)
         {
             KonsolenIO.ausgeben(ausnahme.getMessage());
         }
-    }
-
-    /**
-     * Liest den ersten Charakter aus der Datei ein und gibt den zugehoerigen
-     * Spieler zurueck.
-     *
-     * @return den Spieler
-     * @throws JsonNichtLesbarException wenn das Kartendeck des
-     *                                  Charakters Fehler aufwirft
-     * @throws IOException              wenn die Datei nicht oder nur falsch
-     * geladen werden
-     *                                  kann
-     */
-    private static Spieler leseCharakter()
-            throws JsonNichtLesbarException, IOException
-    {
-        Charakter meineKlasse = CharakterIO.leseCharakter(1);
-        return meineKlasse.getSpieler();
     }
 
     /**
@@ -97,7 +79,7 @@ public class SpielStandTest
     {
         try
         {
-            SpielStand meinSpielStand = SpielStandIO.leseDatei();
+            SpielStand meinSpielStand = spielStandIO.leseSpielstand();
             KonsolenIO.ausgeben(Strings.ZEILENUMBRUCH +
                                 meinSpielStand.getSpieldeckSpieler() +
                                 Strings.ZEILENUMBRUCH +
@@ -117,9 +99,10 @@ public class SpielStandTest
     {
         try
         {
+            Stack<Charakter> meineCharaktere = charakterIO.leseCharaktere();
             SpielStand meinSpielStand =
-                    new SpielStand(ZAHL_10, leseCharakter(), erstelleGegenSpieler());
-            SpielStandIO.schreibeDatei(meinSpielStand);
+                    new SpielStand(ZAHL_10, meineCharaktere.firstElement().getSpieler(), erstelleGegenSpieler());
+            spielStandIO.schreibeDatei(meinSpielStand);
         }
         catch (IOException e)
         {

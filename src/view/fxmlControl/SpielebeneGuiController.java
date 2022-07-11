@@ -21,11 +21,8 @@ import javafx.stage.Stage;
 import model.Ebene;
 import model.Position;
 import model.Raum;
-import model.SpielfigurEbene;
 import model.ereignisse.*;
-import utility.EbeneIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 import view.components.RaumPane;
 
 import java.io.File;
@@ -33,9 +30,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static resources.Konstanten.ebeneIO;
+import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.*;
 import static resources.Strings.AKTUELLE_EBENE_PFAD;
-import static resources.Strings.EBENEN_PFAD;
 import static resources.StringsGUI.*;
 
 /**
@@ -72,7 +70,7 @@ public class SpielebeneGuiController extends GuiController
     {
         try
         {
-            spiel = SpielStandIO.leseDatei();
+            spiel = spielStandIO.leseSpielstand();
             spielerLabel.setText(spiel.getSpieler().getName());
             spielEbene = spiel.getAktuelleEbene();
 
@@ -141,8 +139,8 @@ public class SpielebeneGuiController extends GuiController
     {
         try
         {
-            SpielStandIO.schreibeDatei(spiel);
-            EbeneIO.schreibeDatei(spielEbene, new File(AKTUELLE_EBENE_PFAD));
+            spielStandIO.schreibeDatei(spiel);
+            ebeneIO.schreibeDatei(spielEbene, AKTUELLE_EBENE_PFAD);
         }
         catch (IOException e)
         {

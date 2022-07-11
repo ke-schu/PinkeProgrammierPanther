@@ -9,15 +9,17 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
-import model.*;
+import model.KartenHand;
+import model.ManaTank;
+import model.SpielFeld;
 import utility.KonsolenIO;
 import utility.Server;
-import utility.SpielStandIO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.Konstanten.*;
+import static resources.Konstanten.SPIELSTATUS_PORT;
+import static resources.Konstanten.spielStandIO;
 
 public class SpielerFeldGUIController extends FeldGuiController
 {
@@ -77,7 +79,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     {
         try
         {
-            spiel      = SpielStandIO.leseDatei();
+            spiel      = spielStandIO.leseSpielstand();
 
             spieler    = spiel.getSpieler();
             spielerDeck = spiel.getSpieldeckSpieler();

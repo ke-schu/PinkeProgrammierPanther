@@ -4,11 +4,11 @@ import control.KartenController;
 import control.TalentController;
 import exceptions.KarteNichtVerbessertException;
 import model.SpielStand;
-import utility.KartenDeckIO;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
+import static resources.Konstanten.kartenDeckIO;
 import static utility.KonsolenIO.eingabeInt;
 
 /**
@@ -70,7 +70,7 @@ public class Schmied extends Mensch
             }
             try
             {
-                KartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeKartenDeck(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {

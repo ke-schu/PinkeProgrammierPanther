@@ -6,13 +6,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
-import model.*;
+import model.KartenHand;
+import model.ManaTank;
 import utility.Client;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static resources.Konstanten.*;
+import static resources.Konstanten.SPIELSTATUS_PORT;
 
 public class GegenspielerFeldGUIController extends FeldGuiController
 {

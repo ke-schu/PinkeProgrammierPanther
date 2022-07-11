@@ -1,6 +1,5 @@
 package view.fxmlControl;
 
-import control.EbeneController;
 import control.SpielStandController;
 import exceptions.JsonNichtLesbarException;
 import exceptions.NichtGenugGoldException;
@@ -16,10 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import model.Charakter;
-import utility.CharakterIO;
-import utility.EbeneIO;
 import utility.KonsolenIO;
-import utility.SpielStandIO;
 import view.components.CharakterVBox;
 
 import java.io.IOException;
@@ -27,6 +23,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
+import static resources.Konstanten.charakterIO;
+import static resources.Konstanten.spielStandIO;
 import static resources.StringsGUI.GOLD_BESTAND;
 import static resources.StringsGUI.HILFE_CHARAKTERAUSWAHL;
 
@@ -58,8 +56,8 @@ public class CharakterAuswahlGuiController extends GuiController
         spielButton.setDisable(true);
         try
         {
-            charakterStack = CharakterIO.leseDatei();
-            spiel          = SpielStandIO.leseDatei();
+            charakterStack = charakterIO.leseCharaktere();
+            spiel          = spielStandIO.leseSpielstand();
             for (int i = 0; i < charakterStack.size(); i++)
             {
                 Charakter meinChar = new Charakter(charakterStack.get(i));
