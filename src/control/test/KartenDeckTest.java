@@ -57,7 +57,7 @@ public class KartenDeckTest
 
         try
         {
-            kartenDeckIO.schreibeKartenDeck(meinDeck);
+            kartenDeckIO.schreibeDatei(meinDeck);
         }
         catch (IOException e)
         {

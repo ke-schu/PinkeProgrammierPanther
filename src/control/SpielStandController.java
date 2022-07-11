@@ -48,7 +48,7 @@ public class SpielStandController
             KartenDeck spielDeck =
                     KartenDeckController.kopiereDeck(charakter.getStartDeck(),
                                                      SPIEL_DECK_SPIELER_PFAD);
-            kartenDeckIO.schreibeKartenDeck(spielDeck);
+            kartenDeckIO.schreibeDatei(spielDeck);
             EbeneController.ueberschreibeAktuelleEbene(START_EBENE);
         }
         catch (IOException e)

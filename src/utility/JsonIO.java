@@ -58,7 +58,7 @@ public class JsonIO<T>
         schreibeDatei((T) charaktere, CHARAKTER_PFAD);
     }
 
-    public void schreibeKartenDeck(KartenDeck deck) throws IOException
+    public void schreibeDatei(KartenDeck deck) throws IOException
     {
         deck.getDatei().createNewFile();
         schreibeDatei((T) deck, deck.getDatei().getAbsolutePath());

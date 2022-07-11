@@ -119,7 +119,7 @@ public class Haendler extends Mensch
             }
             try
             {
-                kartenDeckIO.schreibeKartenDeck(spielStand.getSpieldeckSpieler());
+                kartenDeckIO.schreibeDatei(spielStand.getSpieldeckSpieler());
             }
             catch (IOException e)
             {
