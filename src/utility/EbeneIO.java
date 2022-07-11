@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import control.EbeneSerialisierung;
 import exceptions.JsonNichtLesbarException;
+import model.Charakter;
 import model.Ebene;
 
 import java.io.File;
@@ -14,6 +15,7 @@ import java.nio.file.FileSystemNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Stack;
 
 import static resources.Strings.EBENE_DATEI_ERSTELLT;
 import static resources.Strings.EBENE_DATEI_UEBERSCHRIEBEN;
@@ -24,8 +26,7 @@ import static resources.Strings.EBENE_DATEI_UEBERSCHRIEBEN;
  */
 public class EbeneIO
 {
-    private static Gson meinGson;
-    private static GsonBuilder meinGsonBuilder = new GsonBuilder();
+    private static Serialisierung<Ebene> meineSerialisierung = new Serialisierung();
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
@@ -33,18 +34,6 @@ public class EbeneIO
      */
     private EbeneIO()
     {
-    }
-
-    /**
-     * Serialisiert die Ebene ins Json-Format.
-     *
-     * @param ebene die Ebene
-     * @return einen String im Json-Format
-     */
-    private static String serialisieren(Ebene ebene)
-    {
-        meinGson = meinGsonBuilder.setPrettyPrinting().create();
-        return meinGson.toJson(ebene);
     }
 
     /**
@@ -65,26 +54,8 @@ public class EbeneIO
             KonsolenIO.ausgeben(EBENE_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
-        verfasser.write(serialisieren(ebene));
+        verfasser.write(meineSerialisierung.serialisieren(ebene));
         verfasser.close();
-    }
-
-    /**
-     * Deserialisiert einen im Json-Format vorliegenden String in eine Ebene.
-     *
-     * @param jsonEbene die Zeichenkette
-     * @return die Ebene
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     *                             Json-Formatierung uebereinstimmt.
-     */
-    private static Ebene deserialisieren(String jsonEbene)
-            throws JsonSyntaxException
-    {
-        EbeneSerialisierung meineSerialisierung = new EbeneSerialisierung();
-        meinGsonBuilder.registerTypeAdapter(Ebene.class, meineSerialisierung);
-        meinGson = meinGsonBuilder.create();
-
-        return meinGson.fromJson(jsonEbene, Ebene.class);
     }
 
     /**
@@ -100,7 +71,7 @@ public class EbeneIO
         {
             Path path = Paths.get(datei.toURI());
             String content = Files.readString(path);
-            return deserialisieren(content);
+            return meineSerialisierung.deserialisieren(content, Ebene.class);
         }
         catch (JsonSyntaxException | IOException | IllegalArgumentException |
                FileSystemNotFoundException ex)

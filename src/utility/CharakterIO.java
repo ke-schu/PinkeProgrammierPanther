@@ -24,8 +24,7 @@ import static resources.Strings.*;
  */
 public class CharakterIO
 {
-    private static Gson meinGson;
-    private static GsonBuilder meinGsonBuilder = new GsonBuilder();
+    private static Serialisierung<Stack<Charakter>> meineSerialisierung = new Serialisierung();
     private final static File datei = new File(CHARAKTER_PFAD);
 
     /**
@@ -34,18 +33,6 @@ public class CharakterIO
      */
     private CharakterIO()
     {
-    }
-
-    /**
-     * Serialisiert den Charakter-Stapel ins Json-Format.
-     *
-     * @param charaktere der Charakter-Stapel
-     * @return einen String im Json-Format
-     */
-    private static String serialisieren(Stack<Charakter> charaktere)
-    {
-        meinGson = meinGsonBuilder.setPrettyPrinting().create();
-        return meinGson.toJson(charaktere);
     }
 
     /**
@@ -66,27 +53,8 @@ public class CharakterIO
             KonsolenIO.ausgeben(CHARAKTER_DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
-        verfasser.write(serialisieren(charaktere));
+        verfasser.write(meineSerialisierung.serialisieren(charaktere));
         verfasser.close();
-    }
-
-    /**
-     * Deserialisiert einen im Json-Format vorliegenden String in einen
-     * Charakter-Stapel.
-     *
-     * @param jsonCharaktere die Zeichenkette
-     * @return den Charakter-Stapel
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     *                             Json-Formatierung uebereinstimmt.
-     */
-    private static Stack<Charakter> deserialisieren(String jsonCharaktere)
-            throws JsonSyntaxException
-    {
-        meinGson = meinGsonBuilder.create();
-        return meinGson.fromJson(jsonCharaktere,
-                                 new TypeToken<Stack<Charakter>>()
-                                 {
-                                 }.getType());
     }
 
     /**
@@ -94,7 +62,7 @@ public class CharakterIO
      * deserialisiert zurueck.
      *
      * @return den Charakter-Stapel
-     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
+     * @throws JsonNichtLesbarException, wenn ein Fehler beim Einlesen auftritt.
      */
     public static Stack<Charakter> leseDatei() throws JsonNichtLesbarException
     {
@@ -102,7 +70,9 @@ public class CharakterIO
         {
             Path path = Paths.get(datei.toURI());
             String content = Files.readString(path);
-            return deserialisieren(content);
+            return meineSerialisierung.deserialisieren(content, new TypeToken<Stack<Charakter>>()
+            {
+            }.getType());
         }
         catch (JsonSyntaxException | IOException | IllegalArgumentException |
                FileSystemNotFoundException ex)
@@ -112,11 +82,8 @@ public class CharakterIO
     }
 
     /**
-     * Liest einen Charakter aus der Auswahl an Charakteren ein.
-     *
-     * @param position die Position in der Liste an Charakteren
-     * @return den Charakter
-     * @throws JsonNichtLesbarException wenn ein Fehler beim Einlesen auftritt.
+     *          VERALTET
+     * Kann mit dem Test-Paket gelöscht werden!
      */
     public static Charakter leseCharakter(int position)
             throws JsonNichtLesbarException

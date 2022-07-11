@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import control.KartenDeckSerialisierung;
 import exceptions.JsonNichtLesbarException;
+import model.Ebene;
 import model.KartenDeck;
 
 import java.io.File;
@@ -21,10 +22,7 @@ import java.nio.file.Paths;
  */
 public class KartenDeckIO
 {
-    private static GsonBuilder meinGsonBuilder = new GsonBuilder();
-    private static KartenDeckSerialisierung meineSerialisierung =
-            new KartenDeckSerialisierung();
-    private static Gson meinGson;
+    private static Serialisierung<KartenDeck> meineSerialisierung = new Serialisierung();
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
@@ -32,23 +30,6 @@ public class KartenDeckIO
      */
     private KartenDeckIO()
     {
-    }
-
-    /**
-     * Serialisiert ein KartenDeck ins Json-Format.
-     *
-     * @param deck Instanz der Klasse KartenDeck die als .json String
-     *             zurueckgeben werden soll.
-     * @return liefert den Inhalt der Instanz als String in .json
-     * formatierung.
-     */
-    private static String serialisieren(KartenDeck deck)
-    {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class,
-                                            meineSerialisierung);
-        meinGson = meinGsonBuilder.setPrettyPrinting().create();
-
-        return meinGson.toJson(deck);
     }
 
     /**
@@ -64,28 +45,8 @@ public class KartenDeckIO
     {
         deck.getDatei().createNewFile();
         FileWriter verfasser = new FileWriter(deck.getDatei());
-        verfasser.write(KartenDeckIO.serialisieren(deck));
+        verfasser.write(meineSerialisierung.serialisieren(deck));
         verfasser.close();
-    }
-
-    /**
-     * Methode zum deserialisieren eines Strings in .json Format um eine
-     * Instanz der Klasse KartenDeck zu bilden.
-     *
-     * @param jsonKartenDeck String in .json Format der zu der Instanzbildung
-     *                       genutzt wird.
-     * @return liefert die erstellte Instanz der Klasse KartenDeck
-     * @throws JsonSyntaxException wenn die Formatierung nicht mit der
-     *                             Json-Formatierung uebereinstimmt.
-     */
-    private static KartenDeck deserialisieren(String jsonKartenDeck)
-            throws JsonSyntaxException
-    {
-        meinGsonBuilder.registerTypeAdapter(KartenDeck.class,
-                                            meineSerialisierung);
-        meinGson = meinGsonBuilder.create();
-
-        return meinGson.fromJson(jsonKartenDeck, KartenDeck.class);
     }
 
     /**
@@ -103,7 +64,7 @@ public class KartenDeckIO
         {
             Path klassenPfad = Paths.get(pfad);
             String content = Files.readString(klassenPfad);
-            KartenDeck deck = KartenDeckIO.deserialisieren(content);
+            KartenDeck deck = meineSerialisierung.deserialisieren(content, KartenDeck.class);
             deck.setDatei(new File(pfad));
             return deck;
         }
