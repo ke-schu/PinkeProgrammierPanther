@@ -23,7 +23,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -47,7 +47,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -71,7 +71,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -95,7 +95,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -119,7 +119,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -143,7 +143,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -167,7 +167,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -191,7 +191,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -215,7 +215,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -239,7 +239,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -263,7 +263,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -287,7 +287,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -311,7 +311,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -335,7 +335,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -359,7 +359,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -383,7 +383,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -407,7 +407,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -431,7 +431,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -455,7 +455,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -479,7 +479,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -503,7 +503,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -527,7 +527,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -551,7 +551,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -575,7 +575,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -599,7 +599,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -623,7 +623,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -647,7 +647,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     }
 
 

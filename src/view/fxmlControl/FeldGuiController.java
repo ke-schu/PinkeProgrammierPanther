@@ -162,7 +162,6 @@ public abstract class FeldGuiController extends GuiController
             {
                 quellePaneHand = feld;
             }
-
         });
 
         feld.setOnMouseReleased(event -> feld.setMouseTransparent(false));
