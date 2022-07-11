@@ -19,9 +19,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane stylesheets="@../css/SpielFeld.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.GegenspielerFeldGUIController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/SpielFeld.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.GegenspielerFeldGUIController">
    <children>
-      <BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/SpielFeld.css">
+      <BorderPane stylesheets="@../css/SpielFeld.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <bottom>
               <StackPane BorderPane.alignment="CENTER">
                   <children>
@@ -101,12 +101,16 @@
               </GridPane>
           </center>
       </BorderPane>
-      <VBox fx:id="ipEingabe" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" spacing="20.0">
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TextField fx:id="hostnameFeld" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Hostname eingeben..." VBox.vgrow="NEVER" />
-            <Button mnemonicParsing="false" onAction="#verbinden" prefWidth="200.0" text="Verbinden" />
-            <Button mnemonicParsing="false" onAction="#zurueckHauptmenue" prefWidth="200.0" text="Zurück zum Hauptmenü" />
+            <VBox fx:id="ipEingabe" alignment="CENTER" spacing="20.0">
+               <children>
+                  <TextField fx:id="hostnameFeld" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Hostname eingeben..." VBox.vgrow="NEVER" />
+                  <Button mnemonicParsing="false" onAction="#verbinden" prefWidth="200.0" text="Verbinden" />
+                  <Button mnemonicParsing="false" onAction="#zurueckHauptmenue" prefWidth="200.0" text="Zurück zum Hauptmenü" />
+               </children>
+            </VBox>
          </children>
-      </VBox>
+      </StackPane>
    </children>
 </AnchorPane>
