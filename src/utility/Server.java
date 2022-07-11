@@ -1,8 +1,10 @@
 package utility;
 
 import java.io.*;
-import java.net.BindException;
 import java.net.ServerSocket;
+
+import static resources.Strings.NETZWERK_VERBUNDEN;
+import static resources.Strings.NETZWERK_WARTE;
 
 public class Server<T> extends NetzwerkIO<T>
 {
@@ -15,11 +17,11 @@ public class Server<T> extends NetzwerkIO<T>
         try
         {
             server = new ServerSocket(port, MAX_WARTENDE_VERBINDUNGEN);
-            KonsolenIO.ausgeben("Warte auf Verbindung auf Port: " + port);
+            KonsolenIO.ausgeben(NETZWERK_WARTE + port);
 
             socket = server.accept();
             socket.setSoTimeout(0);
-            KonsolenIO.ausgeben("Verbunden zu " + socket.getInetAddress());
+            KonsolenIO.ausgeben(NETZWERK_VERBUNDEN + socket.getInetAddress());
             verbunden = true;
 
             netIn = new BufferedReader(
@@ -27,14 +29,9 @@ public class Server<T> extends NetzwerkIO<T>
             netOut = new PrintWriter(
                     new OutputStreamWriter(socket.getOutputStream()));
         }
-        catch (BindException e)
+        catch (IOException ex)
         {
-            beenden();
-            KonsolenIO.ausgeben("Server läuft bereits auf Port " + port);
-        }
-        catch (IOException e)
-        {
-            KonsolenIO.ausgeben("Fehler:" + e.getMessage());
+            ex.printStackTrace();
             beenden();
         }
     }

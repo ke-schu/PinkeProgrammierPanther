@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import static resources.Strings.NETZWERK_GESENDET;
+import static resources.Strings.NETZWERK_GETRENNT;
+
 public abstract class NetzwerkIO<T>
 {
     protected BufferedReader netIn = null;
@@ -68,7 +71,7 @@ public abstract class NetzwerkIO<T>
         {
             e.printStackTrace();
         }
-        KonsolenIO.ausgeben("Verbindung getrennt.");
+        KonsolenIO.ausgeben(NETZWERK_GETRENNT);
     }
 
     public void senden(T nachricht)
@@ -81,7 +84,7 @@ public abstract class NetzwerkIO<T>
             netOut.flush();
         }
 
-        KonsolenIO.ausgeben("Nachricht gesendet.");
+        KonsolenIO.ausgeben(NETZWERK_GESENDET);
     }
 
     public Service<T> getInputService()

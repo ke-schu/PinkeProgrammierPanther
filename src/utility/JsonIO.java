@@ -17,7 +17,6 @@ import java.nio.file.Paths;
 import java.util.Stack;
 
 import static resources.Strings.*;
-import static resources.StringsGUI.SPIELSTAND_PFAD;
 
 /**
  * Diese Klasse beinhaltet das Lesen und Schreiben von JSON Dateien.

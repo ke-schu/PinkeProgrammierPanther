@@ -5,7 +5,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import model.KartenHand;
 import model.ManaTank;
 import utility.Client;
@@ -17,16 +21,26 @@ import static resources.Konstanten.SPIELSTATUS_PORT;
 
 public class GegenspielerFeldGUIController extends FeldGuiController
 {
+    @FXML TextField hostnameFeld;
+    @FXML VBox ipEingabe;
+    private String hostname;
+
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         binSpieler = false;
+    }
+
+    @FXML
+    public void verbinden(ActionEvent actionEvent)
+    {
+        this.hostname = hostnameFeld.getText();
+        this.ipEingabe.setVisible(false);
         new Thread(new NetzwerkTask()).start();
     }
 
     private class NetzwerkTask extends Task
     {
-        String hostname = "localhost";
         @Override protected Void call()
         {
             SpielstatusKommunikation = new Client(hostname, SPIELSTATUS_PORT,
