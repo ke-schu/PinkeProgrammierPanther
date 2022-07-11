@@ -11,8 +11,7 @@ import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
  */
 public class RundenController
 {
-    private static int zugZaehler = 1;
-    private static boolean freundlich = true;
+    private static int zugZaehler = 0;
 
     /**
      * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
@@ -37,7 +36,6 @@ public class RundenController
         feldAufraeumen(feld, spielerDeck, masterDeck);
         beweglichkeitAuffrischen(feld);
         aufwecken(feld);
-        bestimmenWerDranIst();
     }
 
     /**
@@ -122,21 +120,6 @@ public class RundenController
     }
 
     /**
-     * Diese Methode bestimmt, welcher Spieler am Zug ist.
-     */
-    public static void bestimmenWerDranIst()
-    {
-        if (zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0)
-        {
-            freundlich = true;
-        }
-        else
-        {
-            freundlich = false;
-        }
-    }
-
-    /**
      * Diese Methode sorgt dafuer, dass die Einheiten einsatzbereit werden.
      *
      * @param feld weckt die Karten nach jedem Zug auf sodas sie im naechsten
@@ -176,24 +159,19 @@ public class RundenController
         RundenController.zugZaehler = zugZaehler;
     }
 
+    public static void zughochzaehlen()
+    {
+        zugZaehler++;
+    }
+
     /**
      * Gibt wieder, ob eine freundliche Einheit am Zug ist.
      *
      * @return true oder false.
      */
-    public static boolean getFreundlich()
+    public static boolean getDran()
     {
-        return freundlich;
-    }
-
-    /**
-     * Setzt den Wahrheitswert freundlich.
-     *
-     * @param freundlich true oder false.
-     */
-    public static void setFreundlich(boolean freundlich)
-    {
-        RundenController.freundlich = freundlich;
+        return zugZaehler % SPIELER_WECHSEL_NACH_ZUEGEN == 0;
     }
 }
 

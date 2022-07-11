@@ -12,4 +12,5 @@ public interface Spielbar
      * @return Menge an Mana.
      */
     int getMana();
+
 }

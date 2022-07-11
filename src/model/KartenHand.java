@@ -21,16 +21,21 @@ public class KartenHand
      *
      * @param spieler für welchen die KartenHand erstellt wird.
      */
-    public KartenHand(Spieler spieler)
+    public KartenHand(Spielbar spieler)
     {
-        if (grosseHand(spieler))
+        /*if(spieler instanceof Spieler)
         {
-            this.hand = new Karte[HANDGROESSE + 1];
+            if (grosseHand((Spieler)spieler))
+            {
+                this.hand = new Karte[HANDGROESSE + 1];
+            }
         }
+
         else
         {
-            this.hand = new Karte[HANDGROESSE];
-        }
+
+        }*/
+        this.hand = new Karte[HANDGROESSE];
     }
 
     /**

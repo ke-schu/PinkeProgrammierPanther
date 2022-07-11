@@ -21,7 +21,7 @@
     "macht": 11,
     "lebenspunkte": 1,
     "manaKosten": 0,
-    "beweglichkeit": 0,
+    "beweglichkeit": 5,
     "reichweite": 1,
     "schild": 1,
     "verteidigung": 1,
@@ -55,7 +55,7 @@
     "macht": 1,
     "lebenspunkte": 2,
     "manaKosten": 0,
-    "beweglichkeit": 3,
+    "beweglichkeit": 5,
     "reichweite": 4,
     "schild": 5,
     "verteidigung": 6,
@@ -72,7 +72,7 @@
     "name": "Dieter",
     "level": 1,
     "klasse": "model.Gegenspieler",
-    "freundlich": false
+    "freundlich":false
   },
   "aktuelleEbeneNummer": 0,
   "lautstaerkeMusik": 0.0,

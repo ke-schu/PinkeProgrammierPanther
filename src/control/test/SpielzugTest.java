@@ -144,12 +144,12 @@ public class SpielzugTest
                 VON + (meinfeld.getSpielfeldplatz(4, 4).getPositionX()) + "," +
                 (meinfeld.getSpielfeldplatz(4, 4).getPositionY()));
         KonsolenIO.ausgeben(BEWEGEN);
-        EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
+       /* EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_3, master);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_2, master);
         EinheitenController.bewegen(meinfeld, ZAHL_4, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_3, ZAHL_1, master);
         EinheitenController.bewegen(meinfeld, ZAHL_2, ZAHL_1, master);
-        EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);
+        EinheitenController.bewegen(meinfeld, ZAHL_1, ZAHL_1, master);*/
         KonsolenIO.ausgeben(POSITIONS_ANGABE_EINS_EINS);
         KonsolenIO.ausgeben(meinfeld.toString());
     }

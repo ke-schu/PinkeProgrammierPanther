@@ -1,64 +1,56 @@
 package utility;
 
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.stream.JsonReader;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 
 import java.io.*;
 import java.net.Socket;
 
 public abstract class NetzwerkIO<T>
 {
-    protected final static int PORT = 8000;
     protected BufferedReader netIn = null;
     protected PrintWriter netOut = null;
     protected boolean verbunden = false;
-    protected final PrintStream infoOut = System.out;
     protected final Class<T> classType;
     protected Socket socket = null;
     private final Serialisierung serialisierung;
-    private ObjectProperty<T> postEingang;
+    private ObjectProperty objekt;
+    private Service<T> inputService;
 
     public NetzwerkIO(Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
-        postEingang = new SimpleObjectProperty();
-    }
+        objekt = new SimpleObjectProperty(this, classType.getName());
 
-    class InputThread extends Thread
-    {
-        public void run()
+        inputService = new Service()
         {
-            while(verbunden && socket.isConnected())
+            @Override protected Task<T> createTask()
             {
-                empfangen();
-            }
-            beenden();
-        }
-
-        public void empfangen()
-        {
-            JsonReader reader = new JsonReader(netIn);
-            try
-            {
-                T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                if(objekt != null)
+                return new Task()
                 {
-                    postEingang.set(objekt);
-                }
-            }
-            catch(JsonSyntaxException e)
-            {
-                beenden();
-            }
-        }
-    }
+                    @Override protected T call()
+                    {
+                        JsonReader reader = new JsonReader(netIn);
 
-    public void starteInputThread()
-    {
-        new InputThread().start();
+                        while(verbunden)
+                        {
+                            T objekt = (T) serialisierung.deserialisieren(reader, classType);
+                            if(objekt != null)
+                            {
+                                succeeded();
+                                return objekt;
+                            }
+                            verbunden = socket.isConnected();
+                        }
+                        return null;
+                    }
+                };
+            }
+        };
     }
 
     public void beenden()
@@ -74,7 +66,7 @@ public abstract class NetzwerkIO<T>
         {
             e.printStackTrace();
         }
-        infoOut.println("Verbindung getrennt.");
+        KonsolenIO.ausgeben("Verbindung getrennt.");
     }
 
     public void senden(T nachricht)
@@ -87,16 +79,21 @@ public abstract class NetzwerkIO<T>
             netOut.flush();
         }
 
-        infoOut.println("Nachricht gesendet.");
+        KonsolenIO.ausgeben("Nachricht gesendet.");
     }
 
-    public T getPostEingang()
+    public Service<T> getInputService()
     {
-        return postEingang.get();
+        return inputService;
     }
 
-    public ObjectProperty<T> postEingangProperty()
+    public T getObjekt()
     {
-        return postEingang;
+        return (T) objekt.get();
+    }
+
+    public ObjectProperty objektProperty()
+    {
+        return objekt;
     }
 }

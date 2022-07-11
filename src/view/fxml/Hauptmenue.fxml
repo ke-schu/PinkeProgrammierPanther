@@ -19,9 +19,11 @@
         <VBox alignment="CENTER" spacing="20.0">
             <children>
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#weiterSpielen" prefHeight="40.0"
-                        prefWidth="150.0" text="Weiter"/>
+                        prefWidth="150.0" text="Spiel fortsetzen"/>
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuCharakterauswahl"
                         prefHeight="40.0" prefWidth="150.0" text="Neues Spiel"/>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuGegenspielerFeld" prefHeight="40.0"
+                        prefWidth="150.0" text="Spiel beitreten"/>
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#oeffneHilfe" prefHeight="40.0"
                         prefWidth="150.0" text="Hilfe"/>
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#wechselZuEinstellungen" prefHeight="40.0"

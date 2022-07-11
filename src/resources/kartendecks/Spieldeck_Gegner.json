@@ -23,7 +23,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -47,7 +47,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -71,7 +71,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -95,7 +95,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -119,7 +119,7 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -143,7 +143,513 @@
       "name": "HarryPotter",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 1,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 8,
+      "name": "HarryPotter",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     }
+
+
   ]
 }

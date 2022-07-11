@@ -1,12 +1,8 @@
 package utility;
 
-import exceptions.JsonNichtLesbarException;
-import model.KartenDeck;
-
 import java.io.*;
 import java.net.Socket;
 
-import static resources.Strings.SPIEL_DECK_GEGNER_PFAD;
 
 public class Client<T> extends NetzwerkIO<T>
 {
@@ -18,6 +14,7 @@ public class Client<T> extends NetzwerkIO<T>
             socket = new Socket(hostname, port);
             socket.setSoTimeout(0);
             verbunden = true;
+            KonsolenIO.ausgeben(socket.getInetAddress());
 
             netIn = new BufferedReader(
                     new InputStreamReader(socket.getInputStream()));
@@ -26,27 +23,8 @@ public class Client<T> extends NetzwerkIO<T>
         }
         catch (IOException e)
         {
-            infoOut.println("Fehler:" + e.getMessage());
+            KonsolenIO.ausgeben("Fehler:" + e.getMessage());
             beenden();
         }
-    }
-
-    public static void main(String[] args)
-    {
-        Client<KartenDeck> meinClient = new Client("localhost", PORT, KartenDeck.class);
-        try
-        {
-            meinClient.senden(KartenDeckIO.leseDatei(SPIEL_DECK_GEGNER_PFAD));
-        }
-        catch (JsonNichtLesbarException e)
-        {
-            e.printStackTrace();
-        }
-        meinClient.postEingangProperty().addListener(
-                (observableValue, s, t1) ->
-                {
-                    KonsolenIO.ausgeben(meinClient.getPostEingang().getDeckBezeichnung());
-                });
-        meinClient.starteInputThread();
     }
 }

@@ -1,8 +1,7 @@
 package control;
 
 import model.*;
-
-import static resources.Konstanten.*;
+import utility.KonsolenIO;
 
 /**
  * Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
@@ -31,12 +30,12 @@ public class KartenEinheitController
      * @param y            Spalte im spielfeld
      * @param tank         zu Verfuegung stehende Mana-Reserve
      */
-    public static ManaTank  beschwoeren(KartenHand kartenhand, int positionhand,
+    public static ManaTank beschwoeren(KartenHand kartenhand, int positionhand,
                                    SpielFeld spielfeld, int x, int y,
                                    ManaTank tank)
     {
         if ((spielfeld.getSpielfeldplatz(x, y) == null) &&
-            (freundBenachbart(x, y, spielfeld)))
+            (freundBenachbart(x, y, spielfeld, kartenhand.getElement(positionhand))))
         {
             Karte meineKarte = kartenhand.getElement(positionhand);
             if (meineKarte instanceof KarteEinheit &&
@@ -57,17 +56,16 @@ public class KartenEinheitController
                 return tank;
             }
         }
-        System.out.println("beschwörung hat nicht geklappt");
+        KonsolenIO.ausgeben("Beschwörung hat nicht geklappt!");
         return tank;
     }
 
-    public static boolean moveerfolgreich (SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
-                                           int feldzeilenindex)
+    public static boolean bewegenErfolgreich(SpielFeld spielfeld, Karte aktuellekarte, int feldspaltenindex,
+                                             int feldzeilenindex)
     {
-        Karte karteaufspielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
-        if (karteaufspielfeld == aktuellekarte)
+        Karte karteAufSpielfeld = spielfeld.getSpielfeldplatz(feldspaltenindex,feldzeilenindex);
+        if (karteAufSpielfeld == aktuellekarte)
         {
-            System.out.println("beschwörung hat geklappt du lappen");
             return true;
         }
         return false;
@@ -87,22 +85,21 @@ public class KartenEinheitController
         if (held.getFreundlich())
         {
             held.startWerteSpeichern();
-            positionGeben(held, SPIELER_KAMPFFELD_STARTPOSITION_X,
-                          SPIELER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(spielfeld.getSpalten() - 1,
-                    spielfeld.getZeilen() - 1, held);
+
+            int spaltenindex = spielfeld.getSpalten() - 1;
+            int zeilenindex = spielfeld.getZeilen() - 1;
+
+            positionGeben(held, spaltenindex,
+                    zeilenindex);
+
+            spielfeld.einheitEinsetzten(spaltenindex,
+                    zeilenindex, held);
         }
         else
         {
             held.startWerteSpeichern();
-            positionGeben(held, spielfeld.getSpalten() -
-                                GEGNER_KAMPFFELD_STARTPOSITION_X,
-                          spielfeld.getZeilen() -
-                          GEGNER_KAMPFFELD_STARTPOSITION_Y);
-            spielfeld.einheitEinsetzten(
-                    spielfeld.getSpalten() - GEGNER_KAMPFFELD_STARTPOSITION_X,
-                    spielfeld.getZeilen() - GEGNER_KAMPFFELD_STARTPOSITION_Y,
-                    held);
+            positionGeben(held, 0,0);
+            spielfeld.einheitEinsetzten(0,0,held);
         }
     }
 
@@ -131,9 +128,10 @@ public class KartenEinheitController
      * @param spielfeld Spielfeld in dem gesucht wird
      * @return boolean ob befreundetet karten in der umgebung ist
      */
-    public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld)
+    //methode m arsch barucht karte zum beschwören
+    public static boolean freundBenachbart(int x, int y, SpielFeld spielfeld,Karte zubeschwoeren )
     {
-        boolean freundlich = false;
+        boolean befreundet = false;
         final int umkreis = 1;
 
         KarteEinheit oben = spielfeld.getSpielfeldplatz(x, y - umkreis);
@@ -143,33 +141,33 @@ public class KartenEinheitController
 
         if (oben != null)
         {
-            if (oben.getFreundlich())
+            if (oben.getFreundlich() ==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (unten != null)
         {
-            if (unten.getFreundlich())
+            if (unten.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (links != null)
         {
-            if (links.getFreundlich())
+            if (links.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
         if (rechts != null)
         {
-            if (rechts.getFreundlich())
+            if (rechts.getFreundlich()==zubeschwoeren.getFreundlich())
             {
-                freundlich = true;
+                befreundet = true;
             }
         }
-        if(freundlich == true)
+        if(befreundet == true)
         {
             System.out.println("ja hier ist ein nachbar");
         }
@@ -177,7 +175,7 @@ public class KartenEinheitController
         {
             System.out.println("nein hier ist kein nachbar");
         }
-        return freundlich;
+        return befreundet;
     }
 }
 

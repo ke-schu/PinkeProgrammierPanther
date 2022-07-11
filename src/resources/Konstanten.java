@@ -7,6 +7,11 @@ import model.Position;
  */
 public interface Konstanten
 {
+    int TEST_PORT = 8000;
+    int SPIELSTATUS_PORT = 8000;
+    int SPIELER_PORT = 8001;
+    int KARTENDECK_SPIELER_PORT = 8002;
+    int KARTENDECK_GEGENSPIELER_PORT = 8003;
     int HANDGROESSE = 5;
     int LEVEL_SUMMAND_SPIELER = 1;
     int START_EBENE = 1;
