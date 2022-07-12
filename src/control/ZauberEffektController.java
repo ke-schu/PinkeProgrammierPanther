@@ -1,9 +1,6 @@
 package control;
 
-import model.KarteEinheit;
-import model.KarteZauber;
-import model.KartenDeck;
-import model.SpielFeld;
+import model.*;
 
 import static control.EinheitenController.verursacheSchaden;
 import static resources.StringsEreignisse.SCHADEN_WURFSPEER;
@@ -24,14 +21,16 @@ public class ZauberEffektController
      * @param masterDeck  Das Deck des DungeonMaster.
      */
     public static void zauberKarteAusspielen(KarteZauber ausloeser,
-                                             KarteEinheit ziel, SpielFeld feld,
+                                             KarteEinheit ziel,
+                                             KartenHand hand,
+                                             SpielFeld feld,
                                              KartenDeck spielerDeck,
                                              KartenDeck masterDeck)
     {
         switch (ausloeser.getZeffekt())
         {
             case WURFSPEER:
-                wurfspeer(ziel, feld, spielerDeck, masterDeck);
+                wurfspeer(ausloeser ,ziel, feld, spielerDeck, masterDeck);
                 break;
             default:
                 return;
@@ -41,9 +40,9 @@ public class ZauberEffektController
     /**
      * Diese Methode wird zu einem späteren Zeitpunkt ausgefuehrt.
      */
-    private static void wurfspeer(KarteEinheit verteidiger,SpielFeld feld,KartenDeck spielerDeck, KartenDeck masterdeck  )
+    private static void wurfspeer(KarteZauber angreifer, KarteEinheit verteidiger, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck  )
     {
-    verursacheSchaden(verteidiger, SCHADEN_WURFSPEER);
+    verteidiger.schadenNehmen(angreifer.getMacht());
     RundenController.feldplatzAufraumen(feld,
                                         spielerDeck,
                                         masterdeck,
