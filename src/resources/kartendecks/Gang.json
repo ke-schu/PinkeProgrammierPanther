@@ -136,7 +136,7 @@
     {
       "macht": 4,
       "zeffekt": "WURFSPEER",
-      "id": 9,
+      "id": 6,
       "name": "Wurfspeer",
       "level": 1,
       "klasse": "model.KarteZauber",
@@ -145,7 +145,7 @@
     {
       "macht": 4,
       "zeffekt": "WURFSPEER",
-      "id": 9,
+      "id": 7,
       "name": "Wurfspeer",
       "level": 1,
       "klasse": "model.KarteZauber",
@@ -154,7 +154,7 @@
     {
       "macht": 4,
       "zeffekt": "WURFSPEER",
-      "id": 9,
+      "id": 8,
       "name": "Wurfspeer",
       "level": 1,
       "klasse": "model.KarteZauber",

@@ -5,6 +5,9 @@ import model.KarteZauber;
 import model.KartenDeck;
 import model.SpielFeld;
 
+import static control.EinheitenController.verursacheSchaden;
+import static resources.StringsEreignisse.SCHADEN_WURFSPEER;
+
 /**
  * Diese Klasse formuliert Methoden der Zauberkarten und Effekte aus.
  */
@@ -28,7 +31,7 @@ public class ZauberEffektController
         switch (ausloeser.getZeffekt())
         {
             case WURFSPEER:
-                //opfern();
+                wurfspeer(ziel, feld, spielerDeck, masterDeck);
                 break;
             default:
                 return;
@@ -38,8 +41,13 @@ public class ZauberEffektController
     /**
      * Diese Methode wird zu einem späteren Zeitpunkt ausgefuehrt.
      */
-    private static void wurfspeer()
+    private static void wurfspeer(KarteEinheit verteidiger,SpielFeld feld,KartenDeck spielerDeck, KartenDeck masterdeck  )
     {
-
+    verursacheSchaden(verteidiger, SCHADEN_WURFSPEER);
+    RundenController.feldplatzAufraumen(feld,
+                                        spielerDeck,
+                                        masterdeck,
+                                        verteidiger.getPositionX(),
+                                        verteidiger.getPositionY());
     }
 }

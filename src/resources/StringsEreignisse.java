@@ -57,4 +57,7 @@ public interface StringsEreignisse
     //Strings ZufallsEreignis
     String EREIGNIS_1 = "Ereignis 1";
     String EREIGNIS_2 = "Ereignis 2";
+
+    //Werte Zauberkarten
+    int SCHADEN_WURFSPEER = 2;
 }

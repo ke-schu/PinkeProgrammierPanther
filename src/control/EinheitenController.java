@@ -235,7 +235,7 @@ public class EinheitenController
      * @param schadensWert der Schadenwert, welcher mit dem Ziel verrechnet
      *                     werden soll.
      */
-    private static void verursacheSchaden(KarteEinheit verteidiger,
+    protected static void verursacheSchaden(KarteEinheit verteidiger,
                                           int schadensWert)
     {
         int schaden = schadensWert - verteidiger.getVerteidigung();
