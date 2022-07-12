@@ -1,6 +1,7 @@
 package utility;
 
 import java.util.Random;
+import com.google.common.net.InetAddresses;
 
 /**
  * Enthaelt universal einsetzbare Methoden fuer das ganze Programm.
@@ -21,16 +22,8 @@ public class UtilityController
         return bereichMin + ran.nextInt(bereich + 1);
     }
 
-    /**
-     * Ersetzt ASCII-Charakter-Sequenzen mit ihren Umlauten.
-     *
-     * @param s der Eingabestring
-     */
-    private void ersetzeUmlaute(String s)
+    public static boolean isGueltigeIP(String ip)
     {
-        s.replaceAll("ae", "ä");
-        s.replaceAll("ue", "ü");
-        s.replaceAll("oe", "ö");
-        s.replaceAll("ss", "ß");
+        return InetAddresses.isInetAddress(ip) || ip.equals("localhost");
     }
 }
