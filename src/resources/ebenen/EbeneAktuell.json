@@ -35,7 +35,7 @@
           "ereignisnummer": 0,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.ZufallsEreignis",
           "ausgefuehrt": false
         }
@@ -45,7 +45,7 @@
           "wahrscheinlichkeit": 43.100906453671165,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.Truhe",
           "ausgefuehrt": false
         }
@@ -151,7 +151,7 @@
           "interaktionsZaehler": 0,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.Schmied",
           "ausgefuehrt": false
         }
@@ -181,7 +181,7 @@
           "interaktionsZaehler": 0,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.Haendler",
           "ausgefuehrt": false
         }
@@ -200,7 +200,7 @@
         "ereignis": {
           "name": "Leere Straße.",
           "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.LeererRaum",
           "ausgefuehrt": false
         }
@@ -278,8 +278,8 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 4,
-      "y": 4
+      "x": 7,
+      "y": 0
     }
   }
 }

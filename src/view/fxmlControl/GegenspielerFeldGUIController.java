@@ -69,7 +69,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                             updateSpielStatus(
                                     SpielstatusKommunikation.getInputService().getValue());
                             SpielstatusKommunikation.getInputService().restart();
-                            initalisieren();
+                                initalisieren();
                         }
                     });
 
@@ -81,17 +81,12 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @Override
     public void initalisieren ()
     {
-        if(RundenController.getZugZaehler()==1)
-        {
+
             kartenHand = new KartenHand(gegenspieler);
             kartenHand.handZiehen(gegenspielerDeck);
             manaTank = new ManaTank(gegenspieler);
-        }
-
-
-
             Manabar.setStyle("-fx-accent: blue;");
-        manaMaximum = manaTank.getMana();
+            manaMaximum = manaTank.getMana();
             double manaWert = manaMaximum / manaTank.getMana();
             Manabar.setProgress(manaWert);
             karteInHandEinfuegen();

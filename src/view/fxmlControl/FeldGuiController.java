@@ -136,8 +136,7 @@ public abstract class FeldGuiController extends GuiController
     @FXML
     public void zugBeenden()
     {
-        RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
-        warten.setVisible(!RundenController.getDran());
+
 
         if(RundenController.getDran())
         {
@@ -151,18 +150,15 @@ public abstract class FeldGuiController extends GuiController
             kartenHand.handZiehen(gegenspielerDeck);
             karteInHandEinfuegen();
         }
-
         RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
-        warten.setVisible(!RundenController.getDran());
+        warten.setVisible(!(RundenController.getDran() == binSpieler));
+        //warten.setVisible(!RundenController.getDran());
 
-        SpielstatusKommunikation.senden(new Spielstatus(
-                spieler,gegenspieler,
-                spielfeld, spielerDeck,
-                gegenspielerDeck,  RundenController.getZugZaehler()));
+        aktualisierungsenden ();
 
         KonsolenIO.ausgeben("Wir sind in Zug: "
                             + RundenController.getZugZaehler());
-        warten.setVisible(!(RundenController.getDran() == binSpieler));
+
     }
 
     public void dragAndDropSource (StackPane feld, boolean spielfeld)
