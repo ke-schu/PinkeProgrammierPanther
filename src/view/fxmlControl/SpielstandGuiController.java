@@ -4,7 +4,6 @@ import exceptions.JsonNichtLesbarException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
@@ -29,7 +28,6 @@ import static resources.Konstanten.spielStandIO;
 import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 import static resources.KonstantenGUI.AUFLOESUNG_HOEHE_HD;
 import static resources.KonstantenGUI.SPALTENAHNZAHL_KARTENDECK_ANZEIGE;
-import static resources.Strings.*;
 import static resources.StringsGUI.*;
 
 public class SpielstandGuiController extends GuiController
@@ -38,6 +36,9 @@ public class SpielstandGuiController extends GuiController
     @FXML Label levelLabel;
     @FXML Label decknameLabel;
     @FXML ImageView deckBild;
+    @FXML Label lebenspunkteLabel;
+    @FXML Label erfahrungspunkteLabel;
+    @FXML Label manaLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -45,9 +46,12 @@ public class SpielstandGuiController extends GuiController
         try
         {
             SpielStand spielstand = spielStandIO.leseSpielstand();
-            this.goldLabel.setText(Integer.toString(spielstand.getGold()));
-            this.levelLabel.setText(Integer.toString(spielstand.getSpieler().getLevel()));
-            this.decknameLabel.setText(kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
+            this.goldLabel.setText(GOLD + spielstand.getGold());
+            this.levelLabel.setText(LEVEL_STAT + spielstand.getSpieler().getLevel());
+            this.erfahrungspunkteLabel.setText(ERFAHRUNGSPUNKTE + spielstand.getSpieler().getErfahrungspunkte() + SCHRAEGSTRICH + spielstand.getSpieler().getLevelGrenze());
+            this.lebenspunkteLabel.setText(LP_STAT + spielstand.getSpieler().getLebenspunkte() + SCHRAEGSTRICH +spielstand.getSpieler().getMaxleben());
+            this.manaLabel.setText(MANA_MAX + spielstand.getSpieler().getMana());
+            this.decknameLabel.setText(DECKNAHME + kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
             File charakterbild = new File(BILDER_PFAD + spielstand.getSpieler().getName() + PNG_DATEI_ENDUNG);
             this.deckBild.setImage(new Image(charakterbild.getAbsolutePath()));
         }

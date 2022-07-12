@@ -89,13 +89,20 @@ public interface StringsGUI
     String SCHILD_STAT = "Schild: ";
     String MANA_STAT = "Mana: ";
 
-    // Strings der Artefakte und Talente
+    // Strings der Spielstandanzeige
+    String GOLD = "Gold: ";
+    String DECKNAHME = "Deckname: ";
+    String SCHRAEGSTRICH = "/";
+    String ERFAHRUNGSPUNKTE = "EP: ";
+    String MANA_MAX = "Mana: ";
 
-    String CHARME_BESCHREIBUNG = "Beschreibung von Charme";
+    String CHARME_BESCHREIBUNG = "Charme gibt einen Rabatt bei Händlern";
     String CHARME_NAME = "Charme";
-    String GROSSE_HAND_BESCHREIBUNG = "Beschreibung von Grosse Hand";
+    String GROSSE_HAND_BESCHREIBUNG = "Erhöht die Kapazität der Kartenhand um +1 Karte.";
     String GROSSE_HAND_NAME = "Große Hand";
-    String SCHUTZENGEL_BESCHREIBUNG = "Beschreibung Schutzengel";
+    String SCHUTZENGEL_BESCHREIBUNG = "Sollte der Spieler sterben, während der den Schutzengel hat," +
+                                      "so wird er mit maximalem Leben wiederbelebt." +
+                                      "Das Artefakt Schutzengel ist nur einmal benutzbar.";
     String SCHUTZENGEL_NAME = "Schutzengel";
 
 

@@ -27,6 +27,7 @@ public class ArtefakteTalenteVBox extends VBox
     {
         getStyleClass().add(STYLE_CLASS_ARTEFAKTE_TALENTE);
         alignmentProperty().set(Pos.CENTER);
+        this.setMaxWidth(KARTE_GROSS_VBOX_BILD_BREITE);
         Label name = new Label();
         name.setText(artefakt.getName());
         this.getChildren().add(name);
@@ -51,6 +52,7 @@ public class ArtefakteTalenteVBox extends VBox
     {
         getStyleClass().add(STYLE_CLASS_ARTEFAKTE_TALENTE);
         alignmentProperty().set(Pos.CENTER);
+        this.setMaxWidth(KARTE_GROSS_VBOX_BILD_BREITE);
         Label name = new Label();
         name.setText(talent.getName());
         this.getChildren().add(name);

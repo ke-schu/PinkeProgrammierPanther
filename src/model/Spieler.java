@@ -202,6 +202,7 @@ public class Spieler extends KarteEinheit implements Spielbar
     private void levelUp()
     {
         this.setLevel(this.getLevel() + LEVEL_SUMMAND_SPIELER);
+        this.setMaxleben(this.maxleben + 2);
     }
 
     /**
