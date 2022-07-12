@@ -5,15 +5,12 @@
       "name": "meineWaffe",
       "angriffsPunkte": 10
     },
-    "talente": [
-      null,
-      null
-    ],
+    "talente": [],
     "artefakte": [
       "SCHUTZENGEL",
       null
     ],
-    "mana": 20,
+    "mana": 1,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
     "maxleben": 0,
@@ -21,7 +18,7 @@
     "macht": 11,
     "lebenspunkte": 1,
     "manaKosten": 0,
-    "beweglichkeit": 30,
+    "beweglichkeit": 1,
     "reichweite": 1,
     "schild": 1,
     "verteidigung": 1,
@@ -66,8 +63,8 @@
     "freundlich": false
   },
   "aktuelleEbeneNummer": 1,
-  "lautstaerkeMusik": 0.0,
-  "laustaerkeEffekte": 0.0,
+  "lautstaerkeMusik": 10.0,
+  "laustaerkeEffekte": 10.0,
   "aufloesungX": 1280,
   "aufloesungY": 720
 }

@@ -5,8 +5,8 @@
       "typ": "NAHKAEMPFER",
       "macht": 3,
       "lebenspunkte": 10,
-      "manaKosten": 0,
-      "beweglichkeit": 5,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
@@ -23,7 +23,7 @@
       "name": "Polizist",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -47,7 +47,7 @@
       "name": "Pastor",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -71,7 +71,7 @@
       "name": "Postbote",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -95,7 +95,7 @@
       "name": "Katze",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -119,7 +119,7 @@
       "name": "Verkaeufer",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     },
     {
       "typ": "NAHKAEMPFER",
@@ -143,151 +143,7 @@
       "name": "Baecker",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
-      "manaKosten": 0,
-      "beweglichkeit": 5,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 0,
-      "name": "Polizist",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 4,
-      "lebenspunkte": 5,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 1,
-      "name": "Pastor",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 2,
-      "lebenspunkte": 9,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 2,
-      "name": "Postbote",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 8,
-      "lebenspunkte": 1,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 3,
-      "name": "Katze",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 5,
-      "lebenspunkte": 2,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 4,
-      "name": "Verkaeufer",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 2,
-      "lebenspunkte": 2,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 5,
-      "name": "Baecker",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "freundlich": false
     }
   ]
 }

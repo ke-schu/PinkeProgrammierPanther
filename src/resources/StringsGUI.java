@@ -77,6 +77,15 @@ public interface StringsGUI
     String SCHILD_STAT = "Schild: ";
     String MANA_STAT = "Mana: ";
 
+    // Strings der Artefakte und Talente
+
+    String CHARME_BESCHREIBUNG = "Beschreibung von Charme";
+    String CHARME_NAME = "Charme";
+    String GROSSE_HAND_BESCHREIBUNG = "Beschreibung von Grosse Hand";
+    String GROSSE_HAND_NAME = "Große Hand";
+    String SCHUTZENGEL_BESCHREIBUNG = "Beschreibung Schutzengel";
+    String SCHUTZENGEL_NAME = "Schutzengel";
+
 
     //  Hilfe
     String HILFE_HAUPTMENUE =
