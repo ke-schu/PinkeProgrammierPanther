@@ -70,6 +70,10 @@ public abstract class FeldGuiController extends GuiController
         spielfeld = status.getSpielfeld();
 
         spieler = status.getSpieler();
+        manaTank = new ManaTank(status.getSpieler());
+        manaMaximum = manaTank.getMana();
+        double manaWert = manaMaximum / manaTank.getMana();
+        Manabar.setProgress(manaWert);
         gegenspieler = status.getGegenspieler();
 
         spielerDeck = status.getSpielerDeck();
@@ -142,6 +146,8 @@ public abstract class FeldGuiController extends GuiController
             kartenHand.handAblegen(spielerDeck);
             kartenHand.handZiehen(spielerDeck);
             karteInHandEinfuegen();
+
+
         }
         else
         {

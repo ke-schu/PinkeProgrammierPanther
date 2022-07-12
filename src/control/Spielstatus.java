@@ -7,6 +7,12 @@ import model.Spieler;
 
 public class Spielstatus
 {
+    private Spieler spieler;
+    private SpielFeld spielfeld;
+    private KartenDeck spielerDeck;
+    private KartenDeck gegenspielerDeck;
+    private int zugzaehler;
+
     public Spieler getSpieler ()
     {
         return spieler;
@@ -16,8 +22,6 @@ public class Spielstatus
     {
         this.spieler = spieler;
     }
-
-    private Spieler spieler;
 
     public Gegenspieler getGegenspieler ()
     {
@@ -41,8 +45,6 @@ public class Spielstatus
         this.spielfeld = spielfeld;
     }
 
-    private SpielFeld spielfeld;
-
     public KartenDeck getSpielerDeck ()
     {
         return spielerDeck;
@@ -52,8 +54,6 @@ public class Spielstatus
     {
         this.spielerDeck = spielerDeck;
     }
-
-    private KartenDeck spielerDeck;
 
     public KartenDeck getGegenspielerDeck ()
     {
@@ -65,8 +65,6 @@ public class Spielstatus
         this.gegenspielerDeck = gegenspielerDeck;
     }
 
-    private KartenDeck gegenspielerDeck;
-
     public int getZugzaehler ()
     {
         return zugzaehler;
@@ -76,8 +74,6 @@ public class Spielstatus
     {
         this.zugzaehler = zugzaehler;
     }
-
-    private int zugzaehler;
 
     public Spielstatus( Spieler spieler,  Gegenspieler gegenspieler,
                        SpielFeld spielfeld, KartenDeck spielerDeck,

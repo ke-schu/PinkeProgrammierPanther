@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="deckBild" fitHeight="117.0" fitWidth="112.0" layoutX="68.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="405.0" layoutY="111.0" mnemonicParsing="false" onAction="#kartenDeckAnzeigen" text="Deck ansehen" />
-      <Label fx:id="decknameLabel" layoutX="310.0" layoutY="53.0" prefHeight="52.0" prefWidth="277.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="decknameLabel" layoutX="310.0" layoutY="53.0" prefHeight="52.0" prefWidth="277.0" wrapText="true" />
       <Button layoutX="62.0" layoutY="200.0" mnemonicParsing="false" onAction="#TalenteAnzeigen" prefHeight="38.0" prefWidth="123.0" text="Talente ansehen" />
       <Button layoutX="59.0" layoutY="238.0" mnemonicParsing="false" onAction="#ArtefakteAnzeigen" prefHeight="38.0" prefWidth="130.0" text="Artefakte ansehen" />
       <Button layoutX="419.0" layoutY="238.0" mnemonicParsing="false" onAction="#schliesseSpielstand" text="Schließen" />

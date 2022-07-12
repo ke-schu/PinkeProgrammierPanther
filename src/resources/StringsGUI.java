@@ -101,7 +101,7 @@ public interface StringsGUI
     String GROSSE_HAND_BESCHREIBUNG = "Erhöht die Kapazität der Kartenhand um +1 Karte.";
     String GROSSE_HAND_NAME = "Große Hand";
     String SCHUTZENGEL_BESCHREIBUNG = "Sollte der Spieler sterben, während der den Schutzengel hat," +
-                                      "so wird er mit maximalem Leben wiederbelebt." +
+                                      "so wird er mit der Hälfte des maximalen Leben wiederbelebt." +
                                       "Das Artefakt Schutzengel ist nur einmal benutzbar.";
     String SCHUTZENGEL_NAME = "Schutzengel";
 

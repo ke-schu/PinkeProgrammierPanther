@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import model.SpielStand;
 import view.components.ArtefakteTalenteVBox;
@@ -52,6 +54,7 @@ public class SpielstandGuiController extends GuiController
             this.lebenspunkteLabel.setText(LP_STAT + spielstand.getSpieler().getLebenspunkte() + SCHRAEGSTRICH +spielstand.getSpieler().getMaxleben());
             this.manaLabel.setText(MANA_MAX + spielstand.getSpieler().getMana());
             this.decknameLabel.setText(DECKNAHME + kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
+            this.decknameLabel.setAlignment(Pos.CENTER);
             File charakterbild = new File(BILDER_PFAD + spielstand.getSpieler().getName() + PNG_DATEI_ENDUNG);
             this.deckBild.setImage(new Image(charakterbild.getAbsolutePath()));
         }
