@@ -45,6 +45,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         {
             this.hostname = hostnameFeld.getText();
             new Thread(new NetzwerkTask()).start();
+            ipEingabe.setVisible(false);
         }
         else
         {

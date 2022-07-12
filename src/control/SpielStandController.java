@@ -104,17 +104,5 @@ public class SpielStandController
             spieler.setLebenspunkte(
                     spieler.getMaxleben() / SCHUTZENGEL_ANTEIL_MAXLEBEN);
         }
-        else
-        {
-            spielZurueckSetzen();
-        }
-    }
-
-    /**
-     * Diese Methode wird zu einem späteren Zeitpunkt ausformuliert.
-     */
-    private static void spielZurueckSetzen()
-    {
-
     }
 }

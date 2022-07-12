@@ -4,6 +4,16 @@
     -fx-background-size: cover;
 }
 
+#spielende {
+    -fx-background-image: url(../bilder/Sonnenuntergang.png);
+    -fx-background-size: cover;
+}
+
+#spielende Label {
+    -fx-text-fill: white;
+    -fx-font-size: 32;
+}
+
 .button {
     -fx-background-color: white;
     -fx-text-fill: "000000";

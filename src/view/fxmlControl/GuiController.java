@@ -110,7 +110,7 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Hauptmenue Scene gewechselt wird.
+     * Methode mit der zu der Hauptmenue-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechselZu
@@ -122,7 +122,19 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Einstellung Scene gewechselt wird.
+     * Methode mit der zu der Spielende-Scene gewechselt wird.
+     *
+     * @param event ActionEvent, welches diese Methode ausloest.
+     * @throws IOException durch den Aufruf der Methode wechselZu
+     *                     ausgeloest werden.
+     */
+    @FXML public void wechselZuSpielende(ActionEvent event) throws IOException
+    {
+        wechselZu(event, SPIELENDE_PFAD);
+    }
+
+    /**
+     * Methode mit der zu der Einstellung-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechselZu
@@ -135,7 +147,7 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Charakterauswahl Scene gewechselt wird.
+     * Methode mit der zu der Charakterauswahl-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechselZu
@@ -148,7 +160,7 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der SpielEbene Scene gewechselt wird.
+     * Methode mit der zu der SpielEbene-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechselZu
@@ -184,7 +196,7 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Spielstand Scene gewechselt wird.
+     * Methode mit der zu der Spielstand-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.
      * @throws IOException durch den Aufruf der Methode wechselZu
@@ -206,7 +218,7 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode, welche die Stage des Attribut Stage wieder gibt.
+     * Methode, welche die Stage das Attribut Stage wieder gibt.
      *
      * @return gibt die Stage wieder.
      */
