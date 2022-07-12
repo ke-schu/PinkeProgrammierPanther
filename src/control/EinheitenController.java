@@ -85,7 +85,7 @@ public class EinheitenController
 
             if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
                 (einheit.getBeweglichkeit() > 0) && ((RundenController.getDran() == istspieler)
-                                                     &&(einheit.getFreundlich()==istspieler)))
+                 &&(einheit.getFreundlich()==istspieler))&& (einheit.getSchlafend()==false))
             {
                 zielErreichbarInX = (ziel_x == startX + umkreis) ||
                                     (ziel_x == startX - umkreis);

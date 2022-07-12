@@ -1,9 +1,6 @@
 package view.fxmlControl;
 
-import control.EinheitenController;
-import control.KartenEinheitController;
-import control.RundenController;
-import control.Spielstatus;
+import control.*;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Effect;
@@ -34,6 +31,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static control.KartenDeckController.mischen;
 import static control.ZauberEffektController.zauberKarteAusspielen;
 import static resources.Konstanten.HANDGROESSE;
 import static resources.Konstanten.spielStandIO;
@@ -146,17 +144,15 @@ public abstract class FeldGuiController extends GuiController
         {
             kartenHand.handAblegen(spielerDeck);
             kartenHand.handZiehen(spielerDeck);
-            //manaauffrische(int manamax) returnt Manatank
-            //manaTank = aufgefrischtermanatank
-
+            KartenDeckController.mischen(spielerDeck);
             karteInHandEinfuegen();
-
-
         }
+
         else
         {
             kartenHand.handAblegen(gegenspielerDeck);
             kartenHand.handZiehen(gegenspielerDeck);
+            KartenDeckController.mischen(gegenspielerDeck);
             karteInHandEinfuegen();
         }
         RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
