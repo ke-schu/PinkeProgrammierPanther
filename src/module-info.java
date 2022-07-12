@@ -7,6 +7,7 @@ module PinkeProgrammierPanther {
     requires javafx.swing;
     requires javafx.fxml;
     requires com.google.gson;
+    requires com.google.common;
     opens control;
     opens exceptions;
     opens utility;

@@ -9,6 +9,10 @@
     -fx-background-size: cover;
 }
 
+#hostnameFeld.error {
+    -fx-focus-color: #ff1800;
+}
+
 #warten {
     -fx-background-color: rgba(204, 204, 204, 0.7);
     -fx-background-radius: 15;

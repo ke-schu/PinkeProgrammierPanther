@@ -27,7 +27,6 @@ public interface StringsGUI
     String SPIELSTAND_PFAD = FXML_PFADE + "Spielstand.fxml";
 
     // CSS Pfade
-
     String SPIELSTAND_KARTENDECK_CSS_PFAD = "/view/css/SpielstandKartendeck.css";
     String SPIELSTAND_ARTEFAKTE_TALENTE_CSS_PFAD = "/view/css/SpielstandArtefakteTalente.css";
 
@@ -66,9 +65,9 @@ public interface StringsGUI
     String STYLE_CLASS_RAUM = "raum-pane";
     String PSEUDO_CLASS_BEINHALTET_SPIELER = "spieler";
     String PSEUDO_CLASS_NICHTIG = "nichtig";
+    String PSEUDO_CLASS_ERROR = "error";
 
     // Strings der KarteGrossVBox
-
     String LEVEL_STAT = "Level: ";
     String LP_STAT = "LP: ";
     String REICHWEITE_STAT = "Reichweite: ";

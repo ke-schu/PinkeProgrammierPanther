@@ -1,9 +1,13 @@
 package view.fxmlControl;
 
-import control.RundenController;
 import control.Spielstatus;
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
@@ -14,11 +18,13 @@ import javafx.scene.layout.VBox;
 import model.KartenHand;
 import model.ManaTank;
 import utility.Client;
+import utility.UtilityController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static resources.Konstanten.SPIELSTATUS_PORT;
+import static resources.StringsGUI.PSEUDO_CLASS_ERROR;
 
 public class GegenspielerFeldGUIController extends FeldGuiController
 {
@@ -35,9 +41,16 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @FXML
     public void verbinden(ActionEvent actionEvent)
     {
-        this.hostname = hostnameFeld.getText();
-        this.ipEingabe.setVisible(false);
-        new Thread(new NetzwerkTask()).start();
+        if(UtilityController.isGueltigeIP(hostnameFeld.getText()))
+        {
+            this.hostname = hostnameFeld.getText();
+            new Thread(new NetzwerkTask()).start();
+        }
+        else
+        {
+            hostnameFeld.getStyleClass().add(PSEUDO_CLASS_ERROR);
+            hostnameFeld.requestFocus();
+        }
     }
 
     private class NetzwerkTask extends Task
