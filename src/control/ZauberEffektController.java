@@ -22,11 +22,14 @@ public class ZauberEffektController
      */
     public static void zauberKarteAusspielen(KarteZauber ausloeser,
                                              KarteEinheit ziel,
-                                             KartenHand hand,
+                                             KartenHand hand,int handposition,
                                              SpielFeld feld,
                                              KartenDeck spielerDeck,
                                              KartenDeck masterDeck)
+
     {
+        hand.setElement(handposition, null);
+
         switch (ausloeser.getZeffekt())
         {
             case WURFSPEER:

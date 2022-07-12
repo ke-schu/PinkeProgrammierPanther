@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static control.ZauberEffektController.zauberKarteAusspielen;
 import static resources.Konstanten.HANDGROESSE;
 import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.*;
@@ -145,6 +146,9 @@ public abstract class FeldGuiController extends GuiController
         {
             kartenHand.handAblegen(spielerDeck);
             kartenHand.handZiehen(spielerDeck);
+            //manaauffrische(int manamax) returnt Manatank
+            //manaTank = aufgefrischtermanatank
+
             karteInHandEinfuegen();
 
 
@@ -219,6 +223,10 @@ public abstract class FeldGuiController extends GuiController
 
             if(quellePaneHand != null)
             {
+                if(spielfeld.getSpielfeldplatz(bekommeposition(zielFeld)) != null)
+                {
+                    einheitangreifenzauber(zielFeld);
+                }
                 einheitBeschwoeren(zielFeld);
             }
 
@@ -234,7 +242,20 @@ public abstract class FeldGuiController extends GuiController
         return new Position(spielfeldGitter.getColumnIndex(feld),spielfeldGitter.getRowIndex(feld));
     }
 
+    protected void einheitangreifenzauber(StackPane zielFeld)
+    {
+        int angreiferposition = spielfeldGitter.getColumnIndex(quellePaneHand);
+        Karte angreifer = kartenHand.getElement( angreiferposition);
+        KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
 
+        if(angreifer instanceof KarteZauber)
+        {
+            zauberKarteAusspielen((KarteZauber) angreifer, verteidiger,kartenHand, angreiferposition,  spielfeld, spielerDeck, gegenspielerDeck );
+        }
+        aktualisierungsenden ();
+        ladeSpielfeld(spielfeld, false);
+
+    }
     protected void einheitangreifen(StackPane zielFeld)
     {
         KarteEinheit angreifer = spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
@@ -256,7 +277,7 @@ public abstract class FeldGuiController extends GuiController
         }
         if(rückmeldung==RUECKMELDUNG_GESTORBEN)
         {
-            ladeSpielfeld(spielfeld, false);;
+            ladeSpielfeld(spielfeld, false);
         }
 
         aktualisierungsenden ();
