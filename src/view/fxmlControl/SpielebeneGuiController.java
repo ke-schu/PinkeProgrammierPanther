@@ -131,7 +131,6 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Ueberlagern der Methode, damit diese in der MenueLeiste auf die Methode zugreifen kann.
-     *
      * @param event
      */
     @FXML public void spielSpeichern (ActionEvent event)
@@ -311,8 +310,9 @@ public class SpielebeneGuiController extends GuiController
     }
 
     /**
-     * @param ereignis
-     * @param event
+     * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der GUI visualisiert wird
+     * @param ereignis Das Ereignis vom Typ Haendler
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void gegnerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -328,8 +328,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Haendler
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void haendlerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -338,8 +338,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Heiler" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Heiler
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void heilerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -371,8 +371,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Schmied" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Schmied
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void schmiedGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -382,8 +382,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Tempel" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Tempel
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void tempelGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -392,7 +392,6 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Treppe" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Treppe
      */
     public void treppeGuiAusfuehren (Ereignis ereignis)
@@ -404,8 +403,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "Truhe" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ Truhe
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void truheGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -435,8 +434,8 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Diese Methode formuliert aus, wie das Ereignis "ZufallsEreignis" in der GUI visualisiert wird
-     *
      * @param ereignis Das Ereignis vom Typ ZufallsEreignis
+     * @param event Das Event, welches die Methode ausfuehrt
      */
     public void zufallsEreignisGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -478,7 +477,6 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
-     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override public void wechselAufloesungFullHD (Event event)
@@ -492,7 +490,6 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Ueberlagern der Methode, damit durch die Menueleiste auf diese Methode zugegriffen werden kann.
-     *
      * @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override public void wechselAufloesungHD (Event event)
@@ -506,7 +503,6 @@ public class SpielebeneGuiController extends GuiController
 
     /**
      * Methode um das Spielstandfenster aufzurufen
-     *
      * @param event Event durch welches die Methode ausgelöst wird.
      * @throws IOException Kann beim .load() des fxmlLoaders geworfen werden.
      */
@@ -525,6 +521,11 @@ public class SpielebeneGuiController extends GuiController
         popupStage.show();
     }
 
+    /**
+     * Diese Methode sorgt dafuer, dass Stages, welche durch Ereignisse geoeffnet werden, wieder geschlossen werden können
+     * @param popupStage Die angezeigte Stage
+     * @param vbox Die angezeigte Vbox
+     */
     public void ereignisVerlassen (Stage popupStage, VBox vbox)
     {
         Button gehenButton = new Button(EREIGNIS_GEHEN);
@@ -538,6 +539,11 @@ public class SpielebeneGuiController extends GuiController
         vbox.getChildren().add(gehenButton);
     }
 
+    /**
+     * Diese Methode formuliert aus, wie der Schmied das Kartendeck anzeigt
+     * @param ereignis Das Ereignis vom Typ Schmied
+     * @param event Das Event, welches die Methode ausfuehrt
+     */
     private void kartenDeckAnzeigenSchmied (Ereignis ereignis, ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
@@ -585,6 +591,11 @@ public class SpielebeneGuiController extends GuiController
         spielstandPopUp.show();
     }
 
+    /**
+     * Diese Methode formuliert aus, wie der Tempel das Kartendeck auffruft.
+     * @param ereignis Das Ereignis vom Typ Tempel
+     * @param event Das Event, welches die Methode ausfuehrt
+     */
     private void kartenDeckAnzeigenTempel (Ereignis ereignis, ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
@@ -632,6 +643,11 @@ public class SpielebeneGuiController extends GuiController
         spielstandPopUp.show();
     }
 
+    /**
+     * Diese Methode formuliert aus, wie der Haendler das Kartendeck aufruft
+     * @param ereignis Das Ereignis vom Typ Haendler
+     * @param event Das Event, welches die Methode ausfuehrt
+     */
     private void kartenDeckAnzeigenHaendler (Ereignis ereignis, ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
