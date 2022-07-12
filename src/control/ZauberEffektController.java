@@ -35,6 +35,8 @@ public class ZauberEffektController
             case WURFSPEER:
                 wurfspeer(ausloeser ,ziel, feld, spielerDeck, masterDeck);
                 break;
+            case HEILUNG:
+                heilen(ausloeser, ziel, feld, spielerDeck, masterDeck);
             default:
                 return;
         }
@@ -43,13 +45,23 @@ public class ZauberEffektController
     /**
      * Diese Methode wird zu einem späteren Zeitpunkt ausgefuehrt.
      */
-    private static void wurfspeer(KarteZauber angreifer, KarteEinheit verteidiger, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck  )
+    private static void wurfspeer(KarteZauber angreifer, KarteEinheit verteidiger, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
     {
-    verteidiger.schadenNehmen(angreifer.getMacht());
-    RundenController.feldplatzAufraumen(feld,
-                                        spielerDeck,
-                                        masterdeck,
-                                        verteidiger.getPositionX(),
-                                        verteidiger.getPositionY());
+        verteidiger.schadenNehmen(angreifer.getMacht());
+        RundenController.feldplatzAufraumen(feld,
+                                            spielerDeck,
+                                            masterdeck,
+                                            verteidiger.getPositionX(),
+                                            verteidiger.getPositionY());
+    }
+
+    private static void heilen(KarteZauber angreifer, KarteEinheit ziel, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
+    {
+        ziel.heilen(angreifer.getMacht());
+        RundenController.feldplatzAufraumen(feld,
+                                            spielerDeck,
+                                            masterdeck,
+                                            ziel.getPositionX(),
+                                            ziel.getPositionY());
     }
 }

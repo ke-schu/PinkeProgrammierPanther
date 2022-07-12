@@ -161,10 +161,10 @@
       "freundlich": true
     },
     {
-      "macht": 4,
-      "zeffekt": "WURFSPEER",
+      "macht": 2,
+      "zeffekt": "HEILUNG",
       "id": 9,
-      "name": "Wurfspeer",
+      "name": "Heilen",
       "level": 1,
       "klasse": "model.KarteZauber",
       "freundlich": true
