@@ -31,35 +31,35 @@ public class Heiler extends Mensch
      * Resultat werden die Lebenspunkte des Spielers kostenlos oder gegen eine
      * Bezahlung regeneriert.
      *
-     * @param spielStand der aktuelle Spielstand und seine Attribute.
+     * @param spiel der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren(SpielStand spiel)
     {
         if (isAuswahl())
         {
             if (pruefeGratisInteraktion())
             {
-                spielStand.getSpieler().getMaxleben();
-                spielStand.getSpieler().setLebenspunkte(
-                        spielStand.getSpieler().getLebenspunkte() +
+                spiel.getSpieler().getMaxleben();
+                spiel.getSpieler().setLebenspunkte(
+                        spiel.getSpieler().getLebenspunkte() +
                         HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 gratisInteraktionen--;
             }
-            else
+            else if(spiel.getGold() >= this.getKosten())
             {
-                TalentController.charme(spielStand.getSpieler(), this);
-                spielStand.setGold(spielStand.getGold() - this.getKosten());
-                if (spielStand.getSpieler().getLebenspunkte() +
+                TalentController.charme(spiel.getSpieler(), this);
+                spiel.setGold(spiel.getGold() - this.getKosten());
+                if (spiel.getSpieler().getLebenspunkte() +
                     HEILER_AUFWERTUNG_LEBENSPUNKTE <
-                    spielStand.getSpieler().getMaxleben())
+                    spiel.getSpieler().getMaxleben())
                 {
-                    spielStand.getSpieler().setLebenspunkte(
-                            spielStand.getSpieler().getLebenspunkte() +
+                    spiel.getSpieler().setLebenspunkte(
+                            spiel.getSpieler().getLebenspunkte() +
                             HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 }
+                interaktionsZaehler++;
+                kostenErhoehen();
             }
         }
-        interaktionsZaehler++;
-        kostenErhoehen();
     }
 }

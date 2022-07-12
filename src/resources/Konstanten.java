@@ -42,7 +42,7 @@ public interface Konstanten
     int TRUHE_GOLD_ERHOEHUNG_FUENF = 5;
 
     // Konstanten, welche beim Ereignis ZufallsEreignis verwendet werden
-    int ZE_SCHADEN = 5;
+    int ZE_SCHADEN = 2;
     int ZE_MANA_ERHOEHUNG = 1;
     int ZE_MACHT_ERHOEHUNG = 1;
 

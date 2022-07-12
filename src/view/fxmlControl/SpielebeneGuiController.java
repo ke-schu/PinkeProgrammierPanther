@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.Ebene;
 import model.Position;
@@ -202,23 +203,24 @@ public class SpielebeneGuiController extends GuiController
         if(ereignis instanceof Schmied)
         {
             Schmied schmied = (Schmied)ereignis;
-            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + schmied.getGratisInteraktionen() + "\n\r" + KOSTEN + schmied.getKosten() + "\n\r" + PREISERHOEHUNG + schmied.aktionenBisPreisErhöhung());
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + schmied.getGratisInteraktionen() + "\n\r" + KOSTEN + schmied.getKosten() + "\n\r" + PREISERHOEHUNG + schmied.aktionenBisPreisErhöhung() + "\n\n\r" + AKTUELLES_GOLD + spiel.getGold());
         }
         else if(ereignis instanceof Tempel)
         {
             Tempel tempel = (Tempel)ereignis;
-            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + tempel.getGratisInteraktionen()+ "\n\r" + KOSTEN + tempel.getKosten() + "\n\r" + PREISERHOEHUNG + tempel.aktionenBisPreisErhöhung());
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + tempel.getGratisInteraktionen()+ "\n\r" + KOSTEN + tempel.getKosten() + "\n\r" + PREISERHOEHUNG + tempel.aktionenBisPreisErhöhung() + "\n\n\r" + AKTUELLES_GOLD + spiel.getGold());
         }
         else if(ereignis instanceof Haendler)
         {
             Haendler haendler = (Haendler)ereignis;
-            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + haendler.getGratisInteraktionen()+ "\n\r" + KOSTEN + haendler.getKosten() + "\n\r" + PREISERHOEHUNG + haendler.aktionenBisPreisErhöhung());
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + haendler.getGratisInteraktionen()+ "\n\r" + KOSTEN + haendler.getKosten() + "\n\r" + PREISERHOEHUNG + haendler.aktionenBisPreisErhöhung() + "\n\n\r" + AKTUELLES_GOLD + spiel.getGold());
         }
         else if(ereignis instanceof Heiler)
         {
             Heiler heiler = (Heiler)ereignis;
-            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + heiler.getGratisInteraktionen()+ "\n\r" + KOSTEN + heiler.getKosten() + "\n\r" + PREISERHOEHUNG + heiler.aktionenBisPreisErhöhung());
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + heiler.getGratisInteraktionen()+ "\n\r" + KOSTEN + heiler.getKosten() + "\n\r" + PREISERHOEHUNG + heiler.aktionenBisPreisErhöhung() + "\n\n\r" + AKTUELLES_GOLD + spiel.getGold() + "\n\r" + AKTUELLE_LEBENSPUNKTE + spiel.getSpieler().getLebenspunkte());
         }
+
         Scene popupScene = new Scene(vbox, POPUP_VBOX_BREITE2, POPUP_VBOX_HOEHE2);
         Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
         Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
@@ -227,10 +229,24 @@ public class SpielebeneGuiController extends GuiController
             @Override public void handle (ActionEvent arg0)
             {
                 ereignis.setAuswahl(true);
-                ereignisGuiAusfuehren(ereignis, arg0);
-                if (ereignis instanceof Treppe)
+                if(ereignis instanceof Schmied || ereignis instanceof Tempel || ereignis instanceof Haendler || ereignis instanceof Heiler)
                 {
-                    popupStage.close();
+                    if(((Mensch) ereignis).getKosten() <= spiel.getGold() || ((Mensch) ereignis).pruefeGratisInteraktion())
+                    {
+                        ereignisGuiAusfuehren(ereignis, arg0);
+                    }
+                    else
+                    {
+                        text.setText(ZU_WENIG_GOLD);
+                    }
+                }
+                else
+                {
+                    ereignisGuiAusfuehren(ereignis, arg0);
+                    if (ereignis instanceof Treppe)
+                    {
+                        popupStage.close();
+                    }
                 }
             }
         });
@@ -317,7 +333,7 @@ public class SpielebeneGuiController extends GuiController
      */
     public void haendlerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
-        kartenDeckAnzeigenHaendler(ereignis, event);
+            kartenDeckAnzeigenHaendler(ereignis, event);
     }
 
     /**

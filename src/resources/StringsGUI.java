@@ -60,6 +60,9 @@ public interface StringsGUI
     String GRATIS_HANDELN = "Gratisinteraktionen bei diesem Ereignis: ";
     String KOSTEN = "Der aktuelle Preis bei diesem Ereignis: ";
     String PREISERHOEHUNG = "Aktionen bis Preiserhöhung: ";
+    String AKTUELLES_GOLD = "Mein aktuelles Gold: ";
+    String AKTUELLE_LEBENSPUNKTE = "Mein aktuelles Leben: ";
+    String ZU_WENIG_GOLD = "Ich habe zu wenig Gold zum handeln.";
 
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =

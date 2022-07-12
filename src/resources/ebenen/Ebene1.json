@@ -19,9 +19,9 @@
       },
       {
         "ereignis": {
-          "gratisInteraktionen": 0,
+          "gratisInteraktionen": 1,
           "kosten": 20,
-          "interaktionsZaehler": 1,
+          "interaktionsZaehler": 0,
           "name": "Mutti.",
           "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
           "auswahl": false,
