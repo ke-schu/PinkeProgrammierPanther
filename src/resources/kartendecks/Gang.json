@@ -168,6 +168,15 @@
       "level": 1,
       "klasse": "model.KarteZauber",
       "freundlich": true
+    },
+    {
+      "macht": 2,
+      "zeffekt": "VERSTAERKEN",
+      "id": 10,
+      "name": "Verstaerken",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
     }
   ]
 }

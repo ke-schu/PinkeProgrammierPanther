@@ -37,6 +37,8 @@ public class ZauberEffektController
                 break;
             case HEILUNG:
                 heilen(ausloeser, ziel, feld, spielerDeck, masterDeck);
+            case VERSTAERKEN:
+                verstaerken(ausloeser, ziel, feld, spielerDeck, masterDeck);
             default:
                 return;
         }
@@ -63,5 +65,15 @@ public class ZauberEffektController
                                             masterdeck,
                                             ziel.getPositionX(),
                                             ziel.getPositionY());
+    }
+
+    private static void verstaerken(KarteZauber angreifer, KarteEinheit ziel, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
+    {
+        ziel.angriffErhoehen(angreifer.getMacht());
+        RundenController.feldplatzAufraumen(feld,
+                spielerDeck,
+                masterdeck,
+                ziel.getPositionX(),
+                ziel.getPositionY());
     }
 }
