@@ -20,7 +20,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 3,
-      "name": "HarryPotter",
+      "name": "Badgirl",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -44,7 +44,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 4,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -68,7 +68,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 5,
-      "name": "HarryPotter",
+      "name": "Frankenstein",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -92,7 +92,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 6,
-      "name": "HarryPotter",
+      "name": "Ninja",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -116,7 +116,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 7,
-      "name": "HarryPotter",
+      "name": "Roboter",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -140,7 +140,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Skelett",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -164,7 +164,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Sumpffrau",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -188,7 +188,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Sumpffrau",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -212,7 +212,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Badgirl",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -236,7 +236,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Sumpffrau",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -260,7 +260,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Badgirl",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -284,7 +284,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Ninja",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -308,7 +308,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Badgirl",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -332,7 +332,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Ninja",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -356,7 +356,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -380,7 +380,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -404,7 +404,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -428,7 +428,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -452,7 +452,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -476,7 +476,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -500,7 +500,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -524,7 +524,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -548,7 +548,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -572,7 +572,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -596,7 +596,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -620,7 +620,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
@@ -644,7 +644,7 @@
       "zaehler": 0,
       "kopie": false,
       "id": 8,
-      "name": "HarryPotter",
+      "name": "Dracula",
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
