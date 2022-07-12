@@ -243,7 +243,7 @@ public class SpielebeneGuiController extends GuiController
                 else
                 {
                     ereignisGuiAusfuehren(ereignis, arg0);
-                    if (ereignis instanceof Treppe)
+                    if (ereignis instanceof Treppe || ereignis instanceof Gegner)
                     {
                         popupStage.close();
                     }
