@@ -4,6 +4,8 @@ import model.*;
 import resources.Effekte;
 import utility.KonsolenIO;
 
+import static control.EinheitenController.positionInnerhalbVonFeld;
+
 /**
  * Loest die Effekte der Karten aus und kontrolliert diese.
  */
@@ -133,15 +135,29 @@ public class EffektController
      */
     private static void zurueckWerfen(KarteEinheit ausloeser, SpielFeld feld)
     {
-        final int umkreis1 = 1;
+       /* final int umkreis1 = 1;
         final int umkreis2 = 2;
+        KarteEinheit zielOben = null;
+        KarteEinheit platzOben = null;
+        Position positionzieloben =new Position( ausloeser.getPositionX(),
+                ausloeser.getPositionY() -
+                umkreis1);
+        if(positionInnerhalbVonFeld(positionzieloben, feld))
+        {
+            zielOben = feld.getSpielfeldplatz(ausloeser.getPositionX(),
+                    ausloeser.getPositionY() -
+                    umkreis1);
+        }
 
-        KarteEinheit zielOben = feld.getSpielfeldplatz(ausloeser.getPositionX(),
-                                                       ausloeser.getPositionY() -
-                                                       umkreis1);
-        KarteEinheit platzOben =
-                feld.getSpielfeldplatz(ausloeser.getPositionX(),
-                                       ausloeser.getPositionY() - umkreis2);
+        Position positionplatzoben = new Position(ausloeser.getPositionX(),
+                ausloeser.getPositionY() - umkreis2);
+      if(positionInnerhalbVonFeld(positionplatzoben, feld))
+      {
+          platzOben =
+                  feld.getSpielfeldplatz(ausloeser.getPositionX(),
+                          ausloeser.getPositionY() - umkreis2);
+      }
+
         KarteEinheit zielUnten =
                 feld.getSpielfeldplatz(ausloeser.getPositionX(),
                                        ausloeser.getPositionY() + umkreis1);
@@ -200,7 +216,7 @@ public class EffektController
         catch (ArrayIndexOutOfBoundsException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
-        }
+        }*/
     }
 
     /**
@@ -274,14 +290,14 @@ public class EffektController
      * @param masterDeck  Das Deck des DungeonMaster.
      */
     private static void durchschneiden(
-            KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld,
+           KarteEinheit ausloeser, KarteEinheit ziel, SpielFeld feld,
             KartenDeck spielerDeck, KartenDeck masterDeck)
-    {
+    {/*
         Position positonhinterziel =
                 EinheitenController.positionHinterKarteBerechnen(ausloeser,
                                                                  ziel, feld);
         boolean imfeld =
-                EinheitenController.positionInnerhalbVonFeld(positonhinterziel,
+                positionInnerhalbVonFeld(positonhinterziel,
                                                              feld);
         if (imfeld)
         {
@@ -289,7 +305,7 @@ public class EffektController
                     feld, spielerDeck, masterDeck, ausloeser,
                     feld.getSpielfeldplatz(positonhinterziel.getX(),
                                            positonhinterziel.getY()));
-        }
+        }*/
     }
 
     /**

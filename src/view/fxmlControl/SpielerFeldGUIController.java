@@ -27,7 +27,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         binSpieler = true;
-        updateSpielBackend();
+        initalisieren();
         ladeSpielfeld(spielfeld, true);
         new Thread(new NetzwerkTask()).start();
     }
@@ -66,6 +66,7 @@ public class SpielerFeldGUIController extends FeldGuiController
                         updateSpielStatus(
                                 SpielstatusKommunikation.getInputService().getValue());
                         SpielstatusKommunikation.getInputService().restart();
+                        karteInHandEinfuegen();
                     }
                 });
 
@@ -75,7 +76,7 @@ public class SpielerFeldGUIController extends FeldGuiController
     }
 
     @Override
-    public void updateSpielBackend()
+    public void initalisieren ()
     {
         try
         {

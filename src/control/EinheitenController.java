@@ -153,12 +153,14 @@ public class EinheitenController
                                                       KarteEinheit verteidiger)
     {
         boolean schlafend = angreifer.getSchlafend();
-        if ((einheitInReichweite(angreifer, verteidiger) ||
+        if ((einheitInReichweite(angreifer, verteidiger) &&
              pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
         {
             if (verteidiger.getSchild() >= WERT_SCHILD)
             {
                 brecheSchild(verteidiger);
+                System.out.println("schildgebrochen");
+                angreifer.setSchlafend(true);
             }
             else
             {
@@ -175,6 +177,7 @@ public class EinheitenController
                                                         angreifer.getEffektZwei(),
                                                         feld, spielerDeck,
                                                         masterDeck);
+                System.out.println("angriffausgeführt");
                 angreifer.setSchlafend(true);
             }
         }

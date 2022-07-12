@@ -43,6 +43,7 @@ public class KartenEinheitController
             {
                 ((KarteEinheit) meineKarte).startWerteSpeichern();
                 positionGeben((KarteEinheit) meineKarte, x, y);
+                ((KarteEinheit) meineKarte).setSchlafend(false);
                 spielfeld.einheitEinsetzten(x, y, (KarteEinheit) meineKarte);
                 kartenhand.setElement(positionhand, null);
                 tank.manaBezahlen(((KarteEinheit) meineKarte).getManaKosten());
@@ -91,13 +92,14 @@ public class KartenEinheitController
 
             positionGeben(held, spaltenindex,
                     zeilenindex);
-
+            held.setSchlafend(false);
             spielfeld.einheitEinsetzten(spaltenindex,
                     zeilenindex, held);
         }
         else
         {
             held.startWerteSpeichern();
+            held.setSchlafend(false);
             positionGeben(held, 0,0);
             spielfeld.einheitEinsetzten(0,0,held);
         }

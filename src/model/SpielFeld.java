@@ -165,6 +165,10 @@ public class SpielFeld
         }
         return this.spielfeld[y][x];
     }
+    public KarteEinheit getSpielfeldplatz(Position position)
+    {
+        return getSpielfeldplatz(position.getX(),position.getY());
+    }
 
     /**
      * Diese Methode setzt ein einer spezifischen Stelle im 2D-Array des

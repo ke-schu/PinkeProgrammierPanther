@@ -4,6 +4,13 @@ import control.EinheitenController;
 import control.KartenEinheitController;
 import control.RundenController;
 import control.Spielstatus;
+import javafx.scene.Scene;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Glow;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import control.KartenEinheitController;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -24,6 +31,8 @@ import view.components.KarteVBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static resources.Konstanten.HANDGROESSE;
 import static resources.Konstanten.spielStandIO;
@@ -55,7 +64,7 @@ public abstract class FeldGuiController extends GuiController
     /**
      * Methode, welche die für den Kampf benötigten Objekte erstellt
      */
-    public abstract void updateSpielBackend();
+    public abstract void initalisieren ();
 
     protected void updateSpielStatus(Spielstatus status)
     {
@@ -69,6 +78,7 @@ public abstract class FeldGuiController extends GuiController
 
         RundenController.setZugZaehler(status.getZugzaehler());
         ladeSpielfeld(spielfeld, false);
+        //hier auch kartenhand updaten
     }
 
     protected void ladeSpielfeld(SpielFeld spielfeld, boolean initFirstTime)
@@ -133,12 +143,17 @@ public abstract class FeldGuiController extends GuiController
         {
             kartenHand.handAblegen(spielerDeck);
             kartenHand.handZiehen(spielerDeck);
+            karteInHandEinfuegen();
         }
         else
         {
             kartenHand.handAblegen(gegenspielerDeck);
             kartenHand.handZiehen(gegenspielerDeck);
+            karteInHandEinfuegen();
         }
+
+        RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+        warten.setVisible(!RundenController.getDran());
 
         SpielstatusKommunikation.senden(new Spielstatus(
                 spieler,gegenspieler,
@@ -186,18 +201,49 @@ public abstract class FeldGuiController extends GuiController
         {
             if(quellePaneFeld != null)
             {
-                einheitBewegen(zielFeld);
+
+                System.out.println("lulz");
+                if(spielfeld.getSpielfeldplatz(bekommeposition(zielFeld)) != null)
+                {
+                    System.out.println("ichwillangreifen");
+                    einheitangreifen(zielFeld);
+                }
+                else
+                {
+                    einheitBewegen(zielFeld);
+                }
+
+
             }
 
             if(quellePaneHand != null)
             {
                 einheitBeschwoeren(zielFeld);
             }
+
         });
 
         zielFeld.setOnMouseDragExited(event ->
         {
         });
+    }
+
+    private Position bekommeposition(StackPane feld)
+    {
+        return new Position(spielfeldGitter.getColumnIndex(feld),spielfeldGitter.getRowIndex(feld));
+    }
+
+
+    protected void einheitangreifen(StackPane zielFeld)
+    {
+        KarteEinheit angreifer = spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
+        KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
+
+        EinheitenController.einheitenAngreifenMitEinheiten(spielfeld, spielerDeck, gegenspielerDeck
+                                                            ,angreifer, verteidiger);
+        //überprüfen ob angriff erfolgreich war
+        FXeffectsController.glow(zielFeld);
+        aktualisierungsenden ();
     }
 
     protected void einheitBewegen(StackPane zielFeld)
@@ -219,14 +265,18 @@ public abstract class FeldGuiController extends GuiController
             KarteVBox zielVBox = new KarteVBox(aktuelleKarteAusFeld);
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
+            aktualisierungsenden ();
+        }
+    }
 
-            if(SpielstatusKommunikation != null)
-            {
-                SpielstatusKommunikation.senden(new Spielstatus(
-                        spieler,gegenspieler,
-                        spielfeld, spielerDeck,
-                        gegenspielerDeck,  RundenController.getZugZaehler()));
-            }
+    protected void aktualisierungsenden ()
+    {
+        if(SpielstatusKommunikation != null)
+        {
+            SpielstatusKommunikation.senden(new Spielstatus(
+                    spieler,gegenspieler,
+                    spielfeld, spielerDeck,
+                    gegenspielerDeck,  RundenController.getZugZaehler()));
         }
     }
     protected void einheitBeschwoeren(StackPane zielFeld)
@@ -255,14 +305,7 @@ public abstract class FeldGuiController extends GuiController
             double manaWert = manaTank.getMana();
             double barWert = manaWert / manaMaximum;
             Manabar.setProgress(barWert);
-
-            if(SpielstatusKommunikation != null)
-            {
-                SpielstatusKommunikation.senden(new Spielstatus(
-                        spieler,gegenspieler,
-                        spielfeld, spielerDeck,
-                        gegenspielerDeck,  RundenController.getZugZaehler()));
-            }
+            aktualisierungsenden ();
         }
     }
 
@@ -271,6 +314,7 @@ public abstract class FeldGuiController extends GuiController
      */
     protected void karteInHandEinfuegen ()
     {
+        kartenhandGitter.getChildren().clear();
         for (int i = 0; i < HANDGROESSE; i++)
         {
             StackPane feld = new StackPane();

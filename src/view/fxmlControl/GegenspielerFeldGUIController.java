@@ -1,5 +1,6 @@
 package view.fxmlControl;
 
+import control.RundenController;
 import control.Spielstatus;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -55,7 +56,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         {
                             updateSpielStatus(SpielstatusKommunikation.getObjekt());
                             SpielstatusKommunikation.getInputService().restart();
-                            updateSpielBackend();
+                            initalisieren();
                         }
                     });
 
@@ -68,7 +69,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                             updateSpielStatus(
                                     SpielstatusKommunikation.getInputService().getValue());
                             SpielstatusKommunikation.getInputService().restart();
-                            updateSpielBackend();
+                            initalisieren();
                         }
                     });
 
@@ -78,12 +79,17 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     }
 
     @Override
-    public void updateSpielBackend()
+    public void initalisieren ()
     {
-        kartenHand = new KartenHand(gegenspieler);
+        if(RundenController.getZugZaehler()==1)
+        {
+            kartenHand = new KartenHand(gegenspieler);
             kartenHand.handZiehen(gegenspielerDeck);
+            manaTank = new ManaTank(gegenspieler);
+        }
 
-        manaTank = new ManaTank(gegenspieler);
+
+
             Manabar.setStyle("-fx-accent: blue;");
         manaMaximum = manaTank.getMana();
             double manaWert = manaMaximum / manaTank.getMana();

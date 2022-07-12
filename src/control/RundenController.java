@@ -108,12 +108,10 @@ public class RundenController
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
-                    if (feld.getSpielfeldplatz(i, j).getLebenspunkte() == 0)
-                    {
+
                         feld.getSpielfeldplatz(i, j).setBeweglichkeit(
                                 feld.getSpielfeldplatz(i, j).getInit()
                                     .getBeweglichkeit());
-                    }
                 }
             }
         }

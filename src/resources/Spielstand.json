@@ -6,14 +6,14 @@
       "angriffsPunkte": 10
     },
     "talente": [
-      "CHARME",
-      "GROSSE_HAND"
+      null,
+      null
     ],
     "artefakte": [
       "SCHUTZENGEL",
       null
     ],
-    "mana": 1,
+    "mana": 20,
     "erfahrungspunkte": 0,
     "levelGrenze": 50,
     "maxleben": 0,
@@ -21,7 +21,7 @@
     "macht": 11,
     "lebenspunkte": 1,
     "manaKosten": 0,
-    "beweglichkeit": 1,
+    "beweglichkeit": 30,
     "reichweite": 1,
     "schild": 1,
     "verteidigung": 1,
@@ -43,12 +43,12 @@
   "gegenSpieler": {
     "mana": 5,
     "typ": "FERNKAEMPFER",
-    "macht": 1,
+    "macht": 5,
     "lebenspunkte": 2,
     "manaKosten": 0,
     "beweglichkeit": 5,
     "reichweite": 4,
-    "schild": 5,
+    "schild": 1,
     "verteidigung": 6,
     "effektEins": "ZURUECKWERFEN",
     "effektZwei": "DURCHSCHNEIDEN",
