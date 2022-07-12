@@ -1,10 +1,16 @@
 package view.fxmlControl;
 
+import exceptions.JsonNichtLesbarException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import model.SpielStand;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import static resources.Konstanten.spielStandIO;
 import static resources.StringsGUI.HILFE_HAUPTMENUE;
 
 /**
@@ -12,6 +18,25 @@ import static resources.StringsGUI.HILFE_HAUPTMENUE;
  */
 public class HauptmenueGuiController extends GuiController
 {
+    @FXML Button fortsetzten;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        try
+        {
+            spiel = spielStandIO.leseSpielstand();
+            if(spiel.getSpieler().getLebenspunkte() <= 0)
+            {
+                fortsetzten.setDisable(true);
+            }
+        }
+        catch (JsonNichtLesbarException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Methode oeffneHilfe wird ueberlagert, hierbei wird der String mit dem
      * Text des Popups geaendert.

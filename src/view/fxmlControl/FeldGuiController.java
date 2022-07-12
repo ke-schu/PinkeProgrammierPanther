@@ -40,7 +40,6 @@ import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
 public abstract class FeldGuiController extends GuiController
-        implements Initializable
 {
     @FXML GridPane spielfeldGitter;
     @FXML GridPane kartenhandGitter;

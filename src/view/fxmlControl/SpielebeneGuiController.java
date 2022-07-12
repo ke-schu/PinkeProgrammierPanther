@@ -45,7 +45,6 @@ import static resources.StringsGUI.*;
  * Klasse, welche alle Methoden der Spielebene Szene enthaelt.
  */
 public class SpielebeneGuiController extends GuiController
-        implements Initializable
 {
     @FXML GridPane spielebenenGitter;
     @FXML Label spielerLabel;

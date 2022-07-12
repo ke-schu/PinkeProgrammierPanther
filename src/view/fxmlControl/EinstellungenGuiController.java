@@ -22,7 +22,6 @@ import static resources.StringsGUI.*;
  * Klasse, welche alle Methoden der Einstellungs Szene enthaelt.
  */
 public class EinstellungenGuiController extends GuiController
-        implements Initializable
 {
     @FXML private Slider lautstaerkeMusikSlider;
     @FXML private Slider lautstaerkeEffektSlider;

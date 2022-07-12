@@ -35,35 +35,12 @@ import static resources.StringsGUI.*;
  * Klasse welche alle generellen Methoden enthaelt, die in den weiteren
  * Controllern der GUI benutzt werden.
  */
-public class GuiController implements Initializable
+public abstract class GuiController implements Initializable
 {
-
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     protected static SpielStand spiel;
-
-    /**
-     * Wird aufgerufen, um diesen Controller zu initialisieren.
-     *
-     * @param url            Der Standort, der zum Auflösen relativer Pfade
-     *                       für das
-     *                       Root-Objekt verwendet wird.
-     * @param resourceBundle Die zum Lokalisieren des Root-Objekts
-     *                       verwendeten Ressourcen.
-     */
-    @Override public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        try
-        {
-            spiel = spielStandIO.leseSpielstand();
-        }
-        catch (JsonNichtLesbarException e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
 
     /**
      * Methode um eine Scenen zu laden und in die Stage zu setzen.

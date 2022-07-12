@@ -32,14 +32,15 @@ import static resources.KonstantenGUI.SPALTENAHNZAHL_KARTENDECK_ANZEIGE;
 import static resources.Strings.*;
 import static resources.StringsGUI.*;
 
-public class SpielstandGuiController extends GuiController implements
-                                                           Initializable
+public class SpielstandGuiController extends GuiController
 {
     @FXML Label goldLabel;
     @FXML Label levelLabel;
     @FXML Label decknameLabel;
     @FXML ImageView deckBild;
-    @Override public void initialize(URL url, ResourceBundle resourceBundle)
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
     {
         try
         {

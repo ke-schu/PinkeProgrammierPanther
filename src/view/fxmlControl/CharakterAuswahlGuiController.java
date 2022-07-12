@@ -32,7 +32,6 @@ import static resources.StringsGUI.HILFE_CHARAKTERAUSWAHL;
  * Klasse, welche alle Methoden der CharakterAuswahl Szene enthaelt.
  */
 public class CharakterAuswahlGuiController extends GuiController
-        implements Initializable
 {
     @FXML HBox charaktere;
     @FXML VBox kartenDeck;
