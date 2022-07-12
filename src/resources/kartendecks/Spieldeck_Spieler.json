@@ -144,6 +144,30 @@
       "level": 1,
       "klasse": "model.KarteEinheit",
       "freundlich": false
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 10,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 0,
+      "name": "Polizist",
+      "level": 1,
+      "klasse": "model.KarteEinheit",
+      "freundlich": false
     }
   ]
 }

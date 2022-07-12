@@ -34,6 +34,5 @@ public class LeererRaum extends Ereignis
      */
     public void ausfuehren(SpielStand spielStand)
     {
-        KonsolenIO.ausgeben(LEERER_RAUM_BESCHREIBUNG);
     }
 }

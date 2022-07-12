@@ -74,4 +74,31 @@ public abstract class Mensch extends Ereignis
     {
         this.kosten = kosten;
     }
+
+    /**
+     * Getter fuer die gratis Interaktionen.
+     * @return Integerwert der gratis Interaktionen.
+     */
+    public int getGratisInteraktionen ()
+    {
+        return gratisInteraktionen;
+    }
+
+    /**
+     * Getter fuer den Interaktionszaehler.
+     * @return Integerwert des Interaktionszaehlers.
+     */
+    public int getInteraktionsZaehler ()
+    {
+        return interaktionsZaehler;
+    }
+
+    /**
+     * Diese Methode rechnet aus, wie viele Zuege verbleiben, bis der Preis erhoeht wird.
+     * @return Verbleibende Zuege bis Preiserhoehung.
+     */
+    public int aktionenBisPreisErhöhung ()
+    {
+        return KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN- interaktionsZaehler;
+    }
 }

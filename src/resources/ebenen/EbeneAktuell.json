@@ -151,7 +151,7 @@
           "interaktionsZaehler": 0,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.Schmied",
           "ausgefuehrt": false
         }
@@ -176,12 +176,12 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktionen": 1,
+          "gratisInteraktionen": 0,
           "kosten": 20,
           "interaktionsZaehler": 0,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
-          "auswahl": true,
+          "auswahl": false,
           "klasse": "model.ereignisse.Haendler",
           "ausgefuehrt": false
         }
@@ -366,7 +366,7 @@
   "spielfigur": {
     "position": {
       "x": 4,
-      "y": 4
+      "y": 2
     }
   }
 }
