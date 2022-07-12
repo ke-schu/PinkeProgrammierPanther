@@ -71,7 +71,7 @@ public class RundenController
      * @param feldspalte  Die Position an der X-Achse.
      * @param feldzeile   Die Position an der Y-Achse.
      */
-    public static void feldplatzAufraumen(SpielFeld feld,
+    public static boolean feldplatzAufraumen(SpielFeld feld,
                                           KartenDeck spielerDeck,
                                           KartenDeck masterDeck, int feldspalte,
                                           int feldzeile)
@@ -90,7 +90,9 @@ public class RundenController
                     sterbendeEinheit, sterbendeEinheit.getEffektZwei(), feld);
             KartenController.karteInDeckEinordnen(
                     sterbendeEinheit, spielerDeck, masterDeck);
+            return true;
         }
+        return false;
     }
 
     /**

@@ -44,6 +44,20 @@ public interface KonstantenGUI
     int POPUP_VBOX_BREITE2 = 700;
     int POPUP_VBOX_HOEHE2 = 500;
 
+    //FXeffects
+    double GLOW_INTENS = 1.0;
+    int GLOW_DELAY = 2000;
+    int BLUR_DELAY = 2000;
+
+    //rueckmeldung angriff
+    int RUECKMELDUNG_SCHADEN = 1;
+    int RUECKMELDUNG_SCHILDBREAK = 2;
+    int RUECKMELDUNG_GESTORBEN = 3;
+    int RUECKMELDUNG_ERFOLGLOS = 0;
+
+
+
+
     BackgroundSize AUTO_HINTERGRUND =
             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,
                                true, true, true);

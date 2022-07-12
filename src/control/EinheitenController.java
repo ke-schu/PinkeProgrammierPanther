@@ -3,6 +3,7 @@ package control;
 import model.*;
 
 import static resources.Konstanten.WERT_SCHILD;
+import static resources.KonstantenGUI.*;
 
 
 /**
@@ -124,7 +125,7 @@ public class EinheitenController
         final int angreiferX = angreifer.getPositionX();
         final int angreiferY = angreifer.getPositionY();
         final int verteidigerX = verteidiger.getPositionX();
-        final int verteidigerY = verteidiger.getPositionX();
+        final int verteidigerY = verteidiger.getPositionY();
         final int reichweite = angreifer.getReichweite();
 
         selbeZeile  = angreiferX == verteidigerX;
@@ -146,7 +147,7 @@ public class EinheitenController
      * @param angreifer   Einheit, welche angreift.
      * @param verteidiger Einheit, welche angegriffen wird.
      */
-    public static void einheitenAngreifenMitEinheiten(SpielFeld feld,
+    public static int einheitenAngreifenMitEinheiten(SpielFeld feld,
                                                       KartenDeck spielerDeck,
                                                       KartenDeck masterDeck,
                                                       KarteEinheit angreifer,
@@ -161,11 +162,12 @@ public class EinheitenController
                 brecheSchild(verteidiger);
                 System.out.println("schildgebrochen");
                 angreifer.setSchlafend(true);
+                return RUECKMELDUNG_SCHILDBREAK;
             }
             else
             {
                 verursacheSchaden(verteidiger, angreifer.getMacht());
-                RundenController.feldplatzAufraumen(feld, spielerDeck,
+                boolean gestorben = RundenController.feldplatzAufraumen(feld, spielerDeck,
                                                     masterDeck,
                                                     verteidiger.getPositionX(),
                                                     verteidiger.getPositionY());
@@ -179,8 +181,14 @@ public class EinheitenController
                                                         masterDeck);
                 System.out.println("angriffausgeführt");
                 angreifer.setSchlafend(true);
+                if(gestorben)
+                {
+                    return RUECKMELDUNG_GESTORBEN;
+                }
+                return RUECKMELDUNG_SCHADEN;
             }
         }
+        return RUECKMELDUNG_ERFOLGLOS;
     }
 
     /**

@@ -23,14 +23,14 @@
       "name": "Polizist",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
       "macht": 4,
       "lebenspunkte": 5,
       "manaKosten": 1,
-      "beweglichkeit": 1,
+      "beweglichkeit": 10,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
@@ -47,7 +47,7 @@
       "name": "Pastor",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
@@ -71,7 +71,7 @@
       "name": "Postbote",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
@@ -95,7 +95,7 @@
       "name": "Katze",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
@@ -119,7 +119,7 @@
       "name": "Verkaeufer",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
@@ -143,7 +143,43 @@
       "name": "Baecker",
       "level": 1,
       "klasse": "model.KarteEinheit",
-      "freundlich": false
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 6,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 7,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 8,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 9,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
     }
   ]
 }

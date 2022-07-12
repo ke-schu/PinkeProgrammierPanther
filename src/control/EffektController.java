@@ -61,10 +61,8 @@ public class EffektController
                 // heldentat();
                 break;
             case ZURUECKWERFEN:
-                zurueckWerfen(ausloeser, feld);
+                //zurueckWerfen(ausloeser, feld);
                 break;
-            default:
-                return;
         }
     }
 
@@ -135,7 +133,7 @@ public class EffektController
      */
     private static void zurueckWerfen(KarteEinheit ausloeser, SpielFeld feld)
     {
-       /* final int umkreis1 = 1;
+       final int umkreis1 = 1;
         final int umkreis2 = 2;
         KarteEinheit zielOben = null;
         KarteEinheit platzOben = null;
@@ -216,7 +214,7 @@ public class EffektController
         catch (ArrayIndexOutOfBoundsException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
-        }*/
+        }
     }
 
     /**

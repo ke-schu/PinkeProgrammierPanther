@@ -234,11 +234,27 @@ public abstract class FeldGuiController extends GuiController
         KarteEinheit angreifer = spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
         KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
 
-        EinheitenController.einheitenAngreifenMitEinheiten(spielfeld, spielerDeck, gegenspielerDeck
+
+
+        int rückmeldung = EinheitenController.einheitenAngreifenMitEinheiten(spielfeld, spielerDeck, gegenspielerDeck
                                                             ,angreifer, verteidiger);
+
         //überprüfen ob angriff erfolgreich war
-        FXeffectsController.glow(zielFeld);
+        if(rückmeldung==RUECKMELDUNG_SCHADEN)
+        {
+            FXeffectsController.glowangriff(zielFeld);
+        }
+        if(rückmeldung==RUECKMELDUNG_SCHILDBREAK)
+        {
+            FXeffectsController.glowschildbreak(zielFeld);
+        }
+        if(rückmeldung==RUECKMELDUNG_GESTORBEN)
+        {
+            ladeSpielfeld(spielfeld, false);;
+        }
+
         aktualisierungsenden ();
+
     }
 
     protected void einheitBewegen(StackPane zielFeld)
