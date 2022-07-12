@@ -138,8 +138,6 @@ public abstract class FeldGuiController extends GuiController
     @FXML
     public void zugBeenden()
     {
-
-
         if(RundenController.getDran())
         {
             kartenHand.handAblegen(spielerDeck);
@@ -202,7 +200,6 @@ public abstract class FeldGuiController extends GuiController
         {
             if(quellePaneFeld != null)
             {
-
                 System.out.println("lulz");
                 if(spielfeld.getSpielfeldplatz(bekommeposition(zielFeld)) != null)
                 {
@@ -213,8 +210,6 @@ public abstract class FeldGuiController extends GuiController
                 {
                     einheitBewegen(zielFeld);
                 }
-
-
             }
 
             if(quellePaneHand != null)
@@ -280,9 +275,8 @@ public abstract class FeldGuiController extends GuiController
         {
             ladeSpielfeld(spielfeld, false);
         }
-
         aktualisierungsenden ();
-
+        ladeSpielfeld(spielfeld, false);
     }
 
     protected void einheitBewegen(StackPane zielFeld)
