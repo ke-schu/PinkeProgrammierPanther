@@ -2,6 +2,8 @@ package resources;
 
 import java.io.File;
 
+import static resources.Konstanten.*;
+
 public interface StringsGUI
 {
     String SPIELTITEL = "AbenteuerStadt";
@@ -50,6 +52,13 @@ public interface StringsGUI
     String TEMPEL_AUSFUEHREN = "Wähle die Karte, welche aus deinem Deck entfernt werden soll.";
     String SCHMIED_AUSFUEHREN = "Wähle die Karte, welche verbessert werden soll";
     String HAENDLER_AUSFUEHREN = "Wähle die Karte, welche du deinem Deck hinzufügen willst";
+    String ZE_1_AUSGEFUEHRT = "Hier ist nichts...";
+    String ZE_2_AUSGEFUEHRT = "Meine Macht wurde um " + ZE_MACHT_ERHOEHUNG + " erhöht.";
+    String ZE_3_AUSGEFUEHRT = "Mein Mana wurde um " + ZE_MANA_ERHOEHUNG + " erhöht.";
+    String ZE_4_AUSGEFUEHRT = "Meine Lebenspunkte wurden um " + ZE_SCHADEN + " verringert.";
+    String GRATIS_HANDELN = "Gratisinteraktionen bei diesem Ereignis: ";
+    String KOSTEN = "Der aktuelle Preis bei diesem Ereignis: ";
+    String PREISERHOEHUNG = "Aktionen bis Preiserhöhung: ";
 
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =
@@ -75,6 +84,15 @@ public interface StringsGUI
     String VERTEIDIGUNG_STAT = "Verteidigung: ";
     String SCHILD_STAT = "Schild: ";
     String MANA_STAT = "Mana: ";
+
+    // Strings der Artefakte und Talente
+
+    String CHARME_BESCHREIBUNG = "Beschreibung von Charme";
+    String CHARME_NAME = "Charme";
+    String GROSSE_HAND_BESCHREIBUNG = "Beschreibung von Grosse Hand";
+    String GROSSE_HAND_NAME = "Große Hand";
+    String SCHUTZENGEL_BESCHREIBUNG = "Beschreibung Schutzengel";
+    String SCHUTZENGEL_NAME = "Schutzengel";
 
 
     //  Hilfe

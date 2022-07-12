@@ -108,7 +108,8 @@ public class SpielebeneGuiController extends GuiController
         Raum aktuellerRaum = ebene.getRaumAnPosition(x, y);
         RaumPane raum = new RaumPane(aktuellerRaum);
         ObjectProperty<Position> aktuellePosition = new SimpleObjectProperty<>(new Position(x, y));
-        spielerPosition.addListener((observableValue, position, t1) -> raum.setBeinhaltetSpieler(spielerPosition.get().equals(aktuellePosition.get())));
+        spielerPosition.addListener((observableValue, position, t1) -> raum.setBeinhaltetSpieler(
+                spielerPosition.get().equals(aktuellePosition.get())));
         raum.setOnMouseClicked(mouseEvent ->
                                {
                                    if (SpielfigurEbeneController.bewegen(ebene, x, y, spiel))
@@ -116,7 +117,10 @@ public class SpielebeneGuiController extends GuiController
                                        spielerPosition.bindBidirectional(aktuellePosition);
                                        if (! ebene.getRaumAnPosition(x, y).getEreignis().isAusgefuehrt())
                                        {
-                                           oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
+                                           if (! (ebene.getRaumAnPosition(x, y).getEreignis() instanceof LeererRaum))
+                                           {
+                                               oeffneEreignis(ebene.getRaumAnPosition(x, y).getEreignis());
+                                           }
                                        }
                                        spielerPosition.unbindBidirectional(aktuellePosition);
                                    }
@@ -195,8 +199,27 @@ public class SpielebeneGuiController extends GuiController
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        Scene popupScene =
-                new Scene(vbox, POPUP_VBOX_BREITE2, POPUP_VBOX_HOEHE2);
+        if(ereignis instanceof Schmied)
+        {
+            Schmied schmied = (Schmied)ereignis;
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + schmied.getGratisInteraktionen() + "\n\r" + KOSTEN + schmied.getKosten() + "\n\r" + PREISERHOEHUNG + schmied.aktionenBisPreisErhöhung());
+        }
+        else if(ereignis instanceof Tempel)
+        {
+            Tempel tempel = (Tempel)ereignis;
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + tempel.getGratisInteraktionen()+ "\n\r" + KOSTEN + tempel.getKosten() + "\n\r" + PREISERHOEHUNG + tempel.aktionenBisPreisErhöhung());
+        }
+        else if(ereignis instanceof Haendler)
+        {
+            Haendler haendler = (Haendler)ereignis;
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + haendler.getGratisInteraktionen()+ "\n\r" + KOSTEN + haendler.getKosten() + "\n\r" + PREISERHOEHUNG + haendler.aktionenBisPreisErhöhung());
+        }
+        else if(ereignis instanceof Heiler)
+        {
+            Heiler heiler = (Heiler)ereignis;
+            text.setText(ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN + heiler.getGratisInteraktionen()+ "\n\r" + KOSTEN + heiler.getKosten() + "\n\r" + PREISERHOEHUNG + heiler.aktionenBisPreisErhöhung());
+        }
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_BREITE2, POPUP_VBOX_HOEHE2);
         Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
         Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
         annehmenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -205,6 +228,10 @@ public class SpielebeneGuiController extends GuiController
             {
                 ereignis.setAuswahl(true);
                 ereignisGuiAusfuehren(ereignis, arg0);
+                if (ereignis instanceof Treppe)
+                {
+                    popupStage.close();
+                }
             }
         });
         ablehnenButton.setOnAction(new EventHandler<ActionEvent>()
@@ -243,7 +270,7 @@ public class SpielebeneGuiController extends GuiController
         }
         else if (ereignis instanceof Heiler)
         {
-            heilerGuiAusfuehren(ereignis);
+            heilerGuiAusfuehren(ereignis, event);
         }
         else if (ereignis instanceof Schmied)
         {
@@ -259,11 +286,11 @@ public class SpielebeneGuiController extends GuiController
         }
         else if (ereignis instanceof Truhe)
         {
-            truheGuiAusfuehren(ereignis);
+            truheGuiAusfuehren(ereignis, event);
         }
         else if (ereignis instanceof ZufallsEreignis)
         {
-            zufallsEreignisGuiAusfuehren(ereignis);
+            zufallsEreignisGuiAusfuehren(ereignis, event);
         }
     }
 
@@ -298,17 +325,16 @@ public class SpielebeneGuiController extends GuiController
      *
      * @param ereignis Das Ereignis vom Typ Heiler
      */
-    public void heilerGuiAusfuehren (Ereignis ereignis)
+    public void heilerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
         int lebenVorher = spiel.getSpieler().getLebenspunkte();
         ereignis.ausfuehren(spiel);
         int lebenNachher = spiel.getSpieler().getLebenspunkte();
         int lebenErhalten = lebenNachher - lebenVorher;
 
-        final Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(ereignis.getName());
-        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        spielstandPopUp.setTitle(ereignis.getName());
+        spielstandPopUp.getIcons().add(new Image(ICON.getAbsolutePath()));
 
         VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
@@ -320,11 +346,11 @@ public class SpielebeneGuiController extends GuiController
         ereignisText.setText(HEILER_AUSFUEHREN_1 + lebenErhalten + HEILER_AUSFUEHREN_2);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(ereignisText);
-        ereignisVerlassen(popupStage, vbox);
-        popupStage.setScene(popupScene);
-        popupStage.setResizable(false);
-        popupStage.setAlwaysOnTop(true);
-        popupStage.show();
+        ereignisVerlassen(spielstandPopUp, vbox);
+        spielstandPopUp.setScene(popupScene);
+        spielstandPopUp.setResizable(false);
+        spielstandPopUp.setAlwaysOnTop(true);
+        spielstandPopUp.show();
     }
 
     /**
@@ -365,17 +391,16 @@ public class SpielebeneGuiController extends GuiController
      *
      * @param ereignis Das Ereignis vom Typ Truhe
      */
-    public void truheGuiAusfuehren (Ereignis ereignis)
+    public void truheGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
         int goldVorher = spiel.getGold();
         ereignis.ausfuehren(spiel);
         int goldNachher = spiel.getGold();
         int goldGefunden = goldNachher - goldVorher;
 
-        final Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(ereignis.getName());
-        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        spielstandPopUp.setTitle(ereignis.getName());
+        spielstandPopUp.getIcons().add(new Image(ICON.getAbsolutePath()));
 
         VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
@@ -385,11 +410,11 @@ public class SpielebeneGuiController extends GuiController
         ereignisText.setText(TRUHE_AUSFUEHREN_1 + goldGefunden + TRUHE_AUSFUEHREN_2);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(ereignisText);
-        ereignisVerlassen(popupStage, vbox);
-        popupStage.setScene(popupScene);
-        popupStage.setResizable(false);
-        popupStage.setAlwaysOnTop(true);
-        popupStage.show();
+        ereignisVerlassen(spielstandPopUp, vbox);
+        spielstandPopUp.setScene(popupScene);
+        spielstandPopUp.setResizable(false);
+        spielstandPopUp.setAlwaysOnTop(true);
+        spielstandPopUp.show();
     }
 
     /**
@@ -397,26 +422,42 @@ public class SpielebeneGuiController extends GuiController
      *
      * @param ereignis Das Ereignis vom Typ ZufallsEreignis
      */
-    public void zufallsEreignisGuiAusfuehren (Ereignis ereignis)
+    public void zufallsEreignisGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
-        final Stage popupStage = new Stage();
-        popupStage.initModality(Modality.APPLICATION_MODAL);
-        popupStage.setTitle(ereignis.getName());
-        popupStage.getIcons().add(new Image(ICON.getAbsolutePath()));
+        Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        spielstandPopUp.setTitle(ereignis.getName());
+        spielstandPopUp.getIcons().add(new Image(ICON.getAbsolutePath()));
         ereignis.ausfuehren(spiel);
+        ZufallsEreignis zufallsEreignis = (ZufallsEreignis) ereignis;
 
         VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
+        if (zufallsEreignis.getEreignisnummer() == ZE_1)
+        {
+            ereignisText.setText(ZE_1_AUSGEFUEHRT);
+        }
+        else if (zufallsEreignis.getEreignisnummer() == ZE_2)
+        {
+            ereignisText.setText(ZE_2_AUSGEFUEHRT);
+        }
+        else if (zufallsEreignis.getEreignisnummer() == ZE_3)
+        {
+            ereignisText.setText(ZE_3_AUSGEFUEHRT);
+        }
+        else
+        {
+            ereignisText.setText(ZE_4_AUSGEFUEHRT);
+        }
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
         Scene popupScene = new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(ereignisText);
-        ereignisVerlassen(popupStage, vbox);
-        popupStage.setScene(popupScene);
-        popupStage.setResizable(false);
-        popupStage.setAlwaysOnTop(true);
-        popupStage.show();
+        ereignisVerlassen(spielstandPopUp, vbox);
+        spielstandPopUp.setScene(popupScene);
+        spielstandPopUp.setResizable(false);
+        spielstandPopUp.setAlwaysOnTop(true);
+        spielstandPopUp.show();
     }
 
     /**
@@ -527,7 +568,8 @@ public class SpielebeneGuiController extends GuiController
         spielstandPopUp.setScene(sc);
         spielstandPopUp.show();
     }
-    private void kartenDeckAnzeigenTempel(Ereignis ereignis, ActionEvent event)
+
+    private void kartenDeckAnzeigenTempel (Ereignis ereignis, ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
         int h = 0;
@@ -573,17 +615,18 @@ public class SpielebeneGuiController extends GuiController
         spielstandPopUp.setScene(sc);
         spielstandPopUp.show();
     }
-    private void kartenDeckAnzeigenHaendler(Ereignis ereignis, ActionEvent event)
+
+    private void kartenDeckAnzeigenHaendler (Ereignis ereignis, ActionEvent event)
     {
         int k = spiel.getSpieldeckSpieler().size();
         int h = 0;
+        Haendler haendler = (Haendler) ereignis;
 
         Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
         spane.getStylesheets().add(SpielstandGuiController.class.getResource("/view/css/Spielstand.css").toExternalForm());
         spane.setContent(pane);
-        Haendler haendler = (Haendler) ereignis;
         try
         {
             haendler.setHaendlerDeck(kartenDeckIO.leseKartenDeck(HAENDLER_DECK_EINS_PFAD));

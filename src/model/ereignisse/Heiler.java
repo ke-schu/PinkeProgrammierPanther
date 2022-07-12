@@ -57,11 +57,6 @@ public class Heiler extends Mensch
                             spielStand.getSpieler().getLebenspunkte() +
                             HEILER_AUFWERTUNG_LEBENSPUNKTE);
                 }
-                else
-                {
-                    spielStand.getSpieler().setLebenspunkte(
-                            spielStand.getSpieler().getMaxleben());
-                }
             }
         }
         interaktionsZaehler++;

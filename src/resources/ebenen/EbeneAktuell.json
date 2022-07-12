@@ -35,7 +35,7 @@
           "ereignisnummer": 0,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.ZufallsEreignis",
           "ausgefuehrt": false
         }
@@ -45,7 +45,7 @@
           "wahrscheinlichkeit": 43.100906453671165,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.Truhe",
           "ausgefuehrt": false
         }
@@ -176,7 +176,7 @@
       null,
       {
         "ereignis": {
-          "gratisInteraktionen": 1,
+          "gratisInteraktionen": 0,
           "kosten": 20,
           "interaktionsZaehler": 0,
           "name": "Der Spielplatz.",
@@ -200,7 +200,7 @@
         "ereignis": {
           "name": "Leere Straße.",
           "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": false,
+          "auswahl": true,
           "klasse": "model.ereignisse.LeererRaum",
           "ausgefuehrt": false
         }
@@ -224,7 +224,94 @@
           "ausgefuehrt": false
         }
       },
-      null,
+      {
+        "ereignis": {
+          "gegenspieler": {
+            "mana": 10,
+            "typ": "FERNKAEMPFER",
+            "macht": 1,
+            "lebenspunkte": 1,
+            "manaKosten": 0,
+            "beweglichkeit": 1,
+            "reichweite": 1,
+            "schild": 1,
+            "verteidigung": 1,
+            "effektEins": "LETZTEWORTE",
+            "effektZwei": "ZURUECKWERFEN",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "schlafend": true,
+            "zaehler": 0,
+            "kopie": false,
+            "id": 0,
+            "name": "Gegner",
+            "level": 10,
+            "klasse": "model.Gegenspieler",
+            "freundlich": false
+          },
+          "spielfeld": {
+            "spielfeld": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "zeilen": 6,
+            "spalten": 6
+          },
+          "name": "Gegner.",
+          "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
+          "auswahl": false,
+          "klasse": "model.ereignisse.Gegner",
+          "ausgefuehrt": false
+        }
+      },
       null,
       null,
       null
@@ -278,8 +365,8 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 7,
-      "y": 0
+      "x": 4,
+      "y": 2
     }
   }
 }

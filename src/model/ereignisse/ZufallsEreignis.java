@@ -84,12 +84,6 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
                     spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() - ZE_SCHADEN);
                     ereignisnummer = ZE_4;
                 }
-                // Wahrscheinlichkeit 10Prozent
-                else if (wahrscheinlichkeit <= FUENFZIG_PROZENT)
-                {
-                    KartenController.karteVerbessern(spielStand.getSpieldeckSpieler().get(KonsolenIO.eingabeInt()));
-                    ereignisnummer = ZE_5;
-                }
                 ausgefuehrt = true;
             }
         }

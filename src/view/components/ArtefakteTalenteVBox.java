@@ -28,7 +28,7 @@ public class ArtefakteTalenteVBox extends VBox
         getStyleClass().add(STYLE_CLASS_ARTEFAKTE_TALENTE);
         alignmentProperty().set(Pos.CENTER);
         Label name = new Label();
-        name.setText(artefakt.name());
+        name.setText(artefakt.getName());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + artefakt.name() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
@@ -39,8 +39,8 @@ public class ArtefakteTalenteVBox extends VBox
         this.getChildren().add(bild);
         Label beschreibung = new Label();
         beschreibung.setWrapText(true);
-        beschreibung.setText(artefakt.name());
-        //this.getChildren().add(beschreibung);
+        beschreibung.setText(artefakt.getBeschreibung());
+       this.getChildren().add(beschreibung);
     }
 
     /**
@@ -52,7 +52,7 @@ public class ArtefakteTalenteVBox extends VBox
         getStyleClass().add(STYLE_CLASS_ARTEFAKTE_TALENTE);
         alignmentProperty().set(Pos.CENTER);
         Label name = new Label();
-        name.setText(talent.name());
+        name.setText(talent.getName());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + talent.name() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
@@ -63,7 +63,7 @@ public class ArtefakteTalenteVBox extends VBox
         this.getChildren().add(bild);
         Label beschreibung = new Label();
         beschreibung.setWrapText(true);
-        beschreibung.setText("tschuesli muesli");
-        //this.getChildren().add(beschreibung);
+        beschreibung.setText(talent.getBeschreibung());
+        this.getChildren().add(beschreibung);
     }
 }
