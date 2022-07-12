@@ -161,7 +161,7 @@ public class SpielzugTest
         /*
         RonWeasley gibt seine Lebenspunkte an und wird anschliessend vom
         Gegner angegriffen und gibt danach wieder seine lebenspunkte wieder
-         */
+
         KonsolenIO.ausgeben(LEBENSPUNKTE_FREUND +
                             meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
                                     .getLebenspunkte());
@@ -172,7 +172,7 @@ public class SpielzugTest
         einheitenAngreifenMitEinheiten(meinfeld, meindeck, masterdeck, master,
                                        meinfeld.getSpielfeldplatz(ZAHL_1,
                                                                   ZAHL_0));
-        /*KonsolenIO.ausgeben(
+        KonsolenIO.ausgeben(
                 LEBENSPUNKTE_NACH_KAMPF +
                 meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0)
                         .getLebenspunkte() + ZEILENUMBRUCH);         */

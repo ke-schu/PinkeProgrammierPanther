@@ -147,47 +147,53 @@ public class EinheitenController
      * @param angreifer   Einheit, welche angreift.
      * @param verteidiger Einheit, welche angegriffen wird.
      */
-    public static int einheitenAngreifenMitEinheiten(SpielFeld feld,
+    public static int einheitenAngreifenMitEinheiten(boolean istspieler, SpielFeld feld,
                                                       KartenDeck spielerDeck,
                                                       KartenDeck masterDeck,
                                                       KarteEinheit angreifer,
                                                       KarteEinheit verteidiger)
     {
-        boolean schlafend = angreifer.getSchlafend();
-        if ((einheitInReichweite(angreifer, verteidiger) &&
-             pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
+        if ((RundenController.getDran() == istspieler)
+         &&(angreifer.getFreundlich()==istspieler))
         {
-            if (verteidiger.getSchild() >= WERT_SCHILD)
+
+            boolean schlafend = angreifer.getSchlafend();
+            if ((einheitInReichweite(angreifer, verteidiger) &&
+                 pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
             {
-                brecheSchild(verteidiger);
-                System.out.println("schildgebrochen");
-                angreifer.setSchlafend(true);
-                return RUECKMELDUNG_SCHILDBREAK;
-            }
-            else
-            {
-                verursacheSchaden(verteidiger, angreifer.getMacht());
-                boolean gestorben = RundenController.feldplatzAufraumen(feld, spielerDeck,
-                                                    masterDeck,
-                                                    verteidiger.getPositionX(),
-                                                    verteidiger.getPositionY());
-                EffektController.angriffEffektAusloesen(angreifer, verteidiger,
-                                                        angreifer.getEffektEins(),
-                                                        feld, spielerDeck,
-                                                        masterDeck);
-                EffektController.angriffEffektAusloesen(angreifer, verteidiger,
-                                                        angreifer.getEffektZwei(),
-                                                        feld, spielerDeck,
-                                                        masterDeck);
-                System.out.println("angriffausgeführt");
-                angreifer.setSchlafend(true);
-                if(gestorben)
+                if (verteidiger.getSchild() >= WERT_SCHILD)
                 {
-                    return RUECKMELDUNG_GESTORBEN;
+                    brecheSchild(verteidiger);
+                    System.out.println("schildgebrochen");
+                    angreifer.setSchlafend(true);
+                    return RUECKMELDUNG_SCHILDBREAK;
                 }
-                return RUECKMELDUNG_SCHADEN;
+                else
+                {
+                    verursacheSchaden(verteidiger, angreifer.getMacht());
+                    boolean gestorben = RundenController.feldplatzAufraumen(feld, spielerDeck,
+                            masterDeck,
+                            verteidiger.getPositionX(),
+                            verteidiger.getPositionY());
+                    EffektController.angriffEffektAusloesen(angreifer, verteidiger,
+                            angreifer.getEffektEins(),
+                            feld, spielerDeck,
+                            masterDeck);
+                    EffektController.angriffEffektAusloesen(angreifer, verteidiger,
+                            angreifer.getEffektZwei(),
+                            feld, spielerDeck,
+                            masterDeck);
+                    System.out.println("angriffausgeführt");
+                    angreifer.setSchlafend(true);
+                    if(gestorben)
+                    {
+                        return RUECKMELDUNG_GESTORBEN;
+                    }
+                    return RUECKMELDUNG_SCHADEN;
+                }
             }
         }
+
         return RUECKMELDUNG_ERFOLGLOS;
     }
 

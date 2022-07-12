@@ -227,7 +227,11 @@ public abstract class FeldGuiController extends GuiController
                 {
                     einheitangreifenzauber(zielFeld);
                 }
-                einheitBeschwoeren(zielFeld);
+                else
+                {
+                    einheitBeschwoeren(zielFeld);
+                }
+
             }
 
         });
@@ -254,6 +258,7 @@ public abstract class FeldGuiController extends GuiController
         }
         aktualisierungsenden ();
         ladeSpielfeld(spielfeld, false);
+        kartenhandGitter.getChildren().remove(quellePaneHand);
 
     }
     protected void einheitangreifen(StackPane zielFeld)
@@ -263,7 +268,7 @@ public abstract class FeldGuiController extends GuiController
 
 
 
-        int rückmeldung = EinheitenController.einheitenAngreifenMitEinheiten(spielfeld, spielerDeck, gegenspielerDeck
+        int rückmeldung = EinheitenController.einheitenAngreifenMitEinheiten(binSpieler, spielfeld, spielerDeck, gegenspielerDeck
                                                             ,angreifer, verteidiger);
 
         //überprüfen ob angriff erfolgreich war
