@@ -3,6 +3,7 @@ package control.test;
 import control.KartenDeckController;
 import exceptions.JsonNichtLesbarException;
 import model.KarteEinheit;
+import model.KarteZauber;
 import model.KartenDeck;
 import resources.Effekte;
 import resources.Einheiten;
@@ -13,7 +14,9 @@ import java.io.IOException;
 
 import static control.test.TestKonstanten.*;
 import static control.test.TestZahlen.ZAHL_1;
+import static control.test.TestZahlen.ZAHL_4;
 import static resources.Konstanten.kartenDeckIO;
+import static resources.Zaubereffekte.WURFSPEER;
 
 /**
  * Enthaelt Methoden zum Testen von Kartendecks
@@ -41,6 +44,11 @@ public class KartenDeckTest
                                 Effekte.ZURUECKWERFEN, true, true);
     }
 
+    public static KarteZauber erstelleZauberKarte()
+    {
+        return new KarteZauber(KARTEN_NAME, ZAHL_1, ZAHL_4, WURFSPEER);
+    }
+
     /**
      * Erstellt ein Beispieldeck mit einer Anzahl an Beispielkarten und
      * schreibt es in eine Datei.
@@ -53,6 +61,7 @@ public class KartenDeckTest
         for (int i = 0; i < ANZAHL_KARTEN; i++)
         {
             meinDeck.push(erstelleKarte());
+            meinDeck.push((erstelleZauberKarte()));
         }
 
         try

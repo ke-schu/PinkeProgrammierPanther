@@ -43,7 +43,7 @@ public class Main extends Application
      */
     private static void teste()
     {
-        switch (2)
+        switch (6)
         {
             case 1:
                 SpielzugTest.spielzugTesten();

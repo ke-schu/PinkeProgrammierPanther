@@ -17,7 +17,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 0,
       "name": "Boeser Nachbar",
       "level": 40,
@@ -39,7 +39,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 1,
       "name": "Genervter Nachbar",
       "level": 40,
@@ -61,7 +61,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 2,
       "name": "Eismann",
       "level": 40,
@@ -83,7 +83,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 3,
       "name": "Nachbarsjunge",
       "level": 40,
@@ -105,7 +105,7 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 4,
       "name": "Ruediger",
       "level": 40,
@@ -127,11 +127,47 @@
         "y": 0
       },
       "schlafend": true,
-      "freundlich": false,
+      "freundlich": true,
       "id": 5,
       "name": "Streuner",
       "level": 40,
       "klasse": "model.KarteEinheit"
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 9,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 9,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 9,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 4,
+      "zeffekt": "WURFSPEER",
+      "id": 9,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
     }
   ]
 }
