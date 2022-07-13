@@ -386,13 +386,16 @@ public abstract class FeldGuiController extends GuiController
             StackPane feld = new StackPane();
             feld.setPrefWidth(KARTENHAND_GROESSE);
             feld.setPrefHeight(KARTENHAND_GROESSE);
+            if(kartenHand != null)
+            {
+                KarteVBox karteVBox =
+                        new KarteVBox(kartenHand.getElement(i));
+                feld.getChildren().add(karteVBox);
 
-            KarteVBox karteVBox =
-                    new KarteVBox(kartenHand.getElement(i));
-            feld.getChildren().add(karteVBox);
+                dragAndDropSource(feld, false);
+                kartenhandGitter.add(feld, i, 0);
+            }
 
-            dragAndDropSource(feld, false);
-            kartenhandGitter.add(feld, i, 0);
         }
     }
 
