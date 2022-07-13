@@ -3,8 +3,30 @@
   "karten": [
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 4,
+      "lebenspunkte": 3,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 0,
+      "name": "Boeser Nachbar",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 4,
+      "lebenspunkte": 3,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -26,7 +48,7 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 2,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -48,7 +70,51 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 2,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 1,
+      "name": "Genervter Nachbar",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 5,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 2,
+      "name": "Eismann",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -70,7 +136,7 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 3,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -92,7 +158,29 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 3,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 3,
+      "name": "Nachbarsjunge",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -113,8 +201,30 @@
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 2,
+      "lebenspunkte": 5,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": true,
+      "id": 4,
+      "name": "Ruediger",
+      "level": 40,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 8,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -134,27 +244,9 @@
       "klasse": "model.KarteEinheit"
     },
     {
-      "macht": 4,
+      "macht": 2,
       "zeffekt": "WURFSPEER",
       "id": 6,
-      "name": "Wurfspeer",
-      "level": 1,
-      "klasse": "model.KarteZauber",
-      "freundlich": true
-    },
-    {
-      "macht": 4,
-      "zeffekt": "WURFSPEER",
-      "id": 7,
-      "name": "Wurfspeer",
-      "level": 1,
-      "klasse": "model.KarteZauber",
-      "freundlich": true
-    },
-    {
-      "macht": 4,
-      "zeffekt": "WURFSPEER",
-      "id": 8,
       "name": "Wurfspeer",
       "level": 1,
       "klasse": "model.KarteZauber",
