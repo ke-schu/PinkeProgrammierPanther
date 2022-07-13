@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 import static resources.Konstanten.SPIELSTATUS_PORT;
 import static resources.Konstanten.spielStandIO;
 
+/**
+ Controllerklasse, welche den View auf das Spielfeld des Spielers kontrolliert
+ */
 public class SpielerFeldGUIController extends FeldGuiController
 {
     @Override
@@ -32,6 +35,9 @@ public class SpielerFeldGUIController extends FeldGuiController
     }
     
     @Override
+    /**
+     Methode, welche die fuer die initialisierung des Kampfes noetigen Objekte erstellt und Aktionen ausfuert
+     */
     public void initalisieren ()
     {
         try
