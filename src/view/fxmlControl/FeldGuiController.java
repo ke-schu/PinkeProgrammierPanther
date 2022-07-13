@@ -1,6 +1,7 @@
 package view.fxmlControl;
 
 import control.*;
+import exceptions.JsonNichtLesbarException;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Effect;
@@ -59,7 +60,6 @@ public abstract class FeldGuiController extends GuiController
     protected Gegenspieler gegenspieler;
     protected ManaTank manaTank;
     protected double manaMaximum;
-
     protected boolean binSpieler;
 
     /**
@@ -328,6 +328,11 @@ public abstract class FeldGuiController extends GuiController
         verloren.setVisible(
                 !binSpieler && gegnerTod ||
                 binSpieler && spielerTod);
+
+        if((spielerTod || gegnerTod) && binSpieler)
+        {
+            neuenSpielstandSpeichern();
+        }
     }
 
     protected void einheitBeschwoeren(StackPane zielFeld)
@@ -388,13 +393,19 @@ public abstract class FeldGuiController extends GuiController
      */
     @FXML protected void spielSpeichern(ActionEvent event)
     {
+        neuenSpielstandSpeichern();
+    }
+
+    private void neuenSpielstandSpeichern()
+    {
         try
         {
+            spiel = new SpielStand(spiel.getGold(), spieler, spiel.getGegenSpieler());
             spielStandIO.schreibeDatei(spiel);
         }
         catch (IOException e)
         {
-            KonsolenIO.ausgeben(e.getMessage());
+            e.printStackTrace();
         }
     }
 
