@@ -35,7 +35,6 @@ public class Client<T> extends NetzwerkIO<T>
         try
         {
             socket.close();
-            netOut.close();
         }
         catch (IOException e)
         {

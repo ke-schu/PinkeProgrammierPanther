@@ -41,7 +41,6 @@ public class Server<T> extends NetzwerkIO<T>
         {
             socket.close();
             server.close();
-            netOut.close();
         }
         catch (IOException e)
         {
