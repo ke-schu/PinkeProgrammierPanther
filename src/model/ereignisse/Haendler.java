@@ -2,18 +2,15 @@ package model.ereignisse;
 
 import control.TalentController;
 import exceptions.JsonNichtLesbarException;
-import model.Ebene;
 import model.Karte;
 import model.KartenDeck;
 import model.SpielStand;
 import utility.KonsolenIO;
 
-import java.io.File;
 import java.io.IOException;
 
 import static resources.Konstanten.kartenDeckIO;
 import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
-import static utility.KonsolenIO.eingabeInt;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Haendler ist ein Ereignis,

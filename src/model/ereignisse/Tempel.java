@@ -3,12 +3,10 @@ package model.ereignisse;
 import control.TalentController;
 import model.Karte;
 import model.SpielStand;
-import utility.KonsolenIO;
 
 import java.io.IOException;
 
 import static resources.Konstanten.kartenDeckIO;
-import static utility.KonsolenIO.eingabeInt;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Tempel ist ein Ereignis,

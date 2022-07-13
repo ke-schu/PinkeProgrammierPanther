@@ -10,7 +10,6 @@ import utility.KonsolenIO;
 import java.io.IOException;
 
 import static resources.Konstanten.kartenDeckIO;
-import static utility.KonsolenIO.eingabeInt;
 
 /**
  * Diese Klasse ist eine Subklasse von Mensch. Ein Schmied ist ein Ereignis,

@@ -1,7 +1,5 @@
 package utility;
 
-import java.util.Scanner;
-
 /**
  * Diese Klasse ist fuer Eingabe- und Ausgabemethoden durch die Konsole.
  */
@@ -23,29 +21,5 @@ public class KonsolenIO
     public static void ausgeben(Object o)
     {
         System.out.println(o);
-    }
-
-    /**
-     * Diese Methode liest einen Integer ueber eine Benutzereingabe ein.
-     *
-     * @return eingegebener Wert als Integer
-     */
-    public static int eingabeInt()
-    {
-        Scanner sc = new Scanner(System.in);
-        int temp = sc.nextInt();
-        return temp;
-    }
-
-    /**
-     * Diese Methode liest einen Boolean ueber eine Benutzereingabe ein.
-     *
-     * @return eingegebener Wert als Boolean
-     */
-    public static boolean eingabeBoolean()
-    {
-        Scanner sc = new Scanner(System.in);
-        boolean temp = sc.nextBoolean();
-        return temp;
     }
 }
