@@ -6,55 +6,54 @@ import static resources.Konstanten.*;
 import static resources.Strings.*;
 
 /**
- * SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden.
- */
+ SpielFeld repraesentiert das Spielfeld auf welchem sich Karten befinden. */
 public class SpielFeld
 {
     private KarteEinheit[][] spielfeld = null;
     private int zeilen = 0;
     private int spalten = 0;
-
+    
     /**
-     * Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse,
-     * eine Instanz mit einer zufaelligen Spielfeldgroesse
-     * erzeugt.
+     Konstruktor der durch den Aufruf der Methode geniereSpielfeldGroesse,
+     eine
+     Instanz mit einer zufaelligen Spielfeldgroesse erzeugt.
      */
-    public SpielFeld()
+    public SpielFeld ()
     {
         this.spalten =
-                UtilityController.randomZahlMitBereich(SPIELFELD_GENERATOR_MIN,
-                                                       SPIELFELD_GENERATOR_MAX);
-        this.zeilen  =
-                UtilityController.randomZahlMitBereich(SPIELFELD_GENERATOR_MIN,
-                                                       SPIELFELD_GENERATOR_ZEILEN_MAX);
+                UtilityController.randomZahlMitBereich(
+                        SPIELFELD_GENERATOR_MIN,
+                        SPIELFELD_GENERATOR_MAX);
+        this.zeilen =
+                UtilityController.randomZahlMitBereich(
+                        SPIELFELD_GENERATOR_MIN,
+                        SPIELFELD_GENERATOR_ZEILEN_MAX);
         KarteEinheit[][] spielfeld =
                 new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
-
+    
     /**
-     * Konstruktor der mit den uebergebenen Parametern eine Instanz erzeugt.
-     *
-     * @param x Spaltenanzahl des Spielfeldes.
-     * @param y Zeilenanzahl des Spielfeldes.
+     Konstruktor der mit den uebergebenen Parametern eine Instanz erzeugt.
+     @param x Spaltenanzahl des Spielfeldes.
+     @param y Zeilenanzahl des Spielfeldes.
      */
-    public SpielFeld(int x, int y)
+    public SpielFeld (int x, int y)
     {
         this.spalten = x;
-        this.zeilen  = y;
+        this.zeilen = y;
         KarteEinheit[][] spielfeld =
                 new KarteEinheit[this.zeilen][this.spalten];
         this.spielfeld = spielfeld;
     }
-
+    
     /**
-     * Methode, die die Namen der Instanzen der Klasse KarteEinheit aus dem
-     * Attribut spielfeld in der Konsole formatiert ausgibt.
-     *
-     * @return gibt einen String der die Matrix des Attributes ebene spielfeld
-     * wieder.
+     Methode, die die Namen der Instanzen der Klasse KarteEinheit aus dem
+     Attribut spielfeld in der Konsole formatiert ausgibt.
+     @return gibt einen String der die Matrix des Attributes ebene spielfeld
+     wieder.
      */
-    @Override public String toString()
+    @Override public String toString ()
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.zeilen; i++)
@@ -77,63 +76,57 @@ public class SpielFeld
         }
         return sb.toString();
     }
-
+    
     /**
-     * Methode die einem den Wert des Attributes spielfeld gibt.
-     *
-     * @return gibt einen 2D-Array mit Instanzen der Klasse KarteEinheit.
+     Methode die einem den Wert des Attributes spielfeld gibt.
+     @return gibt einen 2D-Array mit Instanzen der Klasse KarteEinheit.
      */
-    public KarteEinheit[][] getSpielfeld()
+    public KarteEinheit[][] getSpielfeld ()
     {
         return this.spielfeld;
     }
-
+    
     /**
-     * Methode die ein 2D-Array mit Instanzen der Klasse KarteEinheit in das
-     * Attribut spielfeld setzt.
-     *
-     * @param spielfeld 2D-Array mit Instanzen der Klasse KarteEinheit der in
-     *                  das Attribut spielfeld gesetzt werden soll.
+     Methode die ein 2D-Array mit Instanzen der Klasse KarteEinheit in das
+     Attribut spielfeld setzt.
+     @param spielfeld 2D-Array mit Instanzen der Klasse KarteEinheit der in
+     das
+     Attribut spielfeld gesetzt werden soll.
      */
-    public final void setSpielfeld(KarteEinheit[][] spielfeld)
+    public final void setSpielfeld (KarteEinheit[][] spielfeld)
     {
         this.spielfeld = spielfeld;
     }
-
+    
     /**
-     * Methode die den Int-Wert des Attributes feldSpalte liefert.
-     *
-     * @return gibt den Int-Wert des Attributes feldSpalte wieder.
+     Methode die den Int-Wert des Attributes feldSpalte liefert.
+     @return gibt den Int-Wert des Attributes feldSpalte wieder.
      */
-    public int getSpalten()
+    public int getSpalten ()
     {
         return this.spalten;
     }
-
+    
     /**
-     * Methode die den Int-Wert des Attributes feldZeile liefert.
-     *
-     * @return gibt den Int-Wert des Attributes feldSpalte wieder.
+     Methode die den Int-Wert des Attributes feldZeile liefert.
+     @return gibt den Int-Wert des Attributes feldSpalte wieder.
      */
-    public int getZeilen()
+    public int getZeilen ()
     {
         return this.zeilen;
     }
-
+    
     /**
-     * Methode die eine Instanz der Klasse KarteEinheit an einer bestimmten
-     * Position im 2D-Array des Attributes spielfeld einsetzt.
-     *
-     * @param x       X-Koordinate als Int-Wert, an welcher die Instanz der
-     *                Klasse
-     *                KarteEinheit eingesetzt werden soll.
-     * @param y       Y-Koordinate als Int-Wert, an welcher die Instanz der
-     *                Klasse
-     *                KarteEinheit eingesetzt werden soll.
-     * @param einheit Instanz der Klasse KarteEinheit, welche in das Spielfeld
-     *                eingesetzt werden soll.
+     Methode die eine Instanz der Klasse KarteEinheit an einer bestimmten
+     Position im 2D-Array des Attributes spielfeld einsetzt.
+     @param x X-Koordinate als Int-Wert, an welcher die Instanz der Klasse
+     KarteEinheit eingesetzt werden soll.
+     @param y Y-Koordinate als Int-Wert, an welcher die Instanz der Klasse
+     KarteEinheit eingesetzt werden soll.
+     @param einheit Instanz der Klasse KarteEinheit, welche in das Spielfeld
+     eingesetzt werden soll.
      */
-    public void einheitEinsetzten(int x, int y, KarteEinheit einheit)
+    public void einheitEinsetzten (int x, int y, KarteEinheit einheit)
     {
         if (einheit == null)
         {
@@ -145,19 +138,30 @@ public class SpielFeld
             einheit.setPosition(x, y);
         }
     }
-
+    
     /**
-     * Diese Methode gibt den Inhalt des Attributes spielfeld an einer
-     * spezifischen Position wieder.
-     *
-     * @param x X-Koordinate an welcher der Inhalt des Attributes spielfeld
-     *          wieder gegeben werden soll.
-     * @param y Y-Koordinate an welcher der Inhalt des Attributes spielfeld
-     *          wieder gegeben werden soll.
+     Diese Methode gibt die Einheitenkarte im spielfeld an einer
+     spezifischen Position wieder.
+     * @param position Position an welcher die Einheitenkarte im Spielfeld positioniert ist
      * @return Gibt den Inhalt des Attributes spielfeld an einer bestimmten
-     * Stelle wieder.
+    Stelle wieder.
      */
-    public KarteEinheit getSpielfeldplatz(int x, int y)
+    public KarteEinheit getSpielfeldplatz (Position position)
+    {
+        return getSpielfeldplatz(position.getX(), position.getY());
+    }
+    
+    /**
+     Diese Methode gibt den Inhalt des Attributes spielfeld an einer
+     spezifischen Position wieder.
+     @param x X-Koordinate an welcher der Inhalt des Attributes spielfeld
+     wieder gegeben werden soll.
+     @param y Y-Koordinate an welcher der Inhalt des Attributes spielfeld
+     wieder gegeben werden soll.
+     @return Gibt den Inhalt des Attributes spielfeld an einer bestimmten
+     Stelle wieder.
+     */
+    public KarteEinheit getSpielfeldplatz (int x, int y)
     {
         if (x < 0 || x >= this.spalten || y < 0 || y >= this.zeilen)
         {
@@ -165,21 +169,14 @@ public class SpielFeld
         }
         return this.spielfeld[y][x];
     }
-    public KarteEinheit getSpielfeldplatz(Position position)
-    {
-        return getSpielfeldplatz(position.getX(),position.getY());
-    }
-
+    
     /**
-     * Diese Methode setzt ein einer spezifischen Stelle im 2D-Array des
-     * Attributes spielfeld ein null Literal ein.
-     *
-     * @param x X-Koordiante an welcher das null Literal eingesetzt werden
-     *          soll.
-     * @param y Y-Koordiante an welcher das null Literal eingesetzt werden
-     *          soll.
+     Diese Methode setzt ein einer spezifischen Stelle im 2D-Array des
+     Attributes spielfeld ein null Literal ein.
+     @param x X-Koordiante an welcher das null Literal eingesetzt werden soll.
+     @param y Y-Koordiante an welcher das null Literal eingesetzt werden soll.
      */
-    public void einheitLoeschen(int x, int y)
+    public void einheitLoeschen (int x, int y)
     {
         this.spielfeld[y][x] = null;
     }

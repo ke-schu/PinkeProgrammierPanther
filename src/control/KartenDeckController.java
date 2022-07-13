@@ -7,38 +7,35 @@ import java.util.Collections;
 import java.util.Random;
 
 /**
- * Beinhaltet verschiedene Methoden, die an Kartendeck-Instanzen arbeiten.
- */
+ Beinhaltet verschiedene Methoden, die an Kartendeck-Instanzen arbeiten. */
 public class KartenDeckController
 {
     private static Random meinRandom = new Random();
-
+    
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
-     * dass keine Instanzen dieser Klasse gebildet werden.
+     Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass
+     keine Instanzen dieser Klasse gebildet werden.
      */
-    private KartenDeckController()
+    private KartenDeckController ()
     {
     }
-
+    
     /**
-     * Methode um eine Instanz von der Klasse KartenDeck zu mischen.
-     *
-     * @param deck Der Stack der gemischt werden soll.
+     Methode um eine Instanz von der Klasse KartenDeck zu mischen.
+     @param deck Der Stack der gemischt werden soll.
      */
-    public static void mischen(KartenDeck deck)
+    public static void mischen (KartenDeck deck)
     {
         Collections.shuffle(deck, meinRandom);
     }
-
+    
     /**
-     * Diese Methode kopiert ein Kartendeck.
-     *
-     * @param quelle Das Kartendeck, welches kopiert werden soll.
-     * @param pfad   Der Pfad unter dem das Deck zu finden ist.
-     * @return Die Kopie des Decks.
+     Diese Methode kopiert ein Kartendeck.
+     @param quelle Das Kartendeck, welches kopiert werden soll.
+     @param pfad Der Pfad unter dem das Deck zu finden ist.
+     @return Die Kopie des Decks.
      */
-    public static KartenDeck kopiereDeck(KartenDeck quelle, String pfad)
+    public static KartenDeck kopiereDeck (KartenDeck quelle, String pfad)
     {
         File ziel = new File(pfad);
         KartenDeck kopie = (KartenDeck) quelle.clone();

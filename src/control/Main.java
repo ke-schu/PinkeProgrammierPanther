@@ -16,30 +16,29 @@ import static resources.KonstantenGUI.AUFLOESUNG_HOEHE_HD;
 import static resources.StringsGUI.*;
 
 /**
- * In dieser Klasse startet das Programm.
- */
+ In dieser Klasse startet das Programm. */
 public class Main extends Application
 {
     private static String seitentitelZusatz = "";
-
+    
     /**
-     * Diese main-Methode wird beim Start des Programms aufgerufen.
-     *
-     * @param args mitgegebene Kommandozeilenargumente.
+     Diese main-Methode wird beim Start des Programms aufgerufen.
+     @param args mitgegebene Kommandozeilenargumente.
      */
-    public static void main(String[] args)
+    public static void main (String[] args)
     {
-        if(args.length > 0)
+        if (args.length > 0)
+        {
             seitentitelZusatz = args[0];
+        }
         launch();
     }
-
+    
     /**
-     * Mit dieser Methode wird die GUI in einem neuen Window geoeffnet.
-     *
-     * @param stage die Buehne des Programms.
+     Mit dieser Methode wird die GUI in einem neuen Window geoeffnet.
+     @param stage die Buehne des Programms.
      */
-    @Override public void start(Stage stage)
+    @Override public void start (Stage stage)
     {
         File f = new File(HAUPTMENUE_PFAD);
         try
@@ -48,7 +47,6 @@ public class Main extends Application
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle(SPIELTITEL + "  " + seitentitelZusatz);
             stage.setScene(scene);
-            // Setze Aufloesung beim Starten
             stage.setMaxHeight(AUFLOESUNG_HOEHE_HD);
             stage.setMinHeight(AUFLOESUNG_HOEHE_HD);
             stage.setMaxWidth(AUFLOESUNG_BREITE_HD);

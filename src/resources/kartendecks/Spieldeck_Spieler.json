@@ -19,11 +19,35 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 0,
       "name": "Polizist",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 3,
+      "lebenspunkte": 6,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "freundlich": true,
+      "id": 0,
+      "name": "Polizist",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -43,11 +67,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 1,
       "name": "Pastor",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -67,11 +91,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 1,
       "name": "Pastor",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -91,11 +115,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 2,
       "name": "Postbote",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -115,11 +139,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 2,
       "name": "Postbote",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -139,11 +163,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 3,
       "name": "Katze",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -163,11 +187,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 4,
       "name": "Verkaeufer",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -187,11 +211,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 4,
       "name": "Verkaeufer",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -211,11 +235,11 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 5,
       "name": "Baecker",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -235,62 +259,38 @@
       "schlafend": true,
       "zaehler": 0,
       "kopie": false,
+      "freundlich": true,
       "id": 5,
       "name": "Baecker",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "macht": 3,
       "zeffekt": "WURFSPEER",
+      "freundlich": true,
       "id": 8,
       "name": "Wurfspeer",
       "level": 1,
-      "klasse": "model.KarteZauber",
-      "freundlich": true
+      "klasse": "model.KarteZauber"
     },
     {
       "macht": 2,
       "zeffekt": "HEILUNG",
+      "freundlich": true,
       "id": 9,
       "name": "Heilen",
       "level": 1,
-      "klasse": "model.KarteZauber",
-      "freundlich": true
+      "klasse": "model.KarteZauber"
     },
     {
       "macht": 2,
       "zeffekt": "VERSTAERKEN",
+      "freundlich": true,
       "id": 10,
       "name": "Verstaerken",
       "level": 1,
-      "klasse": "model.KarteZauber",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 4,
-      "lebenspunkte": 7,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 0,
-      "name": "Polizist",
-      "level": 2,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteZauber"
     }
   ]
 }

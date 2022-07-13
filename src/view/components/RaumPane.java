@@ -14,8 +14,12 @@ public class RaumPane extends StackPane
 {
     private BooleanProperty beinhaltetSpieler;
     private BooleanProperty nichtig;
-
-    public RaumPane(Raum raum)
+    
+    /**
+     Konstruktor von RaumPane.
+     * @param raum Instanz der Klasse Raum, die mit einem RaumPane visualisiert werden soll.
+     */
+    public RaumPane (Raum raum)
     {
         getStyleClass().add(STYLE_CLASS_RAUM);
         /*StackPane stackPane = new StackPane();
@@ -26,7 +30,6 @@ public class RaumPane extends StackPane
         Label meinLabel = new Label();
         meinLabel.setWrapText(true);
         meinLabel.setTextAlignment(TextAlignment.CENTER);
-
         beinhaltetSpieler = new SimpleBooleanProperty(false);
         beinhaltetSpieler.addListener(e ->
                                       {
@@ -34,11 +37,15 @@ public class RaumPane extends StackPane
                                                   PseudoClass.getPseudoClass(
                                                           PSEUDO_CLASS_BEINHALTET_SPIELER),
                                                   beinhaltetSpieler.get());
-                                          if(beinhaltetSpieler.get())
+                                          if (beinhaltetSpieler.get())
+                                          {
                                               meinLabel.setOpacity(0);
-                                          else meinLabel.setOpacity(1);
+                                          }
+                                          else
+                                          {
+                                              meinLabel.setOpacity(1);
+                                          }
                                       });
-
         nichtig = new SimpleBooleanProperty(false);
         nichtig.addListener(e ->
                             {
@@ -47,7 +54,6 @@ public class RaumPane extends StackPane
                                                 PSEUDO_CLASS_NICHTIG),
                                         nichtig.get());
                             });
-
         if (raum == null || raum.getEreignis() == null)
         {
             this.setNichtig(true);
@@ -61,24 +67,22 @@ public class RaumPane extends StackPane
             this.getChildren().add(zimmer);
         }
     }
-
-    public boolean getBeinhaltetSpieler()
-    {
-        return beinhaltetSpieler.get();
-    }
-
-    public void setBeinhaltetSpieler(boolean beinhaltetSpieler)
-    {
-        this.beinhaltetSpieler.set(beinhaltetSpieler);
-    }
-
-    public boolean istNichtig()
-    {
-        return nichtig.get();
-    }
-
-    public void setNichtig(boolean nichtig)
+    
+    /**
+     Methode um das Attribut nichtg zu setzen.
+     * @param nichtig boolescher Wert, welcher in das Attribut gesetzt werden soll.
+     */
+    public void setNichtig (boolean nichtig)
     {
         this.nichtig.set(nichtig);
+    }
+    
+    /**
+     Methode um das Attribut beinhaltetSpieler zu setzen.
+     * @param beinhaltetSpieler boolescher Wert, welcher in das Attribut gesetzt werden soll.
+     */
+    public void setBeinhaltetSpieler (boolean beinhaltetSpieler)
+    {
+        this.beinhaltetSpieler.set(beinhaltetSpieler);
     }
 }

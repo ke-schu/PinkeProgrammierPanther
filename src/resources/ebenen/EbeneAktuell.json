@@ -8,46 +8,46 @@
       {
         "ereignis": {
           "gratisInteraktionen": 1,
-          "kosten": 20,
           "interaktionsZaehler": 0,
+          "kosten": 20,
+          "auswahl": false,
+          "ausgefuehrt": false,
           "name": "Die Nachbarschaft.",
           "beschreibung": "Wenn ich einen meiner Freunde loswerden will, sollte ich bei seinen Eltern petzen gehen.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Tempel",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Tempel"
         }
       },
       {
         "ereignis": {
           "gratisInteraktionen": 1,
-          "kosten": 20,
           "interaktionsZaehler": 0,
+          "kosten": 20,
+          "auswahl": false,
+          "ausgefuehrt": false,
           "name": "Mutti.",
           "beschreibung": "Wenn ich Schmerzen hab sollte ich zu Mutti gehen. Danach gehts es mir immer besser.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Heiler",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Heiler"
         }
       },
       {
         "ereignis": {
           "wahrscheinlichkeit": 0.0,
           "ereignisnummer": 0,
+          "auswahl": true,
+          "ausgefuehrt": false,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
-          "auswahl": true,
-          "klasse": "model.ereignisse.ZufallsEreignis",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.ZufallsEreignis"
         }
       },
       {
         "ereignis": {
           "wahrscheinlichkeit": 43.100906453671165,
+          "auswahl": true,
+          "ausgefuehrt": false,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Truhe",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Truhe"
         }
       },
       {
@@ -71,11 +71,11 @@
             "schlafend": true,
             "zaehler": 0,
             "kopie": false,
+            "freundlich": false,
             "id": 0,
             "name": "Gegner",
             "level": 10,
-            "klasse": "model.Gegenspieler",
-            "freundlich": false
+            "klasse": "model.Gegenspieler"
           },
           "spielfeld": {
             "spielfeld": [
@@ -131,11 +131,11 @@
             "zeilen": 6,
             "spalten": 6
           },
+          "auswahl": false,
+          "ausgefuehrt": false,
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Gegner",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Gegner"
         }
       }
     ],
@@ -147,13 +147,13 @@
       {
         "ereignis": {
           "gratisInteraktionen": 1,
-          "kosten": 20,
           "interaktionsZaehler": 0,
+          "kosten": 20,
+          "auswahl": true,
+          "ausgefuehrt": false,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Schmied",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Schmied"
         }
       },
       null,
@@ -161,11 +161,11 @@
       null,
       {
         "ereignis": {
+          "auswahl": false,
+          "ausgefuehrt": false,
           "name": "Die Bushaltestelle.",
           "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Treppe",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Treppe"
         }
       }
     ],
@@ -177,13 +177,13 @@
       {
         "ereignis": {
           "gratisInteraktionen": 1,
-          "kosten": 20,
           "interaktionsZaehler": 0,
+          "kosten": 20,
+          "auswahl": true,
+          "ausgefuehrt": false,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.Haendler",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Haendler"
         }
       },
       null,
@@ -198,11 +198,11 @@
       null,
       {
         "ereignis": {
+          "auswahl": true,
+          "ausgefuehrt": false,
           "name": "Leere Straße.",
           "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
-          "auswahl": true,
-          "klasse": "model.ereignisse.LeererRaum",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.LeererRaum"
         }
       },
       null,
@@ -217,11 +217,11 @@
       null,
       {
         "ereignis": {
+          "auswahl": false,
+          "ausgefuehrt": false,
           "name": "Startpunkt.",
           "beschreibung": "Hier bin ich ausgestiegen, ich sollte mich in der Gegend mal umsehen.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.LeererRaum",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.LeererRaum"
         }
       },
       {
@@ -245,11 +245,11 @@
             "schlafend": true,
             "zaehler": 0,
             "kopie": false,
+            "freundlich": false,
             "id": 0,
             "name": "Gegner",
             "level": 10,
-            "klasse": "model.Gegenspieler",
-            "freundlich": false
+            "klasse": "model.Gegenspieler"
           },
           "spielfeld": {
             "spielfeld": [
@@ -305,11 +305,11 @@
             "zeilen": 6,
             "spalten": 6
           },
+          "auswahl": false,
+          "ausgefuehrt": true,
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Gegner",
-          "ausgefuehrt": false
+          "klasse": "model.ereignisse.Gegner"
         }
       },
       null,
@@ -365,7 +365,7 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 4,
+      "x": 5,
       "y": 4
     }
   }

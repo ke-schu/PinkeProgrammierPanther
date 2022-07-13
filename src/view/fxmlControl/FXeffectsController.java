@@ -14,38 +14,54 @@ import static resources.KonstantenGUI.*;
 
 public class FXeffectsController
 {
-    protected static void glowangriff(StackPane zielFeld, KarteEinheit verteidiger)
+    /**
+     * Methode welche Eine Karte temporaeren aufleuchten laesst und daraufhin ihre Darstellung aktualisiert
+     * @param zielFeld Pane welches aktualisiert wird
+     * @param verteidiger Karte dessen darstellung aktualisiert wird
+     */
+    protected static void glowangriff (StackPane zielFeld,
+                                       KarteEinheit verteidiger)
     {
         Glow glow = new Glow();
         glow.setLevel(GLOW_INTENS);//
-
+        
         zielFeld.setEffect(glow);
-
+        
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.schedule(new TimerTask()
+        {
             @Override
-            public void run() {
+            public void run ()
+            {
                 zielFeld.setEffect(null);
                 Platform.runLater(() ->
-                        {
-                            zielFeld.getChildren().clear();
-                            zielFeld.getChildren().add(new KarteVBox(verteidiger));
-                        });
-
+                                  {
+                                      zielFeld.getChildren().clear();
+                                      zielFeld.getChildren()
+                                              .add(new KarteVBox(
+                                                      verteidiger));
+                                  });
+                
             }
         }, GLOW_DELAY);
-
+        
     }
-    protected static void glowschildbreak(StackPane zielFeld)
+    /**
+     * Methode welche Eine Karte mit einem temporaeren blur-effekt versieht
+     * @param zielFeld feld welches mit einem effekt versehen wird
+     */
+    protected static void glowschildbreak (StackPane zielFeld)
     {
         BoxBlur bb = new BoxBlur();
         zielFeld.setEffect(bb);
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.schedule(new TimerTask()
+        {
             @Override
-            public void run() {
+            public void run ()
+            {
                 zielFeld.setEffect(null);
             }
-        },  BLUR_DELAY);//
+        }, BLUR_DELAY);//
     }
 }

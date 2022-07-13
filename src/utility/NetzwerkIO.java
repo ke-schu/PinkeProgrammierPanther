@@ -13,37 +13,50 @@ import java.net.Socket;
 
 import static resources.Strings.NETZWERK_GESENDET;
 
+/**
+ Diese Klasse ist die abstrakte Oberklasse fuer Server und Client und
+ stellt dafuer Netzwerkfunktionalitaet mit JavaFX-threadfaehigen Services
+ zur Verfuegung.
+ * @param <T> Die Klasse, die ausgetauscht werden soll
+ */
 public abstract class NetzwerkIO<T>
 {
+    protected final Class<T> classType;
+    private final Serialisierung serialisierung;
     protected BufferedReader netIn = null;
     protected PrintWriter netOut = null;
     protected boolean verbunden = false;
-    protected final Class<T> classType;
     protected Socket socket = null;
-    private final Serialisierung serialisierung;
     private ObjectProperty objekt;
     private Service<T> inputService;
-
-    public NetzwerkIO(Class<T> typ)
+    
+    /**
+     Dies ist nur der Superkonstruktor,
+     der nicht direkt instanziiert werden kann.
+     * @param typ der Typ der auszutauschenden Klasse
+     */
+    public NetzwerkIO (Class<T> typ)
     {
         serialisierung = new Serialisierung<T>();
         this.classType = typ;
         objekt = new SimpleObjectProperty(this, classType.getName());
-
+        
         inputService = new Service()
         {
-            @Override protected Task<T> createTask()
+            @Override protected Task<T> createTask ()
             {
                 return new Task()
                 {
-                    @Override protected T call()
+                    @Override protected T call ()
                     {
                         JsonReader reader = new JsonReader(netIn);
-
-                        while(verbunden)
+                        
+                        while (verbunden)
                         {
-                            T objekt = (T) serialisierung.deserialisieren(reader, classType);
-                            if(objekt != null)
+                            T objekt =
+                                    (T) serialisierung.deserialisieren(reader,
+                                                                       classType);
+                            if (objekt != null)
                             {
                                 succeeded();
                                 return objekt;
@@ -51,7 +64,8 @@ public abstract class NetzwerkIO<T>
                             try
                             {
                                 verbunden = netIn.ready();
-                            } catch (IOException e)
+                            }
+                            catch (IOException e)
                             {
                                 break;
                             }
@@ -63,33 +77,52 @@ public abstract class NetzwerkIO<T>
             }
         };
     }
-
-    public abstract void beenden();
-
-    public void senden(T nachricht)
+    
+    /**
+     Beendet den laufenden Server, bzw. laufenden Client und den Input-Task.
+     */
+    public abstract void beenden ();
+    
+    /**
+     Sendet eine Nachricht an den Gespaechspartner.
+     * @param nachricht die zu sendende Nachricht
+     */
+    public void senden (T nachricht)
     {
         String jsonNachricht = serialisierung.serialisieren(nachricht);
-
-        if(nachricht != null)
+        
+        if (nachricht != null)
         {
             netOut.println(jsonNachricht);
             netOut.flush();
         }
-
         KonsolenIO.ausgeben(NETZWERK_GESENDET);
     }
-
-    public Service<T> getInputService()
+    
+    /**
+     Gibt den InputService zurueck, auf dem dauerhaft nach neuen Objekten
+     geschaut wird.
+     * @return den InputService der Klasse
+     */
+    public Service<T> getInputService ()
     {
         return inputService;
     }
-
-    public T getObjekt()
+    
+    /**
+     Gibt das Objekt aus dem Posteingang zurueck
+     * @return ankommendes Objekt
+     */
+    public T getObjekt ()
     {
         return (T) objekt.get();
     }
-
-    public ObjectProperty objektProperty()
+    
+    /**
+     Die die Property von eingehenden Objekten zurueck
+     * @return eingehende ObjekteProperty
+     */
+    public ObjectProperty objektProperty ()
     {
         return objekt;
     }

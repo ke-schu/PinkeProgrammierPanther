@@ -15,8 +15,8 @@ public class Serialisierung<T>
 {
     private Gson meinGson;
     private GsonBuilder meinGsonBuilder;
-
-    public Serialisierung()
+    
+    public Serialisierung ()
     {
         meinGsonBuilder = new GsonBuilder();
         meinGsonBuilder.registerTypeAdapter(KartenDeck.class,
@@ -24,21 +24,23 @@ public class Serialisierung<T>
         meinGsonBuilder.registerTypeAdapter(Ebene.class,
                                             new EbeneSerialisierung());
     }
-
-    public String serialisieren(T element)
+    
+    public String serialisieren (T element)
     {
         meinGsonBuilder.setPrettyPrinting();
         meinGson = meinGsonBuilder.create();
         return meinGson.toJson(element);
     }
-
-    public T deserialisieren(String jsonString, Type typ) throws JsonSyntaxException
+    
+    public T deserialisieren (String jsonString, Type typ)
+            throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
         return (T) meinGson.fromJson(jsonString, typ);
     }
-
-    public T deserialisieren(JsonReader reader, Type typ) throws JsonSyntaxException
+    
+    public T deserialisieren (JsonReader reader, Type typ)
+            throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
         return (T) meinGson.fromJson(reader, typ);

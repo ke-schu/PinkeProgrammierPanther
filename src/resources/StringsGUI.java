@@ -8,7 +8,7 @@ public interface StringsGUI
 {
     String SPIELTITEL = "AbenteuerStadt";
     String SPIELSTAND = "Spielstand";
-
+    
     //  Pfade
     String BILDER_PFAD = "src/view/bilder/";
     String PNG_DATEI_ENDUNG = ".png";
@@ -16,8 +16,8 @@ public interface StringsGUI
     File ICON = new File(ICON_PFAD);
     String HAUPTMENUE_MUSIK = "src/view/mp3/fun-life-112188.mp3";
     String KLICK_SOUND = "src/view/mp3/Klick.wav";
-
-
+    
+    
     //  FXML Pfade
     String FXML_PFADE = "src/view/fxml/";
     String HAUPTMENUE_PFAD = FXML_PFADE + "Hauptmenue.fxml";
@@ -27,16 +27,18 @@ public interface StringsGUI
     String SPIELER_FELD_PFAD = FXML_PFADE + "Spielfeld.fxml";
     String GEGENSPIELER_FELD_PFAD = FXML_PFADE + "Gegenspielerfeld.fxml";
     String SPIELSTAND_PFAD = FXML_PFADE + "Spielstand.fxml";
-
+    
     // CSS Pfade
-    String SPIELSTAND_KARTENDECK_CSS_PFAD = "/view/css/SpielstandKartendeck.css";
-    String SPIELSTAND_ARTEFAKTE_TALENTE_CSS_PFAD = "/view/css/SpielstandArtefakteTalente.css";
-
-
+    String SPIELSTAND_KARTENDECK_CSS_PFAD =
+            "/view/css/SpielstandKartendeck.css";
+    String SPIELSTAND_ARTEFAKTE_TALENTE_CSS_PFAD =
+            "/view/css/SpielstandArtefakteTalente.css";
+    
+    
     //  Aufloesung
     String AUFLOESUNG_GROESSE_HD = "1280x720";
     String AUFLOESUNG_GROESSE_FULLHD = "1920x1080";
-
+    
     //  Strings fuer Ereignisse
     String STYLE_CHARAKTER_NAME = "charakter-name";
     String CHARAKTER_KAUFEN = "Kaufen für %d €";
@@ -49,14 +51,22 @@ public interface StringsGUI
     String TRUHE_AUSFUEHREN_2 = " Gold gefunden! Wie cool.";
     String HEILER_AUSFUEHREN_1 = "Ich hab ";
     String HEILER_AUSFUEHREN_2 = " Lebenspunkte zurueckerhalten";
-    String TEMPEL_AUSFUEHREN = "Wähle die Karte, welche aus deinem Deck entfernt werden soll.";
-    String SCHMIED_AUSFUEHREN = "Wähle die Karte, welche verbessert werden soll";
-    String HAENDLER_AUSFUEHREN = "Wähle die Karte, welche du deinem Deck hinzufügen willst";
+    String TEMPEL_AUSFUEHREN =
+            "Wähle die Karte, welche aus deinem Deck entfernt werden soll.";
+    String SCHMIED_AUSFUEHREN =
+            "Wähle die Karte, welche verbessert werden soll";
+    String HAENDLER_AUSFUEHREN =
+            "Wähle die Karte, welche du deinem Deck hinzufügen willst";
     String ZE_1_AUSGEFUEHRT = "Hier ist nichts...";
-    String ZE_2_AUSGEFUEHRT = "Meine Macht wurde um " + ZE_MACHT_ERHOEHUNG + " erhöht.";
-    String ZE_3_AUSGEFUEHRT = "Mein Mana wurde um " + ZE_MANA_ERHOEHUNG + " erhöht.";
-    String ZE_4_AUSGEFUEHRT = "Meine Lebenspunkte wurden um " + ZE_SCHADEN + " verringert.";
-    String ZE_5_AUSGEFUEHRT = "Ich hab hier diese Waffe gefunden. Wenn ich sie mitnehmen will muss ich aber meine bisherige hier lassen. ";
+    String ZE_2_AUSGEFUEHRT =
+            "Meine Macht wurde um " + ZE_MACHT_ERHOEHUNG + " erhöht.";
+    String ZE_3_AUSGEFUEHRT =
+            "Mein Mana wurde um " + ZE_MANA_ERHOEHUNG + " erhöht.";
+    String ZE_4_AUSGEFUEHRT =
+            "Meine Lebenspunkte wurden um " + ZE_SCHADEN + " verringert.";
+    String ZE_5_AUSGEFUEHRT =
+            "Ich hab hier diese Waffe gefunden. Wenn ich sie mitnehmen will" +
+            " muss ich aber meine bisherige hier lassen. ";
     String MITNEHMEN_BUTTON = "Mitnehmen";
     String HIERLASSEN_BUTTON = "Hierlassen";
     String WAFFE_MACHT = "Macht: ";
@@ -67,12 +77,11 @@ public interface StringsGUI
     String AKTUELLES_GOLD = "Mein aktuelles Gold: ";
     String AKTUELLE_LEBENSPUNKTE = "Mein aktuelles Leben: ";
     String ZU_WENIG_GOLD = "Ich habe zu wenig Gold zum handeln.";
-    String DOPPELPUNKT = ":";
-
+    
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =
             "Zum Spielfeld wechseln hat nicht geklappt.";
-
+    
     //  CSS
     String STYLE_CLASS_ARTEFAKTE_TALENTE = "artefakte-talente-vbox";
     String STYLE_CLASS_CHARAKTER = "charakter-vbox";
@@ -84,7 +93,7 @@ public interface StringsGUI
     String PSEUDO_CLASS_BEINHALTET_SPIELER = "spieler";
     String PSEUDO_CLASS_NICHTIG = "nichtig";
     String PSEUDO_CLASS_ERROR = "error";
-
+    
     // Strings der KarteGrossVBox
     String LEVEL_STAT = "Level: ";
     String LP_STAT = "LP: ";
@@ -93,7 +102,10 @@ public interface StringsGUI
     String VERTEIDIGUNG_STAT = "Verteidigung: ";
     String SCHILD_STAT = "Schild: ";
     String MANA_STAT = "Mana: ";
-
+    
+    // Strings der RaumPane
+    String Zimmer = "zimmer";
+    
     // Strings der Spielstandanzeige
     String GOLD = "Gold: ";
     String DECKNAHME = "Deckname: ";
@@ -101,40 +113,50 @@ public interface StringsGUI
     String ERFAHRUNGSPUNKTE = "EP: ";
     String MANA_MAX = "Mana: ";
     String WAFFEN_ANZEIGE = "Waffe: ";
-
+    
     String CHARME_BESCHREIBUNG = "Charme gibt einen Rabatt bei Händlern";
     String CHARME_NAME = "Charme";
-    String GROSSE_HAND_BESCHREIBUNG = "Erhöht die Kapazität der Kartenhand um +1 Karte.";
+    String GROSSE_HAND_BESCHREIBUNG =
+            "Erhöht die Kapazität der Kartenhand um +1 Karte.";
     String GROSSE_HAND_NAME = "Große Hand";
-    String SCHUTZENGEL_BESCHREIBUNG = "Sollte der Spieler sterben, während der den Schutzengel hat," +
-                                      "so wird er mit der Hälfte des maximalen Leben wiederbelebt." +
-                                      "Das Artefakt Schutzengel ist nur einmal benutzbar.";
+    String SCHUTZENGEL_BESCHREIBUNG =
+            "Sollte der Spieler sterben, während der den Schutzengel hat," +
+            "so wird er mit der Hälfte des maximalen Leben wiederbelebt." +
+            "Das Artefakt Schutzengel ist nur einmal benutzbar.";
     String SCHUTZENGEL_NAME = "Schutzengel";
     String TACKER_NAME = "Tacker";
-    String TACKER_BESCHREIBUNG = "Ein guter Tacker, welcher meine Macht erhöht.";
+    String TACKER_BESCHREIBUNG =
+            "Ein guter Tacker, welcher meine Macht erhöht.";
     String SCHEERE_NAME = "Scheere";
-    String SCHEERE_BESCHREIBUNG = "Eine scharfe Scheere, welche meine Macht deutlich erhöht.";
+    String SCHEERE_BESCHREIBUNG =
+            "Eine scharfe Scheere, welche meine Macht deutlich erhöht.";
     String LINEAL_NAME = "Lineal";
-    String LINEAL_BESCHREIBUNG = "Ein solides Lineal, welcher meine Reichweite erhöht.";
+    String LINEAL_BESCHREIBUNG =
+            "Ein solides Lineal, welcher meine Reichweite erhöht.";
     String FAEUSTE_NAME = "Faust";
-    String FAEUSTE_BESCHREIBUNG = "Meine Fäuste müssen wohl als Waffe reichen";
-
-
-
+    String FAEUSTE_BESCHREIBUNG =
+            "Meine Fäuste müssen wohl als Waffe reichen";
+    
+    
     //  Hilfe
     String HILFE_HAUPTMENUE =
-            "Das hier ist das Hauptmenü. Hier kann über die Knöpfe ein neues " +
+            "Das hier ist das Hauptmenü. Hier kann über die Knöpfe ein " +
+            "neues " +
             "Spiel begonnen werden," +
-            "falls bereits ein Spielstand existiert kann dieser über `Weiter`" +
+            "falls bereits ein Spielstand existiert kann dieser über " +
+            "`Weiter`" +
             " fortgesetzt werden." +
             "In den Einstellungen sind Möglichkeiten um die Lautstärke und " +
             "Fenstergrößen anzupassen." +
-            "Dies ist aber auch später im Spiel selbst über eine Menüleiste " +
+            "Dies ist aber auch später im Spiel selbst über eine Menüleiste" +
+            " " +
             "möglich. Viel Spaß!";
     String HILFE_EINSTELLUNGEN =
-            "Hier können allgemeine Anwendungseinstellungen getätigt werden. " +
+            "Hier können allgemeine Anwendungseinstellungen getätigt werden" +
+            ". " +
             "Über das " +
-            "Fenstergröße-Menü kann die Rahmengröße eingestellt werden. Der " +
+            "Fenstergröße-Menü kann die Rahmengröße eingestellt werden. Der" +
+            " " +
             "Slider kontrolliert die Lautstärke" +
             "aller Sounds dieser Anwendung.";
     String HILFE_CHARAKTERAUSWAHL =

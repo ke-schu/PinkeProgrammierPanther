@@ -16,22 +16,28 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Stack;
 
-import static resources.Strings.*;
-
+import static resources.Strings.CHARAKTER_PFAD;
+import static resources.Strings.JSON_SPIELSTAND_PFAD;
+import static resources.Strings.DATEI_ERSTELLT;
+import static resources.Strings.DATEI_UEBERSCHRIEBEN;
 /**
- * Diese Klasse beinhaltet das Lesen und Schreiben von JSON Dateien.
- */
+ Diese Klasse beinhaltet das Lesen und Schreiben von JSON Dateien. */
 public class JsonIO<T>
 {
     private Serialisierung<T> meineSerialisierung = new Serialisierung();
     private Type typ;
-
-    public JsonIO(Type typ)
+    
+    public JsonIO (Type typ)
     {
         this.typ = typ;
     }
-
-    public void schreibeDatei(T objekt, String dateiPfad) throws IOException
+    
+    public void schreibeDatei (SpielStand spielStand) throws IOException
+    {
+        schreibeDatei((T) spielStand, JSON_SPIELSTAND_PFAD);
+    }
+    
+    public void schreibeDatei (T objekt, String dateiPfad) throws IOException
     {
         File datei = new File(dateiPfad);
         if (datei.createNewFile())
@@ -46,24 +52,24 @@ public class JsonIO<T>
         verfasser.write(meineSerialisierung.serialisieren(objekt));
         verfasser.close();
     }
-
-    public void schreibeDatei(SpielStand spielStand) throws IOException
-    {
-        schreibeDatei((T) spielStand, JSON_SPIELSTAND_PFAD);
-    }
-
-    public void schreibeDatei(Stack<Charakter> charaktere) throws IOException
+    
+    public void schreibeDatei (Stack<Charakter> charaktere) throws IOException
     {
         schreibeDatei((T) charaktere, CHARAKTER_PFAD);
     }
-
-    public void schreibeDatei(KartenDeck deck) throws IOException
+    
+    public void schreibeDatei (KartenDeck deck) throws IOException
     {
         deck.getDatei().createNewFile();
         schreibeDatei((T) deck, deck.getDatei().getAbsolutePath());
     }
-
-    public T leseDatei(String dateiPfad) throws JsonNichtLesbarException
+    
+    public Stack<Charakter> leseCharaktere () throws JsonNichtLesbarException
+    {
+        return (Stack<Charakter>) leseDatei(CHARAKTER_PFAD);
+    }
+    
+    public T leseDatei (String dateiPfad) throws JsonNichtLesbarException
     {
         try
         {
@@ -77,18 +83,14 @@ public class JsonIO<T>
             throw new JsonNichtLesbarException(ex.getMessage(), ex);
         }
     }
-
-    public Stack<Charakter> leseCharaktere() throws JsonNichtLesbarException
-    {
-        return (Stack<Charakter>) leseDatei(CHARAKTER_PFAD);
-    }
-
-    public SpielStand leseSpielstand() throws JsonNichtLesbarException
+    
+    public SpielStand leseSpielstand () throws JsonNichtLesbarException
     {
         return new SpielStand((SpielStand) leseDatei(JSON_SPIELSTAND_PFAD));
     }
-
-    public KartenDeck leseKartenDeck(String pfad) throws JsonNichtLesbarException
+    
+    public KartenDeck leseKartenDeck (String pfad)
+            throws JsonNichtLesbarException
     {
         KartenDeck gelesenesDeck = (KartenDeck) leseDatei(pfad);
         gelesenesDeck.setDatei(new File(pfad));

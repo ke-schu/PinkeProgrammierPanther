@@ -7,26 +7,24 @@ import model.KarteZauber;
 import model.KartenDeck;
 
 /**
- * In dieser Klassen befinden sich Methoden, um mit Instanzen von Karten zu
- * interagieren.
- */
+ In dieser Klassen befinden sich Methoden, um mit Instanzen von Karten zu
+ interagieren. */
 public class KartenController
 {
     /**
-     * Ein leerer Konstruktor mit dem Modifier private um sicherzustellen,
-     * dass keine Instanzen dieser Klasse gebildet werden.
+     Ein leerer Konstruktor mit dem Modifier private um sicherzustellen, dass
+     keine Instanzen dieser Klasse gebildet werden.
      */
-    private KartenController()
+    private KartenController ()
     {
     }
-
+    
     /**
-     * Mit dieser Methode werden die Karten verbessert, dabei wird zwischen
-     * den Klassen unterschieden.
-     *
-     * @param karte Die Karte die verbessert werden soll.
+     Mit dieser Methode werden die Karten verbessert, dabei wird zwischen den
+     Klassen unterschieden.
+     @param karte Die Karte die verbessert werden soll.
      */
-    public static void karteVerbessern(Karte karte)
+    public static void karteVerbessern (Karte karte)
             throws KarteNichtVerbessertException
     {
         if (karte instanceof KarteZauber)
@@ -42,26 +40,24 @@ public class KartenController
             throw new KarteNichtVerbessertException();
         }
     }
-
+    
     /**
-     * Diese Methode formuliert aus, wie Karten des Typs KarteZauber
-     * verbessert werden.
-     *
-     * @param karteZauber die zu verbessernde Karte.
+     Diese Methode formuliert aus, wie Karten des Typs KarteZauber verbessert
+     werden.
+     @param karteZauber die zu verbessernde Karte.
      */
-    private static void karteVerbessern(KarteZauber karteZauber)
+    private static void karteVerbessern (KarteZauber karteZauber)
     {
         //  TODO
         throw new KarteNichtVerbessertException();
     }
-
+    
     /**
-     * Diese Methode formuliert aus, wie Karten des Typs KarteEinheit
-     * verbessert werden.
-     *
-     * @param einheit die zu verbessernde Karte.
+     Diese Methode formuliert aus, wie Karten des Typs KarteEinheit verbessert
+     werden.
+     @param einheit die zu verbessernde Karte.
      */
-    private static void karteVerbessern(KarteEinheit einheit)
+    private static void karteVerbessern (KarteEinheit einheit)
     {
         switch (einheit.getTyp())
         {
@@ -71,21 +67,17 @@ public class KartenController
             case FERNKAEMPFER:
                 fernkaempferVerbessern(einheit);
                 break;
-            case BLOCKADE:
-                blockadeVerbessern(einheit);
-                break;
             default:
                 throw new KarteNichtVerbessertException();
         }
     }
-
+    
     /**
-     * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs
-     * Nahkaempfer verbessert werden.
-     *
-     * @param einheit Die zu verbessernde Einheit.
+     Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs
+     Nahkaempfer verbessert werden.
+     @param einheit Die zu verbessernde Einheit.
      */
-    private static void nahkaempferVerbessern(KarteEinheit einheit)
+    private static void nahkaempferVerbessern (KarteEinheit einheit)
     {
         if (einheit.getLevel() == 3)
         {
@@ -104,14 +96,30 @@ public class KartenController
             throw new KarteNichtVerbessertException();
         }
     }
-
+    
     /**
-     * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs
-     * Fernkaempfer verbessert werden.
-     *
-     * @param einheit Die zu verbessernde Einheit.
+     Diese Methode formuliert aus, wie sich eine Einheit verbessert.
+     @param einheit Die zu verbessernde Einheit.
+     @param lp Die Menge an lp, die die Einheit dazu bekommen soll.
+     @param macht Die Menge an Macht, die die Einheit dazu bekommen soll.
+     @param reichweite Die Menge an Reichweite, die die Einheit dazu bekommen
+     soll.
      */
-    private static void fernkaempferVerbessern(KarteEinheit einheit)
+    private static void einheitVerbessern (KarteEinheit einheit, int lp,
+                                           int macht, int reichweite)
+    {
+        einheit.setLebenspunkte(einheit.getLebenspunkte() + lp);
+        einheit.setMacht(einheit.getMacht() + macht);
+        einheit.setReichweite(einheit.getReichweite() + reichweite);
+        einheit.setLevel(einheit.getLevel() + 1);
+    }
+    
+    /**
+     Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs
+     Fernkaempfer verbessert werden.
+     @param einheit Die zu verbessernde Einheit.
+     */
+    private static void fernkaempferVerbessern (KarteEinheit einheit)
     {
         if (einheit.getLevel() == 3)
         {
@@ -120,7 +128,7 @@ public class KartenController
         else if (einheit.getLevel() == 2)
         {
             einheitVerbessern(einheit, 2, 0, 1);
-
+            
         }
         else if (einheit.getLevel() == 1)
         {
@@ -131,53 +139,21 @@ public class KartenController
             throw new KarteNichtVerbessertException();
         }
     }
-
+    
     /**
-     * Diese Methode formuliert aus, wie Instanzen von KarteEinheit des Typs
-     * Blockade verbessert werden.
-     *
-     * @param einheit Die zu verbessernde Einheit.
+     Diese Methode dient dazu eine Karte entweder in das Deck des Players oder
+     das Deck des DungeonMasters einzuordnen.
+     @param karte Die einzuordnende Karte.
+     @param spielerDeck Das Deck des Spielers.
+     @param gegnerDeck Das Deck des Gegenspielers.
      */
-    private static void blockadeVerbessern(KarteEinheit einheit)
-    {
-        //  TODO
-        throw new KarteNichtVerbessertException();
-    }
-
-    /**
-     * Diese Methode formuliert aus, wie sich eine Einheit verbessert.
-     *
-     * @param einheit    Die zu verbessernde Einheit.
-     * @param lp         Die Menge an lp, die die Einheit dazu bekommen soll.
-     * @param macht      Die Menge an Macht, die die Einheit dazu bekommen soll.
-     * @param reichweite Die Menge an Reichweite, die die Einheit dazu
-     *                   bekommen soll.
-     */
-    private static void einheitVerbessern(KarteEinheit einheit, int lp,
-                                          int macht, int reichweite)
-    {
-        einheit.setLebenspunkte(einheit.getLebenspunkte() + lp);
-        einheit.setMacht(einheit.getMacht() + macht);
-        einheit.setReichweite(einheit.getReichweite() + reichweite);
-        einheit.setLevel(einheit.getLevel() + 1);
-    }
-
-    /**
-     * Diese Methode dient dazu eine Karte entweder in das Deck des Players
-     * oder das Deck des DungeonMasters
-     * einzuordnen.
-     *
-     * @param karte       Die einzuordnende Karte.
-     * @param spielerDeck Das Deck des Players.
-     * @param masterDeck  Das Deck des DungeonMaster.
-     */
-    public static void karteInDeckEinordnen(Karte karte, KartenDeck spielerDeck,
-                                            KartenDeck masterDeck)
+    public static void karteInDeckEinordnen (
+            Karte karte, KartenDeck spielerDeck, KartenDeck gegnerDeck)
     {
         if (karte instanceof KarteEinheit)
         {
             KarteEinheit meinekarte = (KarteEinheit) karte;
-
+            
             if (meinekarte.getKopie())
             {
                 ;
@@ -189,8 +165,8 @@ public class KartenController
             }
             else
             {
-                masterDeck.push(karte);
-                KartenDeckController.mischen(masterDeck);
+                gegnerDeck.push(karte);
+                KartenDeckController.mischen(gegnerDeck);
             }
         }
         else
@@ -202,8 +178,8 @@ public class KartenController
             }
             else
             {
-                masterDeck.push(karte);
-                KartenDeckController.mischen(masterDeck);
+                gegnerDeck.push(karte);
+                KartenDeckController.mischen(gegnerDeck);
             }
         }
     }

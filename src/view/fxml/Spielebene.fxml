@@ -4,31 +4,34 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.*?>
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/Ebene.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.fxmlControl.SpielebeneGuiController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/Ebene.css"
+            xmlns="http://javafx.com/javafx/18" fx:controller="view.fxmlControl.SpielebeneGuiController">
     <bottom>
         <HBox prefHeight="0.0" prefWidth="0.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
             <children>
-                <StackPane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                <StackPane alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="150.0" prefWidth="200.0"
+                           HBox.hgrow="ALWAYS">
                     <children>
-                        <Label fx:id="spielerLabel" alignment="CENTER" contentDisplay="CENTER" text="" />
+                        <Label fx:id="spielerLabel" alignment="CENTER" contentDisplay="CENTER" text=""/>
                     </children>
                 </StackPane>
             </children>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
         </HBox>
     </bottom>
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0"
+                    BorderPane.alignment="CENTER">
             <content>
-                <GridPane fx:id="spielebenenGitter" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" />
+                <GridPane fx:id="spielebenenGitter" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity"/>
             </content>
             <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
             </padding>
         </ScrollPane>
     </center>
@@ -37,12 +40,14 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Allgemein">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#zurueckHauptmenue" text="Zurück zum Hauptmenü" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#zurueckHauptmenue" text="Zurück zum Hauptmenü"/>
+                        <SeparatorMenuItem mnemonicParsing="false"/>
                         <Menu mnemonicParsing="false" text="Einstellungen">
                             <items>
-                                <MenuItem mnemonicParsing="false" onAction="#wechselAufloesungHD" text="Fenstergröße HD" />
-                                <MenuItem mnemonicParsing="false" onAction="#wechselAufloesungFullHD" text="Fenstergröße FHD" />
+                                <MenuItem mnemonicParsing="false" onAction="#wechselAufloesungHD"
+                                          text="Fenstergröße HD"/>
+                                <MenuItem mnemonicParsing="false" onAction="#wechselAufloesungFullHD"
+                                          text="Fenstergröße FHD"/>
                             </items>
                         </Menu>
                     </items>
@@ -51,13 +56,14 @@
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#spielSpeichern" text="Speichern">
                             <accelerator>
-                                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP"
+                                                    shortcut="UP"/>
                             </accelerator>
                         </MenuItem>
-                        <MenuItem mnemonicParsing="false" onAction="#spielstandAnzeigen" text="Anzeigen" />
+                        <MenuItem mnemonicParsing="false" onAction="#spielstandAnzeigen" text="Anzeigen"/>
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Hilfe" />
+                <Menu mnemonicParsing="false" text="Hilfe"/>
             </menus>
         </MenuBar>
     </top>

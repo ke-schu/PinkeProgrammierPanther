@@ -1,39 +1,40 @@
 package resources;
 
-import static resources.StringsGUI.*;
+import static resources.StringsGUI.SCHUTZENGEL_BESCHREIBUNG;
+import static resources.StringsGUI.SCHUTZENGEL_NAME;
 
 /**
- * Die folgenden Artefakte kann der Spieler im Laufe des Spiels erhalten.
- */
+ Das Enum beinhaltet Artefakte die der Spieler im Laufe des Spiels erhalten. */
 public enum Artefakte
 {
-    SCHUTZENGEL(SCHUTZENGEL_NAME,SCHUTZENGEL_BESCHREIBUNG);
+    SCHUTZENGEL(SCHUTZENGEL_NAME, SCHUTZENGEL_BESCHREIBUNG);
+    
     private final String NAME;
     private final String BESCHREIBUNG;
-
+    
     /**
-     * Konstruktor der Variablen des Enums
-     * @param name String, welcher der Name des Artefaktes ist.
-     * @param beschreibung String, welcher die Beschreibung des Artefaktes ist.
+     Konstruktor der Variablen des Enums
+     @param name String, welcher der Name des Artefaktes ist.
+     @param beschreibung String, welcher die Beschreibung des Artefaktes ist.
      */
     Artefakte (String name, String beschreibung)
     {
-        this.NAME         = name;
+        this.NAME = name;
         this.BESCHREIBUNG = beschreibung;
     }
-
+    
     /**
-     * Getter des Attributes Name.
-     * @return gibt den String des Attributes name wieder.
+     Getter des Attributes Name.
+     @return gibt den String des Attributes name wieder.
      */
     public String getNAME ()
     {
         return NAME;
     }
-
+    
     /**
-     * Getter des Attributes Beschreibung.
-     * @return gibt den String des Attributes beschreibung wieder.
+     Getter des Attributes Beschreibung.
+     @return gibt den String des Attributes beschreibung wieder.
      */
     public String getBESCHREIBUNG ()
     {

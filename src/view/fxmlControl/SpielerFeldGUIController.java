@@ -1,8 +1,6 @@
 package view.fxmlControl;
 
 import control.KartenEinheitController;
-import control.RundenController;
-import model.Spielstatus;
 import exceptions.JsonNichtLesbarException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -12,6 +10,7 @@ import javafx.event.EventHandler;
 import model.KartenHand;
 import model.ManaTank;
 import model.SpielFeld;
+import model.Spielstatus;
 import utility.KonsolenIO;
 import utility.Server;
 
@@ -31,68 +30,30 @@ public class SpielerFeldGUIController extends FeldGuiController
         ladeSpielfeld(spielfeld, true);
         new Thread(new NetzwerkTask()).start();
     }
-
-    private class NetzwerkTask extends Task
-    {
-        @Override protected Void call() throws Exception
-        {
-            SpielstatusKommunikation =
-                    new Server(SPIELSTATUS_PORT, Spielstatus.class);
-
-            aktualisierungsenden();
-
-            SpielstatusKommunikation.objektProperty().addListener(
-                    new ChangeListener()
-                    {
-                        @Override
-                        public void changed(ObservableValue observableValue,
-                                            Object o, Object t1)
-                        {
-                            updateSpielStatus(SpielstatusKommunikation.getObjekt());
-                            SpielstatusKommunikation.getInputService().restart();
-                        }
-                    });
-
-            SpielstatusKommunikation.getInputService().setOnSucceeded(
-                new EventHandler<WorkerStateEvent>()
-                {
-                    @Override public void handle(
-                            WorkerStateEvent workerStateEvent)
-                    {
-                        updateSpielStatus(
-                                SpielstatusKommunikation.getInputService().getValue());
-                        SpielstatusKommunikation.getInputService().restart();
-                        karteInHandEinfuegen();
-                    }
-                });
-
-            SpielstatusKommunikation.getInputService().start();
-            return null;
-        }
-    }
-
+    
     @Override
     public void initalisieren ()
     {
         try
         {
-            spiel      = spielStandIO.leseSpielstand();
-
-            spieler    = spiel.getSpieler();
+            spiel = spielStandIO.leseSpielstand();
+            
+            spieler = spiel.getSpieler();
             spielerDeck = spiel.getSpieldeckSpieler();
-
+            
             gegenspieler = spiel.getGegenSpieler();
             gegenspielerDeck = spiel.getSpieldeckGegner();
-
+            
             kartenHand = new KartenHand(spieler);
             kartenHand.handZiehen(spielerDeck);
-
+            
             spielfeld = new SpielFeld();
             manaTank = new ManaTank(spieler);
-
-            KartenEinheitController.beschwoerenHelden(spieler,spielfeld);
-            KartenEinheitController.beschwoerenHelden(gegenspieler,spielfeld);
-
+            
+            KartenEinheitController.beschwoerenHelden(spieler, spielfeld);
+            KartenEinheitController.beschwoerenHelden(gegenspieler,
+                                                      spielfeld);
+            
             Manabar.setStyle("-fx-accent: blue ;");
             manaMaximum = manaTank.getMana();
             double manaWert = manaMaximum / manaTank.getMana();
@@ -102,6 +63,52 @@ public class SpielerFeldGUIController extends FeldGuiController
         catch (JsonNichtLesbarException e)
         {
             KonsolenIO.ausgeben(e.getMessage());
+        }
+    }
+    
+    /**
+     Klasse, welche die Kommunikation zwischen Server und Client regelt und den Spielstatus aktuell haelt
+     */
+    private class NetzwerkTask extends Task
+    {
+        @Override protected Void call () throws Exception
+        {
+            SpielstatusKommunikation =
+                    new Server(SPIELSTATUS_PORT, Spielstatus.class);
+            
+            aktualisierungsenden();
+            
+            SpielstatusKommunikation.objektProperty().addListener(
+                    new ChangeListener()
+                    {
+                        @Override
+                        public void changed (ObservableValue observableValue,
+                                             Object o, Object t1)
+                        {
+                            updateSpielStatus(
+                                    SpielstatusKommunikation.getObjekt());
+                            SpielstatusKommunikation.getInputService()
+                                                    .restart();
+                        }
+                    });
+            
+            SpielstatusKommunikation.getInputService().setOnSucceeded(
+                    new EventHandler<WorkerStateEvent>()
+                    {
+                        @Override public void handle (
+                                WorkerStateEvent workerStateEvent)
+                        {
+                            updateSpielStatus(
+                                    SpielstatusKommunikation.getInputService()
+                                                            .getValue());
+                            SpielstatusKommunikation.getInputService()
+                                                    .restart();
+                            karteInHandEinfuegen();
+                        }
+                    });
+            
+            SpielstatusKommunikation.getInputService().start();
+            return null;
         }
     }
 }
