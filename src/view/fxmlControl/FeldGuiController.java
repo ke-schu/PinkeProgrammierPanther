@@ -2,6 +2,7 @@ package view.fxmlControl;
 
 import control.*;
 import exceptions.JsonNichtLesbarException;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Effect;
@@ -255,39 +256,49 @@ public abstract class FeldGuiController extends GuiController
 
         if(angreifer instanceof KarteZauber)
         {
-            zauberKarteAusspielen((KarteZauber) angreifer, verteidiger,kartenHand, angreiferposition,  spielfeld, spielerDeck, gegenspielerDeck );
-            kartenhandGitter.getChildren().remove(quellePaneHand);
-            FXeffectsController.glowangriff(zielFeld);
+            int rueckmeldung;
+            rueckmeldung =zauberKarteAusspielen((KarteZauber) angreifer, verteidiger,kartenHand, angreiferposition,  spielfeld, spielerDeck, gegenspielerDeck );
+
+
+            if(rueckmeldung==RUECKMELDUNG_SCHADEN)
+            {
+                kartenhandGitter.getChildren().remove(quellePaneHand);
+                FXeffectsController.glowangriff(zielFeld, verteidiger);
+            }
+            if(rueckmeldung == RUECKMELDUNG_GESTORBEN)
+            {
+                ladeSpielfeld(spielfeld, false);
+                kartenhandGitter.getChildren().remove(quellePaneHand);
+            }
         }
         aktualisierungsenden ();
-        //ladeSpielfeld(spielfeld, false);
-
+        paneQuellenNullNetzen();
     }
+
 
     protected void einheitangreifen(StackPane zielFeld)
     {
         KarteEinheit angreifer = spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
         KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
 
-        int rückmeldung = EinheitenController.einheitenAngreifenMitEinheiten(binSpieler, spielfeld, spielerDeck, gegenspielerDeck
+        int rueckmeldung = EinheitenController.einheitenAngreifenMitEinheiten(binSpieler, spielfeld, spielerDeck, gegenspielerDeck
                                                             ,angreifer, verteidiger);
 
         //überprüfen ob angriff erfolgreich war
-        if(rückmeldung==RUECKMELDUNG_SCHADEN)
+        if(rueckmeldung==RUECKMELDUNG_SCHADEN)
         {
-            FXeffectsController.glowangriff(zielFeld);
+            FXeffectsController.glowangriff(zielFeld,verteidiger);
         }
-        if(rückmeldung==RUECKMELDUNG_SCHILDBREAK)
+        if(rueckmeldung==RUECKMELDUNG_SCHILDBREAK)
         {
             FXeffectsController.glowschildbreak(zielFeld);
         }
-        if(rückmeldung==RUECKMELDUNG_GESTORBEN)
+        if(rueckmeldung==RUECKMELDUNG_GESTORBEN)
         {
             ladeSpielfeld(spielfeld, false);
         }
         aktualisierungsenden();
         paneQuellenNullNetzen();
-
     }
 
     protected void einheitBewegen(StackPane zielFeld)

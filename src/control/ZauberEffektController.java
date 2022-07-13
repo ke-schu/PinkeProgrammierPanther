@@ -29,7 +29,7 @@ public class ZauberEffektController
                                              KartenDeck masterDeck)
 
     {
-        hand.setElement(handposition, null);
+
         int rueckmeldung = RUECKMELDUNG_ERFOLGLOS;
 
         switch (ausloeser.getZeffekt())
@@ -45,6 +45,10 @@ public class ZauberEffektController
                 break;
             default:
 
+        }
+        if(rueckmeldung != RUECKMELDUNG_ERFOLGLOS)
+        {
+            hand.setElement(handposition, null);
         }
         return rueckmeldung;
     }
