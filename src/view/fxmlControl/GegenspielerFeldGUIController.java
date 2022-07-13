@@ -38,6 +38,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         binSpieler = false;
+        //karteInHandEinfuegen();
     }
 
     @FXML
@@ -97,9 +98,13 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     @Override
     public void initalisieren ()
     {
-
+        if(RundenController.getZugZaehler()==1)
+        {
             kartenHand = new KartenHand(gegenspieler);
             kartenHand.handZiehen(gegenspielerDeck);
+        }
+
+            //kartenHand.handZiehen(gegenspielerDeck);
             manaTank = new ManaTank(gegenspieler);
             Manabar.setStyle("-fx-accent: blue;");
             manaMaximum = manaTank.getMana();

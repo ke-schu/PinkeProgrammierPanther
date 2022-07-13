@@ -241,6 +241,13 @@ public abstract class FeldGuiController extends GuiController
         return new Position(spielfeldGitter.getColumnIndex(feld),spielfeldGitter.getRowIndex(feld));
     }
 
+    private void paneQuellenNullNetzen()
+    {
+        quellePaneFeld = null;
+        quellePaneHand = null;
+    }
+
+
     protected void einheitangreifenzauber(StackPane zielFeld)
     {
         int angreiferposition = spielfeldGitter.getColumnIndex(quellePaneHand);
@@ -254,6 +261,7 @@ public abstract class FeldGuiController extends GuiController
         aktualisierungsenden ();
         ladeSpielfeld(spielfeld, false);
         kartenhandGitter.getChildren().remove(quellePaneHand);
+
     }
 
     protected void einheitangreifen(StackPane zielFeld)
@@ -301,6 +309,7 @@ public abstract class FeldGuiController extends GuiController
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
             aktualisierungsenden ();
+
         }
     }
 
@@ -362,6 +371,7 @@ public abstract class FeldGuiController extends GuiController
             double barWert = manaWert / manaMaximum;
             Manabar.setProgress(barWert);
             aktualisierungsenden ();
+
         }
     }
 
