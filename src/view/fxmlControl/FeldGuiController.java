@@ -413,11 +413,11 @@ public abstract class FeldGuiController extends GuiController
     {
         try
         {
-            SpielStand alterSpielstand = spielStandIO.leseSpielstand();
-            Gegenspieler gegner = alterSpielstand.getGegenSpieler();
-            int gold = alterSpielstand.getGold();
-            spiel = new SpielStand(gold, spieler, gegner);
-            spielStandIO.schreibeDatei(spiel);
+            //SpielStand alterSpielstand = spielStandIO.leseSpielstand();
+            //Gegenspieler gegner = alterSpielstand.getGegenSpieler();
+            //int gold = alterSpielstand.getGold();
+            //spiel = new SpielStand(gold, spieler, gegner);
+            //spielStandIO.schreibeDatei(spiel);
             //Hallo
         }
         catch (IOException e)
