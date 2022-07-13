@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 import static resources.Konstanten.SPIELSTATUS_PORT;
 import static resources.StringsGUI.PSEUDO_CLASS_ERROR;
 
+/**
+ Controllerklasse, welche den View auf das Spielfeld des Gegenspielers kontrolliert
+ */
 public class GegenspielerFeldGUIController extends FeldGuiController
 {
     @FXML TextField hostnameFeld;

@@ -11,7 +11,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static resources.KonstantenGUI.*;
-
+/**
+ * Controllerklasse welche die visuelle rueckmeldung von Karten auf dem aktuellen Spielfeld kontrolliert
+ */
 public class FXeffectsController
 {
     /**

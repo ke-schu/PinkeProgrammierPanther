@@ -32,6 +32,9 @@ import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
+/**
+ Controllerklasse, welche den View auf das Spielfeld kontrolliert
+ */
 public abstract class FeldGuiController extends GuiController
 {
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;

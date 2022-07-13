@@ -1,5 +1,8 @@
 package model;
 
+/**
+ Klasse welche die Informationen eines Kampfes als Spielstatus sammelt
+ */
 public class Spielstatus
 {
     private Spieler spieler;
