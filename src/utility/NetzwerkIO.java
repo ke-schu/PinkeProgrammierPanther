@@ -12,7 +12,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 import static resources.Strings.NETZWERK_GESENDET;
-import static resources.Strings.NETZWERK_GETRENNT;
 
 public abstract class NetzwerkIO<T>
 {
@@ -23,7 +22,7 @@ public abstract class NetzwerkIO<T>
     protected Socket socket = null;
     private final Serialisierung serialisierung;
     private ObjectProperty objekt;
-    protected Service<T> inputService;
+    private Service<T> inputService;
 
     public NetzwerkIO(Class<T> typ)
     {

@@ -48,6 +48,6 @@ public class Server<T> extends NetzwerkIO<T>
             e.printStackTrace();
         }
         KonsolenIO.ausgeben(NETZWERK_GETRENNT);
-        inputService.cancel();
+        this.getInputService().cancel();
     }
 }
