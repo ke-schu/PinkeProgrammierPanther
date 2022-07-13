@@ -23,7 +23,7 @@ public abstract class NetzwerkIO<T>
     protected Socket socket = null;
     private final Serialisierung serialisierung;
     private ObjectProperty objekt;
-    private Service<T> inputService;
+    protected Service<T> inputService;
 
     public NetzwerkIO(Class<T> typ)
     {
@@ -49,8 +49,15 @@ public abstract class NetzwerkIO<T>
                                 succeeded();
                                 return objekt;
                             }
-                            verbunden = socket.isConnected();
+                            try
+                            {
+                                verbunden = netIn.ready();
+                            } catch (IOException e)
+                            {
+                                break;
+                            }
                         }
+                        beenden();
                         return null;
                     }
                 };
@@ -58,21 +65,7 @@ public abstract class NetzwerkIO<T>
         };
     }
 
-    public void beenden()
-    {
-        try
-        {
-            verbunden = false;
-            netIn.close();
-            netOut.close();
-            socket.close();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        KonsolenIO.ausgeben(NETZWERK_GETRENNT);
-    }
+    public abstract void beenden();
 
     public void senden(T nachricht)
     {

@@ -3,8 +3,7 @@ package utility;
 import java.io.*;
 import java.net.ServerSocket;
 
-import static resources.Strings.NETZWERK_VERBUNDEN;
-import static resources.Strings.NETZWERK_WARTE;
+import static resources.Strings.*;
 
 public class Server<T> extends NetzwerkIO<T>
 {
@@ -34,5 +33,21 @@ public class Server<T> extends NetzwerkIO<T>
             ex.printStackTrace();
             beenden();
         }
+    }
+
+    public void beenden()
+    {
+        try
+        {
+            socket.close();
+            server.close();
+            netOut.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        KonsolenIO.ausgeben(NETZWERK_GETRENNT);
+        inputService.cancel();
     }
 }

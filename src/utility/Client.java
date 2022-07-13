@@ -3,6 +3,8 @@ package utility;
 import java.io.*;
 import java.net.Socket;
 
+import static resources.Strings.NETZWERK_GETRENNT;
+
 
 public class Client<T> extends NetzwerkIO<T>
 {
@@ -26,5 +28,20 @@ public class Client<T> extends NetzwerkIO<T>
             KonsolenIO.ausgeben("Fehler:" + e.getMessage());
             beenden();
         }
+    }
+
+    public void beenden()
+    {
+        try
+        {
+            socket.close();
+            netOut.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        KonsolenIO.ausgeben(NETZWERK_GETRENNT);
+        inputService.cancel();
     }
 }

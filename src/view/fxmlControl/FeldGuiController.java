@@ -441,6 +441,7 @@ public abstract class FeldGuiController extends GuiController
         super.setStage(((Stage) menueLeiste.getScene().getWindow()));
         super.getStage().setScene(scene);
         super.getStage().show();
+        SpielstatusKommunikation.beenden();
     }
 
     /**

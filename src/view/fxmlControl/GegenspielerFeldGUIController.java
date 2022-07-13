@@ -71,9 +71,13 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         public void changed(ObservableValue observableValue,
                                             Object o, Object t1)
                         {
-                            updateSpielStatus(SpielstatusKommunikation.getObjekt());
+                            Spielstatus postEingang = SpielstatusKommunikation.getInputService().getValue();
+                            if(postEingang != null)
+                            {
+                                updateSpielStatus(postEingang);
+                                initalisieren();
+                            }
                             SpielstatusKommunikation.getInputService().restart();
-                            initalisieren();
                         }
                     });
 
@@ -83,10 +87,13 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                         @Override public void handle(
                                 WorkerStateEvent workerStateEvent)
                         {
-                            updateSpielStatus(
-                                    SpielstatusKommunikation.getInputService().getValue());
-                            SpielstatusKommunikation.getInputService().restart();
+                            Spielstatus postEingang = SpielstatusKommunikation.getInputService().getValue();
+                            if(postEingang != null)
+                            {
+                                updateSpielStatus(postEingang);
                                 initalisieren();
+                            }
+                            SpielstatusKommunikation.getInputService().restart();
                         }
                     });
 
