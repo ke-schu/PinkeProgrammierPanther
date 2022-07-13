@@ -157,7 +157,7 @@ public abstract class FeldGuiController extends GuiController
             KartenDeckController.mischen(gegenspielerDeck);
             karteInHandEinfuegen();
         }
-        RundenController.zugBeenden(spielfeld, spielerDeck, gegenspielerDeck);
+        RundenController.zugBeenden(spielfeld);
         warten.setVisible(!(RundenController.getDran() == binSpieler));
         //warten.setVisible(!RundenController.getDran());
 
@@ -278,7 +278,7 @@ public abstract class FeldGuiController extends GuiController
             ladeSpielfeld(spielfeld, false);
         }
         aktualisierungsenden();
-        ladeSpielfeld(spielfeld, false);
+
     }
 
     protected void einheitBewegen(StackPane zielFeld)

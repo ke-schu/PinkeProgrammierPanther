@@ -184,7 +184,7 @@ public class SpielzugTest
     public static void zugBeenden()
     {
         //daraufhin wird der zug beendet und
-        RundenController.zugBeenden(meinfeld, meindeck, masterdeck);
+        RundenController.zugBeenden(meinfeld);
         KonsolenIO.ausgeben(POSITIONS_ANGABE_NULL_EINS_ENDE +
                             meinfeld.getSpielfeldplatz(ZAHL_1, ZAHL_0) +
                             ZEILENUMBRUCH);

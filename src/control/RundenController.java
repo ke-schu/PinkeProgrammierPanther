@@ -25,15 +25,11 @@ public class RundenController
      * Beendet eine Runde und zaehlt dabei den Zugzaehler hoch.
      *
      * @param feld        Feld aus dem die Runde gespielt wird.
-     * @param spielerDeck Kartendeck des Spielers.
-     * @param masterDeck  Kartendeck des Dungeonmasters.
      */
-    public static void zugBeenden(SpielFeld feld, KartenDeck spielerDeck,
-                                  KartenDeck masterDeck)
+    public static void zugBeenden(SpielFeld feld)
     {
         zugZaehler++;
-
-        feldAufraeumen(feld, spielerDeck, masterDeck);
+        //feldAufraeumen(feld, spielerDeck, masterDeck);
         beweglichkeitAuffrischen(feld);
         aufwecken(feld);
     }
@@ -170,9 +166,9 @@ public class RundenController
         {
             for (int j = 0; j < feld.getSpalten(); j++)
             {
-                if (feld.getSpielfeldplatz(i, j) != null)
+                if (feld.getSpielfeldplatz(j, i) != null)
                 {
-                    feld.getSpielfeldplatz(i, j).setSchlafend(false);
+                    feld.getSpielfeldplatz(j, i).setSchlafend(false);
                 }
             }
         }

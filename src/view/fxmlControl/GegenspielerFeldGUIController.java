@@ -1,6 +1,7 @@
 package view.fxmlControl;
 
-import control.Spielstatus;
+import control.RundenController;
+import model.Spielstatus;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,6 +23,7 @@ import utility.UtilityController;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 import static resources.Konstanten.SPIELSTATUS_PORT;
 import static resources.StringsGUI.PSEUDO_CLASS_ERROR;
@@ -97,7 +99,11 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     {
 
             kartenHand = new KartenHand(gegenspieler);
-            kartenHand.handZiehen(gegenspielerDeck);
+            if(RundenController.getZugZaehler() == 0)
+            {
+                kartenHand.handZiehen(gegenspielerDeck);
+            }
+
             manaTank = new ManaTank(gegenspieler);
             Manabar.setStyle("-fx-accent: blue;");
             manaMaximum = manaTank.getMana();
