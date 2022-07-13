@@ -3,6 +3,14 @@
     -fx-background-size: cover;
 }
 
+.root .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.root .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
 .button {
     -fx-background-color: white;
     -fx-text-fill: "000000";
@@ -57,9 +65,20 @@
 }
 
 #kartenDeck {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
     -fx-border-color: black;
     -fx-border-radius: 10;
     -fx-padding: 20;
+}
+
+#kartenDeckBezeichnung {
+    -fx-font-size: 16;
+}
+
+#karten {
+    -fx-padding: 10 0 0 0;
+    -fx-spacing: 10;
 }
 
 #gold {

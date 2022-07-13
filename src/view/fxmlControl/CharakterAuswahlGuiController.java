@@ -35,6 +35,8 @@ public class CharakterAuswahlGuiController extends GuiController
 {
     @FXML HBox charaktere;
     @FXML VBox kartenDeck;
+    @FXML Label kartenDeckBezeichnung;
+    @FXML VBox karten;
     @FXML Button spielButton;
     @FXML Label gold;
     private ObjectProperty<Charakter> aktiverCharakter =
@@ -84,15 +86,12 @@ public class CharakterAuswahlGuiController extends GuiController
         {
             spielButton.setDisable(false);
         }
-        kartenDeck.getChildren().clear();
-        Label deckBezeichnung = new Label(
-                aktiverCharakter.get().getStartDeck().getDeckBezeichnung());
-        deckBezeichnung.setFont(Font.font("Arial", FontWeight.EXTRA_BOLD, 16));
-        kartenDeck.getChildren().add(deckBezeichnung);
+        karten.getChildren().clear();
+        kartenDeckBezeichnung.setText(aktiverCharakter.get().getStartDeck().getDeckBezeichnung());
         for (int i = 0; i < aktiverCharakter.get().getStartDeck().size(); i++)
         {
-            kartenDeck.getChildren().add(new Label(
-                    aktiverCharakter.get().getStartDeck().get(i).getName()));
+            String bezeichnung = (i+1) + ". " + aktiverCharakter.get().getStartDeck().get(i).getName();
+            karten.getChildren().add(new Label(bezeichnung));
         }
     }
 
