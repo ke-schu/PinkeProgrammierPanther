@@ -233,6 +233,7 @@ public class SpielebeneGuiController extends GuiController
                 {
                     if(((Mensch) ereignis).getKosten() <= spiel.getGold() || ((Mensch) ereignis).pruefeGratisInteraktion())
                     {
+                        ereignis.setAuswahl(true);
                         ereignisGuiAusfuehren(ereignis, arg0);
                     }
                     else
@@ -434,6 +435,14 @@ public class SpielebeneGuiController extends GuiController
         spielstandPopUp.setScene(popupScene);
         spielstandPopUp.setResizable(false);
         spielstandPopUp.setAlwaysOnTop(true);
+        try
+        {
+            spielStandIO.schreibeDatei(spiel);
+        }
+        catch (IOException e)
+        {
+            KonsolenIO.ausgeben(e.getMessage());
+        }
         spielstandPopUp.show();
     }
 
@@ -587,7 +596,7 @@ public class SpielebeneGuiController extends GuiController
         spane.setContent(pane);
         for (int i = 0; h < k; i++)
         {
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < SPALTENAHNZAHL_KARTENDECK_ANZEIGE && h < k; j++)
             {
                 VBox karte = new KarteGrossVBox(spiel.getSpieldeckSpieler().get(h));
                 pane.add((karte), j, i);
@@ -639,7 +648,7 @@ public class SpielebeneGuiController extends GuiController
         spane.setContent(pane);
         for (int i = 0; h < k; i++)
         {
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < SPALTENAHNZAHL_KARTENDECK_ANZEIGE && h < k; j++)
             {
                 VBox karte = new KarteGrossVBox(spiel.getSpieldeckSpieler().get(h));
                 pane.add((karte), j, i);
@@ -681,57 +690,57 @@ public class SpielebeneGuiController extends GuiController
      */
     private void kartenDeckAnzeigenHaendler (Ereignis ereignis, ActionEvent event)
     {
-        int k = spiel.getSpieldeckSpieler().size();
-        int h = 0;
         Haendler haendler = (Haendler) ereignis;
+        int k;
+        int h = 0;
+        try
+        {
+            haendler.setHaendlerDeck(kartenDeckIO.leseKartenDeck(HAENDLER_DECK_EINS_PFAD));
+        }
 
+        catch (JsonNichtLesbarException e)
+        {
+            e.getMessage();
+        }
+        k = haendler.getHaendlerDeck().size();
         Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
         spane.getStylesheets().add(SpielstandGuiController.class.getResource("/view/css/Spielstand.css").toExternalForm());
         spane.setContent(pane);
-        try
-        {
-            haendler.setHaendlerDeck(kartenDeckIO.leseKartenDeck(HAENDLER_DECK_EINS_PFAD));
-        }
-        catch (JsonNichtLesbarException e)
-        {
-            e.getMessage();
-        }
         for (int i = 0; h < k; i++)
         {
-            for (int j = 0; j < k; j++)
+            for (int j = 0; j < SPALTENAHNZAHL_KARTENDECK_ANZEIGE && h < k; j++)
             {
-                VBox karte = new KarteGrossVBox(haendler.getHaendlerDeck().get(h));
+                VBox karte = new KarteGrossVBox(spiel.getSpieldeckSpieler().get(h));
                 pane.add((karte), j, i);
-                Button button = new Button(haendler.getHaendlerDeck().get(h).getName());
+                Button button = new Button(spiel.getSpieldeckSpieler().get(h).getName());
                 karte.getChildren().add(button);
                 int finalH = h;
                 button.setOnAction(new EventHandler<ActionEvent>()
                 {
                     @Override public void handle (ActionEvent actionEvent)
                     {
-                        haendler.ausfuehren(spiel, haendler.getHaendlerDeck().get(finalH));
+                        haendler.ausfuehren(spiel, spiel.getSpieldeckSpieler().get(finalH));
                     }
                 });
                 h++;
             }
-
-            int zeilenAnzahl = pane.getRowCount();
-            Button schliessenButton = new Button();
-            schliessenButton.setText(POPUP_BUTTON_SCHLIESSEN);
-            schliessenButton.setOnAction(new EventHandler<ActionEvent>()
-            {
-                @Override public void handle (ActionEvent arg0)
-                {
-                    spielstandPopUp.close();
-                }
-            });
-            pane.add(schliessenButton, 2, zeilenAnzahl + 1);
-            pane.setHalignment(schliessenButton, HPos.CENTER);
-            Scene sc = new Scene(spane);
-            spielstandPopUp.setScene(sc);
-            spielstandPopUp.show();
         }
+        int zeilenAnzahl = pane.getRowCount();
+        Button schliessenButton = new Button();
+        schliessenButton.setText(POPUP_BUTTON_SCHLIESSEN);
+        schliessenButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override public void handle (ActionEvent arg0)
+            {
+                spielstandPopUp.close();
+            }
+        });
+        pane.add(schliessenButton, 2, zeilenAnzahl + 1);
+        pane.setHalignment(schliessenButton, HPos.CENTER);
+        Scene sc = new Scene(spane);
+        spielstandPopUp.setScene(sc);
+        spielstandPopUp.show();
     }
 }

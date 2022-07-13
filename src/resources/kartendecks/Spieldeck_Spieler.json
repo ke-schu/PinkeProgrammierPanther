@@ -27,30 +27,6 @@
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 6,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 0,
-      "name": "Polizist",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
       "macht": 4,
       "lebenspunkte": 5,
       "manaKosten": 1,
@@ -290,6 +266,30 @@
       "name": "Verstaerken",
       "level": 1,
       "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 4,
+      "lebenspunkte": 7,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "LETZTEWORTE",
+      "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "zaehler": 0,
+      "kopie": false,
+      "id": 0,
+      "name": "Polizist",
+      "level": 2,
+      "klasse": "model.KarteEinheit",
       "freundlich": true
     }
   ]

@@ -1,10 +1,6 @@
 package model.ereignisse;
 
-import control.KartenController;
-import control.WaffenController;
 import model.SpielStand;
-import resources.Waffen;
-import utility.KonsolenIO;
 
 import static resources.Konstanten.*;
 
@@ -63,31 +59,26 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
             if (isAuswahl())
             {
                 wahrscheinlichkeit = generiereWahrscheinlichkeit();
-                // Wahrscheinlichkeit 1Prozent
                 if (wahrscheinlichkeit <= EIN_PROZENT)
                 {
                     ereignisnummer = ZE_1;
                 }
-                // Wahrscheinlichkeit 9Prozent
                 else if (wahrscheinlichkeit <= ZEHN_PROZENT)
                 {
                     spiel.getSpieler().setMacht(spiel.getSpieler().getMacht() + ZE_MACHT_ERHOEHUNG);
                     ereignisnummer = ZE_2;
                 }
-                // Wahrscheinlichkeit 10Prozent
-                else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
+                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
                 {
                     spiel.getSpieler().setMana(spiel.getSpieler().getMana() + ZE_MANA_ERHOEHUNG);
                     ereignisnummer = ZE_3;
                 }
-                // Wahrscheinlichkeit 20Prozent
-                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
+                else if (wahrscheinlichkeit <= ACHTZIG_PROZENT)
                 {
                     spiel.getSpieler().setLebenspunkte(spiel.getSpieler().getLebenspunkte() - ZE_SCHADEN);
                     ereignisnummer = ZE_4;
                 }
-                // Wahrscheinlichkeit 10Prozent
-                else if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+                else if(wahrscheinlichkeit <= HUNDERT_PROZENT)
                 {
                     ereignisnummer = ZE_5;
                 }
