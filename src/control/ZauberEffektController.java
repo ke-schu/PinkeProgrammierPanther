@@ -49,31 +49,35 @@ public class ZauberEffektController
      */
     private static void wurfspeer(KarteZauber angreifer, KarteEinheit verteidiger, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
     {
-        verteidiger.schadenNehmen(angreifer.getMacht());
-        RundenController.feldplatzAufraumen(feld,
-                                            spielerDeck,
-                                            masterdeck,
-                                            verteidiger.getPositionX(),
-                                            verteidiger.getPositionY());
+        if(angreifer.getFreundlich()!= verteidiger.getFreundlich())
+        {
+            verteidiger.schadenNehmen(angreifer.getMacht());
+            RundenController.feldplatzAufraumen(feld,
+                    spielerDeck,
+                    masterdeck,
+                    verteidiger.getPositionX(),
+                    verteidiger.getPositionY());
+        }
+
     }
 
     private static void heilen(KarteZauber angreifer, KarteEinheit ziel, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
     {
-        ziel.heilen(angreifer.getMacht());
-        RundenController.feldplatzAufraumen(feld,
-                                            spielerDeck,
-                                            masterdeck,
-                                            ziel.getPositionX(),
-                                            ziel.getPositionY());
+        if(angreifer.getFreundlich() == ziel.getFreundlich())
+        {
+            ziel.heilen(angreifer.getMacht());
+            RundenController.feldplatzAufraumen(feld, spielerDeck, masterdeck,
+                    ziel.getPositionX(), ziel.getPositionY());
+        }
     }
 
     private static void verstaerken(KarteZauber angreifer, KarteEinheit ziel, SpielFeld feld, KartenDeck spielerDeck, KartenDeck masterdeck)
     {
-        ziel.angriffErhoehen(angreifer.getMacht());
-        RundenController.feldplatzAufraumen(feld,
-                spielerDeck,
-                masterdeck,
-                ziel.getPositionX(),
-                ziel.getPositionY());
+        if(angreifer.getFreundlich() == ziel.getFreundlich())
+        {
+            ziel.angriffErhoehen(angreifer.getMacht());
+            RundenController.feldplatzAufraumen(feld, spielerDeck, masterdeck,
+                    ziel.getPositionX(), ziel.getPositionY());
+        }
     }
 }

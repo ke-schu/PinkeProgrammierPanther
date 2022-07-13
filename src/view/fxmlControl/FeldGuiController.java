@@ -158,8 +158,7 @@ public abstract class FeldGuiController extends GuiController
             karteInHandEinfuegen();
         }
         RundenController.zugBeenden(spielfeld);
-        warten.setVisible(!(RundenController.getDran() == binSpieler));
-        //warten.setVisible(!RundenController.getDran());
+        warten.setVisible((RundenController.getDran() != binSpieler));
 
         aktualisierungsenden ();
 
@@ -220,7 +219,7 @@ public abstract class FeldGuiController extends GuiController
             {
                 if(spielfeld.getSpielfeldplatz(bekommeposition(zielFeld)) != null)
                 {
-                    einheitangreifenzauber(zielFeld);
+                        einheitangreifenzauber(zielFeld);
                 }
                 else
                 {
@@ -251,16 +250,17 @@ public abstract class FeldGuiController extends GuiController
     protected void einheitangreifenzauber(StackPane zielFeld)
     {
         int angreiferposition = spielfeldGitter.getColumnIndex(quellePaneHand);
-        Karte angreifer = kartenHand.getElement( angreiferposition);
+        Karte angreifer = kartenHand.getElement(angreiferposition);
         KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
 
         if(angreifer instanceof KarteZauber)
         {
             zauberKarteAusspielen((KarteZauber) angreifer, verteidiger,kartenHand, angreiferposition,  spielfeld, spielerDeck, gegenspielerDeck );
+            kartenhandGitter.getChildren().remove(quellePaneHand);
+            FXeffectsController.glowangriff(zielFeld);
         }
         aktualisierungsenden ();
-        ladeSpielfeld(spielfeld, false);
-        kartenhandGitter.getChildren().remove(quellePaneHand);
+        //ladeSpielfeld(spielfeld, false);
 
     }
 
@@ -286,6 +286,7 @@ public abstract class FeldGuiController extends GuiController
             ladeSpielfeld(spielfeld, false);
         }
         aktualisierungsenden();
+        paneQuellenNullNetzen();
 
     }
 
@@ -309,7 +310,7 @@ public abstract class FeldGuiController extends GuiController
             zielFeld.getChildren().add(zielVBox);
             quellePaneFeld = null;
             aktualisierungsenden ();
-
+            paneQuellenNullNetzen();
         }
     }
 
@@ -371,6 +372,7 @@ public abstract class FeldGuiController extends GuiController
             double barWert = manaWert / manaMaximum;
             Manabar.setProgress(barWert);
             aktualisierungsenden ();
+            paneQuellenNullNetzen();
 
         }
     }
