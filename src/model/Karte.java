@@ -106,4 +106,9 @@ public abstract class Karte
     {
         this.level = level;
     }
+
+    public String getKlasse()
+    {
+        return klasse;
+    }
 }

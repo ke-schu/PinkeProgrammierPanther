@@ -2,7 +2,7 @@ package view.fxmlControl;
 
 import control.KartenEinheitController;
 import control.RundenController;
-import control.Spielstatus;
+import model.Spielstatus;
 import exceptions.JsonNichtLesbarException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -39,11 +39,7 @@ public class SpielerFeldGUIController extends FeldGuiController
             SpielstatusKommunikation =
                     new Server(SPIELSTATUS_PORT, Spielstatus.class);
 
-            SpielstatusKommunikation.senden(new Spielstatus(
-                    spieler, gegenspieler,
-                    spielfeld, spielerDeck,
-                    gegenspielerDeck,
-                    RundenController.getZugZaehler()));
+            aktualisierungsenden();
 
             SpielstatusKommunikation.objektProperty().addListener(
                     new ChangeListener()

@@ -122,18 +122,6 @@ public abstract class GuiController implements Initializable
     }
 
     /**
-     * Methode mit der zu der Spielende-Scene gewechselt wird.
-     *
-     * @param event ActionEvent, welches diese Methode ausloest.
-     * @throws IOException durch den Aufruf der Methode wechselZu
-     *                     ausgeloest werden.
-     */
-    @FXML public void wechselZuSpielende(ActionEvent event) throws IOException
-    {
-        wechselZu(event, SPIELENDE_PFAD);
-    }
-
-    /**
      * Methode mit der zu der Einstellung-Scene gewechselt wird.
      *
      * @param event ActionEvent, welches diese Methode ausloest.

@@ -6,6 +6,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import control.KartenEinheitController;
 import javafx.event.ActionEvent;
@@ -45,6 +46,8 @@ public abstract class FeldGuiController extends GuiController
     @FXML ProgressBar Manabar;
     @FXML MenuBar menueLeiste;
     @FXML StackPane warten;
+    @FXML VBox gewonnen;
+    @FXML VBox verloren;
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
     protected StackPane quellePaneFeld;
     protected StackPane quellePaneHand;
@@ -80,6 +83,7 @@ public abstract class FeldGuiController extends GuiController
 
         RundenController.setZugZaehler(status.getZugzaehler());
         ladeSpielfeld(spielfeld, false);
+        pruefeGewonnenOderVerloren();
         //hier auch kartenhand updaten
     }
 
@@ -250,14 +254,12 @@ public abstract class FeldGuiController extends GuiController
         aktualisierungsenden ();
         ladeSpielfeld(spielfeld, false);
         kartenhandGitter.getChildren().remove(quellePaneHand);
-
     }
+
     protected void einheitangreifen(StackPane zielFeld)
     {
         KarteEinheit angreifer = spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
         KarteEinheit verteidiger = spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
-
-
 
         int rückmeldung = EinheitenController.einheitenAngreifenMitEinheiten(binSpieler, spielfeld, spielerDeck, gegenspielerDeck
                                                             ,angreifer, verteidiger);
@@ -275,7 +277,7 @@ public abstract class FeldGuiController extends GuiController
         {
             ladeSpielfeld(spielfeld, false);
         }
-        aktualisierungsenden ();
+        aktualisierungsenden();
         ladeSpielfeld(spielfeld, false);
     }
 
@@ -304,6 +306,7 @@ public abstract class FeldGuiController extends GuiController
 
     protected void aktualisierungsenden ()
     {
+        pruefeGewonnenOderVerloren();
         if(SpielstatusKommunikation != null)
         {
             SpielstatusKommunikation.senden(new Spielstatus(
@@ -312,6 +315,21 @@ public abstract class FeldGuiController extends GuiController
                     gegenspielerDeck,  RundenController.getZugZaehler()));
         }
     }
+
+    private void pruefeGewonnenOderVerloren()
+    {
+        RundenController.synchronisiereFeldUndHelden(spielfeld, spieler, gegenspieler);
+        boolean spielerTod = spieler.getLebenspunkte() < 0;
+        boolean gegnerTod = gegenspieler.getLebenspunkte() < 0;
+
+        gewonnen.setVisible(
+                binSpieler &&  gegnerTod||
+                !binSpieler && spielerTod);
+        verloren.setVisible(
+                !binSpieler && gegnerTod ||
+                binSpieler && spielerTod);
+    }
+
     protected void einheitBeschwoeren(StackPane zielFeld)
     {
         int zielSpaltenIndex = spielfeldGitter.getColumnIndex(zielFeld);

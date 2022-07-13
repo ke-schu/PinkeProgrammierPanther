@@ -4,6 +4,33 @@
     -fx-font-family: Calibri;
 }
 
+#verloren {
+    -fx-background-image: url(../bilder/Sonnenuntergang.png);
+    -fx-background-size: cover;
+    -fx-spacing: 20;
+}
+
+#verloren Label {
+    -fx-text-fill: white;
+    -fx-font-size: 32;
+}
+
+#gewonnen {
+    -fx-background-image: url(../bilder/Strasse.png);
+    -fx-background-size: cover;
+    -fx-spacing: 20;
+}
+
+#gewonnen Label {
+    -fx-text-fill: white;
+    -fx-font-size: 32;
+}
+
+#spielerVerloren Label {
+    -fx-text-fill: white;
+    -fx-font-size: 32;
+}
+
 #ipEingabe {
     -fx-background-image: url(../bilder/Funk.png);
     -fx-background-size: cover;

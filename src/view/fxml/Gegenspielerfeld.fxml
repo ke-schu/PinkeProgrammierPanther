@@ -101,12 +101,24 @@
               </GridPane>
           </center>
       </BorderPane>
-            <VBox fx:id="ipEingabe" prefHeight="720.0" prefWidth="1280.0" alignment="CENTER" spacing="20.0">
-               <children>
-                  <TextField fx:id="hostnameFeld" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Hostname eingeben..." VBox.vgrow="NEVER" />
-                  <Button mnemonicParsing="false" onAction="#verbinden" prefWidth="200.0" text="Verbinden" />
-                  <Button mnemonicParsing="false" onAction="#zurueckHauptmenue" prefWidth="200.0" text="Zurück zum Hauptmenü" />
-               </children>
-            </VBox>
+       <VBox fx:id="gewonnen" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" visible="false">
+           <children>
+               <Label text="Du hast den Spieler besiegt!" />
+               <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Zurück zum Hauptmenü" />
+           </children>
+       </VBox>
+       <VBox fx:id="verloren" alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" visible="false">
+           <children>
+               <Label text="Du hast verloren!" />
+               <Button mnemonicParsing="false" onAction="#wechselZuHauptmenue" text="Zurück zum Hauptmenü" />
+           </children>
+       </VBox>
+        <VBox fx:id="ipEingabe" prefHeight="720.0" prefWidth="1280.0" alignment="CENTER" spacing="20.0">
+           <children>
+              <TextField fx:id="hostnameFeld" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Hostname eingeben..." VBox.vgrow="NEVER" />
+              <Button mnemonicParsing="false" onAction="#verbinden" prefWidth="200.0" text="Verbinden" />
+              <Button mnemonicParsing="false" onAction="#zurueckHauptmenue" prefWidth="200.0" text="Zurück zum Hauptmenü" />
+           </children>
+        </VBox>
          </children>
 </AnchorPane>

@@ -1,8 +1,8 @@
 package control;
 
-import model.KarteEinheit;
-import model.KartenDeck;
-import model.SpielFeld;
+import model.*;
+
+import java.util.Objects;
 
 import static resources.Konstanten.SPIELER_WECHSEL_NACH_ZUEGEN;
 
@@ -116,6 +116,45 @@ public class RundenController
                                     .getBeweglichkeit());
                 }
             }
+        }
+    }
+
+    private static void aktualisiereEinheit(KarteEinheit quelle, KarteEinheit ziel)
+    {
+        ziel.setLebenspunkte(quelle.getLebenspunkte());
+        ziel.setPosition(quelle.getPosition());
+        ziel.setVerteidigung(quelle.getVerteidigung());
+        ziel.setSchlafend(quelle.getSchlafend());
+    }
+
+    private static boolean sucheEinheitNachKlasse(SpielFeld feld, String klasse, KarteEinheit kopie)
+    {
+        for (int i = 0; i < feld.getZeilen(); i++)
+        {
+            for (int j = 0; j < feld.getSpalten(); j++)
+            {
+                if (feld.getSpielfeldplatz(j, i) != null &&
+                    Objects.equals(feld.getSpielfeldplatz(j, i).getKlasse(), klasse))
+                {
+                    aktualisiereEinheit(feld.getSpielfeldplatz(j, i), kopie);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static void synchronisiereFeldUndHelden(SpielFeld feld, Spieler spieler, Gegenspieler gegner)
+    {
+        if(!sucheEinheitNachKlasse(feld, "model.Spieler", spieler))
+        {
+            spieler.setLebenspunkte(-1);
+            return;
+        }
+        if(!sucheEinheitNachKlasse(feld, "model.Gegenspieler", gegner))
+        {
+            gegner.setLebenspunkte(-1);
+            return;
         }
     }
 

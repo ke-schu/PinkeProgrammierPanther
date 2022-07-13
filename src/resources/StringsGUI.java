@@ -21,7 +21,6 @@ public interface StringsGUI
     //  FXML Pfade
     String FXML_PFADE = "src/view/fxml/";
     String HAUPTMENUE_PFAD = FXML_PFADE + "Hauptmenue.fxml";
-    String SPIELENDE_PFAD = FXML_PFADE + "Spielende.fxml";
     String EINSTELLUNG_PFAD = FXML_PFADE + "Einstellungen.fxml";
     String CHARAKTERAUSWAHL_PFAD = FXML_PFADE + "Charakterauswahl.fxml";
     String SPIELEBENE_PFAD = FXML_PFADE + "Spielebene.fxml";
