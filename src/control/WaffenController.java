@@ -29,15 +29,15 @@ public class WaffenController
         waffenNummer = Math.random() * GRENZE;
         if(waffenNummer <=  BOGEN_GRENZE)
         {
-            return BOGEN;
+            return LINEAL;
         }
         else if (waffenNummer <= SCHWERT_GRENZE)
         {
-            return SCHWERT;
+            return TACKER;
         }
         else
         {
-            return AXT;
+            return SCHEERE;
         }
     }
 }

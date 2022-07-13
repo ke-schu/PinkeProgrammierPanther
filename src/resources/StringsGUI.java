@@ -110,13 +110,13 @@ public interface StringsGUI
                                       "so wird er mit der Hälfte des maximalen Leben wiederbelebt." +
                                       "Das Artefakt Schutzengel ist nur einmal benutzbar.";
     String SCHUTZENGEL_NAME = "Schutzengel";
-    String SCHWERT_NAME = "Schwert";
-    String SCHWERT_BESCHREIBUNG = "Ein gutes Schwert, welches meine Macht erhöht.";
-    String AXT_NAME = "Axt";
-    String AXT_BESCHREIBUNG = "Eine starke Axt, welche meine Macht deutlich erhöht.";
-    String BOGEN_NAME = "Bogen";
-    String BOGEN_BESCHREIBUNG = "Ein solider Bogen, welcher meine Reichweite erhöht.";
-    String FAEUSTE_NAME = "Fäuste";
+    String TACKER_NAME = "Tacker";
+    String TACKER_BESCHREIBUNG = "Ein guter Tacker, welcher meine Macht erhöht.";
+    String SCHEERE_NAME = "Scheere";
+    String SCHEERE_BESCHREIBUNG = "Eine scharfe Scheere, welche meine Macht deutlich erhöht.";
+    String LINEAL_NAME = "Lineal";
+    String LINEAL_BESCHREIBUNG = "Ein solides Lineal, welcher meine Reichweite erhöht.";
+    String FAEUSTE_NAME = "Faust";
     String FAEUSTE_BESCHREIBUNG = "Meine Fäuste müssen wohl als Waffe reichen";
 
 

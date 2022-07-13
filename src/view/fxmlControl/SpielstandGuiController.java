@@ -44,6 +44,7 @@ public class SpielstandGuiController extends GuiController
     @FXML Label machtLabel;
     @FXML Label reichweiteLabel;
     @FXML Label waffenNameLabel;
+    @FXML ImageView waffenBild;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -63,6 +64,8 @@ public class SpielstandGuiController extends GuiController
             this.decknameLabel.setAlignment(Pos.CENTER);
             File charakterbild = new File(BILDER_PFAD + spiel.getSpieler().getName() + PNG_DATEI_ENDUNG);
             this.deckBild.setImage(new Image(charakterbild.getAbsolutePath()));
+            File waffenbild = new File(BILDER_PFAD + spiel.getSpieler().getWaffen().getNAME() + PNG_DATEI_ENDUNG);
+            this.waffenBild.setImage(new Image(waffenbild.getAbsolutePath()));
 
         }
         catch (JsonNichtLesbarException e)

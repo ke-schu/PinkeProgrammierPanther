@@ -229,7 +229,6 @@ public class SpielebeneGuiController extends GuiController
         {
             @Override public void handle (ActionEvent arg0)
             {
-                ereignis.setAuswahl(true);
                 if(ereignis instanceof Schmied || ereignis instanceof Tempel || ereignis instanceof Haendler || ereignis instanceof Heiler)
                 {
                     if(((Mensch) ereignis).getKosten() <= spiel.getGold() || ((Mensch) ereignis).pruefeGratisInteraktion())
@@ -318,8 +317,12 @@ public class SpielebeneGuiController extends GuiController
      */
     public void gegnerGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
+        if(!ereignis.isAusgefuehrt())
         try
         {
+            ereignis.setAusgefuehrt(true);
+            spielStandIO.schreibeDatei(spiel);
+            ebeneIO.schreibeDatei(spielEbene, AKTUELLE_EBENE_PFAD);
             wechselZuSpielerFeld(event);
         }
         catch (IOException e)

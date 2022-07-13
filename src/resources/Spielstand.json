@@ -1,7 +1,7 @@
 {
   "gold": 10,
   "spieler": {
-    "waffe": "AXT",
+    "waffe": "FAEUSTE",
     "talente": [],
     "artefakte": [
       "SCHUTZENGEL",
@@ -12,7 +12,7 @@
     "levelGrenze": 50,
     "maxleben": 5,
     "typ": "FERNKAEMPFER",
-    "macht": 14,
+    "macht": 11,
     "lebenspunkte": 5,
     "manaKosten": 0,
     "beweglichkeit": 10,
@@ -50,7 +50,16 @@
       "x": 0,
       "y": 0
     },
-    "schlafend": true,
+    "schlafend": false,
+    "init": {
+      "macht": 11,
+      "lebenspunkte": 5,
+      "beweglichkeit": 10,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "schlafend": true
+    },
     "zaehler": 0,
     "kopie": false,
     "id": 2,
