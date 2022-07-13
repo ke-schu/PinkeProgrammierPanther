@@ -35,7 +35,6 @@ public interface Strings
     //  Kartendeck-Pfade
     String KARTENDECK_PAKET_PFAD = "src/resources/kartendecks/";
     String START_DECK_PFAD = KARTENDECK_PAKET_PFAD + "%s" + JSON_DATEIENDUNG;
-    // %s = Name des Charakters
     String SPIEL_DECK_SPIELER_PFAD =
             KARTENDECK_PAKET_PFAD + "Spieldeck_Spieler" + JSON_DATEIENDUNG;
     String SPIEL_DECK_GEGNER_PFAD =

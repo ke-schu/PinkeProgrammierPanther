@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.Socket;
 
 import static resources.Strings.NETZWERK_GETRENNT;
+import static resources.Strings.FEHLER;
 
 /**
  Modelliert einen Client, welcher in unserem Spiel durch den Gegenspieler
@@ -35,7 +36,7 @@ public class Client<T> extends NetzwerkIO<T>
         }
         catch (IOException e)
         {
-            KonsolenIO.ausgeben("Fehler:" + e.getMessage());
+            KonsolenIO.ausgeben(FEHLER + e.getMessage());
             beenden();
         }
     }

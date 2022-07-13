@@ -10,6 +10,9 @@ import model.Raum;
 
 import static resources.StringsGUI.*;
 
+/**
+ RaumPane erbt von StackPane und wird zu der visualisierung von Raeumen benutzt.
+ */
 public class RaumPane extends StackPane
 {
     private BooleanProperty beinhaltetSpieler;
@@ -22,11 +25,6 @@ public class RaumPane extends StackPane
     public RaumPane (Raum raum)
     {
         getStyleClass().add(STYLE_CLASS_RAUM);
-        /*StackPane stackPane = new StackPane();
-        stackPane.setBackground(SCHWARZ);
-        stackPane.setMaxWidth(15);
-        stackPane.setPrefHeight(this.getHeight());
-        this.getChildren().add(stackPane);*/
         Label meinLabel = new Label();
         meinLabel.setWrapText(true);
         meinLabel.setTextAlignment(TextAlignment.CENTER);
@@ -61,7 +59,7 @@ public class RaumPane extends StackPane
         else
         {
             StackPane zimmer = new StackPane();
-            zimmer.setId("zimmer");
+            zimmer.setId(Zimmer);
             meinLabel.setText(raum.getEreignis().getName());
             zimmer.getChildren().add(meinLabel);
             this.getChildren().add(zimmer);

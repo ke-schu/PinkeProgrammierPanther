@@ -4,6 +4,9 @@ import model.SpielStand;
 
 import static resources.Konstanten.*;
 
+/**
+ Diese Klasse ist eine Subklasse von Ereignis und implementiert das Interface
+ Wahrscheinlichkeit. Die Truhe enthaelt mehrere verschiedene moegliche Inhalte. */
 public class Truhe extends Ereignis implements Wahrscheinlichkeit
 {
     protected double wahrscheinlichkeit;

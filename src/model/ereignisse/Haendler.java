@@ -18,7 +18,6 @@ import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
  Methoden aus den Superklassen und eigene Getter und Setter fuer Attribute. */
 public class Haendler extends Mensch
 {
-    //Das Deck des Haendlers, aus dem der Spieler Karten kaufen kann.
     private transient KartenDeck haendlerDeck = null;
     
     /**

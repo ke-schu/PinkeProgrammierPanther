@@ -44,7 +44,6 @@ public class Schmied extends Mensch
             {
                 if (pruefeGratisInteraktion())
                 {
-                    //KartenController.karteVerbessern();
                     gratisInteraktionen--;
                 }
                 else

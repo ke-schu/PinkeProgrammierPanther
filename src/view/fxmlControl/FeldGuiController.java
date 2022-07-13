@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import static control.ZauberEffektController.zauberKarteAusspielen;
 import static resources.Konstanten.HANDGROESSE;
+import static resources.Konstanten.EP_VON_GEGNER;
 import static resources.Konstanten.spielStandIO;
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;

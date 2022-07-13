@@ -80,9 +80,9 @@ public class KarteVBox extends VBox
      */
     private void einfuegenKarteEinheit (KarteEinheit einheit)
     {
-        this.getChildren().add(new Label("Mana: " + einheit.getManaKosten()));
-        this.getChildren().add(new Label("Macht: " + einheit.getMacht()));
-        this.getChildren().add(new Label("HP: " + einheit.getLebenspunkte()));
+        this.getChildren().add(new Label(MANA_STAT + einheit.getManaKosten()));
+        this.getChildren().add(new Label(MACHT_STAT + einheit.getMacht()));
+        this.getChildren().add(new Label(LP_STAT + einheit.getLebenspunkte()));
     }
     
     /**

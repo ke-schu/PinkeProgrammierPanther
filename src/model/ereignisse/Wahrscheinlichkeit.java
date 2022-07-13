@@ -5,7 +5,7 @@ package model.ereignisse;
  von Wahrscheinlichkeiten fuer Ereignisse relevant sind. */
 public interface Wahrscheinlichkeit
 {
-    //Obergrenze der Skalierung der Wahrscheinlichkeit.
+    // Obergrenze der Skalierung der Wahrscheinlichkeit.
     double WAHRSCHEINLICHKEIT_MAX = 100.0;
     
     // Werte, mit welcher Wahrscheinlichkeit, ein Ereignis auftritt.

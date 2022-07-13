@@ -29,6 +29,6 @@ public class UtilityController
      */
     public static boolean isGueltigeIP (String ip)
     {
-        return InetAddresses.isInetAddress(ip) || ip.equals("localhost");
+        return InetAddresses.isInetAddress(ip) || ip.equals(LOCALHOST);
     }
 }

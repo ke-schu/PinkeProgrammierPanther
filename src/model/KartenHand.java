@@ -3,6 +3,7 @@ package model;
 import exceptions.KartenDeckZuKleinException;
 
 import java.util.Arrays;
+import static resources.Strings.*;
 
 import static resources.Konstanten.HANDGROESSE;
 
@@ -21,18 +22,6 @@ public class KartenHand
      */
     public KartenHand (Spielbar spieler)
     {
-        /*if(spieler instanceof Spieler)
-        {
-            if (grosseHand((Spieler)spieler))
-            {
-                this.hand = new Karte[HANDGROESSE + 1];
-            }
-        }
-
-        else
-        {
-
-        }*/
         this.hand = new Karte[HANDGROESSE];
     }
     
@@ -74,7 +63,7 @@ public class KartenHand
      */
     @Override public String toString ()
     {
-        return "KartenHand{" + "hand=" + Arrays.toString(hand) + '}';
+        return KARTENHAND + GESCHWEIFTE_KLAMMER_AUF + HAND_GLEICH + Arrays.toString(hand) + GESCHWEIFTE_KLAMMER_ZU;
     }
     
     /**

@@ -11,7 +11,6 @@ import static resources.Konstanten.*;
 public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
 {
     protected double wahrscheinlichkeit;
-    //Wert zur Bestimmung, welches Ereignis eintritt
     private int ereignisnummer;
     
     /**

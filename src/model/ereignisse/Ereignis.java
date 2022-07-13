@@ -11,7 +11,6 @@ public abstract class Ereignis
     protected boolean auswahl = false;
     protected boolean ausgefuehrt = false;
     private String name;
-    //Name des Ereignisses (Schmied, Treppe, etc.)
     private String beschreibung;
     private String klasse = this.getClass().getCanonicalName();
     

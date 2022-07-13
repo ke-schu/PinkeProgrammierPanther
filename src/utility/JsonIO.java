@@ -42,11 +42,11 @@ public class JsonIO<T>
         File datei = new File(dateiPfad);
         if (datei.createNewFile())
         {
-            KonsolenIO.ausgeben("Datei erstellt.");
+            KonsolenIO.ausgeben(DATEI_ERSTELLT);
         }
         else
         {
-            KonsolenIO.ausgeben("Datei überschrieben.");
+            KonsolenIO.ausgeben(DATEI_UEBERSCHRIEBEN);
         }
         FileWriter verfasser = new FileWriter(datei);
         verfasser.write(meineSerialisierung.serialisieren(objekt));

@@ -4,6 +4,8 @@ import java.io.File;
 
 import static resources.Konstanten.*;
 
+/**
+ Das Interface enthaelt konstante Zeichenketten fuer die Konfiguration der grafischen Buntzeroberflaeche. */
 public interface StringsGUI
 {
     String SPIELTITEL = "AbenteuerStadt";
@@ -68,7 +70,6 @@ public interface StringsGUI
             "Ich hab hier diese Waffe gefunden. Wenn ich sie mitnehmen will" +
             " muss ich aber meine bisherige hier lassen. ";
     String MITNEHMEN_BUTTON = "Mitnehmen";
-    String HIERLASSEN_BUTTON = "Hierlassen";
     String WAFFE_MACHT = "Macht: ";
     String WAFFE_REICHWEITE = "Reichweite: ";
     String GRATIS_HANDELN = "Gratisinteraktionen bei diesem Ereignis: ";
