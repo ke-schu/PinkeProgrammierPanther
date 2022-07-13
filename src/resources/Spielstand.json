@@ -1,10 +1,7 @@
 {
   "gold": 10,
   "spieler": {
-    "waffe": {
-      "name": "meineWaffe",
-      "angriffsPunkte": 10
-    },
+    "waffe": "AXT",
     "talente": [],
     "artefakte": [
       "SCHUTZENGEL",
@@ -15,7 +12,7 @@
     "levelGrenze": 50,
     "maxleben": 5,
     "typ": "FERNKAEMPFER",
-    "macht": 11,
+    "macht": 14,
     "lebenspunkte": 5,
     "manaKosten": 0,
     "beweglichkeit": 10,

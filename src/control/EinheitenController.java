@@ -154,9 +154,8 @@ public class EinheitenController
                                                       KarteEinheit verteidiger)
     {
         if ((RundenController.getDran() == istspieler)
-         &&(angreifer.getFreundlich()==istspieler))
+         &&(angreifer.getFreundlich() == istspieler))
         {
-
             boolean schlafend = angreifer.getSchlafend();
             if ((einheitInReichweite(angreifer, verteidiger) &&
                  pruefeObFeindlich(angreifer, verteidiger)) && !schlafend)
@@ -193,7 +192,6 @@ public class EinheitenController
                 }
             }
         }
-
         return RUECKMELDUNG_ERFOLGLOS;
     }
 

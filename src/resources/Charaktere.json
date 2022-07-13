@@ -3,10 +3,7 @@
     "name": "Gang",
     "freischaltgebuehr": 0,
     "spieler": {
-      "waffe": {
-        "name": "meineWaffe",
-        "angriffsPunkte": 10
-      },
+      "waffe": "FAEUSTE",
       "talente": [
       ],
       "artefakte": [
@@ -45,10 +42,7 @@
     "name": "Polizei",
     "freischaltgebuehr": 100,
     "spieler": {
-      "waffe": {
-        "name": "meineWaffe",
-        "angriffsPunkte": 10
-      },
+      "waffe": "FAEUSTE",
       "talente": [
       ],
       "artefakte": [
@@ -87,10 +81,7 @@
     "name": "Schule",
     "freischaltgebuehr": 300,
     "spieler": {
-      "waffe": {
-        "name": "meineWaffe",
-        "angriffsPunkte": 10
-      },
+      "waffe": "FAEUSTE",
       "talente": [
       ],
       "artefakte": [

@@ -1,9 +1,5 @@
 package control;
 
-import control.test.EbeneTest;
-import control.test.KartenDeckTest;
-import control.test.SpielStandTest;
-import control.test.SpielzugTest;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -36,32 +32,6 @@ public class Main extends Application
         if(args.length > 0)
             seitentitelZusatz = args[0];
         launch();
-    }
-
-    /**
-     * Ruft die verschiedenen Testmethoden auf.
-     */
-    private static void teste()
-    {
-        switch (6)
-        {
-            case 1:
-                SpielzugTest.spielzugTesten();
-            case 2:
-                EbeneTest.testeEbene();
-            case 3:
-                SpielStandTest.schreibeCharacter();
-            case 4:
-                SpielStandTest.speichereSpielstand();
-            case 5:
-                SpielStandTest.leseSpielstand();
-            case 6:
-                KartenDeckTest.erstelleDeck();
-            case 7:
-                KartenDeckTest.leseDeck();
-                break;
-            default:
-        }
     }
 
     /**

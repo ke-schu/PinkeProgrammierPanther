@@ -166,7 +166,6 @@ public class EffektController
                 feld.einheitLoeschen(ausloeser.getPositionX(),
                                      ausloeser.getPositionY() - UMKREIS_1);
             }
-
             if (zielUnten != null && platzUnten == null)
             {
                 feld.einheitEinsetzten(ausloeser.getPositionX(),
@@ -201,85 +200,85 @@ public class EffektController
     /**
      * Methode um festzustellen, ob der Effekt in die anvisierte Richtung ausgeloest werden kann.
      * @param ausloeser Die ausloesende Einheit
-     * @param kEinheit Die Einheit die zurueckgeworfen wird
+     * @param ziel Die Einheit die zurueckgeworfen wird
      * @param umkreis Der Umkreis um den Ausloeser
      * @param feld Das Spielfeld auf dem gespielt wird
      * @return die KarteEinheit die initialisiert werden soll
      */
-    private static KarteEinheit karteEinheitEinsetzenOben (KarteEinheit ausloeser, KarteEinheit kEinheit, int umkreis, SpielFeld feld)
+    private static KarteEinheit karteEinheitEinsetzenOben (KarteEinheit ausloeser, KarteEinheit ziel, int umkreis, SpielFeld feld)
     {
         Position position = new Position( ausloeser.getPositionX(),
                                                  ausloeser.getPositionY() -
                                                  umkreis);
         if(positionInnerhalbVonFeld(position, feld))
         {
-            kEinheit = feld.getSpielfeldplatz(ausloeser.getPositionX(),
+            ziel = feld.getSpielfeldplatz(ausloeser.getPositionX(),
                                               ausloeser.getPositionY() -
                                               umkreis);
         }
-        return kEinheit;
+        return ziel;
     }
 
     /**
      * Methode um festzustellen, ob der Effekt in die anvisierte Richtung ausgeloest werden kann.
      * @param ausloeser Die ausloesende Einheit
-     * @param kEinheit Die Einheit die zurueckgeworfen wird
+     * @param ziel Die Einheit die zurueckgeworfen wird
      * @param umkreis Der Umkreis um den Ausloeser
      * @param feld Das Spielfeld auf dem gespielt wird
      * @return die KarteEinheit die initialisiert werden soll
      */
-    private static KarteEinheit karteEinheitEinsetzenUnten (KarteEinheit ausloeser, KarteEinheit kEinheit, int umkreis, SpielFeld feld)
+    private static KarteEinheit karteEinheitEinsetzenUnten (KarteEinheit ausloeser, KarteEinheit ziel, int umkreis, SpielFeld feld)
     {
         Position position = new Position( ausloeser.getPositionX(),
                                          ausloeser.getPositionY() +
                                          umkreis);
         if(positionInnerhalbVonFeld(position, feld))
         {
-            kEinheit = feld.getSpielfeldplatz(ausloeser.getPositionX(),
+            ziel = feld.getSpielfeldplatz(ausloeser.getPositionX(),
                                               ausloeser.getPositionY() +
                                               umkreis);
         }
-        return kEinheit;
+        return ziel;
     }
 
     /**
      * Methode um festzustellen, ob der Effekt in die anvisierte Richtung ausgeloest werden kann.
      * @param ausloeser Die ausloesende Einheit
-     * @param kEinheit Die Einheit die zurueckgeworfen wird
+     * @param ziel Die Einheit die zurueckgeworfen wird
      * @param umkreis Der Umkreis um den Ausloeser
      * @param feld Das Spielfeld auf dem gespielt wird
      * @return die KarteEinheit die initialisiert werden soll
      */
-    private static KarteEinheit karteEinheitEinsetzenLinks (KarteEinheit ausloeser, KarteEinheit kEinheit, int umkreis, SpielFeld feld)
+    private static KarteEinheit karteEinheitEinsetzenLinks (KarteEinheit ausloeser, KarteEinheit ziel, int umkreis, SpielFeld feld)
     {
         Position position = new Position( ausloeser.getPositionX() - umkreis,
                                          ausloeser.getPositionY());
         if(positionInnerhalbVonFeld(position, feld))
         {
-            kEinheit = feld.getSpielfeldplatz(ausloeser.getPositionX() - umkreis,
+            ziel = feld.getSpielfeldplatz(ausloeser.getPositionX() - umkreis,
                                               ausloeser.getPositionY());
         }
-        return kEinheit;
+        return ziel;
     }
 
     /**
      * Methode um festzustellen, ob der Effekt in die anvisierte Richtung ausgeloest werden kann.
      * @param ausloeser Die ausloesende Einheit
-     * @param kEinheit Die Einheit die zurueckgeworfen wird
+     * @param ziel Die Einheit die zurueckgeworfen wird
      * @param umkreis Der Umkreis um den Ausloeser
      * @param feld Das Spielfeld auf dem gespielt wird
      * @return die KarteEinheit die initialisiert werden soll
      */
-    private static KarteEinheit karteEinheitEinsetzenRechts (KarteEinheit ausloeser, KarteEinheit kEinheit, int umkreis, SpielFeld feld)
+    private static KarteEinheit karteEinheitEinsetzenRechts (KarteEinheit ausloeser, KarteEinheit ziel, int umkreis, SpielFeld feld)
     {
         Position position = new Position( ausloeser.getPositionX() + umkreis,
                                          ausloeser.getPositionY());
         if(positionInnerhalbVonFeld(position, feld))
         {
-            kEinheit = feld.getSpielfeldplatz(ausloeser.getPositionX() + umkreis,
+            ziel = feld.getSpielfeldplatz(ausloeser.getPositionX() + umkreis,
                                               ausloeser.getPositionY());
         }
-        return kEinheit;
+        return ziel;
     }
 
     /**

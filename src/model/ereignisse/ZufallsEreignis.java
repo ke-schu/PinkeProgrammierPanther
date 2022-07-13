@@ -1,7 +1,9 @@
 package model.ereignisse;
 
 import control.KartenController;
+import control.WaffenController;
 import model.SpielStand;
+import resources.Waffen;
 import utility.KonsolenIO;
 
 import static resources.Konstanten.*;
@@ -52,9 +54,9 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
      * Ueber das Attribut "wahrscheinlichkeit" wird bestimmt, welches Ereignis
      * ausgefuehrt wird.
      *
-     * @param spielStand der aktuelle Spielstand und seine Attribute.
+     * @param spiel der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren(SpielStand spielStand)
+    public void ausfuehren(SpielStand spiel)
     {
         if(!ausgefuehrt)
         {
@@ -69,20 +71,25 @@ public class ZufallsEreignis extends Ereignis implements Wahrscheinlichkeit
                 // Wahrscheinlichkeit 9Prozent
                 else if (wahrscheinlichkeit <= ZEHN_PROZENT)
                 {
-                    spielStand.getSpieler().setMacht(spielStand.getSpieler().getMacht() + ZE_MACHT_ERHOEHUNG);
+                    spiel.getSpieler().setMacht(spiel.getSpieler().getMacht() + ZE_MACHT_ERHOEHUNG);
                     ereignisnummer = ZE_2;
                 }
                 // Wahrscheinlichkeit 10Prozent
                 else if (wahrscheinlichkeit <= ZWANZIG_PROZENT)
                 {
-                    spielStand.getSpieler().setMana(spielStand.getSpieler().getMana() + ZE_MANA_ERHOEHUNG);
+                    spiel.getSpieler().setMana(spiel.getSpieler().getMana() + ZE_MANA_ERHOEHUNG);
                     ereignisnummer = ZE_3;
                 }
                 // Wahrscheinlichkeit 20Prozent
                 else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
                 {
-                    spielStand.getSpieler().setLebenspunkte(spielStand.getSpieler().getLebenspunkte() - ZE_SCHADEN);
+                    spiel.getSpieler().setLebenspunkte(spiel.getSpieler().getLebenspunkte() - ZE_SCHADEN);
                     ereignisnummer = ZE_4;
+                }
+                // Wahrscheinlichkeit 10Prozent
+                else if(wahrscheinlichkeit <= FUENFZIG_PROZENT)
+                {
+                    ereignisnummer = ZE_5;
                 }
                 ausgefuehrt = true;
             }
