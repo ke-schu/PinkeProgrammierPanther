@@ -1,10 +1,7 @@
 package model;
 
 import control.SpielStandController;
-import resources.Artefakte;
-import resources.Effekte;
-import resources.Einheiten;
-import resources.Talente;
+import resources.*;
 
 import java.util.Stack;
 
@@ -17,7 +14,7 @@ import static resources.Konstanten.*;
  */
 public class Spieler extends KarteEinheit implements Spielbar
 {
-    private Waffe waffe;
+    private Waffen waffe;
     private Stack<Talente> talente;
     private Artefakte[] artefakte;
     private int mana;
@@ -36,38 +33,38 @@ public class Spieler extends KarteEinheit implements Spielbar
     public Spieler(String name, int level, Einheiten typ, int macht,
                    int lebenspunkte, int beweglichkeit, int reichweite,
                    int schild, int verteidigung, Effekte effektEins,
-                   Effekte effektZwei, Waffe waffe, Stack<Talente> talente,
-                   Artefakte[] artefakte, int mana)
+                   Effekte effektZwei , Stack<Talente> talente,
+                   Artefakte[] artefakte, int mana, Waffen waffe)
     {
-        super(name, level, typ, macht + waffe.getAngriffsPunkte(), lebenspunkte,
+        super(name, level, typ, macht, lebenspunkte,
               0, beweglichkeit, reichweite, schild, verteidigung, effektEins,
               effektZwei, true, true);
-        this.waffe     = waffe;
         this.talente   = talente;
         this.artefakte = artefakte;
         this.mana      = mana;
+        this.waffe = waffe;
     }
 
     /**
-     * Methode die eine Instanz der Klasse Waffe aus dem Attribut waffe
+     * Methode die eine Instanz des Enums Waffen aus dem Attribut waffe
      * wiedergibt.
      *
-     * @return gibt eine Instanz der Klasse Waffe aus dem Attribut waffe
+     * @return gibt eine Instanz des Enums Waffen aus dem Attribut waffe
      * wieder.
      */
-    public Waffe getWaffe()
+    public Waffen getWaffen ()
     {
         return waffe;
     }
 
     /**
-     * Setzt den uebergebenen Parameter der Klasse Waffe in das Attribut
+     * Setzt den uebergebenen Parameter des Enums Waffen in das Attribut
      * waffe.
      *
-     * @param waffe Instanz der Klasse Waffe, die in das Attribut waffe
+     * @param waffe Instanz des Enums Waffen, die in das Attribut waffe
      *              gesetzt werden soll.
      */
-    public void setWaffe(Waffe waffe)
+    public void setWaffen (Waffen waffe)
     {
         this.waffe = waffe;
     }

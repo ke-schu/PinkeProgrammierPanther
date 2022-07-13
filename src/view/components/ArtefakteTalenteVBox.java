@@ -29,7 +29,7 @@ public class ArtefakteTalenteVBox extends VBox
         alignmentProperty().set(Pos.CENTER);
         this.setMaxWidth(KARTE_GROSS_VBOX_BILD_BREITE);
         Label name = new Label();
-        name.setText(artefakt.getName());
+        name.setText(artefakt.getNAME());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + artefakt.name() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
@@ -40,7 +40,7 @@ public class ArtefakteTalenteVBox extends VBox
         this.getChildren().add(bild);
         Label beschreibung = new Label();
         beschreibung.setWrapText(true);
-        beschreibung.setText(artefakt.getBeschreibung());
+        beschreibung.setText(artefakt.getBESCHREIBUNG());
        this.getChildren().add(beschreibung);
     }
 
@@ -54,7 +54,7 @@ public class ArtefakteTalenteVBox extends VBox
         alignmentProperty().set(Pos.CENTER);
         this.setMaxWidth(KARTE_GROSS_VBOX_BILD_BREITE);
         Label name = new Label();
-        name.setText(talent.getName());
+        name.setText(talent.getNAME());
         this.getChildren().add(name);
         File charakterbild = new File(BILDER_PFAD + talent.name() + PNG_DATEI_ENDUNG);
         ImageView bild = new ImageView();
@@ -65,7 +65,7 @@ public class ArtefakteTalenteVBox extends VBox
         this.getChildren().add(bild);
         Label beschreibung = new Label();
         beschreibung.setWrapText(true);
-        beschreibung.setText(talent.getBeschreibung());
+        beschreibung.setText(talent.getBESCHREIBUNG());
         this.getChildren().add(beschreibung);
     }
 }

@@ -41,22 +41,29 @@ public class SpielstandGuiController extends GuiController
     @FXML Label lebenspunkteLabel;
     @FXML Label erfahrungspunkteLabel;
     @FXML Label manaLabel;
+    @FXML Label machtLabel;
+    @FXML Label reichweiteLabel;
+    @FXML Label waffenNameLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         try
         {
-            SpielStand spielstand = spielStandIO.leseSpielstand();
-            this.goldLabel.setText(GOLD + spielstand.getGold());
-            this.levelLabel.setText(LEVEL_STAT + spielstand.getSpieler().getLevel());
-            this.erfahrungspunkteLabel.setText(ERFAHRUNGSPUNKTE + spielstand.getSpieler().getErfahrungspunkte() + SCHRAEGSTRICH + spielstand.getSpieler().getLevelGrenze());
-            this.lebenspunkteLabel.setText(LP_STAT + spielstand.getSpieler().getLebenspunkte() + SCHRAEGSTRICH +spielstand.getSpieler().getMaxleben());
-            this.manaLabel.setText(MANA_MAX + spielstand.getSpieler().getMana());
+            SpielStand spiel = spielStandIO.leseSpielstand();
+            this.goldLabel.setText(GOLD + spiel.getGold());
+            this.levelLabel.setText(LEVEL_STAT + spiel.getSpieler().getLevel());
+            this.erfahrungspunkteLabel.setText(ERFAHRUNGSPUNKTE + spiel.getSpieler().getErfahrungspunkte() + SCHRAEGSTRICH + spiel.getSpieler().getLevelGrenze());
+            this.lebenspunkteLabel.setText(LP_STAT + spiel.getSpieler().getLebenspunkte() + SCHRAEGSTRICH +spiel.getSpieler().getMaxleben());
+            this.manaLabel.setText(MANA_MAX + spiel.getSpieler().getMana());
+            this.machtLabel.setText(MACHT_STAT + spiel.getSpieler().getMacht());
+            this.reichweiteLabel.setText(REICHWEITE_STAT + spiel.getSpieler().getReichweite());
+            this.waffenNameLabel.setText(WAFFEN_ANZEIGE + spiel.getSpieler().getWaffen().getNAME());
             this.decknameLabel.setText(DECKNAHME + kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD).getDeckBezeichnung());
             this.decknameLabel.setAlignment(Pos.CENTER);
-            File charakterbild = new File(BILDER_PFAD + spielstand.getSpieler().getName() + PNG_DATEI_ENDUNG);
+            File charakterbild = new File(BILDER_PFAD + spiel.getSpieler().getName() + PNG_DATEI_ENDUNG);
             this.deckBild.setImage(new Image(charakterbild.getAbsolutePath()));
+
         }
         catch (JsonNichtLesbarException e)
         {

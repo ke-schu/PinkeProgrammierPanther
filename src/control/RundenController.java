@@ -106,7 +106,6 @@ public class RundenController
             {
                 if (feld.getSpielfeldplatz(i, j) != null)
                 {
-
                         feld.getSpielfeldplatz(i, j).setBeweglichkeit(
                                 feld.getSpielfeldplatz(i, j).getInit()
                                     .getBeweglichkeit());

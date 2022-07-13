@@ -56,12 +56,18 @@ public interface StringsGUI
     String ZE_2_AUSGEFUEHRT = "Meine Macht wurde um " + ZE_MACHT_ERHOEHUNG + " erhöht.";
     String ZE_3_AUSGEFUEHRT = "Mein Mana wurde um " + ZE_MANA_ERHOEHUNG + " erhöht.";
     String ZE_4_AUSGEFUEHRT = "Meine Lebenspunkte wurden um " + ZE_SCHADEN + " verringert.";
+    String ZE_5_AUSGEFUEHRT = "Ich hab hier diese Waffe gefunden. Wenn ich sie mitnehmen will muss ich aber meine bisherige hier lassen. ";
+    String MITNEHMEN_BUTTON = "Mitnehmen";
+    String HIERLASSEN_BUTTON = "Hierlassen";
+    String WAFFE_MACHT = "Macht: ";
+    String WAFFE_REICHWEITE = "Reichweite: ";
     String GRATIS_HANDELN = "Gratisinteraktionen bei diesem Ereignis: ";
     String KOSTEN = "Der aktuelle Preis bei diesem Ereignis: ";
     String PREISERHOEHUNG = "Aktionen bis Preiserhöhung: ";
     String AKTUELLES_GOLD = "Mein aktuelles Gold: ";
     String AKTUELLE_LEBENSPUNKTE = "Mein aktuelles Leben: ";
     String ZU_WENIG_GOLD = "Ich habe zu wenig Gold zum handeln.";
+    String DOPPELPUNKT = ":";
 
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =
@@ -94,6 +100,7 @@ public interface StringsGUI
     String SCHRAEGSTRICH = "/";
     String ERFAHRUNGSPUNKTE = "EP: ";
     String MANA_MAX = "Mana: ";
+    String WAFFEN_ANZEIGE = "Waffe: ";
 
     String CHARME_BESCHREIBUNG = "Charme gibt einen Rabatt bei Händlern";
     String CHARME_NAME = "Charme";
@@ -103,6 +110,15 @@ public interface StringsGUI
                                       "so wird er mit der Hälfte des maximalen Leben wiederbelebt." +
                                       "Das Artefakt Schutzengel ist nur einmal benutzbar.";
     String SCHUTZENGEL_NAME = "Schutzengel";
+    String SCHWERT_NAME = "Schwert";
+    String SCHWERT_BESCHREIBUNG = "Ein gutes Schwert, welches meine Macht erhöht.";
+    String AXT_NAME = "Axt";
+    String AXT_BESCHREIBUNG = "Eine starke Axt, welche meine Macht deutlich erhöht.";
+    String BOGEN_NAME = "Bogen";
+    String BOGEN_BESCHREIBUNG = "Ein solider Bogen, welcher meine Reichweite erhöht.";
+    String FAEUSTE_NAME = "Fäuste";
+    String FAEUSTE_BESCHREIBUNG = "Meine Fäuste müssen wohl als Waffe reichen";
+
 
 
     //  Hilfe

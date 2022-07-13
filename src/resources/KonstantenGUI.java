@@ -55,6 +55,16 @@ public interface KonstantenGUI
     int RUECKMELDUNG_GESTORBEN = 3;
     int RUECKMELDUNG_ERFOLGLOS = 0;
 
+    //Konstanten fuer die Waffen
+    int SCHWERT_MACHT = 2;
+    int SCHWERT_REICHWEITE = 1;
+    int AXT_MACHT = 3;
+    int AXT_REICHWEITE = 1;
+    int BOGEN_MACHT = 1;
+    int BOGEN_REICHWEITE = 2;
+    int FAEUSTE_MACHT = 0;
+    int FAEUSTE_REICHWEITE = 1;
+
 
 
 

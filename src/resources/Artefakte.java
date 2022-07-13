@@ -8,8 +8,8 @@ import static resources.StringsGUI.*;
 public enum Artefakte
 {
     SCHUTZENGEL(SCHUTZENGEL_NAME,SCHUTZENGEL_BESCHREIBUNG);
-    private final String name;
-    private final String beschreibung;
+    private final String NAME;
+    private final String BESCHREIBUNG;
 
     /**
      * Konstruktor der Variablen des Enums
@@ -18,25 +18,25 @@ public enum Artefakte
      */
     Artefakte (String name, String beschreibung)
     {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        this.NAME         = name;
+        this.BESCHREIBUNG = beschreibung;
     }
 
     /**
      * Getter des Attributes Name.
      * @return gibt den String des Attributes name wieder.
      */
-    public String getName ()
+    public String getNAME ()
     {
-        return name;
+        return NAME;
     }
 
     /**
      * Getter des Attributes Beschreibung.
      * @return gibt den String des Attributes beschreibung wieder.
      */
-    public String getBeschreibung ()
+    public String getBESCHREIBUNG ()
     {
-        return beschreibung;
+        return BESCHREIBUNG;
     }
 }

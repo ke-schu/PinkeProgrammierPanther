@@ -1,6 +1,7 @@
 package view.fxmlControl;
 
 import control.SpielfigurEbeneController;
+import control.WaffenController;
 import exceptions.JsonNichtLesbarException;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,6 +27,7 @@ import model.Ebene;
 import model.Position;
 import model.Raum;
 import model.ereignisse.*;
+import resources.Waffen;
 import utility.JsonIO;
 import utility.KonsolenIO;
 import view.components.KarteGrossVBox;
@@ -442,11 +444,17 @@ public class SpielebeneGuiController extends GuiController
         Stage spielstandPopUp = (Stage) ((Node) event.getSource()).getScene().getWindow();
         spielstandPopUp.setTitle(ereignis.getName());
         spielstandPopUp.getIcons().add(new Image(ICON.getAbsolutePath()));
-        ereignis.ausfuehren(spiel);
         ZufallsEreignis zufallsEreignis = (ZufallsEreignis) ereignis;
+        ereignis.ausfuehren(spiel);
 
         VBox vbox = new VBox(POPUP_VBOX);
         TextArea ereignisText = new TextArea();
+        ereignisText.setWrapText(true);
+        ereignisText.setEditable(false);
+        Scene popupScene = new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
+        vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(ereignisText);
+
         if (zufallsEreignis.getEreignisnummer() == ZE_1)
         {
             ereignisText.setText(ZE_1_AUSGEFUEHRT);
@@ -459,15 +467,35 @@ public class SpielebeneGuiController extends GuiController
         {
             ereignisText.setText(ZE_3_AUSGEFUEHRT);
         }
-        else
+        else if (zufallsEreignis.getEreignisnummer() == ZE_4)
         {
             ereignisText.setText(ZE_4_AUSGEFUEHRT);
         }
-        ereignisText.setWrapText(true);
-        ereignisText.setEditable(false);
-        Scene popupScene = new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
-        vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().add(ereignisText);
+        else if (zufallsEreignis.getEreignisnummer() == ZE_5)
+        {
+            Waffen waffe = WaffenController.generiereZufaelligeWaffe();
+            ereignisText.setText(ZE_5_AUSGEFUEHRT + "\n\n\r" + waffe.getNAME()+ DOPPELPUNKT + "\n\r" + waffe.getBESCHREIBUNG() + "\n\n\r" + WAFFE_MACHT + waffe.getMACHT() + "\n\r" + WAFFE_REICHWEITE + waffe.getREICHWEITE());
+            Button mitnehmenButton = new Button();
+            mitnehmenButton.setText(MITNEHMEN_BUTTON);
+
+            mitnehmenButton.setOnAction(new EventHandler<ActionEvent>()
+            {
+                @Override public void handle (ActionEvent arg0)
+                {
+                    WaffenController.waffeAusruesten(spiel, waffe);
+                    try
+                    {
+                        spielStandIO.schreibeDatei(spiel);
+                    }
+                    catch (IOException e)
+                    {
+                        KonsolenIO.ausgeben(e.getMessage());
+                    }
+                    spielstandPopUp.close();
+                }
+            });
+            vbox.getChildren().add(mitnehmenButton);
+        }
         ereignisVerlassen(spielstandPopUp, vbox);
         spielstandPopUp.setScene(popupScene);
         spielstandPopUp.setResizable(false);
