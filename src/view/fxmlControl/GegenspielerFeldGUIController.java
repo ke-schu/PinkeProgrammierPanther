@@ -99,11 +99,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     {
 
             kartenHand = new KartenHand(gegenspieler);
-            if(RundenController.getZugZaehler() == 0)
-            {
-                kartenHand.handZiehen(gegenspielerDeck);
-            }
-
+            kartenHand.handZiehen(gegenspielerDeck);
             manaTank = new ManaTank(gegenspieler);
             Manabar.setStyle("-fx-accent: blue;");
             manaMaximum = manaTank.getMana();
