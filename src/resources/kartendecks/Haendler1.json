@@ -10,7 +10,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
+      "effektEins": "KEINEFFEKT",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
@@ -34,7 +34,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
+      "effektEins": "KEINEFFEKT",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
@@ -58,8 +58,8 @@
       "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
-      "effektZwei": null,
+      "effektEins": "KEINEFFEKT",
+      "effektZwei": "KEINEFFEKT",
       "position": {
         "x": 0,
         "y": 0
@@ -82,8 +82,8 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
-      "effektZwei": null,
+      "effektEins": "KEINEFFEKT",
+      "effektZwei": "KEINEFFEKT",
       "position": {
         "x": 0,
         "y": 0
@@ -106,8 +106,8 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
-      "effektZwei": null,
+      "effektEins": "KEINEFFEKT",
+      "effektZwei": "KEINEFFEKT",
       "position": {
         "x": 0,
         "y": 0
@@ -130,7 +130,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": null,
+      "effektEins": "KEINEFFEKT",
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
