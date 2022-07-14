@@ -4,8 +4,7 @@
     "freischaltgebuehr": 0,
     "spieler": {
       "waffe": "FAEUSTE",
-      "talente": [
-      ],
+      "talente": [],
       "artefakte": [
         "SCHUTZENGEL",
         null
@@ -29,8 +28,9 @@
         "y": 2
       },
       "schlafend": true,
-      "freundlich": true,
       "zaehler": 0,
+      "kopie": false,
+      "freundlich": true,
       "id": 2,
       "name": "Bandit",
       "level": 1,
@@ -43,8 +43,7 @@
     "freischaltgebuehr": 100,
     "spieler": {
       "waffe": "FAEUSTE",
-      "talente": [
-      ],
+      "talente": [],
       "artefakte": [
         "SCHUTZENGEL",
         null
@@ -68,8 +67,9 @@
         "y": 2
       },
       "schlafend": true,
-      "freundlich": true,
       "zaehler": 0,
+      "kopie": false,
+      "freundlich": true,
       "id": 2,
       "name": "Oberkommissar",
       "level": 1,
@@ -82,8 +82,7 @@
     "freischaltgebuehr": 300,
     "spieler": {
       "waffe": "FAEUSTE",
-      "talente": [
-      ],
+      "talente": [],
       "artefakte": [
         "SCHUTZENGEL",
         null
@@ -107,13 +106,14 @@
         "y": 3
       },
       "schlafend": true,
-      "freundlich": true,
       "zaehler": 0,
+      "kopie": false,
+      "freundlich": true,
       "id": 2,
       "name": "Schulleiter",
       "level": 1,
       "klasse": "model.Spieler"
     },
-    "freigeschaltet": false
+    "freigeschaltet": true
   }
 ]

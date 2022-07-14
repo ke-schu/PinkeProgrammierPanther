@@ -4,14 +4,14 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 4,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -20,20 +20,51 @@
       "freundlich": false,
       "id": 0,
       "name": "Lehrer",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
+    },
+    {
+      "macht": 2,
+      "zeffekt": "WURFSPEER",
+      "id": 6,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
     },
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 4,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 0,
+      "name": "Lehrer",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 1,
+      "lebenspunkte": 8,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -42,19 +73,41 @@
       "freundlich": false,
       "id": 1,
       "name": "Klassenlehrer",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 1,
+      "lebenspunkte": 8,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
+      "effektEins": null,
+      "effektZwei": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 1,
+      "name": "Klassenlehrer",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 6,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": null,
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
@@ -64,20 +117,42 @@
       "freundlich": false,
       "id": 2,
       "name": "verrueckter Wissenschaftler",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 2,
+      "lebenspunkte": 6,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
+      "effektEins": null,
       "effektZwei": "ZURUECKWERFEN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 2,
+      "name": "verrueckter Wissenschaftler",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "FERNKAEMPFER",
+      "macht": 4,
+      "lebenspunkte": 3,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 2,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -86,42 +161,42 @@
       "freundlich": false,
       "id": 3,
       "name": "Sportplatzwart",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
-      "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "typ": "FERNKAEMPFER",
+      "macht": 4,
+      "lebenspunkte": 3,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
       },
       "schlafend": true,
       "freundlich": false,
-      "id": 4,
-      "name": "HarryPotter",
-      "level": 40,
+      "id": 3,
+      "name": "Sportplatzwart",
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 3,
-      "lebenspunkte": 10,
+      "macht": 5,
+      "lebenspunkte": 2,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -130,8 +205,57 @@
       "freundlich": false,
       "id": 5,
       "name": "Baenker",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 5,
+      "lebenspunkte": 2,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": null,
+      "effektZwei": null,
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 5,
+      "name": "Baenker",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "macht": 2,
+      "zeffekt": "WURFSPEER",
+      "id": 6,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 2,
+      "zeffekt": "HEILUNG",
+      "id": 9,
+      "name": "Heilen",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 2,
+      "zeffekt": "VERSTAERKEN",
+      "id": 10,
+      "name": "Verstaerken",
+      "level": 1,
+      "klasse": "model.KarteZauber",
+      "freundlich": true
     }
   ]
 }

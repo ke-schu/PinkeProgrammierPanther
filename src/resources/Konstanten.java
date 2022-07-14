@@ -51,6 +51,7 @@ public interface Konstanten
     
     // Erfahrungspunkte
     int EP_VON_GEGNER = 50;
+    int GOLD_VON_GEGNER = 30;
     
     // Konstanten fuer Zufallsereignisse
     int ZE_1 = 1;

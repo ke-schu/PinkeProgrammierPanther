@@ -50,12 +50,12 @@
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 4,
       "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -74,12 +74,12 @@
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 4,
       "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -218,12 +218,12 @@
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 1,
       "lebenspunkte": 8,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -242,12 +242,12 @@
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 1,
       "lebenspunkte": 8,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",

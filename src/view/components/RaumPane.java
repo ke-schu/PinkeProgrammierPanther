@@ -59,7 +59,7 @@ public class RaumPane extends StackPane
         else
         {
             StackPane zimmer = new StackPane();
-            zimmer.setId(Zimmer);
+            zimmer.setId(ZIMMER);
             meinLabel.setText(raum.getEreignis().getName());
             zimmer.getChildren().add(meinLabel);
             this.getChildren().add(zimmer);

@@ -35,6 +35,7 @@ public interface StringsGUI
             "/view/css/SpielstandKartendeck.css";
     String SPIELSTAND_ARTEFAKTE_TALENTE_CSS_PFAD =
             "/view/css/SpielstandArtefakteTalente.css";
+    String SPIELSTAND_CSS_PFAD = "/view/css/Spielstand.css";
     
     
     //  Aufloesung
@@ -78,6 +79,7 @@ public interface StringsGUI
     String AKTUELLES_GOLD = "Mein aktuelles Gold: ";
     String AKTUELLE_LEBENSPUNKTE = "Mein aktuelles Leben: ";
     String ZU_WENIG_GOLD = "Ich habe zu wenig Gold zum handeln.";
+    String WIR_SIND_AM_ZUG = "Wir sind in Zug: ";
     
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =
@@ -103,9 +105,10 @@ public interface StringsGUI
     String VERTEIDIGUNG_STAT = "Verteidigung: ";
     String SCHILD_STAT = "Schild: ";
     String MANA_STAT = "Mana: ";
-    
-    // Strings der RaumPane
-    String Zimmer = "zimmer";
+
+    // Strings der eigenen Komponenten
+    String ZIMMER = "zimmer";
+    String FELD = "feld";
     
     // Strings der Spielstandanzeige
     String GOLD = "Gold: ";

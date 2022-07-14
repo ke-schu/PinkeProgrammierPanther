@@ -1,5 +1,5 @@
 {
-  "gold": 1000,
+  "gold": 730,
   "spieler": {
     "waffe": "FAEUSTE",
     "talente": [],
@@ -9,38 +9,29 @@
     ],
     "mana": 1,
     "erfahrungspunkte": 0,
-    "levelGrenze": 100,
-    "maxleben": 7,
+    "levelGrenze": 50,
+    "maxleben": 4,
     "typ": "FERNKAEMPFER",
     "macht": 11,
-    "lebenspunkte": 5,
+    "lebenspunkte": 4,
     "manaKosten": 0,
-    "beweglichkeit": 10,
+    "beweglichkeit": 1,
     "reichweite": 1,
     "schild": 1,
     "verteidigung": 1,
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 4,
-      "y": 2
+      "x": 3,
+      "y": 3
     },
-    "schlafend": false,
-    "init": {
-      "macht": 11,
-      "lebenspunkte": 5,
-      "beweglichkeit": 10,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "schlafend": true
-    },
+    "schlafend": true,
     "zaehler": 0,
     "kopie": false,
     "freundlich": true,
     "id": 2,
-    "name": "Oberkommissar",
-    "level": 2,
+    "name": "Schulleiter",
+    "level": 1,
     "klasse": "model.Spieler"
   },
   "gegenSpieler": {

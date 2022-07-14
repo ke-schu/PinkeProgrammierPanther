@@ -20,7 +20,7 @@
       "freundlich": true,
       "id": 0,
       "name": "Boeser Nachbar",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -42,7 +42,7 @@
       "freundlich": true,
       "id": 0,
       "name": "Boeser Nachbar",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -64,7 +64,7 @@
       "freundlich": true,
       "id": 1,
       "name": "Genervter Nachbar",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -86,16 +86,16 @@
       "freundlich": true,
       "id": 1,
       "name": "Genervter Nachbar",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 1,
       "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -108,16 +108,16 @@
       "freundlich": true,
       "id": 2,
       "name": "Eismann",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 1,
       "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -130,7 +130,7 @@
       "freundlich": true,
       "id": 2,
       "name": "Eismann",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -152,7 +152,7 @@
       "freundlich": true,
       "id": 3,
       "name": "Nachbarsjunge",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -174,7 +174,7 @@
       "freundlich": true,
       "id": 3,
       "name": "Nachbarsjunge",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -196,16 +196,16 @@
       "freundlich": true,
       "id": 4,
       "name": "Ruediger",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 2,
       "lebenspunkte": 5,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "LETZTEWORTE",
@@ -218,7 +218,7 @@
       "freundlich": true,
       "id": 4,
       "name": "Ruediger",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
@@ -240,7 +240,7 @@
       "freundlich": true,
       "id": 5,
       "name": "Streuner",
-      "level": 40,
+      "level": 1,
       "klasse": "model.KarteEinheit"
     },
     {
