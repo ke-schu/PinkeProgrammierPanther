@@ -40,9 +40,7 @@ public class RaumSerialisierung implements JsonDeserializer<Raum>
             {
                 Type klasse = Class.forName(
                         meinJsonEreignis.get(JSON_KLASSE).getAsString());
-                Raum meinRaum =
-                        new Raum(meinGson.fromJson(meinJsonEreignis, klasse));
-                return meinRaum;
+                return new Raum(meinGson.fromJson(meinJsonEreignis, klasse));
             }
             catch (ClassNotFoundException e)
             {

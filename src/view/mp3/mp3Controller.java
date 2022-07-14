@@ -23,8 +23,6 @@ public class mp3Controller implements Initializable
     private static MediaPlayer hintergrundmusik = new MediaPlayer(
             new Media(new File(HAUPTMENUE_MUSIK).toURI().toString()));
     private static MediaPlayer effekt;
-    private static Media titel;
-    private static Media soundEffekt;
     
     /**
      Methode die einen Mediaplayer erstellt und einen Sound abspielt, der per
@@ -35,7 +33,7 @@ public class mp3Controller implements Initializable
     {
         try
         {
-            soundEffekt = new Media(new File(pfad).toURI().toString());
+            Media soundEffekt = new Media(new File(pfad).toURI().toString());
             effekt = new MediaPlayer(soundEffekt);
             wechselLautstaerkeEffekte(
                     spielStandIO.leseSpielstand().getLaustaerkeEffekte());
@@ -79,7 +77,7 @@ public class mp3Controller implements Initializable
     {
         try
         {
-            titel =
+            Media titel =
                     new Media(new File(HAUPTMENUE_MUSIK).toURI().toString());
             hintergrundmusik = new MediaPlayer(titel);
             wechselLautstaerkeMusik(

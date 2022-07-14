@@ -3,21 +3,20 @@ package utility;
 import java.io.*;
 import java.net.Socket;
 
-import static resources.Strings.NETZWERK_GETRENNT;
 import static resources.Strings.FEHLER;
+import static resources.Strings.NETZWERK_GETRENNT;
 
 /**
  Modelliert einen Client, welcher in unserem Spiel durch den Gegenspieler
  dargestellt wird.
- * @param <T> Die Klasse, die mit dem Server ausgetauscht werden soll
- */
+ @param <T> Die Klasse, die mit dem Server ausgetauscht werden soll */
 public class Client<T> extends NetzwerkIO<T>
 {
     /**
      Konstruiert einen neuen Client
-     * @param hostname die IP-Adresse des Servers
-     * @param port der Port fuer diesen Objektaustausch
-     * @param typ der Typ der Klasse, die ausgetauscht werden soll.
+     @param hostname die IP-Adresse des Servers
+     @param port der Port fuer diesen Objektaustausch
+     @param typ der Typ der Klasse, die ausgetauscht werden soll.
      */
     public Client (String hostname, int port, Class<T> typ)
     {

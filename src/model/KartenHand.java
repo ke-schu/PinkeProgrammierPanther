@@ -3,9 +3,9 @@ package model;
 import exceptions.KartenDeckZuKleinException;
 
 import java.util.Arrays;
-import static resources.Strings.*;
 
 import static resources.Konstanten.HANDGROESSE;
+import static resources.Strings.*;
 
 /**
  KartenHand repraesentiert die Kartenhand von welcher Karten ausgespielt
@@ -63,7 +63,8 @@ public class KartenHand
      */
     @Override public String toString ()
     {
-        return KARTENHAND + GESCHWEIFTE_KLAMMER_AUF + HAND_GLEICH + Arrays.toString(hand) + GESCHWEIFTE_KLAMMER_ZU;
+        return KARTENHAND + GESCHWEIFTE_KLAMMER_AUF + HAND_GLEICH +
+               Arrays.toString(hand) + GESCHWEIFTE_KLAMMER_ZU;
     }
     
     /**
@@ -86,7 +87,7 @@ public class KartenHand
     }
     
     /**
-     Legt karten aus der Hand zurueck ins Kartendeck.
+     Legt Karten aus der Hand zurueck ins Kartendeck.
      @param kartendeck, Kartendeck in welches Karten gelegt werden.
      */
     public void handAblegen (KartenDeck kartendeck)
@@ -97,21 +98,6 @@ public class KartenHand
             {
                 kartendeck.push(this.hand[i]);
             }
-            else
-            {
-                continue;
-            }
         }
-    }
-    
-    /**
-     Legt einzelne Karte zurueck in ein Kartendeck.
-     @param positionkarte, position der Karte in der Hand.
-     @param kartendeck, Kartendeck in welches Karte gelegt wird.
-     */
-    public void karteAblegen (int positionkarte, KartenDeck kartendeck)
-    {
-        kartendeck.push(this.hand[positionkarte]);
-        this.hand[positionkarte] = null;
     }
 }

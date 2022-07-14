@@ -54,7 +54,7 @@ public class SpielebeneGuiController extends GuiController
     
     /**
      Wird aufgerufen, um diesen Controller zu initialisieren.
-     @param url Der Standort, der zum Auflösen relativer Pfade für das
+     @param url Der Standort, der zum Aufloesen relativer Pfade für das
      Root-Objekt verwendet wird.
      @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten
      Ressourcen.
@@ -144,7 +144,7 @@ public class SpielebeneGuiController extends GuiController
     /**
      Ueberlagern der Methode, damit diese in der MenueLeiste auf die Methode
      zugreifen kann.
-     @param event
+     @param event Event durch welches die Methode ausgeloest wird.
      */
     @FXML public void spielSpeichern (ActionEvent event)
     {
@@ -241,9 +241,8 @@ public class SpielebeneGuiController extends GuiController
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        if (ereignis instanceof Schmied)
+        if (ereignis instanceof Schmied schmied)
         {
-            Schmied schmied = (Schmied) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     schmied.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -251,9 +250,8 @@ public class SpielebeneGuiController extends GuiController
                     schmied.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Tempel)
+        else if (ereignis instanceof Tempel tempel)
         {
-            Tempel tempel = (Tempel) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     tempel.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -261,9 +259,8 @@ public class SpielebeneGuiController extends GuiController
                     tempel.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Haendler)
+        else if (ereignis instanceof Haendler haendler)
         {
-            Haendler haendler = (Haendler) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     haendler.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -271,9 +268,8 @@ public class SpielebeneGuiController extends GuiController
                     haendler.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Heiler)
+        else if (ereignis instanceof Heiler heiler)
         {
-            Heiler heiler = (Heiler) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     heiler.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -288,7 +284,7 @@ public class SpielebeneGuiController extends GuiController
                 new Scene(vbox, POPUP_VBOX_BREITE2, POPUP_VBOX_HOEHE2);
         Button annehmenButton = new Button(EREIGNIS_ANNEHMEN);
         Button ablehnenButton = new Button(EREIGNIS_ABLEHNEN);
-        annehmenButton.setOnAction(new EventHandler<ActionEvent>()
+        annehmenButton.setOnAction(new EventHandler<>()
         {
             @Override public void handle (ActionEvent arg0)
             {
@@ -319,7 +315,7 @@ public class SpielebeneGuiController extends GuiController
                 }
             }
         });
-        ablehnenButton.setOnAction(new EventHandler<ActionEvent>()
+        ablehnenButton.setOnAction(new EventHandler<>()
         {
             @Override public void handle (ActionEvent arg0)
             {
@@ -340,7 +336,7 @@ public class SpielebeneGuiController extends GuiController
      Diese Methode erkennt, welches Ereignis in der Spielebene angetroffen
      wurde und fuehrt die zugehoerige Methode aus
      @param ereignis das angetroffene Ereignis
-     @param event
+     @param event das Event, durch das die Methode aufgerufen wird
      */
     public void ereignisGuiAusfuehren (Ereignis ereignis, ActionEvent event)
     {
@@ -606,7 +602,7 @@ public class SpielebeneGuiController extends GuiController
     
     /**
      Methode um das Spielstandfenster aufzurufen
-     @param event Event durch welches die Methode ausgelöst wird.
+     @param event Event durch welches die Methode ausgeloest wird.
      @throws IOException Kann beim .load() des fxmlLoaders geworfen werden.
      */
     public void spielstandAnzeigen (Event event) throws IOException
@@ -626,8 +622,7 @@ public class SpielebeneGuiController extends GuiController
     
     /**
      Diese Methode sorgt dafuer, dass Stages, welche durch Ereignisse
-     geoeffnet
-     werden, wieder geschlossen werden können
+     geoeffnet werden, wieder geschlossen werden koennen
      @param popupStage Die angezeigte Stage
      @param vbox Die angezeigte Vbox
      */
@@ -704,7 +699,7 @@ public class SpielebeneGuiController extends GuiController
     }
     
     /**
-     Diese Methode formuliert aus, wie der Tempel das Kartendeck auffruft.
+     Diese Methode formuliert aus, wie der Tempel das Kartendeck aufruft.
      @param ereignis Das Ereignis vom Typ Tempel
      @param event Das Event, welches die Methode ausfuehrt
      */

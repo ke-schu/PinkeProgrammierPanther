@@ -1,11 +1,6 @@
 package resources;
 
-import javafx.geometry.Insets;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 
 /**
  Hier werden finale, numerische Werte fuer die grafische Benutzeroberflaeche
@@ -64,10 +59,7 @@ public interface KonstantenGUI
     int FAEUSTE_MACHT = 0;
     int FAEUSTE_REICHWEITE = 1;
     
-    
     BackgroundSize AUTO_HINTERGRUND =
             new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, true,
                                true, true, true);
-    Background SCHWARZ = new Background(
-            new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY));
 }

@@ -11,17 +11,20 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import static resources.KonstantenGUI.*;
+
 /**
- * Controllerklasse welche die visuelle rueckmeldung von Karten auf dem aktuellen Spielfeld kontrolliert
- */
+ Controllerklasse welche die visuelle rueckmeldung von Karten auf dem
+ aktuellen
+ Spielfeld kontrolliert */
 public class FXeffectsController
 {
     /**
-     * Methode welche Eine Karte temporaeren aufleuchten laesst und daraufhin ihre Darstellung aktualisiert
-     * @param zielFeld Pane welches aktualisiert wird
-     * @param verteidiger Karte dessen darstellung aktualisiert wird
+     Methode welche Eine Karte temporaeren aufleuchten laesst und daraufhin
+     ihre Darstellung aktualisiert
+     @param zielFeld Pane welches aktualisiert wird
+     @param verteidiger Karte dessen darstellung aktualisiert wird
      */
-    protected static void glowangriff (StackPane zielFeld,
+    protected static void glowAngriff (StackPane zielFeld,
                                        KarteEinheit verteidiger)
     {
         Glow glow = new Glow();
@@ -48,11 +51,12 @@ public class FXeffectsController
         }, GLOW_DELAY);
         
     }
+    
     /**
-     * Methode welche Eine Karte mit einem temporaeren blur-effekt versieht
-     * @param zielFeld feld welches mit einem effekt versehen wird
+     Methode welche Eine Karte mit einem temporaeren blur-effekt versieht
+     @param zielFeld feld welches mit einem effekt versehen wird
      */
-    protected static void glowschildbreak (StackPane zielFeld)
+    protected static void glowSchildBrechen (StackPane zielFeld)
     {
         BoxBlur bb = new BoxBlur();
         zielFeld.setEffect(bb);

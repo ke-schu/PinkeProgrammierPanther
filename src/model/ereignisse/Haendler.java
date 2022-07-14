@@ -113,7 +113,7 @@ public class Haendler extends Mensch
             }
             catch (IOException e)
             {
-                e.getMessage();
+                e.printStackTrace();
             }
         }
     }

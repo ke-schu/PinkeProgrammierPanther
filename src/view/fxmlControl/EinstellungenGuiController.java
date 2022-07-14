@@ -18,7 +18,7 @@ import static resources.StringsGUI.*;
 
 
 /**
- Klasse, welche alle Methoden der Einstellungs Szene enthaelt. */
+ Klasse, welche alle Methoden der Einstellungsszene enthaelt. */
 public class EinstellungenGuiController extends GuiController
 {
     @FXML private Slider lautstaerkeMusikSlider;
@@ -29,7 +29,7 @@ public class EinstellungenGuiController extends GuiController
     
     /**
      Wird aufgerufen, um diesen Controller zu initialisieren.
-     @param url Der Standort, der zum Auflösen relativer Pfade für das
+     @param url Der Standort, der zum Aufloesen relativer Pfade für das
      Root-Objekt verwendet wird.
      @param resourceBundle Die zum Lokalisieren des Root-Objekts verwendeten
      Ressourcen.

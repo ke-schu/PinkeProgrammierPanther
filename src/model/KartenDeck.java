@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Stack;
 
 import static resources.Strings.TRENNUNG;
+
 /**
  KarteEinheit repraesentiert einen Stapel aus Karten */
 public class KartenDeck extends Stack<Karte>

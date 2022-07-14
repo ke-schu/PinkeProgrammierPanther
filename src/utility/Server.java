@@ -8,8 +8,7 @@ import static resources.Strings.*;
 /**
  Modelliert einen Server, welcher in unserem Spiel durch den Spieler
  dargestellt wird.
- * @param <T> Die Klasse, die mit dem Server ausgetauscht werden soll
- */
+ @param <T> Die Klasse, die mit dem Server ausgetauscht werden soll */
 public class Server<T> extends NetzwerkIO<T>
 {
     private final static int MAX_WARTENDE_VERBINDUNGEN = 1;
@@ -17,8 +16,8 @@ public class Server<T> extends NetzwerkIO<T>
     
     /**
      Konstruiert einen neuen Server
-     * @param port der Port fuer diesen Objektaustausch
-     * @param typ der Typ der Klasse, die ausgetauscht werden soll.
+     @param port der Port fuer diesen Objektaustausch
+     @param typ der Typ der Klasse, die ausgetauscht werden soll.
      */
     public Server (int port, Class<T> typ)
     {

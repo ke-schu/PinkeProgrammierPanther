@@ -50,13 +50,14 @@ public class ZauberEffektController
     }
     
     /**
-     Diese Methode wird durch die Karte Wurfspeer ausgeloest und fuegt einer gegnerischen Karte Schaden zu
-     * @param angreifer Die Karte welche angreift
-     * @param verteidiger Die Karte welche angegriffen wird
-     * @param feld Das spielfeld auf welchem sich die Karten befinden
-     * @param spielerDeck Das Kartendeck des Spielers
-     * @param gegnerDeck Das Kartendeck des Gegenspielers
-     * @return
+     Diese Methode wird durch die Karte Wurfspeer ausgeloest und fuegt einer
+     gegnerischen Karte Schaden zu
+     @param angreifer Die Karte welche angreift
+     @param verteidiger Die Karte welche angegriffen wird
+     @param feld Das spielfeld auf welchem sich die Karten befinden
+     @param spielerDeck Das Kartendeck des Spielers
+     @param gegnerDeck Das Kartendeck des Gegenspielers
+     @return eine Rueckmeldung, wie der Angriff gelaufen ist.
      */
     private static int wurfspeer (
             KarteZauber angreifer, KarteEinheit verteidiger, SpielFeld feld,
@@ -81,14 +82,14 @@ public class ZauberEffektController
     }
     
     /**
-     Diese Methode wird durch die Karte Heilen ausgeloest und erhoeht
-     die Lebenspunkte einer befreundeten Einheit.
-     * @param angreifer die KarteZauber, welche den Effekt auslöst
-     * @param ziel die zu heilende Karte
-     * @param feld das Spielfeld
-     * @param spielerDeck das Deck des Spielers
-     * @param gegnerDeck das Deck des Gegenspielers
-     * @return eine Rueckmeldung, ob der Effekt erfolgreich war
+     Diese Methode wird durch die Karte Heilen ausgeloest und erhoeht die
+     Lebenspunkte einer befreundeten Einheit.
+     @param angreifer die KarteZauber, welche den Effekt ausloest
+     @param ziel die zu heilende Karte
+     @param feld das Spielfeld
+     @param spielerDeck das Deck des Spielers
+     @param gegnerDeck das Deck des Gegenspielers
+     @return eine Rueckmeldung, ob der Effekt erfolgreich war
      */
     private static int heilen (
             KarteZauber angreifer, KarteEinheit ziel,
@@ -106,14 +107,14 @@ public class ZauberEffektController
     }
     
     /**
-     Diese Methode wird durch die Karte Verstaerken ausgeloest und
-     erhoeht die Macht einer befreundeten Einheit
-     * @param angreifer die KarteZauber, welche den Effekt auslöst
-     * @param ziel die zu verstaerkende Karte
-     * @param feld das Spielfeld
-     * @param spielerDeck das Deck des Spielers
-     * @param gegnerDeck das Deck des Gegenspielers
-     * @return eine Rueckmeldung, ob der Effekt erfolgreich war
+     Diese Methode wird durch die Karte Verstaerken ausgeloest und erhoeht die
+     Macht einer befreundeten Einheit
+     @param angreifer die KarteZauber, welche den Effekt ausloest
+     @param ziel die zu verstaerkende Karte
+     @param feld das Spielfeld
+     @param spielerDeck das Deck des Spielers
+     @param gegnerDeck das Deck des Gegenspielers
+     @return eine Rueckmeldung, ob der Effekt erfolgreich war
      */
     private static int verstaerken (KarteZauber angreifer, KarteEinheit ziel,
                                     SpielFeld feld, KartenDeck spielerDeck,

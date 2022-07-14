@@ -56,21 +56,25 @@ public class SpielstandGuiController extends GuiController
                     LEVEL_STAT + geladenesSpiel.getSpieler().getLevel());
             this.erfahrungspunkteLabel.setText(ERFAHRUNGSPUNKTE +
                                                geladenesSpiel.getSpieler()
-                                                    .getErfahrungspunkte() +
+                                                             .getErfahrungspunkte() +
                                                SCHRAEGSTRICH +
                                                geladenesSpiel.getSpieler()
-                                                    .getLevelGrenze());
+                                                             .getLevelGrenze());
             this.lebenspunkteLabel.setText(
                     LP_STAT + spiel.getSpieler().getLebenspunkte() +
-                    SCHRAEGSTRICH + geladenesSpiel.getSpieler().getMaxleben());
-            this.manaLabel.setText(MANA_MAX + geladenesSpiel.getSpieler().getMana());
+                    SCHRAEGSTRICH +
+                    geladenesSpiel.getSpieler().getMaxLeben());
+            this.manaLabel.setText(
+                    MANA_MAX + geladenesSpiel.getSpieler().getMana());
             this.machtLabel.setText(
                     MACHT_STAT + geladenesSpiel.getSpieler().getMacht());
             this.reichweiteLabel.setText(
-                    REICHWEITE_STAT + geladenesSpiel.getSpieler().getReichweite());
+                    REICHWEITE_STAT +
+                    geladenesSpiel.getSpieler().getReichweite());
             this.waffenNameLabel.setText(WAFFEN_ANZEIGE +
-                                         geladenesSpiel.getSpieler().getWaffen()
-                                              .getNAME());
+                                         geladenesSpiel.getSpieler()
+                                                       .getWaffen()
+                                                       .getNAME());
             this.decknameLabel.setText(DECKNAHME +
                                        kartenDeckIO.leseKartenDeck(
                                                            SPIEL_DECK_SPIELER_PFAD)
@@ -82,7 +86,8 @@ public class SpielstandGuiController extends GuiController
             this.deckBild.setImage(
                     new Image(charakterbild.getAbsolutePath()));
             File waffenbild = new File(
-                    BILDER_PFAD + geladenesSpiel.getSpieler().getWaffen().getNAME() +
+                    BILDER_PFAD +
+                    geladenesSpiel.getSpieler().getWaffen().getNAME() +
                     PNG_DATEI_ENDUNG);
             this.waffenBild.setImage(new Image(waffenbild.getAbsolutePath()));
             

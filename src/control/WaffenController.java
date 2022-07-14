@@ -24,9 +24,9 @@ public class WaffenController
     }
     
     /**
-     Diese Methode generiert eine zufaellige Waffe aus dem Pool.
-     Sie wird fuer das Zufallsereignis verwendet.
-     * @return die zufaellige Waffe
+     Diese Methode generiert eine zufaellige Waffe aus dem Pool. Sie wird fuer
+     das Zufallsereignis verwendet.
+     @return die zufaellige Waffe
      */
     public static Waffen generiereZufaelligeWaffe ()
     {

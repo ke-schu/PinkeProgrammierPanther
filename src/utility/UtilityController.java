@@ -1,9 +1,10 @@
 package utility;
 
 import com.google.common.net.InetAddresses;
-import static resources.Strings.LOCALHOST;
 
 import java.util.Random;
+
+import static resources.Strings.LOCALHOST;
 
 /**
  Enthaelt universal einsetzbare Methoden fuer das ganze Programm. */
@@ -24,8 +25,9 @@ public class UtilityController
     
     /**
      Prueft, ob eine IP-Adresse gueltig ist.
-     * @param ip IP, die geprueft werden soll.
-     * @return Gibt einen booleschen Wert zurueck, ob die gepruefte IP-Adresse gueltig ist.
+     @param ip IP, die geprueft werden soll.
+     @return Gibt einen booleschen Wert zurueck, ob die gepruefte IP-Adresse
+     gueltig ist.
      */
     public static boolean isGueltigeIP (String ip)
     {

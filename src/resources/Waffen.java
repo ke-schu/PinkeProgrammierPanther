@@ -4,7 +4,7 @@ import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
 /**
- In diesem Enum liegen Waffen, welche dem Helden ausgeruestet werden können
+ In diesem Enum liegen Waffen, welche dem Helden ausgeruestet werden koennen
  . */
 public enum Waffen
 {

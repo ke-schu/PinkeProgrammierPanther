@@ -13,10 +13,10 @@ public class KarteZauber extends Karte
     
     /**
      Konstruiert eine Instanz der Klasse mit allen relevanten Attributen.
-     * @param name Name der Karte.
-     * @param level Level der Karte.
-     * @param macht Macht der Karte.
-     * @param zeffekt Zaubereffekt der Karte.
+     @param name Name der Karte.
+     @param level Level der Karte.
+     @param macht Macht der Karte.
+     @param zeffekt Zaubereffekt der Karte.
      */
     public KarteZauber (String name, int level, int macht,
                         Zaubereffekte zeffekt)
@@ -46,7 +46,7 @@ public class KarteZauber extends Karte
     
     /**
      Methoden, welche den Wert des Attributs zeffekt liefert.
-     * @return gibt den int des Attributes zeffekt.
+     @return gibt den int des Attributes zeffekt.
      */
     public Zaubereffekte getZeffekt ()
     {

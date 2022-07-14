@@ -152,11 +152,10 @@ public class KartenController
     {
         if (karte instanceof KarteEinheit)
         {
-            KarteEinheit meinekarte = (KarteEinheit) karte;
+            KarteEinheit meineKarte = (KarteEinheit) karte;
             
-            if (meinekarte.getKopie())
+            if (meineKarte.getKopie())
             {
-                ;
             }
             else if (karte.getFreundlich())
             {

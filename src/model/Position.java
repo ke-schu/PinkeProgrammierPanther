@@ -30,7 +30,7 @@ public class Position
      Methode welche ueberprueft ob der Spalten und Zeilenwert einer Position
      gleich sind.
      @param pos welche ueberprueft wird.
-     @return booleaan ob Spalten und Zeilenwert einer Position gleich sind.
+     @return boolean, ob Spalten und Zeilenwert einer Position gleich sind.
      */
     public boolean equals (Position pos)
     {

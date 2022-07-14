@@ -30,9 +30,7 @@ import static resources.Konstanten.*;
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
-/**
- Controllerklasse, welche den View auf das Spielfeld kontrolliert
- */
+/** Controller, welcher den View auf das Spielfeld kontrolliert */
 public abstract class FeldGuiController extends GuiController
 {
     protected NetzwerkIO<Spielstatus> SpielstatusKommunikation;
@@ -57,8 +55,8 @@ public abstract class FeldGuiController extends GuiController
     
     /**
      Methode, welche den Helden auf das Spielfeld setzt
-     * @param held Held der auf das Spielfeld gestezt wird
-     * @param feld Spielfeld auf den der Held gesetzt wird
+     @param held Held der auf das Spielfeld gestezt wird
+     @param feld Spielfeld auf den der Held gesetzt wird
      */
     private static void heldEinsetzen (Karte held, StackPane feld)
     {
@@ -67,9 +65,10 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche die für den Kampf benötigten Objekte erstellt und den Spielstatus aktualisiert
+     Methode, welche die für den Kampf benoetigten Objekte erstellt und den
+     Spielstatus aktualisiert
      */
-    public abstract void initalisieren ();
+    public abstract void initialisieren ();
     
     protected void updateSpielStatus (Spielstatus status)
     {
@@ -92,8 +91,8 @@ public abstract class FeldGuiController extends GuiController
     
     /**
      Methode, welche das Spielfeld visualisiert
-     * @param spielfeld
-     * @param initFirstTime
+     @param spielfeld das Spielfeld, welches geladen wird
+     @param initFirstTime ob das Spielfeld zum ersten Mal initialisiert wird.
      */
     protected void ladeSpielfeld (SpielFeld spielfeld, boolean initFirstTime)
     {
@@ -135,7 +134,7 @@ public abstract class FeldGuiController extends GuiController
     
     /**
      Methode, welche ein einzelnes Feld des Spielfeldes erstellt
-     * @return feld welches zurueckgegeben wird
+     @return feld welches zurueckgegeben wird
      */
     protected StackPane feldErstellen ()
     {
@@ -147,7 +146,8 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche den aktuellen Spielzug beendet und alle noetigen Aktionen beim Zug beenden ausfuehrt
+     Methode, welche den aktuellen Spielzug beendet und alle noetigen Aktionen
+     beim Zug beenden ausfuehrt
      */
     @FXML
     public void zugBeenden ()
@@ -192,7 +192,8 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche ueberprueft ob der Aktuelle spieler die Runde gewonnen oder verloren hat
+     Methode, welche ueberprueft ob der Aktuelle spieler die Runde gewonnen
+     oder verloren hat
      */
     private void pruefeGewonnenOderVerloren ()
     {
@@ -209,7 +210,8 @@ public abstract class FeldGuiController extends GuiController
                 binSpieler && spielerTod);
         if (gegnerTod)
         {
-            spieler.setErfahrungspunkte(spieler.getErfahrungspunkte() + EP_VON_GEGNER);
+            spieler.setErfahrungspunkte(
+                    spieler.getErfahrungspunkte() + EP_VON_GEGNER);
             spieler.berechneLevelUp();
         }
         
@@ -264,92 +266,75 @@ public abstract class FeldGuiController extends GuiController
     
     /**
      Methode, welche die Drag and Drop funktionen der Maus implementiert
-     * @param feld Feld welches mit der maus angeklickt wird
-     * @param spielfeld auf dem gespielt wird
+     @param feld Feld welches mit der maus angeklickt wird
+     @param spielfeld auf dem gespielt wird
      */
     public void dragAndDropSource (StackPane feld, boolean spielfeld)
     {
         feld.setOnMousePressed(event ->
-                               {
-                                   feld.setMouseTransparent(true);
-                                   event.setDragDetect(true);
-                                   if (spielfeld == true)
-                                   {
-                                       quellePaneFeld = feld;
-                                   }
-                                   else if (spielfeld == false)
-                                   {
-                                       quellePaneHand = feld;
-                                   }
-                               });
+               {
+                   feld.setMouseTransparent(true);
+                   event.setDragDetect(true);
+                   if (spielfeld)
+                   {
+                       quellePaneFeld = feld;
+                   }
+                   else
+                   {
+                       quellePaneHand = feld;
+                   }
+               });
         
         feld.setOnMouseReleased(event -> feld.setMouseTransparent(false));
-        
         feld.setOnMouseDragged(event -> event.setDragDetect(false));
-        
         feld.setOnDragDetected(event -> feld.startFullDrag());
     }
     
     /**
      Methode, welche die Drag and Drop funktionen der Maus implementiert
-     * @param zielFeld feld in welchem die Maustaste losgelassen wird
+     @param zielFeld feld in welchem die Maustaste losgelassen wird
      */
     public void dragAndDropTarget (StackPane zielFeld)
     {
-        zielFeld.setOnMouseDragEntered(event ->
-                                       {
-                                       });
-        
-        zielFeld.setOnMouseDragOver(event ->
-                                    {
-                                    });
+        zielFeld.setOnMouseDragEntered(event -> {});
+        zielFeld.setOnMouseDragOver(event -> {});
         zielFeld.setOnMouseDragReleased(event ->
-                                        {
-                                            if (quellePaneFeld != null)
-                                            {
-                                                if (spielfeld.getSpielfeldplatz(
-                                                        bekommeposition(
-                                                                zielFeld)) !=
-                                                    null)
-                                                {
-                                                    einheitangreifen(
-                                                            zielFeld);
-                                                }
-                                                else
-                                                {
-                                                    einheitBewegen(zielFeld);
-                                                }
-                                            }
-            
-                                            if (quellePaneHand != null)
-                                            {
-                                                if (spielfeld.getSpielfeldplatz(
-                                                        bekommeposition(
-                                                                zielFeld)) !=
-                                                    null)
-                                                {
-                                                    einheitangreifenzauber(
-                                                            zielFeld);
-                                                }
-                                                else
-                                                {
-                                                    einheitBeschwoeren(
-                                                            zielFeld);
-                                                }
-                                            }
-                                        });
-        
-        zielFeld.setOnMouseDragExited(event ->
-                                      {
-                                      });
+                {
+                    if (quellePaneFeld != null)
+                    {
+                        if (spielfeld.getSpielfeldplatz(bekommePosition(
+                                        zielFeld)) != null)
+                        {
+                            einheitangreifen(zielFeld);
+                        }
+                        else
+                        {
+                            einheitBewegen(zielFeld);
+                        }
+                    }
+
+                    if (quellePaneHand != null)
+                    {
+                        if (spielfeld.getSpielfeldplatz(bekommePosition(
+                                        zielFeld)) != null)
+                        {
+                            einheitangreifenzauber(zielFeld);
+                        }
+                        else
+                        {
+                            einheitBeschwoeren(zielFeld);
+                        }
+                    }
+                });
+        zielFeld.setOnMouseDragExited(event -> {});
     }
     
     /**
-     Methode, welche die Position eines Feldes in einem Gridpane zurueckgibt
-     * @param feld
-     * @return
+     Methode, welche die Position eines Feldes in einem Grid-Pane zurueckgibt
+     @param feld das Feld, von dem die Position genommen werden soll.
+     @return die Position des Stack-Panes
      */
-    private Position bekommeposition (StackPane feld)
+    private Position bekommePosition (StackPane feld)
     {
         return new Position(spielfeldGitter.getColumnIndex(feld),
                             spielfeldGitter.getRowIndex(feld));
@@ -365,31 +350,30 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche das Angreifen mit einer zauberkarte ausfuehrt und die visuelle Rueckmeldung steuert
-     * @param zielFeld Feld in dem sich das Ziel des Angriffes befindet
+     Methode, welche das Angreifen mit einer zauberkarte ausfuehrt und die
+     visuelle Rueckmeldung steuert
+     @param zielFeld Feld in dem sich das Ziel des Angriffes befindet
      */
     protected void einheitangreifenzauber (StackPane zielFeld)
     {
-        int angreiferposition =
+        int angreiferPosition =
                 spielfeldGitter.getColumnIndex(quellePaneHand);
-        Karte angreifer = kartenHand.getElement(angreiferposition);
+        Karte angreifer = kartenHand.getElement(angreiferPosition);
         KarteEinheit verteidiger =
-                spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
+                spielfeld.getSpielfeldplatz(bekommePosition(zielFeld));
         
         if (angreifer instanceof KarteZauber)
         {
             int rueckmeldung;
-            rueckmeldung = zauberKarteAusspielen((KarteZauber) angreifer,
-                                                 verteidiger, kartenHand,
-                                                 angreiferposition, spielfeld,
-                                                 spielerDeck,
-                                                 gegenspielerDeck);
-            
+            rueckmeldung = zauberKarteAusspielen(
+                    (KarteZauber) angreifer, verteidiger, kartenHand,
+                    angreiferPosition, spielfeld,
+                    spielerDeck, gegenspielerDeck);
             
             if (rueckmeldung == RUECKMELDUNG_SCHADEN)
             {
                 kartenhandGitter.getChildren().remove(quellePaneHand);
-                FXeffectsController.glowangriff(zielFeld, verteidiger);
+                FXeffectsController.glowAngriff(zielFeld, verteidiger);
             }
             if (rueckmeldung == RUECKMELDUNG_GESTORBEN)
             {
@@ -402,29 +386,28 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche das Angreifen mit einer KarteEinheit ausfuehrt und die visuelle Rueckmeldung steuert
-     * @param zielFeld Feld in dem sich das Ziel des Angriffes befindet
+     Methode, welche das Angreifen mit einer KarteEinheit ausfuehrt und die
+     visuelle Rueckmeldung steuert
+     @param zielFeld Feld in dem sich das Ziel des Angriffes befindet
      */
     protected void einheitangreifen (StackPane zielFeld)
     {
         KarteEinheit angreifer =
-                spielfeld.getSpielfeldplatz(bekommeposition(quellePaneFeld));
+                spielfeld.getSpielfeldplatz(bekommePosition(quellePaneFeld));
         KarteEinheit verteidiger =
-                spielfeld.getSpielfeldplatz(bekommeposition(zielFeld));
+                spielfeld.getSpielfeldplatz(bekommePosition(zielFeld));
         
-        int rueckmeldung =
-                EinheitenController.einheitenAngreifenMitEinheiten(binSpieler,
-                                                                   spielfeld,
-                                                                   spielerDeck,
-                                                                   gegenspielerDeck
-                        , angreifer, verteidiger);
+        int rueckmeldung = EinheitenController.einheitenAngreifenMitEinheiten(
+                        binSpieler, spielfeld, spielerDeck,
+                        gegenspielerDeck, angreifer, verteidiger);
+        
         if (rueckmeldung == RUECKMELDUNG_SCHADEN)
         {
-            FXeffectsController.glowangriff(zielFeld, verteidiger);
+            FXeffectsController.glowAngriff(zielFeld, verteidiger);
         }
         if (rueckmeldung == RUECKMELDUNG_SCHILDBREAK)
         {
-            FXeffectsController.glowschildbreak(zielFeld);
+            FXeffectsController.glowSchildBrechen(zielFeld);
         }
         if (rueckmeldung == RUECKMELDUNG_GESTORBEN)
         {
@@ -435,8 +418,9 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, das bewegen einer Einheit ausfuehrt und die visuelle Rueckmeldung steuert
-     * @param zielFeld Feld in das sich bewegt werden soll
+     Methode, das bewegen einer Einheit ausfuehrt und die visuelle
+     Rueckmeldung steuert
+     @param zielFeld Feld in das sich bewegt werden soll
      */
     protected void einheitBewegen (StackPane zielFeld)
     {
@@ -468,8 +452,9 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Methode, welche das Beschwoeren einer Einheit ausfuehrt und die visuelle Rueckmeldung steuert
-     * @param zielFeld
+     Methode, welche das Beschwoeren einer Einheit ausfuehrt und die visuelle
+     Rueckmeldung steuert
+     @param zielFeld das Feld, auf dem die Einheit beschworen werden soll.
      */
     protected void einheitBeschwoeren (StackPane zielFeld)
     {
@@ -533,7 +518,7 @@ public abstract class FeldGuiController extends GuiController
     }
     
     /**
-     Ermöglicht das einstellen der Aufloesung in der MenueLeiste
+     Ermoeglicht das Einstellen der Aufloesung in der MenueLeiste
      @param event ActionEvent, welches diese Methode ausloest.
      */
     @Override public void wechselAufloesungFullHD (Event event)
@@ -578,7 +563,7 @@ public abstract class FeldGuiController extends GuiController
     
     /**
      Methode um das Spielstandfenster aufzurufen
-     @param event Event durch welches die Methode ausgelöst wird.
+     @param event Event durch welches die Methode ausgeloest wird.
      @throws IOException Kann beim .load() des fxmlLoaders geworfen werden.
      */
     public void spielstandAnzeigen (Event event) throws IOException

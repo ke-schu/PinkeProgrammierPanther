@@ -2,7 +2,6 @@ package control;
 
 import model.Ebene;
 import model.Position;
-import model.SpielStand;
 import model.SpielfigurEbene;
 
 /**

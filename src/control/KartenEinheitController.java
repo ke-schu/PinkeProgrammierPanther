@@ -1,7 +1,6 @@
 package control;
 
 import model.*;
-import utility.KonsolenIO;
 
 /**
  Kontrolliert KartenEinheiten und enthaelt Methoden zum Beschwoeren der
@@ -75,10 +74,10 @@ public class KartenEinheitController
     
     /**
      Gibt an, ob befreundete Karten an eine Position grenzen
-     @param x Position in welcher Umgebung nach
-     befreundeten Karten gesucht wird
-     @param y Position in welcher Umgebung nach
-     befreundeten Karten gesucht wird
+     @param x Position in welcher Umgebung nach befreundeten Karten gesucht
+     wird
+     @param y Position in welcher Umgebung nach befreundeten Karten gesucht
+     wird
      @param spielfeld Spielfeld, in dem gesucht wird
      @return true, wenn eine befreundete Karte in der Umgebung ist
      */
@@ -124,19 +123,23 @@ public class KartenEinheitController
         return befreundet;
     }
     
+    /**
+     Prueft, ob das Bewegen erfolgreich war.
+     * @param spielfeld das Spielfeld
+     * @param aktuelleKarte die Karte, welche bewegt wurde
+     * @param feldSpaltenIndex die Zielspalte
+     * @param feldZeilenIndex die Zielzeile
+     * @return true, wenn das Bewegen erfolgreich war.
+     */
     public static boolean bewegenErfolgreich (SpielFeld spielfeld,
-                                              Karte aktuellekarte,
-                                              int feldspaltenindex,
-                                              int feldzeilenindex)
+                                              Karte aktuelleKarte,
+                                              int feldSpaltenIndex,
+                                              int feldZeilenIndex)
     {
         Karte karteAufSpielfeld =
-                spielfeld.getSpielfeldplatz(feldspaltenindex,
-                                            feldzeilenindex);
-        if (karteAufSpielfeld == aktuellekarte)
-        {
-            return true;
-        }
-        return false;
+                spielfeld.getSpielfeldplatz(feldSpaltenIndex,
+                                            feldZeilenIndex);
+        return karteAufSpielfeld == aktuelleKarte;
     }
     
     /**

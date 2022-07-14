@@ -101,7 +101,7 @@ public class SpielStand
     
     /**
      Getter Methode um den Wert des Attributes gegenSpieler zu erhalten.
-     * @return gegenSpieler gibt den Wert des Attributes gegenspieler wieder.
+     @return gegenSpieler gibt den Wert des Attributes gegenspieler wieder.
      */
     public Gegenspieler getGegenSpieler ()
     {
@@ -114,8 +114,10 @@ public class SpielStand
     }
     
     /**
-     Getter Methode um den Wert des Attributes aktuelleEbeneNummer zu erhalten.
-     * @return gegenSpieler gibt den Wert des Attributes aktuelleEbeneNummer wieder.
+     Getter Methode um den Wert des Attributes aktuelleEbeneNummer zu
+     erhalten.
+     @return gegenSpieler gibt den Wert des Attributes aktuelleEbeneNummer
+     wieder.
      */
     public int getAktuelleEbeneNummer ()
     {

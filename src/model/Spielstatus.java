@@ -1,8 +1,7 @@
 package model;
 
 /**
- Klasse welche die Informationen eines Kampfes als Spielstatus sammelt
- */
+ Klasse welche die Informationen eines Kampfes als Spielstatus sammelt */
 public class Spielstatus
 {
     private Spieler spieler;
@@ -13,29 +12,30 @@ public class Spielstatus
     private int zugzaehler;
     
     /**
-     Konstruiert eine Instanz der Klasse Spielstatus mit allen dafuer noetigen Attributen.
-     * @param spieler
-     * @param gegenspieler
-     * @param spielfeld
-     * @param spielerDeck
-     * @param gegenspielerDeck
-     * @param zugzaehler
+     Konstruiert eine Instanz der Klasse Spielstatus mit allen dafuer noetigen
+     Attributen.
+     @param spieler der Spieler
+     @param gegenspieler der Gegenspieler
+     @param spielfeld das Spielfeld
+     @param spielerDeck das Spieler-Deck
+     @param gegenspielerDeck das Gegenspieler-Deck
+     @param zugZaehler an welchem Zug wir gerade sind
      */
     public Spielstatus (Spieler spieler, Gegenspieler gegenspieler,
                         SpielFeld spielfeld, KartenDeck spielerDeck,
-                        KartenDeck gegenspielerDeck, int zugzaehler)
+                        KartenDeck gegenspielerDeck, int zugZaehler)
     {
         this.spieler = spieler;
         this.gegenspieler = gegenspieler;
         this.spielfeld = spielfeld;
         this.spielerDeck = spielerDeck;
         this.gegenspielerDeck = gegenspielerDeck;
-        this.zugzaehler = zugzaehler;
+        this.zugzaehler = zugZaehler;
     }
     
     /**
      Getter Methode um den Wert des Attributes spieler zu erhalten.
-     * @return gibt den Wert des Attributes spieler wieder.
+     @return gibt den Wert des Attributes spieler wieder.
      */
     public Spieler getSpieler ()
     {
@@ -44,7 +44,7 @@ public class Spielstatus
     
     /**
      Getter Methode um den Wert des Attributes gegenspieler zu erhalten.
-     * @return gibt den Wert des Attributes gegenspieler wieder.
+     @return gibt den Wert des Attributes gegenspieler wieder.
      */
     public Gegenspieler getGegenspieler ()
     {
@@ -53,7 +53,7 @@ public class Spielstatus
     
     /**
      Getter Methode um den Wert des Attributes spielfeld zu erhalten.
-     * @return gibt den Wert des Attributes spielfeld wieder.
+     @return gibt den Wert des Attributes spielfeld wieder.
      */
     public SpielFeld getSpielfeld ()
     {
@@ -62,7 +62,7 @@ public class Spielstatus
     
     /**
      Getter Methode um den Wert des Attributes spielerDeck zu erhalten.
-     * @return gibt den Wert des spielerDeck gegenspieler wieder.
+     @return gibt den Wert des spielerDeck gegenspieler wieder.
      */
     public KartenDeck getSpielerDeck ()
     {
@@ -71,7 +71,7 @@ public class Spielstatus
     
     /**
      Getter Methode um den Wert des Attributes spielerDeck zu erhalten.
-     * @return gibt den Wert des spielerDeck gegenspieler wieder.
+     @return gibt den Wert des spielerDeck gegenspieler wieder.
      */
     public KartenDeck getGegenspielerDeck ()
     {
@@ -80,7 +80,7 @@ public class Spielstatus
     
     /**
      Getter Methode um den Wert des Attributes zugzaehler zu erhalten.
-     * @return gibt den Wert des zugzaehler wieder.
+     @return gibt den Wert des zugzaehler wieder.
      */
     public int getZugzaehler ()
     {

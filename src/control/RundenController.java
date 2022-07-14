@@ -57,8 +57,8 @@ public class RundenController
     
     /**
      Diese Methode sorgt dafuer, dass die Einheiten einsatzbereit werden.
-     @param feld weckt die Karten nach jedem Zug auf, sodass sie
-     im naechsten Zug wieder agieren koennen.
+     @param feld weckt die Karten nach jedem Zug auf, sodass sie im naechsten
+     Zug wieder agieren koennen.
      */
     public static void aufwecken (SpielFeld feld)
     {
@@ -161,7 +161,8 @@ public class RundenController
     }
     
     /**
-     Kopiert die Werte eine KarteEinheit in eine andere bestehende KarteEinheit.
+     Kopiert die Werte eine KarteEinheit in eine andere bestehende
+     KarteEinheit.
      @param quelle die Ausgangskarte
      @param ziel die Zielkarte
      */

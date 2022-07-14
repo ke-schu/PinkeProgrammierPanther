@@ -67,7 +67,7 @@ public abstract class Ereignis
     
     /**
      Gibt den booleschen Wert des Attributes ausgefuehrt wieder.
-     * @return gibt den booleschen Wert des Attributes ausgefuehrt wieder.
+     @return gibt den booleschen Wert des Attributes ausgefuehrt wieder.
      */
     public boolean isAusgefuehrt ()
     {
@@ -75,8 +75,10 @@ public abstract class Ereignis
     }
     
     /**
-     Mehtode um einen booleschen Wert in das Attribut ausgefuehrt zu setzen.
-     * @param ausgefuehrt boolescher Wert der in das Attribut ausgefuehrt gesetzt werden soll.
+     Methode um einen booleschen Wert in das Attribut ausgefuehrt zu setzen.
+     @param ausgefuehrt boolescher Wert der in das Attribut ausgefuehrt
+     gesetzt
+     werden soll.
      */
     public void setAusgefuehrt (boolean ausgefuehrt)
     {

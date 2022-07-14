@@ -62,7 +62,7 @@ public interface Strings
     String DATEI_ERSTELLT = "Datei erstellt.";
     String DATEI_UEBERSCHRIEBEN = "Datei ueberschrieben.";
     
-    // Netzwerkverbindung
+    //  Netzwerkverbindung
     String FEHLER = "Fehler:";
     String LOCALHOST = "localhost";
     

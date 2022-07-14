@@ -13,8 +13,7 @@ import static resources.Strings.*;
  Diese Klasse dient zum Serialisieren und Deserialisieren der Ebenen. */
 public class EbeneSerialisierung implements JsonDeserializer<Ebene>
 {
-    private static GsonBuilder meinGsonBuilder = new GsonBuilder();
-    private Gson meinGson = new Gson();
+    private static final GsonBuilder meinGsonBuilder = new GsonBuilder();
     
     /**
      Methode um aus einem Json-Element eine Instanz von Raum zu erhalten.
@@ -33,7 +32,7 @@ public class EbeneSerialisierung implements JsonDeserializer<Ebene>
         
         RaumSerialisierung meineSerialisierung = new RaumSerialisierung();
         meinGsonBuilder.registerTypeAdapter(Raum.class, meineSerialisierung);
-        meinGson = meinGsonBuilder.create();
+        Gson meinGson = meinGsonBuilder.create();
         
         Ebene meineEbene = meinGson.fromJson(meinJsonObject, Ebene.class);
         

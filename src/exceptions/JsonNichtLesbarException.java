@@ -19,8 +19,8 @@ public class JsonNichtLesbarException extends IOException
     
     /**
      Konstruiert eine JsonNichtLesbarException mit uebergebenen Werten.
-     @param nachricht Naricht der Exception.
-     @param grund Grund der Exception.
+     @param nachricht die Nachricht der Exception.
+     @param grund der Grund der Exception.
      */
     public JsonNichtLesbarException (String nachricht, Throwable grund)
     {

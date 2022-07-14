@@ -10,7 +10,7 @@ public class Gegenspieler extends KarteEinheit implements Spielbar
     private final int mana;
     
     /**
-     Konstruktor der mit den uebergebenen Paramtern eine Instanz erstellt.
+     Konstruktor der mit den uebergebenen Parametern eine Instanz erstellt.
      @param mana Mana-Guthaben des Gegenspielers.
      */
     public Gegenspieler (String name, int level, Einheiten typ, int macht,

@@ -36,14 +36,14 @@ public class Serialisierung<T>
             throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
-        return (T) meinGson.fromJson(jsonString, typ);
+        return meinGson.fromJson(jsonString, typ);
     }
     
     public T deserialisieren (JsonReader reader, Type typ)
             throws JsonSyntaxException
     {
         meinGson = meinGsonBuilder.create();
-        return (T) meinGson.fromJson(reader, typ);
+        return meinGson.fromJson(reader, typ);
     }
 }
 

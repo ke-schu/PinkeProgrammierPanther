@@ -95,7 +95,7 @@ public class SpielStandController
         if (ArtefaktController.entferneArtefakt(SCHUTZENGEL, spieler))
         {
             spieler.setLebenspunkte(
-                    spieler.getMaxleben() / SCHUTZENGEL_ANTEIL_MAXLEBEN);
+                    spieler.getMaxLeben() / SCHUTZENGEL_ANTEIL_MAXLEBEN);
         }
     }
 }

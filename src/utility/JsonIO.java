@@ -16,10 +16,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Stack;
 
-import static resources.Strings.CHARAKTER_PFAD;
-import static resources.Strings.JSON_SPIELSTAND_PFAD;
-import static resources.Strings.DATEI_ERSTELLT;
-import static resources.Strings.DATEI_UEBERSCHRIEBEN;
+import static resources.Strings.*;
+
 /**
  Diese Klasse beinhaltet das Lesen und Schreiben von JSON Dateien. */
 public class JsonIO<T>

@@ -23,8 +23,8 @@ import static resources.Konstanten.SPIELSTATUS_PORT;
 import static resources.StringsGUI.PSEUDO_CLASS_ERROR;
 
 /**
- Controllerklasse, welche den View auf das Spielfeld des Gegenspielers kontrolliert
- */
+ Controllerklasse, welche den View auf das Spielfeld des Gegenspielers
+ kontrolliert */
 public class GegenspielerFeldGUIController extends FeldGuiController
 {
     @FXML TextField hostnameFeld;
@@ -38,8 +38,9 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     }
     
     /**
-     Methode, welche durch Mausinteraktion die Verbindung zu einem Server aufbaut
-     * @param actionEvent Mausinteraktion
+     Methode, welche durch Mausinteraktion die Verbindung zu einem Server
+     aufbaut
+     @param actionEvent Mausinteraktion
      */
     @FXML
     public void verbinden (ActionEvent actionEvent)
@@ -58,10 +59,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     }
     
     @Override
-    /**
-     Methode, welche die fuer die initialisierung des Kampfes noetigen Objekte erstellt und Aktionen ausfuert
-     */
-    public void initalisieren ()
+    public void initialisieren ()
     {
         if (RundenController.getZugZaehler() == 1)
         {
@@ -77,7 +75,9 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     }
     
     /**
-     Klasse, welche die Kommunikation zwischen Server und Client regelt und den Spielstatus aktuell haelt
+     Klasse, welche die Kommunikation zwischen Server und Client regelt und
+     den
+     Spielstatus aktuell haelt
      */
     private class NetzwerkTask extends Task
     {
@@ -99,7 +99,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                             if (postEingang != null)
                             {
                                 updateSpielStatus(postEingang);
-                                initalisieren();
+                                initialisieren();
                             }
                             SpielstatusKommunikation.getInputService()
                                                     .restart();
@@ -118,7 +118,7 @@ public class GegenspielerFeldGUIController extends FeldGuiController
                             if (postEingang != null)
                             {
                                 updateSpielStatus(postEingang);
-                                initalisieren();
+                                initialisieren();
                             }
                             SpielstatusKommunikation.getInputService()
                                                     .restart();

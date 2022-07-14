@@ -66,21 +66,13 @@ public class KarteGrossVBox extends VBox
     
     /**
      Testet, ob die uebergebene Karte der Klasse Einheit oder Zauber
-     zugerhoerig
-     ist.
+     zugerhoerig ist.
      @param karte Instanz der Klasse Karte, welche geprüft werden soll.
      @return gibt ein boolschen Wert zurueck, der angibt zu welcher Klasse die
-     Karte gehört.
+     Karte gehoert.
      */
     public boolean testeKarteEinheit (Karte karte)
     {
-        if (karte.getClass() == KarteEinheit.class)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return karte.getClass() == KarteEinheit.class;
     }
 }

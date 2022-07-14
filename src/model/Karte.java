@@ -99,7 +99,7 @@ public abstract class Karte
     
     /**
      Gibt einen String mit dem Inhalt des Attributes klasse wieder.
-     * @return gibt den String des Attributes klasse wieder.
+     @return gibt den String des Attributes klasse wieder.
      */
     public String getKlasse ()
     {

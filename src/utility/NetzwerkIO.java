@@ -14,11 +14,10 @@ import java.net.Socket;
 import static resources.Strings.NETZWERK_GESENDET;
 
 /**
- Diese Klasse ist die abstrakte Oberklasse fuer Server und Client und
- stellt dafuer Netzwerkfunktionalitaet mit JavaFX-threadfaehigen Services
- zur Verfuegung.
- * @param <T> Die Klasse, die ausgetauscht werden soll
- */
+ Diese Klasse ist die abstrakte Oberklasse fuer Server und Client und stellt
+ dafuer Netzwerkfunktionalitaet mit JavaFX-threadfaehigen Services zur
+ Verfuegung.
+ @param <T> Die Klasse, die ausgetauscht werden soll */
 public abstract class NetzwerkIO<T>
 {
     protected final Class<T> classType;
@@ -31,9 +30,9 @@ public abstract class NetzwerkIO<T>
     private Service<T> inputService;
     
     /**
-     Dies ist nur der Superkonstruktor,
-     der nicht direkt instanziiert werden kann.
-     * @param typ der Typ der auszutauschenden Klasse
+     Dies ist nur der Superkonstruktor, der nicht direkt instanziiert werden
+     kann.
+     @param typ der Typ der auszutauschenden Klasse
      */
     public NetzwerkIO (Class<T> typ)
     {
@@ -85,7 +84,7 @@ public abstract class NetzwerkIO<T>
     
     /**
      Sendet eine Nachricht an den Gespaechspartner.
-     * @param nachricht die zu sendende Nachricht
+     @param nachricht die zu sendende Nachricht
      */
     public void senden (T nachricht)
     {
@@ -102,7 +101,7 @@ public abstract class NetzwerkIO<T>
     /**
      Gibt den InputService zurueck, auf dem dauerhaft nach neuen Objekten
      geschaut wird.
-     * @return den InputService der Klasse
+     @return den InputService der Klasse
      */
     public Service<T> getInputService ()
     {
@@ -111,7 +110,7 @@ public abstract class NetzwerkIO<T>
     
     /**
      Gibt das Objekt aus dem Posteingang zurueck
-     * @return ankommendes Objekt
+     @return ankommendes Objekt
      */
     public T getObjekt ()
     {
@@ -120,7 +119,7 @@ public abstract class NetzwerkIO<T>
     
     /**
      Die die Property von eingehenden Objekten zurueck
-     * @return eingehende ObjekteProperty
+     @return eingehende ObjekteProperty
      */
     public ObjectProperty objektProperty ()
     {

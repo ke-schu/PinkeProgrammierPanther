@@ -65,7 +65,7 @@ public class Schmied extends Mensch
             }
             catch (IOException e)
             {
-                e.getMessage();
+                e.printStackTrace();
             }
         }
     }
@@ -109,7 +109,7 @@ public class Schmied extends Mensch
             }
             catch (IOException e)
             {
-                e.getMessage();
+                e.printStackTrace();
             }
         }
     }

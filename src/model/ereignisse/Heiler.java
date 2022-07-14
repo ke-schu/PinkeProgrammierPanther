@@ -36,7 +36,7 @@ public class Heiler extends Mensch
         {
             if (pruefeGratisInteraktion())
             {
-                spiel.getSpieler().getMaxleben();
+                spiel.getSpieler().getMaxLeben();
                 spiel.getSpieler().setLebenspunkte(
                         spiel.getSpieler().getLebenspunkte() +
                         HEILER_AUFWERTUNG_LEBENSPUNKTE);
@@ -48,7 +48,7 @@ public class Heiler extends Mensch
                 spiel.setGold(spiel.getGold() - this.getKosten());
                 if (spiel.getSpieler().getLebenspunkte() +
                     HEILER_AUFWERTUNG_LEBENSPUNKTE <
-                    spiel.getSpieler().getMaxleben())
+                    spiel.getSpieler().getMaxLeben())
                 {
                     spiel.getSpieler().setLebenspunkte(
                             spiel.getSpieler().getLebenspunkte() +

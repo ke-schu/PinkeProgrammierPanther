@@ -11,8 +11,8 @@ import model.Raum;
 import static resources.StringsGUI.*;
 
 /**
- RaumPane erbt von StackPane und wird zu der visualisierung von Raeumen benutzt.
- */
+ RaumPane erbt von StackPane und wird zu der visualisierung von Raeumen
+ benutzt. */
 public class RaumPane extends StackPane
 {
     private BooleanProperty beinhaltetSpieler;
@@ -20,7 +20,8 @@ public class RaumPane extends StackPane
     
     /**
      Konstruktor von RaumPane.
-     * @param raum Instanz der Klasse Raum, die mit einem RaumPane visualisiert werden soll.
+     @param raum Instanz der Klasse Raum, die mit einem RaumPane visualisiert
+     werden soll.
      */
     public RaumPane (Raum raum)
     {
@@ -67,8 +68,9 @@ public class RaumPane extends StackPane
     }
     
     /**
-     Methode um das Attribut nichtg zu setzen.
-     * @param nichtig boolescher Wert, welcher in das Attribut gesetzt werden soll.
+     Methode um das Attribut nichtig zu setzen.
+     @param nichtig boolescher Wert, welcher in das Attribut gesetzt werden
+     soll.
      */
     public void setNichtig (boolean nichtig)
     {
@@ -77,7 +79,8 @@ public class RaumPane extends StackPane
     
     /**
      Methode um das Attribut beinhaltetSpieler zu setzen.
-     * @param beinhaltetSpieler boolescher Wert, welcher in das Attribut gesetzt werden soll.
+     @param beinhaltetSpieler boolescher Wert, welcher in das Attribut gesetzt
+     werden soll.
      */
     public void setBeinhaltetSpieler (boolean beinhaltetSpieler)
     {

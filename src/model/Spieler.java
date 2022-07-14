@@ -18,7 +18,7 @@ public class Spieler extends KarteEinheit implements Spielbar
     private int mana;
     private int erfahrungspunkte = 0;
     private int levelGrenze = 50;
-    private int maxleben;
+    private int maxLeben;
     
     /**
      Konstruiert einen Spieler mit allen notwendigen Attributen.
@@ -120,21 +120,21 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
     
     /**
-     Getter Methode um den Wert des Attributes maxleben zu erhalten.
-     @return gibt den Wert des Attributes maxleben wieder.
+     Getter Methode um den Wert des Attributes maxLeben zu erhalten.
+     @return gibt den Wert des Attributes maxLeben wieder.
      */
-    public int getMaxleben ()
+    public int getMaxLeben ()
     {
-        return maxleben;
+        return maxLeben;
     }
     
     /**
-     Setter Methode um das Attribut maxleben zu setzen.
-     @param maxleben auf welchen das Attribut gesetzt werden soll.
+     Setter Methode um das Attribut maxLeben zu setzen.
+     @param maxLeben auf welchen das Attribut gesetzt werden soll.
      */
-    public void setMaxleben (int maxleben)
+    public void setMaxLeben (int maxLeben)
     {
-        this.maxleben = maxleben;
+        this.maxLeben = maxLeben;
     }
     
     /**
@@ -191,12 +191,12 @@ public class Spieler extends KarteEinheit implements Spielbar
     }
     
     /**
-     Private Methode um das Attribut level um eins zu erhöhen.
+     Private Methode um das Attribut level um eins zu erhoehen.
      */
     private void levelUp ()
     {
         this.setLevel(this.getLevel() + LEVEL_SUMMAND_SPIELER);
-        this.setMaxleben(this.maxleben + 2);
+        this.setMaxLeben(this.maxLeben + 2);
     }
     
     /**

@@ -30,14 +30,7 @@ public abstract class Mensch extends Ereignis
      */
     public boolean pruefeGratisInteraktion ()
     {
-        if (gratisInteraktionen > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return gratisInteraktionen > 0;
     }
     
     /**

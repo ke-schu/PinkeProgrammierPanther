@@ -56,7 +56,7 @@ public class Tempel extends Mensch
             }
             catch (IOException e)
             {
-                e.getMessage();
+                e.printStackTrace();
             }
         }
     }

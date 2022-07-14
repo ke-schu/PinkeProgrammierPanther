@@ -21,24 +21,21 @@ import static resources.Konstanten.SPIELSTATUS_PORT;
 import static resources.Konstanten.spielStandIO;
 
 /**
- Controllerklasse, welche den View auf das Spielfeld des Spielers kontrolliert
- */
+ Controllerklasse, welche den View auf das Spielfeld des Spielers
+ kontrolliert */
 public class SpielerFeldGUIController extends FeldGuiController
 {
     @Override
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         binSpieler = true;
-        initalisieren();
+        initialisieren();
         ladeSpielfeld(spielfeld, true);
         new Thread(new NetzwerkTask()).start();
     }
     
     @Override
-    /**
-     Methode, welche die fuer die initialisierung des Kampfes noetigen Objekte erstellt und Aktionen ausfuert
-     */
-    public void initalisieren ()
+    public void initialisieren ()
     {
         try
         {
@@ -73,11 +70,13 @@ public class SpielerFeldGUIController extends FeldGuiController
     }
     
     /**
-     Klasse, welche die Kommunikation zwischen Server und Client regelt und den Spielstatus aktuell haelt
+     Klasse, welche die Kommunikation zwischen Server und Client regelt und
+     den
+     Spielstatus aktuell haelt
      */
     private class NetzwerkTask extends Task
     {
-        @Override protected Void call () throws Exception
+        @Override protected Void call ()
         {
             SpielstatusKommunikation =
                     new Server(SPIELSTATUS_PORT, Spielstatus.class);

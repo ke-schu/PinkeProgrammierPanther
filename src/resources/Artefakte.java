@@ -4,7 +4,8 @@ import static resources.StringsGUI.SCHUTZENGEL_BESCHREIBUNG;
 import static resources.StringsGUI.SCHUTZENGEL_NAME;
 
 /**
- Das Enum beinhaltet Artefakte die der Spieler im Laufe des Spiels erhalten. */
+ Das Enum beinhaltet Artefakte die der Spieler im Laufe des Spiels erhalten
+ . */
 public enum Artefakte
 {
     SCHUTZENGEL(SCHUTZENGEL_NAME, SCHUTZENGEL_BESCHREIBUNG);

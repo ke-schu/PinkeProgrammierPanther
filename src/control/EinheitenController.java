@@ -1,7 +1,9 @@
 package control;
 
-import model.*;
-import utility.KonsolenIO;
+import model.KarteEinheit;
+import model.KartenDeck;
+import model.Position;
+import model.SpielFeld;
 
 import static resources.Konstanten.WERT_SCHILD;
 import static resources.KonstantenGUI.*;
@@ -28,7 +30,7 @@ public class EinheitenController
      @param ziel_y Integer mit der Zielspalte der Bewegung.
      @param einheit Einheit die bewegt werden soll.
      */
-    public static boolean bewegen (boolean istspieler, SpielFeld spielfeld,
+    public static boolean bewegen (boolean istSpieler, SpielFeld spielfeld,
                                    int ziel_x, int ziel_y,
                                    KarteEinheit einheit)
     {
@@ -42,9 +44,9 @@ public class EinheitenController
             
             if ((spielfeld.getSpielfeldplatz(ziel_x, ziel_y) == null) &&
                 (einheit.getBeweglichkeit() > 0) &&
-                ((RundenController.getDran() == istspieler)
-                 && (einheit.getFreundlich() == istspieler)) &&
-                (einheit.getSchlafend() == false))
+                ((RundenController.getDran() == istSpieler)
+                 && (einheit.getFreundlich() == istSpieler)) &&
+                (!einheit.getSchlafend()))
             {
                 zielErreichbarInX = (ziel_x == startX + umkreis) ||
                                     (ziel_x == startX - umkreis);
@@ -95,7 +97,8 @@ public class EinheitenController
                     verursacheSchaden(verteidiger, angreifer.getMacht());
                     boolean gestorben = RundenController.feldplatzAufraumen(
                             feld, spielerDeck, gegnerDeck,
-                            verteidiger.getPositionX(), verteidiger.getPositionY());
+                            verteidiger.getPositionX(),
+                            verteidiger.getPositionY());
                     EffektController.angriffEffektAusloesen(
                             angreifer, verteidiger, angreifer.getEffektEins(),
                             feld);
@@ -153,13 +156,9 @@ public class EinheitenController
      @return Der Rueckgabewert ist, ob die Einheiten sich angreifen koennen.
      */
     private static boolean pruefeObFeindlich (KarteEinheit angreifer,
-                                             KarteEinheit verteidiger)
+                                              KarteEinheit verteidiger)
     {
-        if (angreifer.getFreundlich() != verteidiger.getFreundlich())
-        {
-            return true;
-        }
-        return false;
+        return angreifer.getFreundlich() != verteidiger.getFreundlich();
     }
     
     /**
@@ -180,7 +179,7 @@ public class EinheitenController
      werden soll.
      */
     private static void verursacheSchaden (KarteEinheit verteidiger,
-                                             int schadensWert)
+                                           int schadensWert)
     {
         int schaden = schadensWert - verteidiger.getVerteidigung();
         
@@ -200,11 +199,7 @@ public class EinheitenController
     public static boolean positionInnerhalbVonFeld (Position position,
                                                     SpielFeld feld)
     {
-        if ((position.getX() < feld.getSpalten()) &&
-            (position.getY() < feld.getZeilen()))
-        {
-            return true;
-        }
-        return false;
+        return (position.getX() < feld.getSpalten()) &&
+               (position.getY() < feld.getZeilen());
     }
 }

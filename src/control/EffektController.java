@@ -1,12 +1,14 @@
 package control;
 
-import model.*;
+import model.KarteEinheit;
+import model.Position;
+import model.SpielFeld;
 import resources.Effekte;
-import utility.KonsolenIO;
 
 import static control.EinheitenController.positionInnerhalbVonFeld;
 
-/** Loest die Effekte der Karten aus und kontrolliert diese. */
+/**
+ Loest die Effekte der Karten aus und kontrolliert diese. */
 public class EffektController
 {
     /**
@@ -18,17 +20,18 @@ public class EffektController
     }
     
     /**
-     Diese Methode erkennt, ob die Einheit einen Sterbeeffekt hat und
-     falls ja, wird die zugehoerige Methode aufgerufen.
+     Diese Methode erkennt, ob die Einheit einen Sterbeeffekt hat und falls
+     ja,
+     wird die zugehoerige Methode aufgerufen.
      @param ausloeser Die Einheit, die den Effekt ausloest.
-     @param meineffekt Der auszuloesende Effekt.
+     @param meinEffekt Der auszuloesende Effekt.
      @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
     public static void sterbenEffektAusloesen (KarteEinheit ausloeser,
-                                               Effekte meineffekt,
+                                               Effekte meinEffekt,
                                                SpielFeld feld)
     {
-        switch (meineffekt)
+        switch (meinEffekt)
         {
             case KOPIE:
                 kopie(ausloeser, feld);
@@ -60,14 +63,14 @@ public class EffektController
      ja, wird die zugehoerige Methode aufgerufen.
      @param ausloeser Die Einheit, die den Effekt ausloest.
      @param ziel Die Einheit, die angegriffen werden soll.
-     @param meineffekt Der auszuloesende Effekt.
+     @param meinEffekt Der auszuloesende Effekt.
      @param feld Das Spielfeld auf dem der Effekt ausgefuehrt wird.
      */
     public static void angriffEffektAusloesen (
             KarteEinheit ausloeser, KarteEinheit ziel,
-            Effekte meineffekt, SpielFeld feld)
+            Effekte meinEffekt, SpielFeld feld)
     {
-        switch (meineffekt)
+        switch (meinEffekt)
         {
             case RAUBTIER:
                 raubtier(ausloeser, ziel);
@@ -77,7 +80,7 @@ public class EffektController
                 {
                     zurueckWerfen(ausloeser, feld);
                 }
-                catch(ArrayIndexOutOfBoundsException e)
+                catch (ArrayIndexOutOfBoundsException e)
                 {
                     return;
                 }
@@ -275,12 +278,12 @@ public class EffektController
      Diese Methode erkennt, ob die Einheit einen Starteffekt hat und falls ja,
      wird die zugehoerige Methode aufgerufen.
      @param ausloeser Die Einheit, die den Effekt ausloest.
-     @param meineffekt Der auszuloesende Effekt.
+     @param meinEffekt Der auszuloesende Effekt.
      */
     public static void startEffektAusloesen (KarteEinheit ausloeser,
-                                             Effekte meineffekt)
+                                             Effekte meinEffekt)
     {
-        switch (meineffekt)
+        switch (meinEffekt)
         {
             case SPRINT:
                 sprint(ausloeser);

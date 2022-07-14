@@ -26,12 +26,12 @@ public class ArtefaktController
     public static boolean entferneArtefakt (Artefakte artefakt,
                                             Spieler spieler)
     {
-        Artefakte[] meineArtefake = spieler.getArtefakte();
-        for (int i = 0; i < meineArtefake.length - 1; i++)
+        Artefakte[] meineArtefakte = spieler.getArtefakte();
+        for (int i = 0; i < meineArtefakte.length - 1; i++)
         {
-            if (meineArtefake[i] == artefakt)
+            if (meineArtefakte[i] == artefakt)
             {
-                meineArtefake[i] = null;
+                meineArtefakte[i] = null;
                 return true;
             }
         }

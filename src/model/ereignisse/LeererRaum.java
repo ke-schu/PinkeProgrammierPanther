@@ -23,8 +23,8 @@ public class LeererRaum extends Ereignis
     }
     
     /**
-     Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis". Sie
-     zeigt die Eigenschaft des leeren Raumes an.
+     Diese Methode ueberlagert die Methode aus der Superklasse "Ereignis".
+     Ein leerer Raum fuehrt in diesem Fall nichts aus.
      @param spielStand: Spielstand Datei.
      */
     public void ausfuehren (SpielStand spielStand)

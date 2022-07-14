@@ -65,7 +65,8 @@ public class KarteEinheit extends Karte
     
     /**
      Konstruiert eine KarteEinheit mit allen dafuer noetigen Attributen.
-     * @param vorlage Instanz der Klasse KarteEinheit aus welcher eine neue Instanz erstellt wird.
+     @param vorlage Instanz der Klasse KarteEinheit aus welcher eine neue
+     Instanz erstellt wird.
      */
     private KarteEinheit (KarteEinheit vorlage)
     {
@@ -229,8 +230,7 @@ public class KarteEinheit extends Karte
      */
     public KarteEinheit kopieErstelen (KarteEinheit vorlage)
     {
-        KarteEinheit kopie = new KarteEinheit(vorlage);
-        return kopie;
+        return new KarteEinheit(vorlage);
     }
     
     /**

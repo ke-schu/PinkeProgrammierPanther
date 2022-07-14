@@ -1,12 +1,10 @@
 package control;
 
 import model.Ebene;
-import model.SpielfigurEbene;
 import utility.KonsolenIO;
 
 import java.io.IOException;
 
-import static resources.Konstanten.SPIELFIGUR_EBENE_STARTPOSITION;
 import static resources.Konstanten.ebeneIO;
 import static resources.Strings.*;
 

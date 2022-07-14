@@ -41,20 +41,17 @@ public class KarteVBox extends VBox
         }
         
         this.getChildren().add(new Label(karte.getName()));
-    
+        
         if (karte instanceof KarteEinheit)
         {
             einfuegenKarteEinheit((KarteEinheit) karte);
-        }
-        if (karte instanceof KarteZauber)
-        {
-            einfuegenKarteZauber((KarteZauber) karte);
         }
     }
     
     /**
      Setzt das Bild der Karte in den Hintergrund ein.
-     * @throws FileNotFoundException Entsteht, falls kein Bild mit identischem Kartennamem gefunden wurde.
+     @throws FileNotFoundException entsteht, falls kein Bild mit identischem
+     Kartennamen gefunden wurde.
      */
     private void hintergrundSetzen () throws FileNotFoundException
     {
@@ -80,16 +77,10 @@ public class KarteVBox extends VBox
      */
     private void einfuegenKarteEinheit (KarteEinheit einheit)
     {
-        this.getChildren().add(new Label(MANA_STAT + einheit.getManaKosten()));
+        this.getChildren()
+            .add(new Label(MANA_STAT + einheit.getManaKosten()));
         this.getChildren().add(new Label(MACHT_STAT + einheit.getMacht()));
-        this.getChildren().add(new Label(LP_STAT + einheit.getLebenspunkte()));
-    }
-    
-    /**
-     Fuegt einige Labels fuer eine Karte Zauber in die Box ein.
-     @param zauber der einzufuegende Zauber
-     */
-    private void einfuegenKarteZauber (KarteZauber zauber)
-    {
+        this.getChildren()
+            .add(new Label(LP_STAT + einheit.getLebenspunkte()));
     }
 }

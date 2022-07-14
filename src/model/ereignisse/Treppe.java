@@ -44,7 +44,7 @@ public class Treppe extends Ereignis
         }
         catch (IOException e)
         {
-            e.getMessage();
+            e.printStackTrace();
         }
     }
 }

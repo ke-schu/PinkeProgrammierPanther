@@ -11,7 +11,7 @@ import static resources.StringsGUI.*;
 
 /**
  Modelliert eine VBox mit eigenen Priority-Klassen um die Charaktere in der
- Szene darstellen zu können. */
+ Szene darstellen zu koennen. */
 public class CharakterVBox extends VBox
 {
     private BooleanProperty gewaehlt;

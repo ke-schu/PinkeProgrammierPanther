@@ -188,18 +188,6 @@ public abstract class GuiController implements Initializable
     }
     
     /**
-     Methode mit der zu der Spielstand-Scene gewechselt wird.
-     @param event ActionEvent, welches diese Methode ausloest.
-     @throws IOException durch den Aufruf der Methode wechselZu ausgeloest
-     werden.
-     */
-    @FXML public void wechelZuSpielstand (ActionEvent event)
-            throws IOException
-    {
-        wechselZu(event, SPIELSTAND_PFAD);
-    }
-    
-    /**
      Methode mit welcher die Anwendung geschlossen wird.
      @param event ActionEvent, welches diese Methode ausloest.
      */
@@ -229,18 +217,16 @@ public abstract class GuiController implements Initializable
     /**
      Methode um eine ComboBox zu erstellen.
      @param comboBoxArray StringArray welche in die ComboBox eingesetzte
-     werden
-     soll.
+     werden soll.
      @param meineCombobox ComboBox, in welche das StringArray eingesetzt
-     werden
-     soll.
+     werden soll.
      */
     public void erstelleCombobox (String[] comboBoxArray,
                                   ComboBox meineCombobox)
     {
-        for (int i = 0; i < comboBoxArray.length; i++)
+        for (String s : comboBoxArray)
         {
-            meineCombobox.getItems().add(comboBoxArray[i]);
+            meineCombobox.getItems().add(s);
         }
     }
     

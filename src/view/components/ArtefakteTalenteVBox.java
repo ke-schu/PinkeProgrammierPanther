@@ -20,7 +20,8 @@ public class ArtefakteTalenteVBox extends VBox
 {
     /**
      Konstruktor, welcher mit dem uebergebenen Artefakt eine entsprechende
-     VBox erstellt.
+     VBox
+     erstellt.
      @param artefakt Artefakt, mit welchem die VBox erstellt wird.
      */
     public ArtefakteTalenteVBox (Artefakte artefakt)

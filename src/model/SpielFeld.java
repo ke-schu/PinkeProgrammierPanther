@@ -28,9 +28,7 @@ public class SpielFeld
                 UtilityController.randomZahlMitBereich(
                         SPIELFELD_GENERATOR_MIN,
                         SPIELFELD_GENERATOR_ZEILEN_MAX);
-        KarteEinheit[][] spielfeld =
-                new KarteEinheit[this.zeilen][this.spalten];
-        this.spielfeld = spielfeld;
+        this.spielfeld = new KarteEinheit[this.zeilen][this.spalten];
     }
     
     /**
@@ -42,9 +40,7 @@ public class SpielFeld
     {
         this.spalten = x;
         this.zeilen = y;
-        KarteEinheit[][] spielfeld =
-                new KarteEinheit[this.zeilen][this.spalten];
-        this.spielfeld = spielfeld;
+        this.spielfeld = new KarteEinheit[this.zeilen][this.spalten];
     }
     
     /**
@@ -140,11 +136,12 @@ public class SpielFeld
     }
     
     /**
-     Diese Methode gibt die Einheitenkarte im spielfeld an einer
-     spezifischen Position wieder.
-     * @param position Position an welcher die Einheitenkarte im Spielfeld positioniert ist
-     * @return Gibt den Inhalt des Attributes spielfeld an einer bestimmten
-    Stelle wieder.
+     Diese Methode gibt die Einheitenkarte im spielfeld an einer spezifischen
+     Position wieder.
+     @param position Position an welcher die Einheitenkarte im Spielfeld
+     positioniert ist
+     @return Gibt den Inhalt des Attributes spielfeld an einer bestimmten
+     Stelle wieder.
      */
     public KarteEinheit getSpielfeldplatz (Position position)
     {
