@@ -10,7 +10,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
+      "effektEins": null,
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
@@ -34,7 +34,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
+      "effektEins": null,
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,
@@ -50,16 +50,16 @@
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
+      "typ": "FERNKAEMPFER",
       "macht": 2,
       "lebenspunkte": 9,
       "manaKosten": 1,
       "beweglichkeit": 1,
-      "reichweite": 1,
+      "reichweite": 2,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -82,8 +82,8 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -106,8 +106,8 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektEins": null,
+      "effektZwei": null,
       "position": {
         "x": 0,
         "y": 0
@@ -130,7 +130,7 @@
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
-      "effektEins": "LETZTEWORTE",
+      "effektEins": null,
       "effektZwei": "ZURUECKWERFEN",
       "position": {
         "x": 0,

@@ -35,7 +35,6 @@ public class GegenspielerFeldGUIController extends FeldGuiController
     public void initialize (URL url, ResourceBundle resourceBundle)
     {
         binSpieler = false;
-        //karteInHandEinfuegen();
     }
     
     /**
@@ -75,7 +74,6 @@ public class GegenspielerFeldGUIController extends FeldGuiController
         double manaWert = manaMaximum / manaTank.getMana();
         Manabar.setProgress(manaWert);
         karteInHandEinfuegen();
-        
     }
     
     /**

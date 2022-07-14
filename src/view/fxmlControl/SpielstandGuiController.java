@@ -50,26 +50,26 @@ public class SpielstandGuiController extends GuiController
     {
         try
         {
-            SpielStand spiel = spielStandIO.leseSpielstand();
+            SpielStand geladenesSpiel = spielStandIO.leseSpielstand();
             this.goldLabel.setText(GOLD + spiel.getGold());
             this.levelLabel.setText(
-                    LEVEL_STAT + spiel.getSpieler().getLevel());
+                    LEVEL_STAT + geladenesSpiel.getSpieler().getLevel());
             this.erfahrungspunkteLabel.setText(ERFAHRUNGSPUNKTE +
-                                               spiel.getSpieler()
+                                               geladenesSpiel.getSpieler()
                                                     .getErfahrungspunkte() +
                                                SCHRAEGSTRICH +
-                                               spiel.getSpieler()
+                                               geladenesSpiel.getSpieler()
                                                     .getLevelGrenze());
             this.lebenspunkteLabel.setText(
                     LP_STAT + spiel.getSpieler().getLebenspunkte() +
-                    SCHRAEGSTRICH + spiel.getSpieler().getMaxleben());
-            this.manaLabel.setText(MANA_MAX + spiel.getSpieler().getMana());
+                    SCHRAEGSTRICH + geladenesSpiel.getSpieler().getMaxleben());
+            this.manaLabel.setText(MANA_MAX + geladenesSpiel.getSpieler().getMana());
             this.machtLabel.setText(
-                    MACHT_STAT + spiel.getSpieler().getMacht());
+                    MACHT_STAT + geladenesSpiel.getSpieler().getMacht());
             this.reichweiteLabel.setText(
-                    REICHWEITE_STAT + spiel.getSpieler().getReichweite());
+                    REICHWEITE_STAT + geladenesSpiel.getSpieler().getReichweite());
             this.waffenNameLabel.setText(WAFFEN_ANZEIGE +
-                                         spiel.getSpieler().getWaffen()
+                                         geladenesSpiel.getSpieler().getWaffen()
                                               .getNAME());
             this.decknameLabel.setText(DECKNAHME +
                                        kartenDeckIO.leseKartenDeck(
@@ -77,12 +77,12 @@ public class SpielstandGuiController extends GuiController
                                                    .getDeckBezeichnung());
             this.decknameLabel.setAlignment(Pos.CENTER);
             File charakterbild = new File(
-                    BILDER_PFAD + spiel.getSpieler().getName() +
+                    BILDER_PFAD + geladenesSpiel.getSpieler().getName() +
                     PNG_DATEI_ENDUNG);
             this.deckBild.setImage(
                     new Image(charakterbild.getAbsolutePath()));
             File waffenbild = new File(
-                    BILDER_PFAD + spiel.getSpieler().getWaffen().getNAME() +
+                    BILDER_PFAD + geladenesSpiel.getSpieler().getWaffen().getNAME() +
                     PNG_DATEI_ENDUNG);
             this.waffenBild.setImage(new Image(waffenbild.getAbsolutePath()));
             

@@ -660,7 +660,7 @@ public class SpielebeneGuiController extends GuiController
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
         spane.getStylesheets().add(SpielstandGuiController.class.getResource(
-                "/view/css/Spielstand.css").toExternalForm());
+                SPIELSTAND_CSS_PFAD).toExternalForm());
         spane.setContent(pane);
         for (int i = 0; h < k; i++)
         {
@@ -719,7 +719,7 @@ public class SpielebeneGuiController extends GuiController
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
         spane.getStylesheets().add(SpielstandGuiController.class.getResource(
-                "/view/css/Spielstand.css").toExternalForm());
+                SPIELSTAND_CSS_PFAD).toExternalForm());
         spane.setContent(pane);
         for (int i = 0; h < k; i++)
         {
@@ -789,7 +789,7 @@ public class SpielebeneGuiController extends GuiController
         ScrollPane spane = new ScrollPane();
         GridPane pane = new GridPane();
         spane.getStylesheets().add(SpielstandGuiController.class.getResource(
-                "/view/css/Spielstand.css").toExternalForm());
+                SPIELSTAND_CSS_PFAD).toExternalForm());
         spane.setContent(pane);
         for (int i = 0; h < k; i++)
         {

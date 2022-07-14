@@ -26,9 +26,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static control.ZauberEffektController.zauberKarteAusspielen;
-import static resources.Konstanten.HANDGROESSE;
-import static resources.Konstanten.EP_VON_GEGNER;
-import static resources.Konstanten.spielStandIO;
+import static resources.Konstanten.*;
 import static resources.KonstantenGUI.*;
 import static resources.StringsGUI.*;
 
@@ -90,7 +88,6 @@ public abstract class FeldGuiController extends GuiController
         RundenController.setZugZaehler(status.getZugzaehler());
         ladeSpielfeld(spielfeld, false);
         pruefeGewonnenOderVerloren();
-        //hier auch kartenhand updaten
     }
     
     /**
@@ -143,7 +140,7 @@ public abstract class FeldGuiController extends GuiController
     protected StackPane feldErstellen ()
     {
         StackPane feld = new StackPane();
-        feld.setId("feld");
+        feld.setId(FELD);
         dragAndDropTarget(feld);
         dragAndDropSource(feld, true);
         return feld;
@@ -175,9 +172,8 @@ public abstract class FeldGuiController extends GuiController
         
         aktualisierungsenden();
         
-        KonsolenIO.ausgeben("Wir sind in Zug: "
+        KonsolenIO.ausgeben(WIR_SIND_AM_ZUG
                             + RundenController.getZugZaehler());
-        
     }
     
     /**
@@ -232,10 +228,9 @@ public abstract class FeldGuiController extends GuiController
         {
             SpielStand altesSpiel = spielStandIO.leseSpielstand();
             Gegenspieler gegner = altesSpiel.getGegenSpieler();
-            int gold = altesSpiel.getGold();
-            spiel = new SpielStand(gold, spieler, gegner);//Test
-            spielStandIO.schreibeDatei(spiel);//Test
-            //Hallo
+            int gold = altesSpiel.getGold() + GOLD_VON_GEGNER;
+            spiel = new SpielStand(gold, spieler, gegner);
+            spielStandIO.schreibeDatei(spiel);
         }
         catch (IOException e)
         {
@@ -423,8 +418,6 @@ public abstract class FeldGuiController extends GuiController
                                                                    spielerDeck,
                                                                    gegenspielerDeck
                         , angreifer, verteidiger);
-        
-        //überprüfen ob angriff erfolgreich war
         if (rueckmeldung == RUECKMELDUNG_SCHADEN)
         {
             FXeffectsController.glowangriff(zielFeld, verteidiger);
@@ -506,7 +499,6 @@ public abstract class FeldGuiController extends GuiController
             Manabar.setProgress(barWert);
             aktualisierungsenden();
             paneQuellenNullNetzen();
-            
         }
     }
     
@@ -603,5 +595,4 @@ public abstract class FeldGuiController extends GuiController
         popupStage.setAlwaysOnTop(true);
         popupStage.show();
     }
-    
 }
