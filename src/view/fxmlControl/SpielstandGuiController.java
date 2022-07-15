@@ -63,7 +63,7 @@ public class SpielstandGuiController extends GuiController
             this.lebenspunkteLabel.setText(
                     LP_STAT + spiel.getSpieler().getLebenspunkte() +
                     SCHRAEGSTRICH +
-                    geladenesSpiel.getSpieler().getMaxLeben());
+                    spiel.getSpieler().getMaxLeben());
             this.manaLabel.setText(
                     MANA_MAX + geladenesSpiel.getSpieler().getMana());
             this.machtLabel.setText(

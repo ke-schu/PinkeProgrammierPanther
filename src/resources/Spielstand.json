@@ -1,5 +1,5 @@
 {
-  "gold": 730,
+  "gold": 110,
   "spieler": {
     "waffe": "FAEUSTE",
     "talente": [],
@@ -8,12 +8,12 @@
       null
     ],
     "mana": 1,
-    "erfahrungspunkte": 0,
-    "levelGrenze": 50,
-    "maxleben": 4,
+    "erfahrungspunkte": 50,
+    "levelGrenze": 100,
+    "maxLeben": 7,
     "typ": "FERNKAEMPFER",
     "macht": 11,
-    "lebenspunkte": 4,
+    "lebenspunkte": 5,
     "manaKosten": 0,
     "beweglichkeit": 1,
     "reichweite": 1,
@@ -22,16 +22,25 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 3,
+      "x": 6,
       "y": 3
     },
     "schlafend": true,
+    "init": {
+      "macht": 11,
+      "lebenspunkte": 5,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 1,
+      "verteidigung": 1,
+      "schlafend": true
+    },
     "zaehler": 0,
     "kopie": false,
     "freundlich": true,
     "id": 2,
-    "name": "Schulleiter",
-    "level": 1,
+    "name": "Bandit",
+    "level": 2,
     "klasse": "model.Spieler"
   },
   "gegenSpieler": {

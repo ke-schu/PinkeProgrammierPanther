@@ -9,7 +9,7 @@ import static resources.Konstanten.*;
  grafischen Buntzeroberflaeche. */
 public interface StringsGUI
 {
-    String SPIELTITEL = "AbenteuerStadt";
+    String SPIELTITEL = "Angriff auf die Vorstadt";
     String SPIELSTAND = "Spielstand";
     
     //  Pfade

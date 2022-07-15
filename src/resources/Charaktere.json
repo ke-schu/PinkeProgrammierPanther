@@ -12,7 +12,7 @@
       "mana": 1,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
-      "maxleben": 5,
+      "maxLeben": 5,
       "typ": "FERNKAEMPFER",
       "macht": 11,
       "lebenspunkte": 5,
@@ -51,7 +51,7 @@
       "mana": 1,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
-      "maxleben": 5,
+      "maxLeben": 5,
       "typ": "FERNKAEMPFER",
       "macht": 11,
       "lebenspunkte": 5,
@@ -75,7 +75,7 @@
       "level": 1,
       "klasse": "model.Spieler"
     },
-    "freigeschaltet": true
+    "freigeschaltet": false
   },
   {
     "name": "Schule",
@@ -90,7 +90,7 @@
       "mana": 1,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
-      "maxleben": 4,
+      "maxLeben": 5,
       "typ": "FERNKAEMPFER",
       "macht": 11,
       "lebenspunkte": 4,
@@ -114,6 +114,6 @@
       "level": 1,
       "klasse": "model.Spieler"
     },
-    "freigeschaltet": true
+    "freigeschaltet": false
   }
 ]

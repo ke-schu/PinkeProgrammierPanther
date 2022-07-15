@@ -31,7 +31,7 @@ public class Spieler extends KarteEinheit implements Spielbar
                     int lebenspunkte, int beweglichkeit, int reichweite,
                     int schild, int verteidigung, Effekte effektEins,
                     Effekte effektZwei, Stack<Talente> talente,
-                    Artefakte[] artefakte, int mana, Waffen waffe)
+                    Artefakte[] artefakte, int mana, Waffen waffe, int maxLeben)
     {
         super(name, level, typ, macht, lebenspunkte,
               0, beweglichkeit, reichweite, schild, verteidigung, effektEins,
@@ -40,6 +40,7 @@ public class Spieler extends KarteEinheit implements Spielbar
         this.artefakte = artefakte;
         this.mana = mana;
         this.waffe = waffe;
+        this.maxLeben = maxLeben;
     }
     
     /**
