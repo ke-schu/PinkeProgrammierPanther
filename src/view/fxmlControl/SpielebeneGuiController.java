@@ -241,8 +241,9 @@ public class SpielebeneGuiController extends GuiController
         text.setWrapText(true);
         text.setEditable(false);
         vbox.getChildren().add(text);
-        if (ereignis instanceof Schmied schmied)
+        if (ereignis instanceof Schmied)
         {
+            Schmied schmied = (Schmied) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     schmied.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -250,8 +251,9 @@ public class SpielebeneGuiController extends GuiController
                     schmied.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Tempel tempel)
+        else if (ereignis instanceof Tempel)
         {
+            Tempel tempel = (Tempel) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     tempel.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -259,8 +261,9 @@ public class SpielebeneGuiController extends GuiController
                     tempel.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Haendler haendler)
+        else if (ereignis instanceof Haendler)
         {
+            Haendler haendler = (Haendler) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     haendler.getGratisInteraktionen() + "\n\r" + KOSTEN +
@@ -268,8 +271,9 @@ public class SpielebeneGuiController extends GuiController
                     haendler.aktionenBisPreisErhoehung() + "\n\n\r" +
                     AKTUELLES_GOLD + spiel.getGold());
         }
-        else if (ereignis instanceof Heiler heiler)
+        else if (ereignis instanceof Heiler)
         {
+            Heiler heiler = (Heiler) ereignis;
             text.setText(
                     ereignis.getBeschreibung() + "\n\n\r" + GRATIS_HANDELN +
                     heiler.getGratisInteraktionen() + "\n\r" + KOSTEN +
