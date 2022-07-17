@@ -1,10 +1,10 @@
 # Angriff auf die Vorstadt
 
-Implementierung des Spiels DungeonTop als Gruppenarbeit
+##Implementierung des Spiels DungeonTop als Gruppenarbeit
 
-Entwicklungsarbeit Programmieren II
-Hochschule Bremen, Fakultät 4
-Gruppe: PinkeProgrammierPanther
+Entwicklungsarbeit Programmieren II<br/>
+Hochschule Bremen, Fakultät 4<br/>
+Gruppe: PinkeProgrammierPanther<br/>
 Adrian Ruholt, Alexander Lorenz, Hendrik Böning, Henrik Janovsky und Keno Schumann
 
 ## Aufgabenstellung
