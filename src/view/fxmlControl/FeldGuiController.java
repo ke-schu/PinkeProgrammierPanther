@@ -373,7 +373,7 @@ public abstract class FeldGuiController extends GuiController
             if (rueckmeldung == RUECKMELDUNG_SCHADEN)
             {
                 kartenhandGitter.getChildren().remove(quellePaneHand);
-                FXeffectsController.glowAngriff(zielFeld, verteidiger);
+                FXeffectsController.glowAngriff(this, zielFeld, verteidiger);
             }
             if (rueckmeldung == RUECKMELDUNG_GESTORBEN)
             {
@@ -403,7 +403,7 @@ public abstract class FeldGuiController extends GuiController
         
         if (rueckmeldung == RUECKMELDUNG_SCHADEN)
         {
-            FXeffectsController.glowAngriff(zielFeld, verteidiger);
+            FXeffectsController.glowAngriff(this,zielFeld, verteidiger);
         }
         if (rueckmeldung == RUECKMELDUNG_SCHILDBREAK)
         {

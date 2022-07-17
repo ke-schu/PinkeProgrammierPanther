@@ -5,6 +5,7 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.Glow;
 import javafx.scene.layout.StackPane;
 import model.KarteEinheit;
+import model.SpielFeld;
 import view.components.KarteVBox;
 
 import java.util.Timer;
@@ -24,7 +25,8 @@ public class FXeffectsController
      @param zielFeld Pane welches aktualisiert wird
      @param verteidiger Karte dessen darstellung aktualisiert wird
      */
-    protected static void glowAngriff (StackPane zielFeld,
+    protected static void glowAngriff (FeldGuiController controller,
+                                       StackPane zielFeld,
                                        KarteEinheit verteidiger)
     {
         Glow glow = new Glow();
@@ -45,6 +47,7 @@ public class FXeffectsController
                                       zielFeld.getChildren()
                                               .add(new KarteVBox(
                                                       verteidiger));
+                                      controller.ladeSpielfeld(controller.spielfeld, false);
                                   });
                 
             }
