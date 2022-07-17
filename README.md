@@ -1,6 +1,6 @@
 # Angriff auf die Vorstadt
 
-##Implementierung des Spiels DungeonTop als Gruppenarbeit
+Implementierung des Spiels DungeonTop als Gruppenarbeit
 
 Entwicklungsarbeit Programmieren II<br/>
 Hochschule Bremen, Fakultät 4<br/>
