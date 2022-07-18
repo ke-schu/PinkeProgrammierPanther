@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import model.Ebene;
 import model.Position;
@@ -37,8 +38,7 @@ import java.util.ResourceBundle;
 
 import static resources.Konstanten.*;
 import static resources.KonstantenGUI.*;
-import static resources.Strings.AKTUELLE_EBENE_PFAD;
-import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
+import static resources.Strings.*;
 import static resources.StringsGUI.*;
 
 /**
@@ -300,8 +300,15 @@ public class SpielebeneGuiController extends GuiController
                     if (((Mensch) ereignis).getKosten() <= spiel.getGold() ||
                         ((Mensch) ereignis).pruefeGratisInteraktion())
                     {
-                        ereignis.setAuswahl(true);
-                        ereignisGuiAusfuehren(ereignis, arg0);
+                        if(ereignis instanceof Heiler && spiel.getSpieler().getLebenspunkte() == spiel.getSpieler().getMaxLeben())
+                        {
+                            text.setText(LEBEN_BEREITS_VOLL);
+                        }
+                        else
+                        {
+                            ereignis.setAuswahl(true);
+                            ereignisGuiAusfuehren(ereignis, arg0);
+                        }
                     }
                     else
                     {
@@ -435,7 +442,6 @@ public class SpielebeneGuiController extends GuiController
         TextArea ereignisText = new TextArea();
         ereignisText.setWrapText(true);
         ereignisText.setEditable(false);
-        ereignisText.setText(HAENDLER_AUSFUEHREN);
         Scene popupScene =
                 new Scene(vbox, POPUP_VBOX_BREITE1, POPUP_VBOX_HOEHE1);
         Button gehenButton = new Button(EREIGNIS_GEHEN);
@@ -680,6 +686,21 @@ public class SpielebeneGuiController extends GuiController
                         Schmied schmied = (Schmied) ereignis;
                         schmied.ausfuehren(spiel, spiel.getSpieldeckSpieler()
                                                        .get(finalH));
+
+                        //Ab hier eingefügt
+                        VBox vbox = new VBox(POPUP_VBOX);
+                        TextArea erfolgreich = new TextArea();
+                        erfolgreich.setWrapText(true);
+                        erfolgreich.setEditable(false);
+                        erfolgreich.setText(MENSCH_ERFOLGREICH + SCHMIED_ERFOLGREICH);
+                        vbox.getChildren().add(erfolgreich);
+                        Scene popupScene =
+                                new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
+                        spielstandPopUp.setScene(popupScene);
+                        spielstandPopUp.setResizable(false);
+                        spielstandPopUp.setAlwaysOnTop(true);
+                        spielstandPopUp.show();
+                        //Ende
                     }
                 });
                 h++;
@@ -739,6 +760,20 @@ public class SpielebeneGuiController extends GuiController
                         Tempel tempel = (Tempel) ereignis;
                         tempel.ausfuehren(spiel, spiel.getSpieldeckSpieler()
                                                       .get(finalH));
+                        //Ab hier eingefügt
+                        VBox vbox = new VBox(POPUP_VBOX);
+                        TextArea erfolgreich = new TextArea();
+                        erfolgreich.setWrapText(true);
+                        erfolgreich.setEditable(false);
+                        erfolgreich.setText(MENSCH_ERFOLGREICH + TEMPEL_ERFOLGREICH);
+                        vbox.getChildren().add(erfolgreich);
+                        Scene popupScene =
+                                new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
+                        spielstandPopUp.setScene(popupScene);
+                        spielstandPopUp.setResizable(false);
+                        spielstandPopUp.setAlwaysOnTop(true);
+                        spielstandPopUp.show();
+                        //Ende
                     }
                 });
                 h++;
@@ -796,18 +831,34 @@ public class SpielebeneGuiController extends GuiController
                  j++)
             {
                 VBox karte = new KarteGrossVBox(
-                        spiel.getSpieldeckSpieler().get(h));
+                        /*spiel.getSpieldeckSpieler().get(h))*/ haendler.getHaendlerDeck().get(h));
                 pane.add((karte), j, i);
                 Button button = new Button(
-                        spiel.getSpieldeckSpieler().get(h).getName());
+                        //spiel.getSpieldeckSpieler().get(h).getName());
+                        haendler.getHaendlerDeck().get(h).getName());
                 karte.getChildren().add(button);
                 int finalH = h;
                 button.setOnAction(new EventHandler<ActionEvent>()
                 {
                     @Override public void handle (ActionEvent actionEvent)
                     {
-                        haendler.ausfuehren(spiel, spiel.getSpieldeckSpieler()
-                                                        .get(finalH));
+                        haendler.ausfuehren(spiel, /*spiel.getSpieldeckSpieler()
+                                                        .get(finalH)*/haendler.getHaendlerDeck().get(finalH), finalH);
+
+                        //Ab hier eingefügt
+                        VBox vbox = new VBox(POPUP_VBOX);
+                        TextArea erfolgreich = new TextArea();
+                        erfolgreich.setWrapText(true);
+                        erfolgreich.setEditable(false);
+                        erfolgreich.setText(MENSCH_ERFOLGREICH + HAENDLER_ERFOLGREICH);
+                        vbox.getChildren().add(erfolgreich);
+                        Scene popupScene =
+                                new Scene(vbox, POPUP_VBOX_HOEHE1, POPUP_VBOX_BREITE1);
+                        spielstandPopUp.setScene(popupScene);
+                        spielstandPopUp.setResizable(false);
+                        spielstandPopUp.setAlwaysOnTop(true);
+                        spielstandPopUp.show();
+                        //Ende
                     }
                 });
                 h++;

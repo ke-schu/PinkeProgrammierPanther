@@ -4,31 +4,51 @@
     {
       "typ": "NAHKAEMPFER",
       "macht": 3,
-      "lebenspunkte": 10,
+      "lebenspunkte": 4,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
       "schild": 0,
       "verteidigung": 1,
       "effektEins": "KEINEFFEKT",
-      "effektZwei": "ZURUECKWERFEN",
+      "effektZwei": "KEINEFFEKT",
       "position": {
         "x": 0,
         "y": 0
       },
       "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
+      "freundlich": false,
       "id": 0,
-      "name": "Polizist",
+      "name": "Lehrer",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
-      "macht": 4,
-      "lebenspunkte": 5,
+      "macht": 1,
+      "lebenspunkte": 8,
+      "manaKosten": 1,
+      "beweglichkeit": 1,
+      "reichweite": 1,
+      "schild": 0,
+      "verteidigung": 1,
+      "effektEins": "KEINEFFEKT",
+      "effektZwei": "KEINEFFEKT",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "schlafend": true,
+      "freundlich": false,
+      "id": 1,
+      "name": "Klassenlehrer",
+      "level": 1,
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "typ": "NAHKAEMPFER",
+      "macht": 2,
+      "lebenspunkte": 6,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 1,
@@ -41,18 +61,16 @@
         "y": 0
       },
       "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 1,
-      "name": "Pastor",
+      "freundlich": false,
+      "id": 2,
+      "name": "verrueckter Wissenschaftler",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "FERNKAEMPFER",
-      "macht": 2,
-      "lebenspunkte": 9,
+      "macht": 4,
+      "lebenspunkte": 3,
       "manaKosten": 1,
       "beweglichkeit": 1,
       "reichweite": 2,
@@ -65,37 +83,11 @@
         "y": 0
       },
       "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 2,
-      "name": "Postbote",
-      "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
-    },
-    {
-      "typ": "NAHKAEMPFER",
-      "macht": 8,
-      "lebenspunkte": 1,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "KEINEFFEKT",
-      "effektZwei": "KEINEFFEKT",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
+      "freundlich": false,
       "id": 3,
-      "name": "Katze",
+      "name": "Sportplatzwart",
       "level": 1,
-      "klasse": "model.KarteEinheit",
-      "freundlich": true
+      "klasse": "model.KarteEinheit"
     },
     {
       "typ": "NAHKAEMPFER",
@@ -113,36 +105,37 @@
         "y": 0
       },
       "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 4,
-      "name": "Verkaeufer",
+      "freundlich": false,
+      "id": 5,
+      "name": "Baenker",
       "level": 1,
-      "klasse": "model.KarteEinheit",
+      "klasse": "model.KarteEinheit"
+    },
+    {
+      "macht": 2,
+      "zeffekt": "WURFSPEER",
+      "id": 6,
+      "name": "Wurfspeer",
+      "level": 1,
+      "klasse": "model.KarteZauber",
       "freundlich": true
     },
     {
-      "typ": "NAHKAEMPFER",
       "macht": 2,
-      "lebenspunkte": 2,
-      "manaKosten": 1,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 0,
-      "verteidigung": 1,
-      "effektEins": "KEINEFFEKT",
-      "effektZwei": "ZURUECKWERFEN",
-      "position": {
-        "x": 0,
-        "y": 0
-      },
-      "schlafend": true,
-      "zaehler": 0,
-      "kopie": false,
-      "id": 5,
-      "name": "Baecker",
+      "zeffekt": "HEILUNG",
+      "id": 9,
+      "name": "Heilen",
       "level": 1,
-      "klasse": "model.KarteEinheit",
+      "klasse": "model.KarteZauber",
+      "freundlich": true
+    },
+    {
+      "macht": 2,
+      "zeffekt": "VERSTAERKEN",
+      "id": 10,
+      "name": "Verstaerken",
+      "level": 1,
+      "klasse": "model.KarteZauber",
       "freundlich": true
     }
   ]

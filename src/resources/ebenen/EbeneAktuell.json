@@ -33,7 +33,7 @@
         "ereignis": {
           "wahrscheinlichkeit": 0.0,
           "ereignisnummer": 0,
-          "auswahl": false,
+          "auswahl": true,
           "ausgefuehrt": false,
           "name": "Zufaelliges Ereignis.",
           "beschreibung": "Ich kann nicht erkennen was vor mir ist. Ich muss naeher rangehen...",
@@ -43,7 +43,7 @@
       {
         "ereignis": {
           "wahrscheinlichkeit": 43.100906453671165,
-          "auswahl": false,
+          "auswahl": true,
           "ausgefuehrt": false,
           "name": "Truhe.",
           "beschreibung": "Eine Truhe, was da wohl drin ist?",
@@ -132,7 +132,7 @@
             "spalten": 6
           },
           "auswahl": false,
-          "ausgefuehrt": true,
+          "ausgefuehrt": false,
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "klasse": "model.ereignisse.Gegner"
@@ -149,7 +149,7 @@
           "gratisInteraktionen": 1,
           "interaktionsZaehler": 0,
           "kosten": 20,
-          "auswahl": false,
+          "auswahl": true,
           "ausgefuehrt": false,
           "name": "Die Schule.",
           "beschreibung": "In der Schule kann man sicher viel Neues lernen.",
@@ -179,7 +179,7 @@
           "gratisInteraktionen": 1,
           "interaktionsZaehler": 0,
           "kosten": 20,
-          "auswahl": false,
+          "auswahl": true,
           "ausgefuehrt": false,
           "name": "Der Spielplatz.",
           "beschreibung": "Der Spielplatz! Ein großartiger Ort um neue Freunde zu finden.",
@@ -306,7 +306,7 @@
             "spalten": 6
           },
           "auswahl": false,
-          "ausgefuehrt": true,
+          "ausgefuehrt": false,
           "name": "Gegner.",
           "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "klasse": "model.ereignisse.Gegner"
@@ -365,8 +365,8 @@
   "ebenenZeile": 9,
   "spielfigur": {
     "position": {
-      "x": 8,
-      "y": 0
+      "x": 4,
+      "y": 4
     }
   }
 }

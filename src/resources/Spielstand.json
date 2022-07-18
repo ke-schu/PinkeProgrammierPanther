@@ -1,5 +1,5 @@
 {
-  "gold": 110,
+  "gold": 135,
   "spieler": {
     "waffe": "FAEUSTE",
     "talente": [],
@@ -8,9 +8,9 @@
       null
     ],
     "mana": 1,
-    "erfahrungspunkte": 50,
-    "levelGrenze": 100,
-    "maxLeben": 7,
+    "erfahrungspunkte": 0,
+    "levelGrenze": 50,
+    "maxLeben": 5,
     "typ": "FERNKAEMPFER",
     "macht": 11,
     "lebenspunkte": 5,
@@ -22,25 +22,16 @@
     "effektEins": "LETZTEWORTE",
     "effektZwei": "ZURUECKWERFEN",
     "position": {
-      "x": 6,
-      "y": 3
+      "x": 2,
+      "y": 2
     },
     "schlafend": true,
-    "init": {
-      "macht": 11,
-      "lebenspunkte": 5,
-      "beweglichkeit": 1,
-      "reichweite": 1,
-      "schild": 1,
-      "verteidigung": 1,
-      "schlafend": true
-    },
     "zaehler": 0,
     "kopie": false,
     "freundlich": true,
     "id": 2,
     "name": "Bandit",
-    "level": 2,
+    "level": 1,
     "klasse": "model.Spieler"
   },
   "gegenSpieler": {

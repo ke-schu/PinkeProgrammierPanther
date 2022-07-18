@@ -106,6 +106,7 @@ public class EinheitenController
                             angreifer, verteidiger, angreifer.getEffektZwei(),
                             feld);
                     angreifer.setSchlafend(true);
+
                     if (gestorben)
                     {
                         return RUECKMELDUNG_GESTORBEN;

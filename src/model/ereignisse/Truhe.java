@@ -47,17 +47,17 @@ public class Truhe extends Ereignis implements Wahrscheinlichkeit
                     spielStand.setGold(
                             spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_ZWEI);
                 }
-                else if (wahrscheinlichkeit <= ACHTZIG_PROZENT)
+                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
                 {
                     spielStand.setGold(
                             spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_DREI);
                 }
-                else if (wahrscheinlichkeit <= VIERZIG_PROZENT)
+                else if (wahrscheinlichkeit <= ACHTZIG_PROZENT)
                 {
                     spielStand.setGold(
                             spielStand.getGold() + TRUHE_GOLD_ERHOEHUNG_VIER);
                 }
-                else if (wahrscheinlichkeit > VIERZIG_PROZENT)
+                else if (wahrscheinlichkeit <= HUNDERT_PROZENT)
                 {
                     spielStand.setGold(
                             spielStand.getGold() +

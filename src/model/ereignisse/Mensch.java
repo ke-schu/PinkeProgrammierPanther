@@ -89,6 +89,19 @@ public abstract class Mensch extends Ereignis
      */
     public int aktionenBisPreisErhoehung ()
     {
-        return KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN - interaktionsZaehler;
+        int i = 0;
+        if (interaktionsZaehler % KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN == 0)
+        {
+            i = 3;
+        }
+        else if (interaktionsZaehler % KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN == 1)
+        {
+            i = 2;
+        }
+        else if (interaktionsZaehler % KOSTEN_ERHOEHUNG_ANZAHL_HANDLUNGEN == 2)
+        {
+            i = 1;
+        }
+        return i;
     }
 }

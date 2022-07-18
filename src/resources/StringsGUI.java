@@ -80,7 +80,12 @@ public interface StringsGUI
     String AKTUELLES_GOLD = "Mein aktuelles Gold: ";
     String AKTUELLE_LEBENSPUNKTE = "Mein aktuelles Leben: ";
     String ZU_WENIG_GOLD = "Ich habe zu wenig Gold zum handeln.";
+    String LEBEN_BEREITS_VOLL = "Meine Lebenspunkte sind bereits voll.";
     String WIR_SIND_AM_ZUG = "Wir sind in Zug: ";
+    String MENSCH_ERFOLGREICH = "Die Karte ";
+    String SCHMIED_ERFOLGREICH = "wurde erfolgreich aufgewertet.";
+    String TEMPEL_ERFOLGREICH = "wurde erfolgreich aus deinem Deck entfernt.";
+    String HAENDLER_ERFOLGREICH = "wurde erfolgreich deinem Deck hinzugefügt.";
     
     //  Exception
     String STRING_FEHLER_WECHSEL_SPIELFELD =

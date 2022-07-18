@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import static resources.Konstanten.kartenDeckIO;
 import static resources.Strings.HAENDLER_DECK_EINS_PFAD;
+import static resources.Strings.SPIEL_DECK_SPIELER_PFAD;
 
 /**
  Diese Klasse ist eine Subklasse von Mensch. Ein Haendler ist ein Ereignis,
@@ -76,25 +77,27 @@ public class Haendler extends Mensch
      vorher die Zahlung durchgefuehrt.
      @param spielStand der aktuelle Spielstand und seine Attribute.
      */
-    public void ausfuehren (SpielStand spielStand, Karte karte)
+    public void ausfuehren (SpielStand spielStand, Karte karte, int i)
     {
         if (isAuswahl())
         {
+            /*
             try
             {
                 this.setHaendlerDeck(
-                        kartenDeckIO.leseKartenDeck(HAENDLER_DECK_EINS_PFAD));
+                        kartenDeckIO.leseKartenDeck(SPIEL_DECK_SPIELER_PFAD));
             }
             catch (JsonNichtLesbarException e)
             {
                 KonsolenIO.ausgeben(e.getMessage());
             }
-            
+             */
+
             if (pruefeGratisInteraktion())
             {
                 spielStand.getSpieldeckSpieler()
                           .push(karte);
-                haendlerDeck.remove(karte);
+                //haendlerDeck.remove(karte);
                 gratisInteraktionen--;
             }
             else
@@ -103,7 +106,7 @@ public class Haendler extends Mensch
                 spielStand.setGold(spielStand.getGold() - this.getKosten());
                 spielStand.getSpieldeckSpieler()
                           .push(karte);
-                haendlerDeck.remove(karte);
+                //haendlerDeck.remove(karte);
                 interaktionsZaehler++;
                 kostenErhoehen();
             }
