@@ -131,8 +131,8 @@
             "zeilen": 6,
             "spalten": 6
           },
-          "name": "Gegner.",
-          "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
+          "name": "Boss",
+          "beschreibung": "Der Ebenenboss! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "auswahl": false,
           "klasse": "model.ereignisse.Gegner",
           "ausgefuehrt": false

@@ -589,7 +589,15 @@
       null,
       null,
       null,
-      null
+      {
+        "ereignis": {
+          "name": "Leere Straße.",
+          "beschreibung": "Hier ist absolut gar nichts... wie langweilig.",
+          "auswahl": true,
+          "klasse": "model.ereignisse.LeererRaum",
+          "ausgefuehrt": false
+        }
+      }
     ],
     [
       null,
@@ -1071,8 +1079,8 @@
             "zeilen": 6,
             "spalten": 6
           },
-          "name": "Gegner.",
-          "beschreibung": "Ein Gegner! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
+          "name": "Boss",
+          "beschreibung": "Der Ebenenboss! Sollte ich ihn bekaempfen oder doch versuchen ihn zu meiden?",
           "auswahl": false,
           "klasse": "model.ereignisse.Gegner",
           "ausgefuehrt": false
