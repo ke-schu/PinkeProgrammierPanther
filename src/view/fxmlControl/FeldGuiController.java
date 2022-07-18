@@ -218,6 +218,7 @@ public abstract class FeldGuiController extends GuiController
         if ((spielerTod || gegnerTod) && binSpieler)
         {
             neuenSpielstandSpeichern();
+            RundenController.setZugZaehler(0);
         }
     }
     
