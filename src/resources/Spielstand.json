@@ -1,5 +1,5 @@
 {
-  "gold": 135,
+  "gold": 130,
   "spieler": {
     "waffe": "FAEUSTE",
     "talente": [],
@@ -38,7 +38,7 @@
     "mana": 5,
     "typ": "FERNKAEMPFER",
     "macht": 5,
-    "lebenspunkte": 2,
+    "lebenspunkte": 4,
     "manaKosten": 0,
     "beweglichkeit": 5,
     "reichweite": 4,
@@ -53,7 +53,7 @@
     "schlafend": false,
     "init": {
       "macht": 11,
-      "lebenspunkte": 5,
+      "lebenspunkte": 4,
       "beweglichkeit": 10,
       "reichweite": 1,
       "schild": 1,
