@@ -43,7 +43,7 @@
     "beweglichkeit": 5,
     "reichweite": 4,
     "schild": 1,
-    "verteidigung": 6,
+    "verteidigung": 1,
     "effektEins": "ZURUECKWERFEN",
     "effektZwei": "DURCHSCHNEIDEN",
     "position": {
