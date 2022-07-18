@@ -9,7 +9,7 @@
         "SCHUTZENGEL",
         null
       ],
-      "mana": 1,
+      "mana": 3,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
       "maxLeben": 5,
@@ -48,7 +48,7 @@
         "SCHUTZENGEL",
         null
       ],
-      "mana": 1,
+      "mana": 3,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
       "maxLeben": 5,
@@ -87,7 +87,7 @@
         "SCHUTZENGEL",
         null
       ],
-      "mana": 1,
+      "mana": 4,
       "erfahrungspunkte": 0,
       "levelGrenze": 50,
       "maxLeben": 5,
