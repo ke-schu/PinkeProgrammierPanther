@@ -26,15 +26,7 @@
       null,
       null,
       null,
-      {
-        "ereignis": {
-          "name": "Die Bushaltestelle.",
-          "beschreibung": "Der naechste Bus kommt gleich. Wenn ich weiter will sollte ich mitfahren.",
-          "auswahl": false,
-          "klasse": "model.ereignisse.Treppe",
-          "ausgefuehrt": false
-        }
-      },
+      null,
       {
         "ereignis": {
           "gegenspieler": {
